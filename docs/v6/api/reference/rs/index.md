@@ -23,5 +23,5 @@ order: 600
 [deleteHref]:   delete.html "删除资源"
 [batchHref]:    batch.html  "批量管理资源"
 
-[fetchHref]:    batch.html  "批量管理资源"
-[prefetchHref]:    batch.html  "批量管理资源"
+[fetchHref]:    fetch.html  "批量管理资源"
+[prefetchHref]: prefetch.html  "批量管理资源"
