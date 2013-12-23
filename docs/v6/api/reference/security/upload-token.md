@@ -35,7 +35,7 @@ order: 970
 	序列化后，应得到如下形式的字符串（字符串值以外部分不含空格或换行）  
 
 	```
-    putPolicy = '{"scope":"my-bucket:sunflower.jpg","deadline":1451491200,"returnUrl":"{\"name\":$(fname),\"size\":$(fsize),\"w\":$(imageInfo.width),\"h\":$(imageInfo.height),\"hash\":$(etag)}"}'
+    putPolicy = '{"scope":"my-bucket:sunflower.jpg","deadline":1451491200,"returnBody":"{\"name\":$(fname),\"size\":$(fsize),\"w\":$(imageInfo.width),\"h\":$(imageInfo.height),\"hash\":$(etag)}"}'
 	```
 
 3. 将JSON编码的上传策略作为[凭证算法][tokenAlgorithmHref]的原始数据进行计算，得到上传凭证，我们称之为`encodedSign`。
