@@ -1,0 +1,44 @@
+#scrollUp {
+    bottom: 20px;
+    right: 20px;
+    height: 38px;
+    width: 38px;
+    background: url("../img/top.png") no-repeat;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.content td, .content th {
+    vertical-align: middle;
+    padding: 8px;
+    border: 1px solid #ccc;
+    height: 28px;
+}
+thead td {
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: center;
+}
+thead {
+    background-color: #efefef;
+}
+.disable {
+    background-image: url(../img/active-arrow.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.unstyled li {
+    padding-left: 20px;
+}
+#version {
+    background-color: green;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    font-size: 14px;
+    margin: 0 10px;
+}
+.content ul li {
+word-break: break-all;
+word-wrap: break-word;
+}

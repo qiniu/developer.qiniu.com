@@ -1,0 +1,321 @@
+{
+    "sdk": [{
+        "name": "ios",
+        "title": "ios",
+        "label": "SDK for Objective-C (iOS)",
+        "download": "https://github.com/qiniu/ios-sdk/archive/master.zip",
+        "version": "v6.0.0",
+        "date": "2013-07-04",
+        "doc": "/sdk/ios",
+        "source": "https://github.com/qiniu/ios-sdk"
+    }, {
+        "name": "android",
+        "label": "SDK for Java (Android)",
+        "download": "https://github.com/qiniu/android-sdk/archive/master.zip",
+        "version": "v6.0.0",
+        "date": "2013-07-04",
+        "doc": "",
+        "show": false,
+        "source": "https://github.com/qiniu/android-sdk"
+    }, {
+        "name": "java",
+        "label": "SDK for Java",
+        "download": "https://github.com/qiniu/java-sdk/archive/master.zip",
+        "version": "v6.0.7",
+        "date": "2013-11-7",
+        "doc": "",
+        "source": "https://github.com/qiniu/java-sdk"
+    }, {
+        "name": "php",
+        "label": "SDK for PHP",
+        "download": "https://github.com/qiniu/php-sdk/archive/master.zip",
+        "version": "v6.1.4",
+        "date": "2013-10-25",
+        "doc": "",
+        "source": "https://github.com/qiniu/php-sdk"
+    }, {
+        "name": "python",
+        "label": "SDK for Python",
+        "download": "https://github.com/qiniu/python-sdk/archive/master.zip",
+        "version": "v6.1.3",
+        "date": "2013-10-24",
+        "doc": "",
+        "source": "https://github.com/qiniu/python-sdk"
+    }, {
+        "name": "ruby",
+        "label": "SDK for Ruby",
+        "download": "https://github.com/qiniu/ruby-sdk/archive/master.zip",
+        "version": "v6.0.0",
+        "date": "2013-09-12",
+        "doc": "",
+        "source": "https://github.com/qiniu/ruby-sdk"
+    }, {
+        "name": "nodejs",
+        "label": "SDK for Node.js",
+        "download": "https://github.com/qiniu/nodejs-sdk/archive/master.zip",
+        "version": "v6.1.0",
+        "date": "2013-10-08",
+        "doc": "",
+        "source": "https://github.com/qiniu/nodejs-sdk"
+    }, {
+        "name": "csharp",
+        "label": "SDK for C#",
+        "download": "https://github.com/qiniu/csharp-sdk/archive/master.zip",
+        "version": "v6.0.2",
+        "date": "2013-11-18",
+        "doc": "",
+        "source": "https://github.com/qiniu/csharp-sdk"
+    }, {
+        "name": "c",
+        "label": "SDK for C/C++",
+        "download": "https://github.com/qiniu/c-sdk/archive/master.zip",
+        "version": "v6.2.2",
+        "date": "2013-10-14",
+        "doc": "",
+        "source": "https://github.com/qiniu/c-sdk"
+    }, {
+        "name": "go",
+        "label": "SDK for Go",
+        "download": "https://github.com/qiniu/api/archive/master.zip",
+        "version": "v6.0.3",
+        "date": "2013-10-08",
+        "doc": "",
+        "source": "https://github.com/qiniu/api"
+    }],
+    "devtools": [{
+        "name": "upload",
+        "label": "qrsync",
+        "title": "命令行辅助上传同步工具",
+        "download": "/docs/v6/tools/qrsync.html#download",
+        "version": "v6",
+        "date": "2013-09-12",
+        "doc": "/docs/v6/tools/qrsync.html",
+        "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传。"
+    }, {
+        "name": "cmd",
+        "label": "qboxrsctl",
+        "title": "命令行辅助工具",
+        "download": "/docs/v6/tools/qboxrsctl.html#download",
+        "version": "v6",
+        "date": "2013-09-12",
+        "doc": "/docs/v6/tools/qboxrsctl.html",
+        "description": "命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
+    }, {
+        "name": "sync",
+        "label": "qrsbox",
+        "title": "图形界面同步上传工具",
+        "download": "/docs/v6/tools/qrsbox.html#download",
+        "version": "v6",
+        "date": "2013-09-12",
+        "doc": "/docs/v6/tools/qrsbox.html",
+        "description": "用户界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
+    }],
+    "third_plugin": [{
+        "name": "wordpress",
+        "label": "WordPress插件(博客)",
+        "description": "我爱水煮鱼为WordPress精心定制的一款插件，可让WP站迅速接入七牛云存储，享受稳定高速的存储服务。",
+        "download": "http://blog.wpjam.com/project/wpjam-qiniutek/",
+        "defaultSprite": false,
+        "author": "我爱水煮鱼",
+        "author_link": "http://blog.wpjam.com",
+        "date": "2013-09-12",
+        "doc": "http://blog.wpjam.com/project/wpjam-qiniutek/"
+    }, {
+        "name": "drupal",
+        "label": "Drupal插件(内容管理)",
+        "description": "本插件可以将七牛云存储服务嵌入Drupal系统中。",
+        "download": "#",
+        "defaultSprite": false,
+        "author": "dansboy",
+        "author_link": "#",
+        "date": "2013-08-25",
+        "doc": "https://groups.drupal.org/node/354683"
+    }, {
+        "name": "opoopress",
+        "label": "Opoopress插件 (博客)",
+        "description": "本插件可将Opoopress静态博客完全部署至七牛云存储。",
+        "download": "https://opoo.org/deploy-opoopress-to-qiniu/",
+        "defaultSprite": false,
+        "author": "Alex Lin",
+        "author_link": "#",
+        "date": "2013-10-12",
+        "doc": "https://opoo.org/deploy-opoopress-to-qiniu/"
+    }, {
+        "name": "octopress",
+        "label": "Octopress插件 (博客)",
+        "description": "本插件可将Octopress静态博客完全部署至七牛云存储。",
+        "download": "http://www.imallen.com/blog/2013/10/16/deploying-octopress-to-qiniu.html",
+        "defaultSprite": false,
+        "author": "allen",
+        "author_link": "http://www.weibo.com/122678100",
+        "date": "2013-09-12",
+        "doc": "http://www.imallen.com/blog/2013/10/16/deploying-octopress-to-qiniu.html"
+    }, {
+        "name": "discuz",
+        "label": "Discuz插件 (博客)",
+        "description": "本插件可以将七牛云存储服务嵌入Discuz系统中。",
+        "download": "http://www.discuz.net/forum.php?mod=attachment&aid=MTQxNzkxNnxlNzkzNWExM3wxMzg2NjU0MTIzfDB8MzM5OTU2OQ%3D%3D",
+        "defaultSprite": false,
+        "author": "discuz",
+        "author_link": "http://www.discuz.net/forum-26-1.html",
+        "date": "2013-09-12",
+        "doc": "http://www.discuz.net/thread-3399569-1-1.html"
+    }, {
+        "name": "phpwind",
+        "label": "PHPWind插件 (博客)",
+        "description": "本插件可以将七牛云存储服务嵌入PHPWind系统中。",
+        "download": "http://chajian.u.qiniudn.com/qiniu-phpwind.zip",
+        "defaultSprite": false,
+        "author": "phpwind",
+        "author_link": "http://www.phpwind.net/thread/3",
+        "date": "2013-09-12",
+        "doc": ""
+    }, {
+        "name": "emlog",
+        "label": "Emlog插件 (博客)",
+        "description": "本插件将为Emlog嵌入七牛云存储的镜像存储功能，自动触发同步镜像。",
+        "download": "http://cuelog.qiniudn.com/wp-content/uploads/2013/09/qiniu.zip",
+        "defaultSprite": false,
+        "author": "Cuelog",
+        "author_link": "http://weibo.com/601203080",
+        "date": "2013-09-12",
+        "doc": "http://cuelog.com/archives/202.html"
+    }, {
+        "name": "typecho",
+        "label": "Typecho插件 (博客)",
+        "description": "本插件将为Typecho嵌入七牛云存储的镜像存储功能，自动触发同步镜像。",
+        "download": "http://kvdb.qiniudn.com/QiniuCDN.zip?download",
+        "defaultSprite": false,
+        "author": "Young",
+        "author_link": "http://www.tefans.org/u-6.html",
+        "date": "2013-07-27",
+        "doc": "http://www.tefans.org/read-40.html"
+    }, {
+        "name": "django",
+        "label": "Django插件 (框架)",
+        "description": "本插件可以将七牛云存储服务嵌入Django系统中。",
+        "download": "https://github.com/piglei/django-qiniu",
+        "defaultSprite": false,
+        "author": "piglei",
+        "author_link": "piglei2007@gmail.com",
+        "date": "2013-09-12",
+        "doc": "https://github.com/piglei/django-qiniu"
+    }, {
+        "name": "ueditor",
+        "label": "Ueditor(java) （编辑器）",
+        "description": "本插件可为UEditor添加向七牛云存储上传图片资源的功能。",
+        "download": "http://git.oschina.net/duoduo3_69/QiNiuWithUeditor.git",
+        "defaultSprite": true,
+        "author": "duoduo3_69",
+        "author_link": "http://my.oschina.net/duoduo3369?ft=blog",
+        "date": "2013-11-06",
+        "doc": "http://my.oschina.net/duoduo3369/blog/174655"
+    }, {
+        "name": "uploadify",
+        "label": "Uploadify插件 (工具)",
+        "description": "七牛云存储与Uploadify的同步插件，支持定期同步资源。",
+        "download": "http://www.widuu.com/archives/11/832.html",
+        "defaultSprite": true,
+        "author": "widuu",
+        "author_link": "http://weibo.com/widuu",
+        "date": "2013-11-06",
+        "doc": "http://www.widuu.com/archives/11/832.html"
+    }, {
+        "name": "solo",
+        "label": "七牛Solo插件 (博客)",
+        "description": "本插件为B3Log博客添加将图片等资源上传至七牛云存储的功能",
+        "download": "http://blog.qiniudn.com/qiniu4b3log.zip",
+        "defaultSprite": true,
+        "author": "symphony",
+        "author_link": "http://www.idashu.me/",
+        "date": "2013-11-28",
+        "doc": "http://symphony.b3log.org/article/1385649507137"
+    }, {
+        "name": "startBBS",
+        "label": "STB （论坛）",
+        "description": "本插件为StartBBS添加将图片等资源上传至七牛云存储的功能。",
+        "download": "http://www.startbbs.com/topic/1198",
+        "defaultSprite": true,
+        "author": "StartBBS",
+        "author_link": "http://www.startbbs.com/",
+        "date": "2013-11-28",
+        "doc": "http://www.startbbs.com/topic/1198"
+    }, {
+        "name": "paperclip",
+        "label": "PaperClip （Ruby）",
+        "description": "一款Gem插件，可将PaperClip附件上传至七牛云存储。",
+        "download": "https://github.com/lidaobing/paperclip-qiniu",
+        "defaultSprite": true,
+        "author": "lidaobing",
+        "author_link": "http://weibo.com/lidaobing",
+        "date": "2013-11-28",
+        "doc": "https://github.com/lidaobing/paperclip-qiniu"
+    }, {
+        "name": "backup2qiniu",
+        "label": "Backup to Qiniu",
+        "description": "备份插件，将数据备份至七牛云存储。",
+        "download": "https://github.com/lidaobing/backup2qiniu",
+        "defaultSprite": true,
+        "author": "lidaobing",
+        "author_link": "http://weibo.com/lidaobing",
+        "date": "2013-11-28",
+        "doc": "https://github.com/lidaobing/backup2qiniu"
+    }],
+    "third_sdk": [{
+        "name": "PHP",
+        "label": "PHP SDK (zither/simple-qiniu-sdk)",
+        "description": "七牛云储存简化版 PHP SDK",
+        "download": "https://github.com/zither/simple-qiniu-sdk",
+        "author": "zither",
+        "date": "2013-09-12",
+        "doc": "https://github.com/zither/simple-qiniu-sdk"
+    }, {
+        "name": "PHP",
+        "label": "PHP SDK (hfcorriez/php-qiniu)",
+        "description": "七牛云存储非官方SDK，采用PSR规范，支持Composer安装",
+        "download": "https://github.com/hfcorriez/php-qiniu",
+        "author": "hfcorriez",
+        "date": "2013-09-12",
+        "doc": "https://github.com/hfcorriez/php-qiniu"
+    }, {
+        "name": "PHP",
+        "label": "PHP SDK (guoking/qiniu-php-sdk)",
+        "description": "七牛的php-sdk简化版",
+        "download": "https://github.com/guoking/qiniu-php-sdk",
+        "author": "guoking",
+        "date": "2013-09-12",
+        "doc": "https://github.com/guoking/qiniu-php-sdk"
+    }, {
+        "name": "Python",
+        "label": "Python SDK (yueyoum/seven-cow)",
+        "description": "",
+        "download": "https://github.com/yueyoum/seven-cow",
+        "author": "yueyoum",
+        "date": "2013-09-12",
+        "doc": "https://github.com/yueyoum/seven-cow"
+    }, {
+        "name": "Scala",
+        "label": "Scala SDK (livehl/qiniu-scala-sdk)",
+        "description": "Scala版七牛的SDK",
+        "download": "http://git.oschina.net/livehl/qiniu-scala-sdk",
+        "author": "livehl",
+        "date": "2013-09-12",
+        "doc": "http://git.oschina.net/livehl/qiniu-scala-sdk"
+    }, {
+        "name": "Nodejs",
+        "label": "Node.js SDK (iwillwen/node-qiniu)",
+        "description": "Node.js SDK",
+        "download": "https://github.com/iwillwen/node-qiniu",
+        "author": "小问",
+        "date": "2013-09-12",
+        "doc": "https://github.com/iwillwen/node-qiniu"
+    }, {
+        "name": "Nodejs",
+        "label": "Node.js SDK (fengmk2/qn)",
+        "description": "Nodejs SDK",
+        "download": "https://github.com/fengmk2/qn",
+        "author": "fengmk2",
+        "date": "2013-09-12",
+        "doc": "https://github.com/fengmk2/qn"
+    }]
+}

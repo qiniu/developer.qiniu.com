@@ -1,0 +1,106 @@
+
+// Kill the scroll on the body
+.modal-open {
+  overflow: hidden;
+}
+
+// Container that the modal scrolls within
+.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+  position: relative;
+  width: 812px;
+  z-index: (1000 + 10);
+  background-color: #fff;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  margin: 110px auto;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  max-height: 1000px;
+  left: 9px;
+}
+
+// Actual modal
+.modal-content {
+  position: relative;
+  outline: none;
+  span.icon {
+    position: absolute;
+    right: 22px;
+    top: 20px;
+    cursor: pointer;
+    &:hover {
+          cursor: pointer;
+          .icon_close_hover_sprited;
+    }   
+  }
+}
+
+// Modal background
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: (1000 - 10);
+    background-color: rgba(0,0,0,02);
+  // // Fade for backdrop
+    &.fade { .opacity(0); }
+    &.in { .opacity(.2); }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+         padding:0 25px;        
+        line-height: 67px;    
+        height: 65px; 
+        h2 {
+            font-weight: bold;
+            font-size: 18px;
+            color: #262626;
+        }
+}
+// Close icon
+
+.modal-body {
+  position: relative;
+  padding:0 25px 25px 25px;
+    p {
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 33px;
+    }
+    .result-line {
+        max-height: 1000px;     
+        .ops-line {
+          margin-bottom: 26px;
+          line-height: 18px;
+          h5 a {
+            color: #0c94de;
+            text-decoration: underline;
+            font-size: 14px;
+            font-weight: normal;
+          }
+          .url a {
+            color:#404040;
+          }
+        }      
+      }
+}
+

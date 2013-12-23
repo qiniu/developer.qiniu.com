@@ -1,0 +1,154 @@
+//头部导航的样式
+header {
+	height: 43px;
+	line-height: 43px;
+	background-color: rgb(12,148,222);
+	a {
+		font-size: 12px;
+	}
+	.container {
+		height: 43px;
+	}
+}
+header .container h1 {
+	width: 200px;
+	height: 43px;	
+	img {
+		display: inline-block;
+		margin-top: 2px;
+	}
+	>a{
+		outline: none;
+		display: inline-block;
+		line-height: 43px;	
+		height: 43px;	
+	}
+	>a.btn {
+		width: 30px;	
+		  position: relative;
+		  top:-15px;
+		  left:2px;			
+		span {
+		  display: inline-block;
+		}	
+		&:hover {
+			span {
+				.arrow_on;
+			}
+		}	
+	}
+
+}
+header .container nav.nav-home {
+	a {
+		color:rgb(255,255,255);
+		text-decoration: none;
+		margin-right: 30px;	
+		float: left;
+		position: relative;
+		&:hover,&.active {
+			height: 40px;
+		}
+		&.active {
+			font-weight: bold;
+			border-bottom:3px solid rgb(183,230,255);
+			&:hover::after,
+			&:focus::after {
+				height: 0px;
+				-webkit-transform: none;
+				-moz-transform: none;
+				transform: none;
+			}
+			&:after {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background: none;
+				content: '';
+				opacity: 0;
+				-webkit-transition:none;
+				-moz-transition: none;
+				transition: none;
+				-webkit-transform: none;
+				-moz-transform: none;
+				transform: none;
+			}			
+		}
+		&:after, &::before {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}		
+		&:hover::after,
+		&:focus::after {
+			height: 3px;
+			opacity: 1;
+			-webkit-transform: translateY(0px);
+			-moz-transform: translateY(0px);
+			transform: translateY(0px);
+		}
+		&:after {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: rgb(183,230,255);
+			content: '';
+			opacity: 0;
+			-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+			-moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+			transition: height 0.3s, opacity 0.3s, transform 0.3s;
+			-webkit-transform: translateY(-10px);
+			-moz-transform: translateY(-10px);
+			transform: translateY(-10px);
+		}	
+
+	}
+}
+header .container .search {
+	position: relative;
+	line-height: 43px;
+	width: 227px;
+	margin-right: 2px;
+	input {
+		width: 215px;
+		height: 14px;
+		padding:4px 5px;
+		line-height: 14px;
+		border:1px solid rgb(255,255,255);
+		border:1px solid rgba(255,255,255,0.5);
+		color:rgba(255,255,255,0.5);
+		background: transparent;
+		.placeholder(rgba(255,255,255,0.5));
+		vertical-align: middle;
+		&:active,&:focus {
+			color:rgb(255,255,255);		
+			border:1px solid rgba(255,255,255,0.8);		
+			outline: none;
+		}
+	}	
+	span {
+		display: inline-block;
+		position: absolute;
+		right: 5px;
+		top:14px;
+	}
+}
+header .container nav.nav-top {
+	text-align: right;
+	a {
+		color:rgb(255,255,255);
+		color:rgba(255,255,255,0.7);
+		margin-left: 20px;
+		text-decoration: none;
+		&:hover {
+			color:rgb(255,255,255);
+		}
+	}
+	a:first-child {
+		margin-left: 96px;
+	}
+}

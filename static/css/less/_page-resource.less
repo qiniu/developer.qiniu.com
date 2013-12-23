@@ -1,0 +1,204 @@
+//资源下载页样式
+.container.resource {
+        .cell {
+            margin-top: 20px;
+            position: relative;
+            .cell-head {
+                padding: 0 25px;
+                height: 46px;
+                line-height: 46px;
+                margin-bottom: 0;
+                a {
+                    .border-radius(3px);
+                    .box-shadow(0 1px 0 rgba(243,243,243,0.75));
+                    font-size: 12px;
+                    font-weight: normal;
+                    float: right;
+                    height: 26px;
+                    // width: 90px;
+                    min-width: 90px;
+                    line-height: 26px;
+                    color:@64;
+                    border:1px solid #e9e9e9;
+                    text-align: center;
+                    -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+                    transition: background-color .218s,border-color .218s,box-shadow .218s;
+                    -webkit-user-select: none;
+                    outline: none;
+                    margin-top: 10px;
+                    padding: 0 5px;
+                    &:hover {
+                        .box-shadow(0 1px 0 rgba(230,230,230,0.75));
+                        border-color: #d5d5d5;
+                        text-decoration: none;
+                    }
+                }                
+            }
+            .cell-body {
+                overflow: hidden;
+                position: relative;
+                top: 1px;   
+                left:-1px;
+                border-top: 1px solid #e9e9e9;   
+                width: 960px;         
+                .resource-card {
+                    float: left;
+                    border-right: 1px solid @233;
+                    border-top: 1px solid @233;
+                    border-bottom: 1px solid @233;
+                    margin-top: -1px;
+                    padding:25px 20px 20px 20px;
+                    .logo,.content {
+                        float: left;
+                    }
+                    .logo {
+                        width: 70px;
+                        text-align: center;
+                        span {
+                            vertical-align: top;
+                            margin-top: -5px;
+                        }
+                    }
+                    .content {
+                        div {
+                            color:@64;
+                        }
+                        .name {
+                            margin-bottom: 12px;
+                            text-indent: 5px;
+                            font-weight: bold;
+                            a {
+                                color: #404040;
+                            }                               
+                        }
+                        .version,.update-date {
+                            line-height: 21px;
+                            text-indent: 5px;
+                        }
+
+                        .url {
+                            overflow: hidden;
+                            margin-top: 12px;
+                            padding-bottom: 1px;
+                            a {
+                                .border-radius(3px);
+                                .box-shadow(0 1px 0 rgba(243,243,243,0.75));
+                                display: block;
+                                float: right;
+                                margin-right: 8px;
+                                height: 26px;
+                                width: 60px;
+                                line-height: 26px;
+                                color:@64;
+                                border:1px solid #e9e9e9;
+                                text-align: center;
+                                -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+                                transition: background-color .218s,border-color .218s,box-shadow .218s;
+                                -webkit-user-select: none;
+                                outline: none;
+
+                                &:first-child {
+                                    margin-right: 0;
+                                }
+                                &:hover {
+                                    .box-shadow(0 1px 0 rgba(230,230,230,0.75));
+                                    border-color: #d5d5d5;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .small.cell .cell-body {
+            .resource-card {
+                width: 284px;
+                height: 109px;
+                padding:25px 15px 20px 20px;                
+                .content {
+                    margin-left: 10px;
+                }
+            }
+        }
+        .large.cell .cell-body {
+            .resource-card {
+                width: 439px;
+                height: 128px;
+                .content {
+                    width:356px; 
+                    .describe,.info{
+                        margin-left: 5px;
+                        line-height: 21px;
+                    }
+                    .describe {
+                        height: 42px;
+                    }
+                    .info {
+                        .version {
+                            margin-right: 15px;
+                        }
+                    }
+                    .url {
+                        margin-left: 154px;
+                    }
+                }
+            }            
+        }
+        .community-plugin.cell, .community-sdk.cell{
+            position: relative;
+        }
+        .community-plugin.cell  .cell-body ,
+        .community-sdk.cell  .cell-body {
+            .resource-card {
+                // .logo span[class*="resource_"] {
+                //     .resource_plugin;
+                // }
+                .content {
+                    .author{                    
+                        color: @153;
+                        a {
+                            color: @153;
+                        }
+                    }
+                }
+            }            
+        }
+    }
+
+//针对资源下载页分页效果的样式，暂时未用到，勿删
+.bx-controls {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+}
+.bx-wrapper .bx-pager {
+    text-align: center;
+    font-size: .85em;
+    font-family: Arial;
+    font-weight: bold;
+    color: #666;
+    padding-top: 20px;
+}
+.bx-wrapper .bx-pager .bx-pager-item, .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+    display: inline-block;
+}
+.bx-wrapper .bx-pager.bx-default-pager a {
+    background: rgb(180,180,180);
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 0 5px;
+    outline: 0;
+    .border-radius(3px);
+    text-align: center;
+    line-height: 14px;
+    color: #fff;
+
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: rgb(12,148,222);
+    text-decoration: none;
+}
