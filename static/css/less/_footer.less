@@ -1,0 +1,51 @@
+//底部导航的样式
+footer {
+	background-color: #FAFAFA;
+	border-top:1px solid @240;
+	margin-top: 40px;
+	color:@153;
+	.link {
+		overflow: hidden;
+		.link-content {
+			float: left;
+			width: 206px;
+			text-align: left;
+			h4 {
+				color: @120;
+				margin-top: 30px;
+			}
+			ul {
+				margin-bottom: 20px;
+				li {
+					margin:15px 0;
+					a {
+						text-decoration: none;
+						color:@153;
+						&:hover{
+							text-decoration: underline;
+						}
+					}
+					span{
+						//vertical-align: top;
+						margin-right: 5px;
+						margin-left: -5px;
+						margin-top:-5px;
+					}
+				}
+			}
+		}
+		.link-content.cooperation {
+			margin-left: 20px;
+		}
+		.link-content.about {
+			width: 112px;
+		}
+
+	}
+	.copyright {
+		padding-top: 20px;
+		margin-bottom: 30px;
+		text-align: center;
+		background: url(../image/global_line_sprited.png) center top no-repeat;
+	}
+}

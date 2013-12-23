@@ -1,0 +1,240 @@
+body {
+    font-family: Arial,'微软雅黑';
+    background-color: #F5F5F5;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(38,38,38);
+}
+h3 {
+    font-weight: bold;
+    color: rgb(64,64,64);
+}
+h3.en {
+    font-size: 13px;
+}
+h3.cn {
+    font-size: 12px;
+}
+h4,h5,h6{
+    font-size: 12px;
+}
+a.more {
+    color: rgb(153,153,153);
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 960px;
+    padding-bottom: 1px;
+}
+.container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    zoom: 1;
+}
+
+.cell  {
+     background-color: #fff;
+    .border-radius(3px);
+    border:1px solid #e9e9e9;
+    border-bottom-width: 2px;
+    border-top:1px solid #eeeeee;
+
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.cell-head {
+    color:@38;
+    overflow: hidden;
+    margin-bottom:5px;
+    h2 {
+        font-weight: bold;
+        font-size: 16px;
+    }
+}
+
+//首页及文档首页 某篇文章概况的样式
+.article-cell {
+    margin-top: 20px;
+    &.cell {
+        padding: 25px 25px 0;
+    }
+    .cell-body {
+        li {
+            padding:25px 0;
+            border-top:1px solid @240;
+            height: 55px;
+            &:first-child {
+                border-top: none;
+                height: 56px;
+            }
+            h3 {
+                margin-bottom: 5px;
+                span {
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+                a {
+                    color: @64;
+                    font-weight: bold;
+                }
+            }
+            p {
+                color: @64;
+                line-height: 18px;
+                margin-left: 30px;
+            }
+        }
+    }
+}
+
+//首页及文档首页同一行cell
+.line {
+    margin-top:20px;
+    .cell {
+        margin-left: 20px;
+        margin-bottom: 1px;
+        position: relative;
+    }
+    .cell:first-child {
+        margin-left: 0;
+    } 
+}
+
+//文档具体页侧边栏样式
+.panel {
+    width: 258px;
+    &.special-panel {
+        width: 233px;
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+        background-color: #FAFAFA;
+        font-size: 12px;
+        padding: 0 0 0 25px;
+        text-align: left;
+        &.active {
+            font-weight: bold;
+        }
+        a {
+            color:#262626;
+            display: inline-block;
+            width: 233px;
+            cursor: pointer;
+            height: 36px;            
+        }
+    }    
+    >.panel-heading {
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+        background-color: #FAFAFA;
+        font-size: 14px;
+        padding:0 25px;
+        text-align: right;
+        border-top:1px solid @233;
+        a {
+            color:@38;
+            font-weight: normal;
+            display: inline-block;
+            text-align: left;
+            float: left;
+            &.active {
+                font-weight: bold;
+            } 
+        }                
+    }
+    >.panel-body {
+        padding-left: 25px;
+        background-color: #FFF;
+        border-top:1px solid @233;
+        display: none; 
+        .level-one {
+            >li {
+                margin:10px 0;
+                >span {
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+                span.api_unselect_sprited ,span.api_selected_sprited {
+                    margin-top: -3px;
+                }                
+                .panel-heading  h5{
+                    padding-right: 25px;
+                    line-height: 21px;
+                    font-weight: normal;
+                    a {
+                        margin-left: 3px;
+                        display: inline-block;
+                        width: 165px;
+                        &.active {                            
+                            color: rgb(12,148,222);
+                        }
+                    }
+                    span {
+                        display: inline-block;                        
+                    }                    
+                }
+                .panel-body {
+                    margin-left: 20px;
+                    display: none;
+                    .level-two {
+                        li {                       
+                            &.active {
+                                >a {
+                                    color:@64;
+                                }
+                            }                            
+                        }
+                    }
+                    .level-four {
+                        padding-left: 24px;
+                    }
+                }
+            }
+
+        }        
+        li {
+            line-height: 21px;
+            a {
+                color:@153;
+            }
+            .link {
+                color: @64;
+            }
+            .link.active {
+                color: rgb(12,148,222);
+            }                      
+        }
+        li.active,a.active{
+            color: @64;
+        }       
+    }
+
+    .level-three{
+        li {
+            text-indent: 24px;
+        }
+        ul{
+            padding-left: 24px;
+        }
+    }
+    &:first-child {
+        .panel-heading    {
+             border-top: none;           
+        }
+    }
+}

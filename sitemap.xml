@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://developer.qiniu.com/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/download/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/ios-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/android-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/java-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/php-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/csharp-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/ruby-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/python-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/go-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/concepts.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/programming-model.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/security.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/upload-models.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/form-upload.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/chunked-upload.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/callback.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/redirect.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/response-body.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/persistent-op.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn/security.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn/download.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn/download-settings.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn/advanced-download.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs/rs.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs/batch.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/fop.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/pipeline.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/style.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/streaming.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/tools/qrsync.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/tools/qboxrsctl.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/tools/qrsbox.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/download/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs/security.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/builtin-fop.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/appendix.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/token-algorithm.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/mkblk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/bput.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/upload.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/stat.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/copy.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/move.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/delete.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/batch.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/_list.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/saveas.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageinfo.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/watermark.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/vframe.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/video-watermark.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/md2html.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/qrcode.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/codes.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/err.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/nodejs-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/c-sdk.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/kb/drawing-tools.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/kb/faq.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/kb/speed_up_staticfile.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/kb/testing.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/list.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/preset-fops.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/append.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/custom-fop.html</loc>
+</url>
+</urlset>

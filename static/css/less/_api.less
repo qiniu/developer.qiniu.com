@@ -1,0 +1,193 @@
+//文档具体页  具体内容样式\相关资源样式
+.api-content{
+	width: 652px;
+	padding: 25px;
+	* {
+		max-width: 628px;
+	}
+	h1 {
+		color: rgb(12,148,222);
+		margin-bottom: 25px;
+		font-size: 24px;		
+	}
+	h2 {
+		color: @64;
+		font-size: 16px;
+		margin:20px 0;
+	}
+	h3 {
+		color: @64;
+		margin:15px 0;
+		text-indent: 5px;
+		font-weight: bold;
+		font-size: 12px;
+	}
+	h4 {
+		color: @64;
+		margin:15px 0;
+		text-indent: 5px;
+		font-weight: normal;
+		font-size: 12px;
+	}
+	div,p,ul,pre,ol{
+		margin:15px 0 20px 24px;
+		color: @64;
+	}
+	div,p,li{
+		line-height: 21px;
+	}
+	ol {
+		padding-left: 24px;
+		list-style-type: decimal;
+	}
+	ul {
+		list-style: disc;
+		padding-left: 24px;
+	}
+	li {
+		margin:6px 0;
+		p {
+			margin:5px 0 ;
+		}
+		pre,blockquote {
+			margin-left: -24px;
+		}
+	}
+	a {
+		color: rgb(12,148,222);
+	}
+	table {
+		border:1px solid @230;
+		margin-left: 24px;
+		max-width: 628px;
+		border-collapse: collapse;
+		border-spacing: 0;		
+		max-width: 96.1%;
+		width: 96.1%;
+		thead {
+			th,td{
+				background-color: #fafafa;
+				text-align: center;
+				white-space: nowrap;
+				padding: 10px 20px;				
+			}
+		}
+		td,th,caption {
+			padding: 10px 8px;
+			border:1px solid @230;
+			text-align: left;
+			vertical-align: middle;
+			line-height: 21px;
+			p {
+				margin: 0;
+			}
+		}
+		tbody {
+			tr:nth-child(even) {
+				background: #f3f3f3;
+			}
+			tr:nth-child(odd) {
+				background-color: #f9f9f9;
+			}
+			tr:hover {
+				background-color: #f5f5f5;
+			}
+		}
+		caption {
+			border-bottom: none;
+		}
+	}
+	pre {
+		display: block;
+		padding: 12.5px;
+		font-size: 12px;
+		line-height: 15px;
+		word-break: break-all;
+		word-wrap: break-word;
+		white-space: pre;
+		white-space: pre-wrap;
+		background-color: #fafafa;
+		border: 1px solid @233;
+		.border-radius( 3px);	
+		code {
+			font-size: 12px;
+			padding: 0;
+			color: inherit;
+			white-space: pre;
+			white-space: pre-wrap;
+			background-color: transparent;
+			border: 0;					
+		}			
+	}
+	blockquote {
+		padding: 6px;
+		border: 1px solid #faebcc;
+    	page-break-inside: avoid;
+		background-color: #fcf8e3;   
+		color:#8a6d3b;
+		p {
+			margin: 0;
+		} 	
+	}
+	code {
+		padding: 2px 4px;
+		color: #d14;
+		background-color: #f7f7f9;
+		border: 1px solid #e1e1e8;
+		white-space: nowrap;
+		.border-radius( 3px);			
+	}
+	img[alt] {
+		max-width: 628px;
+	}
+	.center {
+		text-align: center;
+	}
+}
+div.api-resource {
+	float: right;
+	width: 130px;
+	padding: 25px;
+	padding: 0 20px;
+	margin: 0 0 0 25px;
+	background-color: #FCFCFC;
+	color:@153;
+	line-height: 12px;	
+	font-size: 12px;
+	div {
+		margin: 0;
+		line-height: 12px;
+	}
+	>span.icon {
+		position: absolute;
+		top: 25px;
+		right: 25px;
+	}
+	a {
+		color: @153;
+	}
+	.resource-box {
+		padding-bottom: 15px;
+		padding-top: 15px;
+		.title {
+			margin-bottom: 15px;
+			color: @64;
+		}
+		.download {
+			margin-bottom: 10px;
+		}
+		span {
+			margin-right: 5px;
+		}
+	}
+	.pulic-resource {
+		border-bottom: 1px solid @230;
+	}
+	.social-resource {
+		.author {
+			margin-top:5px;
+			margin-bottom: 15px;
+			text-indent: 20px;
+		}
+	}
+}

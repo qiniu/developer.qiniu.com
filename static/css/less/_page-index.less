@@ -1,0 +1,259 @@
+//首页样式
+.intro {
+	.cell {
+        width: 305px;
+        height: 168px;		
+		span {
+			position: absolute;
+			left: 30px;
+			top:25px;
+		}
+		h2 {
+			font-size: 14px;
+			position: absolute;
+			top: 60px;
+			display: inline-block;
+			a {
+				color: rgb(12, 148, 222);				
+			}
+		}
+		div {
+			line-height: 21px;
+			color:@88;
+			position: absolute;
+			left: 38px;
+			bottom: 35px;						
+		}
+	}
+	.cell:first-child {
+		margin-left: 0;
+		span {
+			margin-left: -5px;
+		}
+		h2 {
+			left: 90px;
+		}
+		div {
+			margin-right: 27px;
+		}
+	}
+	.cell.quality {
+		width: 305px;
+		span {
+			margin-left: -5px;
+		}
+		h2 {
+			left: 98px;
+		}
+		div {
+			margin-right: 25px;
+		}
+	}
+	.cell.nail {
+		width:304px;
+		span {
+			margin-left: -10px;		
+		}
+		h2 {
+			left: 85px;
+		}
+		div {
+			margin-right: 28px;
+		}		
+	}
+}
+
+
+.container.index {
+	overflow: hidden;
+	.cell.sdk {
+		width:908px;
+		//height: 115px;
+		ul li {
+			border-left: 1px solid #f0f0f0;
+			width: 99px;
+			&:first-child {
+				border-left: none;
+			}
+		}
+	}
+	.cell.cli ,.cell.api{
+		width: 580px;
+	}	
+	.side-bar {
+		width: 308px;
+		margin-left: 20px;
+		.question {
+			margin-bottom: 20px;
+			max-height: 305px;
+			ul {
+				list-style-type: disc;
+				margin-left: 26px;
+				li {
+					line-height: 18px;
+					padding: 10px 0;
+					&:first-child {
+						padding-top: 0;
+					}
+				}
+			}
+		}
+		.resource-community {
+			height: 333px;
+			span {
+				display: inline-block;
+				vertical-align: top;
+				margin-top:5px;
+			}
+			>div {
+				margin-top: 23px;
+				height: 55px;
+			}
+			h4 {
+				font-weight: normal;
+				color: @64;
+				display: inline-block;
+				width: 225px;
+				margin-left: 10px;
+				a {
+					display: block;
+					line-height: 20px;
+				}				
+			}
+			p {
+				line-height: 18px;
+				margin-left: 30px;
+				color:@153;
+				a {
+					color:@153;
+				}
+			}
+			>p {
+				text-align: right;
+			}
+		}
+	}
+}
+.container.index , .container.docs {
+
+	.cell {
+		padding: 25px;		
+		h2 {
+			margin-bottom: 25px;
+			color:#262626;
+			height: 19px;
+			line-height: 19px;
+		}
+		a {
+			color: rgb(12,148,222);
+		}
+	}	
+	.cell.sdk {
+		padding: 25px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		h2 {
+			margin-bottom: 15px;
+		}		
+		ul {
+			overflow: hidden;
+			li  {
+				float: left;
+				height: 70px;
+				margin:0 auto;
+				// margin-bottom: 5px;
+				text-align: center;
+				vertical-align: middle;
+				line-height: 70px;
+				a {
+					display: block;
+					height: 70px;
+					vertical-align: middle;
+					//margin-left: 7.5px;
+					img {
+						 vertical-align: middle;
+					}
+					&:hover {
+						height: 68px;
+						line-height: 68px;
+						border:1px solid #f0f0f0;
+					}					
+				}
+			}
+		}
+	}	
+	.cell.api {
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+		.cell-line {
+			border-top:1px solid #f0f0f0;
+			padding-top: 15px;
+			margin-bottom: 3px;
+			&:first-child {
+				border-top: none;
+				padding-top: 0;
+			}
+			h3 {
+				
+				font-size: 12px;
+				margin-bottom: 10px;
+				color: #404040;
+				line-height: 16px;
+				height:  16px;
+			}
+			h4 {
+				font-size: 12px;
+				margin-bottom: 10px;
+				margin-top:8px;
+				padding-left: 23px;
+				// font-size: 
+				color: #404040;
+				font-weight: normal;
+				line-height: 16px;
+				height: 16px;
+			}
+			span.icon {
+				margin-right: 5px;
+				position: relative;
+				top:-1px;
+			}
+			span.icon.off_2 {
+				margin-right: 9px;
+			}
+			ul {
+				overflow: hidden;
+				margin-left: 23px;
+				//ssss
+				li {
+					float: left;
+					width: 139px;
+					margin-bottom: 10px;
+					height: 14px;
+					line-height: 14px;
+				}
+			}
+		}
+	}
+	.cell.cli {
+		height: 70px;
+		ul {
+			overflow: hidden;
+			li {
+				float: left;
+				overflow: hidden;
+				width: 193px;
+				p {
+					color: @64;
+					line-height: 18px;
+				}
+				.logo {
+					width: 26px;
+					margin-right: 14px;
+				}	
+				.info {
+					width: 153px;
+				}				
+			}
+		}
+	}	
+}
