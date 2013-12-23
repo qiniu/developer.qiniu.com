@@ -10,7 +10,8 @@ order: 300
 <a id="prefetch-description"></a>
 ## 描述
 
-对于设置了镜像存储的空间，从镜像源站抓取指定名称的资源并存储到该空间中。如果该空间中已存在该名称的资源，则自动覆盖。
+对于设置了镜像存储的空间，从镜像源站抓取指定名称的资源并存储到该空间中。  
+如果该空间中已存在该名称的资源，则自动覆盖。  
 
 <a id="prefetch-request"></a>
 ## 请求
@@ -24,12 +25,13 @@ Host:           iovip.qbox.me
 Content-Type:   application/x-www-form-urlencoded
 Authorization:  QBox <AccessToken>
 ```
-EncodedEntryURI 的细节请查看[EncodedEntryURI]。
+
+EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 
 <a id="prefetch-request-auth"></a>
 ### 访问权限
 
-[管理凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证][accessTokenHref]方式。
 
 <a id="prefetch-request-params"></a>
 ### 请求参数
@@ -39,13 +41,9 @@ EncodedEntryURI 的细节请查看[EncodedEntryURI]。
 <a id="prefetch-request-headers"></a>
 ### 头部信息
 
-该请求必须指定以下头部信息。
-
-头部名称      | 说明                              | 必填
-:------------ | :-------------------------------- | :-------
-Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-
-使用本API无需设置额外头部信息。  
+头部名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------
+Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`
 
 <a id="prefetch-request-body"></a>
 ### 请求内容
@@ -67,26 +65,43 @@ Cache-Control: no-store
 <a id="prefetch-response-headers"></a>
 ### 头部信息
 
-头部名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+头部名称      | 必填 | 说明                              
+:------------ | :--- | :-----------------------------------------------------------------
+Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a id="prefetch-response-body"></a>
 ### 响应内容
 
-如果请求成功，该响应不返回任何内容。  
-如果请求失败，返回的响应内容将是一个JSON结构体。格式如下：
+■ 如果请求成功，不返回任何内容。
+
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
-	"code":     <HttpCode  int>, 
-    "error":   "<ErrMsg    string>",
+	"code":     <httpCode  int>, 
+    "error":   "<errMsg    string>",
 }
 ```
 
-<a id="prefetch-example1-command"></a>
+字段名称     | 必填 | 说明                              
+:----------- | :--- | :--------------------------------------------------------------------
+`code`       | 是   | HTTP状态码，请参考[响应状态](#prefetch-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
+
+<a id="prefetch-response-status"></a>
+### 响应状态码
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 抓取成功
+400	       | 请求报文格式错误
+401        | 管理凭证无效
+599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
+其余状态码 | 源站返回的状态码，请检查源站资源的可访问性
+
+<a id="prefetch-sample1-command"></a>
 ### 命令行示例
 
 ```
@@ -98,7 +113,7 @@ curl -i \
      'http://iovip.qbox.me/prefetch/bmV3ZG9jczpmaW5kLm1hbi50eHQ='
 ```
 
-<a id="prefetch-example1-request"></a>
+<a id="prefetch-sample1-request"></a>
 ### 请求示例
 
 ```
@@ -109,7 +124,7 @@ Accept: */*
 Authorization: QBox u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:2LJIG...(过长已省略)
 ```
 
-<a id="prefetch-example1-response"></a>
+<a id="prefetch-sample1-response"></a>
 ### 响应示例
 
 ```
@@ -126,7 +141,7 @@ X-Reqid: wxIAAD3btw-v3TwT
 <a id="prefetch-remarks"></a>
 ## 附注
 
-无。
+- 本接口执行同步操作，如果抓取的资源过大，可能会导致超时。
 
 <a id="prefetch-internal-resources"></a>
 ## 内部参考资源

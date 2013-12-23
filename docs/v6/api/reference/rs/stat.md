@@ -9,6 +9,7 @@ order: 900
 
 <a id="stat-description"></a>
 ## 描述
+
 仅获取资源的Metadata信息，不返回资源内容。
 
 <a id="stat-request"></a>
@@ -28,23 +29,19 @@ EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 <a id="stat-request-auth"></a>
 ### 访问权限
 
-[管理凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证][accessTokenHref]方式。
 
 <a id="stat-request-params"></a>
 ### 请求参数
 
-该请求不支持任何参数。
+该请求无需设置任何参数。
 
 <a id="stat-request-headers"></a>
 ### 头部信息
 
-该请求必须指定以下头部信息。
-
-头部名称      | 说明                              | 必填
-:------------ | :-------------------------------- | :-------
-Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-
-使用本API无需设置额外头部信息。  
+头部名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------
+Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`
 
 <a id="stat-request-body"></a>
 ### 请求内容
@@ -57,16 +54,16 @@ Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进
 <a id="stat-response-headers"></a>
 ### 头部信息
 
-头部名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+头部名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------------------------------------------
+Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a id="stat-response-body"></a>
 ### 响应内容
 
-如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
+■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
@@ -79,30 +76,42 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 字段含义如下：
 
-字段名称       | 类型   | 说明
-:------------- | :----- | :------------------------------
-fsize          | int    | 文件尺寸，单位为字节。
-hash           | string | 文件的ETag信息。
-mimeType       | string | 以MIME信息表达的文件类型。<p>关于各种MIME值的含义，请参见[MIME Media Types][mimeMediaTypesHref]（内容由IANA维护）。
-putTime        | int64  | 文件上传时的服务器端Epoch时间戳，单位为100纳秒。<p>例如值为`13603956734587420`的时间对应实际时间为`2013-02-09 15:41:13`。
+字段名称       | 必填 | 说明
+:------------- | :--- | :------------------------------
+fsize          | 是   | 文件尺寸，单位：字节（Byte）
+hash           | 是   | 文件的ETag信息
+mimeType       | 是   | 以MIME信息表达的文件类型<p>关于各种MIME值的含义，请参见[MIME Media Types][mimeMediaTypesHref]（内容由IANA维护）
+putTime        | 是   | 文件上传时的服务器端Epoch时间戳，单位：100纳秒<p>例如值为`13603956734587420`的时间对应实际时间为`2013-02-09 15:41:13`
 
-如果请求失败，请参考[错误消息](#error-messages)。
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
-<a id="stat-error-messages"></a>
-### 错误消息
+```
+{
+	"code":     <httpCode  int>, 
+    "error":   "<errMsg    string>",
+}
+```
+
+字段名称     | 必填 | 说明
+:----------- | :--- | :--------------------------------------------------------------------
+`code`       | 是   | HTTP状态码，请参考[响应状态](#stat-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
+
+<a id="stat-response-status"></a>
+### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 获取Metadata成功
-400	       | 请求参数错误
+400	       | 请求报文格式错误
 401        | 管理凭证无效
 404        | 目标资源不存在
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 
-<a id="stat-examples"></a>
+<a id="stat-samples"></a>
 ## 示例
 
-<a id="stat-example1-command"></a>
+<a id="stat-sample1-command"></a>
 ### 命令行示例
 
 ```
@@ -111,7 +120,7 @@ curl -i \
      "http://rs.qiniu.com/stat/ZGVtbzoyMDEzLTAyLTA5LTA3LTM5LTIwLmpwZw=="
 ```
 
-<a id="stat-example1-request"></a>
+<a id="stat-sample1-request"></a>
 ### 请求示例
 
 ```
@@ -122,10 +131,10 @@ Accept: */*
 Authorization: QBox QNJi_bYJlmO5LeY08FfoNj9w_r72Vsn...(过长已省略)
 ```
 
-<a id="stat-example1-response"></a>
+<a id="stat-sample1-response"></a>
 ### 响应示例
 
-以下响应中JSON字符串经过格式化，以便查看。
+以下响应中JSON字符串经过格式化，以便阅读。
 
 ```
 HTTP/1.1 200 OK

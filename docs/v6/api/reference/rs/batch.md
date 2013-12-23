@@ -8,6 +8,7 @@ order: 500
 
 <a id="batch-description"></a>
 ## 描述
+
 批量操作意指在单一请求中执行多次获取元信息/移动/复制/删除操作，极大提高资源管理效率。  
 
 <a id="batch-request"></a>
@@ -31,7 +32,7 @@ EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[Enco
 <a id="batch-request-auth"></a>
 ### 访问权限
 
-[管理凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证][accessTokenHref]方式。
 
 <a id="batch-request-params"></a>
 ### 请求参数
@@ -41,14 +42,10 @@ EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[Enco
 <a id="batch-request-headers"></a>
 ### 头部信息
 
-该请求必须指定以下头部信息。
-
-头部名称      | 说明                              | 必填
-:------------ | :-------------------------------- | :--------
-Content-Type  | application/x-www-form-urlencoded | 是
-Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-
-使用本API无需设置额外头部信息。  
+头部名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------
+Content-Type  | 是   | 固定为application/x-www-form-urlencoded
+Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`
 
 <a id="batch-request-body"></a>
 ### 请求内容
@@ -102,9 +99,9 @@ Cache-Control: no-store
 ### 头部信息
 
 
-头部名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+头部名称      | 必填 | 说明                              
+:------------ | :--- | :-----------------------------------------------------------------
+Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
@@ -168,16 +165,16 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 ]
 ```
 
-<a id="batch-error-messages"></a>
-### 错误消息
+<a id="batch-response-status"></a>
+### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 所有请求操作都已成功完成
 298        | 部分或所有请求操作失败（出错信息参看上述响应内容）
-400	       | 请求参数错误
+400	       | 请求报文格式错误
 401        | 管理凭证无效
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 
 <a id="batch-remarks"></a>
 ## 附注

@@ -9,6 +9,7 @@ order: 700
 
 <a id="move-description"></a>
 ## 描述
+
 将源空间的指定资源移动到目标空间，或在同一空间内对资源重命名。  
 
 <a id="move-request"></a>
@@ -29,7 +30,7 @@ EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式
 <a id="move-request-auth"></a>
 ### 访问权限
 
-[管理凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证][accessTokenHref]方式。
 
 <a id="move-request-params"></a>
 ### 请求参数
@@ -39,13 +40,9 @@ EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式
 <a id="move-request-headers"></a>
 ### 头部信息
 
-该请求必须指定以下头部信息。
-
-头部名称      | 说明                              | 必填
-:------------ | :-------------------------------- | :-------
-Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-
-使用本API无需设置额外头部信息。  
+头部名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------
+Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`
 
 <a id="move-request-body"></a>
 ### 请求内容
@@ -67,38 +64,44 @@ Cache-Control: no-store
 <a id="move-response-headers"></a>
 ### 头部信息
 
-头部名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+头部名称      | 必填 | 说明                              
+:------------ | :--- | :-----------------------------------------------------------------
+Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a id="move-response-body"></a>
 ### 响应内容
 
-如果请求成功，该响应不返回任何内容。  
-如果请求失败，返回的响应内容将是一个JSON结构体。格式如下：
+■ 如果请求成功，不返回任何内容。
+
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
-	"code":     <HttpCode  int>, 
-    "error":   "<ErrMsg    string>",
+	"code":     <httpCode  int>, 
+    "error":   "<errMsg    string>",
 }
 ```
 
-<a id="move-error-messages"></a>
-### 错误消息
+字段名称     | 必填 | 说明                              
+:----------- | :--- | :--------------------------------------------------------------------
+`code`       | 是   | HTTP状态码，请参考[响应状态](#move-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
+
+<a id="move-response-status"></a>
+### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 移动成功
-400	       | 请求参数错误
+400	       | 请求报文格式错误
 401        | 管理凭证无效
 404        | 待移动资源不存在
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 614        | 目标资源已存在
 
-<a id="move-example1-command"></a>
+<a id="move-sample1-command"></a>
 ### 命令行示例
 
 ```
@@ -110,7 +113,7 @@ curl -i \
      'http://rs.qiniu.com/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ='
 ```
 
-<a id="move-example1-request"></a>
+<a id="move-sample1-request"></a>
 ### 请求示例
 
 ```
@@ -121,7 +124,7 @@ Accept: */*
 Authorization: QBox u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:2LJIG...(过长已省略)
 ```
 
-<a id="move-example1-response"></a>
+<a id="move-sample1-response"></a>
 ### 响应示例
 
 ```
