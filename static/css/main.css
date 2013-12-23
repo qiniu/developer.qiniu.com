@@ -899,6 +899,23 @@ footer .copyright {
   text-align: center;
   background: url(../image/global_line_sprited.png) center top no-repeat;
 }
+.zendesk {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -51px;
+  width: 32px;
+  height: 102px;
+}
+.zendesk a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: url(../image/feedback01.png) left top no-repeat;
+}
+.zendesk a:hover {
+  background: url(../image/feedback02.png) left top no-repeat;
+}
 .api-content {
   width: 652px;
   padding: 25px;
