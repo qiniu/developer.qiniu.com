@@ -41,7 +41,7 @@ order: 980
 `scope`               | 是   | 指定上传的目标资源空间（Bucket）和资源名（Key），有两种格式：<p>`<bucket>`，“新增”语意，若已存在同名资源则会失败；<p>`<bucket>:<key>`，“覆盖”语意，若已存在同名资源则会覆盖
 `deadline`            | 是   | 上传请求授权的截止时间，[Unix时间][unixTimeHref]，单位：秒
 `endUser`             |      | 给资源添加唯一属主标识，特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印
-`returnUrl`           |      | 设置用于Web端文件上传成功后，浏览器执行301跳转的URL，通常用于`HTML Form`上传。<p>文件上传成功后会跳转到`<returnUrl>?<queryString>`, `<queryString>`包含`returnBody`内容<p>如不设置，则直接向上传端返回`returnBody`内容
+`returnUrl`           |      | 设置用于Web端文件上传成功后，浏览器执行303跳转的URL，通常用于`HTML Form`上传。<p>文件上传成功后会跳转到`<returnUrl>?<queryString>`, `<queryString>`包含`returnBody`内容<p>如不设置，则直接向上传端返回`returnBody`内容
 `returnBody`          |      | 上传成功后，自定义七牛云存储最终返回給上传端的数据，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]
 `callbackUrl`         |      | 上传成功后，七牛云存储向`App-Server`发送POST请求的URL<p>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL
 `callbackBody`        |      | 上传成功后，七牛云存储向`App-Server`发送POST请求的数据，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]

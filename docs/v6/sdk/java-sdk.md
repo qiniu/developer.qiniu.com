@@ -121,7 +121,7 @@ public class Init {
 1. 客户端凭借 [uptoken](#make-uptoken) 上传文件到七牛
 1. 在七牛获得完整数据后，根据用户请求的设定执行以下操作：
 
-	a. 如果用户设定了[returnUrl](#io-put-policy)，七牛云存储将反馈一个指向returnUrl的HTTP 301，驱动客户端执行跳转；
+	a. 如果用户设定了[returnUrl](#io-put-policy)，七牛云存储将反馈一个指向returnUrl的HTTP 303，驱动客户端执行跳转；
 	
 	b. 如果用户设定了[callbackUrl](#io-put-policy)，七牛云存储将向callbackUrl指定的地址发起一个HTTP 请求回调业务服务器，同时向业务服务器发送数据。发送的数据内容由[callbackBody](#io-put-policy)指定。业务服务器完成回调的处理后，可以在HTTP Response中放入数据，七牛云存储会响应客户端，并将业务服务器反馈的数据发送给客户端；
 	

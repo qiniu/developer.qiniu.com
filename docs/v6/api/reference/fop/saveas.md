@@ -7,7 +7,7 @@ order: 185
 <a id="saveas"></a>
 # 处理结果另存（saveas）
 
-<a id="description"></a>
+<a id="saveas-description"></a>
 ## 描述
 
 七牛云存储的云处理API接口均支持如下串行处理规格:
@@ -21,19 +21,19 @@ order: 185
 
 我们提供名为`saveas`的云处理操作，将云处理结果作为资源保存到指定空间内，并赋以指定Key。保存成功后，下一次可直接通过指定Key来访问该资源，以达到提升下载速度的效果。  
 
-<a id="specification"></a>
+<a id="saveas-specification"></a>
 ## 接口规格（saveasSpec）  
 
 ```
 saveas/<EncodedEntryURI>/sign/<Sign>
 ```
 
-参数名称            | 类型   | 说明                                                          | 必填
-:------------------ | :----- | :------------------------------------------------------------ | :-----
-`<EncodedEntryURI>` | string | 以[EncodedEntryURI格式][encodedEntryURIHref]组织的Bucket与Key | 是
-`/sign/<Sign>`      | string | 请求签名部分，算法见下方。                                    | 是
+参数名称             | 必填  | 类型   | 说明                                                          
+:------------------  | :---- | :----- | :---------------------------------------------------------------
+`<EncodedEntryURI>`  | 是    | string | 以[EncodedEntryURI格式][encodedEntryURIHref]组织的目标Bucket与Key
+`/sign/<Sign>`       | 是    | string | 请求签名部分，算法见下方
 
-<a id="sign-algorithm"></a>
+<a id="saveas-sign-algorithm"></a>
 ## 签名算法
 
 ### 算法描述
@@ -41,10 +41,10 @@ saveas/<EncodedEntryURI>/sign/<Sign>
 1. 在下载URL（不含Scheme部分，即去除`http://`）后附加`saveas`接口（不含签名部分）：  
 
 	```
-    NewURL = URL + "|saveas/<EncodedEntryURI"
+    NewURL = URL + "|saveas/<EncodedEntryURI>"
 	```
 
-2. 使用`SecretKey`对新的下载URL进行HMAC1_SHA1签名：  
+2. 使用`SecretKey`对新的下载URL进行HMAC1-SHA1签名：  
 
 	```
     Sign = hmac_sha1(SecretKey, NewURL)
@@ -59,12 +59,12 @@ saveas/<EncodedEntryURI>/sign/<Sign>
 4. 在新的下载URL后拼接签名参数：
 
 	```
-    FinalURL = NewURL + "/sign/<EncodedSign>"
+    FinalURL = NewURL + "/sign/<AccessKey>:<EncodedSign>"
 	```
 
 ### 算法实例
 
-生成saveas请求的完整go代码如下：  
+生成saveas请求的完整Go代码如下：  
 
 ```{go}
 func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey string) string {
@@ -75,9 +75,12 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 
 	h := hmac.New(sha1.New, secretKey)
 
-	// 签名内容不包括 Scheme
+	// 签名内容不包括Scheme，仅含如下部分：
+    // <Domain>/<Path>?<Query>
+
 	u, _ := url.Parse(URL)
 	io.WriteString(h, u.Host + u.RequestURI())
+
 	d := h.Sum(nil)
 	sign := accessKey + ":" + base64.URLEncoding.EncodeToString(d)
 
@@ -86,14 +89,14 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 }
 ```
 
-<a id="remarks"></a>
+<a id="saveas-remarks"></a>
 ## 附注
 
 - `urlsafe_base64_encode()` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 [github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
 - 此处签名内容不包含Scheme部分，与DownloadToken签名不一样。
 - 当要持久化保存的fop耗时较长时候，saveas请求会返回CDN超时，但是只要保证发送的saveas请求合法，七牛服务器还是会对请求做正确处理。
 
-<a id="samples"></a>
+<a id="saveas-samples"></a>
 ## 示例
 
 1. 原资源是一个图片：  
@@ -136,4 +139,9 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
     http://t-test.qiniudn.com/Ship-thumb-200.jpg
 	```
 
-[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+<a id="saveas-internal-resources"></a>
+## 内部参考资源
+
+- [EncodedEntryURI格式][encodedEntryURIHref]
+
+[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
