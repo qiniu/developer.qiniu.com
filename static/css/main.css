@@ -156,15 +156,15 @@ a.more {
   padding: 0 0 0 25px;
   text-align: left;
 }
-.panel.special-panel.active {
-  font-weight: bold;
-}
 .panel.special-panel a {
   color: #262626;
   display: inline-block;
   width: 233px;
   cursor: pointer;
   height: 36px;
+}
+.panel.special-panel a.active {
+  font-weight: bold;
 }
 .panel > .panel-heading {
   cursor: pointer;

@@ -254,9 +254,4 @@ $(function() {
     // $('.bxslider').bxSlider({
     //     controls: false
     // });
-
-
-
-
-
 });
