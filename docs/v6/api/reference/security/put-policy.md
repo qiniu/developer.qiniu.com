@@ -57,8 +57,9 @@ order: 980
 ## 附注
 
 - `Key`必须采用utf-8编码，使用非utf-8编码的资源名访问时会报错。  
-- `callbackUrl`与`returnUrl`不可同时指定，两者只可选其一。
-- `callbackBody`与`returnBody`不可同时指定，两者只可选其一。
+- `callbackUrl`与`callbackBody`配合使用。
+- `returnUrl`与`returnBody`配合使用。
+- `callbackXXX`与`returnXXX`不可混用。
 - 文件上传后的命名将遵循以下规则：
 
     - 客户端已指定`Key`，以`Key`命名
