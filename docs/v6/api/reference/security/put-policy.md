@@ -27,7 +27,12 @@ order: 980
     "callbackUrl":         "<RequestUrlForAppServer   string>",
 
     "persistentOps":       "<persistentOpsCmds        string>",
-    "persistentNotifyUrl": "<persistentNotifyUrl      string>"
+    "persistentNotifyUrl": "<persistentNotifyUrl      string>",
+
+    "insertOnly":          "<AllowFileUpdating        uint16>",
+    "detectMime":          "<AutoDetectMimeType       uint16>",
+    "fsizeLimit":          "<FileSizeLimit            int64>",
+    "saveKey":             "<KeyFomart                string>"
 }
 ```
 
@@ -42,6 +47,11 @@ order: 980
 `callbackBody`        |      | 上传成功后，七牛云存储向`App-Server`发送POST请求的数据，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]
 `persistentOps`       |      | 音频/视频资源上传成功后异步执行的预转[云处理][fopHref]持久化指令。每个指令是一个API规格字符串，多个指令用“;”分隔
 `persistentNotifyUrl` |      | 七牛云存储向`App-Server`发送预转云处理持久化结果的URL，必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL
+`insertOnly`          |      | 如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件
+`detectMime`          |      | 如果设置为非0值，则忽略客户端传递的文件mimeType信息，使用服务器侦测的结果
+`fsizeLimit`          |      | 上传文件的大小限制，单位为字节（Byte），超过限制的文件会被认为上传失败
+`saveKey`             |      | 自定义文件名格式，支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]
+
 
 <a id="put-policy-remarks"></a>
 ## 附注
@@ -49,6 +59,12 @@ order: 980
 - `Key`必须采用utf-8编码，使用非utf-8编码的资源名访问时会报错。  
 - `callbackUrl`与`returnUrl`不可同时指定，两者只可选其一。
 - `callbackBody`与`returnBody`不可同时指定，两者只可选其一。
+- 文件上传后的命名将遵循以下规则：
+
+    - 客户端已指定`Key`，以`Key`命名
+    - 客户端未指定`Key`，上传策略中设置了`saveKey`，以`saveKey`的格式命名
+    - 客户端未指定`Key`，上传策略中未设置`saveKey`，以文件hash（etag）命名
+
 
 <a id="upload-internal-resources"></a>
 ## 内部参考资源
