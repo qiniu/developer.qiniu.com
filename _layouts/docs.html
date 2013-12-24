@@ -53,7 +53,7 @@
                             <li>
                                 <span class="icon off_1">
                                 </span>
-                                <a class="link" href="/{{.Href}}">
+                                <a class="page-link" href="/{{.Href}}">
                                 {{.Title}}
                                     </a>
                             </li>
@@ -79,7 +79,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                        <a href="/{{.Href}}" class="page-link link"> {{.Title}} </a>
                                         <span class="icon"></span>
                                     </h5>
                                 </div>
@@ -88,12 +88,12 @@
                                     <ul class="panel-list level-three nav">
                                         {{range .Child}}
                                         <li>
-                                            <a href="/{{.Href}}"> {{.Title}} </a>
+                                            <a href="/{{.Href}}" class="page-link"> {{.Title}} </a>
                                             {{if isnot_nil_or_empty .Child}}
                                             <ul class="panel-list level-four nav">
                                                 {{range .Child}}
                                                 <li>
-                                                    <a href="/{{.Href}}">{{.Title}} </a>
+                                                    <a href="/{{.Href}}"  class="page-link">{{.Title}} </a>
                                                 </li>
                                                 {{end}}
                                             </ul>
@@ -124,7 +124,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                        <a href="/{{.Href}}" class="page-link link"> {{.Title}} </a>
                                         <span class="icon"></span>
                                     </h5>
                                 </div>
@@ -133,12 +133,12 @@
                                     <ul class="panel-list level-three nav">
                                         {{range .Child}}
                                         <li>
-                                            <a href="/{{.Href}}"> {{upcase .Title}} </a>
+                                            <a href="/{{.Href}}"  class="page-link"> {{upcase .Title}} </a>
                                             {{if isnot_nil_or_empty .Child}}
                                             <ul class="panel-list level-four nav">
                                                 {{range .Child}}
                                                 <li>
-                                                    <a href="/{{.Href}}">{{.Title}} </a>
+                                                    <a href="/{{.Href}}"  class="page-link">{{.Title}} </a>
                                                 </li>
                                                 {{end}}
                                             </ul>
@@ -171,7 +171,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/docs/v6/tools/qboxrsctl.html" class="link">
+                                        <a href="/docs/v6/tools/qboxrsctl.html" class="page-link  link">
                                                 qboxrsctl
                                             </a>
                                         <span class="icon">
@@ -187,7 +187,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/docs/v6/tools/qrsbox.html" class="link">
+                                        <a href="/docs/v6/tools/qrsbox.html" class="page-link  link">
                                                 qrsbox
                                             </a>
                                         <span class="icon">
@@ -202,7 +202,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/docs/v6/tools/qrsync.html" class="link">
+                                        <a href="/docs/v6/tools/qrsync.html" class="page-link  link">
                                                 qrsync
                                             </a>
                                         <span class="icon">
@@ -233,7 +233,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_1">
                                         </span>
-                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                        <a href="/{{.Href}}" class="page-link  link"> {{.Title}} </a>
                                         <span class="icon"></span>
                                     </h5>
                                 </div>
@@ -242,12 +242,12 @@
                                     <ul class="panel-list level-three nav">
                                         {{range .Child}}
                                         <li>
-                                            <a href="/{{.Href}}"> {{.Title}} </a>
+                                            <a href="/{{.Href}}"  class="page-link"> {{.Title}} </a>
                                             {{if isnot_nil_or_empty .Child}}
                                             <ul class="panel-list level-four nav">
                                                 {{range .Child}}
                                                 <li>
-                                                    <a href="/{{.Href}}">{{.Title}} </a>
+                                                    <a href="/{{.Href}}"  class="page-link">{{.Title}} </a>
                                                 </li>
                                                 {{end}}
                                             </ul>

@@ -964,6 +964,10 @@ footer .copyright {
 .api-content a {
   color: #0c94de;
 }
+.api-content hr {
+  margin: 20px auto;
+  padding-left: 24px;
+}
 .api-content table {
   border: 1px solid #e6e6e6;
   margin-left: 24px;
@@ -1030,6 +1034,8 @@ footer .copyright {
   white-space: pre-wrap;
   background-color: transparent;
   border: 0;
+  font-family: Consolas,Monaco,Menlo;
+  margin: auto 3px;
 }
 .api-content blockquote {
   padding: 6px;
@@ -1051,9 +1057,11 @@ footer .copyright {
   border-top-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  font-family: Consolas,Monaco,Menlo;
+  margin: auto 3px;
 }
 .api-content img[alt] {
-  max-width: 628px;
+  max-width: 604px;
 }
 .api-content .center {
   text-align: center;
