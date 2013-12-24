@@ -10,7 +10,7 @@ order: 401
 
 * [简单反馈](simple-response.html)
 * [回调](callback.html)
-* [301重定向](redirect.html)
+* [303重定向](redirect.html)
 * [自定义响应内容](response-body.html)
 * [变量](vars.html)
 * [数据预处理](persistent-op.html)
