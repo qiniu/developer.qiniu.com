@@ -201,7 +201,7 @@ $(function() {
                         $(this).siblings('.on_1').removeClass('on_1').addClass('off_1');
                     }
                 } else {
-                    $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
+                    $(this).parents('.panel-heading').siblings('.panel-body').show(adjustApiBoxHeight);
                     $(this).addClass('active');
                     $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
                     if ($(this).siblings('.off_2').length > 0) {
@@ -215,40 +215,27 @@ $(function() {
     });
 
     //API页面侧边栏---显示当前页的导航
-    //API页面侧边栏---显示当前页的导航
-    console.time('he');
+    $('.panel-body .page-link').each(function() {
+        var href = $(this).attr('href').toLowerCase();
+        if (url === href) {
+            $(this).addClass('active');
+            var $panelBody = $(this).parents('.panel-body');
+            var $panelHeading = $(this).parents('.panel-heading');
 
-    $('.panel-default').each(function() {
-        var page = $(this).data('page');
-        console.log(page);
-        console.log()
-        if (url.indexOf(page) !== -1) {
-            $(this).children('.panel-body').show();
-            $(this).children('.panel-heading').find('span.api_default').removeClass('api_default').addClass('api_down');
-            $(this).children('.panel-heading').find('a').addClass('active');
-            // $(this).children('.panel-heading').trigger('click');
-            $(this).children('.panel-body').find('a').each(function() {
-                var href = $(this).attr('href').toLowerCase();
-                if (url === href) {
-                    $(this).addClass('active');
-                    if ($(this).parents('.panel-heading').length > 0) {
-                        $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
-                        $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
-                        $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
-                    } else {
-                        $(this).parents('.panel-body').show('fast', adjustApiBoxHeight);
-                        $(this).parents('.panel-body').siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('on_2');
-                        $(this).parents('.panel-body').siblings('.panel-heading').find('span:last').addClass('api_down2_sprited');
-                        $(this).parents('.panel-body').siblings('.panel-heading').find('a').addClass('active');
-                    }
-                }
-            });
-            $(this).siblings('.panel-default').children('.panel-body').hide();
-            return false;
+            $panelBody.siblings('.panel-heading').find('span.api_default').removeClass('api_default').addClass('api_down');
+            $panelBody.siblings('.panel-heading').find('a').addClass('active');
+
+            $panelBody.show(adjustApiBoxHeight);
+            if ($panelHeading.length > 0) {
+                $panelHeading.siblings('.panel-body').show(adjustApiBoxHeight);
+                $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
+                $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
+            } else {
+                $panelBody.siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('on_2');
+                $panelBody.siblings('.panel-heading').find('a').addClass('active');
+            }
         }
     });
-    console.timeEnd('he');
-
 
     // API页高亮代码
     $('pre code').each(function(i, e) {
