@@ -10,7 +10,7 @@ order: 300
 <a id="pfop-description"></a>
 ## 描述
 
-如果需要对已保存在空间中的资源进行云处理并将结果持久化，可以使用`/pfop`接口。  
+如果需要对已保存在空间中的资源进行云处理并将结果持久化，可以使用`pfop`接口。  
 
 <a id="pfop-specification"></a>
 ## 接口规格
@@ -24,7 +24,7 @@ order: 300
 ### 请求语法
 
 ```
-POST /pfop HTTP/1.1
+POST /pfop/ HTTP/1.1
 Host: api.qiniu.com  
 Content-Type: application/x-www-form-urlencoded  
 Authorization: QBox <AccessToken>  
@@ -61,10 +61,10 @@ bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotif
 
 参数名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
-`bucket`      | 资源空间                          | 是
-`key`         | 源资源名                          | 是
-`fops`        | 云处理操作列表，用“;”分隔         | 是
-`notifyURL`   | 处理结果通知接收URL，请参考[处理结果通知](#pfop-notification)小节 | 是
+`bucket`      | 资源空间                                                        | 是
+`key`         | 源资源名                                                        | 是
+`fops`        | 云处理操作列表，用“;”分隔,需要进行[URL转义][urlescapeHref]           | 是
+`notifyURL`   | 处理结果通知接收URL,请参考[处理结果通知](#pfop-notification)小节     | 是
 
 <a id="pfop-response"></a>
 ## 响应
@@ -286,3 +286,5 @@ HTTP状态码 | 含义
 [accessTokenHref]:      ../../security/access-token.html                 "管理凭证"
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+
+[urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
