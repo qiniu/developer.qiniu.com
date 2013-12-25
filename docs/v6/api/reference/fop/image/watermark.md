@@ -230,6 +230,7 @@ HTTP状态码 | 含义
 <a id="watermark-remarks"></a>
 ## 附注
 
+- 原图尺寸小于水印图片尺寸时，直接返回原图，不加水印。
 - watermark生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
 
 - 使用[qboxrsctl][qboxrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
