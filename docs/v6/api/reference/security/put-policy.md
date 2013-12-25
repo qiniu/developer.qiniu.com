@@ -50,10 +50,10 @@ order: 980
 `persistentOps`       |      | 音频/视频资源上传成功后异步执行的预转[云处理][fopHref]持久化指令。每个指令是一个API规格字符串，多个指令用“;”分隔
 `persistentNotifyUrl` |      | 七牛云存储向`App-Server`发送预转云处理持久化结果的URL，必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL
 `insertOnly`          |      | 如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件
-`detectMime`          |      | 如果设置为非0值，则忽略客户端传递的文件mimeType信息，使用服务器侦测的结果
-`fsizeLimit`          |      | 上传文件的大小限制，单位为字节（Byte），超过限制的文件会被认为上传失败
 `saveKey`             |      | 自定义文件名格式，支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]
-<a id="put-policy-mime-limit"></a>`mimeLimit`           |      | ● 限定用户上传的文件类型<br>指定本字段值，服务端会检测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回400状态码<br>● 示例<br>1. "image/*"表示只允许上传图片类型<br>2. "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片
+<a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | ● 限定上传文件的大小，单位：字节（Byte）<br>超过限制的上传内容会被判为上传失败，返回413状态码
+<a id="put-policy-detect-mime"></a>`detectMime`          |      | ● 开启MimeType侦测功能<br>设置为非0值，则忽略客户端传递的文件MimeType信息，使用服务器侦测的结果
+<a id="put-policy-mime-limit"></a>`mimeLimit`           |      | ● 限定用户上传的文件类型<br>指定本字段值，服务端会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回400状态码<br>● 示例<br>1. "image/*"表示只允许上传图片类型<br>2. "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片
 
 <a id="put-policy-remarks"></a>
 ## 附注
