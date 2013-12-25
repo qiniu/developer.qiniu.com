@@ -288,13 +288,23 @@ Content-Type: <VideoMimeType>
 
 	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/ogv/r/30/vb/1800k/vcodec/libtheora/ar/44100/ab/128k/acodec/libvorbis)
 
-<a id="audio-remarks"></a>
+<a id="avthumb-remarks"></a>
 ### 附注
 
-支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
-支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
+- 支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
+- 支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
+- 支持使用自定义参数覆盖预设集的对应参数，示例如下：
 
-<a id="audio-optimization"></a>
+	```
+    avthumb/iphone
+
+    =>
+
+    avthumb/iphone/rotate/auto  则在预设集的基础上增加自动旋转功能
+    avthumb/iphone/vb/500k      将视频码率更改为599k
+	```
+
+<a id="avthumb-optimization"></a>
 ### 优化建议
 
 为了保证良好的用户体验，请配合上传预转机制使用。参考: [上传预转](#upload-fop)
