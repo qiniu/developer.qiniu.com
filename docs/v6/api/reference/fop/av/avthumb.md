@@ -32,6 +32,7 @@ avthumb/<Format>
 `/ab/<BitRate>`      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等 |
 `/aq/<AudioQuality>` | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
 `/ar/<SamplingRate>` | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
+<a id="audio-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留 |
 
 <a id="audio-request"></a>
 ### 请求
@@ -189,13 +190,16 @@ Content-Type: <VideoMimeType>
 
 ```
 avthumb/<Format>
+       /ab/<BitRate>
+       /aq/<AudioQuality>
+       /ar/<SamplingRate>
        /r/<FrameRate>
        /vb/<VideoBitRate>
        /vcodec/<VideoCodec>
        /acodec/<AudioCodec>
-       /ab/<BitRate>
-       /aq/<AudioQuality>
-       /ar/<SamplingRate>
+       /ss/<SeekStart>
+       /t/<Duration>
+       /stripmeta/<StripMeta>
 ```
 
 参数名称                | 说明                                                                | 必填
@@ -211,6 +215,7 @@ avthumb/<Format>
 `/ss/<SeekStart>`       | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频 |
 `/t/<Duration>`         | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 |
 `/s/<Resolution>`       | 指定视频分辨率，格式为 wxh 或者预定义值。 |
+<a id="video-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留 |
 
 <a id="video-request"></a>
 ### 请求
