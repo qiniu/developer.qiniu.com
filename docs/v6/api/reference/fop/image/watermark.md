@@ -27,6 +27,7 @@ picWaterMarkSpec = watermark/1/image/<encodedImageURL>
 ```
 
 <a id="pic-watermark-params"></a>
+
 参数名称                    | 必填 | 说明
 :-------------------------- | :--- | :---------------------------------------------------------------
 `/image/<encodedImageURL>`  | 是   | 水印源图片网址（经过[URL安全的Base64编码][urlsafeBase64Href]），必须有效且返回一张图片
@@ -136,6 +137,7 @@ textWaterMarkSpec = watermark/2/text/<encodedText>
 ```
 
 <a id="text-watermark-params"></a>
+
 参数名称                   | 必填 | 说明
 :------------------------- | :--- | :-----------------------------------------------------------
 `/text/<encodedText>`      | 是   | 水印文字内容（经过[URL安全的Base64编码][urlsafeBase64Href]）
