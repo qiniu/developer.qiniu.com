@@ -132,7 +132,7 @@ X-Reqid: iDYAAPBicOGXLUET
 
 - 获取明文：data = Request.URL.PATH +"\n" +Request.Body
 
-- 采用HMAC-SHA1加密算法，对明文data加密，秘钥为SecretKey,比较加密结果是否与Authorization中的encoded_data字段相同,如果相同，表明这是一个合法的回请请求。
+- 采用HMAC-SHA1加密算法，对明文data加密，秘钥为SecretKey,比较加密结果是否与Authorization中的encoded_data字段相同,如果相同，表明这是一个合法的回调请求。
 
 以PHP语言为示例，验证代码如下：
 
