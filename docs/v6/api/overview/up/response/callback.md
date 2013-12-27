@@ -128,7 +128,8 @@ X-Reqid: iDYAAPBicOGXLUET
 
 - 根据Accesskey选取正确的SecretKey
 
-- 获取明文：data = Request.URL +"\n" +Request.Body
+- 获取明文：data = Request.Path +"\n" +Request.Body
+    - 部分语言或框架无法直接获取请求body的原始数据，在自行拼接时应当注意，body中的数据是经过[URL转义][urlescapeHref]的
 
 - 采用HMAC-SHA1加密算法，对明文data加密，秘钥为SecretKey,比较加密结果是否与Authorization中的encoded_data字段相同
 
@@ -138,7 +139,7 @@ X-Reqid: iDYAAPBicOGXLUET
 /**
 *C('accessKey')取得 AccessKey
 *C('secretKey')取得 SecretKey  
-*callback 为回调地址  
+*callback 为回调地址的Path部分  
 *file_get_contents('php://input')获取RequestBody,其值形如:  
 *name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm-RlQx_4O2\
 *&location=Shanghai&price=1500.00&uid=123
@@ -158,3 +159,5 @@ function IsQiniuCallback(){
 ```
 
 注意：如果回调数据包含用户的敏感数据，建议回调地址使用HTTPS协议
+
+[urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
