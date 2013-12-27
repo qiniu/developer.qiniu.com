@@ -117,9 +117,11 @@ X-Reqid: iDYAAPBicOGXLUET
 由于回调地址是公网可任意访问的，回调服务如何确认一次回调是合法的呢?
 
 七牛云存储在回调时会对请求数据加密，并将结果包含在请求头Authorization字段中，示例如下：
+
 ```
  Authorization:QBox iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:tDK-3f5xF3SJYEAwsll5g=
 ```
+
 其中`QBox `为固定值，`iN7Ngw...dCV`为用户的Accesskey,`tDK-3f...5g=`为加密结果(encoded_data)
 
 回调服务器可以通过以下方法验证其合法性：
@@ -128,10 +130,10 @@ X-Reqid: iDYAAPBicOGXLUET
 
 - 根据Accesskey选取正确的SecretKey
 
-- 获取明文：data = Request.Path +"\n" +Request.Body
+- 获取明文：data = Request.URL.Path +"\n" +Request.Body
     - 部分语言或框架无法直接获取请求body的原始数据，在自行拼接时应当注意，body中的数据是经过[URL转义][urlescapeHref]的
 
-- 采用HMAC-SHA1加密算法，对明文data加密，秘钥为SecretKey,比较加密结果是否与Authorization中的encoded_data字段相同
+- 采用HMAC-SHA1加密算法，对明文data加密，秘钥为SecretKey,比较加密结果是否与Authorization中的encoded_data字段相同，如相同则表明这是一个合法的回调请求
 
 以PHP语言为示例，验证代码如下：
 
@@ -139,7 +141,7 @@ X-Reqid: iDYAAPBicOGXLUET
 /**
 *C('accessKey')取得 AccessKey
 *C('secretKey')取得 SecretKey  
-*callback 为回调地址的Path部分  
+*callback.php 为回调地址的Path部分  
 *file_get_contents('php://input')获取RequestBody,其值形如:  
 *name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm-RlQx_4O2\
 *&location=Shanghai&price=1500.00&uid=123
@@ -153,7 +155,7 @@ function IsQiniuCallback(){
 	if(sizeof($auth)!=2||$auth[0]!=C('accessKey')){
 		return false;
 	}
-	$data = "/callback\n".file_get_contents('php://input');
+	$data = "/callback.php\n".file_get_contents('php://input');
 	return URLSafeBase64Encode(hash_hmac('sha1',$data,C("secretKey"), true)) == $auth[1];
 }
 ```
