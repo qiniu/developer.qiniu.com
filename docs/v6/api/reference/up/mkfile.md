@@ -22,7 +22,7 @@ order: 10
 POST /mkfile/<file_size>/key/<encodedKey> HTTP/1.1
 Content-Type:   text/plain
 Content-Length: <ctx_list_size>
-Host:           <selectUpHost>
+Host:           <Host>
 Authorization:  UpToken <UploadToken>
 
 <ctx_list>

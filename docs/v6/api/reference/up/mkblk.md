@@ -79,7 +79,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
     "checksum":     "<Checksum      string>",
     "crc32":         <Crc32         int64>,
     "offset":        <Offset        int64>,
-    "selectUpHost": "<SelectUpHost  string>"
+    "host":         "<Host          string>"
 }
 ```
 
@@ -91,7 +91,7 @@ ctx            | string | 服务端上传控制字段，后继上传及生成文
 checksum       | string | 上传块校验码。
 crc32          | int64  | 上传块Crc32,客户可通过此字段对上传块的完整性进行较验。
 offset         | int64  | 下一个上传块在切割块中的偏移。
-selectUpHost   | string | 后续上传接收地址。
+host           | string | 后续上传接收地址。
 
 如果请求失败，请参考[错误消息](#error-messages)。
 
@@ -153,7 +153,7 @@ X-Reqid: swEAAMipp-5bIjMT
     "checksum":     "checksum",
     "crc32":        1345,
     "offset":       0,
-    "selectUpHost": "http://up.qiniu.com"
+    "host":         "http://up-nb-5.qbox.me"
 }
 ```
 
