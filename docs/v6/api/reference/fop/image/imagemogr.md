@@ -45,7 +45,7 @@ imageMogrSpec = imageMogr/auto-orient
 `/thumbnail/<imageSizeGeometry>`     |      | 参看缩放操作参数表，缺省为不缩放
 `/gravity/<gravityType>`             |      | 参看裁剪锚点参数表，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看裁剪操作参数表，缺省为不裁剪
-`/quality/<imageQuality>`            |      | 图片质量，取值范围1-100，缺省为85
+`/quality/<imageQuality>`            |      | 图片质量，取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量
 `/rotate/<rotateDegree>`             |      | 旋转角度，取值范围1-360，缺省为不旋转
 `/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式
 

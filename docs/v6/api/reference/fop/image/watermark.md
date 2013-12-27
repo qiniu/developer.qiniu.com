@@ -26,6 +26,8 @@ picWaterMarkSpec = watermark/1/image/<encodedImageURL>
                               /dy/<distanceY>
 ```
 
+<a id="pic-watermark-params"></a>
+
 参数名称                    | 必填 | 说明
 :-------------------------- | :--- | :---------------------------------------------------------------
 `/image/<encodedImageURL>`  | 是   | 水印源图片网址（经过[URL安全的Base64编码][urlsafeBase64Href]），必须有效且返回一张图片
@@ -73,7 +75,7 @@ Content-Type: <imageMimeType>
 Content-Type   | 是   | MIME类型，成功时为图片的MIME类型，失败时为application/json
 Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
-<a id="imageView-response-content"></a>
+<a id="pic-watermark-response-content"></a>
 #### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
@@ -89,7 +91,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态](#pic-watermark-response-status)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="pic-watermark-response-code"></a>
@@ -133,6 +135,8 @@ textWaterMarkSpec = watermark/2/text/<encodedText>
                                /dx/<distanceX>
                                /dy/<distanceY>
 ```
+
+<a id="text-watermark-params"></a>
 
 参数名称                   | 必填 | 说明
 :------------------------- | :--- | :-----------------------------------------------------------
@@ -200,7 +204,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态](#text-watermark-response-status)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="text-watermark-response-code"></a>
@@ -227,9 +231,100 @@ HTTP状态码 | 含义
 
 右键拷贝图片链接查看水印生成的具体规格参数。
 
+<a id="multi-watermark"></a>
+## 同时打多个水印
+
+本接口用于同时在一个原图上打多个不同类型的水印。  
+
+<a id="multi-watermark-spec"></a>
+### 规格接口规格  
+
+```
+multiWaterMarkSpec = watermark/3
+                              /image/<imageWaterMarkParams1>
+                              /image/<imageWaterMarkParams2>
+                              /text/<textWaterMarkParams1>
+                              /text/<textWaterMarkParams2>
+                              ...
+```
+
+参数名称                         | 必填 | 说明
+:------------------------------- | :--- | :-----------------------------------------------------------
+`/image/<imageWaterMarkParams>`  |      | 参考[图片水印参数](#pic-watermark-params)
+`/text/<textWaterMarkParams>`    |      | 参考[文字水印参数](#text-watermark-params)
+
+<a id="multi-watermark-request"></a>
+### 请求
+
+<a id="multi-watermark-request-syntax"></a>
+#### 请求语法
+
+```
+GET <imageDownloadURI>?<multiWaterMarkSpec> HTTP/1.1
+Host: <imageDownloadHost>
+```
+
+<a id="multi-watermark-request-header"></a>
+#### 请求头部
+
+头部名称       | 必填 | 说明
+:------------- | :--- | :------------------------------------------
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+
+<a id="multi-watermark-response"></a>
+### 响应
+
+<a id="multi-watermark-response-syntax"></a>
+#### 响应报文格式
+
+```
+HTTP/1.1 200 OK
+Content-Type: <imageMimeType>
+
+<imageBinaryData>
+```
+
+<a id="multi-watermark--response-header"></a>
+#### 响应头部
+
+头部名称       | 必填 | 说明
+:------------- | :--- | :------------------------------------------
+Content-Type   | 是   | MIME类型，成功时为图片的MIME类型，失败时为application/json
+Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
+
+<a id="multi-watermark-response-content"></a>
+#### 响应内容
+
+■ 如果请求成功，返回图片的二进制数据。  
+
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+
+```
+{
+	"code":     <httpCode  int>, 
+    "error":   "<errMsg    string>",
+}
+```
+
+字段名称     | 必填 | 说明                              
+:----------- | :--- | :--------------------------------------------------------------------
+`code`       | 是   | HTTP状态码，请参考[响应状态](#multi-watermark-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
+
+<a id="multi-watermark-response-code"></a>
+#### 响应状态码
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 添加水印成功
+400	       | 请求报文格式错误
+404        | 资源不存在
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+
 <a id="watermark-remarks"></a>
 ## 附注
 
+- 原图尺寸小于水印图片尺寸时，直接返回原图，不加水印。
 - watermark生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
 
 - 使用[qboxrsctl][qboxrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
