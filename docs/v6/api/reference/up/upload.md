@@ -74,7 +74,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 参数名称                          | 必填 | 说明
 :-------------------------------- | :--- | :-----------------------------------------
 `<encodedEntryUri>`               | 是   | 指定目标资源空间（Bucket）与目标资源名（Key），[EncodedEntryURI格式][encodedEntryURIHref]
-`/mimeType/<encodedFileMimeType>` |      | 指定目标资源的[MIME类型][mimeTypeHref]，请参考IANA维护的[完整清单][mimeTypeListHref]。需进行[URL安全的Base64编码][urlsafeBase64Href]
+`/mimeType/<encodedFileMimeType>` |      | 指定目标资源的[MIME类型][mimeTypeHref]，请参考IANA维护的[完整清单][mimeTypeListHref]。需进行[URL安全的Base64编码][urlsafeBase64Href]<br>若不指定本参数，则由七牛服务器[自动侦测MimeType](../security/put-policy.html#put-policy-detect-mime)
 `/meta/<encodedMeta>`             |      | 指定目标资源的元信息，单位：字节（Byte），最长256字节。需进行[URL安全的Base64编码][urlsafeBase64Href]
 
 <a id="upload-request-params"></a>
