@@ -1616,6 +1616,9 @@ div.api-resource .social-resource .author {
 }
 .container.api .main {
   position: relative;
+  width: 702px;
+}
+.container.api .main .main-inner {
   border-left: 1px solid #e9e9e9;
   margin-left: -1px;
 }
@@ -1628,6 +1631,9 @@ div.api-resource .social-resource .author {
 }
 .container.docs {
   overflow: hidden;
+}
+.container.docs .side-bar-parent {
+  width: 260px;
 }
 .container.docs .side-bar {
   margin-top: 20px;
