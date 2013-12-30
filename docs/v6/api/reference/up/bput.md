@@ -34,7 +34,7 @@ Authorization:  UpToken <UploadToken>
 
 参数名称            | 必填  | 类型   | 说明
 :------------------ | :---  | :----- | :------------------------------
-`<ctx>`             | 是    | string | 上次返回的服务端上传控制字段。
+`<ctx>`             | 是    | string | 前一次上传返回的块级上传控制信息。
 `<nextChunkOffset>` | 是    | int64  | 当前片在整个块中的起始偏移。
 
 <a id="bput-request-headers"></a>
@@ -42,7 +42,7 @@ Authorization:  UpToken <UploadToken>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :-------------------------------------
-Host           | 是   | 上一次响应内容中夹带的后续上传接收地址。
+Host           | 是   | 上一次上传响应返回的后续上传接收地址。
 Content-Type   | 是   | 固定为application/octet-stream。
 Content-Length | 是   | 当前片的内容长度，单位：字节（Byte）。
 Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
@@ -86,10 +86,10 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 字段名称       | 必填 | 说明
 :------------- | :--- | :------------------------------
-ctx            | 是   | 上传控制信息，后续[上传片](bput.html)及[生成文件](mkfile.html)时用到。
-checksum       | 是   | 上传块校验码。
-crc32          | 是   | 上传块Crc32,客户可通过此字段对上传块的完整性进行较验。
-offset         | 是   | 下一个上传块在切割块中的偏移。
+ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](bput.html)及[生成文件](mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>使用内容相同的`<ctx>`上传不同的片会返回701状态码。
+checksum       | 是   | 本块已上传部分的校验码，只能被七牛服务器解读使用。
+crc32          | 是   | 本块已上传部分的CRC32值，上传端可通过此字段对本块已上传部分的完整性进行校验。
+offset         | 是   | 下一个上传片在上传块中的偏移。
 host           | 是   | 后续上传接收地址。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  

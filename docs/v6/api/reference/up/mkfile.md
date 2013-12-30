@@ -41,18 +41,19 @@ Authorization:  UpToken <UploadToken>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :----------------------------------------
-Host           | 是   | 上一次响应内容中夹带的后续上传接收地址。
+Host           | 是   | 上一次上传响应返回的后续上传接收地址。
 Content-Type   | 是   | 固定为text/plain。
-Content-Length | 是   | 所有块的ctx及分隔符的总长度，单位：字节（Byte）。
+Content-Length | 是   | 所有块的`<ctx>`及分隔符的总长度，单位：字节（Byte）。
 Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
 
 <a id="mkfile-request-body"></a>
 ### 请求内容
 
-该请求的内容为所有块的ctx列表，以“,”分隔，按其在源文件中的位置排序。  
+该请求的内容为所有块的`<ctx>`列表，以“,”分隔，按其在源文件中的位置排序。  
+注意：列表最后一项后面不需要添加“,”。
 
 ```
-<ctx1>,<ctx2>,<ctx3>,<ctx4>,<ctx5>,...
+<ctx1>,<ctx2>,<ctx3>,<ctx4>,<ctx5>,...,<ctxN>
 ```
 
 <a id="mkfile-request-auth"></a>
