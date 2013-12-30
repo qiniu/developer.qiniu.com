@@ -1214,9 +1214,8 @@ div.api-resource .social-resource .author {
 .container.index .cell.sdk ul li:first-child {
   border-left: none;
 }
-.container.index .cell.cli,
-.container.index .cell.api {
-  width: 580px;
+.container.index .main {
+  width: 632px;
 }
 .container.index .side-bar {
   width: 308px;
@@ -1881,7 +1880,6 @@ pre .tag .value,
 pre .phpdoc,
 pre .tex .formula {
   /*color:#d14*/
-
   color: #409B1C;
 }
 pre .title,
@@ -1913,7 +1911,6 @@ pre .attribute,
 pre .variable,
 pre .lisp .body {
   /*color:#008080*/
-
   color: #FF7800;
 }
 pre .regexp {
