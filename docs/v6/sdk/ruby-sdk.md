@@ -116,23 +116,23 @@ title: Ruby SDK 使用指南
 
 在七牛云存储中，整个上传流程大体分为这样几步：
 
-1. 业务服务器颁发 [uptoken（上传授权凭证）](http://docs.qiniu.com/api/put.html#uploadToken)给客户端（终端用户）
-2. 客户端凭借 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 上传文件到七牛
+1. 业务服务器颁发 [上传凭证][uploadTokenHref]给客户端（终端用户）
+2. 客户端凭借 [上传凭证][uploadTokenHref] 上传文件到七牛
 3. 在七牛获得完整数据后，发起一个 HTTP 请求回调到业务服务器
 4. 业务服务器保存相关信息，并返回一些信息给七牛
 5. 七牛原封不动地将这些信息转发给客户端（终端用户）
 
-需要注意的是，回调到业务服务器的过程是可选的，它取决于业务服务器颁发的 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken)。如果没有回调，七牛会返回一些标准的信息（比如文件的 hash）给客户端。如果上传发生在业务服务器，以上流程可以自然简化为：
+需要注意的是，回调到业务服务器的过程是可选的，它取决于业务服务器颁发的 [上传凭证][uploadTokenHref]。如果没有回调，七牛会返回一些标准的信息（比如文件的 hash）给客户端。如果上传发生在业务服务器，以上流程可以自然简化为：
 
 1. 业务服务器生成 uptoken（不设置回调，自己回调到自己这里没有意义）
-2. 凭借 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 上传文件到七牛
+2. 凭借 [上传凭证][uploadTokenHref] 上传文件到七牛
 3. 善后工作，比如保存相关的一些信息
 
 <a name="io-put-policy"></a>
 
 #### 上传策略
 
-[uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`Qiniu_RS_PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
+[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`Qiniu_RS_PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
 
 ```{ruby}
 class PutPolicy
@@ -155,18 +155,18 @@ class PutPolicy
 
 * `scope` 限定客户端的权限。如果 `scope` 是 bucket，则客户端只能新增文件到指定的 bucket，不能修改文件。如果 `scope` 为 bucket:key，则客户端可以修改指定的文件。**注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 * `callbackUrl` 设定业务服务器的回调地址，这样业务服务器才能感知到上传行为的发生。
-* `callbackBody` 设定业务服务器的回调信息。文件上传成功后，七牛向业务服务器的callbackUrl发送的POST请求携带的数据。支持 [魔法变量](http://docs.qiniu.com/api/put.html#MagicVariables) 和 [自定义变量](http://docs.qiniu.com/api/put.html#xVariables)。
+* `callbackBody` 设定业务服务器的回调信息。文件上传成功后，七牛向业务服务器的callbackUrl发送的POST请求携带的数据。支持 [魔法变量][magicVariablesHref] 和 [自定义变量][xVariablesHref]。
 * `returnUrl` 设置用于浏览器端文件上传成功后，浏览器执行303跳转的URL，一般为 HTML Form 上传时使用。文件上传成功后浏览器会自动跳转到 `returnUrl?upload_ret=returnBody`。
-* `returnBody` 可调整返回给客户端的数据包，支持 [魔法变量](http://docs.qiniu.com/api/put.html#MagicVariables) 和 [自定义变量](http://docs.qiniu.com/api/put.html#xVariables)。`returnBody` 只在没有 `callbackUrl` 时有效（否则直接返回 `callbackUrl` 返回的结果）。不同情形下默认返回的 `returnBody` 并不相同。在一般情况下返回的是文件内容的 `hash`，也就是下载该文件时的 `etag`；但指定 `returnUrl` 时默认的 `returnBody` 会带上更多的信息。
+* `returnBody` 可调整返回给客户端的数据包，支持 [魔法变量][magicVariablesHref] 和 [自定义变量][xVariablesHref]。`returnBody` 只在没有 `callbackUrl` 时有效（否则直接返回 `callbackUrl` 返回的结果）。不同情形下默认返回的 `returnBody` 并不相同。在一般情况下返回的是文件内容的 `hash`，也就是下载该文件时的 `etag`；但指定 `returnUrl` 时默认的 `returnBody` 会带上更多的信息。
 * `asyncOps` 可指定上传完成后，需要自动执行哪些数据处理。这是因为有些数据处理操作（比如音视频转码）比较慢，如果不进行预转可能第一次访问的时候效果不理想，预转可以很大程度改善这一点。
 
-关于上传策略更完整的说明，请参考 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken)。
+关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
 <a name="upload-token"></a>
 
 #### 生成上传凭证
 
-服务端生成 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 代码如下：
+服务端生成 [上传凭证][uploadTokenHref] 代码如下：
 
 ```{ruby}
 @access_key = Qiniu::Conf.settings[:access_key]
@@ -217,7 +217,7 @@ end
 end
 ```
 
-* `params` 是一个Hash。用于放置[自定义变量](http://docs.qiniu.com/api/put.html#xVariables)，key必须以 x: 开头命名，不限个数。可以在 uploadToken 的 callbackBody 选项中求值。
+* `params` 是一个Hash。用于放置[自定义变量][xVariablesHref]，key必须以 x: 开头命名，不限个数。可以在 uploadToken 的 callbackBody 选项中求值。
 * `mime_type` 表示数据的MimeType，当不指定时七牛服务器会自动检测。
 * `crc32` 待检查的crc32值
 * `check_crc` 可选值为0, 1, 2。 
@@ -238,7 +238,7 @@ end
 
     http://<domain>/<key>
 
-假设某个 bucket 既绑定了七牛的二级域名，如 hello.qiniudn.com，也绑定了自定义域名（需要备案），如 hello.com。那么该 bucket 中 key 为 a/b/c.htm 的文件可以通过 http://hello.qiniudn.com/a/b/c.htm 或 http://hello.com/a/b/c.htm 中任意一个 url 进行访问。
+假设某个 bucket 既绑定了七牛的二级域名，如 hello.qiniudn.com，也绑定了自定义域名（需要备案），如 hello.com。那么该 bucket 中 key 为 a/b/c.htm 的文件可以通过`http://hello.qiniudn.com/a/b/c.htm`或`http://hello.com/a/b/c.htm`中任意一个 url 进行访问。
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
@@ -428,3 +428,7 @@ Copyright (c) 2013 qiniu.com
 
 * [www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)
 
+[uploadTokenHref]:    ../api/reference/security/upload-token.html    "上传凭证"
+[downloadTokenHref]:  ../api/reference/security/download-token.html  "下载凭证"
+[magicVariablesHref]: ../api/overview/up/response/vars.html#magicvar "魔法变量"
+[xVariablesHref]:     ../api/overview/up/response/vars.html#xvar     "自定义变量"
