@@ -82,7 +82,7 @@ checkCrc 为 0 时，服务端不会校验 crc32 值，checkCrc 为 1 时，服�
 
 #### params
 
-用户自定义参数，必须以 "x:" 开头，这些参数可以作为变量用于 upToken 的 callbackBody，returnBody，asyncOps 参数中，具体见：http://docs.qiniu.com/api/put.html#xVariables。简单的一个例子为：
+用户自定义参数，必须以 "x:" 开头，这些参数可以作为变量用于 upToken 的 callbackBody，returnBody，asyncOps 参数中，具体见：[自定义变量][xVariablesHref]。简单的一个例子为：
 
 	// extra argument
     QiniuPutExtra *extra = [[[QiniuPutExtra alloc] init] autorelease];
@@ -126,7 +126,7 @@ checkCrc 为 0 时，服务端不会校验 crc32 值，checkCrc 为 1 时，服�
 
 本SDK附带的QiniuDemo是以静态库的方式使用QiniuSDK。如果开发者希望用这种方式引入QiniuSDK，可以借鉴一下QiniuDemo的工程设置。
 
-运行QiniuDemo之前需要先设置代码中的三个配置项：QiniuAccessKey、QiniuSecretKey 和 QiniuBucketName。相应的值都可以在我们的[开发者平台]( https://portal.qiniu.com/)上操作和获取。
+运行QiniuDemo之前需要先设置代码中的三个配置项：QiniuAccessKey、QiniuSecretKey 和 QiniuBucketName。相应的值都可以在我们的[开发者平台](https://portal.qiniu.com/)上操作和获取。
 
 <a name="tips"></a>
 ## 注意事项
@@ -153,3 +153,8 @@ checkCrc 为 0 时，服务端不会校验 crc32 值，checkCrc 为 1 时，服�
 ## 许可证
 
 Copyright (c) 2012-2013 qiniu.com
+
+[uploadTokenHref]:    ../api/reference/security/upload-token.html    "上传凭证"
+[downloadTokenHref]:  ../api/reference/security/download-token.html  "下载凭证"
+[magicVariablesHref]: ../api/overview/up/response/vars.html#magicvar "魔法变量"
+[xVariablesHref]:     ../api/overview/up/response/vars.html#xvar     "自定义变量"

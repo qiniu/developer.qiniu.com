@@ -5,7 +5,7 @@ title: C# SDK 使用指南
 
 # C# SDK 使用指南
 
-此 C# SDK 适用于.net framework>4.0版本，基于 [七牛云存储官方API](http://docs.qiniu.com/) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
+此 C# SDK 适用于.net framework>4.0版本，基于[七牛云存储官方API](../index.html)构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 - [安装](#install)
 - [初始化](#setup)
@@ -66,7 +66,7 @@ DLL引用方式:
 要接入七牛云存储，您需要拥有一对有效的 Access Key 和 Secret Key 用来进行签名认证。可以通过如下步骤获得：
 
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 。
+2. 登录七牛开发者平台，查看 [Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 。
 
 在获取到 Access Key 和 Secret Key 之后，您可以在您的程序中调用如下两行代码进行初始化对接, 要确保`ACCESS_KEY` 和 `SECRET_KEY` 在<u>调用所有七牛API服务之前均已赋值</u>：
 
@@ -375,7 +375,7 @@ public static void List (string bucket)
 <a name=putpolicy></a>
 ### 上传策略
 
-PutPolicy类用于定制上传策略，关于上传策略完整的说明，请参考[上传策略（PutPolicy）](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html)。
+PutPolicy类用于定制上传策略，关于上传策略完整的说明，请参考[上传策略（PutPolicy）](../api/reference/security/put-policy.html)。
 
 uptoken 实际上是用 AccessKey/SecretKey对上传策略进行数字签名的字符串,用于上传接口。
 
@@ -480,7 +480,7 @@ public event EventHandler<PutNotifyErrorEvent> NotifyErr;
 
 	[GET] http://<domain>/<key>
 
-其中<domain>是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛云存储开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，用户可以通过自有域名访问七牛云存储。
+其中<domain>是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，用户可以通过自有域名访问七牛云存储。
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 

@@ -5,7 +5,7 @@ title: Java SDK 使用指南
 
 # Java SDK 使用指南
 
-此SDK适用于Java 6及以上版本。基于 [七牛云存储官方API](http://docs.qiniu.com) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
+此SDK适用于Java 6及以上版本。基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qiniu/java-sdk/tags)
 
@@ -68,7 +68,7 @@ SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qi
 要接入七牛云存储，您需要拥有一对有效的 Access Key 和 Secret Key 用来进行签名认证。可以通过如下步骤获得：
 
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 。
+2. 登录七牛开发者自助平台，查看 [Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 
 
 在获取到 Access Key 和 Secret Key 之后，您可以按照如下方式进行密钥配置：
 
@@ -106,7 +106,7 @@ public class Init {
 
 客户端（终端用户）直接上传到七牛的服务器。通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会相比数据存放在用户自己的业务服务器上的方式更快。而且，七牛云存储可以在用户文件上传成功以后，替用户的客户端向用户的业务服务器发送反馈信息，减少用户的客户端同业务服务器之间的交互。详情请参考[上传策略](#io-put-policy)
 
-**注意**：如果您只是想要将您电脑上，或者是服务器上的文件上传到七牛云存储，可以直接使用七牛提供的 [qrsync](http://docs.qiniu.com/tools/qrsync.html) 上传工具，而无需额外开发。
+**注意**：如果您只是想要将您电脑上，或者是服务器上的文件上传到七牛云存储，可以直接使用七牛提供的 [qrsync](../tools/qrsync.html) 上传工具，而无需额外开发。
 
 文件上传有两种方式：普通方式，即一次性上传整个文件；断点续上传，即将文件分割成若干小块，分别上传，然后在七牛云存储服务端重新合并成一个文件。一般情况下，用户可以采用普通上传。如果文件较大，或者网络条件不佳，那么可以使用断点续上传，提高上传的速度和成功率。
 
@@ -164,7 +164,7 @@ public class Uptoken {
 
 ### 3.3 上传代码
 
-上传本地文件。如果用户从自己的计算机或服务器上传文件，可以直接使用七牛云存储提供的[qrsync](http://docs.qiniu.com/tools/qrsync.html)工具。用户也可以自行编写上传程序。
+上传本地文件。如果用户从自己的计算机或服务器上传文件，可以直接使用七牛云存储提供的[qrsync](../tools/qrsync.html)工具。用户也可以自行编写上传程序。
 
 上传程序大体步骤如下：
 
@@ -216,9 +216,9 @@ public class UploadFile {
 
 ### 3.5 上传策略
 
-[uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
+[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
 
-* `expires` 指定 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 有效期（默认1小时）。一个 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken) 可以被用于多次上传（只要它还没有过期）。
+* `expires` 指定 [上传凭证][uploadTokenHref] 有效期（默认1小时）。一个 [上传凭证][uploadTokenHref] 可以被用于多次上传（只要它还没有过期）。
 * `scope` 限定客户端的权限。如果 `scope` 是 bucket，则客户端只能新增文件到指定的 bucket，不能修改文件。如果 `scope` 为 bucket:key，则客户端可以修改指定的文件。**注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 * `callbackUrl` 设定业务服务器的回调地址，这样业务服务器才能感知到上传行为的发生。可选。
 * `asyncOps` 可指定上传完成后，需要自动执行哪些数据处理。这是因为有些数据处理操作（比如音视频转码）比较慢，如果不进行预转可能第一次访问的时候效果不理想，预转可以很大程度改善这一点。
@@ -226,7 +226,7 @@ public class UploadFile {
 * `escape` 为真（非0）时，表示客户端传入的 `callbackParams` 中含有转义符。通过这个特性，可以很方便地把上传文件的某些元信息如 `fsize`（文件大小）、`ImageInfo.width/height`（图片宽度/高度）、`exif`（图片EXIF信息）等传给业务服务器。
 * `detectMime` 为真（非0）时，表示服务端忽略客户端传入的 `mimeType`，自己自行检测。
 
-关于上传策略更完整的说明，请参考 [uptoken](http://docs.qiniu.com/api/put.html#uploadToken)。
+关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
 ### 3.6 文件下载
 
@@ -718,3 +718,7 @@ Copyright (c) 2013 qiniu.com
 
 * [www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)
 
+[uploadTokenHref]:    ../api/reference/security/upload-token.html    "上传凭证"
+[downloadTokenHref]:  ../api/reference/security/download-token.html  "下载凭证"
+[magicVariablesHref]: ../api/overview/up/response/vars.html#magicvar "魔法变量"
+[xVariablesHref]:     ../api/overview/up/response/vars.html#xvar     "自定义变量"
