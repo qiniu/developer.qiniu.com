@@ -232,7 +232,7 @@ function uploadBuf(body, key, uptoken) {
     } else {
       // 上传失败， 处理返回代码
       console.log(err)
-      // http://docs.qiniu.com/api/put.html#error-code
+      // http://developer.qiniu.com/docs/v6/api/reference/codes.html
     }
   });
 }
@@ -256,7 +256,7 @@ function uploadFile(localFile, key, uptoken) {
     } else {
       // 上传失败， 处理返回代码
       console.log(err);
-      // http://docs.qiniu.com/api/put.html#error-code
+      // http://developer.qiniu.com/docs/v6/api/reference/codes.html
     }
   });
 }
@@ -288,7 +288,7 @@ function uploadFile(localFile, key, uptoken) {
 
     http://<domain>/<key>?e=<deadline>&token=<dntoken>
 
-其中 dntoken 是由业务服务器签发的一个[临时下载授权凭证](http://docs.qiniu.com/api/get.html#download-token)，deadline 是 dntoken 的有效期。dntoken不需要单独生成，SDK 提供了生成完整 downloadUrl 的方法（包含了 dntoken），示例代码如下：
+其中 dntoken 是由业务服务器签发的一个[临时下载授权凭证][downloadTokenHref]，deadline 是 dntoken 的有效期。dntoken不需要单独生成，SDK 提供了生成完整 downloadUrl 的方法（包含了 dntoken），示例代码如下：
 
 ```{javascript}
 function downloadUrl(domain, key) {
@@ -333,7 +333,7 @@ client.stat(bucketName, key, function(err, ret) {
     // ret has keys (hash, fsize, putTime, mimeType)
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -349,7 +349,7 @@ client.remove(bucketName, key, function(err, ret) {
     // ok
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 })
 ```
@@ -365,7 +365,7 @@ client.copy(bucketSrc, keySrc, bucketDest, keyDest, function(err, ret) {
     // ok
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -377,7 +377,7 @@ client.move(bucketSrc, keySrc, bucketDest, keyDest, function(err, ret) {
     // ok
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -411,12 +411,12 @@ client.batchStat([path0, path1, path2], function(err, ret) {
       } else {
         // parse error code
         console.log(ret[i].code, ret[i].data);
-        // http://docs.qiniu.com/api/file-handle.html#error-code
+        // http://developer.qiniu.com/docs/v6/api/reference/codes.html
       }
     }
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -440,13 +440,13 @@ client.batchCopy([pair0, pair1], function(err, ret) {
       if (ret[i].code !== 200) {
         // parse error code
         console.log(ret[i].code, ret[i].data);
-        // http://docs.qiniu.com/api/file-handle.html#error-code
+        // http://developer.qiniu.com/docs/v6/api/reference/codes.html
       }
     }
 
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -470,12 +470,12 @@ client.batchMove([pair0, pair1], function(err, ret) {
       if (ret[i] !== 200) {
         // parse error code
         console.log(ret[i].code, ret[i].data);
-        // http://docs.qiniu.com/api/file-handle.html#error-code
+        // http://developer.qiniu.com/docs/v6/api/reference/codes.html
       }
     }
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -495,12 +495,12 @@ client.batchDelete([path0, path1, path2], function(err, ret) {
       if (ret[i].code !== 200) {
         // parse error code
         console.log(ret[i].code, ret[i].data);
-        // http://docs.qiniu.com/api/file-handle.html#error-code
+        // http://developer.qiniu.com/docs/v6/api/reference/codes.html
       }
     }
   } else {
     console.log(err);
-    // http://docs.qiniu.com/api/file-handle.html#error-code
+    // http://developer.qiniu.com/docs/v6/api/reference/codes.html
   }
 });
 ```
@@ -522,7 +522,7 @@ qiniu.rsf.listPrefix(bucketname, prefix, marker, limit, function(err, ret) {
     // process ret.marker & ret.items
   } else {
     console.log(err)
-    // http://docs.qiniu.com/api/file-handle.html#list
+    // http://developer.qiniu.com/docs/v6/api/reference/rs/list.html
   }
 });
 ```

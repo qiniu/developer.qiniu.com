@@ -34,7 +34,7 @@ title: Ruby SDK 使用指南
 
 ## 概述
 
-此 Ruby SDK 适用于 Ruby 1.8.x, 1.9.x, jruby, rbx, ree 版本，基于 [七牛云存储官方API](http://docs.qiniu.com) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
+此 Ruby SDK 适用于 Ruby 1.8.x, 1.9.x, jruby, rbx, ree 版本，基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 七牛云存储 Ruby SDK 源码地址：<https://github.com/qiniu/ruby-sdk> [![Build Status](https://api.travis-ci.org/qiniu/ruby-sdk.png?branch=master)](https://travis-ci.org/qiniu/ruby-sdk) [![Dependency Status](https://gemnasium.com/why404/qiniu-rs-for-ruby.png)]
 
@@ -67,7 +67,7 @@ title: Ruby SDK 使用指南
 可以通过如下步骤获得：
 
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. [登录七牛开发者自助平台，查看 AccessKey 和 SecretKey](https://portal.qiniu.com/setting/key) 。
+2. 登录七牛开发者自助平台，查看 [AccessKey 和 SecretKey](https://portal.qiniu.com/setting/key)
 
 **注意：SECRET_KEY用户应当妥善保存，不能外泄。亦不可放置在客户端中，分发给最终用户。一旦发生泄露，请立刻到开发者平台更新。**
 
@@ -250,7 +250,7 @@ end
 
     http://<domain>/<key>?e=<deadline>&token=<dntoken>
 
-其中 dntoken 是由业务服务器签发的一个[临时下载授权凭证](http://docs.qiniu.com/api/get.html#download-token)，deadline 是 dntoken 的有效期。dntoken不需要单独生成，SDK 提供了生成完整 downloadUrl 的方法（包含了 dntoken），示例代码如下：
+其中 dntoken 是由业务服务器签发的一个[临时下载授权凭证][downloadTokenHref]，deadline 是 dntoken 的有效期。dntoken不需要单独生成，SDK 提供了生成完整 downloadUrl 的方法（包含了 dntoken），示例代码如下：
 
 ```{ruby}
 @access_key = Qiniu::Conf.settings[:access_key]
