@@ -64,6 +64,11 @@ order: 970
 // TODO: 代码示例goes here.
 ```
 
+<a id="upload-token-samples"></a>
+## 上传凭证生成器
+
+[在线示例](http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken)
+
 <a id="upload-internal-resources"></a>
 ## 内部参考资源
 

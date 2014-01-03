@@ -73,6 +73,11 @@ Content-Type: <MimeType>
 变量将会在回调和自定义返回内容中起到极大的作用。具体用法请参见[回调](response/callback.html)和[自定义返回内容](response/response-body.html)对应的使用方法描述。
 
 <a id="form-upload-example"></a>
-## 完整示例
+## 在线示例
+
+- [表单上传](http://jsfiddle.net/gh/get/library/pure/icattlecoder/jsfiddle/tree/master/formupload)
+
+- [异步表单上传](http://jsfiddle.net/gh/get/jquery/1.9.1/icattlecoder/jsfiddle/tree/master/ajaxupload)
+
 
 请参见<https://github.com/qiniu/form-upload>。
