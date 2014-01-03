@@ -69,11 +69,11 @@
                         <h4 class="panel-title">
                             <a href="#" {{if isstart_with $url .data.apiview.Name}} class="active"{{end}}> API使用说明 </a>
 
-{{if isstart_with $url .data.apiview.Name}}
+                            {{if isstart_with $url .data.apiview.Name}}
                             <span class="icon api_down">
-{{else}}
+                            {{else}}
                             <span class="icon api_default">
-{{end}}
+                            {{end}}
                             </span>
                         </h4>
                     </div>
@@ -119,11 +119,12 @@
                         <h4 class="panel-title">
                             <a href="#" {{if isstart_with $url .data.apiref.Name}} class="active"{{end}}> API参考手册</a>
 
-{{if isstart_with $url .data.apiref.Name}}
+                            {{if isstart_with $url .data.apiref.Name}}
                             <span class="icon api_down">
-{{else}}
+                            {{else}}
                             <span class="icon api_default">
-{{end}}                            
+                            {{end}}                            
+                            </span>
                         </h4>
                     </div>
                     <div class="panel-body" {{if isstart_with $url .data.apiref.Name}} style="display:block"{{end}}>
@@ -173,7 +174,8 @@
                             <span class="icon api_down">
                         {{else}}
                             <span class="icon api_default">
-                        {{end}}                                 
+                        {{end}}       
+                        </span>                          
                         </h4>
                     </div>
                     <div class="panel-body" {{if isstart_with $url "docs/v6/sdk/"}} style="display:block"{{end}}>
@@ -207,7 +209,8 @@ style="display:block"
                             <span class="icon api_down">
                         {{else}}
                             <span class="icon api_default">
-                        {{end}}                                 
+                        {{end}}
+                        </span>                                 
                         </h4>
                     </div>
                     <div class="panel-body"  {{if isstart_with $url "docs/v6/tools/"}} style="display:block"{{end}}>
@@ -270,7 +273,8 @@ style="display:block"
                             <span class="icon api_down">
                         {{else}}
                             <span class="icon api_default">
-                        {{end}}                              
+                        {{end}}   
+                            </span>                           
                         </h4>
                     </div>
                     <div class="panel-body" {{if isstart_with $url .data.kb.Name}} style="display:block"{{end}}>
