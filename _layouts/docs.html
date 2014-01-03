@@ -117,9 +117,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#"> API参考手册 </a>
+                            <a href="#" {{if isstart_with $url .data.apiref.Name}} class="active"{{end}}> API参考手册</a>
+
+{{if isstart_with $url .data.apiref.Name}}
+                            <span class="icon api_down">
+{{else}}
                             <span class="icon api_default">
-                            </span>
+{{end}}                            
                         </h4>
                     </div>
                     <div class="panel-body" {{if isstart_with $url .data.apiref.Name}} style="display:block"{{end}}>
@@ -163,9 +167,13 @@
                 <div class="panel panel-default ">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#"> SDK </a>
+                            <a href="#" {{if isstart_with $url "docs/v6/sdk/"}} class="active"{{end}}> SDK </a>
+
+                        {{if isstart_with $url "docs/v6/sdk/"}}
+                            <span class="icon api_down">
+                        {{else}}
                             <span class="icon api_default">
-                            </span>
+                        {{end}}                                 
                         </h4>
                     </div>
                     <div class="panel-body" {{if isstart_with $url "docs/v6/sdk/"}} style="display:block"{{end}}>
@@ -176,7 +184,7 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_1">
                                         </span>
-                                        <a href="{{.doc}}" class="link">{{.label}} </a>
+                                        <a href="/{{.doc}}" class="link">{{.menuName}} </a>
                                     </h5>
                                 </div>
                                 <div class="panel-body" id="{{.name}}-sdk" {{if eq .doc $url}}
@@ -193,11 +201,13 @@ style="display:block"
                 <div class="panel panel-default" >
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#">
-                                    工具
-                                </a>
+                            <a href="#" {{if isstart_with $url "docs/v6/tools/"}} class="active"{{end}}> 工具</a>
+
+                        {{if isstart_with $url "docs/v6/tools/"}}
+                            <span class="icon api_down">
+                        {{else}}
                             <span class="icon api_default">
-                            </span>
+                        {{end}}                                 
                         </h4>
                     </div>
                     <div class="panel-body"  {{if isstart_with $url "docs/v6/tools/"}} style="display:block"{{end}}>
@@ -205,7 +215,7 @@ style="display:block"
                             <li>
                                 <div class="panel-heading">
                                     <h5 class="panel-title">
-                                        <span class="icon off_2">
+                                        <span class="icon off_1">
                                         </span>
                                         <a href="/docs/v6/tools/qboxrsctl.html" class="link">
                                                 qboxrsctl
@@ -221,7 +231,7 @@ style="display:block"
                             <li>
                                 <div class="panel-heading">
                                     <h5 class="panel-title">
-                                        <span class="icon off_2">
+                                        <span class="icon off_1">
                                         </span>
                                         <a href="/docs/v6/tools/qrsbox.html" class="link">
                                                 qrsbox
@@ -236,7 +246,7 @@ style="display:block"
                             <li>
                                 <div class="panel-heading">
                                     <h5 class="panel-title">
-                                        <span class="icon off_2">
+                                        <span class="icon off_1">
                                         </span>
                                         <a href="/docs/v6/tools/qrsync.html" class="link">
                                                 qrsync
@@ -254,11 +264,13 @@ style="display:block"
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#">
-                                    技术文章
-                                </a>
+                            <a href="#" {{if isstart_with $url .data.kb.Name}} class="active"{{end}}> 技术文章</a>
+
+                        {{if isstart_with $url .data.kb.Name}}
+                            <span class="icon api_down">
+                        {{else}}
                             <span class="icon api_default">
-                            </span>
+                        {{end}}                              
                         </h4>
                     </div>
                     <div class="panel-body" {{if isstart_with $url .data.kb.Name}} style="display:block"{{end}}>
