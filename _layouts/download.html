@@ -37,26 +37,28 @@
             <div class="cell-body">
                 {{range .data.resource.sdk}}
                 <div class="resource-card">
-                    <div class="logo">
-                        <span class="icon resource_{{.name}}_sprited"></span>
-                    </div>
-                    <div class="content">
-                        <div class="name">{{.label}}</div>
-                        <div class="version">版本：{{.version}}</div>
-                        <div class="update-date">更新：{{.date}}</div>
-                        <div class="url">
-                            <a href="{{.source}}" class="source" target="_blank">
-                                <span class="icon global_github_sprited"></span>
-                                源码
-                            </a>
-                            <a href="/docs/v6/sdk/{{.name}}-sdk.html" class="docs" target="_blank">
-                                <span class="icon global_source_sprited"></span>
-                                文档
-                            </a>
-                            <a href="{{.download}}" class="download" target="_blank">
-                                <span class="icon global_download_sprited"></span>
-                                下载
-                            </a>
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon resource_{{.name}}_sprited"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="version">版本：{{.version}}</div>
+                            <div class="update-date">更新：{{.date}}</div>
+                            <div class="url">
+                                <a href="{{.source}}" class="source" target="_blank">
+                                    <span class="icon global_github_sprited"></span>
+                                    源码
+                                </a>
+                                <a href="/docs/v6/sdk/{{.name}}-sdk.html" class="docs" target="_blank">
+                                    <span class="icon global_source_sprited"></span>
+                                    文档
+                                </a>
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,27 +70,29 @@
             <div class="cell-body">
                 {{range .data.resource.devtools}}
                 <div class="resource-card">
-                    <div class="logo">
-                        <span class="icon resource_{{.name}}_sprited"></span>
-                    </div>
-                    <div class="content">
-                        <div class="name">{{.label}}</div>
-                        <div class="describe">
-                            {{.description}}
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon resource_{{.name}}_sprited"></span>
                         </div>
-                        <div class="info">
-                            <span class="version">版本：{{.version}}</span>
-                            <span class="update-date">更新：{{.date}}</span>
-                        </div>
-                        <div class="url">
-                            <a href="/docs/v6/tools/{{.label}}.html" class="docs" target="_blank">
-                                <span class="icon global_source_sprited"></span>
-                                文档
-                            </a>
-                            <a href="{{.download}}" class="download" target="_blank">
-                                <span class="icon global_download_sprited"></span>
-                                下载
-                            </a>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="version">版本：{{.version}}</span>
+                                <span class="update-date">更新：{{.date}}</span>
+                            </div>
+                            <div class="url">
+                                <a href="/docs/v6/tools/{{.label}}.html" class="docs" target="_blank">
+                                    <span class="icon global_source_sprited"></span>
+                                    文档
+                                </a>
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,40 +103,42 @@
         <div class="resource-box cell large community-plugin" id="plugin">
             <h2 class="cell-head">
                 社区插件/工具
-                <a href="" class="js-add-resource">                                 
+                <a href="" class="js-add-resource">
                     提交我的插件/工具
                 </a>
             </h2>
             <div class="cell-body">
                 {{range .data.resource.third_plugin}}
                 <div class="resource-card">
-                    <div class="logo">
-                        {{if .defaultSprite}}
-                        <span class="icon resource_plugin"></span>
-                        {{else}}
-                        <span class="icon resource_{{.name}}"></span>
-                        {{end}}
-                    </div>
-                    <div class="content">
-                        <div class="name">{{.label}}</div>
-                        <div class="describe">
-                            {{.description}}
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            {{if .defaultSprite}}
+                            <span class="icon resource_plugin"></span>
+                            {{else}}
+                            <span class="icon resource_{{.name}}"></span>
+                            {{end}}
                         </div>
-                        <div class="info">
-                            <span class="author">作者： {{if neq .author_link "#"}}
-                                <a href="{{.author_link}}" target="_blank">{{.author}}</a>
-                                {{else}} {{.author}} {{end}}
-                            </span>
-                        </div>
-                        <div class="url">
-                            <a href="{{.doc}}" class="docs" target="_blank">
-                                <span class="icon global_source_sprited"></span>
-                                文档
-                            </a>
-                            <a href="{{.download}}" class="download" target="_blank">
-                                <span class="icon global_download_sprited"></span>
-                                下载
-                            </a>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if neq .author_link "#"}}
+                                    <a href="{{.author_link}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                <a href="{{.doc}}" class="docs" target="_blank">
+                                    <span class="icon global_source_sprited"></span>
+                                    文档
+                                </a>
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,36 +148,38 @@
         <div class="resource-box cell large community-sdk">
             <h2 class="cell-head">
                 社区SDK
-                <a href="" class="js-add-resource">                                 
+                <a href="" class="js-add-resource">
                     提交我的SDK
-                </a> 
+                </a>
             </h2>
             <div class="cell-body">
                 {{range .data.resource.third_sdk}}
                 <div class="resource-card">
-                    <div class="logo">
-                        <span class="icon resource_tool"></span>
-                    </div>
-                    <div class="content">
-                        <div class="name">{{.label}}</div>
-                        <div class="describe">
-                            {{.description}}
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon resource_tool"></span>
                         </div>
-                        <div class="info">
-                            <span class="author">作者： {{if eq .author_link "#"}}
-                                <a href="{{.author_link}}" target="_blank">{{.author}}</a>
-                                {{else}} {{.author}} {{end}}
-                            </span>
-                        </div>
-                        <div class="url">
-                            <a href="{{.doc}}" class="docs" target="_blank">
-                                <span class="icon global_source_sprited"></span>
-                                文档
-                            </a>
-                            <a href="{{.download}}" class="download" target="_blank">
-                                <span class="icon global_download_sprited"></span>
-                                下载
-                            </a>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if eq .author_link "#"}}
+                                    <a href="{{.author_link}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                <a href="{{.doc}}" class="docs" target="_blank">
+                                    <span class="icon global_source_sprited"></span>
+                                    文档
+                                </a>
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -180,9 +188,9 @@
         </div>
     </div>
     <!--    <ul class="bxslider">
-      <li>      
+      <li>
       </li>
-      <li>              
+      <li>
       </li>
     </ul> -->
     </div>

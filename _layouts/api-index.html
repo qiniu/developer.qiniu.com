@@ -33,15 +33,15 @@
     </header>
 
     <div class="container docs">
-        <div class="pull-left">
+        <div class="pull-left side-bar-parent">
             <div class="side-bar pull-left">
                 <div class="panel-box">
                     <div class="panel special-panel">
-                        <a href="/docs/v6/index.html">
+                        <a href="/docs/v6/" class="active">
                             文档首页
-                        </a> 
+                        </a>
                     </div>
-                    <!-- 
+                    <!--
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -68,7 +68,7 @@
                     </div>
                     -->
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-page="overview">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a href="#"> API使用说明 </a>
@@ -113,7 +113,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-page="reference">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a href="#"> API参考手册 </a>
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                     {{ .includes.api_sdk_menu }}
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-page="tools">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a href="#">
@@ -220,7 +220,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-page="kb">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a href="#">
@@ -272,129 +272,131 @@
             </div>
         </div>
         <div class="main pull-left">
-            <div class="sdk cell">
-                <h2>SDK</h2>
-                <ul>
-                    {{range .data.resource.sdk}}
-                    <li>
-                        <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="" class="sdk-logo ">
-                            <img src="/static/image/index/{{.name}}.png" alt="">
-                        </a>
-                    </li>
-                    {{end}}
-                </ul>
-            </div>
-            <div class="api  cell">
-                <h2>API文档</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon index_resource_sprited"></span>开发基础</h3>
-                        <ul>
-                            <li><a href="/docs/v6/api/overview/concepts.html">关键概念</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/programming-model.html">编程模型</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/security.html">安全机制</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon index_resource_sprited"></span>上传资源</h3>
-                        <ul>
-                            <li><a href="/docs/v6/api/overview/up/upload-models.html">上传模型</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/form-upload.html">表单上传</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/chunked-upload.html">分片上传</a>
-                            </li>
-                        </ul>
-                        <h4>
-                            <!-- <span class="icon off_2"></span> -->上传后续动作</h4>
-                        <ul>
-                            <li><a href="/docs/v6/api/overview/up/response/simple-response.html">简单反馈</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/response/callback.html">回调</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/response/redirect.html">301重定向</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/response/response-body.html">自定义响应内容</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/response/vars.html">变量</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/up/response/persistent-op.html">数据预处理</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon index_resource_sprited"></span>下载资源</h3>
-                        <ul>
-                            <li><a href="/docs/v6/api/overview/dn/security.html">安全机制</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/dn/download.html">资源下载</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/dn/download-settings.html">下载设置</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/dn/advanced-download.html">高级下载</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon index_resource_sprited"></span>资源管理</h3>
-                        <ul>
-                            <li><a href="/docs/v6/api/overview/security.html">安全机制</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/rs/rs.html">管理操作</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/rs/batch.html">批量操作</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon index_resource_sprited"></span>数据处理</h3>
-                        <ul>
-                            <li><a href="/docs/v6/api/overview/fop/fop.html">数据处理机制</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/fop/pipeline.html">管道</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/fop/persistent-fop.html">处理结果持久化</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/fop/style.html">样式</a>
-                            </li>
-                            <li><a href="/docs/v6/api/overview/fop/streaming.html">流媒体播放</a>
-                            </li>
-                        </ul>
-                        <h4>
-                            <!-- <span class="icon off_2"></span> -->内置数据处理功能</h4>
-                        <ul>
-                            <li><a href="/docs/v6/api/reference/fop/image/">图片处理</a>
-                            </li>
-                            <li><a href="/docs/v6/api/reference/fop/av/">音视频处理</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="main-inner">
+                <div class="sdk cell">
+                    <h2>SDK</h2>
+                    <ul>
+                        {{range .data.resource.sdk}}
+                        <li>
+                            <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="" class="sdk-logo ">
+                                <img src="/static/image/index/{{.name}}.png" alt="">
+                            </a>
+                        </li>
+                        {{end}}
+                    </ul>
                 </div>
+                <div class="api  cell">
+                    <h2>API文档</h2>
+                    <div class="cell-body">
+                        <div class="cell-line">
+                            <h3>
+                                <span class="icon index_resource_sprited"></span>开发基础</h3>
+                            <ul>
+                                <li><a href="/docs/v6/api/overview/concepts.html">关键概念</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/programming-model.html">编程模型</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/security.html">安全机制</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cell-line">
+                            <h3>
+                                <span class="icon index_resource_sprited"></span>上传资源</h3>
+                            <ul>
+                                <li><a href="/docs/v6/api/overview/up/upload-models.html">上传模型</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/form-upload.html">表单上传</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/chunked-upload.html">分片上传</a>
+                                </li>
+                            </ul>
+                            <h4>
+                                <!-- <span class="icon off_2"></span> -->上传后续动作</h4>
+                            <ul>
+                                <li><a href="/docs/v6/api/overview/up/response/simple-response.html">简单反馈</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/response/callback.html">回调</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/response/redirect.html">301重定向</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/response/response-body.html">自定义响应内容</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/response/vars.html">变量</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/up/response/persistent-op.html">数据预处理</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cell-line">
+                            <h3>
+                                <span class="icon index_resource_sprited"></span>下载资源</h3>
+                            <ul>
+                                <li><a href="/docs/v6/api/overview/dn/security.html">安全机制</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/dn/download.html">资源下载</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/dn/download-settings.html">下载设置</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/dn/advanced-download.html">高级下载</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cell-line">
+                            <h3>
+                                <span class="icon index_resource_sprited"></span>资源管理</h3>
+                            <ul>
+                                <li><a href="/docs/v6/api/overview/security.html">安全机制</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/rs/rs.html">管理操作</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/rs/batch.html">批量操作</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cell-line">
+                            <h3>
+                                <span class="icon index_resource_sprited"></span>数据处理</h3>
+                            <ul>
+                                <li><a href="/docs/v6/api/overview/fop/fop.html">数据处理机制</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/fop/pipeline.html">管道</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/fop/persistent-fop.html">处理结果持久化</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/fop/style.html">样式</a>
+                                </li>
+                                <li><a href="/docs/v6/api/overview/fop/streaming.html">流媒体播放</a>
+                                </li>
+                            </ul>
+                            <h4>
+                                <!-- <span class="icon off_2"></span> -->内置数据处理功能</h4>
+                            <ul>
+                                <li><a href="/docs/v6/api/reference/fop/image/">图片处理</a>
+                                </li>
+                                <li><a href="/docs/v6/api/reference/fop/av/">音视频处理</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-            </div>
-            <div class="cli cell">
-                <h2 class="">工具</h2>
-                <ul>
-                    {{range .data.resource.devtools}}
-                    <li>
-                        <div class="pull-left logo">
-                            <span class="icon resource_{{.name}}_sprited"></span>
-                        </div>
-                        <div class="pull-left info">
-                            <a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
-                            <p>{{.title}}</p>
-                        </div>
-                    </li>
-                    {{end}}
-                </ul>
+                </div>
+                <div class="cli cell">
+                    <h2 class="">工具</h2>
+                    <ul>
+                        {{range .data.resource.devtools}}
+                        <li>
+                            <div class="pull-left logo">
+                                <span class="icon resource_{{.name}}_sprited"></span>
+                            </div>
+                            <div class="pull-left info">
+                                <a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
+                                <p>{{.title}}</p>
+                            </div>
+                        </li>
+                        {{end}}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

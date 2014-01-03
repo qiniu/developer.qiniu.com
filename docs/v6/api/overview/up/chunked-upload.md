@@ -57,7 +57,7 @@ order: 530
 <a id="chunked-upload-response"></a>
 ## 上传后续动作
 
-我们曾在[上传模型][uploadModelHref]中提过，在上传时开发者可以指定上传完成后服务端的后续动作，比如回调、自定义返回内容、301重定向等。可设置的后续动作与[表单上传][formUploadHref]中完全一致。
+我们曾在[上传模型][uploadModelHref]中提过，在上传时开发者可以指定上传完成后服务端的后续动作，比如回调、自定义返回内容、303重定向等。可设置的后续动作与[表单上传][formUploadHref]中完全一致。
 
 这里需要明确的是，虽然后续动作在生成[上传凭证][uploadTokenHref]时已经指定，但这些后续动作只在服务端处理完mkfile请求后才会发生，而且也只有mkfile请求的内容可以包含[变量][varsHref]。
 

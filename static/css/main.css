@@ -156,15 +156,15 @@ a.more {
   padding: 0 0 0 25px;
   text-align: left;
 }
-.panel.special-panel.active {
-  font-weight: bold;
-}
 .panel.special-panel a {
   color: #262626;
   display: inline-block;
   width: 233px;
   cursor: pointer;
   height: 36px;
+}
+.panel.special-panel a.active {
+  font-weight: bold;
 }
 .panel > .panel-heading {
   cursor: pointer;
@@ -981,6 +981,10 @@ footer .copyright {
 .api-content a {
   color: #0c94de;
 }
+.api-content hr {
+  margin: 20px auto;
+  padding-left: 24px;
+}
 .api-content table {
   border: 1px solid #e6e6e6;
   margin-left: 24px;
@@ -1047,6 +1051,8 @@ footer .copyright {
   white-space: pre-wrap;
   background-color: transparent;
   border: 0;
+  font-family: Consolas,Monaco,Menlo;
+  margin: auto 3px;
 }
 .api-content blockquote {
   padding: 6px;
@@ -1068,9 +1074,11 @@ footer .copyright {
   border-top-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  font-family: Consolas,Monaco,Menlo;
+  margin: auto 3px;
 }
 .api-content img[alt] {
-  max-width: 628px;
+  max-width: 604px;
 }
 .api-content .center {
   text-align: center;
@@ -1223,9 +1231,8 @@ div.api-resource .social-resource .author {
 .container.index .cell.sdk ul li:first-child {
   border-left: none;
 }
-.container.index .cell.cli,
-.container.index .cell.api {
-  width: 580px;
+.container.index .main {
+  width: 632px;
 }
 .container.index .side-bar {
   width: 308px;
@@ -1469,6 +1476,9 @@ div.api-resource .social-resource .author {
 }
 .container.resource .cell .cell-body .resource-card {
   float: left;
+  width: 320px;
+}
+.container.resource .cell .cell-body .resource-card .resource-card-inner {
   border-right: 1px solid #e9e9e9;
   border-top: 1px solid #e9e9e9;
   border-bottom: 1px solid #e9e9e9;
@@ -1539,7 +1549,9 @@ div.api-resource .social-resource .author {
   text-decoration: none;
 }
 .container.resource .small.cell .cell-body .resource-card {
-  width: 284px;
+  width: 320px;
+}
+.container.resource .small.cell .cell-body .resource-card .resource-card-inner {
   height: 109px;
   padding: 25px 15px 20px 20px;
 }
@@ -1547,7 +1559,9 @@ div.api-resource .social-resource .author {
   margin-left: 10px;
 }
 .container.resource .large.cell .cell-body .resource-card {
-  width: 439px;
+  width: 480px;
+}
+.container.resource .large.cell .cell-body .resource-card .resource-card-inner {
   height: 128px;
 }
 .container.resource .large.cell .cell-body .resource-card .content {
@@ -1626,6 +1640,9 @@ div.api-resource .social-resource .author {
 }
 .container.api .main {
   position: relative;
+  width: 702px;
+}
+.container.api .main .main-inner {
   border-left: 1px solid #e9e9e9;
   margin-left: -1px;
 }
@@ -1638,6 +1655,9 @@ div.api-resource .social-resource .author {
 }
 .container.docs {
   overflow: hidden;
+}
+.container.docs .side-bar-parent {
+  width: 260px;
 }
 .container.docs .side-bar {
   margin-top: 20px;
@@ -1890,7 +1910,6 @@ pre .tag .value,
 pre .phpdoc,
 pre .tex .formula {
   /*color:#d14*/
-
   color: #409B1C;
 }
 pre .title,
@@ -1922,7 +1941,6 @@ pre .attribute,
 pre .variable,
 pre .lisp .body {
   /*color:#008080*/
-
   color: #FF7800;
 }
 pre .regexp {

@@ -31,11 +31,11 @@ persistentId | 否     | 音视频转码持久化的进度查询ID。
 exif         | 是     | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。
 imageInfo    | 是     | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。
 
-魔法变量支持`<Object>.<Property>`形势的访问方法，例如：
+魔法变量支持`$(<Object>.<Property>)`形式的访问方法，例如：
 
-- \<var\>
-- \<var\>.\<field_name\>
-- \<var\>.\<field_name\>.\<field_name\>
+- $(\<var\>)
+- $(\<var\>.\<field_name\>)
+- $(\<var\>.\<field_name\>.\<sub_field_name\>)
 
 求值举例：
 
@@ -43,13 +43,49 @@ imageInfo    | 是     | 获取所上传图片的基本信息。<p>该变量包�
 - `$(imageInfo)` 			- 获取当前上传图片的基本属性信息
 - `$(imageInfo.height)`	 	- 获取当前上传图片的原始高度
 
-变量`exif`的类型以下：
+变量`exif`的类型以下（内容经过格式化以便阅读，具体细节请参考[EXIF技术白皮书](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)）：  
 
-> TODO: exif的类型结构。
+```
+{
+   "DateTime" : {
+      "type" : 2,
+      "val" : "2011:11:19 17:09:23"
+   },
+   "ExposureBiasValue" : {
+      "type" : 10,
+      "val" : "0.33 EV"
+   },
+   "ExposureTime" : {
+      "type" : 5,
+      "val" : "1/50 sec."
+   },
+   "Model" : {
+      "type" : 2,
+      "val" : "Canon EOS 600D"
+   },
+   "ISOSpeedRatings" : {
+      "type" : 3,
+      "val" : "3200"
+   },
+   "ResolutionUnit" : {
+      "type" : 3,
+      "val" : " 英寸"
+   },
 
-变量`imageInfo`对应的类型如下：
+   ...后续内容已省略...
+}
+```
 
-> TODO: imageInfo的类型结构。
+变量`imageInfo`对应的类型如下（内容经过格式化以便阅读）：  
+
+```
+{
+    "format":       "jpeg",
+    "width":        640,
+    "height":       427,
+    "colorModel":   "ycbcr"
+}
+```
 
 如果变量取值失败（比如在上传策略中指定了一个并不存在的魔法变量），响应内容中对应的变量将被赋予空值。
 

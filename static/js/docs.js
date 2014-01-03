@@ -201,7 +201,7 @@ $(function() {
                         $(this).siblings('.on_1').removeClass('on_1').addClass('off_1');
                     }
                 } else {
-                    $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
+                    $(this).parents('.panel-heading').siblings('.panel-body').show(adjustApiBoxHeight);
                     $(this).addClass('active');
                     $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
                     if ($(this).siblings('.off_2').length > 0) {
@@ -215,24 +215,27 @@ $(function() {
     });
 
     //API页面侧边栏---显示当前页的导航
-    $('.panel-body a').each(function() {
+    $('.panel-body .page-link').each(function() {
         var href = $(this).attr('href').toLowerCase();
         if (url === href) {
-            $(this).parents('.panel-body').siblings('.panel-heading').click();
             $(this).addClass('active');
-            if ($(this).parents('.panel-heading').length > 0) {
-                $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
+            var $panelBody = $(this).parents('.panel-body');
+            var $panelHeading = $(this).parents('.panel-heading');
+
+            $panelBody.siblings('.panel-heading').find('span.api_default').removeClass('api_default').addClass('api_down');
+            $panelBody.siblings('.panel-heading').find('a').addClass('active');
+
+            $panelBody.show(adjustApiBoxHeight);
+            if ($panelHeading.length > 0) {
+                $panelHeading.siblings('.panel-body').show(adjustApiBoxHeight);
                 $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
                 $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
             } else {
-                $(this).parents('.panel-body').show('fast', adjustApiBoxHeight);
-                $(this).parents('.panel-body').siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('on_2');
-                $(this).parents('.panel-body').siblings('.panel-heading').find('span:last').addClass('api_down2_sprited');
-                $(this).parents('.panel-body').siblings('.panel-heading').find('a').addClass('active');
+                $panelBody.siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('on_2');
+                $panelBody.siblings('.panel-heading').find('a').addClass('active');
             }
         }
     });
-
 
     // API页高亮代码
     $('pre code').each(function(i, e) {
