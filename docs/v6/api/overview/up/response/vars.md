@@ -19,20 +19,26 @@ order: 512
 
 目前可用的魔法变量如下:
 
-变量名        | 包含子项 | 变量说明
-:----------- |:------:|-------------------------------------------
-bucket       | 否     | 获得上传的目标空间名。
-key          | 否     | 获得文件保存在空间中的资源名。
-etag         | 否     | 文件上传成功后的[Etag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。
-fname        | 否     | 上传的原始文件名。
-fsize        | 否     | 资源尺寸，单位为字节。
-mimeType     | 否     | 资源类型，比如JPG图片的资源类型为`image/jpg`。
-endUser      | 否     | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。
-persistentId | 否     | 音视频转码持久化的进度查询ID。
-exif         | 是     | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。
-imageInfo    | 是     | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。
+变量名       | 包含子项 | 变量说明
+:----------- | :------- |-------------------------------------------
+bucket       |          | 获得上传的目标空间名。
+key          |          | 获得文件保存在空间中的资源名。
+etag         |          | 文件上传成功后的[Etag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。
+fname        |          | 上传的原始文件名。
+fsize        |          | 资源尺寸，单位为字节。
+mimeType     |          | 资源类型，比如JPG图片的资源类型为`image/jpg`。
+endUser      |          | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。
+persistentId |          | 音视频转码持久化的进度查询ID。
+exif         | 是       | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。
+imageInfo    | 是       | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。
+year         |          | 上传时的年份。
+mon          |          | 上传时的月份。
+day          |          | 上传时的日期。
+hour         |          | 上传时的小时。
+min          |          | 上传时的分钟。
+sec          |          | 上传时的秒钟。
 
-魔法变量支持`$(<Object>.<Property>)`形式的访问方法，例如：
+魔法变量支持`$(<Object>.<Property>)`形式的访问子项，例如：
 
 - $(\<var\>)
 - $(\<var\>.\<field_name\>)
