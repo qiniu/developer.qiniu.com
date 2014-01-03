@@ -1,8 +1,12 @@
 ## CHANGE LOG
 
+### v6.3.2
+
+- 新增pm3u8接口与avinfo接口的API文档
+
 ### v6.3.1
 
-- ReturnURL跳转改使用303状态码
+- ReturnURL跳转改使用303状态码 [#7](https://github.com/qiniu/developer.qiniu.com/pull/7)
 
 ### v6.3.0
 
