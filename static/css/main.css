@@ -902,7 +902,7 @@ footer .copyright {
 .zendesk {
   position: fixed;
   right: 0;
-  top: 50%;
+  top: 30%;
   margin-top: -51px;
   width: 32px;
   height: 102px;
@@ -1910,6 +1910,7 @@ pre .tag .value,
 pre .phpdoc,
 pre .tex .formula {
   /*color:#d14*/
+
   color: #409B1C;
 }
 pre .title,
@@ -1941,6 +1942,7 @@ pre .attribute,
 pre .variable,
 pre .lisp .body {
   /*color:#008080*/
+
   color: #FF7800;
 }
 pre .regexp {

@@ -249,7 +249,7 @@ $(function() {
         'minHeight': 866,
         'frameId': 'AddDocsResource',
         'hideFrameId': 'AddDocsResourceHide',
-        'url': 'http://192.168.19.56:8000/zendesk/docs',
+        'url': 'https://portal.qiniu.com/zendesk/docs',
     });
     if (window.location.hash === '#hide_docs') {
         window.parent.DocsAddResource.hide();
@@ -270,7 +270,7 @@ $(function() {
         'minHeight': 740,
         'frameId': 'feedbackFrame',
         'hideFrameId': 'feedbackFrameHide',
-        'url': 'http://192.168.19.56:8000/zendesk/docs-feedback',
+        'url': 'https://portal.qiniu.com/zendesk/docs-feedback',
     });
     if (window.location.hash === '#hide_feedback') {
         window.parent.DocsFeedback.hide();
