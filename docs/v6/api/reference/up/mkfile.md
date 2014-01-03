@@ -19,50 +19,47 @@ order: 10
 ### 请求语法
 
 ```
-POST /mkfile/<file_size>/key/<encodedKey> HTTP/1.1
+POST /mkfile/<fileSize>/key/<encodedKey> HTTP/1.1
+Host:           <UpHost>
 Content-Type:   text/plain
-Content-Length: <ctx_list_size>
-Host:           <selectUpHost>
+Content-Length: <ctxListSize>
 Authorization:  UpToken <UploadToken>
 
-<ctx_list>
+<ctxList>
 ```
 
 <a id="mkfile-request-params"></a>
 ### 请求参数
 
-参数名称        | 类型   | 说明
-:-------------- | :----- | :------------------------------
-file_size       | int64  | 资源文件大小
-encodedKey      | string | 进行URL安全的Base编码后的资源名
+参数名称            | 必填 | 类型   | 说明
+:------------------ | :--- | :----- | :------------------------------
+`/<fileSize>`       | 是   | int64  | 资源文件大小。
+`/key/<encodedKey>` |      | string | 进行[URL安全的Base64编码][urlsafeBase64Href]后的资源名<br>若未指定，则使用[saveKey](../security/put-policy.html#put-policy-save-key)；<br>若未指定`saveKey`，则使用资源内容的SHA1值作为资源名。
 
 <a id="mkfile-request-headers"></a>
 ### 头部信息
 
-该请求须指定以下头部信息。
-
-参数名称       | 说明                                      | 必填
-:------------- | :---------------------------------------- | :-------
-Host           | 上一次响应内容中夹带的后续上传接收地址    | 是
-Content-Type   | 必须为text/plain                          | 是
-Content-Length | 所有块的ctx及分隔符的总长度，单位为字节。 | 是
-Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-
-使用本API无需设置额外头部信息。  
+头部名称       | 必填 | 说明
+:------------- | :--- | :----------------------------------------
+Host           | 是   | 上一次上传响应返回的后续上传接收地址。
+Content-Type   | 是   | 固定为text/plain。
+Content-Length | 是   | 所有块的`<ctx>`及分隔符的总长度，单位：字节（Byte）。
+Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
 
 <a id="mkfile-request-body"></a>
 ### 请求内容
 
-该请求的内容为所有块的ctx列表，以“,”分隔，按其在源文件中的位置排序。  
+该请求的内容为所有块的`<ctx>`列表，以“,”分隔，按其在源文件中的位置排序。  
+注意：列表最后一项后面不需要添加“,”。
 
 ```
-<ctx1>,<ctx2>,<ctx3>,<ctx4>,<ctx5>,...
+<ctx1>,<ctx2>,<ctx3>,<ctx4>,<ctx5>,...,<ctxN>
 ```
 
 <a id="mkfile-request-auth"></a>
 ### 访问权限
 
-[上传凭证（UploadToken）][uploadTokenHref]方式。
+[上传凭证][uploadTokenHref]方式。
 
 <a id="mkfile-response"></a>
 ## 响应
@@ -70,16 +67,16 @@ Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式�
 <a id="mkfile-response-headers"></a>
 ### 头部信息
 
-头部名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+头部名称      | 必填 | 说明                              
+:------------ | :--- | :--------------------------------------------------------------------
+Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a id="mkfile-response-body"></a>
 ### 响应内容
 
-如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
+■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
@@ -88,39 +85,57 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 }
 ```
 
-字段含义如下：
+字段名称       | 必填 | 说明
+:------------- | :--- | :------------------------------
+hash           | 是   | 资源内容的SHA1值
+key            | 是   | 实际资源名
 
-字段名称       | 类型   | 说明
-:------------- | :----- | :------------------------------
-hash           | string | 资源内容的SHA1值
-key            | string | 资源名
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
-如果请求失败，请参见错误消息。
+```
+{
+	"code":     <HttpCode  int>, 
+    "error":   "<ErrMsg    string>"
+}
+```
 
-<a id="mkfile-error-messages"></a>
-### 错误消息
+字段名称     | 必填 | 说明                              
+:----------- | :--- | :--------------------------------------------------------------------
+`code`       | 是   | HTTP状态码，请参考[响应状态码](#mkfile-response-status)。
+`error`      | 是   | 与HTTP状态码对应的消息文本。
+
+<a id="mkfile-response-status"></a>
+### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
-200        | 创建块成功
-400	       | 请求参数错误
-401        | 上传凭证无效
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
-614        | 目标资源已存在
+200        | 创建文件成功。
+400	       | 请求报文格式错误。
+401        | 上传凭证无效。
+599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+614        | 目标资源已存在。
 
 <a id="mkfile-remarks"></a>
 ## 附注
 
 - 可以复用创建块时使用的上传凭证。  
-- 上传凭证将被重新验证，若已过期，可以重新生成新的凭证。  
+- 上传凭证将被重新验证，若已过期，可以使用重新生成的凭证。  
+- 若参数中指定了资源名，而所用上传策略的[scope字段](../security/put-policy.html#put-policy-scope)中也指定了资源名，且两者不一致，操作将失败且返回401状态码。
 
 <a id="mkfile-internal-resources"></a>
 ## 内部参考资源
 
-- [上传凭证（UploadToken）][uploadTokenHref]
+- [上传凭证][uploadTokenHref]
 - [创建块（mkblk）](mkblk.html)
 - [上传片（bput）](bput.html)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [uploadTokenHref]:              ../security/upload-token.html                    "上传凭证"
 [commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
+
+<a id="upload-external-resources"></a>
+## 外部参考资源
+
+- [URL安全的Base64编码][urlsafeBase64Href]
+
+[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"

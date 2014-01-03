@@ -2,7 +2,7 @@
     "sdk": [{
         "name": "ios",
         "title": "ios",
-        "label": "SDK for Objective-C (iOS)",
+        "label": "SDK for Objective-C (iOS客户端)",
         "download": "https://github.com/qiniu/ios-sdk/archive/master.zip",
         "version": "v6.0.0",
         "date": "2013-07-04",
@@ -10,7 +10,7 @@
         "source": "https://github.com/qiniu/ios-sdk"
     }, {
         "name": "android",
-        "label": "SDK for Java (Android)",
+        "label": "SDK for Java (Android客户端)",
         "download": "https://github.com/qiniu/android-sdk/archive/master.zip",
         "version": "v6.0.0",
         "date": "2013-07-04",
@@ -19,7 +19,7 @@
         "source": "https://github.com/qiniu/android-sdk"
     }, {
         "name": "java",
-        "label": "SDK for Java",
+        "label": "SDK for Java (服务端)",
         "download": "https://github.com/qiniu/java-sdk/archive/master.zip",
         "version": "v6.0.7",
         "date": "2013-11-7",
@@ -27,7 +27,7 @@
         "source": "https://github.com/qiniu/java-sdk"
     }, {
         "name": "php",
-        "label": "SDK for PHP",
+        "label": "SDK for PHP (服务端)",
         "download": "https://github.com/qiniu/php-sdk/archive/master.zip",
         "version": "v6.1.4",
         "date": "2013-10-25",
@@ -35,7 +35,7 @@
         "source": "https://github.com/qiniu/php-sdk"
     }, {
         "name": "python",
-        "label": "SDK for Python",
+        "label": "SDK for Python (服务端)",
         "download": "https://github.com/qiniu/python-sdk/archive/master.zip",
         "version": "v6.1.3",
         "date": "2013-10-24",
@@ -43,7 +43,7 @@
         "source": "https://github.com/qiniu/python-sdk"
     }, {
         "name": "ruby",
-        "label": "SDK for Ruby",
+        "label": "SDK for Ruby (服务端)",
         "download": "https://github.com/qiniu/ruby-sdk/archive/master.zip",
         "version": "v6.0.0",
         "date": "2013-09-12",
@@ -51,7 +51,7 @@
         "source": "https://github.com/qiniu/ruby-sdk"
     }, {
         "name": "nodejs",
-        "label": "SDK for Node.js",
+        "label": "SDK for Node.js (服务端)",
         "download": "https://github.com/qiniu/nodejs-sdk/archive/master.zip",
         "version": "v6.1.0",
         "date": "2013-10-08",
@@ -59,7 +59,7 @@
         "source": "https://github.com/qiniu/nodejs-sdk"
     }, {
         "name": "csharp",
-        "label": "SDK for C#",
+        "label": "SDK for C# (服务端)",
         "download": "https://github.com/qiniu/csharp-sdk/archive/master.zip",
         "version": "v6.0.2",
         "date": "2013-11-18",
@@ -67,7 +67,7 @@
         "source": "https://github.com/qiniu/csharp-sdk"
     }, {
         "name": "c",
-        "label": "SDK for C/C++",
+        "label": "SDK for C/C++ (服务端)",
         "download": "https://github.com/qiniu/c-sdk/archive/master.zip",
         "version": "v6.2.2",
         "date": "2013-10-14",
@@ -75,7 +75,7 @@
         "source": "https://github.com/qiniu/c-sdk"
     }, {
         "name": "go",
-        "label": "SDK for Go",
+        "label": "SDK for Go (服务端)",
         "download": "https://github.com/qiniu/api/archive/master.zip",
         "version": "v6.0.3",
         "date": "2013-10-08",

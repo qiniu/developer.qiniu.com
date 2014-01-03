@@ -1,5 +1,13 @@
 ## CHANGE LOG
 
+### v6.3.1
+
+- ReturnURL跳转改使用303状态码
+
+### v6.3.0
+
+- 整体迁移至developer.qiniu.com
+
 ### v6.2.0 issue [#86](https://github.com/qiniu/docs.qiniu.com/pull/86)
 
 - 新增QRSBox文档

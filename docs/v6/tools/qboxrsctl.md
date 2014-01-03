@@ -48,9 +48,9 @@ qboxrsctl 是根据七牛云存储API实现的一个简易命令行辅助工具�
 
 qboxrsctl 命令行辅助工具下载地址：
 
-- Mac OS: <http://devtools.qiniudn.com/qiniu-devtools-darwin_amd64-current.zip>
-- Linux 64bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip>
-- Linux 32bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip>
+- Mac OS: <http://devtools.qiniudn.com/qiniu-devtools-darwin_amd64-current.tar.gz>
+- Linux 64bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.tar.gz>
+- Linux 32bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.tar.gz>
 - Windows 32bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip>
 - Windows 64bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_amd64-current.zip>
 

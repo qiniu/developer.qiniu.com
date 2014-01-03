@@ -30,8 +30,8 @@ QRSBox下载地址：
 
 - 命令行工具：
     - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniudn.com/mac/qrsboxcli)
-    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip)
-    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip)
+    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.tar.gz)
+    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.tar.gz)
 
 <a id="usage"></a>
 

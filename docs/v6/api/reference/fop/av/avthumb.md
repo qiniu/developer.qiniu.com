@@ -32,6 +32,7 @@ avthumb/<Format>
 `/ab/<BitRate>`      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等 |
 `/aq/<AudioQuality>` | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
 `/ar/<SamplingRate>` | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
+<a id="audio-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留 |
 
 <a id="audio-request"></a>
 ### 请求
@@ -189,13 +190,16 @@ Content-Type: <VideoMimeType>
 
 ```
 avthumb/<Format>
+       /ab/<BitRate>
+       /aq/<AudioQuality>
+       /ar/<SamplingRate>
        /r/<FrameRate>
        /vb/<VideoBitRate>
        /vcodec/<VideoCodec>
        /acodec/<AudioCodec>
-       /ab/<BitRate>
-       /aq/<AudioQuality>
-       /ar/<SamplingRate>
+       /ss/<SeekStart>
+       /t/<Duration>
+       /stripmeta/<StripMeta>
 ```
 
 参数名称                | 说明                                                                | 必填
@@ -211,6 +215,7 @@ avthumb/<Format>
 `/ss/<SeekStart>`       | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频 |
 `/t/<Duration>`         | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 |
 `/s/<Resolution>`       | 指定视频分辨率，格式为 wxh 或者预定义值。 |
+<a id="video-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留 |
 
 <a id="video-request"></a>
 ### 请求
@@ -283,13 +288,23 @@ Content-Type: <VideoMimeType>
 
 	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/ogv/r/30/vb/1800k/vcodec/libtheora/ar/44100/ab/128k/acodec/libvorbis)
 
-<a id="audio-remarks"></a>
+<a id="avthumb-remarks"></a>
 ### 附注
 
-支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
-支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
+- 支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
+- 支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
+- 支持使用自定义参数覆盖预设集的对应参数，示例如下：
 
-<a id="audio-optimization"></a>
+	```
+    avthumb/iphone
+
+    =>
+
+    avthumb/iphone/rotate/auto  则在预设集的基础上增加自动旋转功能
+    avthumb/iphone/vb/500k      将视频码率更改为599k
+	```
+
+<a id="avthumb-optimization"></a>
 ### 优化建议
 
 为了保证良好的用户体验，请配合上传预转机制使用。参考: [上传预转](#upload-fop)
