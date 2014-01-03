@@ -1,85 +1,95 @@
 {
     "sdk": [{
         "name": "ios",
+        "menuName": "Objective-C (iOS)",
         "title": "ios",
         "label": "SDK for Objective-C (iOS客户端)",
         "download": "https://github.com/qiniu/ios-sdk/archive/master.zip",
         "version": "v6.0.0",
         "date": "2013-07-04",
-        "doc": "/sdk/ios",
+        "doc": "docs/v6/sdk/ios-sdk.html",
         "source": "https://github.com/qiniu/ios-sdk"
     }, {
         "name": "android",
+        "menuName": "Java (Android)",
         "label": "SDK for Java (Android客户端)",
         "download": "https://github.com/qiniu/android-sdk/archive/master.zip",
         "version": "v6.0.0",
         "date": "2013-07-04",
-        "doc": "",
+        "doc": "docs/v6/sdk/android-sdk.html",
         "show": false,
         "source": "https://github.com/qiniu/android-sdk"
     }, {
         "name": "java",
+        "menuName": "Java",
         "label": "SDK for Java (服务端)",
         "download": "https://github.com/qiniu/java-sdk/archive/master.zip",
         "version": "v6.0.7",
         "date": "2013-11-7",
-        "doc": "",
+        "doc": "docs/v6/sdk/java-sdk.html",
         "source": "https://github.com/qiniu/java-sdk"
     }, {
         "name": "php",
+        "menuName": "PHP",
         "label": "SDK for PHP (服务端)",
         "download": "https://github.com/qiniu/php-sdk/archive/master.zip",
         "version": "v6.1.4",
         "date": "2013-10-25",
-        "doc": "",
+        "doc": "docs/v6/sdk/php-sdk.html",
         "source": "https://github.com/qiniu/php-sdk"
     }, {
         "name": "python",
+        "menuName": "Python",
         "label": "SDK for Python (服务端)",
         "download": "https://github.com/qiniu/python-sdk/archive/master.zip",
         "version": "v6.1.3",
         "date": "2013-10-24",
-        "doc": "",
+        "doc": "docs/v6/sdk/python-sdk.html",
         "source": "https://github.com/qiniu/python-sdk"
     }, {
         "name": "ruby",
+        "menuName": "Ruby",
         "label": "SDK for Ruby (服务端)",
         "download": "https://github.com/qiniu/ruby-sdk/archive/master.zip",
         "version": "v6.0.0",
         "date": "2013-09-12",
-        "doc": "",
+        "doc": "docs/v6/sdk/ruby-sdk.html",
         "source": "https://github.com/qiniu/ruby-sdk"
     }, {
         "name": "nodejs",
+        "menuName": "Node.js",
         "label": "SDK for Node.js (服务端)",
         "download": "https://github.com/qiniu/nodejs-sdk/archive/master.zip",
         "version": "v6.1.0",
         "date": "2013-10-08",
-        "doc": "",
+        "doc": "docs/v6/sdk/nodejs-sdk.html",
         "source": "https://github.com/qiniu/nodejs-sdk"
     }, {
         "name": "csharp",
+        "menuName": "C#",
         "label": "SDK for C# (服务端)",
         "download": "https://github.com/qiniu/csharp-sdk/archive/master.zip",
         "version": "v6.0.2",
         "date": "2013-11-18",
-        "doc": "",
+        "doc": "docs/v6/sdk/csharp-sdk.html",
         "source": "https://github.com/qiniu/csharp-sdk"
     }, {
         "name": "c",
+        "menuName": "C/C++",
         "label": "SDK for C/C++ (服务端)",
         "download": "https://github.com/qiniu/c-sdk/archive/master.zip",
         "version": "v6.2.2",
         "date": "2013-10-14",
-        "doc": "",
+        "doc": "docs/v6/sdk/c-sdk.html",
         "source": "https://github.com/qiniu/c-sdk"
     }, {
         "name": "go",
+        "menuName": "Go",
         "label": "SDK for Go (服务端)",
         "download": "https://github.com/qiniu/api/archive/master.zip",
         "version": "v6.0.3",
         "date": "2013-10-08",
-        "doc": "",
+        "doc": "docs/v6/sdk/go-sdk.html",
         "source": "https://github.com/qiniu/api"
     }],
     "devtools": [{
@@ -89,7 +99,7 @@
         "download": "/docs/v6/tools/qrsync.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "/docs/v6/tools/qrsync.html",
+        "doc": "docs/v6/tools/qrsync.html",
         "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传。"
     }, {
         "name": "cmd",
@@ -98,7 +108,7 @@
         "download": "/docs/v6/tools/qboxrsctl.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "/docs/v6/tools/qboxrsctl.html",
+        "doc": "docs/v6/tools/qboxrsctl.html",
         "description": "命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
     }, {
         "name": "sync",
@@ -107,7 +117,7 @@
         "download": "/docs/v6/tools/qrsbox.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "/docs/v6/tools/qrsbox.html",
+        "doc": "docs/v6/tools/qrsbox.html",
         "description": "用户界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
     }],
     "third_plugin": [{

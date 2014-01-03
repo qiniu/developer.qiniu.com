@@ -68,3 +68,8 @@ order: 530
 [mkfileHref]:		../../reference/up/mkfile.html
 [uploadTokenHref]:	../../reference/security/upload-token.html "上传凭证"
 [varsHref]:			response/vars.html "变量"
+
+<a id="online-demo"></a>
+## 在线示例
+
+[在线断点继上传示例](http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken)
