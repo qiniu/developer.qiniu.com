@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{{$url:=.page.url}}
 
 <head>
     <meta name="robots" content="all" />
@@ -32,11 +33,11 @@
         <div class="side-bar pull-left">
             <div class="panel-box">
                 <div class="panel special-panel">
-                    <a href="/docs/v6/">
+                    <a href="/docs/v6/index.html">
                         文档首页
-                    </a>
+                    </a> 
                 </div>
-                <!--
+                <!-- 
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -53,7 +54,7 @@
                             <li>
                                 <span class="icon off_1">
                                 </span>
-                                <a class="page-link" href="/{{.Href}}">
+                                <a class="link" href="/{{.Href}}">
                                 {{.Title}}
                                     </a>
                             </li>
@@ -63,15 +64,20 @@
                 </div>
                 -->
 
-                <div class="panel panel-default" data-page="overview">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#"> API使用说明 </a>
+                            <a href="#" {{if isstart_with $url .data.apiview.Name}} class="active"{{end}}> API使用说明 </a>
+
+                            {{if isstart_with $url .data.apiview.Name}}
+                            <span class="icon api_down">
+                            {{else}}
                             <span class="icon api_default">
+                            {{end}}
                             </span>
                         </h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" {{if isstart_with $url .data.apiview.Name}} style="display:block"{{end}}>
                         <ul class="panel-list level-one">
                             {{range .data.apiview.Items}}
                             <li>
@@ -79,21 +85,21 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/{{.Href}}" class="page-link link"> {{.Title}} </a>
+                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
                                         <span class="icon"></span>
                                     </h5>
                                 </div>
-                                <div class="panel-body panel-status">
+                                <div class='panel-body panel-status' {{if isstart_with $url .Href }} style="display:block"{{end}}>
                                     {{if isnot_nil_or_empty .Child}}
                                     <ul class="panel-list level-three nav">
                                         {{range .Child}}
                                         <li>
-                                            <a href="/{{.Href}}" class="page-link"> {{.Title}} </a>
+                                            <a href="/{{.Href}}"> {{.Title}} </a>
                                             {{if isnot_nil_or_empty .Child}}
                                             <ul class="panel-list level-four nav">
                                                 {{range .Child}}
                                                 <li>
-                                                    <a href="/{{.Href}}"  class="page-link">{{.Title}} </a>
+                                                    <a href="/{{.Href}}">{{.Title}} </a>
                                                 </li>
                                                 {{end}}
                                             </ul>
@@ -108,15 +114,20 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default" data-page="reference">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#"> API参考手册 </a>
+                            <a href="#" {{if isstart_with $url .data.apiref.Name}} class="active"{{end}}> API参考手册</a>
+
+                            {{if isstart_with $url .data.apiref.Name}}
+                            <span class="icon api_down">
+                            {{else}}
                             <span class="icon api_default">
+                            {{end}}                            
                             </span>
                         </h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" {{if isstart_with $url .data.apiref.Name}} style="display:block"{{end}}>
                         <ul class="panel-list level-one">
                             {{range .data.apiref.Items}}
                             <li>
@@ -124,21 +135,21 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_2">
                                         </span>
-                                        <a href="/{{.Href}}" class="page-link link"> {{.Title}} </a>
+                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
                                         <span class="icon"></span>
                                     </h5>
                                 </div>
-                                <div class="panel-body panel-status">
+                                <div class='panel-body panel-status' {{if isstart_with $url .Href }} style="display:block"{{end}}>
                                     {{if isnot_nil_or_empty .Child}}
                                     <ul class="panel-list level-three nav">
                                         {{range .Child}}
                                         <li>
-                                            <a href="/{{.Href}}"  class="page-link"> {{upcase .Title}} </a>
+                                            <a href="/{{.Href}}"> {{upcase .Title}} </a>
                                             {{if isnot_nil_or_empty .Child}}
                                             <ul class="panel-list level-four nav">
                                                 {{range .Child}}
                                                 <li>
-                                                    <a href="/{{.Href}}"  class="page-link">{{.Title}} </a>
+                                                    <a href="/{{.Href}}">{{.Title}} </a>
                                                 </li>
                                                 {{end}}
                                             </ul>
@@ -153,79 +164,90 @@
                         </ul>
                     </div>
                 </div>
-                {{ .includes.api_sdk_menu }}
-                <div class="panel panel-default" data-page="tools">
+
+                <div class="panel panel-default ">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#">
-                                    工具
-                                </a>
+                            <a href="#" {{if isstart_with $url "docs/v6/sdk/"}} class="active"{{end}}> SDK </a>
+
+                        {{if isstart_with $url "docs/v6/sdk/"}}
+                            <span class="icon api_down">
+                        {{else}}
                             <span class="icon api_default">
-                            </span>
+                        {{end}}       
+                        </span>                          
                         </h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" {{if isstart_with $url "docs/v6/sdk/"}} style="display:block"{{end}}>
                         <ul class="panel-list level-one">
+                            {{range .data.resource.sdk}}
                             <li>
                                 <div class="panel-heading">
                                     <h5 class="panel-title">
-                                        <span class="icon off_2">
+                                        <span class="icon off_1">
                                         </span>
-                                        <a href="/docs/v6/tools/qboxrsctl.html" class="page-link  link">
-                                                qboxrsctl
-                                            </a>
-                                        <span class="icon">
-                                        </span>
+                                        <a href="/{{.doc}}" class="link">{{.menuName}} </a>
                                     </h5>
                                 </div>
-                                <div class="panel-body" id="qboxrsctl">
-
+                                <div class="panel-body" id="{{.name}}-sdk" {{if eq .doc $url}}
+style="display:block"
+{{end}}>
+                                    
                                 </div>
                             </li>
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/docs/v6/tools/qrsbox.html" class="page-link  link">
-                                                qrsbox
-                                            </a>
-                                        <span class="icon">
-                                        </span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body" id="qrsbox">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/docs/v6/tools/qrsync.html" class="page-link  link">
-                                                qrsync
-                                            </a>
-                                        <span class="icon">
-                                        </span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body" id="qrsync">
-                                </div>
-                            </li>
+                            {{end}}
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default" data-page="kb">
+
+                <div class="panel panel-default" >
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#">
-                                    技术文章
-                                </a>
+                            <a href="#" {{if isstart_with $url "docs/v6/tools/"}} class="active"{{end}}> 工具</a>
+
+                        {{if isstart_with $url "docs/v6/tools/"}}
+                            <span class="icon api_down">
+                        {{else}}
                             <span class="icon api_default">
-                            </span>
+                        {{end}}
+                        </span>                                 
                         </h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body"  {{if isstart_with $url "docs/v6/tools/"}} style="display:block"{{end}}>
+                        <ul class="panel-list level-one">
+                            {{range .data.resource.devtools}}
+                            <li>
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+                                        <span class="icon off_1">
+                                        </span>
+                                        <a href="/{{.doc}}" class="link">{{.label}} </a>
+                                    </h5>
+                                </div>
+                                <div class="panel-body" id="{{.label}}" {{if eq .doc $url}}
+style="display:block"
+{{end}}>
+                                    
+                                </div>
+                            </li>
+                            {{end}}                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#" {{if isstart_with $url .data.kb.Name}} class="active"{{end}}> 技术文章</a>
+
+                        {{if isstart_with $url .data.kb.Name}}
+                            <span class="icon api_down">
+                        {{else}}
+                            <span class="icon api_default">
+                        {{end}}   
+                            </span>                           
+                        </h4>
+                    </div>
+                    <div class="panel-body" {{if isstart_with $url .data.kb.Name}} style="display:block"{{end}}>
                         <ul class="panel-list level-one">
                             {{range .data.kb.Items}}
                             <li>
@@ -233,21 +255,21 @@
                                     <h5 class="panel-title">
                                         <span class="icon off_1">
                                         </span>
-                                        <a href="/{{.Href}}" class="page-link  link"> {{.Title}} </a>
+                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
                                         <span class="icon"></span>
                                     </h5>
                                 </div>
-                                <div class="panel-body  panel-status">
+                                <div class="panel-body  panel-status" {{if isstart_with $url .Href }} style="display:block"{{end}}>
                                     {{if isnot_nil_or_empty .Child}}
                                     <ul class="panel-list level-three nav">
                                         {{range .Child}}
                                         <li>
-                                            <a href="/{{.Href}}"  class="page-link"> {{.Title}} </a>
+                                            <a href="/{{.Href}}"> {{.Title}} </a>
                                             {{if isnot_nil_or_empty .Child}}
                                             <ul class="panel-list level-four nav">
                                                 {{range .Child}}
                                                 <li>
-                                                    <a href="/{{.Href}}"  class="page-link">{{.Title}} </a>
+                                                    <a href="/{{.Href}}">{{.Title}} </a>
                                                 </li>
                                                 {{end}}
                                             </ul>
@@ -267,73 +289,73 @@
         </div>
         <div class="main pull-right">
             <div class="main-inner">
-            <div class="api-content">
-                <!--
-                <div class="api-resource cell">
-                    <span class="icon api_resource_sprited">
-                    </span>
-                    <div class="resource-box pulic-resource">
-                        <div class="title">
-                            官方资源
+                <div class="api-content">
+                    <!--
+                    <div class="api-resource cell">
+                        <span class="icon api_resource_sprited">
+                        </span>
+                        <div class="resource-box pulic-resource">
+                            <div class="title">
+                                官方资源
+                            </div>
+                            <div class="download">
+                                <span class="icon global_download_sprited">
+                                </span>
+                                <a href="">
+                                        下载PHP SDK
+                                    </a>
+                            </div>
+                            <div class="github">
+                                <span class="icon global_github_sprited">
+                                </span>
+                                <a href="">
+                                        查看源代码
+                                    </a>
+                            </div>
                         </div>
-                        <div class="download">
-                            <span class="icon global_download_sprited">
-                            </span>
-                            <a href="">
-                                    下载PHP SDK
-                                </a>
-                        </div>
-                        <div class="github">
-                            <span class="icon global_github_sprited">
-                            </span>
-                            <a href="">
-                                    查看源代码
-                                </a>
+                        <div class="resource-box social-resource">
+                            <div class="title">
+                                PHP社区资源
+                            </div>
+                            <div>
+                                <span class="icon global_source_sprited">
+                                </span>
+                                <a href="">
+                                        第三方的描述撒大声
+                                    </a>
+                            </div>
+                            <div class="author">
+                                作者：
+                                <a href="">
+                                        张三勇
+                                    </a>
+                            </div>
+                            <div>
+                                <span class="icon global_source_sprited">
+                                </span>
+                                <a href="">
+                                        第三方sdk for PHP
+                                    </a>
+                            </div>
+                            <div class="author">
+                                作者：
+                                <a href="">
+                                        张三勇
+                                    </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="resource-box social-resource">
-                        <div class="title">
-                            PHP社区资源
-                        </div>
-                        <div>
-                            <span class="icon global_source_sprited">
-                            </span>
-                            <a href="">
-                                    第三方的描述撒大声
-                                </a>
-                        </div>
-                        <div class="author">
-                            作者：
-                            <a href="">
-                                    张三勇
-                                </a>
-                        </div>
-                        <div>
-                            <span class="icon global_source_sprited">
-                            </span>
-                            <a href="">
-                                    第三方sdk for PHP
-                                </a>
-                        </div>
-                        <div class="author">
-                            作者：
-                            <a href="">
-                                    张三勇
-                                </a>
-                        </div>
-                    </div>
+                    -->
+                    {{ .content }}
                 </div>
-                -->
-                {{ .content }}
-            </div>
             </div>
         </div>
     </div>
         {{.includes.search_result}}
     <footer>
         {{ .includes.footer }}
-    </footer>
-
+    </footer>    
+    
     <script src="/static/js/jquery-1.9.1.min.js" type="text/javascript"></script>
 
     <!-- 具体API页JS ,分别用于指示当前滚动位置，固定侧边栏导航，高亮代码-->
@@ -352,7 +374,7 @@
 
     <!-- 资源下载页，社区插件/社区SDK分页插件，暂时未用到 -->
     <!--    <script type="text/javascript" src="/static/js/jquery.bxslider/jquery.bxslider.min.js"></script>
-
+            
         -->
 </body>
 

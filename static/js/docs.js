@@ -215,7 +215,7 @@ $(function() {
     });
 
     //API页面侧边栏---显示当前页的导航
-    $('.panel-body .page-link').each(function() {
+    $('.panel-body a').each(function() {
         var href = $(this).attr('href').toLowerCase();
         if (url === href) {
             $(this).addClass('active');
@@ -225,9 +225,7 @@ $(function() {
             $panelBody.siblings('.panel-heading').find('span.api_default').removeClass('api_default').addClass('api_down');
             $panelBody.siblings('.panel-heading').find('a').addClass('active');
 
-            $panelBody.show(adjustApiBoxHeight);
             if ($panelHeading.length > 0) {
-                $panelHeading.siblings('.panel-body').show(adjustApiBoxHeight);
                 $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
                 $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
             } else {
@@ -236,7 +234,6 @@ $(function() {
             }
         }
     });
-
     // API页高亮代码
     $('pre code').each(function(i, e) {
         hljs.highlightBlock(e);

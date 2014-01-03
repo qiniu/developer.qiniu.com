@@ -4,6 +4,7 @@ all:
 	./_genMenu docs/v6/api/reference > _data/apiref.json
 	./_genMenu docs/v6/tutorial > _data/guide.json
 	./_genMenu docs/v6/kb > _data/kb.json
+	
 fc:
 	#分词索引
 	./_jkl --plugin 'fc _dictionary.txt static/js/fc.js' --server
