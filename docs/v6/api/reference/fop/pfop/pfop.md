@@ -47,12 +47,12 @@ Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]�
 [管理凭证][accessTokenHref]方式。
 
 <a id="pfop-request-params"></a>
-### 请求参数（PfopRequestParams）
+### 请求参数
 
 请求参数以表单形式组织，作为请求内容提交，格式如下：  
 
 ```
-bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotifyUrl>
+PfopRequestParams = "bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotifyUrl>"
 ```
 
 参数名称      | 必填 | 说明
@@ -84,7 +84,7 @@ Content-Length: <PfopResponseContentLength>
 Content-Type  | 是    | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
 <a id="pfop-response-body"></a>
-### 响应内容（PfopResponseContent）
+### 响应内容
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
@@ -108,7 +108,7 @@ persistentId  | 是    | 持久化处理会话标识，可用于查询处理进�
 ```
 
 <a id="pfop-response-status"></a>
-### 状态响应码
+### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
@@ -210,68 +210,6 @@ Content-Type  | 是   | 固定为`application/json`。
 ```
 http://<domain>/tZ-w8jHlQ0__PYJdiisskrK5h3k=/FjgJQXuH7OresQL4zgRqYG5bZ64x
 ```
-
-<a id="p-download"></a>
-# 访问持久化处理的结果（p）
-
-<a id="p-description"></a>
-## 描述
-
-前述持久化处理成功完成后，可以使用本接口访问已持久化的处理结果。  
-
-<a id="p-specification"></a>
-## 接口规格
-
-```
-pSpec = "p/1/<fop>"
-```
-
-参数名称      | 必填 | 说明
-:------------ | :--- | :-----------------------------
-`fop`         | 是   | 持久化时指定的处理规格字符串。
-
-<a id="p-request"></a>
-## 请求
-
-<a id="request-syntax"></a>
-### 请求语法
-
-```
-GET <RawDownloadURI>?<pSpec> HTTP/1.1
-Host: <RawDownloadDomain>
-```
-
-<a id="request-headers"></a>
-### 头部信息
-
-头部名称      | 必填  | 说明
-:------------ | :---- | :----------------------------------
-Host          | 是    | 可下载指定资源的域名。
-
-<a id="p-response"></a>
-## 响应
-
-<a id="request-syntax"></a>
-### 响应语法
-
-```
-HTTP/1.1 200 OK
-Content-Type: <ResourceMimeType>
-Content-Length: <ResourceBinaryLength>
-
-<ResourceBinary>
-```
-
-<a id="p-response-status"></a>
-### 响应状态码
-
-HTTP状态码 | 含义
-:--------- | :--------------------------
-200        | 下载成功。
-400	       | 请求报文格式错误。
-401        | 管理凭证无效。
-404        | 资源不存在。
-599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 [accessTokenHref]:      ../../security/access-token.html                 "管理凭证"
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
