@@ -47,7 +47,7 @@ order: 980
 `returnBody`          |      | 上传成功后，自定义七牛云存储最终返回給上传端的数据，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]
 `callbackUrl`         |      | 上传成功后，七牛云存储向`App-Server`发送POST请求的URL<p>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL
 `callbackBody`        |      | 上传成功后，七牛云存储向`App-Server`发送POST请求的数据，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]
-`persistentOps`       |      | 音频/视频资源上传成功后异步执行的预转[云处理][fopHref]持久化指令。每个指令是一个API规格字符串，多个指令用“;”分隔
+`persistentOps`       |      | 音频/视频资源上传成功后触发执行的[预转持久化处理][fopHref]指令。每个指令是一个API规格字符串，多个指令用“;”分隔
 `persistentNotifyUrl` |      | 七牛云存储向`App-Server`发送预转云处理持久化结果的URL，必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL
 `insertOnly`          |      | 如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件
 <a id="put-policy-save-key"></a>`saveKey`             |      | ● 自定义资源名格式<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]

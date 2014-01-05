@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 触发异步处理（pfop）
+title: 触发持久化处理（pfop）
 order: 300
 ---
 
 <a id="pfop-existing-resource"></a>
-# 触发异步处理（pfop）
+# 触发持久化处理（pfop）
 
 <a id="pfop-description"></a>
 ## 描述
@@ -35,20 +35,16 @@ Authorization: QBox <AccessToken>
 <a id="pfop-request-headers"></a>
 ### 头部信息
 
-该请求必须指定以下头部信息。
+头部名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------------
+Host          | 是   | 固定为`api.qiniu.com`。
+Content-Type  | 是   | 固定为`application/x-www-form-urlencoded`。
+Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<br>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
 
-头部名称      | 说明                                    | 必填
-:------------ | :-------------------------------------- | :-------
-Host          | 固定为api.qiniu.com                     | 是
-Content-Type  | 固定为application/x-www-form-urlencoded | 是
-Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-
-使用本API无需设置额外头部信息。  
-  
 <a id="pfop-request-auth"></a>
 ### 访问权限
 
-[管理凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证][accessTokenHref]方式。
 
 <a id="pfop-request-params"></a>
 ### 请求参数（PfopRequestParams）
@@ -59,12 +55,12 @@ Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进
 bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotifyUrl>
 ```
 
-参数名称      | 说明                              | 必填
-:------------ | :-------------------------------- | :-------
-`bucket`      | 资源空间                                                        | 是
-`key`         | 源资源名                                                        | 是
-`fops`        | 云处理操作列表，用“;”分隔,需要进行[URL转义][urlescapeHref]           | 是
-`notifyURL`   | 处理结果通知接收URL,请参考[处理结果通知](#pfop-notification)小节     | 是
+参数名称      | 必填 | 说明
+:------------ | :--- | :----------------------------------------------------------------
+`bucket`      | 是   | 资源空间。
+`key`         | 是   | 源资源名。
+`fops`        | 是   | 云处理操作列表，用“;”分隔,需要进行[URL转义][urlescapeHref]。
+`notifyURL`   | 是   | 处理结果通知接收URL,请参考[处理结果通知](#pfop-notification)小节。
 
 <a id="pfop-response"></a>
 ## 响应
@@ -83,9 +79,9 @@ Content-Length: <PfopResponseContentLength>
 <a id="pfop-response-headers"></a>
 ### 头部信息
 
-头部名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+头部名称      | 必填  | 说明                              
+:------------ | :---- | :----------------------------------------------------------------
+Content-Type  | 是    | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
 <a id="pfop-response-body"></a>
 ### 响应内容（PfopResponseContent）
@@ -98,9 +94,9 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 }
 ```
 
-字段名称      | 说明                              
-:------------ | :--------------------------------------------------------------------
-persistentId  | 异步处理会话标识，可用于查询处理进度，请参考[异步云处理查询接口](prefop.html)
+字段名称      | 必填  | 说明                              
+:------------ | :---- | :----------------------------------------------------------------
+persistentId  | 是    | 持久化处理会话标识，可用于查询处理进度，请参考[持久化处理状态查询](prefop.html)。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
@@ -111,16 +107,16 @@ persistentId  | 异步处理会话标识，可用于查询处理进度，请参�
 }
 ```
 
-<a id="pfop-error-messages"></a>
-### 错误消息
+<a id="pfop-response-status"></a>
+### 状态响应码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
-200        | 持久化处理成功
-400	       | 请求参数错误
-401        | 管理凭证无效
-404        | 资源不存在
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+200        | 触发持久化处理成功。
+400	       | 请求报文格式错误。
+401        | 管理凭证无效。
+404        | 资源不存在。
+599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 <a id="pfop-notification"></a>
 # 处理结果通知
@@ -135,7 +131,7 @@ HTTP状态码 | 含义
 
 ```
 POST <persistentNotifyUri> HTTP/1.1
-Host: <persistentNotifyDomain>
+Host:         <persistentNotifyDomain>
 Content-Type: application/json
 
 <JsonStatusDescription>
@@ -146,15 +142,15 @@ Content-Type: application/json
 
 该请求会指定以下头部信息。
 
-头部名称      | 说明                                    | 必填
-:------------ | :-------------------------------------- | :-------
-Host          | 接收异步云处理结果状态的服务器域名      | 是
-Content-Type  | 固定为application/json                  | 是
+头部名称      | 必填 | 说明                                    
+:------------ | :--- | :-------------------------------------------
+Host          | 是   | 接收持久化处理结果状态的服务器域名。
+Content-Type  | 是   | 固定为`application/json`。
 
 <a id="pfop-request-content"></a>
 ### 请求内容
 
-用户获得的异步云处理结果状态是一个JSON字符串，内容范例如下：
+用户获得的持久化云处理结果状态是一个JSON字符串，内容范例如下：
 
 ```
 {
@@ -198,16 +194,16 @@ Content-Type  | 固定为application/json                  | 是
 }
 ```
 
-字段名称      | 说明                                           | 必填
-:------------ | :--------------------------------------------- | :-------
-`id`          | 异步云处理的进程ID，即前文中的`<persistentId>` | 是
-`code`        | 状态码，`0`（成功），`1`（等待处理），`2`（正在处理），`3`（处理失败），`4`（通知提交失败） | 是
-`desc`        | 与状态码相对应的详细描述                       | 是
-`items`       | 云处理操作列表，包含每个云处理操作的状态信息   | 是
-    `cmd`     | 所执行的云处理操作命令（fopN）                 | 是
-    `error`   | 如果处理失败，该字段会给出失败的详细原因       | TODO
-    `hash`    | 云处理结果保存在服务端的唯一`hash`标识         | 是
-    `key`     | 云处理结果的外链资源名（Key）                  | 是
+字段名称      | 必填 | 说明
+:------------ | :--- | :------------------------------------------
+`id`          | 是   | 持久化处理的进程ID，即前文中的`<persistentId>`。
+`code`        | 是   | 状态码，`0`（成功），`1`（等待处理），`2`（正在处理），`3`（处理失败），`4`（通知提交失败）。
+`desc`        | 是   | 与状态码相对应的详细描述。
+`items`       | 是   | 云处理操作列表，包含每个云处理操作的状态信息。
+    `cmd`     | 是   | 所执行的云处理操作命令（fopN）。
+    `error`   |      | 如果处理失败，该字段会给出失败的详细原因。
+    `hash`    | 是   | 云处理结果保存在服务端的唯一`hash`标识。
+    `key`     | 是   | 云处理结果的外链资源名（Key）。
     
 上述范例中，`avthumb/iphone_low`的这一处理结果可以通过如下URL访问：  
 
@@ -215,26 +211,24 @@ Content-Type  | 固定为application/json                  | 是
 http://<domain>/tZ-w8jHlQ0__PYJdiisskrK5h3k=/FjgJQXuH7OresQL4zgRqYG5bZ64x
 ```
 
-<domain> TODO
-
 <a id="p-download"></a>
-# 访问异步云处理的持久化结果（p）
+# 访问持久化处理的结果（p）
 
 <a id="p-description"></a>
 ## 描述
 
-前述异步云处理成功完成后，可以使用本接口访问已持久化的结果。  
+前述持久化处理成功完成后，可以使用本接口访问已持久化的处理结果。  
 
 <a id="p-specification"></a>
-## 接口规格（pSpec）
+## 接口规格
 
 ```
-p/1/<fop>
+pSpec = "p/1/<fop>"
 ```
 
-参数名称      | 说明                              | 必填
-:------------ | :-------------------------------- | :-------
-`fop`         | TODO                              | 是
+参数名称      | 必填 | 说明
+:------------ | :--- | :-----------------------------
+`fop`         | 是   | 持久化时指定的处理规格字符串。
 
 <a id="p-request"></a>
 ## 请求
@@ -250,14 +244,10 @@ Host: <RawDownloadDomain>
 <a id="request-headers"></a>
 ### 头部信息
 
-该请求必须指定以下头部信息。
+头部名称      | 必填  | 说明
+:------------ | :---- | :----------------------------------
+Host          | 是    | 可下载指定资源的域名。
 
-头部名称      | 说明                                    | 必填
-:------------ | :-------------------------------------- | :-------
-Host          | 可下载指定资源的域名                    | 是
-
-使用本API无需设置额外头部信息。  
-  
 <a id="p-response"></a>
 ## 响应
 
@@ -272,19 +262,18 @@ Content-Length: <ResourceBinaryLength>
 <ResourceBinary>
 ```
 
-<a id="p-error-messages"></a>
-### 错误消息
+<a id="p-response-status"></a>
+### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
-200        | 持久化处理成功
-400	       | 请求参数错误
-401        | 管理凭证无效
-404        | 资源不存在
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+200        | 下载成功。
+400	       | 请求报文格式错误。
+401        | 管理凭证无效。
+404        | 资源不存在。
+599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 [accessTokenHref]:      ../../security/access-token.html                 "管理凭证"
-
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 
 [urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81

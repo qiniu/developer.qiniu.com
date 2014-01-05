@@ -327,5 +327,13 @@
         "author": "fengmk2",
         "date": "2013-09-12",
         "doc": "https://github.com/fengmk2/qn"
+    }, {
+        "name": "Javascript",
+        "label": "Javascript SDK (iwillwen/qiniu.js)",
+        "description": "用于构建网页前端的七牛云存储应用，支持文件上传、进度查询、预览、文件处理等功能。",
+        "download": "https://github.com/iwillwen/qiniu.js/tree/develop",
+        "author": "小问",
+        "date": "2013-10-22",
+        "doc": "https://github.com/iwillwen/qiniu.js/tree/develop"
     }]
 }

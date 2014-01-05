@@ -22,10 +22,10 @@ order: 185
 我们提供名为`saveas`的云处理操作，将云处理结果作为资源保存到指定空间内，并赋以指定Key。保存成功后，下一次可直接通过指定Key来访问该资源，以达到提升下载速度的效果。  
 
 <a id="saveas-specification"></a>
-## 接口规格（saveasSpec）  
+## 接口规格
 
 ```
-saveas/<EncodedEntryURI>/sign/<Sign>
+saveasSpec = "saveas/<EncodedEntryURI>/sign/<Sign>"
 ```
 
 参数名称             | 必填  | 类型   | 说明                                                          
@@ -95,6 +95,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 - `urlsafe_base64_encode()` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 [github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
 - 此处签名内容不包含Scheme部分，与DownloadToken签名不一样。
 - 当要持久化保存的fop耗时较长时候，saveas请求会返回CDN超时，但是只要保证发送的saveas请求合法，七牛服务器还是会对请求做正确处理。
+- 大多数使用场景下，建议使用[触发持久化处理][pfopHref]接口来实现处理结果持久存储，避免使用同步操作的`saveas`接口，提升访问速度。
 
 <a id="saveas-samples"></a>
 ## 示例
@@ -143,5 +144,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 ## 内部参考资源
 
 - [EncodedEntryURI格式][encodedEntryURIHref]
+- [触发持久华处理][pfopHref]
 
 [encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[pfopHref]:                     pfop/pfop.html                                     "触发持久化处理"
