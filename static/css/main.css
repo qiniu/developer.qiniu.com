@@ -1236,22 +1236,19 @@ div.api-resource .social-resource .author {
 .container.index .side-bar .question ul li:first-child {
   padding-top: 0;
 }
-.container.index .side-bar .resource-community {
-  height: 333px;
-}
 .container.index .side-bar .resource-community span {
-  display: inline-block;
   vertical-align: top;
   margin-top: 5px;
+  float: left;
 }
 .container.index .side-bar .resource-community > div {
   margin-top: 23px;
-  height: 55px;
+  overflow: hidden;
 }
 .container.index .side-bar .resource-community h4 {
   font-weight: normal;
   color: #404040;
-  display: inline-block;
+  float: left;
   width: 225px;
   margin-left: 10px;
 }
@@ -1269,6 +1266,7 @@ div.api-resource .social-resource .author {
 }
 .container.index .side-bar .resource-community > p {
   text-align: right;
+  margin-top: 23px;
 }
 .container.index .cell,
 .container.docs .cell {
@@ -1893,6 +1891,7 @@ pre .tag .value,
 pre .phpdoc,
 pre .tex .formula {
   /*color:#d14*/
+
   color: #409B1C;
 }
 pre .title,
@@ -1924,6 +1923,7 @@ pre .attribute,
 pre .variable,
 pre .lisp .body {
   /*color:#008080*/
+
   color: #FF7800;
 }
 pre .regexp {
