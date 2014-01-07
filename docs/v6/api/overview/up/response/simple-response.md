@@ -8,8 +8,8 @@ order: 515
 
 如果资源上传成功，服务端会响应HTTP 200返回码，且在响应内容中包含两个字段：
 
-- `name`：已成功上传的资源ID；
 - `hash`：已上传资源的校验码，供用户核对使用。
+- `key`：目标资源的最终名字，可由七牛云存储自动命名；
 
 以下是一个典型的上传成功反馈：
 
@@ -19,8 +19,8 @@ Content-Type: application/json
 Cache-Control: no-store
 
 {
-    "name": "gogopher.jpg",
     "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
+    "key": "gogopher.jpg",
 }
 ```
 
