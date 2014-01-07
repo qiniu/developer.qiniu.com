@@ -48,7 +48,7 @@ SDK 下载地址：<https://github.com/qiniu/python-sdk/tags>
 - [贡献代码](#contribution)
 - [许可证](#license)
 
-<a name="overview"></a>
+<a id="overview"></a>
 
 ## 概述
 
@@ -68,12 +68,12 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 
 
 
-<a name="prepare"></a>
+<a id="prepare"></a>
 
 ## 准备开发环境
 
 
-<a name="install"></a>
+<a id="install"></a>
 
 ### 安装
 
@@ -94,7 +94,7 @@ Python-SDK可以使用`pip`或`easy_install`从PyPI服务器上安装，但不�
 	python setup.py install
 
 
-<a name="appkey"></a>
+<a id="appkey"></a>
 
 ### ACCESS_KEY 和 SECRET_KEY
 
@@ -105,11 +105,11 @@ Python-SDK可以使用`pip`或`easy_install`从PyPI服务器上安装，但不�
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
 2. 登录七牛开发者自助平台，查看 [Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)
 
-<a name="sdk-usage"></a>
+<a id="sdk-usage"></a>
 
 ## 使用SDK
 
-<a name="init"></a>
+<a id="init"></a>
 
 ### 初始化环境
 
@@ -122,7 +122,7 @@ qiniu.conf.ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
 qiniu.conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
 
-<a name="io-put"></a>
+<a id="io-put"></a>
 
 ### 上传文件
 
@@ -136,7 +136,7 @@ qiniu.conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 
 客户端（终端用户）直接上传到七牛的服务器，通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会比本地存储快很多。文件上传成功以后，七牛的服务器使用回调功能，只需要将非常少的数据（比如Key）传给应用服务器，应用服务器进行保存即可。
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 
 #### 上传流程
 
@@ -154,7 +154,7 @@ qiniu.conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 2. 凭借 [上传凭证][uploadTokenHref] 上传文件到七牛
 3. 善后工作，比如保存相关的一些信息
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 
 ##### 上传策略
 
@@ -184,7 +184,7 @@ class PutPolicy(object):
 
 关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
-<a name="upload-token"></a>
+<a id="upload-token"></a>
 
 ##### 上传凭证
 
@@ -202,7 +202,7 @@ policy = qiniu.rs.PutPolicy(bucket_name)
 uptoken = policy.token()
 ```
 
-<a name="put-extra"></a>
+<a id="put-extra"></a>
 
 ##### PutExtra
 
@@ -224,7 +224,7 @@ class PutExtra(object):
 	`check_crc == 1`: 上传二进制数据时等同于 `check_crc=2`；上传本地文件时会自动计算 crc32 值。
 	`check_crc == 2`: 表示进行 crc32 校验，且 crc32 值就是上面的 `crc32` 变量
 
-<a name="upload-do"></a>
+<a id="upload-do"></a>
 
 ##### 上传文件
 
@@ -271,7 +271,7 @@ if err is not None:
 
 ret是一个字典，含有`hash`，`key`等信息。
 
-<a name="resumable-io-put"></a>
+<a id="resumable-io-put"></a>
 
 ##### 断点续上传、分块并行上传
 
@@ -319,11 +319,11 @@ if err is not None:
 print ret,
 ```
 
-<a name="io-get"></a>
+<a id="io-get"></a>
 
 ### 下载文件
 
-<a name="io-get-public"></a>
+<a id="io-get-public"></a>
 
 #### 下载公有文件
 
@@ -337,7 +337,7 @@ print ret,
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
-<a name="io-get-private"></a>
+<a id="io-get-private"></a>
 
 #### 下载私有文件
 
@@ -364,19 +364,19 @@ private_url = policy.make_request(base_url)
 
 无论公有资源还是私有资源，下载过程中客户端并不需要七牛 SDK 参与其中。
 
-<a name="resumable-io-get"></a>
+<a id="resumable-io-get"></a>
 
 #### 断点续下载
 
 无论是公有资源还是私有资源，获得的下载 url 支持标准的 HTTP 断点续传协议。考虑到多数语言都有相应的断点续下载支持的成熟方法，七牛 Python-SDK 并不提供断点续下载相关代码。
 
-<a name="rs"></a>
+<a id="rs"></a>
 
 ### 资源操作
 
 <!--TODO:资源操作介绍-->
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 #### 获取文件信息
 
 ```{python}
@@ -395,7 +395,7 @@ print ret,
 ```
 
 
-<a name="rs-copy"></a>
+<a id="rs-copy"></a>
 #### 复制文件
 
 ```{python}
@@ -413,7 +413,7 @@ if err is not None:
 ```
 
 
-<a name="rs-move"></a>
+<a id="rs-move"></a>
 #### 移动文件
 
 ```{python}
@@ -431,7 +431,7 @@ if err is not None:
 ```
 
 
-<a name="rs-delete"></a>
+<a id="rs-delete"></a>
 #### 删除文件
 
 ```{python}
@@ -449,13 +449,13 @@ if err is not None:
 ```
 
 
-<a name="rs-batch"></a>
+<a id="rs-batch"></a>
 #### 批量操作
 
 当您需要一次性进行多个操作时, 可以使用批量操作。
 
 
-<a name="batch-stat"></a>
+<a id="batch-stat"></a>
 ##### 批量获取文件信息
 
 ```{python}
@@ -476,7 +476,7 @@ if err is not None:
 	return
 ```
 
-<a name="batch-copy"></a>
+<a id="batch-copy"></a>
 ##### 批量复制文件
 
 ```{python}
@@ -498,7 +498,7 @@ if not rets[0]['code'] == 200:
 	return
 ```
 
-<a name="batch-move"></a>
+<a id="batch-move"></a>
 ##### 批量移动文件
 
 ```{python}
@@ -520,7 +520,7 @@ if not rets[0]['code'] == 200:
 	return
 ```
 
-<a name="batch-delete"></a>
+<a id="batch-delete"></a>
 ##### 批量删除文件
 
 ```{python}
@@ -542,10 +542,10 @@ if not [ret['code'] for ret in rets] == [200, 200]:
 ```
 
 
-<a name="rsf"></a>
+<a id="rsf"></a>
 ### 高级管理操作
 
-<a name="list-prefix"></a>
+<a id="list-prefix"></a>
 #### 列出文件
 
 请求某个存储空间（bucket）下的文件列表，如果有前缀，可以按前缀（prefix）进行过滤；如果前一次返回marker就表示还有资源，下一步请求需要将marker参数填上。
@@ -591,13 +591,13 @@ def list_all(bucket, rs=None, prefix=None, limit=None):
 		pass
 ```
 
-<a name="fop"></a>
+<a id="fop"></a>
 ### 云处理
 
-<a name="fop-image"></a>
+<a id="fop-image"></a>
 #### 图像
 
-<a name="fop-image-info"></a>
+<a id="fop-image-info"></a>
 ##### 查看图像属性
 
 ```{python}
@@ -623,7 +623,7 @@ url = policy.make_request(url)
 print '可以在浏览器浏览: %s' % url
 ```
 
-<a name="fop-exif"></a>
+<a id="fop-exif"></a>
 ##### 查看图片EXIF信息
 
 ```{python}
@@ -650,7 +650,7 @@ print '可以在浏览器浏览: %s' % url
 ```
 
 
-<a name="fop-image-view"></a>
+<a id="fop-image-view"></a>
 ##### 生成图片预览
 
 ```{python}
@@ -675,7 +675,7 @@ url = policy.make_request(url)
 print '可以在浏览器浏览: %s' % url
 ```
 
-<a name="contribution"></a>
+<a id="contribution"></a>
 ## 贡献代码
 
 + Fork
@@ -684,7 +684,7 @@ print '可以在浏览器浏览: %s' % url
 + 将您的修改记录提交到远程 git 仓库 (git push origin my-new-feature)
 + 然后到 github 网站的该 git 远程仓库的 my-new-feature 分支下发起 Pull Request
 
-<a name="license"></a>
+<a id="license"></a>
 ## 许可证
 
 > Copyright (c) 2013 qiniu.com

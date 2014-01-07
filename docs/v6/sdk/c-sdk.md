@@ -34,7 +34,7 @@ SDK 下载地址：<https://github.com/qiniu/c-sdk/tags>
     - [复制/移动文件](#rs-copy-move)
     - [批量操作](#rs-batch)
 
-<a name="overview"></a>
+<a id="overview"></a>
 
 ## 概述
 
@@ -55,11 +55,11 @@ C-SDK 以开源方式提供。开发者可以随时从本文档提供的下载�
 * 服务端操作：qiniu/auth_mac.c (授权), qiniu/rs.c (资源操作, uptoken（上传凭证）/dntoken（下载凭证）生成)
 
 
-<a name="prepare"></a>
+<a id="prepare"></a>
 
 ## 准备开发环境
 
-<a name="dependences"></a>
+<a id="dependences"></a>
 
 ### 环境依赖
 
@@ -72,7 +72,7 @@ C-SDK 使用 [cURL](http://curl.haxx.se/) 进行网络相关操作。无论是�
 如果在项目构建过程中出现环境相关的编译错误和链接错误，请确认这些选项是否都已经正确配置，以及所依赖的库是否都已经正确的安装。
 
 
-<a name="appkey"></a>
+<a id="appkey"></a>
 
 ### ACCESS_KEY 和 SECRET_KEY
 
@@ -84,7 +84,7 @@ C-SDK 使用 [cURL](http://curl.haxx.se/) 进行网络相关操作。无论是�
 C-SDK 的 conf.h 文件中声明了对应的两个变量：`QINIU_ACCESS_KEY`和`QINIU_SECRET_KEY`。你需要在启动程序之初初始化这两个变量为七牛颁发的 AccessKey 和 SecretKey。
 
 
-<a name="init"></a>
+<a id="init"></a>
 
 ## 初始化环境与清理
 
@@ -126,19 +126,19 @@ Qiniu_Global_Cleanup();                 /* 全局清理函数，只需要在进�
 3. 客户端初始化/清理用 Qiniu_Global_Init/Cleanup，而服务端用 Qiniu_Servend_Init/Cleanup 这对函数。
 
 
-<a name="convention"></a>
+<a id="convention"></a>
 
 ## C-SDK 惯例
 
 C 语言是一个非常底层的语言，相比其他高级语言来说，它的代码通常看起来会更啰嗦。为了尽量让大家理解我们的 C-SDK，这里需要解释下我们在 SDK 中的一些惯例做法。
 
-<a name="memory-manage"></a>
+<a id="memory-manage"></a>
 
 ## 内存管理
 
 在 C-SDK 中，有一些函数会涉及到内存的动态分配。这些函数的一惯处理方式为在函数内部申请内存，并以指针的形式直接返回。这就要求函数调用者在得到指针后，需要在恰当的时机去释放这些内存。对于特殊的结构体，C-SDK 都会提供特定的函数来释放内存，比如 Qiniu_Buffer 提供了 Qiniu_Buffer_Cleanup 函数。而对于其他基本数据类型的指针，则由 Qiniu_Free 函数来负责释放不再使用的内存。
 
-<a name="http-client"></a>
+<a id="http-client"></a>
 
 ### HTTP 客户端
 
@@ -182,7 +182,7 @@ typedef struct _Qiniu_RS_StatRet {
     hash = strdup(ret.hash);
 
 
-<a name="error-handling"></a>
+<a id="error-handling"></a>
 
 ### 错误处理与调试
 
@@ -210,7 +210,7 @@ void debug(Qiniu_Client* client, Qiniu_Error err)
 }
 ```
 
-<a name="io-put"></a>
+<a id="io-put"></a>
 
 ## 上传文件
 
@@ -224,7 +224,7 @@ void debug(Qiniu_Client* client, Qiniu_Error err)
 
 客户端（终端用户）直接上传到七牛的服务器，通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会比本地存储快很多。文件上传成功以后，七牛的服务器使用回调功能，只需要将非常少的数据（比如Key）传给应用服务器，应用服务器进行保存即可。
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 
 ### 上传流程
 
@@ -281,7 +281,7 @@ int simple_upload(Qiniu_Client* client, char* uptoken, const char* key, const ch
 }
 ```
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 
 ### 上传策略
 
@@ -310,7 +310,7 @@ typedef struct _Qiniu_RS_PutPolicy {
 关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
 
-<a name="resumable-io-put"></a>
+<a id="resumable-io-put"></a>
 
 ### 断点续上传、分块并行上传
 
@@ -335,7 +335,7 @@ int resumable_upload(Qiniu_Client* client, char* uptoken, const char* key, const
 但实际上 `Qiniu_Rio_PutExtra` 多了不少配置项，其中最重要的是两个回调函数：`notify` 与 `notifyErr`，它们用来通知使用者有更多的数据被传输成功，或者有些数据传输失败。在 `notify` 回调函数中，比较常见的做法是将传输的状态进行持久化，以便于在软件退出后下次再进来还可以继续进行断点续上传。但不传入 `notify` 回调函数并不表示不能断点续上传，只要程序没有退出，上传失败自动进行续传和重试操作。
 
 
-<a name="io-get"></a>
+<a id="io-get"></a>
 
 ## 下载文件
 
@@ -348,7 +348,7 @@ int resumable_upload(Qiniu_Client* client, char* uptoken, const char* key, const
 假设某个 bucket 既绑定了七牛的二级域名，如 hello.qiniudn.com，也绑定了自定义域名（需要备案），如 hello.com。那么该 bucket 中 key 为 a/b/c.htm 的文件可以通过`http://hello.qiniudn.com/a/b/c.htm`或`http://hello.com/a/b/c.htm`中任意一个 url 进行访问。
 **注意：key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
-<a name="io-get-private"></a>
+<a id="io-get-private"></a>
 
 ### 下载私有文件
 
@@ -378,7 +378,7 @@ char* downloadUrl(Qiniu_Client* client, const char* domain, const char* key)
 
 无论公有资源还是私有资源，下载过程中客户端并不需要七牛 C-SDK 参与其中。
 
-<a name="io-https-get"></a>
+<a id="io-https-get"></a>
 
 ### HTTPS 支持
 
@@ -387,14 +387,14 @@ char* downloadUrl(Qiniu_Client* client, const char* domain, const char* key)
 1. 不能用 xxx.qiniudn.com 这样的二级域名，只能用 dn-xxx.qbox.me 域名。样例：https://dn-abc.qbox.me/1.txt
 2. 使用自定义域名是付费的。我们并不建议使用自定义域名，但如确有需要，请联系我们的销售人员。
 
-<a name="resumable-io-get"></a>
+<a id="resumable-io-get"></a>
 
 ### 断点续下载
 
 无论是公有资源还是私有资源，获得的下载 url 支持标准的 HTTP 断点续传协议。考虑到多数语言都有相应的断点续下载支持的成熟方法，七牛 C-SDK 并不提供断点续下载相关代码。
 
 
-<a name="rs"></a>
+<a id="rs"></a>
 
 ## 资源操作
 
@@ -408,7 +408,7 @@ typedef struct _Qiniu_Error {
 } Qiniu_Error;
 ```
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 
 ### 获取文件信息
 
@@ -436,7 +436,7 @@ typedef struct _Qiniu_RS_StatRet {
 } Qiniu_RS_StatRet;
 ```
 
-<a name="rs-delete"></a>
+<a id="rs-delete"></a>
 
 ### 删除文件
 
@@ -453,7 +453,7 @@ void delete(Qiniu_Client* client, const char* bucket, const char* key)
 	printf("%s:%s delete OK.\n", bucket, key);
 }
 ```
-<a name="rs-copy-move"></a>
+<a id="rs-copy-move"></a>
 
 ### 复制/移动文件
 
@@ -487,7 +487,7 @@ void move(Qiniu_Client* client,
 }
 ```
 
-<a name="rs-batch"></a>
+<a id="rs-batch"></a>
 
 ### 批量操作
 

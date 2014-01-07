@@ -21,7 +21,7 @@ title: Android SDK 使用指南
 - [贡献代码](#contributing)
 - [许可证](#license)
 
-<a name="upload-flow"></a>
+<a id="upload-flow"></a>
 
 ## 上传流程
 
@@ -43,7 +43,7 @@ title: Android SDK 使用指南
 - 文件上传成功后，业务服务器输出的 JSON 数据，可从所调用SDK上传代码的返回值中获取到。
 
 
-<a name="download-flow"></a>
+<a id="download-flow"></a>
 
 ## 下载流程
 
@@ -59,7 +59,7 @@ title: Android SDK 使用指南
 
 出于安全考虑，此 SDK 不提供 `downloadToken` 的生成。除 Android / iOS SDK 以外，七牛云存储其他编程语言的 SDK 都有提供签发私有资源下载授权凭证（downloadToken）的实现。
 
-<a name="load"></a>
+<a id="load"></a>
 
 ## 接入SDK
 
@@ -68,7 +68,7 @@ title: Android SDK 使用指南
 导入后，填写相关必要参数即可运行SDK自带的 demo 程序，配置方法见 [SDK 内置 demo 说明](#demo) 。
 
 
-<a name="upload"></a>
+<a id="upload"></a>
 
 ## 使用SDK上传文件
 
@@ -126,14 +126,14 @@ private void doUpload(Uri uri) {
 ```
 
 
-<a name="demo"></a>
+<a id="demo"></a>
 
 ## SDK 内置 demo 说明
 
 注意：demo 程序无法直接运行，需要配置 `UpToken`, `BucketName`, `Domain`信息, 将其填写到 MyActivity 之中。`key`值可以在操作界面修改。当文件上传成功时，会试图跳转到浏览器访问已经上传的资源。如果失败，会toast提示。
 
 
-<a name="contributing"></a>
+<a id="contributing"></a>
 
 ## 贡献代码
 
@@ -144,7 +144,7 @@ private void doUpload(Uri uri) {
 5. 然后到 github 网站的该 `git` 远程仓库的 `my-new-feature` 分支下发起 Pull Request
 
 
-<a name="license"></a>
+<a id="license"></a>
 
 ## 许可证
 
