@@ -65,7 +65,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 <a id="upload-request-params"></a>
 ### 请求动作
 
-请求动作在`actoin`消息中设置，用于向服务器指明需要执行的操作。  
+请求动作在`action`消息中设置，用于向服务器指明需要执行的操作。  
 
 #### /rs-put动作
 

@@ -138,7 +138,7 @@
                                         <ul class="panel-list level-three nav">
                                             {{range .Child}}
                                             <li>
-                                                <a href="/{{.Href}}"> {{upcase .Title}} </a>
+                                                <a href="/{{.Href}}"> {{.Title}} </a>
                                                 {{if isnot_nil_or_empty .Child}}
                                                 <ul class="panel-list level-four nav">
                                                     {{range .Child}}

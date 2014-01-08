@@ -115,7 +115,7 @@ HTTP状态码 | 含义
 <a id="imageView-remarks"></a>
 ## 附注
 
-- imageView生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
+- imageView生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]和[saveas处理][saveasHref]。  
 - 如果原图带有[EXIF][exifHref]信息且包含`Orientation`字段，imageView缺省根据此字段的值进行自动旋转修正。
 
 <a id="imageView-samples"></a>
@@ -159,11 +159,11 @@ HTTP状态码 | 含义
 ## 内部参考资源
 
 - [域名绑定][cnameBindingHref]
-- [触发异步处理][pfopHref]
+- [触发持久化处理][pfopHref]
 - [saveas处理][saveasHref]
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:                     ../pfop/pfop.html                            "触发异步处理"
+[pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
 [exifHref]:                     exif.html                                      "EXIF信息"
 

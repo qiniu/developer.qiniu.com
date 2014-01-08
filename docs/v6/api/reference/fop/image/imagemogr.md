@@ -203,12 +203,12 @@ HTTP状态码 | 含义
 <a id="imageMogr-remarks"></a>
 ## 附注
 
-- imageMogr生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
+- imageMogr生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]和[saveas处理][saveasHref]。  
 - `auto-orient` 参数是和图像处理顺序相关的，一般建议放在首位（根据原图EXIF信息自动旋正）。
 - `thumbnail` 和 `crop` 之间的操作可以链式处理，即可以先对图进行缩略再裁剪，或者先裁剪再缩略。
 - `gravity` 只会使其后的裁剪偏移(cropOffset)受到影响，建议放在`/crop`参数之前。
 - 当处理多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大。如果您有多张多帧gif图片需要处理，可在图片上传完成后异步进行预转，这样不必在初次访问时进行图片处理，访问速度更快。
-    - 参考[预转异步处理（persistentOps）][persistentOpsHref]。
+    - 参考[预转持久化处理（persistentOps）][persistentOpsHref]。
 - 第一版的`imageMogr`对gif图片仅反回原图，不做处理。
 
 <a id="imageMogr-samples"></a>
@@ -454,13 +454,13 @@ HTTP状态码 | 含义
 ## 内部参考资源
 
 - [域名绑定][cnameBindingHref]
-- [触发异步处理][pfopHref]
-- [预转异步处理][persistentOpsHref]
+- [触发持久化处理][pfopHref]
+- [预转持久化处理][persistentOpsHref]
 - [saveas处理][saveasHref]
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:                     ../pfop/pfop.html                            "触发异步处理"
-[persistentOpsHref]:            ../../security/put-policy.html#put-policy-struct "预转异步处理"
+[pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
+[persistentOpsHref]:            ../../security/put-policy.html#put-policy-struct "预转持久化处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"

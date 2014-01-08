@@ -48,7 +48,7 @@ order: 600
 	> 因为时间戳的创建和验证在不同的服务端进行（在业务服务器创建，在云存储服务器验证），因此开发者的业务服务器需要尽可能校准时间，否则可能出现凭证刚创建就过期等各种奇怪的问题。
 	
 1. 可选择设置的最终用户标识ID。这是为了让业务服务器在收到结果回调时能够识别产生该请求的最终用户信息；
-1. 可选择设置的[结果返回方式](up/response/index.html)和[异步数据处理指令](up/response/persistent-op.html)；
+1. 可选择设置的[结果返回方式](up/response/index.html)和[数据预处理指令](up/response/persistent-op.html)；
 
 我们使用一个[上传策略（PutPolicy）结构](../reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](../reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](up/index.html)。
 
