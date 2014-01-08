@@ -267,7 +267,7 @@ $(function() {
         'minHeight': 740,
         'frameId': 'feedbackFrame',
         'hideFrameId': 'feedbackFrameHide',
-        'url': 'https://portal.qiniu.com/zendesk/docs-feedback',
+        'url': 'http://192.168.19.56:8000/zendesk/docs-feedback',
     });
     if (window.location.hash === '#hide_feedback') {
         window.parent.DocsFeedback.hide();
