@@ -22,5 +22,6 @@ install:
 clean:
 	rm -rf _site
 
-css:
-	lessc static/css/less/main.less static/css/main.css
+dev: all
+	lessc static/css/less/main.less static/css/main.css	
+	./_jkl --server
