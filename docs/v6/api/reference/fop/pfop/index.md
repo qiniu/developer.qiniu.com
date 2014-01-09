@@ -16,5 +16,5 @@ order: 180
 
 [pfopHref]:                 pfop.html                   "触发持久化处理"
 [pfopNotificationHref]:     pfop.html#pfop-notification "持久化处理结果通知"
-[pHref]:                    pfop.html#p-download        "访问持久化结果"
+[pHref]:                    p.html                      "访问持久化结果"
 [prefopHref]:               prefop.html                 "查询持久化处理状态"

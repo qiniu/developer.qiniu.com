@@ -66,7 +66,7 @@ Content-Length: <prefopResponseContentLength>
 Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
 <a id="prefop-response-body"></a>
-### 响应内容（prefopResponseContent）
+### 响应内容
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
