@@ -301,7 +301,7 @@ Content-Type: <VideoMimeType>
     =>
 
     avthumb/iphone/rotate/auto  则在预设集的基础上增加自动旋转功能
-    avthumb/iphone/vb/500k      将视频码率更改为599k
+    avthumb/iphone/vb/500k      将视频码率更改为500k
 	```
 
 <a id="avthumb-optimization"></a>
