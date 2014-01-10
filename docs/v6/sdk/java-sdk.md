@@ -44,7 +44,7 @@ SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qi
 
 ----
 
-<a name="env_preparation"></a>
+<a id="env_preparation"></a>
 
 ## 1. 环境准备
 
@@ -59,9 +59,9 @@ SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qi
 	</dependency>
 
 
-<a name="setup"></a>
+<a id="setup"></a>
 ## 2.初始化
-<a name="setup-key"></a>
+<a id="setup-key"></a>
 
 ### 2.1 配置密钥
 
@@ -84,7 +84,7 @@ public class Init {
 }
 ```
 
-<a name="get-and-put-api"></a>
+<a id="get-and-put-api"></a>
 
 ## 3. 上传下载接口
 
@@ -111,7 +111,7 @@ public class Init {
 文件上传有两种方式：普通方式，即一次性上传整个文件；断点续上传，即将文件分割成若干小块，分别上传，然后在七牛云存储服务端重新合并成一个文件。一般情况下，用户可以采用普通上传。如果文件较大，或者网络条件不佳，那么可以使用断点续上传，提高上传的速度和成功率。
 
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 
 ### 3.1 上传流程
 
@@ -134,7 +134,7 @@ public class Init {
 1. 善后工作，比如保存相关的一些信息
 
 
-<a name="make-uptoken"></a>
+<a id="make-uptoken"></a>
 
 ### 3.2 生成上传授权uptoken
 
@@ -160,7 +160,7 @@ public class Uptoken {
 
 ```
 
-<a name="upload-code"></a>
+<a id="upload-code"></a>
 
 ### 3.3 上传代码
 
@@ -206,13 +206,13 @@ public class UploadFile {
 
 ```
 
-<a name="resumable-io-put"></a>
+<a id="resumable-io-put"></a>
 
 ### 3.4 断点续上传、分块并行上传
 
 建设中...
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 
 ### 3.5 上传策略
 
@@ -236,7 +236,7 @@ public class UploadFile {
 
 新创建的空间（Bucket）缺省为私有，也可以将某个 Bucket 设为公有，公有 Bucket 中的资源为公有资源，公有资源可以匿名下载。
 
-<a name="public-download"></a>
+<a id="public-download"></a>
 
 ### 3.7 公有资源下载
 
@@ -248,7 +248,7 @@ public class UploadFile {
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
-<a name="private-download"></a>
+<a id="private-download"></a>
 
 ### 3.8 私有资源下载
 
@@ -279,13 +279,13 @@ public class DownloadFile {
 }
 ```
 
-<a name="rs-api"></a>
+<a id="rs-api"></a>
 
 ## 4. 资源管理接口
 
 文件管理包括对存储在七牛云存储上的文件进行查看、复制、移动和删除处理。  
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 
 ### 4.1 查看单个文件属性信息
 
@@ -308,7 +308,7 @@ public class Stat {
 ```
 
 
-<a name="rs-copy"></a>
+<a id="rs-copy"></a>
 
 ### 4.2 复制单个文件
 
@@ -329,7 +329,7 @@ public class Copy {
 }
 ```
 
-<a name="rs-move"></a>
+<a id="rs-move"></a>
 
 ### 4.3 移动单个文件
 
@@ -351,7 +351,7 @@ public class Move {
 
 ```
 
-<a name="rs-delete"></a>
+<a id="rs-delete"></a>
 
 ### 4.4 删除单个文件
 
@@ -374,13 +374,13 @@ public class Delete {
 ```
 
 
-<a name="batch"></a>
+<a id="batch"></a>
 
 ### 4.5 批量操作
 
 当您需要一次性进行多个操作时, 可以使用批量操作.
 
-<a name="batch-stat"></a>
+<a id="batch-stat"></a>
 
 #### 4.5.1 批量获取文件属性信息
 
@@ -421,7 +421,7 @@ public class BatchStat {
 ```
 
 
-<a name="batch-copy"></a>
+<a id="batch-copy"></a>
 
 #### 4.5.2 批量复制文件
 
@@ -480,7 +480,7 @@ public class BatchCopy {
 }
 ```
 
-<a name="batch-move"></a>
+<a id="batch-move"></a>
 
 #### 4.5.3 批量移动文件
 
@@ -539,7 +539,7 @@ public class BatchMove {
 }   
 ```
 
-<a name="batch-delete"></a>
+<a id="batch-delete"></a>
 
 #### 4.5.4 批量删除文件
 
@@ -580,7 +580,7 @@ public class BatchDelete {
 
 参阅: `rs.EntryPath`, `rs.Client.BatchDelete`
 
-<a name="batch-advanced"></a>
+<a id="batch-advanced"></a>
 
 #### 4.5.5 高级批量操作
 
@@ -590,17 +590,17 @@ public class BatchDelete {
 to do!
 ```
 
-<a name="fop-api"></a>
+<a id="fop-api"></a>
 
 ## 5. 数据处理接口
 
 七牛支持在云端对图像, 视频, 音频等富媒体进行个性化处理
 
-<a name="fop-image"></a>
+<a id="fop-image"></a>
 
 ### 5.1 图像
 
-<a name="fop-image-info"></a>
+<a id="fop-image-info"></a>
 
 ### 5.1.1 查看图像属性
 
@@ -619,7 +619,7 @@ public class FopImageInfo {
 
 参阅: `fop.ImageInfoRet`, `fop.ImageInfo`
 
-<a name="fop-exif"></a>
+<a id="fop-exif"></a>
 
 ### 5.1.2 查看图片EXIF信息
 
@@ -636,7 +636,7 @@ public class FopImageExif {
 }
 ```
 
-<a name="fop-image-view"></a>
+<a id="fop-image-view"></a>
 
 ### 5.1.3 生成图片预览
 
@@ -659,11 +659,11 @@ public class FopImageView {
 }
 ```
 
-<a name="rsf-api"></a>
+<a id="rsf-api"></a>
 
 ## 6. 高级资源管理接口(rsf)
 
-<a name="rsf-listPrefix"></a>
+<a id="rsf-listPrefix"></a>
 
 批量获取文件列表
 
@@ -700,7 +700,7 @@ public class ListPrefix {
 }
 ```
 
-<a name="contribution"></a>
+<a id="contribution"></a>
 ## 7. 贡献代码
 
 1. Fork
@@ -709,7 +709,7 @@ public class ListPrefix {
 4. 将您的修改记录提交到远程 `git` 仓库 (`git push origin my-new-feature`)
 5. 然后到 github 网站的该 `git` 远程仓库的 `my-new-feature` 分支下发起 Pull Request
 
-<a name="license"></a>
+<a id="license"></a>
 ## 8. 许可证
 
 Copyright (c) 2013 qiniu.com
