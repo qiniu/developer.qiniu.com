@@ -942,6 +942,7 @@ footer .copyright {
   margin-left: 11px;
   width: 12px;
   height: 60px;
+  line-height: 16px;
 }
 .api-content {
   width: 652px;
