@@ -29,9 +29,13 @@ function Zendesk(initObj) {
         //this.iframe.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
         //this.iframeHide.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
         //本地测试
-        console.log(self.type);
-        self.iframe.attr('src', self.url + '?type=' + self.type + '#' + l);
-        self.iframeHide.attr('src', self.url + '?type=' + self.type + '#' + l);
+        if (self.type) {
+            self.iframe.attr('src', self.url + '?type=' + self.type + '#' + l);
+            self.iframeHide.attr('src', self.url + '?type=' + self.type + '#' + l);
+        } else {
+            self.iframe.attr('src', self.url + '#' + l);
+            self.iframeHide.attr('src', self.url + '#' + l);
+        }
         //线上测试
         //  self.iframe.attr('src', 'https://portal-feature.qiniu.io/zendesk/docs?type=' + type + '#' + l);
         // self.iframeHide.attr('src', 'https://portal-feature.qiniu.io/zendesk/docs?type=' + type + '#' + l);

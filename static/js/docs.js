@@ -94,7 +94,6 @@ $(function() {
             $('#myModal').find('p').html('正在搜索中，请耐心等待。');
             $('#myModal').find('.result-line').html('');
             $.getJSON('http://ss.qbox.me:9900/?query=' + val + '&callback=?', function(data) {
-                console.log(data);
                 if (data.items.length > 0) {
                     var markup = '';
                     for (var i = 0, len = data.items.length; i < len; i++) {
@@ -115,14 +114,14 @@ $(function() {
                 }
             });
         }
-    };
+    }
 
 
 
     //给API页面所有图片的父元素添加一个居中类
     $('.api-content img').each(function() {
         $(this).parent().addClass('center');
-    })
+    });
 
     // API页固定侧边栏
     $('.container.api .side-bar').hcSticky({
@@ -178,7 +177,7 @@ $(function() {
     });
 
     $('.panel-status').each(function() {
-        if (!$(this).children().length > 0) {
+        if ($(this).children().length === 0) {
             $(this).siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('off_1');
         }
     });
@@ -246,7 +245,7 @@ $(function() {
         'minHeight': 866,
         'frameId': 'AddDocsResource',
         'hideFrameId': 'AddDocsResourceHide',
-        'url': 'https://portal.qiniu.com/zendesk/docs',
+        'url': 'http://192.168.19.56:8000/zendesk/docs',
     });
     if (window.location.hash === '#hide_docs') {
         window.parent.DocsAddResource.hide();

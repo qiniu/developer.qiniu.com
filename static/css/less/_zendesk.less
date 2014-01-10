@@ -2,19 +2,26 @@
 .zendesk{
 	position: fixed;
 	right: 0;
-	top: 30%;
-	margin-top: -51px;
-	width: 32px;
-	height: 102px;
+	top: 40%;
+	margin-top: -54px;
 	a {
 		display: block;
 		height: 100%;
 		width: 100%;
-		//background: url(../image/feedback_btn1.png) left top no-repeat;
-		.feedback_btn1;
+		color: #fff;
+		text-decoration: none;
+		position: relative;
+		.feed_normal;
 		&:hover {
-			.feedback_btn2;
-			//background: url(../image/feedback_btn2.png) left top no-repeat;
+			.feed_on;
+		}
+		span {
+			position: absolute;
+			top: 37px;
+			display: block;
+			margin-left: 11px;
+			width: 12px;
+			height: 60px;
 		}
 	}
 }
