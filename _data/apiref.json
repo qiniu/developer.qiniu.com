@@ -207,6 +207,18 @@
 							"Order": 148
 						},
 						{
+							"Title": "音视频元信息（avinfo）",
+							"Href": "docs/v6/api/reference/fop/av/avinfo.html",
+							"Child": null,
+							"Order": 147
+						},
+						{
+							"Title": "私有M3U8（pm3u8）",
+							"Href": "docs/v6/api/reference/fop/av/pm3u8.html",
+							"Child": null,
+							"Order": 146
+						},
+						{
 							"Title": "视频水印（vwatermark）",
 							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
 							"Child": null,
@@ -226,6 +238,12 @@
 					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
 					"Order": 110
+				},
+				{
+					"Title": "",
+					"Href": "docs/v6/api/reference/fop/download.html",
+					"Child": null,
+					"Order": 0
 				}
 			],
 			"Order": 500
