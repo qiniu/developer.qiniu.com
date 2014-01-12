@@ -687,7 +687,7 @@ print '可以在浏览器浏览: %s' % url
 <a id="license"></a>
 ## 许可证
 
-> Copyright (c) 2013 qiniu.com
+> Copyright (c) 2014 qiniu.com
 
 基于 MIT 协议发布:
 
