@@ -7,49 +7,78 @@ order: 950
 <a id="access-token"></a>
 # 管理凭证
 
-管理凭证（Access Token）是七牛云存储用于验证管理请求合法性的机制。建议仅在业务服务器使用这一类凭证，避免意外授权导致滥用。  
+管理凭证（Access Token）是七牛云存储用于验证管理请求合法性的机制。建议仅在业务服务器端使用这一类凭证，避免意外授权导致滥用。  
 
 <a id="access-token-algorithm"></a>
-## 算法
+## 凭证算法
 
-1. 生成待签名字符串：  
+1. 生成待签名的原始字符串：  
 
-	抽取请求URL中`<path>`或`<path>?<query>`的部分与请求内容，用“\n”连接起来。  
+	抽取请求URL中`<path>`或`<path>?<query>`的部分与请求内容部分（即HTTP Body），用“\n”连接起来。  
 	如无请求内容，该部分必须为空字符串。  
 
-    注意：当`Content-Type`为`application/x-www-form-urlencoded`时，签名内容须包括报文内容（即Body部分）。  
+    注意：当`Content-Type`为`application/x-www-form-urlencoded`时，签名内容必须包括请求内容（即HTTP Body）。  
 
 	```
-    signingStr = '<path>?<query>\n'
+    signingStr = "<path>?<query>\n"
     或
-    signingStr = '<path>?<query>\n<body>'
+    signingStr = "<path>?<query>\n<body>"
 	```
 
-	假设有如下的管理请求  
+2. 使用`SecertKey`对上一步生成的原始字符串计算[HMAC-SHA1][hmacSha1Href]签名：
 
 	```
-    http://rs.qiniu.com/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=
+    sign = hmac_sha1(signingStr, "<SecretKey>")
 	```
 
-	待签名的字符串是  
+3. 对签名进行[URL安全的Base64编码][urlsafeBase64Href]：
 
 	```
-    '/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=\n'
+	encodedSign = urlsafe_base64_encode(sign)
 	```
 
-2. 将上一步得到的字符串作为[凭证算法][tokenAlgorithmHref]的原始数据进行运算，得到管理凭证，我们称之为`encodedSign`。
-
-3. 最后，将`AccessKey`和`encodedSign`用`:`连接：  
+4. 最后，将`AccessKey`和`encodedSign`用`:`连接起来：  
 
 	```
-    <AccessKey>:<encodedSign>
+    accessToken = "<AccessKey>:<encodedSign>"
 	```
 
-    假设`AccessKey`为'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo'，最终结果应为  
+<a id="access-token-fakecode"></a>
+## 计算示例
 
-    
+假设有如下的管理请求：  
+
 	```
-    'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo:Ubf-hoK7DkUJQv_P0vyQORA_7IY='
+    AccessKey = "MY_ACCESS_KEY"
+    SecretKey = "MY_SECRET_KEY"
+
+    url = "http://rs.qiniu.com/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ="
+	```
+
+则待签名的原始字符串是：  
+
+	```
+    signingStr = "/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=\n"
+	```
+
+签名字符串是：  
+
+	```
+    注意：签名结果是二进制数据，此处输出的是每个字节的十六进制表示，以便核对检查。
+
+    sign = "157b18874c0a1d83c4b0802074f0fd39f8e47843"
+	```
+
+编码后的签名字符串是：  
+
+	```
+    encodedSign = "FXsYh0wKHYPEsIAgdPD9OfjkeEM="
+	```
+
+最终的管理凭证是：  
+
+	```
+    accessToken = "MY_ACCESS_KEY:FXsYh0wKHYPEsIAgdPD9OfjkeEM="
 	```
 
 <a id="access-token-remarks"></a>
@@ -72,4 +101,3 @@ order: 950
 
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
-[tokenAlgorithmHref]:		token-algorithm.html

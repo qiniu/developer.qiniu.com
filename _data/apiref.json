@@ -6,12 +6,6 @@
 			"Href": "docs/v6/api/reference/security/",
 			"Child": [
 				{
-					"Title": "凭证算法",
-					"Href": "docs/v6/api/reference/security/token-algorithm.html",
-					"Child": null,
-					"Order": 990
-				},
-				{
 					"Title": "上传策略（PutPolicy）",
 					"Href": "docs/v6/api/reference/security/put-policy.html",
 					"Child": null,
@@ -129,17 +123,23 @@
 					"Order": 185
 				},
 				{
-					"Title": "异步处理",
+					"Title": "持久化处理",
 					"Href": "docs/v6/api/reference/fop/pfop/",
 					"Child": [
 						{
-							"Title": "触发异步处理（pfop）",
+							"Title": "触发持久化处理（pfop）",
 							"Href": "docs/v6/api/reference/fop/pfop/pfop.html",
 							"Child": null,
 							"Order": 300
 						},
 						{
-							"Title": "查询异步处理状态（prefop）",
+							"Title": "访问持久化处理的结果（p）",
+							"Href": "docs/v6/api/reference/fop/pfop/p.html",
+							"Child": null,
+							"Order": 290
+						},
+						{
+							"Title": "查询持久化处理状态（prefop）",
 							"Href": "docs/v6/api/reference/fop/pfop/prefop.html",
 							"Child": null,
 							"Order": 200

@@ -148,7 +148,7 @@ private void doUpload(Uri uri) {
 
 ## 许可证
 
-Copyright (c) 2013 www.qiniu.com
+Copyright (c) 2014 www.qiniu.com
 
 基于 MIT 协议发布:
 
