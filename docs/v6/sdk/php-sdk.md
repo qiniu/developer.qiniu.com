@@ -37,7 +37,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 <a name=install></a>
 ## 应用接入
 
-<a name="acc-appkey"></a>
+<a id="acc-appkey"></a>
 
 ###  获取Access Key 和 Secret Key
 
@@ -49,7 +49,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 <a name=rs-api></a>
 ## 资源管理接口
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 ### 1.查看单个文件属性信息
 
 示例代码如下：
@@ -72,7 +72,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		var_dump($ret);
 	}
 	
-<a name="rs-copy"></a>
+<a id="rs-copy"></a>
 ### 复制单个文件
 
 示例代码如下：
@@ -143,7 +143,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		echo "Success!";
 	}
 
-<a name="get-and-put-api"></a>
+<a id="get-and-put-api"></a>
 ## 上传下载接口
 	
 <a name=upload></a>
@@ -159,7 +159,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 客户端（终端用户）直接上传到七牛的服务器，通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会比本地存储快很多。文件上传成功以后，七牛的服务器使用回调功能，只需要将非常少的数据（比如Key）传给应用服务器，应用服务器进行保存即可。
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 #### 上传流程
 
 在七牛云存储中，整个上传流程大体分为这样几步：
@@ -237,7 +237,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	}
 
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 ### 上传策略
 
 [上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`Qiniu_RS_PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：

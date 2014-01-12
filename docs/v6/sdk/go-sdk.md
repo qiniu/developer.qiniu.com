@@ -46,7 +46,7 @@ title: Go SDK 使用指南
 - [许可证](#license)
 
 ----
-<a name="overview"></a>
+<a id="overview"></a>
 
 ## 概述
 
@@ -67,15 +67,15 @@ GO-SDK 以开源方式提供。开发者可以随时从本文档提供的下载�
 * 服务端操作：api/auth/digest (授权), api/rs(资源操作, uptoken/dntoken颁发), api/rsf(批量获取文件列表)
 
 
-<a name="install"></a>
+<a id="install"></a>
 ## 1. 安装
 在命令行下执行
 
 	go get -u github.com/qiniu/api
 
-<a name="setup"></a>
+<a id="setup"></a>
 ## 2. 初始化
-<a name="setup-key"></a>
+<a id="setup-key"></a>
 ### 2.1 配置密钥
 
 要接入七牛云存储，您需要拥有一对有效的 Access Key 和 Secret Key 用来进行签名认证。可以通过如下步骤获得：
@@ -92,7 +92,7 @@ ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
 SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
 
-<a name="io-put"></a>
+<a id="io-put"></a>
 ## 3. 上传文件
 
 为了尽可能地改善终端用户的上传体验，七牛云存储首创了客户端直传功能。一般云存储的上传流程是：
@@ -110,7 +110,7 @@ SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 
 
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 ### 3.1 上传流程
 
 在七牛云存储中，整个上传流程大体分为这样几步：
@@ -129,7 +129,7 @@ SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 
 
 
-<a name="io-put-make-uptoken"></a>
+<a id="io-put-make-uptoken"></a>
 ### 3.2 生成上传授权uptoken
 uptoken是一个字符串,业务服务器根据(`rs.PutPolicy`)的结构体的各个参数来生成[上传凭证][uploadTokenHref]的代码如下:
 调用如下代码前，请确保Access Key 和 Secret Key已经被正确初始化
@@ -152,7 +152,7 @@ func uptoken(bucketName string) string {
 
 参阅 `rs.PutPolicy` [policy参数](../api/reference/security/put-policy.html)
 
-<a name="io-put-upload-code"></a>
+<a id="io-put-upload-code"></a>
 ### 3.3 上传代码
 上传文件到七牛（通常是客户端完成，但也可以发生在业务服务器）：
 由于七牛的服务器支持自动生成key，所以本SDK提供的上传函数有两种展现方式，一种是有key的，一种是无key，让服务端自动生成key.
@@ -292,7 +292,7 @@ log.Print(ret.Hash, ret.Key)
 ```
 
 参阅: `io.PutFile`, `io.PutExtra`, `io.PutRet`
-<a name="io-put-resumable"></a>
+<a id="io-put-resumable"></a>
 ### 3.4 断点续上传、分块并行上传
 
 除了基本的上传外，七牛还支持你将文件切成若干块（除最后一块外，每个块固定为4M大小），每个块可独立上传，互不干扰；每个分块块内则能够做到断点上续传。
@@ -391,7 +391,7 @@ log.Print(ret.Hash)
 
 但实际上 `resumable.io.PutExtra` 多了不少配置项，其中最重要的是两个回调函数：`Notify` 与 `NotifyErr`，它们用来通知使用者有更多的数据被传输成功，或者有些数据传输失败。在 `Notify` 回调函数中，比较常见的做法是将传输的状态进行持久化，以便于在软件退出后下次再进来还可以继续进行断点续上传。但不传入 `Notify` 回调函数并不表示不能断点续上传，只要程序没有退出，上传失败自动进行续传和重试操作。
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 ### 3.5 上传策略
 
 [上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
@@ -406,7 +406,7 @@ log.Print(ret.Hash)
 
 关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
-<a name="io-get"></a>
+<a id="io-get"></a>
 ## 4 下载文件
 七牛云存储上的资源下载分为 公有资源下载 和 私有资源下载 。
 
@@ -414,7 +414,7 @@ log.Print(ret.Hash)
 
 新创建的空间（Bucket）缺省为私有，也可以将某个 Bucket 设为公有，公有 Bucket 中的资源为公有资源，公有资源可以匿名下载。
 
-<a name="io-get-public"></a>
+<a id="io-get-public"></a>
 ### 4.1 公有资源下载
 如果在给bucket绑定了域名的话，可以通过以下地址访问。
 
@@ -422,7 +422,7 @@ log.Print(ret.Hash)
 
 其中<domain>可以到[七牛云存储开发者自助网站](https://portal.qiniu.com)绑定。步骤：首先选择需要绑定的空间，其次在空间设置标签下，点击域名绑定项，即可申请绑定自定义域名。域名可以使用自己一级域名的或者是由七牛提供的二级域名(`<bucket>.qiniudn.com`)。注意，尖括号不是必需，代表替换项。
 
-<a name="io-get-private"></a>
+<a id="io-get-private"></a>
 ### 4.2 私有资源下载
 如果某个 bucket 是私有的，那么这个 bucket 中的所有文件只能通过一个的临时有效的 downloadUrl 访问：
 
@@ -445,7 +445,7 @@ func downloadUrl(domain, key string) string {
 
 参阅: `rs.GetPolicy`, `rs.GetPolicy.MakeRequest`, `rs.MakeBaseUrl`
 
-<a name="io-get-https"></a>
+<a id="io-get-https"></a>
 ### 4.3 HTTPS支持
 
 几乎所有七牛云存储 API 都同时支持 HTTP 和 HTTPS，但 HTTPS 下载有些需要注意的点。如果你的资源希望支持 HTTPS 下载，有如下限制：
@@ -453,18 +453,18 @@ func downloadUrl(domain, key string) string {
 1. 不能用 xxx.qiniudn.com 这样的二级域名，只能用 dn-xxx.qbox.me 域名。样例：https://dn-abc.qbox.me/1.txt
 2. 使用自定义域名是付费的。我们并不建议使用自定义域名，但如确有需要，请联系我们的销售人员。
 
-<a name="io-get-resumable"></a>
+<a id="io-get-resumable"></a>
 ### 4.4 断点续下载
 
 无论是公有资源还是私有资源，获得的下载 url 支持标准的 HTTP 断点续传协议。考虑到多数语言都有相应的断点续下载支持的成熟方法，七牛 GO-SDK 并不提供断点续下载相关代码。
 
-<a name="rs"></a>
+<a id="rs"></a>
 ## 5. 资源操作
 
 资源操作包括对存储在七牛云存储上的文件进行查看、复制、移动和删除处理。  
 该节调用的函数第一个参数都为 `logger`, 用于记录log, 如果无需求, 可以设置为nil. 具体接口可以查阅 `github.com/qiniu/rpc`
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 ### 5.1 获取文件信息
 函数`rs.Client.Stat`可获取文件信息。
 
@@ -496,7 +496,7 @@ type Entry struct {
 参阅: `rs.Entry`, `rs.Client.Stat`
 
 
-<a name="rs-delete"></a>
+<a id="rs-delete"></a>
 ### 5.2 删除文件
 函数`rs.Client.Delete`可删除指定的文件。
 
@@ -512,7 +512,7 @@ if err != nil {
 若无错误发生则返回的err为nil，否则err包含错误信息。
 参阅: `rs.Client.Delete`
 
-<a name="rs-copy"></a>
+<a id="rs-copy"></a>
 ### 5.3 复制文件
 函数`rs.Client.Copy`可用来复制文件。
 
@@ -527,7 +527,7 @@ if err != nil {
 
 参阅: `rs.Client.Move` `rs.Client.Copy`
 
-<a name="rs-move"></a>
+<a id="rs-move"></a>
 ### 5.4 移动文件
 函数`rs.Client.Move`可用来移动文件。
 
@@ -543,11 +543,11 @@ if err != nil {
 参阅: `rs.Client.Move`
 
 
-<a name="rs-batch"></a>
+<a id="rs-batch"></a>
 ### 5.5 批量操作
 当您需要一次性进行多个操作时, 可以使用批量操作。
 
-<a name="rs-batch-stat"></a>
+<a id="rs-batch-stat"></a>
 #### 5.5.1 批量获取文件信息
 
 函数`rs.Client.BatchStat`可批量获取文件信息。
@@ -597,7 +597,7 @@ type BatchStatItemRet struct {
 
 参阅: `rs.EntryPath`, `rs.BatchStatItemRet`, `rs.Client.BatchStat`
 
-<a name="rs-batch-delete"></a>
+<a id="rs-batch-delete"></a>
 #### 5.5.2 批量删除文件
 函数`rs.Client.BatchDelete`可进行批量删除文件。
 
@@ -636,7 +636,7 @@ type BatchItemRet struct {
 
 参阅: `rs.EntryPath`, `rs.Client.BatchDelete`, `rs.BatchItemRet`
 
-<a name="rs-batch-copy"></a>
+<a id="rs-batch-copy"></a>
 #### 5.5.3 批量复制文件
 函数`rs.Client.BatchCopy`可进行批量复制文件。
 
@@ -689,7 +689,7 @@ type EntryPathPair struct {
 
 参阅: `rs.BatchItemRet`, `rs.EntryPathPair`, `rs.Client.BatchCopy`
 
-<a name="rs-batch-move"></a>
+<a id="rs-batch-move"></a>
 #### 5.5.4 批量移动文件
 批量移动和批量很类似, 唯一的区别就是调用`rs.Client.BatchMove`
 
@@ -731,7 +731,7 @@ for _, item := range batchMoveRets {
 
 参阅: `rs.EntryPathPair`, `rs.Client.BatchMove`
 
-<a name="rs-batch-advanced"></a>
+<a id="rs-batch-advanced"></a>
 #### 5.5.5 高级批量操作
 批量操作不仅仅支持同时进行多个相同类型的操作, 同时也支持不同的操作.
 
@@ -757,13 +757,13 @@ for _, ret := range *rets {
 
 参阅: `rs.URIStat`, `rs.URICopy`, `rs.URIMove`, `rs.URIDelete`, `rs.Client.Batch`
 
-<a name="fop-api"></a>
+<a id="fop-api"></a>
 ## 6. 数据处理接口
 七牛支持在云端对图像, 视频, 音频等富媒体进行个性化处理
 
-<a name="fop-image"></a>
+<a id="fop-image"></a>
 ### 6.1 图像
-<a name="fop-image-info"></a>
+<a id="fop-image-info"></a>
 #### 6.1.1 查看图像属性
 GO-SDK支持生成查看图片信息的URL，示意如下：
 
@@ -789,7 +789,7 @@ log.Println(infoRet.Height, infoRet.Width, infoRet.ColorModel,
 
 参阅: `fop.ImageInfoRet`, `fop.ImageInfo`
 
-<a name="fop-exif"></a>
+<a id="fop-exif"></a>
 #### 6.1.2 查看图片EXIF信息
 同样，本SDK也支持直接生成查看exif的URL：
 
@@ -818,7 +818,7 @@ for _, item := range exifRet {
 
 参阅: `fop.Exif`, `fop.ExifRet`, `fop.ExifValType`
 
-<a name="fop-image-view"></a>
+<a id="fop-image-view"></a>
 #### 6.1.3 生成图片预览
 可以根据给定的文件URL和缩略图规格来生成缩略图的URL,代码： 
 
@@ -837,10 +837,10 @@ func makeViewUrl(imageUrl string) string {
 
 参阅: `fop.ImageView`
 
-<a name="rsf-api"></a>
+<a id="rsf-api"></a>
 ## 7. 高级资源管理接口(rsf)
 
-<a name="rsf-listPrefix"></a>
+<a id="rsf-listPrefix"></a>
 ### 7.1 批量获取文件列表
 根据指定的前缀，获取对应前缀的文件列表,正常使用情景如下：
 
@@ -870,7 +870,7 @@ func listAll(l rpc.Logger, rs *rsf.Client, bucketName string, prefix string) {
 参阅: `rsf.ListPreFix`
 
 
-<a name="contribution"></a>
+<a id="contribution"></a>
 ## 8. 贡献代码
 
 1. Fork
@@ -879,7 +879,7 @@ func listAll(l rpc.Logger, rs *rsf.Client, bucketName string, prefix string) {
 4. 将您的修改记录提交到远程 `git` 仓库 (`git push origin my-new-feature`)
 5. 然后到 github 网站的该 `git` 远程仓库的 `my-new-feature` 分支下发起 Pull Request
 
-<a name="license"></a>
+<a id="license"></a>
 ## 9. 许可证
 
 Copyright (c) 2013 qiniu.com
