@@ -5,7 +5,7 @@ order: 174
 ---
 
 <a id="imageMogr"></a>
-# 高级图像处理
+# 高级图像处理（imageMogr）
 
 <a id="imageMogr-description"></a>
 ## 描述

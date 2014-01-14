@@ -23,9 +23,9 @@ order: 200
 
 ### 图片
 
-* [基本图片处理](../../reference/fop/image/imageView.html)
-* [高级图片处理](../../reference/fop/image/imageMogr.html)
-* [获取图片基本信息](../../reference/fop/image/imageInfo.html)
+* [基本图片处理](../../reference/fop/image/imageview.html)
+* [高级图片处理](../../reference/fop/image/imagemogr.html)
+* [获取图片基本信息](../../reference/fop/image/imageinfo.html)
 * [获取图片EXIF信息](../../reference/fop/image/exif.html)
 * [图片水印和文字水印](../../reference/fop/image/watermark.html)
 
