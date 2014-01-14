@@ -35,7 +35,7 @@ SDK 下载地址：[https://github.com/qiniu/nodejs-sdk](https://github.com/qini
 		- [批量操作](#rs-batch)
 	- [云处理](#fop)
 
-<a name="overview"></a>
+<a id="overview"></a>
 ## 概述
 
 <sdk基本介绍\>
@@ -54,19 +54,19 @@ Node.js SDK 主要包含对七牛云存储API的包装，遵循[qiniu sdkspec](h
 - 数据处理(qiniu/fop.js)
 - 公共库(qiniu/rpc.js, qiniu/util.js)
 
-<a name="prepare"></a>
+<a id="prepare"></a>
 
 ## 准备开发环境
 
 <a开发环境准备说明\>
 
-<a name="dependences"></a>
+<a id="dependences"></a>
 
 ### 环境依赖
 <sdk环境依赖\>
 适用于 Node.js 0.4.7 及其以上版本
 
-<a name="install"></a>
+<a id="install"></a>
 
 ### 安装
 
@@ -74,7 +74,7 @@ Node.js SDK 主要包含对七牛云存储API的包装，遵循[qiniu sdkspec](h
 通过 npm 以 node 模块化的方式安装：  
 `npm node qiniu`
 
-<a name="appkey"></a>
+<a id="appkey"></a>
 
 ### ACCESS_KEY 和 SECRET_KEY
 
@@ -85,11 +85,11 @@ Node.js SDK 主要包含对七牛云存储API的包装，遵循[qiniu sdkspec](h
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
 2. [登录七牛开发者自助平台，查看 AccessKey 和 SecretKey](https://portal.qiniu.com/setting/key) 。
 
-<a name="sdk-usage"></a>
+<a id="sdk-usage"></a>
 
 ## 使用SDK
 
-<a name="init"></a>
+<a id="init"></a>
 
 ### 初始化环境
 
@@ -102,7 +102,7 @@ qiniu.conf.SECRET_KEY = '<Your Secret Key>'
 
 *服务端操作时请务必初始化这两个变量*
 
-<a name="io-put"></a>
+<a id="io-put"></a>
 
 ### 上传文件
 
@@ -116,7 +116,7 @@ qiniu.conf.SECRET_KEY = '<Your Secret Key>'
 
 客户端（终端用户）直接上传到七牛的服务器，通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会比本地存储快很多。文件上传成功以后，七牛的服务器使用回调功能，只需要将非常少的数据（比如Key）传给应用服务器，应用服务器进行保存即可。
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 
 #### 上传流程
 
@@ -134,11 +134,11 @@ qiniu.conf.SECRET_KEY = '<Your Secret Key>'
 2. 凭借 [上传凭证][uploadTokenHref] 上传文件到七牛
 3. 善后工作，比如保存相关的一些信息
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 
 ##### 上传策略
 
-[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
+[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制着整个上传流程的行为。让我们快速过一遍你都能够决策啥：
 
 ```{javascript}
 function PutPolicy(scope, callbackUrl, callbackBody, returnUrl, returnBody,
@@ -164,7 +164,7 @@ function PutPolicy(scope, callbackUrl, callbackBody, returnUrl, returnBody,
 
 关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
-<a name="upload-token"></a>
+<a id="upload-token"></a>
 
 ##### 生成上传凭证
 
@@ -184,13 +184,13 @@ function uptoken(bucketname) {
 }
 ```
 
-<a name="put-extra"></a>
+<a id="put-extra"></a>
 
 ##### PutExtra
 
 <PutExtra说明\>
 
-<a name="upload-do"></a>
+<a id="upload-do"></a>
 PutExtra是上传时的可选信息，默认为null
 
 ```{javascript}
@@ -262,11 +262,11 @@ function uploadFile(localFile, key, uptoken) {
 }
 ```
 
-<a name="io-get"></a>
+<a id="io-get"></a>
 
 #### 下载文件
 
-<a name="io-get-public"></a>
+<a id="io-get-public"></a>
 
 ##### 下载公有文件
 
@@ -280,7 +280,7 @@ function uploadFile(localFile, key, uptoken) {
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
-<a name="io-get-private"></a>
+<a id="io-get-private"></a>
 
 ##### 下载私有文件
 
@@ -302,13 +302,13 @@ function downloadUrl(domain, key) {
 
 无论公有资源还是私有资源，下载过程中客户端并不需要七牛 SDK 参与其中。
 
-<a name="resumable-io-get"></a>
+<a id="resumable-io-get"></a>
 
 ##### 断点续下载
 
 无论是公有资源还是私有资源，获得的下载 url 支持标准的 HTTP 断点续传协议。考虑到多数语言都有相应的断点续下载支持的成熟方法，七牛 Nodejs-SDK 并不提供断点续下载相关代码。
 
-<a name="rs"></a>
+<a id="rs"></a>
 
 ### 资源操作
 
@@ -319,7 +319,7 @@ qiniu.conf.ACCESS_KEY = '<Your Access Key>';
 qiniu.conf.SECRET_KEY = '<Your Secret Key>';
 ```
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 
 #### 获取文件信息
 
@@ -338,7 +338,7 @@ client.stat(bucketName, key, function(err, ret) {
 });
 ```
 
-<a name="rs-delete"></a>
+<a id="rs-delete"></a>
 
 #### 删除文件
 
@@ -354,7 +354,7 @@ client.remove(bucketName, key, function(err, ret) {
 })
 ```
 
-<a name="rs-copy-move"></a>
+<a id="rs-copy-move"></a>
 
 #### 复制/移动文件
 
@@ -382,7 +382,7 @@ client.move(bucketSrc, keySrc, bucketDest, keyDest, function(err, ret) {
 });
 ```
 
-<a name="rs-batch"></a>
+<a id="rs-batch"></a>
 
 #### 批量操作
 
@@ -505,7 +505,7 @@ client.batchDelete([path0, path1, path2], function(err, ret) {
 });
 ```
 
-<a name="adv-file-handle"></a>
+<a id="adv-file-handle"></a>
 
 ### 高级管理操作
 
@@ -527,7 +527,7 @@ qiniu.rsf.listPrefix(bucketname, prefix, marker, limit, function(err, ret) {
 });
 ```
 
-<a name="fop"></a>
+<a id="fop"></a>
 
 ### 云处理
 
@@ -597,7 +597,7 @@ console.log('在浏览器输入: ' + url);
 
 ## 许可证
 
-> Copyright (c) 2013 qiniu.com
+> Copyright (c) 2014 qiniu.com
 
 ## 基于 MIT 协议发布:
 

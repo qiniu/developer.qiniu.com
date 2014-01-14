@@ -30,7 +30,7 @@ title: Ruby SDK 使用指南
 		- [批量操作](#rs-batch)
     - [云处理](#fop)
 
-<a name="overview"></a>
+<a id="overview"></a>
 
 ## 概述
 
@@ -39,7 +39,7 @@ title: Ruby SDK 使用指南
 七牛云存储 Ruby SDK 源码地址：<https://github.com/qiniu/ruby-sdk> [![Build Status](https://api.travis-ci.org/qiniu/ruby-sdk.png?branch=master)](https://travis-ci.org/qiniu/ruby-sdk) [![Dependency Status](https://gemnasium.com/why404/qiniu-rs-for-ruby.png)]
 
 
-<a name="prepare"></a>
+<a id="prepare"></a>
 
 ## 准备开发环境
 
@@ -58,7 +58,7 @@ title: Ruby SDK 使用指南
     $ gem install qiniu-rs
 
 
-<a name="appkey"></a>
+<a id="appkey"></a>
 
 ### ACCESS_KEY 和 SECRET_KEY
 
@@ -71,11 +71,11 @@ title: Ruby SDK 使用指南
 
 **注意：SECRET_KEY用户应当妥善保存，不能外泄。亦不可放置在客户端中，分发给最终用户。一旦发生泄露，请立刻到开发者平台更新。**
 
-<a name="sdk-usage"></a>
+<a id="sdk-usage"></a>
 
 ## 使用SDK
 
-<a name="init"></a>
+<a id="init"></a>
 
 ### 初始化环境
 
@@ -96,7 +96,7 @@ title: Ruby SDK 使用指南
 这样，您就可以在您的 `RAILS_APP` 中使用七牛云存储 Ruby SDK 提供的其他任意方法了。
 
 
-<a name="io-put"></a>
+<a id="io-put"></a>
 
 ### 上传文件
 
@@ -110,7 +110,7 @@ title: Ruby SDK 使用指南
 
 客户端（终端用户）直接上传到七牛的服务器，通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会比本地存储快很多。文件上传成功以后，七牛的服务器使用回调功能，只需要将非常少的数据（比如Key）传给应用服务器，应用服务器进行保存即可。
 
-<a name="io-put-flow"></a>
+<a id="io-put-flow"></a>
 
 #### 上传流程
 
@@ -128,7 +128,7 @@ title: Ruby SDK 使用指南
 2. 凭借 [上传凭证][uploadTokenHref] 上传文件到七牛
 3. 善后工作，比如保存相关的一些信息
 
-<a name="io-put-policy"></a>
+<a id="io-put-policy"></a>
 
 #### 上传策略
 
@@ -162,7 +162,7 @@ class PutPolicy
 
 关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
-<a name="upload-token"></a>
+<a id="upload-token"></a>
 
 #### 生成上传凭证
 
@@ -177,7 +177,7 @@ pp = Qiniu::Rs::PutPolicy.new({ :scope => @bucket1, :expires => 1800 })
 token = pp.token(@mac)
 ```
 
-<a name="upload-do"></a>
+<a id="upload-do"></a>
 
 #### 上传文件
 
@@ -197,7 +197,7 @@ code, res = Qiniu::Io.Put(token, @to_del_key, file_data, pe)
 
 上传文件有两种方式：Put()接受一个文件对象作为参数；PutFile()接受一个文件的路径做为参数。文件上传可以通过PutExtra结构控制更多的上传行为，具体参考[PutExtra](#put-extra)
 
-<a name="put-extra"></a>
+<a id="put-extra"></a>
 
 #### PutExtra
 
@@ -226,11 +226,11 @@ end
 	`check_crc == 2`: 表示进行 crc32 校验，且 crc32 值就是上面的 `crc32` 变量
 
 
-<a name="io-get"></a>
+<a id="io-get"></a>
 
 ### 下载文件
 
-<a name="io-get-public"></a>
+<a id="io-get-public"></a>
 
 #### 下载公有文件
 
@@ -242,7 +242,7 @@ end
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
-<a name="io-get-private"></a>
+<a id="io-get-private"></a>
 
 #### 下载私有文件
 
@@ -267,19 +267,19 @@ url = get_policy.make_request(base_url, @mac)
 
 无论公有资源还是私有资源，下载过程中客户端并不需要七牛 SDK 参与其中。
 
-<a name="resumable-io-get"></a>
+<a id="resumable-io-get"></a>
 
 #### 断点续下载
 
 无论是公有资源还是私有资源，获得的下载 url 支持标准的 HTTP 断点续传协议。考虑到多数语言都有相应的断点续下载支持的成熟方法，七牛 Ruby-SDK 并不提供断点续下载相关代码。
 
-<a name="rs"></a>
+<a id="rs"></a>
 
 ### 资源操作
 
 资源操作包括对存储在七牛云存储上的文件进行查看、复制、移动和删除处理，并且允许批量地执行文件管理操作，方便用户使用。
 
-<a name="rs-stat"></a>
+<a id="rs-stat"></a>
 
 #### 获取文件信息
 
@@ -290,7 +290,7 @@ url = get_policy.make_request(base_url, @mac)
 code, res = @rs_cli.Stat(@bucket1, @to_del_key)
 ```
 
-<a name="rs-delete"></a>
+<a id="rs-delete"></a>
 
 #### 删除文件
 
@@ -301,7 +301,7 @@ code, res = @rs_cli.Stat(@bucket1, @to_del_key)
 code, res = @rs_cli.Delete(@bucket1, @to_del_key)
 ```
 
-<a name="rs-copy-move"></a>
+<a id="rs-copy-move"></a>
 
 #### 移动文件
 
@@ -312,7 +312,7 @@ code, res = @rs_cli.Delete(@bucket1, @to_del_key)
 code, res = @rs_cli.Copy(@bucket1, @to_copy_key, @bucket1, @to_move_key)
 ```
 
-<a name="rs-copy-move"></a>
+<a id="rs-copy-move"></a>
 
 #### 复制文件
 
@@ -323,7 +323,7 @@ code, res = @rs_cli.Copy(@bucket1, @to_copy_key, @bucket1, @to_move_key)
 code, res = @rs_cli.Copy(@bucket1, @to_del_key, @bucket1, @to_copy_key)
 ```
 
-<a name="rs-batch"></a>
+<a id="rs-batch"></a>
 
 #### 批量操作
 
@@ -382,7 +382,7 @@ end
 code, res = @rs_cli.BatchCopy(to_copy)
 ```
 
-<a name="fop"></a>
+<a id="fop"></a>
 
 ### 云处理
 
@@ -422,7 +422,7 @@ puts returl
 
 ## 许可证
 
-Copyright (c) 2013 qiniu.com
+Copyright (c) 2014 qiniu.com
 
 基于 MIT 协议发布:
 

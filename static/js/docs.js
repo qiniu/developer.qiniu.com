@@ -1,3 +1,7 @@
+var DocsAddResource;
+var DocsFeedback;
+
+
 $(function() {
 
     var url = window.location.pathname.toLowerCase();
@@ -90,7 +94,6 @@ $(function() {
             $('#myModal').find('p').html('正在搜索中，请耐心等待。');
             $('#myModal').find('.result-line').html('');
             $.getJSON('http://ss.qbox.me:9900/?query=' + val + '&callback=?', function(data) {
-                console.log(data);
                 if (data.items.length > 0) {
                     var markup = '';
                     for (var i = 0, len = data.items.length; i < len; i++) {
@@ -111,18 +114,14 @@ $(function() {
                 }
             });
         }
-    };
-    // 技术支持 模态窗口
-    $('.js-initFeedBack').on('click', function() {
-        QiniuFeedBack.show();
-        return false;
-    });
+    }
+
 
 
     //给API页面所有图片的父元素添加一个居中类
     $('.api-content img').each(function() {
         $(this).parent().addClass('center');
-    })
+    });
 
     // API页固定侧边栏
     $('.container.api .side-bar').hcSticky({
@@ -178,7 +177,7 @@ $(function() {
     });
 
     $('.panel-status').each(function() {
-        if (!$(this).children().length > 0) {
+        if ($(this).children().length === 0) {
             $(this).siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('off_1');
         }
     });
@@ -240,6 +239,19 @@ $(function() {
     });
 
     // 资源下载页提交社区SDK/插件
+
+    DocsAddResource = new Zendesk({
+        'width': 740,
+        'minHeight': 866,
+        'frameId': 'AddDocsResource',
+        'hideFrameId': 'AddDocsResourceHide',
+        'url': 'https://portal-feature.qiniu.io/zendesk/docs',
+    });
+    if (window.location.hash === '#hide_docs') {
+        window.parent.DocsAddResource.hide();
+    } else {
+        DocsAddResource.init();
+    }
     $('.js-add-resource').on('click', function() {
         var title = $.trim($(this).text());
         var type = title === '提交我的插件/工具' ? 'Plugin' : 'SDK';
@@ -247,8 +259,28 @@ $(function() {
         return false;
     });
 
+    //技术支持模态窗口
+
+    DocsFeedback = new Zendesk({
+        'width': 740,
+        'minHeight': 740,
+        'frameId': 'feedbackFrame',
+        'hideFrameId': 'feedbackFrameHide',
+        'url': 'https://portal-feature.qiniu.io/zendesk/docs-feedback',
+    });
+    if (window.location.hash === '#hide_feedback') {
+        window.parent.DocsFeedback.hide();
+    } else {
+        DocsFeedback.init();
+    }
+    $('.js-zendesk').on('click', function() {
+        DocsFeedback.show();
+        return false;
+    });
+
     // 资源下载页，社区插件/社区SDK分页插件，暂时未用到 
     // $('.bxslider').bxSlider({
     //     controls: false
     // });
+
 });

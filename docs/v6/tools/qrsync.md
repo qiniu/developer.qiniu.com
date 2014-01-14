@@ -54,8 +54,6 @@ qrsync 命令行辅助同步工具下载地址：
 
 `async_ops` 是设置上传预转参数，一般上传的音视频如果需要转码，可以使用该参数。详情参考：[音视频上传预转 - asyncOps](/api/put.html#uploadToken-asyncOps)
 
-`ignore_patterns` 参数是一个关于忽略文件或目录的匹配字符串数组，匹配规则类似`.gitignore`,参考[具体规则](http://kb.qiniu.com/53bld49u)
-
 可以在 [七牛云存储开发者网站后台](https://portal.qiniu.com/) 进行相应的域名绑定操作，域名绑定成功后，若您将 bucket 设为公用（public）属性，则可以用如下方式对上传的文件进行访问：
 
     http://<绑定域名>/<key>
