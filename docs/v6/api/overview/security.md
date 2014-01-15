@@ -85,3 +85,21 @@ order: 600
 
 关于管理凭证的生成细节，请查看[管理凭证规格](../reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理](rs/security.html)。
 
+<a id="cors-support"></a>
+## 跨域访问
+
+出于安全的考虑，Web 浏览器从很早之前就定下“同域安全策略”的标准，默认情况下同一域名下的页面只能向同域（包括 CNAME 域名、端口）下的 URL 发送所有类型的 HTTP 请求。而向不同域的地址发送非 GET 请求时，默认情况下只能返回同域安全策略错误。
+
+对此，在发起上传或下载请求的时候，七牛的服务会返回相应的支持跨域的 Header:
+
+<a id="upload-cors"></a>
+### 上传(`up.qiniu.com`)
+
+	Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size
+	Access-Control-Allow-Methods: OPTIONS, HEAD, POST
+	Access-Control-Allow-Origin: *
+
+<a id="download-cors"></a>
+### 下载(`<bucket>.qiniudn.com`)
+
+	Access-Control-Allow-Origin: *
