@@ -96,8 +96,8 @@ order: 950
 <a id="access-external-resources"></a>
 ## 外部参考资源
 
-- [HMAC-SHA1加密][hmacSha1Href]
+- [HMAC-SHA1签名][hmacSha1Href]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
+[hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1签名"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"

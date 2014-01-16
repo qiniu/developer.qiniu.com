@@ -29,7 +29,7 @@ order: 600
 <a id="aksk"></a>
 ## 密钥（AccessKey/SecretKey）
 
-密钥用于以上几种凭证的生成。在非对称加密机制（PKI）中有公钥和私钥的概念，与云存储中的AccessKey和SecretKey是对应关系。
+密钥用于以上几种凭证的生成。以SecretKey为参数，配合适当的签名算法，可以得到原始信息的数字签名，防止内容在传递过程中被伪造或篡改。
 
 密钥通常为成对创建和使用，包含一个AccessKey和一个SecretKey。其中AccessKey会在传输中包含，而用户必须保管好SecretKey不在网络上传输以防止被窃取。若SecretKey被恶意第三方窃取，可能导致非常严重的数据泄漏风险。因此，如发现SecretKey被非法使用，管理员应第一时间在[管理平台](https://portal.qiniu.com)上更换密钥。
 
