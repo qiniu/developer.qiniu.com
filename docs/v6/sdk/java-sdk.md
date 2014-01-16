@@ -9,6 +9,8 @@ title: Java SDK 使用指南
 
 SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qiniu/java-sdk/tags)
 
+jar文件下载：[http://search.maven.org/#search%7Cga%7C1%7Cqiniu](http://search.maven.org/#search%7Cga%7C1%7Cqiniu)
+
 目录
 ----
 - [环境准备](#env_preparation)
