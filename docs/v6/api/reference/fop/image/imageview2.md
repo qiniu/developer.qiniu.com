@@ -109,7 +109,7 @@ HTTP状态码 | 含义
 200        | 缩略成功
 400	       | 请求报文格式错误
 404        | 资源不存在
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 ---
 
@@ -118,6 +118,9 @@ HTTP状态码 | 含义
 
 - imageView2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]。  
 - 如果原图带有[EXIF][exifHref]信息且包含`Orientation`字段，imageView2缺省根据此字段的值进行自动旋转修正。
+- 具备处理动态gif图片的能力。
+- 当一张含有透明区域的图片，转换成不支持透明的格式（jpg, bmp, etc...）时，透明区域填充白色。
+- 当处理并输出多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大，建议使用[预转持久化处理][persistentOpsHref]或[触发持久化处理][pfopHref]进行转码。
 
 <a id="imageView2-samples"></a>
 ## 示例
@@ -154,9 +157,11 @@ HTTP状态码 | 含义
 
 - [域名绑定][cnameBindingHref]
 - [触发持久化处理][pfopHref]
+- [预转持久化处理][persistentOpsHref]
 
 [cnameBindingHref]:  http://kb.qiniu.com/53a48154                     "域名绑定"
 [pfopHref]:          ../pfop/pfop.html                                "触发持久化处理"
+[persistentOpsHref]: ../../security/put-policy.html#put-policy-struct "预转持久化处理"
 [exifHref]:          exif.html                                        "EXIF信息"
 
 [sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志 "发送错误报告"
