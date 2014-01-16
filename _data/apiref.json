@@ -152,6 +152,18 @@
 					"Href": "docs/v6/api/reference/fop/image/",
 					"Child": [
 						{
+							"Title": "图片处理（imageView2）",
+							"Href": "docs/v6/api/reference/fop/image/imageview2.html",
+							"Child": null,
+							"Order": 250
+						},
+						{
+							"Title": "高级图片处理（imageMogr2）",
+							"Href": "docs/v6/api/reference/fop/image/imagemogr2.html",
+							"Child": null,
+							"Order": 249
+						},
+						{
 							"Title": "图片处理（imageView）",
 							"Href": "docs/v6/api/reference/fop/image/imageview.html",
 							"Child": null,
