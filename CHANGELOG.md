@@ -1,8 +1,12 @@
 ## CHANGE LOG
 
+### v6.3.3
+
+- 新增imageView2接口与imageMogr2接口的API文档
+
 ### v6.3.2
 
-- 新增pm3u8接口与avinfo接口的API文档
+- 新增pm3u8接口与avinfo接口的API文档 [#24](https://github.com/qiniu/developer.qiniu.com/pull/24)
 
 ### v6.3.1
 
