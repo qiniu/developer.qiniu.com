@@ -11,6 +11,7 @@ order: 175
 ## 描述
 
 imageView是七牛云存储提供的一种简易却强大的图片处理接口，只需要填写少数几个参数即可对图片进行缩放操作，生成各种缩略图。  
+本接口不再进行功能扩展，建议开发者使用新的[imageView2接口][imageView2Href]。
 
 <a id="imageView-specification"></a>
 ## 接口规格
@@ -158,6 +159,7 @@ HTTP状态码 | 含义
 <a id="imageView-internal-resources"></a>
 ## 内部参考资源
 
+- [imageView2接口][imageView2Href]
 - [域名绑定][cnameBindingHref]
 - [触发持久化处理][pfopHref]
 - [saveas处理][saveasHref]
@@ -166,6 +168,7 @@ HTTP状态码 | 含义
 [pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
 [exifHref]:                     exif.html                                      "EXIF信息"
+[imageView2Href]:               imageview2.html                                 "imageView2"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
