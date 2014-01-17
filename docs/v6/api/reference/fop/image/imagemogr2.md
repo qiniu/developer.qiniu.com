@@ -10,12 +10,11 @@ order: 249
 <a id="imageMogr2-description"></a>
 ## 描述
 
-imageMogr2是原imageMogr接口的兼容升级版本， 提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。  
+imageMogr2是原imageMogr接口的更新版本，实现略有差异，功能更为丰富。  
+同样，为开发者提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。  
 
 <a id="imageMogr2-specification"></a>
 ## 接口规格
-
-建议优先使用第二版`imageMogr2`，其规格是：
 
 ```
 imageMogr2SpecV2 = imageMogr2/auto-orient

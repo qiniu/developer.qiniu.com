@@ -11,6 +11,7 @@ order: 174
 ## 描述
 
 除了能简便地生成缩略图外，七牛云处理服务还提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等，称为imageMogr。  
+本接口不再进行功能扩展，建议开发者使用新的[imageMogr2接口][imageMogr2Href]。
 
 <a id="imageMogr-specification"></a>
 ## 接口规格
@@ -453,6 +454,7 @@ HTTP状态码 | 含义
 <a id="imageMogr-internal-resources"></a>
 ## 内部参考资源
 
+- [imageMogr2接口][imageMogr2Href]
 - [域名绑定][cnameBindingHref]
 - [触发持久化处理][pfopHref]
 - [预转持久化处理][persistentOpsHref]
@@ -462,6 +464,7 @@ HTTP状态码 | 含义
 [pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
 [persistentOpsHref]:            ../../security/put-policy.html#put-policy-struct "预转持久化处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
+[imageMogr2Href]:               imageview2.html                                 "imageMogr2"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
