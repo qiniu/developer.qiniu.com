@@ -164,18 +164,6 @@
 							"Order": 249
 						},
 						{
-							"Title": "图片处理（imageView）",
-							"Href": "docs/v6/api/reference/fop/image/imageview.html",
-							"Child": null,
-							"Order": 175
-						},
-						{
-							"Title": "高级图片处理（imageMogr）",
-							"Href": "docs/v6/api/reference/fop/image/imagemogr.html",
-							"Child": null,
-							"Order": 174
-						},
-						{
 							"Title": "图片基本信息（imageInfo）",
 							"Href": "docs/v6/api/reference/fop/image/imageinfo.html",
 							"Child": null,
@@ -283,6 +271,25 @@
 			"Href": "docs/v6/api/reference/err.html",
 			"Child": null,
 			"Order": 100
+		},
+		{
+			"Title": "过期API列表",
+			"Href": "docs/v6/api/reference/obsolete/",
+			"Child": [
+				{
+					"Title": "图片处理（imageView）",
+					"Href": "docs/v6/api/reference/obsolete/imageview.html",
+					"Child": null,
+					"Order": 175
+				},
+				{
+					"Title": "高级图片处理（imageMogr）",
+					"Href": "docs/v6/api/reference/obsolete/imagemogr.html",
+					"Child": null,
+					"Order": 174
+				}
+			],
+			"Order": 5
 		}
 	]
 }
