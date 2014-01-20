@@ -1,0 +1,66 @@
+//更新日志页面样式
+.container.changelog {
+	margin-top: 20px;
+	padding-bottom: 0px;
+	.cell {
+		padding: 25px 25px 10px;
+		margin-bottom: 20px;
+		h2 {
+			margin-bottom: 25px;
+			color:#262626;
+			height: 19px;
+			line-height: 19px;
+		}
+		a {
+			color: rgb(12,148,222);
+		}	
+		.cell-line {
+			border-top:1px solid #f0f0f0;
+			padding-top: 15px;
+			margin-bottom: 3px;
+			&:first-child {
+				border-top: none;
+				padding-top: 0;
+			}
+			h3 {
+
+				font-size: 12px;
+				margin-bottom: 10px;
+				color: #404040;
+				line-height: 16px;
+				height:  16px;
+			}
+			span.icon {
+				margin-right: 5px;
+				position: relative;
+				top: -1px;
+			}		
+			ul {
+				overflow: hidden;
+				margin-left: 23px;
+				li {
+					margin-bottom: 10px;
+					line-height: 20px;
+					p.info {
+						color: #999;
+					}
+				}
+			}
+		}
+
+	}
+	.main {
+		width: 680px;
+	}
+	.side-bar {
+		width: 258px;
+		ul {
+			list-style-type: disc;
+			margin-left: 26px;
+			li {
+				height: 30px;
+				vertical-align: top;
+			}
+		}
+	}
+}

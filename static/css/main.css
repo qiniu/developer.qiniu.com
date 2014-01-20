@@ -266,6 +266,8 @@ css-sprite（图片拼合）
 .api_unselect_sprited,
 .arrow,
 .arrow_on,
+.changelog_bug,
+.changelog_feature,
 .feed_normal,
 .feed_on,
 .global_download_sprited,
@@ -332,7 +334,7 @@ css-sprite（图片拼合）
 .sdk-php,
 .sdk-python,
 .sdk-ruby {
-  background: url('../image/css-sprite.png?1389343043') no-repeat;
+  background: url('../image/css-sprite.png') no-repeat;
 }
 .api_default {
   background-position: 0px -1px;
@@ -369,333 +371,343 @@ css-sprite（图片拼合）
   width: 9px;
   height: 6px;
 }
-.feed_normal {
+.changelog_bug {
   background-position: 0px -139px;
+  width: 16px;
+  height: 17px;
+}
+.changelog_feature {
+  background-position: 0px -158px;
+  width: 16px;
+  height: 17px;
+}
+.feed_normal {
+  background-position: 0px -177px;
   width: 34px;
   height: 108px;
 }
 .feed_on {
-  background-position: 0px -249px;
+  background-position: 0px -287px;
   width: 34px;
   height: 108px;
 }
 .global_download_sprited {
-  background-position: 0px -359px;
+  background-position: 0px -397px;
   width: 12px;
   height: 11px;
 }
 .global_github_footer_sprited {
-  background-position: 0px -372px;
+  background-position: 0px -410px;
   width: 20px;
   height: 17px;
 }
 .global_github_sprited {
-  background-position: 0px -391px;
+  background-position: 0px -429px;
   width: 13px;
   height: 12px;
 }
 .global_mail_sprited {
-  background-position: 0px -405px;
+  background-position: 0px -443px;
   width: 20px;
   height: 17px;
 }
 .global_search_active_sprited {
-  background-position: 0px -424px;
+  background-position: 0px -462px;
   width: 16px;
   height: 16px;
 }
 .global_search_default_sprited {
-  background-position: 0px -442px;
+  background-position: 0px -480px;
   width: 16px;
   height: 16px;
 }
 .global_source_sprited {
-  background-position: 0px -460px;
+  background-position: 0px -498px;
   width: 13px;
   height: 11px;
 }
 .global_tel_sprited {
-  background-position: 0px -473px;
-  width: 20px;
-  height: 17px;
-}
-.global_weibo_sprited {
-  background-position: 0px -492px;
-  width: 20px;
-  height: 17px;
-}
-.global_weixin_sprited {
   background-position: 0px -511px;
   width: 20px;
   height: 17px;
 }
-.icon_close_default_sprited {
+.global_weibo_sprited {
   background-position: 0px -530px;
+  width: 20px;
+  height: 17px;
+}
+.global_weixin_sprited {
+  background-position: 0px -549px;
+  width: 20px;
+  height: 17px;
+}
+.icon_close_default_sprited {
+  background-position: 0px -568px;
   width: 16px;
   height: 18px;
 }
 .icon_close_hover_sprited {
-  background-position: 0px -550px;
+  background-position: 0px -588px;
   width: 16px;
   height: 18px;
 }
 .icon_resource_sucess {
-  background-position: 0px -570px;
+  background-position: 0px -608px;
   width: 16px;
   height: 16px;
 }
 .index_book_sprited {
-  background-position: 0px -588px;
+  background-position: 0px -626px;
   width: 65px;
   height: 57px;
 }
 .index_clock_sprited {
-  background-position: 0px -647px;
+  background-position: 0px -685px;
   width: 52px;
   height: 57px;
 }
 .index_cmd_sprited {
-  background-position: 0px -706px;
+  background-position: 0px -744px;
   width: 19px;
   height: 19px;
 }
 .index_light_sprited {
-  background-position: 0px -727px;
+  background-position: 0px -765px;
   width: 53px;
   height: 57px;
 }
 .index_resource_sprited {
-  background-position: 0px -786px;
+  background-position: 0px -824px;
   width: 18px;
   height: 16px;
 }
 .index_social_sprited {
-  background-position: 0px -804px;
+  background-position: 0px -842px;
   width: 18px;
   height: 16px;
 }
 .index_sync_sprited {
-  background-position: 0px -822px;
+  background-position: 0px -860px;
   width: 19px;
   height: 19px;
 }
 .index_tool_sprited {
-  background-position: 0px -843px;
+  background-position: 0px -881px;
   width: 18px;
   height: 16px;
 }
 .index_upload_sprited {
-  background-position: 0px -861px;
+  background-position: 0px -899px;
   width: 19px;
   height: 19px;
 }
 .off_1 {
-  background-position: 0px -882px;
+  background-position: 0px -920px;
   width: 12px;
   height: 14px;
 }
 .off_2 {
-  background-position: 0px -898px;
+  background-position: 0px -936px;
   width: 14px;
   height: 16px;
 }
 .on_1 {
-  background-position: 0px -916px;
+  background-position: 0px -954px;
   width: 12px;
   height: 14px;
 }
 .on_2 {
-  background-position: 0px -932px;
+  background-position: 0px -970px;
   width: 14px;
   height: 16px;
 }
 .resource_android_sprited {
-  background-position: 0px -950px;
+  background-position: 0px -988px;
   width: 70px;
   height: 40px;
 }
 .resource_c_sprited {
-  background-position: 0px -992px;
+  background-position: 0px -1030px;
   width: 70px;
   height: 40px;
 }
 .resource_cmd_sprited {
-  background-position: 0px -1034px;
+  background-position: 0px -1072px;
   width: 27px;
   height: 27px;
 }
 .resource_csharp_sprited {
-  background-position: 0px -1063px;
+  background-position: 0px -1101px;
   width: 70px;
   height: 40px;
 }
 .resource_discuz {
-  background-position: 0px -1105px;
+  background-position: 0px -1143px;
   width: 70px;
   height: 40px;
 }
 .resource_django {
-  background-position: 0px -1147px;
+  background-position: 0px -1185px;
   width: 70px;
   height: 40px;
 }
 .resource_drupal {
-  background-position: 0px -1189px;
+  background-position: 0px -1227px;
   width: 70px;
   height: 40px;
 }
 .resource_emlog {
-  background-position: 0px -1231px;
+  background-position: 0px -1269px;
   width: 70px;
   height: 40px;
 }
 .resource_go_sprited {
-  background-position: 0px -1273px;
+  background-position: 0px -1311px;
   width: 70px;
   height: 40px;
 }
 .resource_ios_sprited {
-  background-position: 0px -1315px;
+  background-position: 0px -1353px;
   width: 70px;
   height: 40px;
 }
 .resource_java_sprited {
-  background-position: 0px -1357px;
+  background-position: 0px -1395px;
   width: 70px;
   height: 40px;
 }
 .resource_net_sprited {
-  background-position: 0px -1399px;
+  background-position: 0px -1437px;
   width: 70px;
   height: 40px;
 }
 .resource_nodejs_sprited {
-  background-position: 0px -1441px;
+  background-position: 0px -1479px;
   width: 70px;
   height: 40px;
 }
 .resource_octopress {
-  background-position: 0px -1483px;
+  background-position: 0px -1521px;
   width: 70px;
   height: 40px;
 }
 .resource_opoopress {
-  background-position: 0px -1525px;
+  background-position: 0px -1563px;
   width: 70px;
   height: 40px;
 }
 .resource_perl_sprited {
-  background-position: 0px -1567px;
+  background-position: 0px -1605px;
   width: 70px;
   height: 40px;
 }
 .resource_php_sprited {
-  background-position: 0px -1609px;
+  background-position: 0px -1647px;
   width: 70px;
   height: 40px;
 }
 .resource_phpwind {
-  background-position: 0px -1651px;
+  background-position: 0px -1689px;
   width: 70px;
   height: 40px;
 }
 .resource_plugin {
-  background-position: 0px -1693px;
+  background-position: 0px -1731px;
   width: 36px;
   height: 36px;
 }
 .resource_python_sprited {
-  background-position: 0px -1731px;
+  background-position: 0px -1769px;
   width: 70px;
   height: 40px;
 }
 .resource_ruby_sprited {
-  background-position: 0px -1773px;
+  background-position: 0px -1811px;
   width: 70px;
   height: 40px;
 }
 .resource_sync_sprited {
-  background-position: 0px -1815px;
+  background-position: 0px -1853px;
   width: 27px;
   height: 27px;
 }
 .resource_tool {
-  background-position: 0px -1844px;
+  background-position: 0px -1882px;
   width: 32px;
   height: 29px;
 }
 .resource_typecho {
-  background-position: 0px -1875px;
+  background-position: 0px -1913px;
   width: 70px;
   height: 40px;
 }
 .resource_upload_sprited {
-  background-position: 0px -1917px;
+  background-position: 0px -1955px;
   width: 27px;
   height: 27px;
 }
 .resource_wordpress {
-  background-position: 0px -1946px;
+  background-position: 0px -1984px;
   width: 70px;
   height: 40px;
 }
 .sdk-android {
-  background-position: 0px -1988px;
-  width: 65px;
-  height: 36px;
-}
-.sdk-c {
   background-position: 0px -2026px;
   width: 65px;
   height: 36px;
 }
-.sdk-csharp {
+.sdk-c {
   background-position: 0px -2064px;
   width: 65px;
   height: 36px;
 }
-.sdk-go {
+.sdk-csharp {
   background-position: 0px -2102px;
   width: 65px;
   height: 36px;
 }
-.sdk-ios {
+.sdk-go {
   background-position: 0px -2140px;
   width: 65px;
   height: 36px;
 }
-.sdk-java {
+.sdk-ios {
   background-position: 0px -2178px;
   width: 65px;
   height: 36px;
 }
-.sdk-net {
+.sdk-java {
   background-position: 0px -2216px;
   width: 65px;
   height: 36px;
 }
-.sdk-nodejs {
+.sdk-net {
   background-position: 0px -2254px;
   width: 65px;
   height: 36px;
 }
-.sdk-perl {
+.sdk-nodejs {
   background-position: 0px -2292px;
   width: 65px;
   height: 36px;
 }
-.sdk-php {
+.sdk-perl {
   background-position: 0px -2330px;
   width: 65px;
   height: 36px;
 }
-.sdk-python {
+.sdk-php {
   background-position: 0px -2368px;
   width: 65px;
   height: 36px;
 }
-.sdk-ruby {
+.sdk-python {
   background-position: 0px -2406px;
+  width: 65px;
+  height: 36px;
+}
+.sdk-ruby {
+  background-position: 0px -2444px;
   width: 65px;
   height: 36px;
 }
@@ -734,7 +746,7 @@ header .container h1 > a.btn span {
   display: inline-block;
 }
 header .container h1 > a.btn:hover span {
-  background: url('../image/css-sprite.png?1389343043') no-repeat;
+  background: url('../image/css-sprite.png') no-repeat;
   background-position: 0px -131px;
   width: 9px;
   height: 6px;
@@ -924,14 +936,14 @@ footer .copyright {
   color: #fff;
   text-decoration: none;
   position: relative;
-  background: url('../image/css-sprite.png?1389343043') no-repeat;
-  background-position: 0px -139px;
+  background: url('../image/css-sprite.png') no-repeat;
+  background-position: 0px -177px;
   width: 34px;
   height: 108px;
 }
 .zendesk a:hover {
-  background: url('../image/css-sprite.png?1389343043') no-repeat;
-  background-position: 0px -249px;
+  background: url('../image/css-sprite.png') no-repeat;
+  background-position: 0px -287px;
   width: 34px;
   height: 108px;
 }
@@ -1700,6 +1712,69 @@ div.api-resource .social-resource .author {
 .container.docs .main .cell.cli ul li {
   width: 208px;
 }
+.container.changelog {
+  margin-top: 20px;
+  padding-bottom: 0px;
+}
+.container.changelog .cell {
+  padding: 25px 25px 10px;
+  margin-bottom: 20px;
+}
+.container.changelog .cell h2 {
+  margin-bottom: 25px;
+  color: #262626;
+  height: 19px;
+  line-height: 19px;
+}
+.container.changelog .cell a {
+  color: #0c94de;
+}
+.container.changelog .cell .cell-line {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+  margin-bottom: 3px;
+}
+.container.changelog .cell .cell-line:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.container.changelog .cell .cell-line h3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #404040;
+  line-height: 16px;
+  height: 16px;
+}
+.container.changelog .cell .cell-line span.icon {
+  margin-right: 5px;
+  position: relative;
+  top: -1px;
+}
+.container.changelog .cell .cell-line ul {
+  overflow: hidden;
+  margin-left: 23px;
+}
+.container.changelog .cell .cell-line ul li {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+.container.changelog .cell .cell-line ul li p.info {
+  color: #999;
+}
+.container.changelog .main {
+  width: 680px;
+}
+.container.changelog .side-bar {
+  width: 258px;
+}
+.container.changelog .side-bar ul {
+  list-style-type: disc;
+  margin-left: 26px;
+}
+.container.changelog .side-bar ul li {
+  height: 30px;
+  vertical-align: top;
+}
 .dropdown {
   position: relative;
 }
@@ -1826,8 +1901,8 @@ div.api-resource .social-resource .author {
 }
 .modal-content span.icon:hover {
   cursor: pointer;
-  background: url('../image/css-sprite.png?1389343043') no-repeat;
-  background-position: 0px -550px;
+  background: url('../image/css-sprite.png') no-repeat;
+  background-position: 0px -588px;
   width: 16px;
   height: 18px;
 }
