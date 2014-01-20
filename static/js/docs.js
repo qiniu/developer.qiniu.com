@@ -283,4 +283,19 @@ $(function() {
     //     controls: false
     // });
 
+    // 更新日志页面JS，暂时未用到 
+    // $('.changelog .side-bar a').on('click', function() {
+    //     var cClass = $(this).attr('class');
+    //     console.log(cClass);
+    //     $('.changelog .main .cell').each(function() {
+    //         if ($(this).data('log') === cClass) {
+    //             $(this).show();
+    //         } else {
+    //             $(this).hide();
+    //         };
+    //     });
+    //     return false;
+    // });
+    // $('.changelog .side-bar a').eq(0).trigger('click');
+
 });
