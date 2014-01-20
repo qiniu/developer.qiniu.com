@@ -29,7 +29,7 @@ order: 600
 <a id="aksk"></a>
 ## 密钥（AccessKey/SecretKey）
 
-密钥用于以上几种凭证的生成。在非对称加密机制（PKI）中有公钥和私钥的概念，与云存储中的AccessKey和SecretKey是对应关系。
+密钥用于以上几种凭证的生成。以SecretKey为参数，配合适当的签名算法，可以得到原始信息的数字签名，防止内容在传递过程中被伪造或篡改。
 
 密钥通常为成对创建和使用，包含一个AccessKey和一个SecretKey。其中AccessKey会在传输中包含，而用户必须保管好SecretKey不在网络上传输以防止被窃取。若SecretKey被恶意第三方窃取，可能导致非常严重的数据泄漏风险。因此，如发现SecretKey被非法使用，管理员应第一时间在[管理平台](https://portal.qiniu.com)上更换密钥。
 
@@ -48,7 +48,7 @@ order: 600
 	> 因为时间戳的创建和验证在不同的服务端进行（在业务服务器创建，在云存储服务器验证），因此开发者的业务服务器需要尽可能校准时间，否则可能出现凭证刚创建就过期等各种奇怪的问题。
 	
 1. 可选择设置的最终用户标识ID。这是为了让业务服务器在收到结果回调时能够识别产生该请求的最终用户信息；
-1. 可选择设置的[结果返回方式](up/response/index.html)和[异步数据处理指令](up/response/persistent-op.html)；
+1. 可选择设置的[结果返回方式](up/response/index.html)和[数据预处理指令](up/response/persistent-op.html)；
 
 我们使用一个[上传策略（PutPolicy）结构](../reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](../reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](up/index.html)。
 
@@ -85,3 +85,21 @@ order: 600
 
 关于管理凭证的生成细节，请查看[管理凭证规格](../reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理](rs/security.html)。
 
+<a id="cors-support"></a>
+## 跨域访问
+
+出于安全的考虑，Web 浏览器从很早之前就定下“同域安全策略”的标准，默认情况下同一域名下的页面只能向同域（包括 CNAME 域名、端口）下的 URL 发送所有类型的 HTTP 请求。而向不同域的地址发送非 GET 请求时，默认情况下只能返回同域安全策略错误。
+
+对此，在发起上传或下载请求的时候，七牛的服务会返回相应的支持跨域的 Header:
+
+<a id="upload-cors"></a>
+### 上传(`up.qiniu.com`)
+
+	Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size
+	Access-Control-Allow-Methods: OPTIONS, HEAD, POST
+	Access-Control-Allow-Origin: *
+
+<a id="download-cors"></a>
+### 下载(`<bucket>.qiniudn.com`)
+
+	Access-Control-Allow-Origin: *

@@ -14,12 +14,6 @@
 			"Order": 0
 		},
 		{
-			"Title": "使用七牛加速静态文件",
-			"Href": "docs/v6/kb/speed_up_staticfile.html",
-			"Child": null,
-			"Order": 0
-		},
-		{
 			"Title": "测试指南",
 			"Href": "docs/v6/kb/testing.html",
 			"Child": null,

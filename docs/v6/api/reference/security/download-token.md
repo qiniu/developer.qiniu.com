@@ -27,12 +27,23 @@ order: 960
     DownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg?e=1451491200'
 	```
 
-3. 将上一步得到的URL字符串作为[凭证算法][tokenAlgorithmHref]的原始数据进行运算，得到下载凭证。
-
-4. 将下载凭证添加到含过期时间参数的下载URL之后，作为最后一个参数（token参数）：  
+3. 对上一步得到的URL字符串计算HMAC-SHA1签名（假设`SecretKey`是`MY_SECRET_KEY`），并对结果做[URL安全的Base64编码][urlsafeBase64Href]：
 
 	```
-    RealDownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg?e=1451491200&token=HbAKtTogKqDLWEkq7zVSX6T35NI='
+    Sign = hmac_sha1(DownloadUrl, 'MY_SECRET_KEY')
+    EncodedSign = urlsafe_base64_encode(Sign)
+	```
+
+4. 将`AccessKey`（假设是`MY_ACCESS_KEY`）与上一步计算得到的结果以“:”连接起来：
+
+	```
+    Token = 'MY_ACCESS_KEY:NTQ3YWI5N2E5MjcxN2Y1ZTBiZTY3ZTZlZWU2NDAxMDY1YmI4ZWRhNwo='
+	```
+
+5. 将下载凭证添加到含过期时间参数的下载URL之后，作为最后一个参数（token参数）：  
+
+	```
+    RealDownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg?e=1451491200&token=MY_ACCESS_KEY:NTQ3YWI5N2E5MjcxN2Y1ZTBiZTY3ZTZlZWU2NDAxMDY1YmI4ZWRhNwo='
 	```
 
 `RealDownloadUrl`即为下载对应私有资源的可用URL，并在指定时间后失效。  
@@ -54,11 +65,11 @@ order: 960
 ## 外部参考资源
 
 - [Unix时间][unixTimeHref]
-- [HMAC-SHA1加密][hmacSha1Href]
+- [HMAC-SHA1签名][hmacSha1Href]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                                               "Unix时间"
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
-[hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
+[hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1签名"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
 [tokenAlgorithmHref]:		token-algorithm.html

@@ -108,12 +108,12 @@ HTTP状态码 | 含义
 <a id="advance-usage"></a>
 ## 高级用法
 
-想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](../../overview/fop/pipeline.html)和[图像水印接口](image/watermark.html) 操作实现。例如，
+想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](../../overview/fop/pipeline.html)和[图像水印接口](image/watermark.html) 操作实现。例如，  
 
-	```
-    http://qrcode.qiniudn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/center/dx/0/dy/0
-	```
+```
+http://qrcode.qiniudn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/center/dx/0/dy/0
+```
 
-	![QRCode+Logo](http://qrcode.qiniudn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/center/dx/0/dy/0)
+![QRCode+Logo](http://qrcode.qiniudn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/center/dx/0/dy/0)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

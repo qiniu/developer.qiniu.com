@@ -9,6 +9,8 @@ title: Java SDK 使用指南
 
 SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qiniu/java-sdk/tags)
 
+jar文件下载：[http://search.maven.org/#search%7Cga%7C1%7Cqiniu](http://search.maven.org/#search%7Cga%7C1%7Cqiniu)
+
 目录
 ----
 - [环境准备](#env_preparation)
@@ -55,7 +57,7 @@ SDK下载地址：[https://github.com/qiniu/java-sdk/tags](https://github.com/qi
 	<dependency>
 		<groupId>com.qiniu</groupId>
 		<artifactId>sdk</artifactId>
-		<version>6.0.0</version>
+		<version>6.1.0</version>
 	</dependency>
 
 
@@ -712,7 +714,7 @@ public class ListPrefix {
 <a id="license"></a>
 ## 8. 许可证
 
-Copyright (c) 2013 qiniu.com
+Copyright (c) 2014 qiniu.com
 
 基于 MIT 协议发布:
 
