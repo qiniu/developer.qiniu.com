@@ -57,7 +57,7 @@ jar文件下载：[http://search.maven.org/#search%7Cga%7C1%7Cqiniu](http://sear
 	<dependency>
 		<groupId>com.qiniu</groupId>
 		<artifactId>sdk</artifactId>
-		<version>6.0.0</version>
+		<version>6.1.0</version>
 	</dependency>
 
 
