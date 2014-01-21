@@ -27,10 +27,6 @@ function Zendesk(initObj) {
     this.show = function(type) {
         var l = location.href.split('#')[0];
         self.type = type;
-        //正式环境
-        //this.iframe.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
-        //this.iframeHide.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
-        //本地测试
         if (self.type) {
             self.iframe.attr('src', self.url + '?type=' + self.type + '#' + l);
             self.iframeHide.attr('src', self.url + '?type=' + self.type + '#' + l);
@@ -233,11 +229,75 @@ $(function() {
     });
 
     // API页固定侧边栏
-    $('.container.api .side-bar').hcSticky({
-        bottomEnd: -1,
-        top: 0,
-        followScroll: false
+    // $('.container.api .side-bar').hcSticky({
+    //     bottomEnd: -1,
+    //     top: 0,
+    //     followScroll: false
+    // });
+
+    var $sidebar = $('.side-bar');
+    var $sidebarParent = $sidebar.parent();
+    var sidebarY = $sidebar.offset().top;
+    var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
+    var startScrollY = $(window).scrollTop();
+    // console.log(footerY);
+    $(window).on('scroll', function(e) {
+        var scrollY = startScrollY;
+        var sidebarHeight = $sidebar.height() + 2;
+        // console.log
+        // console.log(sidebarY);
+        if (!$sidebar.hasClass('scrolling')) {
+            if (scrollY > sidebarY) {
+                if (scrollY < footerY - sidebarHeight) {
+                    $sidebar.css({
+                        position: 'fixed',
+                        top: 0
+                    });
+                    $sidebarParent.css({
+                        height: $sidebar.height()
+                    });
+                } else {
+                    $sidebar.css({
+                        position: 'fixed',
+                        top: footerY - sidebarHeight - scrollY
+                    });
+                }
+            } else {
+                $sidebar.off('scrolling')
+                $sidebar.css({
+                    position: ''
+                });
+            };
+        } else {
+            console.log('scrolling');
+            e.preventDefault();
+            return false;
+        }
     });
+    $sidebar.on('mouseenter.scrolling', function() {
+        var scrollY = startScrollY;
+        var sidebarHeight = $sidebar.height() + 2;
+        console.log('in')
+        if (scrollY > sidebarY) {
+            $(this).addClass('scrolling');
+        } else {
+            $(this).removeClass('scrolling');
+        };
+
+    }).on('mouseleave.scrolling', function() {
+        $(this).removeClass('scrolling');
+        console.log('out')
+    });
+    $('body').on({
+        'mousewheel': function(e) {
+            if ($sidebar.hasClass('scrolling')) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+    });
+
+
 
     // API页侧边栏点击a后添加active样式
     $('.nav a').on('click', function() {
