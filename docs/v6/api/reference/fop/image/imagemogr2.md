@@ -31,9 +31,9 @@ imageMogr2SpecV2 = imageMogr2/auto-orient
 :----------------------------------- | :--- | :---------------------------------------------------
 `/auto-orient`                       |      | 根据原图EXIF信息自动旋正，便于后续处理，建议放在首位。
 `/strip`                             |      | 去除图片中的元信息。
-`/thumbnail/<imageSizeGeometry>`     |      | 参看缩放操作参数表，缺省为不缩放。
-`/gravity/<gravityType>`             |      | 参看裁剪锚点参数表，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
-`/crop/<imageSizeAndOffsetGeometry>` |      | 参看裁剪操作参数表，缺省为不裁剪。
+`/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imageMogr2-thumbnail-spec)，缺省为不缩放。
+`/gravity/<gravityType>`             |      | 参看[裁剪锚点参数表](#imageMogr2-anchor-spec)，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
+`/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
 `/quality/<imageQuality>`            |      | 图片质量，取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
 `/rotate/<rotateDegree>`             |      | 旋转角度，取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式。
@@ -54,6 +54,23 @@ imageMogr2SpecV2 = imageMogr2/auto-orient
 `/thumbnail/<Width>x<Height>>`  |      | 当原图尺寸大于给定的宽度或高度时，按照给定宽高值缩小。<br>取值范围0-10000。
 `/thumbnail/<Width>x<Height><`  |      | 当原图尺寸小于给定的宽度或高度时，按照给定宽高值放大。<br>取值范围0-10000。
 `/thumbnail/<Area>@`            |      | 按原图高宽比例等比缩放，缩放后的像素数量不超过指定值。<br>取值范围0-100000000。
+
+<a id="imageMogr2-anchor-spec"></a>
+### 裁剪锚点参数表
+
+```
+NorthWest     |     North      |     NorthEast
+              |                |    
+              |                |    
+--------------+----------------+--------------
+              |                |    
+West          |     Center     |          East 
+              |                |    
+--------------+----------------+--------------
+              |                |    
+              |                |    
+SouthWest     |     South      |     SouthEast
+```
 
 <a id="imageMogr2-crop-size-spec"></a>
 ### 裁剪操作参数表（cropSize）
@@ -81,25 +98,6 @@ imageMogr2SpecV2 = imageMogr2/auto-orient
 
 注意1：必须同时指定横轴偏移和纵轴偏移。  
 注意2：计算偏移值会受到位置偏移指示符（/gravity/<gravityType>）影响。默认为相对于左上角计算偏移值（即NorthWest），参看[裁剪锚点参数表](#imageMogr2-anchor-spec)。  
-
-<a id="imageMogr2-anchor-spec"></a>
-### 裁剪锚点参数表
-
-注意：不区分大小写。  
-
-```
-NorthWest     |     North      |     NorthEast
-              |                |    
-              |                |    
---------------+----------------+--------------
-              |                |    
-West          |     Center     |          East 
-              |                |    
---------------+----------------+--------------
-              |                |    
-              |                |    
-SouthWest     |     South      |     SouthEast
-```
 
 <a id="imageMogr2-escape-sequence"></a>
 ### 转义说明
