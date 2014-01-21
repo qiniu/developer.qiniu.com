@@ -29,7 +29,7 @@ order: 980
     "persistentOps":       "<persistentOpsCmds        string>",
     "persistentNotifyUrl": "<persistentNotifyUrl      string>",
 
-    "insertOnly":          "<AllowFileUpdating        uint16>",
+    "exclusive":           "<AllowFileUpdating        uint16>",
     "detectMime":          "<AutoDetectMimeType       uint16>",
     "fsizeLimit":          "<FileSizeLimit            int64>",
     "saveKey":             "<KeyFomart                string>",
@@ -49,7 +49,7 @@ order: 980
 <a id="put-policy-callback-body"></a>`callbackBody`        |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。
 <a id="put-policy-persistent-ops"></a>`persistentOps`       |      | ● 资源上传成功后触发执行的[预转持久化处理][fopHref]指令<br>每个指令是一个API规格字符串，多个指令用“;”分隔。
 <a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | ● 接收预转持久化结果通知的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。如设置`persistenOps`字段，则本字段必须同时设置（未来可能转为可选项）。
-<a id="put-policy-insert-only"></a>`insertOnly`          |      | ● 限定为“新增”语意<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
+<a id="put-policy-insert-only"></a>`exclusive`          |      | ● 限定为“新增”语意<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
 <a id="put-policy-save-key"></a>`saveKey`             |      | ● 自定义资源名格式<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。
 <a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | ● 限定上传文件的大小，单位：字节（Byte）<br>超过限制的上传内容会被判为上传失败，返回413状态码。
 <a id="put-policy-detect-mime"></a>`detectMime`          |      | ● 开启MimeType侦测功能<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名<br>2. 检查Key扩展名<br>3. 侦测内容。
