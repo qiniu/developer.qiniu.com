@@ -30,27 +30,20 @@
     </header>
     <div class="container changelog ">
         <div class="cell">
-            <h2>发布日期：2013-02-16</h2>
+            <h2>发布日期：2013-12-27</h2>
                 <div class="cell-body">
                     <div class="cell-line">
                         <h3>
                             <span class="icon changelog_feature"></span>新增功能</h3>
                         <ul>
                             <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/fetch.html">1. 抓取资源接口（/fetch）
-                                </a></p>
-                                <p class="info">本接口用于将从指定URL抓取资源，并将该资源存储到指定空间中。</p>
+                                <p class="title"><a href="/docs/v6/api/reference/fop/av/pm3u8.html">1. 新增pm3u8接口</a></p>
+                                <p class="info">本接口用于将m3u8文件中的ts资源的URL重写成私有URL。</p>
                             </li>
                             <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. 更新镜像资源接口（/prefetch）
-                                </a></p>
-                                <p class="info">对于设置了镜像存储的空间，可使用本接口从镜像源站抓取指定名称的资源并存储到该空间中。</p>
+                                <p class="title">2. 数据处理请求的响应Header增加Accept-Range：Byte</p>
+                                <!--<p class="info"></p>-->
                             </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">3. PutPolicy添加mimeLimit字段
-                                </a></p>
-                                <p class="info">本字段用于限制上传资源的MimeType，如匹配则允许上传，不匹配则返回400状态码。</p>
-                            </li>                            
                         </ul>
                     </div>
                     <div class="cell-line">
@@ -58,20 +51,60 @@
                             <span class="icon changelog_bug"></span>问题修复</h3>
                         <ul>
                             <li>
-                                <p class="title">1. 抓取资源接口（/fetch）
-                                </p>
+                                <p class="title">1. 修复视频水印质量下降的问题</p>
+                                <!--<p class="info"></p>-->
                             </li>
                             <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. FOP BUG FIXED（/fetch）
-                                </a></p>
-                                <p class="info">对于设置了镜像存储的空间，可使用本接口从镜像源站抓取指定名称的资源并存储到该空间中。</p>
+                                <p class="title">2. 修复视频水印结果元信息附加在资源尾部的问题</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                            <li>
+                                <p class="title">3. 修复数据处理结果下载过程在4M卡住的问题</p>
+                                <!--<p class="info"></p>-->
                             </li>
                         </ul>
                     </div>
                 </div>
         </div>
         <div class="cell">
-            <h2>发布日期：2013-02-09</h2>
+            <h2>发布日期：2013-12-20</h2>
+                <div class="cell-body">
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_feature"></span>新增功能</h3>
+                        <ul>
+                            <li>
+                                <p class="title">1. 数据处理接口支持断点续下载</p>
+                                <p class="info">允许通过Bytes-Range Header下载内容片断。</p>
+                            </li>
+                            <li>
+                                <p class="title"><a href="/docs/v6/api/reference/fop/av/avthumb.html#avthumb-remarks">2. 覆盖预设集的参数</a></p>
+                                <p class="info">允许使用自定义参数覆盖预设集中的个别参数。</p>
+                            </li>
+                            <li>
+                                <p class="title"><a href="/docs/v6/api/reference/fop/av/avthumb.html#video-strip-meta">3. 支持去除音视频的元信息</a></p>
+                                <p class="info">使用本接口去除音视频中的元信息，避免泄露信息或引发不良影响。</p>
+                            </li>                            
+                        </ul>
+                    </div>
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_bug"></span>问题修复</h3>
+                        <ul>
+                            <li>
+                                <p class="title">1. 修复上传服务没有根据文件内容检测MimeType</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                            <li>
+                                <p class="title">2. 修复avinfo接口返回filename无用字段</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <div class="cell">
+            <h2>发布日期：2013-12-13</h2>
                 <div class="cell-body">
                     <div class="cell-line">
                         <h3>
@@ -80,16 +113,14 @@
                             <li>
                                 <p class="title"><a href="/docs/v6/api/reference/rs/fetch.html">1. 抓取资源接口（/fetch）
                                 </a></p>
-                                <p class="info">本接口用于将从指定URL抓取资源，并将该资源存储到指定空间中。</p>
+                                <p class="info">本接口从指定URL抓取资源并存储到指定空间中。</p>
                             </li>
                             <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. 更新镜像资源接口（/prefetch）
-                                </a></p>
-                                <p class="info">对于设置了镜像存储的空间，可使用本接口从镜像源站抓取指定名称的资源并存储到该空间中。</p>
+                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. 更新镜像资源接口（/prefetch）</a></p>
+                                <p class="info">对于已启用镜像存储功能的空间，可用本接口从镜像源站抓取指定名称资源并存储到该空间中。</p>
                             </li>
                             <li>
-                                <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">3. PutPolicy添加mimeLimit字段
-                                </a></p>
+                                <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">3. PutPolicy添加mimeLimit字段</a></p>
                                 <p class="info">本字段用于限制上传资源的MimeType，如匹配则允许上传，不匹配则返回400状态码。</p>
                             </li>                            
                         </ul>
@@ -99,18 +130,13 @@
                             <span class="icon changelog_bug"></span>问题修复</h3>
                         <ul>
                             <li>
-                                <p class="title">1. 抓取资源接口（/fetch）
-                                </p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. FOP BUG FIXED（/fetch）
-                                </a></p>
-                                <p class="info">对于设置了镜像存储的空间，可使用本接口从镜像源站抓取指定名称的资源并存储到该空间中。</p>
+                                <p class="title">1. 修复URL不支持"//"的问题</p>
+                                <!--<p class="info"></p>-->
                             </li>
                         </ul>
                     </div>
                 </div>
-        </div>        
+        </div>
     </div> 
 <!--     <div class="container changelog">
         <div class="main pull-left">
