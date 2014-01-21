@@ -26,13 +26,13 @@ avthumb/<Format>
        /ar/<SamplingRate>
 ```
 
-参数名称             | 说明                                                                | 必填
-:------------------- | :------------------------------------------------------------------ | :-----
-`<Format>`           | 目标音频的格式（比如mp3、aac、m4a等），参考[支持转换的音频格式](http://ffmpeg.org/general.html#Audio-Codecs) | 是
-`/ab/<BitRate>`      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等 |
-`/aq/<AudioQuality>` | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
-`/ar/<SamplingRate>` | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
-<a id="audio-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留 |
+参数名称             | 必填 | 说明
+:------------------- | :--- | :---------------------------------------------------------------
+`<Format>`           | 是   | 目标音频的格式（比如mp3、aac、m4a等），参考[支持转换的音频格式](http://ffmpeg.org/general.html#Audio-Codecs)。
+`/ab/<BitRate>`      |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。
+`/aq/<AudioQuality>` |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。
+`/ar/<SamplingRate>` |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
+<a id="audio-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留。
 
 <a id="audio-request"></a>
 ### 请求
@@ -200,22 +200,24 @@ avthumb/<Format>
        /ss/<SeekStart>
        /t/<Duration>
        /stripmeta/<StripMeta>
+       /rotate/<Degree>
 ```
 
-参数名称                | 说明                                                                | 必填
-:---------------------- | :------------------------------------------------------------------ | :-----
-`<Format>`              | 目标视频的格式（比如flv、mp4等），参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats) | 是
-`/ab/<BitRate>`         | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等 |
-`/aq/<AudioQuality>`    | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
-`/ar/<SamplingRate>`    | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
-`/r/<FrameRate>`        | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值 |
-`/vb/<VideoBitRate>`    | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等 |
-`/vcodec/<VideoCodec>`  | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等 |
-`/acodec/<AudioCodec>`  | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等 |
-`/ss/<SeekStart>`       | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频 |
-`/t/<Duration>`         | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 |
-`/s/<Resolution>`       | 指定视频分辨率，格式为 wxh 或者预定义值。 |
-<a id="video-strip-meta"></a>`/stripmeta/<StripMeta>` | 是否清除文件的metadata，1为清除，0为保留 |
+参数名称                | 必填 | 说明
+:---------------------- | :--- | :---------------------------------------------------------------
+`<Format>`              | 是   | 目标视频的格式（比如flv、mp4等），参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats)
+`/ab/<BitRate>`         |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。 
+`/aq/<AudioQuality>`    |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。 
+`/ar/<SamplingRate>`    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
+`/r/<FrameRate>`        |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。 
+`/vb/<VideoBitRate>`    |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。 
+`/vcodec/<VideoCodec>`  |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。 
+`/acodec/<AudioCodec>`  |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
+`/ss/<SeekStart>`       |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
+`/t/<Duration>`         |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
+`/s/<Resolution>`       |      | 指定视频分辨率，格式为 wxh 或者预定义值。 
+<a id="video-strip-meta"></a>`/stripmeta/<StripMeta>` |      | 是否清除文件的metadata，1为清除，0为保留。
+<a id="video-rotate"></a>`/rotate/<Degree>` |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
 
 <a id="video-request"></a>
 ### 请求

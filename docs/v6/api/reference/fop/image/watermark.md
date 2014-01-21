@@ -32,9 +32,26 @@ picWaterMarkSpec = watermark/1/image/<encodedImageURL>
 :-------------------------- | :--- | :---------------------------------------------------------------
 `/image/<encodedImageURL>`  | 是   | 水印源图片网址（经过[URL安全的Base64编码][urlsafeBase64Href]），必须有效且返回一张图片
 `/dissolve/<dissolve>`      |      | 透明度，取值范围1-100，缺省值为100（完全不透明）
-`/gravity/<gravity>`        |      | 水印位置，参考水印位置参数表，缺省值为SouthEast（右下角）
+`/gravity/<gravity>`        |      | 水印位置，参考[水印锚点参数表](#watermark-anchor-spec)，缺省值为`SouthEast`（右下角）
 `/dx/<distanceX>`           |      | 横轴边距，单位:像素(px)，缺省值为10
 `/dy/<distanceY>`           |      | 纵轴边距，单位:像素(px)，缺省值为10
+
+<a id="watermark-anchor-spec"></a>
+### 水印锚点参数表
+
+```
+NorthWest     |     North      |     NorthEast
+              |                |    
+              |                |    
+--------------+----------------+--------------
+              |                |    
+West          |     Center     |          East 
+              |                |    
+--------------+----------------+--------------
+              |                |    
+              |                |    
+SouthWest     |     South      |     SouthEast
+```
 
 <a id="pic-watermark-request"></a>
 ### 请求
