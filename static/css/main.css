@@ -956,6 +956,9 @@ footer .copyright {
   height: 60px;
   line-height: 16px;
 }
+.api-comment {
+  padding: 25px;
+}
 .api-content {
   width: 652px;
   padding: 25px;
