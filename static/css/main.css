@@ -715,6 +715,7 @@ header {
   height: 43px;
   line-height: 43px;
   background-color: #0c94de;
+  min-width: 960px;
 }
 header a {
   font-size: 12px;
@@ -955,6 +956,9 @@ footer .copyright {
   width: 12px;
   height: 60px;
   line-height: 16px;
+}
+.api-comment {
+  padding: 25px;
 }
 .api-content {
   width: 652px;
@@ -1523,8 +1527,7 @@ div.api-resource .social-resource .author {
   margin-top: -1px;
   padding: 25px 20px 20px 20px;
 }
-.container.resource .cell .cell-body .resource-card .logo,
-.container.resource .cell .cell-body .resource-card .content {
+.container.resource .cell .cell-body .resource-card .logo {
   float: left;
 }
 .container.resource .cell .cell-body .resource-card .logo {
@@ -1534,6 +1537,9 @@ div.api-resource .social-resource .author {
 .container.resource .cell .cell-body .resource-card .logo span {
   vertical-align: top;
   margin-top: -5px;
+}
+.container.resource .cell .cell-body .resource-card .content {
+  float: right;
 }
 .container.resource .cell .cell-body .resource-card .content div {
   color: #404040;
@@ -1592,9 +1598,6 @@ div.api-resource .social-resource .author {
 .container.resource .small.cell .cell-body .resource-card .resource-card-inner {
   height: 109px;
   padding: 25px 15px 20px 20px;
-}
-.container.resource .small.cell .cell-body .resource-card .content {
-  margin-left: 10px;
 }
 .container.resource .large.cell .cell-body .resource-card {
   width: 480px;
