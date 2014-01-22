@@ -30,6 +30,43 @@
     </header>
     <div class="container changelog ">
         <div class="cell">
+            <h2>发布日期：2014-01-10</h2>
+                <div class="cell-body">
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_feature"></span>新增功能</h3>
+                        <ul>
+                            <li>
+                                <p class="title"><a href="/docs/v6/api/reference/fop/image/">1. 新增图片处理imageView2和imageMogr2</a></p>
+                                <p class="info">支持处理GIF动图。</p>
+                            </li>
+                            <li>
+                                <p class="title">2. 新增音视频处理concat</p>
+                                <p class="info">可将多个音视频文件合并成一个。</p>
+                            </li>
+                            <li>
+                                <p class="title">3. 上传服务支持avinfo魔法变量</p>
+                                <p class="info">用于在处理结果或通知中包含音视频元信息。</p>
+                            </li>
+                            <li>
+                                <p class="title">4. 镜像存储回源失败时返回579错误码</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_bug"></span>问题修复</h3>
+                        <ul>
+                            <li>
+                                <p class="title">1. 修复部分请求不能返回ETag的问题</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <div class="cell">
             <h2>发布日期：2013-12-27</h2>
                 <div class="cell-body">
                     <div class="cell-line">
@@ -38,7 +75,7 @@
                         <ul>
                             <li>
                                 <p class="title"><a href="/docs/v6/api/reference/fop/av/pm3u8.html">1. 新增pm3u8接口</a></p>
-                                <p class="info">本接口用于将m3u8文件中的ts资源的URL重写成私有URL。</p>
+                                <p class="info">本接口用于将私有m3u8文件中各个ts资源的URL重写为带有下载授权凭证的URL。</p>
                             </li>
                             <li>
                                 <p class="title">2. 数据处理请求的响应Header增加Accept-Range：Byte</p>
