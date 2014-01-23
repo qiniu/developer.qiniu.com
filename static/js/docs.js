@@ -242,7 +242,8 @@ $(function() {
     var startScrollY = $(window).scrollTop();
     // console.log(footerY);
     $(window).on('scroll', function(e) {
-        var scrollY = startScrollY;
+        var scrollY = $(window).scrollTop();
+        console.log(scrollY);
         var sidebarHeight = $sidebar.height() + 2;
         // console.log
         // console.log(sidebarY);
@@ -262,39 +263,88 @@ $(function() {
                         top: footerY - sidebarHeight - scrollY
                     });
                 }
+                if (IsTaller) {
+                    $sidebar.on('mouseenter.scrolling', function() {
+                        var scrollY = $(window).scrollTop();
+                        var sidebarHeight = $sidebar.height() + 2;
+                        console.log('in');
+                        if (scrollY > sidebarY) {
+                            $(this).addClass('scrolling');
+
+                        } else {
+                            $(this).removeClass('scrolling');
+                        }
+
+                    }).on('mouseleave.scrolling', function() {
+                        $(this).removeClass('scrolling');
+                        console.log('out');
+                    });
+                } else {
+
+                }
             } else {
-                $sidebar.off('scrolling')
+                unBindScroll();
                 $sidebar.css({
-                    position: ''
+                    position: '',
+                    top: ''
                 });
-            };
-        } else {
-            console.log('scrolling');
-            e.preventDefault();
-            return false;
+            }
+            if ($sidebar.hasClass('in')) {
+                if (IsTaller) {
+                    $sidebar.trigger('mouseenter.scrolling');
+                } else {
+                    unBindScroll();
+                }
+
+            }
         }
     });
-    $sidebar.on('mouseenter.scrolling', function() {
-        var scrollY = startScrollY;
-        var sidebarHeight = $sidebar.height() + 2;
-        console.log('in')
-        if (scrollY > sidebarY) {
-            $(this).addClass('scrolling');
-        } else {
-            $(this).removeClass('scrolling');
-        };
 
-    }).on('mouseleave.scrolling', function() {
-        $(this).removeClass('scrolling');
-        console.log('out')
+    var IsTaller = function() {
+        return $sidebar.height() > $(window).height();
+    };
+    var unBindScroll = function() {
+        $sidebar.off('mouseenter.scrolling').off('mouseleave.scrolling');
+    };
+
+    var changeSidebarPos = function(direction) {
+        var top = parseInt($sidebar.css('top'), 10);
+        if (direction === 'up') {
+            $sidebar.css({
+                top: (top + 40) + 'px'
+            });
+        } else {
+            $sidebar.css({
+                top: (top - 40) + 'px'
+            });
+        }
+    };
+
+    $sidebar.on('mouseenter', function() {
+        $(this).addClass('in');
+    }).on('mouseleave', function() {
+        $(this).removeClass('in');
     });
+
     $('body').on({
         'mousewheel': function(e) {
             if ($sidebar.hasClass('scrolling')) {
+                var direction = e.originalEvent.wheelDelta > 0 ? 'up' : 'down';
+                changeSidebarPos(direction);
+                console.log(direction);
                 e.preventDefault();
                 e.stopPropagation();
             }
-        }
+        },
+        'DOMMouseScroll': function(e) {
+            if ($sidebar.hasClass('scrolling')) {
+                var direction = -e.originalEvent.detail > 0 ? 'up' : 'down';
+                changeSidebarPos(direction);
+                console.log(direction);
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        },
     });
 
 
