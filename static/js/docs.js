@@ -310,12 +310,15 @@ $(function() {
     var changeSidebarPos = function(direction) {
         var top = parseInt($sidebar.css('top'), 10);
         if (direction === 'up') {
+            top = top + 40;
+            top = top >= 0 ? 0 : top;
             $sidebar.css({
-                top: (top + 40) + 'px'
+                top: top + 'px'
             });
         } else {
+            top = top - 40;
             $sidebar.css({
-                top: (top - 40) + 'px'
+                top: top + 'px'
             });
         }
     };
