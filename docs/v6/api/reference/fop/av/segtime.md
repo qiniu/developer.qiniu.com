@@ -59,13 +59,13 @@ video_640k      | 码率为640K，长宽比沿用源视频设置。 | WIFI
 
 ```
 selfDefSpec = "avthumb/m3u8/segtime/<SegSeconds>
+                           /ab/<BitRate>
+                           /aq/<AudioQuality>
+                           /ar/<SamplingRate>
                            /r/<FrameRate>
                            /vb/<VideoBitRate>
                            /vcodec/<VideoCodec>
-                           /acodec/<AudioCodec>
-                           /ab/<BitRate>
-                           /aq/<AudioQuality>
-                           /ar/<SamplingRate>"
+                           /acodec/<AudioCodec>"
 ```
 
 参数名称                | 必填 | 说明
@@ -78,23 +78,22 @@ selfDefSpec = "avthumb/m3u8/segtime/<SegSeconds>
 `/vb/<VideoBitRate>`    |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。
 `/vcodec/<VideoCodec>`  |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。
 `/acodec/<AudioCodec>`  |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。
-`/segtime/<SegSeconds>` |      | 用于HLS自定义每一小段音/视频流的播放时长，取值范围为: 10-60秒，默认为10秒。
 
 <a id="segtime-samples"></a>
 ## 示例
 
-1. 以[预转持久化][persistentOpsHref]形式，将mp4视频按video_240k预设规格切片（10秒一片）：
+1. 以[预转持久化][persistentOpsHref]形式，将mp4视频按video_240k预设规格切片（15秒一片）：
 
 	```
     {
         "scope":                "qiniu-ts-demo:sample.mp4",
         "deadline":             1390528576,
-        "persistentOps":        "avthumb/m3u8/segtime/10/video_240k",
+        "persistentOps":        "avthumb/m3u8/segtime/15/video_240k",
         "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
     }
 	```
 
-2. 以[触发持久化处理][pfopHref]形式，将mp4视频切片，静态码率为320K，帧率为24：
+2. 以[触发持久化处理][pfopHref]形式，将mp4视频切片，静态码率为320K，帧率为24fps：
 
 	```
     POST /pfop/ HTTP/1.1
@@ -103,7 +102,7 @@ selfDefSpec = "avthumb/m3u8/segtime/<SegSeconds>
     Authorization: QBox <AccessToken>  
 
     bucket=qiniu-ts-demo
-    &key=sample.wav
+    &key=sample.mp4
     &fops=avthumb%2Fm3u8%2Fab%2F320k%2Fr%2F24
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
