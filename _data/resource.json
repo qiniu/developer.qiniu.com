@@ -118,7 +118,16 @@
         "version": "v6",
         "date": "2013-09-12",
         "doc": "docs/v6/tools/qrsbox.html",
-        "description": "用户界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
+        "description": "图形界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
+    }, {
+        "name": "qwebtest",
+        "label": "qwebtest",
+        "title": "图形界面下载/上传问题排查工具",
+        "download": "http://kb.qiniu.com/57a5sl50",
+        "version": "v1",
+        "date": "2014-01-24",
+        "doc": "http://kb.qiniu.com/57a5sl50",
+        "description": "图形界面的简易下载/上传问题排查工具，支持Windows/Mac/Linux。"
     }],
     "third_plugin": [{
         "name": "wordpress",
