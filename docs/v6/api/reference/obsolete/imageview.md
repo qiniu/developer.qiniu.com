@@ -168,7 +168,7 @@ HTTP状态码 | 含义
 [pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
 [exifHref]:                     exif.html                                      "EXIF信息"
-[imageView2Href]:               ../imageview2.html                                 "imageView2"
+[imageView2Href]:               ../fop/image/imageview2.html                                 "imageView2"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
