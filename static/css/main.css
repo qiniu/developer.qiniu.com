@@ -1444,7 +1444,8 @@ div.api-resource .social-resource .author {
 }
 .container.index .cell.cli,
 .container.docs .cell.cli {
-  height: 70px;
+  min-height: 70px;
+  padding: 25px 25px 0;
 }
 .container.index .cell.cli ul,
 .container.docs .cell.cli ul {
@@ -1455,11 +1456,20 @@ div.api-resource .social-resource .author {
   float: left;
   overflow: hidden;
   width: 193px;
+  margin-bottom: 20px;
+}
+.container.index .cell.cli ul li .resource_qwebtest_sprited,
+.container.docs .cell.cli ul li .resource_qwebtest_sprited {
+  background: url('../image/css-sprite.png') no-repeat;
+  background-position: 0px -1853px;
+  width: 27px;
+  height: 27px;
 }
 .container.index .cell.cli ul li p,
 .container.docs .cell.cli ul li p {
   color: #404040;
   line-height: 18px;
+  padding-right: 15px;
 }
 .container.index .cell.cli ul li .logo,
 .container.docs .cell.cli ul li .logo {
