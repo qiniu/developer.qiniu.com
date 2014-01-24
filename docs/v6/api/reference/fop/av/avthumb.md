@@ -184,6 +184,7 @@ videoSelfDefSpec = "avthumb/<Format>
 - 支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
 - 支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
 - 我们为一些预设集设置了默认参数，如果用户觉得某些参数不适合自己的业务场景可以在后面加参数覆盖。
+ - 如： `avthumb/mp3/ab/64k` 会把默认码率128k调整为64k
 
 默认参数列表：  
 
