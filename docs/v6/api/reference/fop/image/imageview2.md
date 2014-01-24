@@ -26,12 +26,12 @@ ImageView2Spec = imageView2/<mode>/w/<Width | LongEdge>/h/<Height | ShortEdge>
 
 模式                            | 说明
 :------------------------------ | :----------------------------------------------------------------------------
-`/0/w/<LongEdge>/h/<ShortEdge>` | 等比缩略，新图不大于<LongEdge>x<ShortEdge>限定的矩形框，不裁剪。
-`/1/w/<Widht>/h/<Height>`       | 等比缩略，新图不小于<Width>x<Height>限定的矩形框，居中裁剪。
-`/2/w/<Widht>/h/<Height>`       | 等比缩略，新图不大于<Width>x<Height>限定的矩形框，不裁剪。
-`/3/w/<Widht>/h/<Height>`       | 等比缩略，新图不小于<Width>x<Height>限定的矩形框，不裁剪。
-`/4/w/<LongEdge>/h/<ShortEdge>` | 等比缩略，新图不小于<LongEdge>x<ShortEdge>限定的矩形框，不裁剪。
-`/5/w/<LongEdge>/h/<ShortEdge>` | 等比缩略，新图不小于<LongEdge>x<ShortEdge>限定的矩形框，居中裁剪。
+`/0/w/<LongEdge>/h/<ShortEdge>` | 限定缩略图的长边最多为`<LongEdge>`，短边最多为`<ShortEdge>`，进行等比缩放，不裁剪。
+`/1/w/<Widht>/h/<Height>`       | 限定缩略图的宽最少为`<width>`，高最少为`<height>`，进行等比缩放，居中裁剪。
+`/2/w/<Widht>/h/<Height>`       | 限定缩略图的宽最多为`<width>`，高最多为`<height>`，进行等比缩放，不裁剪。
+`/3/w/<Widht>/h/<Height>`       | 限定缩略图的宽最少为`<width>`，高最少为`<height>`，进行等比缩放，不裁剪。
+`/4/w/<LongEdge>/h/<ShortEdge>` | 限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，不裁剪。
+`/5/w/<LongEdge>/h/<ShortEdge>` | 限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，居中裁剪。
 
 注意：  
 1. 可以仅指定w参数或h参数；  
