@@ -963,6 +963,7 @@ footer .copyright {
 .api-content {
   width: 652px;
   padding: 25px;
+  word-wrap: break-word;
 }
 .api-content * {
   max-width: 628px;
