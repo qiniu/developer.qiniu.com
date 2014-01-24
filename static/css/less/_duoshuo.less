@@ -1,0 +1,191 @@
+#api-comment {
+	#ds-thread #ds-reset{
+		font-size: 12px;
+		.ds-meta {
+			a{
+				display: inline-block;
+	            .border-radius(3px);
+	            .box-shadow(0 1px 0 rgba(243,243,243,0.75));
+	            font-size: 12px;
+	            font-weight: normal;
+	            //height: 26px;
+	            // width: 90px;
+	           // line-height: 26px;
+	            color:@64;
+	            border:1px solid #e9e9e9;
+	            text-align: center;
+	            -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+	            transition: background-color .218s,border-color .218s,box-shadow .218s;
+	            -webkit-user-select: none;
+	            outline: none;
+	            background: none;
+	            &:hover {
+	                .box-shadow(0 1px 0 rgba(230,230,230,0.75));
+	                border-color: #d5d5d5;
+	                text-decoration: none;
+	            }
+	        }
+		}
+		.ds-comments-info {
+			.ds-sort {
+				a {
+					font-size: 12px;
+				}
+			}
+			.ds-comments-tabs {
+				.ds-tab {
+					display: inline;
+					font-size: 13px;
+					margin: 0 5px 0 0;
+					padding: 0;					
+				}
+				a {
+					display: inline-block;
+                    .border-radius(3px);
+                    .box-shadow(0 1px 0 rgba(243,243,243,0.75));
+                    font-size: 12px;
+                    font-weight: normal;
+                    //height: 26px;
+                    // width: 90px;
+                    min-width: 90px;
+                   // line-height: 26px;
+                    color:@64;
+                    border:1px solid #e9e9e9;
+                    text-align: center;
+                    -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+                    transition: background-color .218s,border-color .218s,box-shadow .218s;
+                    -webkit-user-select: none;
+                    outline: none;
+                    padding: 0 5px;
+                    	background: none;
+                    &:hover {
+                        .box-shadow(0 1px 0 rgba(230,230,230,0.75));
+                        border-color: #d5d5d5;
+                        text-decoration: none;
+                    }
+				}
+			}
+		}
+		.ds-comments {
+			border-bottom:  1px solid #e9e9e9;
+			li.ds-post {
+				border-top:  1px solid #e9e9e9;
+			}
+		}
+		.ds-paginator {
+
+		}
+		.ds-login-buttons {
+			.ds-more-services ,.ds-more-services:hover{
+				color: #999999 !important;
+			}
+		}
+		.ds-replybox {
+			.ds-avatar {
+				box-shadow: none;
+
+			}
+			.ds-textarea-wrapper {
+				border: 1px solid #e4e4e4;
+				border-bottom: none;
+				textarea {
+					line-height: 20px;					
+					color: #404040;
+					resize: none;
+					background: #fff;
+					-webkit-box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.04);
+					-moz-box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.04);
+					box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.04);
+					font-size: 12px;				
+				}
+			}
+			.ds-post-toolbar {
+				.ds-post-options {
+					border: 1px solid #e4e4e4;
+					background: none;
+					border-right: none;
+					border-bottom-color: #e4e4e4;					
+				}
+				.ds-post-button {
+					background-color: #0c94de;
+					font-size: 12px;
+					color: #fff;
+					border: 0;
+					cursor: pointer;
+					padding: 0;
+					font-weight: normal;
+					text-shadow: none;
+					outline: 0;
+					.box-shadow( 0 1px 0 rgba(0,0,0,0.05));
+					#gradient.vertical( #0c94de,  #0c94de); 
+					&:hover {
+						background: #149ce6;
+						text-shadow: none;
+						outline: 0;
+						#gradient.vertical( #149ce6,  #149ce6); 
+					}
+					&:active {
+						.box-shadow(inset 0 1px 0 #2f6124);
+						#gradient.vertical( #0789d0,  #0789d0); 
+						background-color: #0789d0;
+						outline: 0;
+					}
+				}
+			}
+		}
+		.ds-powered-by {
+			display: none;
+		}
+	}
+
+}
+body {
+	#ds-wrapper #ds-reset  {
+		.ds-dialog-inner {
+			width: 100%;
+			position: relative;
+			border: 1px solid #aaa;
+			background: #fff url("http://static.duoshuo.com/images/bg_sprites.png") 0 -90px repeat-x;
+			text-shadow: 0 1px 0 #fff;
+			box-shadow: inset 0 1px 1px #fff,0 2px 6px rgba(0,0,0,0.4);
+		}
+		textarea {
+			line-height: 20px;					
+			color: #404040;
+			resize: none;
+			background: #fff;
+			.box-shadow(inset 0 2px 4px 0 rgba(0,0,0,0.04));
+			font-size: 12px;				
+		}
+		.ds-actions {
+			button {
+					background-color: #0c94de;
+					font-size: 12px;
+					color: #fff;
+					border: 0;
+					cursor: pointer;
+					padding: 0;
+					font-weight: normal;
+					text-shadow: none;
+					outline: 0;
+					.box-shadow( 0 1px 0 rgba(0,0,0,0.05));
+					#gradient.vertical( #0c94de,  #0c94de); 
+					&:hover {
+						background: #149ce6;
+						text-shadow: none;
+						color: #fff;
+						outline: 0;
+						#gradient.vertical( #149ce6,  #149ce6); 
+					}
+					&:active {
+						.box-shadow(inset 0 1px 0 #2f6124);
+						#gradient.vertical( #0789d0,  #0789d0); 
+						background-color: #0789d0;
+						outline: 0;
+						color: #fff;
+					}
+			}
+		}		
+	}	
+}
+
