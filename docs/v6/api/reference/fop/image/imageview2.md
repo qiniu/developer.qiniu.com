@@ -10,7 +10,7 @@ order: 250
 <a id="imageView2-description"></a>
 ## 描述
 
-imageView2是原[imageView](http://developer.qiniu.com/docs/v6/api/reference/obsolete/imageview.html)接口的更新版本，实现略有差异，功能更为丰富。  
+imageView2是原[imageView接口](http://developer.qiniu.com/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
 同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。  
 
 <a id="imageView2-specification"></a>
