@@ -239,31 +239,56 @@ $(function() {
     var $sidebarParent = $sidebar.parent();
     var sidebarY = $sidebar.offset().top;
     var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
-    var startScrollY = $(window).scrollTop();
+    var lastScrollTop = $(window).scrollTop();
+    var lastSidebarHeight = $sidebar.height() + 2;
     // console.log(footerY);
     $(window).on('scroll', function(e) {
         var scrollY = $(window).scrollTop();
-        console.log(scrollY);
+        // console.log('scrollY', scrollY);
         var sidebarHeight = $sidebar.height() + 2;
         // console.log
         // console.log(sidebarY);
+        var top = getSidebarTop();
         if (!$sidebar.hasClass('scrolling')) {
             if (scrollY > sidebarY) {
-                if (scrollY < footerY - sidebarHeight) {
+                if (scrollY + top + sidebarHeight < footerY) {
+                    if (lastScrollTop - scrollY < 0) {
+                        top = top < 0 ? top : 0;
+                    } else {
+                        // top = 0;
+                        var top2 = footerY - sidebarHeight - scrollY;
+                        top = top2 <= 0 ? top2 : 0;
+                    }
+                    console.log('top1', top);
                     $sidebar.css({
                         position: 'fixed',
-                        top: 0
+                        top: top
                     });
                     $sidebarParent.css({
                         height: $sidebar.height()
                     });
                 } else {
+                    var top2 = footerY - sidebarHeight - scrollY;
+                    // console.log('top2', top2);
+                    top = top > top2 ? top : top2;
+                    // // if (sidebarHeight > lastSidebarHeight) {
+                    // //     console.log(1);
+                    // //     top = top > top2 ? top : top2;
+                    // // } else {
+                    // //     console.log(2);
+                    // //     top = top < top2 ? top : top2;
+                    // // }
+                    // // console.log('top-->top2', top);
+                    if (scrollY - sidebarHeight + top > 0) {
+                        top = top2;
+                    };
+                    console.log('top2', top2);
                     $sidebar.css({
                         position: 'fixed',
-                        top: footerY - sidebarHeight - scrollY
+                        top: top
                     });
                 }
-                if (IsTaller) {
+                if (IsTaller()) {
                     $sidebar.on('mouseenter.scrolling', function() {
                         var scrollY = $(window).scrollTop();
                         var sidebarHeight = $sidebar.height() + 2;
@@ -279,8 +304,6 @@ $(function() {
                         $(this).removeClass('scrolling');
                         console.log('out');
                     });
-                } else {
-
                 }
             } else {
                 unBindScroll();
@@ -290,60 +313,93 @@ $(function() {
                 });
             }
             if ($sidebar.hasClass('in')) {
-                if (IsTaller) {
+                if (IsTaller()) {
                     $sidebar.trigger('mouseenter.scrolling');
                 } else {
                     unBindScroll();
                 }
-
             }
         }
+        if (scrollY + sidebarHeight + top > footerY) {
+            // var dx = scrollY + sidebarHeight + top - footerY;
+            console.log('height');
+            $sidebar.css({
+                position: 'fixed',
+                top: footerY - scrollY - sidebarHeight
+            });
+        }
+        lastScrollTop = scrollY;
+        lastSidebarHeight = sidebarHeight;
     });
 
     var IsTaller = function() {
-        return $sidebar.height() > $(window).height();
+        // console.log($sidebar.css('top'));
+        return $sidebar.height() + getSidebarTop() > $(window).height();
     };
     var unBindScroll = function() {
         $sidebar.off('mouseenter.scrolling').off('mouseleave.scrolling');
     };
 
     var changeSidebarPos = function(direction) {
-        var top = parseInt($sidebar.css('top'), 10);
+        var top = getSidebarTop();
+        var scrollY = $(window).scrollTop();
+        var sidebarHeight = $sidebar.height() + 2;
+        console.log(direction);
         if (direction === 'up') {
-            top = top + 40;
-            top = top >= 0 ? 0 : top;
-            $sidebar.css({
-                top: top + 'px'
-            });
+            if (scrollY + $(window).height() < footerY) {
+                top = top + 40;
+                top = top >= 0 ? 0 : top;
+                $sidebar.css({
+                    top: top + 'px'
+                });
+                return true;
+            } else {
+                return false;
+            }
+
         } else {
-            top = top - 40;
-            $sidebar.css({
-                top: top + 'px'
-            });
+            if (IsTaller()) {
+                top = top - 40;
+                $sidebar.css({
+                    top: top + 'px'
+                });
+                return true;
+            } else {
+                return false;
+            }
         }
+    };
+
+    var getSidebarTop = function() {
+        return parseInt($sidebar.css('top'), 10) || 0;
     };
 
     $sidebar.on('mouseenter', function() {
         $(this).addClass('in');
     }).on('mouseleave', function() {
-        $(this).removeClass('in');
+        $(this).removeClass('in').removeClass('scrolling');
     });
 
     $('body').on({
         'mousewheel': function(e) {
             if ($sidebar.hasClass('scrolling')) {
                 var direction = e.originalEvent.wheelDelta > 0 ? 'up' : 'down';
-                changeSidebarPos(direction);
-                console.log(direction);
-                e.preventDefault();
-                e.stopPropagation();
+                var top = getSidebarTop();
+                var scrollY = $(window).scrollTop();
+                var sidebarHeight = $sidebar.height() + 2;
+                if ((scrollY + top + sidebarHeight < footerY) || IsTaller()) {
+                    changeSidebarPos(direction);
+                    // console.log(direction);
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
             }
         },
         'DOMMouseScroll': function(e) {
             if ($sidebar.hasClass('scrolling')) {
                 var direction = -e.originalEvent.detail > 0 ? 'up' : 'down';
                 changeSidebarPos(direction);
-                console.log(direction);
+                // console.log(direction);
                 e.preventDefault();
                 e.stopPropagation();
             }
@@ -360,6 +416,20 @@ $(function() {
 
     //调整API页面容器高度，若侧边栏超高，则调整.
     function adjustApiBoxHeight() {
+        var flag = false;
+        if ($sidebar.hasClass('scrolling')) {
+            $sidebar.removeClass('scrolling');
+            flag = true;
+        }
+        $(window).trigger('scroll');
+        console.log('adjustApiBoxHeight');
+        if (flag) {
+            $sidebar.addClass('scrolling');
+        }
+
+        // var scrollTop = $(window).scrollTop();
+        // $(window)[0].scrollTo($(window).scrollLeft(), scrollTop + 1);
+        // $(window)[0].scrollTo($(window).scrollLeft(), scrollTop - 1);
         var sidebarHeight = $('.side-bar.pull-left').height();
         var contentHeight = $('.api-content').height();
         if (sidebarHeight > contentHeight) {
@@ -383,10 +453,6 @@ $(function() {
                 var height = $('.panel-box').height();
                 var mainHeight = $('.main').height();
                 var dHeight = scrollTop + height - mainHeight;
-                if (dHeight > 0) {
-                    window.scrollTo($(window).scrollLeft(), $(window).scrollTop() - 1);
-                    window.scrollTo($(window).scrollLeft(), $(window).scrollTop() + 1);
-                }
                 adjustApiBoxHeight();
             });
             $(this).find('span.api_default').removeClass('api_default').addClass('api_down');
