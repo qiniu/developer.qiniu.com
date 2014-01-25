@@ -24,6 +24,12 @@ a:hover {
 img {
   border: none;
 }
+.resource_qwebtest_sprited {
+  background: url('../image/css-sprite.png') no-repeat;
+  background-position: 0px -1853px;
+  width: 27px;
+  height: 27px;
+}
 .pull-right {
   float: right;
 }
@@ -1457,13 +1463,6 @@ div.api-resource .social-resource .author {
   overflow: hidden;
   width: 193px;
   margin-bottom: 20px;
-}
-.container.index .cell.cli ul li .resource_qwebtest_sprited,
-.container.docs .cell.cli ul li .resource_qwebtest_sprited {
-  background: url('../image/css-sprite.png') no-repeat;
-  background-position: 0px -1853px;
-  width: 27px;
-  height: 27px;
 }
 .container.index .cell.cli ul li p,
 .container.docs .cell.cli ul li p {
