@@ -10,7 +10,7 @@ order: 160
 <a id="description"></a>
 ## 描述
 
-七牛云存储提供两种水印接口：图片水印和文字水印。  
+七牛云存储提供三种水印接口：[图片水印](#pic-watermark)、[文字水印](#text-watermark)，以及一次请求中[同时打多个水印](#multi-watermark)。  
 
 <a id="pic-watermark"></a>
 ## 图片水印
@@ -258,12 +258,14 @@ HTTP状态码 | 含义
 
 ```
 multiWaterMarkSpec = watermark/3
+                              /text/<textWaterMarkParams1>
                               /image/<imageWaterMarkParams1>
                               /image/<imageWaterMarkParams2>
-                              /text/<textWaterMarkParams1>
                               /text/<textWaterMarkParams2>
                               ...
 ```
+
+注意：图片水印与文字水印的规格可以混写，按给定顺序处理。  
 
 参数名称                         | 必填 | 说明
 :------------------------------- | :--- | :-----------------------------------------------------------

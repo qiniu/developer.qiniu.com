@@ -447,7 +447,7 @@ HTTP状态码 | 含义
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
 [pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
-[persistentOpsHref]:            ../../security/put-policy.html#put-policy-struct "预转持久化处理"
+[persistentOpsHref]:            ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"

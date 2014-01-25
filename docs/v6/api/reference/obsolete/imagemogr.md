@@ -461,10 +461,9 @@ HTTP状态码 | 含义
 - [saveas处理][saveasHref]
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
-[persistentOpsHref]:            ../../security/put-policy.html#put-policy-struct "预转持久化处理"
-[saveasHref]:                   ../saveas.html                                   "saveas处理"
-[imageMogr2Href]:               imageview2.html                                 "imageMogr2"
+[pfopHref]:                     ../fop/pfop/pfop.html                            "触发持久化处理"
+[saveasHref]:                   ../fop/saveas.html                               "saveas处理"
+[imageMogr2Href]:               ../fop/image/imagemogr2.html                     "imageMogr2"
+[persistentOpsHref]:            ../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
 
-[thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

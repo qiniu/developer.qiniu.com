@@ -1,5 +1,10 @@
 ## CHANGE LOG
 
+### v6.3.5
+
+- 添加更新日志页面。[#57](https://github.com/qiniu/developer.qiniu.com/pull/57)
+- 添加多说评论。[#58](https://github.com/qiniu/developer.qiniu.com/pull/58)
+
 ### v6.3.4
 
 - 新增过期API列表 [#48](https://github.com/qiniu/developer.qiniu.com/pull/48)
