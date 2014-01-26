@@ -232,7 +232,7 @@ $(function() {
     //todo ie8 下侧边栏滚动，再滚动主内容，侧边栏的top又为0了
 
     // API页侧边栏
-    var $sidebar = $('.container.api .side-bar');
+    var $sidebar = $('.container.fixed-sibebar .side-bar');
     var $sidebarParent = $sidebar.parent();
     var sidebarY = $sidebar.offset().top;
     var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
@@ -322,7 +322,6 @@ $(function() {
         var top = getSidebarTop();
         var scrollY = $(window).scrollTop();
         var sidebarHeight = $sidebar.height() + 2;
-        console.log(direction);
         if (direction === 'up') {
             if (scrollY + $(window).height() < footerY) {
                 top = top + 40;
