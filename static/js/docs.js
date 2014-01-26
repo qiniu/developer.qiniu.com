@@ -27,10 +27,6 @@ function Zendesk(initObj) {
     this.show = function(type) {
         var l = location.href.split('#')[0];
         self.type = type;
-        //正式环境
-        //this.iframe.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
-        //this.iframeHide.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
-        //本地测试
         if (self.type) {
             self.iframe.attr('src', self.url + '?type=' + self.type + '#' + l);
             self.iframeHide.attr('src', self.url + '?type=' + self.type + '#' + l);
@@ -232,11 +228,157 @@ $(function() {
         $(this).parent().addClass('center');
     });
 
-    // API页固定侧边栏
-    $('.container.api .side-bar').hcSticky({
-        bottomEnd: -1,
-        top: 0,
-        followScroll: false
+    //todo 用模块化思维整合line 232 至 line 517
+    //todo ie8 下侧边栏滚动，再滚动主内容，侧边栏的top又为0了
+
+    // API页侧边栏
+    var $sidebar = $('.container.fixed-sibebar .side-bar');
+    var $sidebarParent = $sidebar.parent();
+    var sidebarY = $sidebar.offset().top;
+    var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
+    var lastScrollTop = $(window).scrollTop();
+    var lastSidebarHeight = $sidebar.height() + 2;
+    $(window).on('scroll', function(e) {
+        var scrollY = $(window).scrollTop();
+        var sidebarHeight = $sidebar.height() + 2;
+        var top = getSidebarTop();
+        if (!$sidebar.hasClass('scrolling')) {
+            if (scrollY > sidebarY) {
+                if (scrollY + top + sidebarHeight < footerY) {
+                    if (lastScrollTop - scrollY < 0) {
+                        top = top < 0 ? top : 0;
+                    } else {
+                        var top2 = footerY - sidebarHeight - scrollY;
+                        top = top2 <= 0 ? top2 : 0;
+                    }
+                    console.log('top1', top);
+                    $sidebar.css({
+                        position: 'fixed',
+                        top: top
+                    });
+                    $sidebarParent.css({
+                        height: $sidebar.height()
+                    });
+                } else {
+                    var top2 = footerY - sidebarHeight - scrollY;
+                    top = top > top2 ? top : top2;
+                    if (scrollY - sidebarHeight + top > 0) {
+                        top = top2;
+                    };
+                    console.log('top2', top2);
+                    $sidebar.css({
+                        position: 'fixed',
+                        top: top
+                    });
+                }
+                if (IsTaller()) {
+                    $sidebar.on('mouseenter.scrolling', function() {
+                        var scrollY = $(window).scrollTop();
+                        var sidebarHeight = $sidebar.height() + 2;
+                        if (scrollY > sidebarY) {
+                            $(this).addClass('scrolling');
+
+                        } else {
+                            $(this).removeClass('scrolling');
+                        }
+
+                    }).on('mouseleave.scrolling', function() {
+                        $(this).removeClass('scrolling');
+                    });
+                }
+            } else {
+                unBindScroll();
+                $sidebar.css({
+                    position: '',
+                    top: ''
+                });
+            }
+            if ($sidebar.hasClass('in')) {
+                if (IsTaller()) {
+                    $sidebar.trigger('mouseenter.scrolling');
+                } else {
+                    unBindScroll();
+                }
+            }
+        }
+        if (scrollY + sidebarHeight + top > footerY) {
+            $sidebar.css({
+                position: 'fixed',
+                top: footerY - scrollY - sidebarHeight
+            });
+        }
+        lastScrollTop = scrollY;
+        lastSidebarHeight = sidebarHeight;
+    });
+
+    var IsTaller = function() {
+        return $sidebar.height() + getSidebarTop() > $(window).height();
+    };
+    var unBindScroll = function() {
+        $sidebar.off('mouseenter.scrolling').off('mouseleave.scrolling');
+    };
+
+    var changeSidebarPos = function(direction) {
+        var top = getSidebarTop();
+        var scrollY = $(window).scrollTop();
+        var sidebarHeight = $sidebar.height() + 2;
+        if (direction === 'up') {
+            if (scrollY + $(window).height() < footerY) {
+                top = top + 40;
+                top = top >= 0 ? 0 : top;
+                $sidebar.css({
+                    top: top + 'px'
+                });
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            if (IsTaller()) {
+                top = top - 40;
+                $sidebar.css({
+                    top: top + 'px'
+                });
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    var getSidebarTop = function() {
+        return parseInt($sidebar.css('top'), 10) || 0;
+    };
+
+    $sidebar.on('mouseenter', function() {
+        $(this).addClass('in');
+    }).on('mouseleave', function() {
+        $(this).removeClass('in').removeClass('scrolling');
+    });
+
+    $('body').on({
+        'mousewheel': function(e) {
+            if ($sidebar.hasClass('scrolling')) {
+                var direction = e.originalEvent.wheelDelta > 0 ? 'up' : 'down';
+                var top = getSidebarTop();
+                var scrollY = $(window).scrollTop();
+                var sidebarHeight = $sidebar.height() + 2;
+                if ((scrollY + top + sidebarHeight < footerY) || IsTaller()) {
+                    changeSidebarPos(direction);
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            }
+        },
+        'DOMMouseScroll': function(e) {
+            if ($sidebar.hasClass('scrolling')) {
+                var direction = -e.originalEvent.detail > 0 ? 'up' : 'down';
+                changeSidebarPos(direction);
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        },
     });
 
     // API页侧边栏点击a后添加active样式
@@ -247,6 +389,17 @@ $(function() {
 
     //调整API页面容器高度，若侧边栏超高，则调整.
     function adjustApiBoxHeight() {
+        var flag = false;
+        if ($sidebar.hasClass('scrolling')) {
+            $sidebar.removeClass('scrolling');
+            flag = true;
+        }
+        $(window).trigger('scroll');
+        console.log('adjustApiBoxHeight');
+        if (flag) {
+            $sidebar.addClass('scrolling');
+        }
+
         var sidebarHeight = $('.side-bar.pull-left').height();
         var contentHeight = $('.api-content').height();
         if (sidebarHeight > contentHeight) {
@@ -270,10 +423,6 @@ $(function() {
                 var height = $('.panel-box').height();
                 var mainHeight = $('.main').height();
                 var dHeight = scrollTop + height - mainHeight;
-                if (dHeight > 0) {
-                    window.scrollTo($(window).scrollLeft(), $(window).scrollTop() - 1);
-                    window.scrollTo($(window).scrollLeft(), $(window).scrollTop() + 1);
-                }
                 adjustApiBoxHeight();
             });
             $(this).find('span.api_default').removeClass('api_default').addClass('api_down');
