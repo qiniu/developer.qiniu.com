@@ -229,25 +229,16 @@ $(function() {
     });
 
     // API页固定侧边栏
-    // $('.container.api .side-bar').hcSticky({
-    //     bottomEnd: -1,
-    //     top: 0,
-    //     followScroll: false
-    // });
-
+    //todo 用模块化思维整合line 232 至 line 517
     var $sidebar = $('.container.api .side-bar');
     var $sidebarParent = $sidebar.parent();
     var sidebarY = $sidebar.offset().top;
     var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
     var lastScrollTop = $(window).scrollTop();
     var lastSidebarHeight = $sidebar.height() + 2;
-    // console.log(footerY);
     $(window).on('scroll', function(e) {
         var scrollY = $(window).scrollTop();
-        // console.log('scrollY', scrollY);
         var sidebarHeight = $sidebar.height() + 2;
-        // console.log
-        // console.log(sidebarY);
         var top = getSidebarTop();
         if (!$sidebar.hasClass('scrolling')) {
             if (scrollY > sidebarY) {
@@ -255,7 +246,6 @@ $(function() {
                     if (lastScrollTop - scrollY < 0) {
                         top = top < 0 ? top : 0;
                     } else {
-                        // top = 0;
                         var top2 = footerY - sidebarHeight - scrollY;
                         top = top2 <= 0 ? top2 : 0;
                     }
@@ -269,16 +259,7 @@ $(function() {
                     });
                 } else {
                     var top2 = footerY - sidebarHeight - scrollY;
-                    // console.log('top2', top2);
                     top = top > top2 ? top : top2;
-                    // // if (sidebarHeight > lastSidebarHeight) {
-                    // //     console.log(1);
-                    // //     top = top > top2 ? top : top2;
-                    // // } else {
-                    // //     console.log(2);
-                    // //     top = top < top2 ? top : top2;
-                    // // }
-                    // // console.log('top-->top2', top);
                     if (scrollY - sidebarHeight + top > 0) {
                         top = top2;
                     };
@@ -321,8 +302,6 @@ $(function() {
             }
         }
         if (scrollY + sidebarHeight + top > footerY) {
-            // var dx = scrollY + sidebarHeight + top - footerY;
-            console.log('height');
             $sidebar.css({
                 position: 'fixed',
                 top: footerY - scrollY - sidebarHeight
@@ -333,7 +312,6 @@ $(function() {
     });
 
     var IsTaller = function() {
-        // console.log($sidebar.css('top'));
         return $sidebar.height() + getSidebarTop() > $(window).height();
     };
     var unBindScroll = function() {
@@ -389,7 +367,6 @@ $(function() {
                 var sidebarHeight = $sidebar.height() + 2;
                 if ((scrollY + top + sidebarHeight < footerY) || IsTaller()) {
                     changeSidebarPos(direction);
-                    // console.log(direction);
                     e.preventDefault();
                     e.stopPropagation();
                 }
@@ -399,14 +376,11 @@ $(function() {
             if ($sidebar.hasClass('scrolling')) {
                 var direction = -e.originalEvent.detail > 0 ? 'up' : 'down';
                 changeSidebarPos(direction);
-                // console.log(direction);
                 e.preventDefault();
                 e.stopPropagation();
             }
         },
     });
-
-
 
     // API页侧边栏点击a后添加active样式
     $('.nav a').on('click', function() {
@@ -427,9 +401,6 @@ $(function() {
             $sidebar.addClass('scrolling');
         }
 
-        // var scrollTop = $(window).scrollTop();
-        // $(window)[0].scrollTo($(window).scrollLeft(), scrollTop + 1);
-        // $(window)[0].scrollTo($(window).scrollLeft(), scrollTop - 1);
         var sidebarHeight = $('.side-bar.pull-left').height();
         var contentHeight = $('.api-content').height();
         if (sidebarHeight > contentHeight) {
