@@ -228,8 +228,10 @@ $(function() {
         $(this).parent().addClass('center');
     });
 
-    // API页固定侧边栏
     //todo 用模块化思维整合line 232 至 line 517
+    //todo ie8 下侧边栏滚动，再滚动主内容，侧边栏的top又为0了
+
+    // API页侧边栏
     var $sidebar = $('.container.api .side-bar');
     var $sidebarParent = $sidebar.parent();
     var sidebarY = $sidebar.offset().top;
@@ -273,7 +275,6 @@ $(function() {
                     $sidebar.on('mouseenter.scrolling', function() {
                         var scrollY = $(window).scrollTop();
                         var sidebarHeight = $sidebar.height() + 2;
-                        console.log('in');
                         if (scrollY > sidebarY) {
                             $(this).addClass('scrolling');
 
@@ -283,7 +284,6 @@ $(function() {
 
                     }).on('mouseleave.scrolling', function() {
                         $(this).removeClass('scrolling');
-                        console.log('out');
                     });
                 }
             } else {
