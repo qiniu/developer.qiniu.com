@@ -235,7 +235,7 @@ $(function() {
     //     followScroll: false
     // });
 
-    var $sidebar = $('.side-bar');
+    var $sidebar = $('.container.api .side-bar');
     var $sidebarParent = $sidebar.parent();
     var sidebarY = $sidebar.offset().top;
     var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
