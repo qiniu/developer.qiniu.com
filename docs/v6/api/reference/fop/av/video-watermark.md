@@ -40,40 +40,25 @@ West          |     Center     |          East
 SouthWest     |     South      |     SouthEast
 ```
 
-<a id="video-request"></a>
-## 请求
-
-<a id="video-request-syntax"></a>
-### 请求语法
-
-```
-GET <VideoDownloadURI>?<vwatermarkSpec> HTTP/1.1
-Host: <VideoDownloadHost>
-```
-
-<a id="video-response"></a>
-## 响应
-
-<a id="video-response-syntax"></a>
-### 响应语法
-
-```
-HTTP/1.1 200 OK
-Content-Type: <VideoMimeType>
-
-<VideoBinaryData>
-```
-
 <a id="vwatermark-samples"></a>
 ## 示例
 
 ```
-http://api-demo.qiniudn.com/test.mov?vwatermark/1
-    /image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=
-    /gravity/NorthEast
-    /format/mp4
+    vwatermark/1
+              /image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=
+              /gravity/NorthEast
+              /format/mp4
 ```
 
-[点击观看效果](http://api-demo.qiniudn.com/test.mov?vwatermark/1/image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=/gravity/NorthEast/format/mp4)
+为视频文件打上水印`http://testunit.qiniudn.com/qiniulogo.png`, 水印的位置是右上角，输出格式为`mp4`。
 
-该请求为视频文件`http://api-demo.qiniudn.com/test.mov`打上水印`http://testunit.qiniudn.com/qiniulogo.png`, 水印的位置是右上角，输出格式为`mp4`。  
+<a id="avthumb-internal-resources"></a>
+## 内部参考资源
+
+- [预转持久化处理][persistentOpsHref]
+- [触发持久化处理][pfopHref]
+
+[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          ../pfop/pfop.html                                        "触发持久化处理"
+[pfopNotificationHref]: ../pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
+

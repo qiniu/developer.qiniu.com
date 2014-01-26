@@ -29,7 +29,8 @@
     <header>
         {{ .includes.header}}
     </header>
-    <div class="container cell api">
+    <div class="container cell api fixed-sibebar">
+        <div class="pull-left side-bar-parent">
         <div class="side-bar pull-left">
             <div class="panel-box">
                 <div class="panel special-panel">
@@ -230,7 +231,19 @@ style="display:block"
                                     
                                 </div>
                             </li>
-                            {{end}}                            
+                            {{end}}    
+                        <li>
+                            <div class="panel-heading">
+                                <h5 class="panel-title">
+                                    <span class="icon off_1">
+                                    </span>
+                                    <a href="http://kb.qiniu.com/57a5sl50" class="link">qwebtest </a>
+                                </h5>
+                            </div>
+                            <div class="panel-body" id="qwebtest">
+                                
+                            </div>
+                        </li>                                                      
                         </ul>
                     </div>
                 </div>
@@ -286,6 +299,7 @@ style="display:block"
                 </div>
 
             </div>
+        </div>
         </div>
         <div class="main pull-right">
             <div class="main-inner">
@@ -375,7 +389,6 @@ var duoshuoQuery = {short_name:"qiniu"};
 
     <!-- 具体API页JS ,分别用于指示当前滚动位置，固定侧边栏导航，高亮代码-->
     <script src="/static/js/scrollspy.js" type="text/javascript"></script>
-    <script src="/static/js/jquery.hcsticky-min.js" type="text/javascript"></script>
     <script src="/static/js/highlight/highlight.js" type="text/javascript"></script>
     <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
     <script src="/static/js/dropdown.js" type="text/javascript"></script>

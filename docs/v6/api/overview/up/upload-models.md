@@ -68,3 +68,7 @@ order: 550
 ## 授权机制
 
 资源的上传授权机制采用[上传凭证](../security.html#upload-token)。
+
+## 常见问题
+
+[上传成功后返回的JSON会导致IE弹出下载框？](http://kb.qiniu.com/5487y5np)

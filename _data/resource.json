@@ -118,7 +118,7 @@
         "version": "v6",
         "date": "2013-09-12",
         "doc": "docs/v6/tools/qrsbox.html",
-        "description": "用户界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
+        "description": "图形界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
     }],
     "third_plugin": [{
         "name": "wordpress",

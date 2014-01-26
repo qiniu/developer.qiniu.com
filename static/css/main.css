@@ -24,6 +24,12 @@ a:hover {
 img {
   border: none;
 }
+.resource_qwebtest_sprited {
+  background: url('../image/css-sprite.png') no-repeat;
+  background-position: 0px -1853px;
+  width: 27px;
+  height: 27px;
+}
 .pull-right {
   float: right;
 }
@@ -1444,7 +1450,8 @@ div.api-resource .social-resource .author {
 }
 .container.index .cell.cli,
 .container.docs .cell.cli {
-  height: 70px;
+  min-height: 70px;
+  padding: 25px 25px 0;
 }
 .container.index .cell.cli ul,
 .container.docs .cell.cli ul {
@@ -1455,11 +1462,13 @@ div.api-resource .social-resource .author {
   float: left;
   overflow: hidden;
   width: 193px;
+  margin-bottom: 20px;
 }
 .container.index .cell.cli ul li p,
 .container.docs .cell.cli ul li p {
   color: #404040;
   line-height: 18px;
+  padding-right: 15px;
 }
 .container.index .cell.cli ul li .logo,
 .container.docs .cell.cli ul li .logo {
@@ -1676,6 +1685,10 @@ div.api-resource .social-resource .author {
   margin-top: 20px;
   padding-bottom: 0px;
 }
+.container.api .side-bar-parent {
+  width: 258px;
+  height: auto;
+}
 .container.api .main,
 .container.api .side-bar {
   margin-top: 0;
@@ -1700,10 +1713,12 @@ div.api-resource .social-resource .author {
 }
 .container.docs .side-bar-parent {
   width: 260px;
+  margin-top: 20px;
+  height: auto;
 }
 .container.docs .side-bar {
-  margin-top: 20px;
   background-color: #fff;
+  width: 258px;
   border: 1px solid #e9e9e9;
 }
 .container.docs .main {
