@@ -109,15 +109,15 @@ order: 970
 ## 内部参考资源
 
 - [上传策略][putPolicyHref]
+- [URL安全的Base64编码][urlsafeBase64Href]
 
 <a id="upload-external-resources"></a>
 ## 外部参考资源
 
 - [HMAC-SHA1签名][hmacSha1Href]
-- [URL安全的Base64编码][urlsafeBase64Href]
 
 [putPolicyHref]:            put-policy.html "上传策略"
 
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1签名"
-[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
+[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
