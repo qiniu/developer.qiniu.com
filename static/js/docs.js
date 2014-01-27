@@ -507,6 +507,10 @@ $(function() {
             return false;
         }
     });
+    $('.menu_down').on('click', function(e) {
+        $(this).siblings('a').trigger('click');
+        e.stopPropagation();
+    });
     // 资源下载页提交社区SDK/插件
 
     DocsAddResource = new Zendesk({

@@ -88,8 +88,10 @@
                                         </span>
                                         <a href="/{{.Href}}" class="link"> {{.Title}} </a>
                                        {{if isstart_with $url .Href }}
+                                            {{if isnot_nil_or_empty .Child}}
                                             <span class="icon menu_down"></span>
-                                        {{end}}    
+                                            {{end}}    
+                                        {{end}}     
                                     </h5>
                                 </div>
                                 <div class='panel-body panel-status' {{if isstart_with $url .Href }} style="display:block"{{end}}>
@@ -140,7 +142,9 @@
                                         </span>
                                         <a href="/{{.Href}}" class="link"> {{.Title}} </a>
                                        {{if isstart_with $url .Href }}
+                                            {{if isnot_nil_or_empty .Child}}
                                             <span class="icon menu_down"></span>
+                                            {{end}}    
                                         {{end}}    
                                     </h5>
                                 </div>
