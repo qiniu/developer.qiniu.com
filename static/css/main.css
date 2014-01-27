@@ -1998,12 +1998,12 @@ pre .chunk {
   margin-bottom: 1px;
 }
 .modal-open {
-  overflow: hidden;
+  overflow-y: hidden;
+  margin-right: 15px;
 }
 .modal {
   display: none;
-  overflow: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   right: 0;
@@ -2023,7 +2023,6 @@ pre .chunk {
   margin: 110px auto;
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-  left: 9px;
 }
 .modal-content {
   position: relative;

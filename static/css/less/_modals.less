@@ -1,14 +1,16 @@
 
 // Kill the scroll on the body
 .modal-open {
-  overflow: hidden;
+  overflow-y:hidden;
+  margin-right: 15px;
 }
 
 // Container that the modal scrolls within
 .modal {
   display: none;
-  overflow: auto;
-  overflow-y: scroll;
+   // overflow: auto;
+   overflow-y: auto;
+  //overflow-y:visible;
   position: fixed;
   top: 0;
   right: 0;
@@ -31,7 +33,7 @@
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   // max-height: 1000px;
-  left: 9px;
+  // left: 9px;
 }
 
 // Actual modal
