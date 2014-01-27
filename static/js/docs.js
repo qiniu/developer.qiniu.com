@@ -256,7 +256,6 @@ $(function() {
                             top2 = footerY - sidebarHeight - scrollY;
                             top = top2 <= 0 ? top2 : 0;
                         }
-                        // console.log('top1', top);
                         $sidebar.css({
                             position: 'fixed',
                             top: top
@@ -270,7 +269,6 @@ $(function() {
                         if (scrollY - sidebarHeight + top > 0) {
                             top = top2;
                         }
-                        // console.log('top2', top2);
                         $sidebar.css({
                             position: 'fixed',
                             top: top
@@ -402,7 +400,6 @@ $(function() {
             flag = true;
         }
         $(window).trigger('scroll');
-        console.log('adjustApiBoxHeight');
         if (flag) {
             $sidebar.addClass('scrolling');
         }
