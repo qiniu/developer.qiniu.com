@@ -61,15 +61,18 @@ order: 960
 // TODO: 代码示例goes here.
 ```
 
+<a id="download-internal-resources"></a>
+## 内部参考资源
+
+- [URL安全的Base64编码][urlsafeBase64Href]
+
 <a id="download-external-resources"></a>
 ## 外部参考资源
 
 - [Unix时间][unixTimeHref]
 - [HMAC-SHA1签名][hmacSha1Href]
-- [URL安全的Base64编码][urlsafeBase64Href]
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                                               "Unix时间"
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1签名"
-[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
-[tokenAlgorithmHref]:		token-algorithm.html
+[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"

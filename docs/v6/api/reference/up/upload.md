@@ -159,11 +159,11 @@ HTTP状态码 | 含义
 - [上传策略][putPolicyHref]
 - [上传凭证][uploadTokenHref]
 - [自定义变量][xVariablesHref]
+- [URL安全的Base64编码][urlsafeBase64Href]
 
 <a id="upload-external-resources"></a>
 ## 外部参考资源
 
-- [URL安全的Base64编码][urlsafeBase64Href]
 - [Multipart分隔符][multipartFrontierHref]
 - [MIME类型][mimeTypeHref]
 - [MIME清单][mimeTypeListHref]
@@ -177,6 +177,6 @@ HTTP状态码 | 含义
 [multipartFrontierHref]:    http://en.wikipedia.org/wiki/MIME#Multipart_messages           "Multipart分隔符"
 [mimeTypeHref]:             http://en.wikipedia.org/wiki/MIME                              "MIME类型"
 [mimeTypeListHref]:         http://www.iana.org/assignments/media-types/media-types.xhtml  "MIME清单"
-[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
+[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
