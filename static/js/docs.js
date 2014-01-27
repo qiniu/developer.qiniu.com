@@ -155,11 +155,12 @@ $(function() {
         addIndex($("#" + sdk + " ul :first"), "");
 
         //API具体页标志当前锚点功能
-        if ($('body').scrollspy) {
-            $('body').scrollspy({
-                target: '#' + sdk
-            });
-        }
+        //Todo 暂时隐藏,后续需要自己整合
+        // if ($('body').scrollspy) {
+        //     $('body').scrollspy({
+        //         target: '#' + sdk
+        //     });
+        // }
 
     }
 
