@@ -963,6 +963,9 @@ footer .copyright {
   height: 60px;
   line-height: 16px;
 }
+.modal-open .zendesk {
+  right: 15px;
+}
 .api-comment {
   padding: 25px;
 }
