@@ -2023,7 +2023,6 @@ pre .chunk {
   margin: 110px auto;
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-  max-height: 1000px;
   left: 9px;
 }
 .modal-content {
@@ -2078,9 +2077,6 @@ pre .chunk {
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
   margin-bottom: 33px;
-}
-.modal-body .result-line {
-  max-height: 1000px;
 }
 .modal-body .result-line .ops-line {
   margin-bottom: 26px;
