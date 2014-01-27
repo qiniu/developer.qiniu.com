@@ -385,8 +385,6 @@ $(function() {
         return parseInt($sidebar.css('top'), 10) || 0;
     };
 
-
-
     // API页侧边栏点击a后添加active样式
     $('.nav a').on('click', function() {
         $(this).parents('.nav').find('a').removeClass('active');
@@ -462,6 +460,7 @@ $(function() {
                     } else {
                         $(this).siblings('.on_1').removeClass('on_1').addClass('off_1');
                     }
+                    $(this).parents('.panel-heading').find('.menu_down').hide();
                 } else {
                     $(this).parents('.panel-heading').siblings('.panel-body').show(adjustApiBoxHeight);
                     $(this).addClass('active');
@@ -471,6 +470,7 @@ $(function() {
                     } else {
                         $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
                     }
+                    $(this).parents('.panel-heading').find('.menu_down').show();
                 }
             }
         }
@@ -501,6 +501,12 @@ $(function() {
         hljs.highlightBlock(e);
     });
 
+    $('h5.panel-title').on('click', function() {
+        var href = $(this).find('a').attr('href').toLowerCase();
+        if (url === href) {
+            return false;
+        }
+    });
     // 资源下载页提交社区SDK/插件
 
     DocsAddResource = new Zendesk({
