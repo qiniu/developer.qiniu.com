@@ -147,10 +147,6 @@ X-Reqid: wxIAAD3btw-v3TwT
 
 - [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
-
-<a id="fetch-external-resources"></a>
-## 外部参考资源
-
 - [URL安全的Base64编码][urlsafeBase64Href]
 
 [encodedEntryURIHref]:          ../data-formats.html                             "EncodedEntryURI格式"
@@ -159,4 +155,4 @@ X-Reqid: wxIAAD3btw-v3TwT
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
 
-[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
+[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
