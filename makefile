@@ -25,3 +25,6 @@ clean:
 dev: all
 	lessc static/css/less/main.less static/css/main.css	
 	./_jkl --server
+
+mapsite:
+	echo 'http://developer.qiniu.com/sitemap.xml' | perl -ne 'use URI::Escape; chomp; printf "http://www.bing.com/ping?sitemap=%s\n", uri_escape($$_);' | xargs -I {} curl -i -L '{}'
