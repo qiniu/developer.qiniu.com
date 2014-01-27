@@ -16,6 +16,9 @@
   <loc>http://developer.qiniu.com/download/index.html</loc>
 </url>
 <url>
+  <loc>http://developer.qiniu.com/changelog/index.html</loc>
+</url>
+<url>
   <loc>http://developer.qiniu.com/docs/v6/sdk/ios-sdk.html</loc>
 </url>
 <url>
@@ -127,10 +130,13 @@
   <loc>http://developer.qiniu.com/docs/v6/tools/qrsbox.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/download/</loc>
+  <loc>http://developer.qiniu.com/docs/v6/kb/testing.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/download/</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/overview/up/</loc>
@@ -160,9 +166,6 @@
   <loc>http://developer.qiniu.com/docs/v6/api/reference/security/</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/token-algorithm.html</loc>
-</url>
-<url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html</loc>
 </url>
 <url>
@@ -178,13 +181,13 @@
   <loc>http://developer.qiniu.com/docs/v6/api/reference/up/</loc>
 </url>
 <url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/upload.html</loc>
+</url>
+<url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/up/mkblk.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/up/bput.html</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/up/upload.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html</loc>
@@ -208,7 +211,10 @@
   <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/batch.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/_list.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/fetch.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/prefetch.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/</loc>
@@ -223,13 +229,16 @@
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html</loc>
 </url>
 <url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/p.html</loc>
+</url>
+<url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview2.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr2.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageinfo.html</loc>
@@ -250,6 +259,12 @@
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html</loc>
 </url>
 <url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/avinfo.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/pm3u8.html</loc>
+</url>
+<url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av/video-watermark.html</loc>
 </url>
 <url>
@@ -265,7 +280,19 @@
   <loc>http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html</loc>
 </url>
 <url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/data-formats.html</loc>
+</url>
+<url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/err.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/obsolete/</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/obsolete/imageview.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/obsolete/imagemogr.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/sdk/nodejs-sdk.html</loc>
@@ -280,16 +307,31 @@
   <loc>http://developer.qiniu.com/docs/v6/kb/faq.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/kb/speed_up_staticfile.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/index.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/kb/testing.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response/index.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs/list.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs/index.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/security/token-algorithm.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/preset-fops.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr.html</loc>
+</url>
+<url>
+  <loc>http://developer.qiniu.com/docs/v6/kb/speed_up_staticfile.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image/index.html</loc>
@@ -299,47 +341,5 @@
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/index.html</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/up</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/append.html</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/up/response</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/dn</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/rs</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/security</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/up</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/rs</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/pfop</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/image</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/reference/fop/av</loc>
-</url>
-<url>
-  <loc>http://developer.qiniu.com/docs/v6/api/overview/fop/custom-fop.html</loc>
 </url>
 </urlset>
