@@ -16,7 +16,7 @@ order: 290
 ## 接口规格
 
 ```
-pSpec = "p/1/<fop>"
+p/1/<fop>
 ```
 
 参数名称      | 必填 | 说明
@@ -30,7 +30,7 @@ pSpec = "p/1/<fop>"
 ### 请求语法
 
 ```
-GET <RawDownloadURI>?<pSpec> HTTP/1.1
+GET <RawDownloadURI>?<接口规格> HTTP/1.1
 Host: <RawDownloadDomain>
 ```
 

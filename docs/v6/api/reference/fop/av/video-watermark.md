@@ -9,11 +9,13 @@ order: 139
 <a id="vwatermark-spec"></a>
 ## 视频水印规格
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-vwatermarkSpec = "vwatermark/<Mode>
-                            /image/<EncodedRemoteImageUrl>
-                            /gravity/<Gravity>
-                            /format/<OutputFormat>"
+vwatermark/<Mode>
+          /image/<EncodedRemoteImageUrl>
+          /gravity/<Gravity>
+          /format/<OutputFormat>
 ```
 
 参数名称                   | 必填 | 说明

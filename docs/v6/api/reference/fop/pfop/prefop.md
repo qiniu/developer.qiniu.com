@@ -16,7 +16,7 @@ order: 200
 ## 接口规格
 
 ```
-prefopSpec = "id=<persistentId>"
+id=<persistentId>
 ```
 
 <a id="prefop-specification-params"></a>
@@ -33,7 +33,7 @@ prefopSpec = "id=<persistentId>"
 ### 请求语法
 
 ```
-GET /status/get/prefop?<prefopSpec> HTTP/1.1
+GET /status/get/prefop?<接口规格> HTTP/1.1
 Host: api.qiniu.com  
 ```
 

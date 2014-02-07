@@ -15,19 +15,21 @@ order: 150
 <a id="avthumb-specification"></a>
 ## 接口规格
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-avthumbSpec = "avthumb/<Format>
-                      /ab/<BitRate>
-                      /aq/<AudioQuality>
-                      /ar/<SamplingRate>
-                      /r/<FrameRate>
-                      /vb/<VideoBitRate>
-                      /vcodec/<VideoCodec>
-                      /acodec/<AudioCodec>
-                      /ss/<SeekStart>
-                      /t/<Duration>
-                      /stripmeta/<StripMeta>
-                      /rotate/<Degree>"
+avthumb/<Format>
+       /ab/<BitRate>
+       /aq/<AudioQuality>
+       /ar/<SamplingRate>
+       /r/<FrameRate>
+       /vb/<VideoBitRate>
+       /vcodec/<VideoCodec>
+       /acodec/<AudioCodec>
+       /ss/<SeekStart>
+       /t/<Duration>
+       /stripmeta/<StripMeta>
+       /rotate/<Degree>
 ```
 
 参数名称                | 类别 | 必填 | 说明
