@@ -16,28 +16,31 @@ order: 174
 <a id="imageMogr-specification"></a>
 ## 接口规格
 
-建议优先使用第二版`imageMogr`，其规格是：
+建议优先使用第二版`imageMogr`，其规格如下。
+
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
 ```
-imageMogrSpecV2 = imageMogr/v2/auto-orient
-                              /thumbnail/<imageSizeGeometry>
-                              /gravity/<gravityType>
-                              /crop/<imageSizeAndOffsetGeometry>
-                              /quality/<imageQuality>
-                              /rotate/<rotateDegree>
-                              /format/<destinationImageFormat>
+imageMogr/v2
+         /auto-orient
+         /thumbnail/<imageSizeGeometry>
+         /gravity/<gravityType>
+         /crop/<imageSizeAndOffsetGeometry>
+         /quality/<imageQuality>
+         /rotate/<rotateDegree>
+         /format/<destinationImageFormat>
 ```
 
 第一版`imageMogr`兼容保留，其规格是：
 
 ```
-imageMogrSpec = imageMogr/auto-orient
-                         /thumbnail/<imageSizeGeometry>
-                         /gravity/<gravityType>
-                         /crop/<imageSizeAndOffsetGeometry>
-                         /quality/<imageQuality>
-                         /rotate/<rotateDegree>
-                         /format/<destinationImageFormat>
+imageMogr/auto-orient
+         /thumbnail/<imageSizeGeometry>
+         /gravity/<gravityType>
+         /crop/<imageSizeAndOffsetGeometry>
+         /quality/<imageQuality>
+         /rotate/<rotateDegree>
+         /format/<destinationImageFormat>
 ```
 
 参数名称                             | 必填 | 说明                                                
@@ -136,7 +139,7 @@ a => + (add)
 ### 请求报文格式
 
 ```
-GET <imageDownloadURI>?<imageMogrSpecV2> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 

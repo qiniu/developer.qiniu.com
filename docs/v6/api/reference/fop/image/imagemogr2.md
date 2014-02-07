@@ -122,7 +122,7 @@ a => + (add)
 ### 请求报文格式
 
 ```
-GET <imageDownloadURI>?<imageMogr2SpecV2> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 

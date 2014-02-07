@@ -18,12 +18,15 @@ order: 160
 <a id="pic-watermark-spec"></a>
 ### 规格接口规格  
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-picWaterMarkSpec = watermark/1/image/<encodedImageURL>
-                              /dissolve/<dissolve>
-                              /gravity/<gravity>
-                              /dx/<distanceX>
-                              /dy/<distanceY>
+watermark/1
+         /image/<encodedImageURL>
+         /dissolve/<dissolve>
+         /gravity/<gravity>
+         /dx/<distanceX>
+         /dy/<distanceY>
 ```
 
 <a id="pic-watermark-params"></a>
@@ -60,7 +63,7 @@ SouthWest     |     South      |     SouthEast
 #### 请求报文格式
 
 ```
-GET <imageDownloadURI>?<picWaterMarkSpec> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
@@ -142,15 +145,18 @@ HTTP状态码 | 含义
 <a id="text-watermark-spec"></a>
 ### 规格接口规格  
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-textWaterMarkSpec = watermark/2/text/<encodedText>
-                               /font/<encodedFontName>
-                               /fontsize/<fontSize>
-                               /fill/<encodedTextColor>
-                               /dissolve/<dissolve>
-                               /gravity/<gravity>
-                               /dx/<distanceX>
-                               /dy/<distanceY>
+watermark/2
+         /text/<encodedText>
+         /font/<encodedFontName>
+         /fontsize/<fontSize>
+         /fill/<encodedTextColor>
+         /dissolve/<dissolve>
+         /gravity/<gravity>
+         /dx/<distanceX>
+         /dy/<distanceY>
 ```
 
 <a id="text-watermark-params"></a>
@@ -173,7 +179,7 @@ textWaterMarkSpec = watermark/2/text/<encodedText>
 #### 请求语法
 
 ```
-GET <imageDownloadURI>?<textWaterMarkSpec> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
@@ -256,13 +262,16 @@ HTTP状态码 | 含义
 <a id="multi-watermark-spec"></a>
 ### 规格接口规格  
 
+注意1：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读；  
+注意2：省略号表示可以附加多个规格参数。  
+
 ```
-multiWaterMarkSpec = watermark/3
-                              /text/<textWaterMarkParams1>
-                              /image/<imageWaterMarkParams1>
-                              /image/<imageWaterMarkParams2>
-                              /text/<textWaterMarkParams2>
-                              ...
+watermark/3
+         /text/<textWaterMarkParams1>
+         /image/<imageWaterMarkParams1>
+         /image/<imageWaterMarkParams2>
+         /text/<textWaterMarkParams2>
+         ...
 ```
 
 注意：图片水印与文字水印的规格可以混写，按给定顺序处理。  
@@ -279,7 +288,7 @@ multiWaterMarkSpec = watermark/3
 #### 请求语法
 
 ```
-GET <imageDownloadURI>?<multiWaterMarkSpec> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 

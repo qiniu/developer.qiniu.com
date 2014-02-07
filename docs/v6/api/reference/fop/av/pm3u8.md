@@ -16,7 +16,7 @@ order: 146
 <a id="pm3u8-specification"></a>
 
 ```
-pm3u8Spec = "pm3u8/<Mode>/expires/<Expires>"
+pm3u8/<Mode>/expires/<Expires>
 ```
 
 参数名称             | 必填 | 说明
@@ -31,7 +31,7 @@ pm3u8Spec = "pm3u8/<Mode>/expires/<Expires>"
 ### 请求语法
 
 ```
-GET <M3U8DownloadURI>?<pm3u8Spec> HTTP/1.1
+GET <M3U8DownloadURI>?<接口规格> HTTP/1.1
 Host: <M3U8DownloadHost>
 ```
 

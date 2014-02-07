@@ -20,8 +20,7 @@ HLS API规格支持两种形式：预设集和自定义两种。
 ## 切片预设集接口规格  
 
 ```
-presetSpec = "avthumb/m3u8/segtime/<SegSeconds>
-                          /preset/<Preset>"
+avthumb/m3u8/segtime/<SegSeconds>/preset/<Preset>
 ```
 
 参数名称                | 必填 | 说明
@@ -57,15 +56,17 @@ video_640k      | 码率为640K，长宽比沿用源视频设置。 | WIFI
 <a id="segtime-selfdef"></a>
 ## 自定义切片接口规格
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-selfDefSpec = "avthumb/m3u8/segtime/<SegSeconds>
-                           /ab/<BitRate>
-                           /aq/<AudioQuality>
-                           /ar/<SamplingRate>
-                           /r/<FrameRate>
-                           /vb/<VideoBitRate>
-                           /vcodec/<VideoCodec>
-                           /acodec/<AudioCodec>"
+avthumb/m3u8/segtime/<SegSeconds>
+            /ab/<BitRate>
+            /aq/<AudioQuality>
+            /ar/<SamplingRate>
+            /r/<FrameRate>
+            /vb/<VideoBitRate>
+            /vcodec/<VideoCodec>
+            /acodec/<AudioCodec>
 ```
 
 参数名称                | 必填 | 说明
