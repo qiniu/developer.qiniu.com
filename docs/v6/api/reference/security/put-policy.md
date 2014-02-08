@@ -29,9 +29,9 @@ order: 980
     "persistentOps":       "<persistentOpsCmds        string>",
     "persistentNotifyUrl": "<persistentNotifyUrl      string>",
 
-    "insertOnly":          "<AllowFileUpdating        uint16>",
-    "detectMime":          "<AutoDetectMimeType       uint16>",
-    "fsizeLimit":          "<FileSizeLimit            int64>",
+    "insertOnly":           <AllowFileUpdating        uint16>,
+    "detectMime":           <AutoDetectMimeType       uint16>,
+    "fsizeLimit":           <FileSizeLimit            int64>,
     "saveKey":             "<KeyFomart                string>",
 
     "mimeLimit":           "<MimeLimit                string>"
