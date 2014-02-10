@@ -45,14 +45,29 @@ SouthWest     |     South      |     SouthEast
 <a id="vwatermark-samples"></a>
 ## 示例
 
-```
-    vwatermark/1
-              /image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=
-              /gravity/NorthEast
-              /format/mp4
-```
+1. 以[预转持久化][persistentOpsHref]形式，给视频资源打水印：  
 
-为视频文件打上水印`http://testunit.qiniudn.com/qiniulogo.png`, 水印的位置是右上角，输出格式为`mp4`。
+	```
+    {
+        "scope":                "qiniu-ts-demo:sample.mp4",
+        "deadline":             1390528576,
+        "persistentOps":        "vwatermark/1/image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=/gravity/NorthEast/format/mp4",
+        "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
+    }
+	```
+
+2. 以[触发持久化处理][pfopHref]形式，给视频资源打水印：  
+
+	```
+    POST /pfop/ HTTP/1.1
+    Host: api.qiniu.com  
+    Content-Type: application/x-www-form-urlencoded  
+    Authorization: QBox <AccessToken>  
+
+    bucket=qiniu-ts-demo&key=sample.mp4&fops=vwatermark%2F1%2Fimage%2FaHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc%3D%2Fgravity%2FNorthEast%2Fformat%2Fmp4&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
+	```
+
+以上示例为指定视频资源打上水印`http://testunit.qiniudn.com/qiniulogo.png`, 水印的位置是右上角，生成格式为`mp4`的新视频资源。
 
 <a id="avthumb-internal-resources"></a>
 ## 内部参考资源
