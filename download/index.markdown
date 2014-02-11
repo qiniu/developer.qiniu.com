@@ -5,7 +5,7 @@ title: 资源列表
 
 # 七牛资源
 
-- [SDK](http://docs.qiniu.com/sdk/index.html)，七牛云存储提供的官方SDK。
+- [SDK](http://developer.qiniu.com/docs/v6/sdk/)，七牛云存储提供的官方SDK。
 - [工具集](http://docs.qiniu.com/tools/v6/index.html)，七牛云存储所提供的开发和支持工具。
 
 # 第三方资源列表
