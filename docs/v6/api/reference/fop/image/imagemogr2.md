@@ -16,15 +16,17 @@ imageMogr2是原imageMogr接口的更新版本，实现略有差异，功能更�
 <a id="imageMogr2-specification"></a>
 ## 接口规格
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-imageMogr2SpecV2 = imageMogr2/auto-orient
-                             /thumbnail/<imageSizeGeometry>
-                             /strip
-                             /gravity/<gravityType>
-                             /crop/<imageSizeAndOffsetGeometry>
-                             /quality/<imageQuality>
-                             /rotate/<rotateDegree>
-                             /format/<destinationImageFormat>
+imageMogr2/auto-orient
+          /thumbnail/<imageSizeGeometry>
+          /strip
+          /gravity/<gravityType>
+          /crop/<imageSizeAndOffsetGeometry>
+          /quality/<imageQuality>
+          /rotate/<rotateDegree>
+          /format/<destinationImageFormat>
 ```
 
 参数名称                             | 必填 | 说明                                                
@@ -122,7 +124,7 @@ a => + (add)
 ### 请求报文格式
 
 ```
-GET <imageDownloadURI>?<imageMogr2SpecV2> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 

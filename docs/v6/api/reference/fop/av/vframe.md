@@ -37,7 +37,7 @@ vframe/<Format>
 ### 请求语法
 
 ```
-GET <VideoDownloadURI>?<vframeSpec> HTTP/1.1
+GET <VideoDownloadURI>?<接口规格> HTTP/1.1
 Host: <VideoDownloadHost>
 ```
 

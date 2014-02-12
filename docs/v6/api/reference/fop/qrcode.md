@@ -17,7 +17,7 @@ order: 110
 ## 接口规格（qrcodeSpec）
 
 ```
-<DownloadURL>?qrcode/<Mode>/level/<Level>
+qrcode/<Mode>/level/<Level>
 ```
 
 其中`<DownloadURL>`代表资源的原始下载URL，请参考[下载接口](../../overview/dn/download.html)。  
@@ -36,7 +36,7 @@ order: 110
 #### 请求语法
 
 ```
-GET <DownloadURI>?<qrcodeSpec> HTTP/1.1
+GET <DownloadURI>?<接口规格> HTTP/1.1
 Host: <DownloadHost>
 ```
 

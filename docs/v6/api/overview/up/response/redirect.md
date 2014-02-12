@@ -26,7 +26,7 @@ Location: <returnUrl>
 
 ```
 HTTP/1.1 303 See Other
-Location: <returnUrl>?upload_return=<encoded_return_body>
+Location: <returnUrl>?upload_ret=<encoded_return_body>
 ```
 
-如果希望返回的自定义返回内容能得到正确处理，重定向URL所对应的服务器需支持请求参数`upload_return`。 
+如果希望返回的自定义返回内容能得到正确处理，重定向URL所对应的服务器需支持请求参数`upload_ret`。 

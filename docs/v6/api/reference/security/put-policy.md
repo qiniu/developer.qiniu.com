@@ -29,12 +29,15 @@ order: 980
     "persistentOps":       "<persistentOpsCmds        string>",
     "persistentNotifyUrl": "<persistentNotifyUrl      string>",
 
-    "insertOnly":          "<AllowFileUpdating        uint16>",
-    "detectMime":          "<AutoDetectMimeType       uint16>",
-    "fsizeLimit":          "<FileSizeLimit            int64>",
+    "insertOnly":           <AllowFileUpdating        uint16>,
+    "fsizeLimit":           <FileSizeLimit            int64>,
     "saveKey":             "<KeyFomart                string>",
 
-    "mimeLimit":           "<MimeLimit                string>"
+    "detectMime":           <AutoDetectMimeType       uint16>,
+    "mimeLimit":           "<MimeLimit                string>",
+
+    "transform":           "<Transform                string>",
+    "fopTimeout":           <FopTimeout               int64>
 }
 ```
 
@@ -47,13 +50,33 @@ order: 980
 <a id="put-policy-return-body"></a>`returnBody`          |      | ● 上传成功后，自定义七牛云最终返回給上传端的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。
 <a id="put-policy-callback-url"></a>`callbackUrl`         |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。
 <a id="put-policy-callback-body"></a>`callbackBody`        |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。
-<a id="put-policy-persistent-ops"></a>`persistentOps`       |      | ● 资源上传成功后触发执行的预转持久化处理指令列表<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[示例](#put-policy-samples-persisntent-ops)。
+<a id="put-policy-persistent-ops"></a>`persistentOps`       |      | ● 资源上传成功后触发执行的预转持久化处理指令列表<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。
 <a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | ● 接收预转持久化结果通知的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。如设置`persistenOps`字段，则本字段必须同时设置（未来可能转为可选项）。
 <a id="put-policy-insert-only"></a>`insertOnly`          |      | ● 限定为“新增”语意<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
 <a id="put-policy-save-key"></a>`saveKey`             |      | ● 自定义资源名格式<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。
 <a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | ● 限定上传文件的大小，单位：字节（Byte）<br>超过限制的上传内容会被判为上传失败，返回413状态码。
 <a id="put-policy-detect-mime"></a>`detectMime`          |      | ● 开启MimeType侦测功能<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名<br>2. 检查Key扩展名<br>3. 侦测内容。
-<a id="put-policy-mime-limit"></a>`mimeLimit`           |      | ● 限定用户上传的文件类型<br>指定本字段值，七牛服务器会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回403状态码<br>● 示例<br>1. "image/*"表示只允许上传图片类型<br>2. "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片。
+<a id="put-policy-mime-limit"></a>`mimeLimit`           |      | ● 限定用户上传的文件类型<br>指定本字段值，七牛服务器会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回403状态码<br>● 示例<br>1. "image/*"表示只允许上传图片类型；<br>2. "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片；<br>3. "!application/json;text/plain"表示禁止上传`json`文本和纯文本（注意最前面的感叹号）。
+<a id="put-policy-transform"></a>`transform`           |      | ● 对文件先进行一次变换操作（比如将音频统一转为某种码率的mp3）再进行存储<br>本字段的值是一个fop指令，比如<br>`imageView/1/w/310/h/395/q/80`<br>其含义是对上传文件执行该fop指令，然后把处理结果作为最终资源保存到七牛云。<br>须与`fopTimeout`字段配合使用。
+<a id="put-policy-fop-timeout"></a>`fopTimeout`           |      | ● 文件变换操作执行的超时时间（单位：秒）<br>这个值太小可能会导致误判（最终存储成功了但客户端得到超时错），太大可能会导致服务端将其判断为低优先级任务。<br>建议取一个相对准确的时间估计值*N（N不要超过5）。<br>须与`transform`字段配合使用。fopTimeout 如果未指定会有一个默认的超时（我们建议尽量主动指定）。
+
+<a id="put-policy-persistent-ops-explanation"></a>
+### persistentOps详解
+
+`persistentOps`字段用于指定预转数据处理命令和保存处理结果的存储空间与资源名。  
+
+为此字段指定非空值，则在成功上传一个文件后，会启动一个异步数据处理任务。  
+同时客户端收到的响应内容中会有`persistentId`字段，唯一标示此任务。  
+
+1. 使用默认存储空间和资源名：
+
+	当只指定了数据处理命令时，服务端会选择上传文件的`Bucket`作为数据处理结果的存储空间，`Key`由七牛服务器自动生成。
+
+2. 使用指定存储空间和资源名：
+
+	当在数据处理命令后用管道连接`saveas/<encodedEntryURI>`时，七牛服务器会从指定的[EntryURI][encodedEntryURIHref]中取得处理结果的存储空间与资源名。  
+	例如`avthumb/flv|saveas/cWJ1Y2tldDpxa2V5`，是将上传的视频文件转码成`flv`格式后存储为`qbucket:qkey`，其中**cWJ1Y2tldDpxa2V5**是**qbucket:qkey**的[UrlSafe-Base64编码][urlsafeBase64Href]结果。  
+	以上方式可以同时作用于多个数据处理命令，用“;”分隔，例如`avthumb/mp4|saveas/cWJ1Y2tldDpxa2V5;avthumb/flv|saveas/cWJ1Y2tldDpxa2V5Mg==`。
 
 <a id="put-policy-remarks"></a>
 ## 附注
@@ -90,6 +113,8 @@ order: 980
 - [上传凭证][uploadTokenHref]
 - [魔法变量][magicVariablesHref]
 - [自定义变量][xVariablesHref]
+- [EncodedEntryURI格式][encodedEntryURIHref]
+- [URL安全的Base64编码][urlsafeBase64Href]
 
 <a id="download-external-resources"></a>
 ## 外部参考资源
@@ -100,5 +125,7 @@ order: 980
 [magicVariablesHref]:       ../../overview/up/response/vars.html#magicvar                "魔法变量"
 [xVariablesHref]:           ../../overview/up/response/vars.html#xvar                    "自定义变量"
 [fopHref]:                  ../../overview/up/response/persistent-op.html                "预转持久化处理"
+[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[urlsafeBase64Href]: ../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"
