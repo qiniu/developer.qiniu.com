@@ -72,7 +72,7 @@ Node.js SDK 主要包含对七牛云存储API的包装，遵循[qiniu sdkspec](h
 
 <sdk安装说明\>
 通过 npm 以 node 模块化的方式安装：  
-`npm node qiniu`
+`npm install qiniu`
 
 <a id="appkey"></a>
 
