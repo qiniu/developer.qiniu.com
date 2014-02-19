@@ -52,7 +52,7 @@ Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]�
 请求参数以表单形式组织，作为请求内容提交，格式如下：  
 
 ```
-PfopRequestParams = "bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotifyUrl>"
+bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotifyUrl>&force=<Force>
 ```
 
 参数名称      | 必填 | 说明
@@ -61,6 +61,7 @@ PfopRequestParams = "bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notif
 `key`         | 是   | 源资源名。
 `fops`        | 是   | 云处理操作列表，用“;”分隔,需要进行[URL转义][urlescapeHref]。
 `notifyURL`   | 是   | 处理结果通知接收URL,请参考[处理结果通知](#pfop-notification)小节。
+<a id="pfop-force"></a>`force`       |      | 强制执行数据处理。<br>当服务端发现fops指定的数据处理结果已经存在，那就认为已经处理成功，避免重复处理浪费资源。加上本字段并设为1，则可强制执行数据处理并覆盖原结果。
 
 <a id="pfop-response"></a>
 ## 响应
