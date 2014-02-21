@@ -164,4 +164,4 @@ HTTP状态码 | 含义
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
 
-[exifWhitePaperHref]            http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf  "EXIF技术白皮书"
+[exifWhitePaperHref]:           http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf  "EXIF技术白皮书"

@@ -128,9 +128,6 @@ $(function() {
         var shref = href.split("/");
         var sdk = shref[shref.length - 1];
         sdk = sdk.substring(0, sdk.length - 5);
-        $("#" + sdk).html($('.api-content ul :first'));
-
-
         addIndex = function(ul, idx) {
             $(ul).children("li").each(function(i) {
                 i = i + 1;
@@ -152,16 +149,17 @@ $(function() {
             });
         };
 
-        addIndex($("#" + sdk + " ul :first"), "");
-
-        //API具体页标志当前锚点功能
-        //Todo 暂时隐藏,后续需要自己整合
-        // if ($('body').scrollspy) {
-        //     $('body').scrollspy({
-        //         target: '#' + sdk
-        //     });
-        // }
-
+        if (sdk !== '') {
+            $("#" + sdk).html($('.api-content ul :first'));
+            addIndex($("#" + sdk + " ul :first"), "");
+            //API具体页标志当前锚点功能
+            //Todo 暂时隐藏,后续需要自己整合
+            // if ($('body').scrollspy) {
+            //     $('body').scrollspy({
+            //         target: '#' + sdk
+            //     });
+            // }
+        }
     }
 
     //顶部栏样式
@@ -551,12 +549,12 @@ $(function() {
         return false;
     });
 
-    // 资源下载页，社区插件/社区SDK分页插件，暂时未用到 
+    // 资源下载页，社区插件/社区SDK分页插件，暂时未用到
     // $('.bxslider').bxSlider({
     //     controls: false
     // });
 
-    // 更新日志页面JS，暂时未用到 
+    // 更新日志页面JS，暂时未用到
     // $('.changelog .side-bar a').on('click', function() {
     //     var cClass = $(this).attr('class');
     //     console.log(cClass);
@@ -571,7 +569,7 @@ $(function() {
     // });
     // $('.changelog .side-bar a').eq(0).trigger('click');
 
-    // 返回顶部JS，暂时未用到 
+    // 返回顶部JS，暂时未用到
     // $.scrollUp({
     //     scrollName: 'scrollUp',
     //     topDistance: '500',
