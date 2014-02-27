@@ -15,6 +15,7 @@ order: 160
 * [视频水印（vwatermark）][videoWatermarkHref]
 * [音视频元信息（avinfo）][avinfoHref]
 * [私有M3U8（pm3u8）][pm3u8Href]
+* [音视频拼接][avconcatHref]
 
 [avthumbHref]:          avthumb.html            "基本音视频处理"
 [segtimeHref]:          segtime.html            "音视频切片"
@@ -22,3 +23,4 @@ order: 160
 [videoWatermarkHref]:   video-watermark.html    "视频水印"
 [avinfoHref]:           avinfo.html             "音视频元信息"
 [pm3u8Href]:            pm3u8.html              "私有M3U8"
+[avconcatHref]:         avconcat.html           "音视频拼接"
