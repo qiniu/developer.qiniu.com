@@ -50,7 +50,7 @@ order: 980
 <a id="put-policy-end-user"></a>`endUser`             |      | ● 唯一属主标识<br>特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印。
 <a id="put-policy-return-url"></a>`returnUrl`           |      | ● Web端文件上传成功后，浏览器执行303跳转的URL<br>通常用于`HTML Form`上传。<br>文件上传成功后会跳转到`<returnUrl>?upload_ret=<queryString>`, `<queryString>`包含`returnBody`内容。<br>如不设置returnUrl，则直接将`returnBody`的内容返回给客户端。
 <a id="put-policy-return-body"></a>`returnBody`          |      | ● 上传成功后，自定义七牛云最终返回給上传端（在指定returnUrl时是携带在跳转路径参数中）的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`returnBody` 要求是合法的 JSON 文本。如：`{"key": $(key), "hash": $(etag), "w": $(imageInfo.width), "h": $(imageInfo.height)}`。
-<a id="put-policy-callback-url"></a>`callbackUrl`         |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。
+<a id="put-policy-callback-url"></a>`callbackUrl`         |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。另外，为了给客户端有一致的体验，我们要求 `callbackUrl` 返回包 Content-Type 为 "application/json"，即返回的内容必须是合法的 JSON 文本。
 <a id="put-policy-callback-body"></a>`callbackBody`        |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`callbackBody` 要求是合法的 url query string。如：`key=$(key)&hash=$(etag)&w=$(imageInfo.width)&h=$(imageInfo.height)`。
 <a id="put-policy-persistent-ops"></a>`persistentOps`       |      | ● 资源上传成功后触发执行的预转持久化处理指令列表<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。
 <a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | ● 接收预转持久化结果通知的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。如设置`persistenOps`字段，则本字段必须同时设置（未来可能转为可选项）。
