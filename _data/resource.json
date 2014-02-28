@@ -335,5 +335,10 @@
         "author": "小问",
         "date": "2013-10-22",
         "doc": "https://github.com/iwillwen/qiniu.js/tree/develop"
+    }],
+    "tuiguanziyuan": [{
+        "name": "logo",
+        "img":  "/static/image/qiniu_logo_small.png",
+        "download": "http://developer.qiniu.com/resource/logo.zip"
     }]
 }

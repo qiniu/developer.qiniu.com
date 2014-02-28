@@ -213,6 +213,34 @@
                 {{end}}
             </div>
         </div>
+
+
+        <div class="resource-box cell large community-sdk">
+            <h2 class="cell-head">
+                推广资源
+            </h2>
+            <div class="cell-body">
+                {{range .data.resource.tuiguanziyuan}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <img src="{{.img}}">
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="url">
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+
     </div>
     <!--    <ul class="bxslider">
       <li>
@@ -221,8 +249,7 @@
       </li>
     </ul> -->
     </div>
-    {{.includes.search_result}}
-    {{.includes.footer}}
+    {{.includes.search_result}} {{.includes.footer}}
 
     <script src="/static/js/jquery-1.9.1.min.js" type="text/javascript">
     </script>
@@ -233,6 +260,6 @@
     <script src="/static/js/docs.js?v={{.time}}" type="text/javascript">
     </script>
     <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
-    </body>
+</body>
 
 </html>
