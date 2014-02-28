@@ -298,7 +298,7 @@ css-sprite（图片拼合）
 .off_2,
 .on_1,
 .on_2,
-.resource_Javascript_sprited,
+.resource_JavaScript_sprited,
 .resource_android_sprited,
 .resource_c_sprited,
 .resource_cmd_sprited,
@@ -503,7 +503,7 @@ css-sprite（图片拼合）
   width: 14px;
   height: 16px;
 }
-.resource_Javascript_sprited {
+.resource_JavaScript_sprited {
   background-position: 0px -793px;
   width: 70px;
   height: 40px;
