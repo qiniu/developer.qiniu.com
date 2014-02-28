@@ -573,5 +573,6 @@ $(function() {
     // });
 
     $('.container.docs .main .sdk ul li:last-child').hide();
+    //hack in api=index.html
 
 });
