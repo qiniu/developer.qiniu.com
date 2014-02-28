@@ -26,7 +26,7 @@ img {
 }
 .resource_qwebtest_sprited {
   background: url('../image/css-sprite.png') no-repeat;
-  background-position: 0px -1877px;
+  background-position: 0px -1700px;
   width: 27px;
   height: 27px;
 }
@@ -288,10 +288,7 @@ css-sprite（图片拼合）
 .global_weixin_sprited,
 .icon_close_default_sprited,
 .icon_close_hover_sprited,
-.index_book_sprited,
-.index_clock_sprited,
 .index_cmd_sprited,
-.index_light_sprited,
 .index_resource_sprited,
 .index_social_sprited,
 .index_sync_sprited,
@@ -334,9 +331,8 @@ css-sprite（图片拼合）
 .sdk-go,
 .sdk-ios,
 .sdk-java,
-.sdk-net,
+.sdk-more,
 .sdk-nodejs,
-.sdk-perl,
 .sdk-php,
 .sdk-python,
 .sdk-ruby {
@@ -457,265 +453,245 @@ css-sprite（图片拼合）
   width: 16px;
   height: 18px;
 }
-.index_book_sprited {
-  background-position: 0px -608px;
-  width: 65px;
-  height: 57px;
-}
-.index_clock_sprited {
-  background-position: 0px -667px;
-  width: 52px;
-  height: 57px;
-}
 .index_cmd_sprited {
-  background-position: 0px -726px;
+  background-position: 0px -608px;
   width: 19px;
   height: 19px;
 }
-.index_light_sprited {
-  background-position: 0px -747px;
-  width: 53px;
-  height: 57px;
-}
 .index_resource_sprited {
-  background-position: 0px -806px;
+  background-position: 0px -629px;
   width: 18px;
   height: 16px;
 }
 .index_social_sprited {
-  background-position: 0px -824px;
+  background-position: 0px -647px;
   width: 18px;
   height: 16px;
 }
 .index_sync_sprited {
-  background-position: 0px -842px;
+  background-position: 0px -665px;
   width: 19px;
   height: 19px;
 }
 .index_tool_sprited {
-  background-position: 0px -863px;
+  background-position: 0px -686px;
   width: 18px;
   height: 16px;
 }
 .index_upload_sprited {
-  background-position: 0px -881px;
+  background-position: 0px -704px;
   width: 19px;
   height: 19px;
 }
 .off_1 {
-  background-position: 0px -902px;
+  background-position: 0px -725px;
   width: 12px;
   height: 14px;
 }
 .off_2 {
-  background-position: 0px -918px;
+  background-position: 0px -741px;
   width: 14px;
   height: 16px;
 }
 .on_1 {
-  background-position: 0px -936px;
+  background-position: 0px -759px;
   width: 12px;
   height: 14px;
 }
 .on_2 {
-  background-position: 0px -952px;
+  background-position: 0px -775px;
   width: 14px;
   height: 16px;
 }
 .resource_Javascript_sprited {
-  background-position: 0px -970px;
+  background-position: 0px -793px;
   width: 70px;
   height: 40px;
 }
 .resource_android_sprited {
-  background-position: 0px -1012px;
+  background-position: 0px -835px;
   width: 70px;
   height: 40px;
 }
 .resource_c_sprited {
-  background-position: 0px -1054px;
+  background-position: 0px -877px;
   width: 70px;
   height: 40px;
 }
 .resource_cmd_sprited {
-  background-position: 0px -1096px;
+  background-position: 0px -919px;
   width: 27px;
   height: 27px;
 }
 .resource_csharp_sprited {
-  background-position: 0px -1125px;
+  background-position: 0px -948px;
   width: 70px;
   height: 40px;
 }
 .resource_discuz {
-  background-position: 0px -1167px;
+  background-position: 0px -990px;
   width: 70px;
   height: 40px;
 }
 .resource_django {
-  background-position: 0px -1209px;
+  background-position: 0px -1032px;
   width: 70px;
   height: 40px;
 }
 .resource_drupal {
-  background-position: 0px -1251px;
+  background-position: 0px -1074px;
   width: 70px;
   height: 40px;
 }
 .resource_emlog {
-  background-position: 0px -1293px;
+  background-position: 0px -1116px;
   width: 70px;
   height: 40px;
 }
 .resource_go_sprited {
-  background-position: 0px -1335px;
+  background-position: 0px -1158px;
   width: 70px;
   height: 40px;
 }
 .resource_ios_sprited {
-  background-position: 0px -1377px;
+  background-position: 0px -1200px;
   width: 70px;
   height: 40px;
 }
 .resource_java_sprited {
-  background-position: 0px -1419px;
+  background-position: 0px -1242px;
   width: 70px;
   height: 40px;
 }
 .resource_net_sprited {
-  background-position: 0px -1461px;
+  background-position: 0px -1284px;
   width: 70px;
   height: 40px;
 }
 .resource_nodejs_sprited {
-  background-position: 0px -1503px;
+  background-position: 0px -1326px;
   width: 70px;
   height: 40px;
 }
 .resource_octopress {
-  background-position: 0px -1545px;
+  background-position: 0px -1368px;
   width: 70px;
   height: 40px;
 }
 .resource_opoopress {
-  background-position: 0px -1587px;
+  background-position: 0px -1410px;
   width: 70px;
   height: 40px;
 }
 .resource_perl_sprited {
-  background-position: 0px -1629px;
+  background-position: 0px -1452px;
   width: 70px;
   height: 40px;
 }
 .resource_php_sprited {
-  background-position: 0px -1671px;
+  background-position: 0px -1494px;
   width: 70px;
   height: 40px;
 }
 .resource_phpwind {
-  background-position: 0px -1713px;
+  background-position: 0px -1536px;
   width: 70px;
   height: 40px;
 }
 .resource_plugin {
-  background-position: 0px -1755px;
+  background-position: 0px -1578px;
   width: 36px;
   height: 36px;
 }
 .resource_python_sprited {
-  background-position: 0px -1793px;
+  background-position: 0px -1616px;
   width: 70px;
   height: 40px;
 }
 .resource_ruby_sprited {
-  background-position: 0px -1835px;
+  background-position: 0px -1658px;
   width: 70px;
   height: 40px;
 }
 .resource_sync_sprited {
-  background-position: 0px -1877px;
+  background-position: 0px -1700px;
   width: 27px;
   height: 27px;
 }
 .resource_tool {
-  background-position: 0px -1906px;
+  background-position: 0px -1729px;
   width: 32px;
   height: 29px;
 }
 .resource_typecho {
-  background-position: 0px -1937px;
+  background-position: 0px -1760px;
   width: 70px;
   height: 40px;
 }
 .resource_upload_sprited {
-  background-position: 0px -1979px;
+  background-position: 0px -1802px;
   width: 27px;
   height: 27px;
 }
 .resource_wordpress {
-  background-position: 0px -2008px;
+  background-position: 0px -1831px;
   width: 70px;
   height: 40px;
 }
 .sdk-android {
-  background-position: 0px -2050px;
+  background-position: 0px -1873px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-c {
-  background-position: 0px -2088px;
+  background-position: 0px -1935px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-csharp {
-  background-position: 0px -2126px;
+  background-position: 0px -1997px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-go {
-  background-position: 0px -2164px;
+  background-position: 0px -2059px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-ios {
-  background-position: 0px -2202px;
+  background-position: 0px -2121px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-java {
-  background-position: 0px -2240px;
+  background-position: 0px -2183px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
-.sdk-net {
-  background-position: 0px -2278px;
-  width: 65px;
-  height: 36px;
+.sdk-more {
+  background-position: 0px -2245px;
+  width: 70px;
+  height: 70px;
 }
 .sdk-nodejs {
-  background-position: 0px -2316px;
-  width: 65px;
-  height: 36px;
-}
-.sdk-perl {
-  background-position: 0px -2354px;
-  width: 65px;
-  height: 36px;
+  background-position: 0px -2317px;
+  width: 72px;
+  height: 19px;
 }
 .sdk-php {
-  background-position: 0px -2392px;
+  background-position: 0px -2338px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-python {
-  background-position: 0px -2430px;
+  background-position: 0px -2400px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-ruby {
-  background-position: 0px -2468px;
+  background-position: 0px -2462px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 header {
   height: 43px;
