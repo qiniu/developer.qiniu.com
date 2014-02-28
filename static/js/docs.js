@@ -540,12 +540,12 @@ $(function() {
         return false;
     });
 
-    // 资源下载页，社区插件/社区SDK分页插件，暂时未用到 
+    // 资源下载页，社区插件/社区SDK分页插件，暂时未用到
     // $('.bxslider').bxSlider({
     //     controls: false
     // });
 
-    // 更新日志页面JS，暂时未用到 
+    // 更新日志页面JS，暂时未用到
     // $('.changelog .side-bar a').on('click', function() {
     //     var cClass = $(this).attr('class');
     //     console.log(cClass);
@@ -560,7 +560,7 @@ $(function() {
     // });
     // $('.changelog .side-bar a').eq(0).trigger('click');
 
-    // 返回顶部JS，暂时未用到 
+    // 返回顶部JS，暂时未用到
     // $.scrollUp({
     //     scrollName: 'scrollUp',
     //     topDistance: '500',
@@ -571,4 +571,7 @@ $(function() {
     //     scrollText: '',
     //     activeOverlay: false
     // });
+
+    $('.container.docs .main .sdk ul li:last-child').hide();
+
 });
