@@ -95,11 +95,11 @@
         "name": "JavaScript",
         "menuName": "JavaScript",
         "label": "SDK for JavaScript (客户端)",
-        "download": "https://github.com/SunLn/qiniu-js-sdk/releases",
+        "download": "https://github.com/qiniupd/qiniu-js-sdk/releases",
         "version": "v1.0.0",
         "date": "2014-02-27",
-        "doc": "https://github.com/sunln/qiniu-js-sdk",
-        "source": "https://github.com/sunln/qiniu-js-sdk"
+        "href": "https://github.com/qiniupd/qiniu-js-sdk",
+        "source": "https://github.com/qiniupd/qiniu-js-sdk"
     }],
     "devtools": [{
         "name": "upload",
@@ -347,7 +347,7 @@
     }],
     "tuiguanziyuan": [{
         "name": "logo",
-        "img":  "/static/image/qiniu_logo_small.png",
+        "img": "/static/image/qiniu_logo_small.png",
         "download": "http://developer.qiniu.com/resource/logo.zip"
     }]
 }
