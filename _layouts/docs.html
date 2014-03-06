@@ -87,7 +87,11 @@
                                         <span class="icon off_2">
                                         </span>
                                         <a href="/{{.Href}}" class="link"> {{.Title}} </a>
-                                        <span class="icon"></span>
+                                       {{if isstart_with $url .Href }}
+                                            {{if isnot_nil_or_empty .Child}}
+                                            <span class="icon menu_down"></span>
+                                            {{end}}    
+                                        {{end}}     
                                     </h5>
                                 </div>
                                 <div class='panel-body panel-status' {{if isstart_with $url .Href }} style="display:block"{{end}}>
@@ -137,7 +141,11 @@
                                         <span class="icon off_2">
                                         </span>
                                         <a href="/{{.Href}}" class="link"> {{.Title}} </a>
-                                        <span class="icon"></span>
+                                       {{if isstart_with $url .Href }}
+                                            {{if isnot_nil_or_empty .Child}}
+                                            <span class="icon menu_down"></span>
+                                            {{end}}    
+                                        {{end}}    
                                     </h5>
                                 </div>
                                 <div class='panel-body panel-status' {{if isstart_with $url .Href }} style="display:block"{{end}}>
@@ -188,6 +196,9 @@
                                         <span class="icon off_1">
                                         </span>
                                         <a href="/{{.doc}}" class="link">{{.menuName}} </a>
+                                       {{if eq .doc $url}}
+                                            <span class="icon menu_down"></span>
+                                        {{end}}                                          
                                     </h5>
                                 </div>
                                 <div class="panel-body" id="{{.name}}-sdk" {{if eq .doc $url}}
@@ -214,7 +225,7 @@ style="display:block"
                         </span>                                 
                         </h4>
                     </div>
-                    <div class="panel-body"  {{if isstart_with $url "docs/v6/tools/"}} style="display:block"{{end}}>
+                    <div class="panel-body"  {{if isstart_with $url "docs/v6/tools/"}} style="display:block" {{end}}>
                         <ul class="panel-list level-one">
                             {{range .data.resource.devtools}}
                             <li>
@@ -223,6 +234,9 @@ style="display:block"
                                         <span class="icon off_1">
                                         </span>
                                         <a href="/{{.doc}}" class="link">{{.label}} </a>
+                                       {{if eq .doc $url}}
+                                            <span class="icon menu_down"></span>
+                                        {{end}}                                      
                                     </h5>
                                 </div>
                                 <div class="panel-body" id="{{.label}}" {{if eq .doc $url}}

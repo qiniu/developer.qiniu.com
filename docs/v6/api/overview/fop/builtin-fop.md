@@ -25,7 +25,7 @@ order: 250
 
 ## 音视频切片
 
-音视频切片是指从一个音频或视频源按指定的偏移位置截取指定长度的音视频片段，主要用于支持HTTP Live Streaming回放。具体请参见[音视频切片](../../reference/fop/av/vframe.html)。
+音视频切片是指从一个音频或视频源按指定的偏移位置截取指定长度的音视频片段，主要用于支持HTTP Live Streaming回放。具体请参见[音视频切片](../../reference/fop/av/segtime.html)。
 
 ## 视频水印
 

@@ -72,4 +72,4 @@ order: 530
 <a id="online-demo"></a>
 ## 在线示例
 
-[在线断点继上传示例](http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken)
+[在线断点继上传示例](http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/resumbleupload)

@@ -176,6 +176,7 @@ a.more {
                     padding-right: 25px;
                     line-height: 21px;
                     font-weight: normal;
+                    position: relative;
                     a {
                         margin-left: 3px;
                         display: inline-block;
@@ -185,8 +186,15 @@ a.more {
                         }
                     }
                     span {
-                        display: inline-block;                        
-                    }                    
+                        display: inline-block;     
+                        cursor: pointer;                   
+                    }    
+                    .menu_down {
+                        float: right;
+                        position: absolute;
+                        top: 10px;
+                        right: 27px;
+                    }                
                 }
                 .panel-body {
                     margin-left: 20px;

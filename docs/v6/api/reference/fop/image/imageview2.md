@@ -16,10 +16,24 @@ imageView2是原[imageView接口](http://developer.qiniu.com/docs/v6/api/referen
 <a id="imageView2-specification"></a>
 ## 接口规格
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-ImageView2Spec = imageView2/<mode>/w/<Width | LongEdge>/h/<Height | ShortEdge>
-                           /q/<Quality>
-                           /format/<Format>
+imageView2/<mode>
+          /w/<Width>
+          /h/<Height>
+          /q/<Quality>
+          /format/<Format>
+```
+
+或
+
+```
+imageView2/<mode>
+          /w/<LongEdge>
+          /h/<ShortEdge>
+          /q/<Quality>
+          /format/<Format>
 ```
 
 其中 `<mode>` 分为如下几种情况：  
@@ -51,7 +65,7 @@ ImageView2Spec = imageView2/<mode>/w/<Width | LongEdge>/h/<Height | ShortEdge>
 ### 请求报文格式
 
 ```
-GET <ImageDownloadURI>?<ImageView2Spec> HTTP/1.1
+GET <ImageDownloadURI>?<接口规格> HTTP/1.1
 Host: <ImageDownloadHost>
 ```
 

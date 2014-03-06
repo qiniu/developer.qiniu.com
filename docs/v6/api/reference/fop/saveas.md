@@ -25,7 +25,7 @@ order: 185
 ## 接口规格
 
 ```
-saveasSpec = "saveas/<EncodedEntryURI>/sign/<Sign>"
+saveas/<EncodedEntryURI>/sign/<Sign>
 ```
 
 参数名称             | 必填  | 类型   | 说明                                                          

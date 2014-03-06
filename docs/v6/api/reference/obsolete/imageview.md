@@ -16,12 +16,14 @@ imageView是七牛云存储提供的一种简易却强大的图片处理接口�
 <a id="imageView-specification"></a>
 ## 接口规格
 
+注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
+
 ```
-imageViewSpec = imageView/<mode>
-                         /w/<width>
-                         /h/<height>
-                         /q/<quality>
-                         /format/<format>
+imageView/<mode>
+         /w/<width>
+         /h/<height>
+         /q/<quality>
+         /format/<format>
 ```
 
 参数名称            | 必填  | 说明
@@ -48,7 +50,7 @@ imageViewSpec = imageView/<mode>
 ### 请求报文格式
 
 ```
-GET <imageDownloadURI>?<imageViewSpec> HTTP/1.1
+GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 

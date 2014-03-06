@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 数据格式（DataFormat）
+title: 数据格式
 order: 150
 ---
 
 <a id="data-format"></a>
-# 数据格式（DataFormat）
+# 数据格式
 
 本节描述七牛云存储API中使用到的数据格式。
 

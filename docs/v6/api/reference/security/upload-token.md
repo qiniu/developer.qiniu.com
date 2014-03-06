@@ -41,23 +41,22 @@ order: 970
 3. 对JSON编码的上传策略进行[URL安全的Base64编码][urlsafeBase64Href]，得到待签名字符串：
 
 	```
-    signingStr = urlsafe_base64_encode(putPolicy)
+    encodedPutPolicy = urlsafe_base64_encode(putPolicy)
 	```
 
-实际值为：  
+	实际值为：  
 
 	```
-    signingStr = "eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVybkJvZHkiOiJ7XCJuYW1lXCI6JChmbmFtZSksXCJzaXplXCI6JChmc2l6ZSksXCJ3XCI6JChpbWFnZUluZm8ud2lkdGgpLFwiaFwiOiQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6JChldGFnKX0ifQ=="
+    encodedPutPolicy = "eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVybkJvZHkiOiJ7XCJuYW1lXCI6JChmbmFtZSksXCJzaXplXCI6JChmc2l6ZSksXCJ3XCI6JChpbWFnZUluZm8ud2lkdGgpLFwiaFwiOiQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6JChldGFnKX0ifQ=="
 	```
-
 
 4. 使用`SecertKey`对上一步生成的待签名字符串计算[HMAC-SHA1][hmacSha1Href]签名：
 
 	```
-    sign = hmac_sha1(signingStr, "<SecretKey>")
+    sign = hmac_sha1(encodedPutPolicy, "<SecretKey>")
 	```
 
-假设`SecretKey`为'MY_SECRET_KEY'，实际签名为：  
+	假设`SecretKey`为'MY_SECRET_KEY'，实际签名为：  
 
 	```
     注意：签名结果是二进制数据，此处输出的是每个字节的十六进制表示，以便核对检查。
@@ -70,7 +69,7 @@ order: 970
 	encodedSign = urlsafe_base64_encode(sign)
 	```
 
-最终签名值为：  
+	最终签名值为：  
 
 	```
     encodedSign = "wQ4ofysef1R7IKnrziqtomqyDvI="
@@ -85,7 +84,7 @@ order: 970
 	假设用户的`AccessKey`为'MY_ACCESS_KEY'，则最后得到的上传凭证应为  
 
 	```
-    uploadToken = "MY_ACCESS_KEY:eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVybkJvZHkiOiJ7XCJuYW1lXCI6JChmbmFtZSksXCJzaXplXCI6JChmc2l6ZSksXCJ3XCI6JChpbWFnZUluZm8ud2lkdGgpLFwiaFwiOiQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6JChldGFnKX0ifQ==:wQ4ofysef1R7IKnrziqtomqyDvI="
+    uploadToken = "MY_ACCESS_KEY:wQ4ofysef1R7IKnrziqtomqyDvI=:eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVybkJvZHkiOiJ7XCJuYW1lXCI6JChmbmFtZSksXCJzaXplXCI6JChmc2l6ZSksXCJ3XCI6JChpbWFnZUluZm8ud2lkdGgpLFwiaFwiOiQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6JChldGFnKX0ifQ=="
 	```
 
 <a id="upload-token-remarks"></a>
