@@ -261,3 +261,32 @@
 		}
 	}
 }
+
+.container.index  {
+	.cell.sdk {
+		ul {
+			li  {
+				a:hover {
+					border-left:none;
+					border-right:none;
+				}
+			}
+			li:first-child {
+				a:hover {
+					border-left:1px solid #f0f0f0;
+					border-right:none;
+				}
+			}
+			li:last-child{
+				a:hover {
+					border-right:1px solid #f0f0f0;
+					border-left:none;
+				}
+			}
+			a.last-child:hover {
+					border-right:1px solid #f0f0f0;
+					border-left:none;
+			}
+		}
+	}
+}

@@ -1490,6 +1490,22 @@ div.api-resource .social-resource .author {
 .container.docs .cell.cli ul li .info {
   width: 153px;
 }
+.container.index .cell.sdk ul li a:hover {
+  border-left: none;
+  border-right: none;
+}
+.container.index .cell.sdk ul li:first-child a:hover {
+  border-left: 1px solid #f0f0f0;
+  border-right: none;
+}
+.container.index .cell.sdk ul li:last-child a:hover {
+  border-right: 1px solid #f0f0f0;
+  border-left: none;
+}
+.container.index .cell.sdk ul a.last-child:hover {
+  border-right: 1px solid #f0f0f0;
+  border-left: none;
+}
 .container.resource .cell {
   margin-top: 20px;
   position: relative;
