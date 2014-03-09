@@ -123,7 +123,7 @@
     "third_plugin": [{
         "name": "wordpress",
         "label": "WordPress插件(博客)",
-        "description": "我爱水煮鱼为WordPress精心定制的一款插件，可让WP站迅速接入七牛云存储，享受稳定高速的存储服务。",
+        "description": "我爱水煮鱼为WordPress精心定制的一款插件，可让WP站迅速接入七牛云存储，享受稳定高速的存储服务。QQ讨论群：24703563",
         "download": "http://blog.wpjam.com/project/wpjam-qiniutek/",
         "defaultSprite": false,
         "author": "我爱水煮鱼",
@@ -270,6 +270,26 @@
         "author_link": "http://weibo.com/lidaobing",
         "date": "2013-11-28",
         "doc": "https://github.com/lidaobing/backup2qiniu"
+    }, {
+        "name": "UEditor（php）（编辑器）",
+        "label": "UEditor（php）",
+        "description": "本插件可为UEditor添加向七牛云存储上传图片资源的功能。",
+        "download": "http://developer.qiniu.com/resource/utf8_qiniu_ueditor.zip",
+        "defaultSprite": true,
+        "author": "widuu",
+        "author_link": "http://weibo.com/widuu",
+        "date": "2014-03-08",
+        "doc": "https://github.com/widuu/utf8_qiniu_ueditor"
+    }, {
+        "name": "Ghost插件（博客）",
+        "label": "Ghost Plugin",
+        "description": "将上传到 Ghost的图片存储到七牛云服务器上，本地服务器不保存。",
+        "download": "http://dl.ghostchina.com/Ghost-0.4.1-qiniu.zip",
+        "defaultSprite": true,
+        "author": "王赛",
+        "author_link": "",
+        "date": "2014-03-08",
+        "doc": "https://github.com/ghostchina/Ghost-0.4.1-qiniu"
     }],
     "third_sdk": [{
         "name": "PHP",
@@ -339,6 +359,7 @@
     "tuiguanziyuan": [{
         "name": "logo",
         "img":  "/static/image/qiniu_logo_small.png",
+        "description": "七牛广告位Logo等推广资源。",
         "download": "http://developer.qiniu.com/resource/logo.zip"
     }]
 }
