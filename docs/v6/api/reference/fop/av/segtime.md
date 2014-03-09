@@ -108,6 +108,8 @@ avthumb/m3u8/segtime/<SegSeconds>
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
+	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 以上示例的处理结果通知方式请参考[持久化处理结果通知][pfopNotificationHref]。  
 
 <a id="segtime-internal-resources"></a>

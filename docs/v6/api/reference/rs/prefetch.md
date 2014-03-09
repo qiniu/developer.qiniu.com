@@ -124,6 +124,8 @@ Accept: */*
 Authorization: QBox u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:2LJIG...(过长已省略)
 ```
 
+<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 <a id="prefetch-sample1-response"></a>
 ### 响应示例
 

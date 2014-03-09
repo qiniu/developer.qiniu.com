@@ -32,6 +32,8 @@ Authorization: QBox <AccessToken>
 <PfopRequestParams>
 ```
 
+<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 <a id="pfop-request-headers"></a>
 ### 头部信息
 
