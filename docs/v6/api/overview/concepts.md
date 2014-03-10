@@ -86,7 +86,7 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200
 多个数据处理操作可以通过管道（Pipe）进行连接，实现级联操作，每一级的输出作为下一级的输入。比如我们可以在一次请求中完成先对图片进行缩放，然后再在图片右下角添加一个透明图片水印，其中缩放和添加水印分别是一个数据处理操作。
 
 ```
-http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200
+http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/400
 |watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
 ```
 
