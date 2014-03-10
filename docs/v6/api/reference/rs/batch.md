@@ -26,6 +26,8 @@ Authorization:  QBox <AccessToken>
 op=<Operation>&op=<Operation>&...
 ```
 
+<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 其中`op=<Operation>`是单一资源操作指令。例如`/stat/<EncodeEntryURI>`，`/delete/<EncodeEntryURI>`等。  
 EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。  
 

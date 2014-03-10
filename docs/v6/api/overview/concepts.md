@@ -83,15 +83,15 @@ http://www.example.com/features/
 http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200
 ```
 
-多个数据处理操作可以通过管道（Pipe）进行连接，实现串行化操作，每一级的输出作为下一级的输入。比如我们可以在一次请求中完成先对图片进行缩放，然后再在图片右下角添加一个透明图片水印，其中缩放和添加水印分别是一个数据处理操作。
+多个数据处理操作可以通过管道（Pipe）进行连接，实现级联操作，每一级的输出作为下一级的输入。比如我们可以在一次请求中完成先对图片进行缩放，然后再在图片右下角添加一个透明图片水印，其中缩放和添加水印分别是一个数据处理操作。
 
 ```
-http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200
+http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/400
 |watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
 ```
 
 <a id="style"></a>
-## 数据处理样式（Style）
+## 数据处理样式（Fop Style）
 
 如果觉得`url?<fop1>|<fop2>|<fop3>|<fopN>`这种形式过于冗长，还可以为这些串行的`<fop>`集合定义一个友好别名，之后可以用这个友好的别名来取代冗长的指令和参数。我们称这个别名为`样式`。样式是对一个或一组数据处理操作的命名。
 
@@ -102,10 +102,11 @@ http://open.qiniu.com/thinkingingo.mp4?vframe/jpg/offset/7/w/480/h/360
 |watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
 ```
 
-这个URL看起来非常长且难以理解目的。我们可以定义一个名为`coverpic`的样式，对应到相应的数据处理规格，则之后我们可以用如下使用方式：
+这个URL看起来非常长且难以理解目的。我们可以定义一个名为`coverpic`的样式，对应以上的数据处理操作：`vframe/jpg/offset/7/w/480/h/360
+|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==`，则之后我们可以用如下使用方式：
 
 ```
 http://open.qiniu.com/thinkingingo.mp4-coverpic
 ```
 
-显然简洁很多也方便很多。
+显然简洁很多也方便很多（注：上面的 '-' 我们称为数据处理样式的分隔符）。

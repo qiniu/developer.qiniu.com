@@ -131,6 +131,8 @@ Accept: */*
 Authorization: QBox QNJi_bYJlmO5LeY08FfoNj9w_r72Vsn...(过长已省略)
 ```
 
+<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 <a id="stat-sample1-response"></a>
 ### 响应示例
 

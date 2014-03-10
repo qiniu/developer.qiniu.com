@@ -67,6 +67,8 @@ SouthWest     |     South      |     SouthEast
     bucket=qiniu-ts-demo&key=sample.mp4&fops=vwatermark%2F1%2Fimage%2FaHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc%3D%2Fgravity%2FNorthEast%2Fformat%2Fmp4&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
+	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 以上示例为指定视频资源打上水印`http://testunit.qiniudn.com/qiniulogo.png`, 水印的位置是右上角，生成格式为`mp4`的新视频资源。
 
 <a id="avthumb-internal-resources"></a>

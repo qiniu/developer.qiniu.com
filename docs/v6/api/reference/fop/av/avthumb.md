@@ -85,6 +85,8 @@ avthumb/<Format>
     bucket=qiniu-ts-demo&key=sample.wav&fops=avthumb%2Fmp3%2Far%2F44100%2Faq%2F3&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
+	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 4. 以[预转持久化][persistentOpsHref]形式，将mp4视频转换为flv格式，帧率为24，使用x264进行视频编码：  
 
 	```
@@ -121,6 +123,8 @@ avthumb/<Format>
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
+	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 7. 以触发持久化处理形式，将mp4视频转换为ogv格式，帧率为30，视频比特率为1800k，使用libtheora进行视频编码，音频采样频率为44100，音频比特率为128k，使用libvorbis进行音频编码：  
 
 	```
@@ -134,6 +138,8 @@ avthumb/<Format>
     &fops=avthumb%2Fogv%2Fr%2F30%2Fvb%2F1800k%2Fvcodec%2Flibtheora%2Far%2F44100%2Fab%2F128k%2Facodec%2Flibvorbis
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
+
+	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
 
 以上示例的处理结果通知方式请参考[持久化处理结果通知][pfopNotificationHref]。  
 
