@@ -982,7 +982,7 @@ footer .copyright {
   padding: 25px;
   word-wrap: break-word;
 }
-.api-content * {
+.api-content > * {
   max-width: 628px;
 }
 .api-content h1 {
@@ -1077,6 +1077,12 @@ footer .copyright {
 .api-content table caption p {
   margin: 0;
 }
+.api-content table td:last-child {
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+  width: auto;
+}
 .api-content table tbody tr:nth-child(even) {
   background: #f3f3f3;
 }
@@ -1085,6 +1091,9 @@ footer .copyright {
 }
 .api-content table tbody tr:hover {
   background-color: #f5f5f5;
+}
+.api-content table tbody td code {
+  white-space: normal;
 }
 .api-content table caption {
   border-bottom: none;
