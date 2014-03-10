@@ -102,10 +102,11 @@ http://open.qiniu.com/thinkingingo.mp4?vframe/jpg/offset/7/w/480/h/360
 |watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
 ```
 
-这个URL看起来非常长且难以理解目的。我们可以定义一个名为`coverpic`的样式，对应到相应的数据处理规格，则之后我们可以用如下使用方式：
+这个URL看起来非常长且难以理解目的。我们可以定义一个名为`coverpic`的样式，对应以上的数据处理操作：`vframe/jpg/offset/7/w/480/h/360
+|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==`，则之后我们可以用如下使用方式：
 
 ```
 http://open.qiniu.com/thinkingingo.mp4-coverpic
 ```
 
-显然简洁很多也方便很多。
+显然简洁很多也方便很多（注：上面的 '-' 我们称为数据处理样式的分隔符）。
