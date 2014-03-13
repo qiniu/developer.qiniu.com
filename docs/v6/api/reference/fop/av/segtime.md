@@ -14,19 +14,44 @@ HTTP Live Streaming是由Apple提出的基于HTTP的流媒体传输协议。
 它将一整个音视频流切割成可由HTTP下载的一个个小的音视频流，并生成一个播放列表（M3U8），客户端只需要获取资源的 M3U8 播放列表即可播放音视频。  
 以下用 HLS 代指 HTTP Live Streaming 。
 
-HLS API规格支持两种形式：预设集和自定义两种。  
-
 <a id="segtime-preset"></a>
-## 切片预设集接口规格  
+<a id="segtime-specification"></a>
+## 音视频切片接口规格  
 
 ```
-avthumb/m3u8/segtime/<SegSeconds>/preset/<Preset>
+avthumb/m3u8/segtime/<SegSeconds>
+            /preset/<Preset>
+            /ab/<BitRate>
+            /aq/<AudioQuality>
+            /ar/<SamplingRate>
+            /r/<FrameRate>
+            /vb/<VideoBitRate>
+            /vcodec/<VideoCodec>
+            /acodec/<AudioCodec>
+            /ss/<SeekStart>
+            /t/<Duration>
+            /stripmeta/<StripMeta>
+            /rotate/<Degree>
 ```
 
-参数名称                | 必填 | 说明
-:---------------------- | :--- | :----------------------------------------
-`/segtime/<SegSeconds>` |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围10-60秒，默认值为10秒。
-`/preset/<Preset>`      | 是   | 预设集（Preset）名称。
+参数名称                | 类别 | 必填 | 说明
+:---------------------- | :--- | :--- | :----------------------------------------
+`/segtime/<SegSeconds>` | A/V  |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围10-60秒，默认值为10秒。
+`/preset/<Preset>`      | A/V  |      | 预设集（Preset）名称。
+`/ab/<BitRate>`         | A    |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。 
+`/aq/<AudioQuality>`    | A    |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。 
+`/ar/<SamplingRate>`    | A    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
+`/r/<FrameRate>`        |  V   |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。 
+`/vb/<VideoBitRate>`    |  V   |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。 
+`/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。 
+`/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
+`/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等
+`/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为 wxh 或者预定义值。 
+<a id="m3u8-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
+<a id="m3u8-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
+
+<a id="segtime-preset-list"></a>
+### 预设集列表
 
 音频预设集：  
 
@@ -52,33 +77,14 @@ video_150k      | 码率为150K，长宽比沿用源视频设置。 | 3G
 video_240k      | 码率为240K，长宽比沿用源视频设置。 | 3G
 video_440k      | 码率为440K，长宽比沿用源视频设置。 | WIFI
 video_640k      | 码率为640K，长宽比沿用源视频设置。 | WIFI
+video_1000k     | 码率为1000K，长宽比沿用源视频设置。| WIFI
+video_1500k     | 码率为1500K，长宽比沿用源视频设置。| WIFI
 
-<a id="segtime-selfdef"></a>
-## 自定义切片接口规格
+<a id="segtime-remarkds"></a>
+## 附注
 
-注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
-
-```
-avthumb/m3u8/segtime/<SegSeconds>
-            /ab/<BitRate>
-            /aq/<AudioQuality>
-            /ar/<SamplingRate>
-            /r/<FrameRate>
-            /vb/<VideoBitRate>
-            /vcodec/<VideoCodec>
-            /acodec/<AudioCodec>
-```
-
-参数名称                | 必填 | 说明
-:---------------------- | :--- | :--------------------------------------------------------------
-`/segtime/<SegSeconds>` |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围10-60秒，默认值为10秒。
-`/ab/<BitRate>`         |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。
-`/aq/<AudioQuality>`    |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。
-`/ar/<SamplingRate>`    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
-`/r/<FrameRate>`        |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。
-`/vb/<VideoBitRate>`    |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。
-`/vcodec/<VideoCodec>`  |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。
-`/acodec/<AudioCodec>`  |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。
+- 指定`/preset/<Preset>`参数时，可以同时指定其它参数以覆盖预设集的对应参数。
+- 不指定`/preset/<Preset>`参数时，通过指定其它参数构造自定义切片规格，未指定的参数使用默认值。
 
 <a id="segtime-samples"></a>
 ## 示例
