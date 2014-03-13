@@ -30,6 +30,48 @@
     </header>
     <div class="container changelog ">
         <div class="cell">
+            <h2>发布日期：2014-03-07</h2>
+            :q
+
+
+
+
+                <div class="cell-body">
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_feature"></span>新增功能</h3>
+                        <ul>
+                            <li>
+                            <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-preset-list">1. m3u8接口增加高码率预设集</a></p>
+                                <p class="info">新增video_1000k和video_1500k两个预设集，提高视频清晰度。</p>
+                            </li>
+                            <li>
+                            <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-remarks">2. m3u8接口支持使用自定义参数覆盖预设参数</a></p>
+                                <p class="info">覆盖预设参数允许开发者对预设集做细微调整，以获得更精细的效果。</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_bug"></span>问题修复</h3>
+                        <ul>
+                            <li>
+                                <p class="title">1. 修复断点续上传不能根据内容检测mimeType的问题</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                            <li>
+                                <p class="title">2. 修复对于css和js文件mimeType检测不正确的问题</p>
+                                <!--<p class="info"></p>-->
+                            </li>
+                            <li>
+                                <p class="title">3. 修复转码参数format不支持别名的Bug</p>
+                                <p class="info">例如m4a是纯音频的mp4的别名，可以直接指定为format参数的值。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <div class="cell">
             <h2>发布日期：2014-02-19</h2>
                 <div class="cell-body">
                     <div class="cell-line">

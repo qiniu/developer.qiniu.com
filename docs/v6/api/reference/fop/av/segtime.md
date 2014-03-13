@@ -80,10 +80,10 @@ video_640k      | 码率为640K，长宽比沿用源视频设置。 | WIFI
 video_1000k     | 码率为1000K，长宽比沿用源视频设置。| WIFI
 video_1500k     | 码率为1500K，长宽比沿用源视频设置。| WIFI
 
-<a id="segtime-remarkds"></a>
+<a id="segtime-remarks"></a>
 ## 附注
 
-- 指定`/preset/<Preset>`参数时，可以同时指定其它参数以覆盖预设集的对应参数。
+- 指定`/preset/<Preset>`参数时，可以同时指定其它参数以覆盖对应预设参数。
 - 不指定`/preset/<Preset>`参数时，通过指定其它参数构造自定义切片规格，未指定的参数使用默认值。
 
 <a id="segtime-samples"></a>
