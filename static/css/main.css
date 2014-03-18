@@ -1674,6 +1674,9 @@ div.api-resource .social-resource .author {
 .container.resource .community-sdk.cell .cell-body .resource-card .content .author a {
   color: #999999;
 }
+.container.resource .logo.cell .cell-body .resource-card .resource-card-inner {
+  height: 110px;
+}
 .container.resource .logo.cell .cell-body .resource-card .content {
   width: 287px;
 }
@@ -1847,6 +1850,12 @@ div.api-resource .social-resource .author {
 .container.brand .brand-cell a {
   color: #0c94de;
 }
+.container.brand .brand-cell .blue {
+  background-color: #06a7e1;
+}
+.container.brand .brand-cell .black {
+  background-color: #000;
+}
 .container.brand .brand-cell.brand .brand-body {
   overflow: hidden;
 }
@@ -1869,11 +1878,11 @@ div.api-resource .social-resource .author {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 100px;
+  width: 90px;
 }
 .container.brand .brand-cell.brand .brand-body .brand-content .brand-link a {
   display: block;
-  width: 100px;
+  width: 90px;
   height: 20px;
   line-height: 20px;
   text-align: left;
@@ -1895,7 +1904,7 @@ div.api-resource .social-resource .author {
 }
 .container.brand .brand-cell.brand .brand-body .brand-content.en {
   height: 284px;
-  width: 560px;
+  width: 562px;
 }
 .container.brand .brand-cell.brand .brand-body .brand-content.en img {
   margin-top: 53px;
@@ -1913,15 +1922,19 @@ div.api-resource .social-resource .author {
   overflow: hidden;
 }
 .container.brand .brand-cell.color .brand-content {
-  margin-left: 159px;
+  margin-left: 99.5px;
   border: 1px solid #e9e9e9;
-  width: 195px;
+  width: 235px;
 }
 .container.brand .brand-cell.color .brand-content:first-child {
   margin-left: 0;
 }
 .container.brand .brand-cell.color .brand-content .brand-title {
   height: 105px;
+}
+.container.brand .brand-cell.color .brand-content .brand-title a {
+  display: block;
+  width: 235px;
 }
 .container.brand .brand-cell.color .brand-content .brand-link {
   height: 29px;
@@ -1936,9 +1949,9 @@ div.api-resource .social-resource .author {
   margin-top: 20px;
 }
 .container.brand .brand-cell.powered .brand-content {
-  width: 344px;
+  width: 384px;
   margin-bottom: 30px;
-  margin-left: 221px;
+  margin-left: 141px;
 }
 .container.brand .brand-cell.powered .brand-content.odd {
   margin-left: 0;
@@ -1949,8 +1962,12 @@ div.api-resource .social-resource .author {
 }
 .container.brand .brand-cell.powered .brand-content .brand-link {
   height: 88px;
-  width: 344px;
+  width: 384px;
   border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.powered .brand-content .brand-link a {
+  display: block;
+  width: 384px;
 }
 /*----------
 
