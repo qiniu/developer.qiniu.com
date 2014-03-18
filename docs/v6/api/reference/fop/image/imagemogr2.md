@@ -39,7 +39,7 @@ imageMogr2/auto-orient
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
 `/quality/<imageQuality>`            |      | 图片质量，取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
 `/rotate/<rotateDegree>`             |      | 旋转角度，取值范围1-360，缺省为不旋转。
-`/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式。
+`/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
 <a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | 高斯模糊参数，`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
 
 <a id="imageMogr2-thumbnail-spec"></a>
