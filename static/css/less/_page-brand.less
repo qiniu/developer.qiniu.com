@@ -1,10 +1,13 @@
 .container.brand {
     margin-top: 20px;
-    padding-bottom: 0px;
+    // padding-bottom: 0px;
+    background-color: #fff;
+    border:1px solid #e9e9e9;
+
     .brand-cell {
-        background-color: #fff;
+
         padding: 25px 25px 10px;
-        border:1px solid #e9e9e9;
+
         .brand-body {
             .brand-head {
                 text-align: left;
@@ -25,6 +28,9 @@
         h2 {
             margin-bottom: 25px;
         }
+        a {
+            color: #0c94de;
+        }
     }
     .brand-cell.brand {
 
@@ -42,7 +48,7 @@
                     left: 0;
                     color: #fff;
                     background-color: #e6e6e6;
-                    padding: 5px;
+                    padding: 5px 10px;
                 }
                 .brand-link {
                     position: absolute;
@@ -59,30 +65,81 @@
                 }
             }
             .brand-content.logo {
+                background: url(../image/logo-bg.png) center center no-repeat;
                 height: 334px;
                 img {
-                    vertical-align: middle;
+                    margin-top: 58px;
                 }
             }
             .brand-content.cn {
+                height: 284px;
                 border-top: 0;
                 border-bottom: 0;
+                img {
+                    margin-top: 40px;
+                }
             }
             .brand-content.en {
                 height: 284px;
                 width: 560px;
+                img {
+                    margin-top: 53px;
+                }
             }
             .brand-content.pic {
                 height: 284px;
                 width: 345px;
                 border-left: 0;
+                img {
+                    margin-top: 74px;
+                }
             }
         }
     }
     .brand-cell.color {
-        border: 1px;
+        margin-top: 20px;
+        overflow: hidden;
+        .brand-content {
+            margin-left: 159px;
+            border:1px solid #e9e9e9;
+            width: 195px;
+            &:first-child {
+                margin-left: 0;
+            }
+            .brand-title {
+                height: 105px;
+            }
+            .brand-link {
+                height: 29px;
+                line-height: 29px;
+                border-top: 1px solid #e9e9e9;
+                // width: 195px;
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
     }
     .brand-cell.powered {
+        text-align: left;
+        margin-top: 20px;
+        .brand-content {
+            width: 344px;
+            margin-bottom: 30px;
+            margin-left: 221px;
+            &.odd {
+                margin-left: 0;
+            }
 
+            .brand-title {
+                margin-bottom: 10px;
+                text-align: left;
+            }
+            .brand-link {
+                height: 88px;
+                width: 344px;
+                border:1px solid #e9e9e9;
+            }
+        }
     }
 }
