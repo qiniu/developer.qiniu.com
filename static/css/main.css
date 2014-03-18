@@ -345,7 +345,8 @@ css-sprite（图片拼合）
 .sdk-nodejs,
 .sdk-php,
 .sdk-python,
-.sdk-ruby {
+.sdk-ruby,
+.view_sprited {
   background: url('../image/css-sprite.png') no-repeat;
 }
 .api_default {
@@ -712,6 +713,11 @@ css-sprite（图片拼合）
   background-position: 0px -2532px;
   width: 65px;
   height: 60px;
+}
+.view_sprited {
+  background-position: 0px -2594px;
+  width: 14px;
+  height: 9px;
 }
 header {
   height: 43px;
@@ -1667,6 +1673,9 @@ div.api-resource .social-resource .author {
 .container.resource .community-plugin.cell .cell-body .resource-card .content .author a,
 .container.resource .community-sdk.cell .cell-body .resource-card .content .author a {
   color: #999999;
+}
+.container.resource .logo.cell .cell-body .resource-card .content {
+  width: 287px;
 }
 .bx-controls {
   position: absolute;
