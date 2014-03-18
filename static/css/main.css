@@ -1818,6 +1818,77 @@ div.api-resource .social-resource .author {
   height: 30px;
   vertical-align: top;
 }
+.container.brand {
+  margin-top: 20px;
+  padding-bottom: 0px;
+}
+.container.brand .brand-cell {
+  background-color: #fff;
+  padding: 25px 25px 10px;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell .brand-body .brand-head {
+  text-align: left;
+}
+.container.brand .brand-cell .brand-body .brand-content {
+  text-align: center;
+}
+.container.brand .brand-cell h2 {
+  margin-bottom: 25px;
+}
+.container.brand .brand-cell.brand .brand-body {
+  overflow: hidden;
+}
+.container.brand .brand-cell.brand .brand-body p {
+  margin-bottom: 20px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content {
+  position: relative;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  background-color: #e6e6e6;
+  padding: 5px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-link a {
+  display: block;
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.logo {
+  height: 334px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.logo img {
+  vertical-align: middle;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.cn {
+  border-top: 0;
+  border-bottom: 0;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.en {
+  height: 284px;
+  width: 560px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.pic {
+  height: 284px;
+  width: 345px;
+  border-left: 0;
+}
+.container.brand .brand-cell.color {
+  border: 1px;
+}
 /*----------
 
 覆盖hightlight\modals\dropdonws
