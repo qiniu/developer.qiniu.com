@@ -170,6 +170,9 @@ $(function() {
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
         }
+        if (path === 'brand') {
+            $('.download').addClass('active').siblings().removeClass('active');
+        }
     });
 
     //顶部搜索框
