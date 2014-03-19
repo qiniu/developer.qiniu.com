@@ -5,33 +5,47 @@ title: QRSBox 同步工具
 
 
 - [简介](#intro)
+- [功能特性](#feature)
 - [下载](#download)
 - [使用方法](#usage)
-    - [Windows GUI 的使用](#usage-gui)
-    - [命令行使用方法](#usage-cmd)
+    - [Windows图形工具的使用方法](#usage-gui)
+    - [命令行工具使用方法](#usage-cmd)
+- [故障排除](#failures)
 
 <a id="intro"></a>
 
 ## 简介
 
-QRSBox是七牛云存储提供同步上传的客户端工具，可以用于Linux、OSX、Windows等操作系统。
-QRSBox可将用户本地的某个目录的文件同步到七牛云存储中，支持大文件上传，支持增量同步。此外，它还能够监控目录变化，将目录中新增的文件上传至七牛云存储。
-需要注意的是，QRSBox不会同步文件的删除操作。也就是，如果被监控的目录中文件被删除，已上传至七牛云存储的文件将仍旧保留。如果用户确实需要删除该文件，可以到七牛的 [开发者平台](https://portal.qiniu.com/) 中删除。采用这种方式的目的是为了防止用户误删文件造成数据丢失。同时，另外的一个好处是，就是同步完一个文件后，本地就可以直接删除它以释放本地的磁盘空间。
+QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux、Mac OS X、Windows等操作系统。  
+使用QRSBox，可将用户本地某个目录的所有文件同步上传到七牛云存储中，同时监控目录变化，将目录中新增的文件也上传至七牛云存储。  
+配合操作系统已有的强大文件管理功能（分级存放、按指定项目排序、查找匹配指定条件的文件等），即可轻松优雅地完成繁复的文件管理事务。  
+
+请注意QRSBox不会同步文件的删除操作。也就是说，如果受监控的目录中有文件被删除，已上传至七牛云存储的文件副本仍旧保留。如果用户确实需要删除该文件，可以到[七牛管理控制台](https://portal.qiniu.com/) 中删除。这一设计的目的是为了防止误删文件造成数据丢失。同时还可以收获另一个好处，就是同步上传完一个文件后，本地可以马上删除该文件以释放磁盘空间。
 
 关于QRSBox的一些疑问，可以在[疑问简答](http://kb.qiniu.com/537ps105)中找到答案。
+
+<a id="feature"></a>
+
+## 功能特性
+
+- 支持配置文件；
+- 支持大文件上传；
+- 支持增量部分同步更新；
+- 支持在后台运行、监控。
 
 <a id="download"></a>
 
 ## 下载
 
-QRSBox下载地址：
-
-- Windows GUI: [qrsbox windows_386](http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip)
+- 图形化工具：  
+    - Windows: [qrsbox windows_386](http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip)
 
 - 命令行工具：
     - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniudn.com/mac/qrsboxcli)
     - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.tar.gz)
     - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.tar.gz)
+
+---
 
 <a id="usage"></a>
 
@@ -41,7 +55,7 @@ QRSBox包含 Windows GUI 和 命令行工具两部分。前者可在 Windows中�
 
 <a id="usage-gui"></a>
 
-### Windows GUI 的使用
+### Windows图形工具的使用方法
 
 首先，下载 QRSBox 的 Windows GUI，并解压。
 
@@ -70,16 +84,14 @@ QRSBox 启动后会常驻内存，在 Windows 的任务栏中显示托盘 ![托�
 
 <a id="usage-cmd"></a>
 
-### 命令行使用方法
-
-QRSBox 命令行工具的使用方式如下：
+### 命令行工具使用方法
 
 首先，下载 QRSBox 命令行工具，并解压。
 
-然后，执行以下命令，进行初始化：
+然后，在解压后的文件夹中执行以下命令，进行初始化：
 
 ```
-    qrsboxcli init <AccessKey> <SecretKey> <SyncDir> <Bucket> [<KeyPrefix>]
+    ./qrsboxcli init <AccessKey> <SecretKey> <SyncDir> <Bucket> [<KeyPrefix>]
 ```
 
 其中，`<AccessKey>` 和 `<SecretKey>` 在七牛云存储平台上申请。步骤如下：
@@ -96,24 +108,79 @@ QRSBox 命令行工具的使用方式如下：
 最后，用户可以使用以下命令开始文件同步：
 
 ```
-    qrsboxcli sync &
+./qrsboxcli sync &
 ```
 
-这里使用了 `&` 符号，让同步客户端进程运行在后台。
+这里使用了 `&` 符号，让同步客户端进程运行在后台。如果退出终端后程序中断，请使用以下命令代替：
+
+```
+nohup ./qrsboxcli sync >/dev/null 2>&1 &
+```
 
 用户可以通过以下命令查看同步过程：
 
 ```
-    qrsboxcli log
+./qrsboxcli log
 ```
 
-如果用户需要停止后台运行的qrsboxcli，可以使用如下命令：
+如果需要停止后台运行的qrsboxcli，可以使用如下命令：
 
 ```
-    qrsboxcli stop
+./qrsboxcli stop
 ```
 
-如果用户希望改变同步的目录、bucket等运行参数，需要先用 `stop` 命令停止 qrsboxcli 的后台程序，重新用新的参数运行初始化命令，然后再次启动同步程序，qrsboxcli会立刻按新的配置将新目录的文件同步至七牛云存储。
+如果希望改变同步的目录、bucket等运行参数，需要先用 `stop` 命令停止 qrsboxcli 的后台程序，重新用新的参数运行初始化命令，然后再次启动同步程序，qrsboxcli会立刻按新的配置将新目录的文件同步至七牛云存储。
+
+#### 命令使用说明
+
+执行以下命令可以获得各个子命令的使用说明：  
+
+```
+./qrsboxcli 
+
+Usage:
+  qrsboxcli init <AccessKey> <SecretKey> <SyncDir> <Bucket>  - Init qrsbox conf
+  qrsboxcli sync &                                           - Watch <SyncDir> and sync files
+  qrsboxcli log                                              - View sync log
+  qrsboxcli stop                                             - Kill qrsboxcli sync process
+
+BuildVersion:
+  qrsboxcli v2.5.20131013
+```
+
+#### 配置文件
+
+命令行工具的配置文件通常保存在用户主目录的.qrsbox下，执行init命令时会将具体目录路径输出到屏幕上。  
+具体内容如下（JSON格式）：  
+
+```
+{
+    "tasks": [
+        {
+            "src": "<SyncDir>",
+            "dest": "qiniu:bucket=<Bucket>",
+            "skipsym": 0,
+            "syncdur": 0
+        }
+    ],
+    "access_key": "<AccessKey>",
+    "secret_key": "<SecretKey>",
+    "debug_level": 0
+}
+```
+
+其中，  
+
+- `tasks`字段指定监控任务：  
+    - `src`字段指定受监控的文件目录；  
+    - `dest`字段指定上传目标参数，如空间名（<Bucket>）和文件前缀（KeyPrefix），多个参数须以`&`符号分隔；  
+    - `skipsym`字段指定是否跳过链接文件，`0`表示不跳过，`1`表示跳过；  
+    - `syncdur`字段指定监控检测周期，单位为秒，`0`表示使用默认值（0.5秒）。  
+- `access_key`字段指定AccessKey值；  
+- `secret_key`字段指定SecretKey值；  
+- `debug_level`字段指定日志信息输出等级，默认值为`0`，即输出Debug信息。  
+
+---
 
 <a id="failures">
 ## 故障排除
@@ -136,7 +203,7 @@ cat /proc/sys/fs/inotify/max_user_watches
 find <受监视文件夹路径> | wc -l
 ```
 
-如果cat输出值小于wc输出值，则执行如下命令（设定值为 wc输出值 X 2）：  
+如果cat输出值小于wc输出值，则执行如下命令（设定值为`wc输出值 X 2`）：  
 
 ```
 echo 设定值 > /proc/sys/fs/inotify/max_user_watches
