@@ -91,6 +91,15 @@
         "date": "2013-10-08",
         "doc": "docs/v6/sdk/go-sdk.html",
         "source": "https://github.com/qiniu/api"
+    }, {
+        "name": "JavaScript",
+        "menuName": "JavaScript",
+        "label": "SDK for JavaScript (客户端)",
+        "download": "https://github.com/qiniupd/qiniu-js-sdk/releases",
+        "version": "v1.0.0",
+        "date": "2014-02-27",
+        "href": "https://github.com/qiniupd/qiniu-js-sdk",
+        "source": "https://github.com/qiniupd/qiniu-js-sdk"
     }],
     "devtools": [{
         "name": "upload",
@@ -358,7 +367,7 @@
     }],
     "tuiguanziyuan": [{
         "name": "logo",
-        "img":  "/static/image/qiniu_logo_small.png",
+        "img": "/static/image/qiniu_logo_small.png",
         "description": "七牛广告位Logo等推广资源。",
         "download": "http://developer.qiniu.com/resource/logo.zip"
     }]

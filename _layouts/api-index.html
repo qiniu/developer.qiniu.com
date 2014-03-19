@@ -226,9 +226,9 @@
                                         </h5>
                                     </div>
                                     <div class="panel-body" id="qwebtest">
-                                        
+
                                     </div>
-                                </li>                                 
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -290,8 +290,9 @@
                     <ul>
                         {{range .data.resource.sdk}}
                         <li>
+
                             <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="" class="sdk-logo ">
-                                <img src="/static/image/index/{{.name}}.png" alt="">
+                                <span class="icon sdk-{{.name}}"></span>
                             </a>
                         </li>
                         {{end}}
@@ -415,7 +416,7 @@
                                 <a href="http://kb.qiniu.com/57a5sl50">qwebtest</a>
                                 <p>图形界面下载/上传问题排查工具</p>
                             </div>
-                        </li>                     
+                        </li>
                     </ul>
                 </div>
             </div>

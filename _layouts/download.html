@@ -50,7 +50,7 @@
                                     <span class="icon global_github_sprited"></span>
                                     源码
                                 </a>
-                                <a href="/{{.doc}}" class="docs" target="_blank">
+                                <a href="{{with .doc}}/{{.}}{{end}} {{with .href }} {{.}} {{end}}" class="docs" target="_blank">
                                     <span class="icon global_source_sprited"></span>
                                     文档
                                 </a>
