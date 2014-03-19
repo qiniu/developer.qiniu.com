@@ -115,4 +115,29 @@ QRSBox 命令行工具的使用方式如下：
 
 如果用户希望改变同步的目录、bucket等运行参数，需要先用 `stop` 命令停止 qrsboxcli 的后台程序，重新用新的参数运行初始化命令，然后再次启动同步程序，qrsboxcli会立刻按新的配置将新目录的文件同步至七牛云存储。
 
+<a id="failures">
+## 故障排除
 
+### Linux环境
+
+1. `No space left on device`问题
+
+现象为日志中出现如下错误：  
+
+```
+2014/02/21 10:24:50 [ERROR][github.com/qiniu/fsw] utils.go:22: Watcher failed: no space left on device
+```
+
+遇到此问题，请先执行如下两行命令检查内核参数和监视文件数量：  
+
+```
+cat /proc/sys/fs/inotify/max_user_watches
+
+find <受监视文件夹路径> | wc -l
+```
+
+如果cat输出值小于wc输出值，则执行如下命令（设定值为 wc输出值 X 2）：  
+
+```
+echo 设定值 > /proc/sys/fs/inotify/max_user_watches
+```

@@ -523,7 +523,7 @@ using Qiniu.FileOp;
 	string key = key;
 	Console.WriteLine("\n===> FileOp.ImageInfo");
 	//生成base_url
-	string url = Qiniu.RS.GetPolicy.MakeBaseUrl(domian, key);
+	string url = Qiniu.RS.GetPolicy.MakeBaseUrl(domain, key);
 	//生成fop_url
 	string imageInfoURL = ImageInfo.MakeRequest(url);
 	//对其签名，生成private_url。如果是公有bucket此步可以省略
