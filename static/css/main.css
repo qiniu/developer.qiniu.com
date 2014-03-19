@@ -345,7 +345,8 @@ css-sprite（图片拼合）
 .sdk-nodejs,
 .sdk-php,
 .sdk-python,
-.sdk-ruby {
+.sdk-ruby,
+.view_sprited {
   background: url('../image/css-sprite.png') no-repeat;
 }
 .api_default {
@@ -712,6 +713,11 @@ css-sprite（图片拼合）
   background-position: 0px -2532px;
   width: 65px;
   height: 60px;
+}
+.view_sprited {
+  background-position: 0px -2594px;
+  width: 14px;
+  height: 9px;
 }
 header {
   height: 43px;
@@ -1668,6 +1674,12 @@ div.api-resource .social-resource .author {
 .container.resource .community-sdk.cell .cell-body .resource-card .content .author a {
   color: #999999;
 }
+.container.resource .logo.cell .cell-body .resource-card .resource-card-inner {
+  height: 110px;
+}
+.container.resource .logo.cell .cell-body .resource-card .content {
+  width: 287px;
+}
 .bx-controls {
   position: absolute;
   bottom: -25px;
@@ -1817,6 +1829,145 @@ div.api-resource .social-resource .author {
 .container.changelog .side-bar ul li {
   height: 30px;
   vertical-align: top;
+}
+.container.brand {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell {
+  padding: 25px 25px 10px;
+}
+.container.brand .brand-cell .brand-body .brand-head {
+  text-align: left;
+}
+.container.brand .brand-cell .brand-body .brand-content {
+  text-align: center;
+}
+.container.brand .brand-cell h2 {
+  margin-bottom: 25px;
+}
+.container.brand .brand-cell a {
+  color: #0c94de;
+}
+.container.brand .brand-cell .blue {
+  background-color: #06a7e1;
+}
+.container.brand .brand-cell .black {
+  background-color: #000;
+}
+.container.brand .brand-cell.brand .brand-body {
+  overflow: hidden;
+}
+.container.brand .brand-cell.brand .brand-body p {
+  margin-bottom: 20px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content {
+  position: relative;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  background-color: #e6e6e6;
+  padding: 5px 10px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-link a {
+  display: block;
+  width: 90px;
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.logo {
+  background: url(../image/logo-bg.png) center center no-repeat;
+  height: 334px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.logo img {
+  margin-top: 58px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.cn {
+  height: 284px;
+  border-top: 0;
+  border-bottom: 0;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.cn img {
+  margin-top: 40px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.en {
+  height: 284px;
+  width: 562px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.en img {
+  margin-top: 53px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.pic {
+  height: 284px;
+  width: 345px;
+  border-left: 0;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.pic img {
+  margin-top: 74px;
+}
+.container.brand .brand-cell.color {
+  margin-top: 20px;
+  overflow: hidden;
+}
+.container.brand .brand-cell.color .brand-content {
+  margin-left: 99.5px;
+  border: 1px solid #e9e9e9;
+  width: 235px;
+}
+.container.brand .brand-cell.color .brand-content:first-child {
+  margin-left: 0;
+}
+.container.brand .brand-cell.color .brand-content .brand-title {
+  height: 105px;
+}
+.container.brand .brand-cell.color .brand-content .brand-title a {
+  display: block;
+  width: 235px;
+}
+.container.brand .brand-cell.color .brand-content .brand-link {
+  height: 29px;
+  line-height: 29px;
+  border-top: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.color .brand-content .brand-link:first-child {
+  border-top: none;
+}
+.container.brand .brand-cell.powered {
+  text-align: left;
+  margin-top: 20px;
+}
+.container.brand .brand-cell.powered .brand-content {
+  width: 384px;
+  margin-bottom: 30px;
+  margin-left: 141px;
+}
+.container.brand .brand-cell.powered .brand-content.odd {
+  margin-left: 0;
+}
+.container.brand .brand-cell.powered .brand-content .brand-title {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.container.brand .brand-cell.powered .brand-content .brand-link {
+  height: 88px;
+  width: 384px;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.powered .brand-content .brand-link a {
+  display: block;
+  width: 384px;
 }
 /*----------
 
