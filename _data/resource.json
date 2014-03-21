@@ -128,6 +128,15 @@
         "date": "2013-09-12",
         "doc": "docs/v6/tools/qrsbox.html",
         "description": "图形界面上传工具，基于Windows系统，支持断点续上传，增量同步，自动监控。"
+    }, {
+        "name": "sync",
+        "label": "qwebtest",
+        "title": "图形界面下载/上传问题检测工具",
+        "download": "/docs/v6/tools/qwebtest.html#download",
+        "version": "v1",
+        "date": "2014-01-24",
+        "doc": "docs/v6/tools/qwebtest.html",
+        "description": "图形界面的简易下载/上传问题排查工具，支持Windows/Mac/Linux。"
     }],
     "third_plugin": [{
         "name": "wordpress",
