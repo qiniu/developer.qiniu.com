@@ -1,0 +1,28 @@
+{
+    "adjoining-classes": false,
+    "box-model": false,
+    "compatible-vendor-prefixes": false,
+    "duplicate-background-images": false,
+    "import": false,
+    "important": false,
+    "outline-none": false,
+    "overqualified-elements": false,
+    "text-indent": false,
+
+    "floats":false,
+    "font-sizes":false,
+    "zero-units": false,
+    "ids":false,
+    "regex-selectors":false,
+    "universal-selector":false,
+    "unqualified-attributes":false,
+    "duplicate-properties":false,
+    "fallback-colors":false,
+    "unique-headings":false,
+    "display-property-grouping":false,
+    "qualified-headings":false,
+    "gradients":false,
+
+    "underscore-property-hack":false,
+    "star-property-hack":false
+}
