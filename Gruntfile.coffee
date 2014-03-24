@@ -12,7 +12,7 @@ module.exports = (grunt) ->
     CSS_MAIN_FILES = CSS_MAIN: [LESS_MAIN]
 
     # COFFEE_FILES = JS_PATH + '**/*.coffee'
-    JS_FILES = JS_PATH + '*.js'
+    JS_FILES = JS_PATH + 'docs.js'
 
     JS_MAIN = JS_PATH + 'boot.min.js'
     JS_COMBINE = [
