@@ -1,33 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta name="robots" content="all" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="七牛云存储API和SDK文档" />
-    <meta name="keywords" content="七牛, 七牛云存储, 七牛云存储API, 七牛云存储SDK, qrsync, qboxrsctl, QinuRS, S3" />
-    <meta name="author" content="qiniu.com" />
-    <meta name="copyright" content="qiniu.com" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Language" content="zh-cn" />
-    <meta http-equiv="imagetoolbar" content="false" />
-    <meta name="MSSmartTagsPreventParsing" content="true" />
-    <title>
-        {{ .page.title }} | 七牛云存储
-    </title>
-    <link href="/favicon.ico" rel="shortcut icon">
-    <!--[if lte IE 8]>
-        <script src="static/js/html5.js"></script>
-        <![endif]-->
-
-    <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
-</head>
-
-<body>
-    <header>
-        {{.includes.header}}
-    </header>
+{{ .includes.header}}
     <div class="container changelog ">
         <div class="cell">
             <h2>发布日期：2014-03-07</h2>
@@ -243,7 +214,7 @@
                             <li>
                                 <p class="title"><a href="/docs/v6/api/reference/fop/av/avthumb.html#avthumb-strip-meta">3. 支持去除音视频的元信息</a></p>
                                 <p class="info">使用本接口去除音视频中的元信息，避免泄露信息或引发不良影响。</p>
-                            </li>                            
+                            </li>
                         </ul>
                     </div>
                     <div class="cell-line">
@@ -281,7 +252,7 @@
                             <li>
                                 <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">3. PutPolicy添加mimeLimit字段</a></p>
                                 <p class="info">本字段用于限制上传资源的MimeType，如匹配则允许上传，不匹配则返回400状态码。</p>
-                            </li>                            
+                            </li>
                         </ul>
                     </div>
                     <div class="cell-line">
@@ -296,7 +267,7 @@
                     </div>
                 </div>
         </div>
-    </div> 
+    </div>
 <!--     <div class="container changelog">
         <div class="main pull-left">
             <div class="cell" data-log="log-2014-01">
@@ -304,10 +275,10 @@
             </div>
             <div class="cell" data-log="log-2014-01">
                 归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>  
+            </div>
             <div class="cell" data-log="log-2013-12">
                 归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>                               
+            </div>
         </div>
         <div class="side-bar pull-right">
             <div class="cell">
@@ -318,7 +289,7 @@
                     </li>
                     <li>
                         <a target="blank" href="#"  class="log-2013-12">2012年12月</a><sapn> ( 14 )</sapn>
-                    </li>    
+                    </li>
                     <li>
                         <a target="blank" href="#" class="log-2014-01">2012年11月</a><sapn> ( 4 )</sapn>
                     </li>
