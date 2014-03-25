@@ -348,45 +348,25 @@ style="display:block"
                     {{ .content }}
                 </div>
                 <div class="api-comment" id="api-comment">
-<!-- Duoshuo Comment BEGIN -->
-    <div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiniu"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = 'http://static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-<!-- Duoshuo Comment END -->
-
+                    <!-- Duoshuo Comment BEGIN -->
+                    <div class="ds-thread"></div>
+                    <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"qiniu"};
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = 'http://static.duoshuo.com/embed.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0]
+                            || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                    </script>
+                    <!-- Duoshuo Comment END -->
                 </div>
             </div>
         </div>
     </div>
-        {{.includes.search_result}}
-        {{ .includes.footer }}
-
-    <script src="/static/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-
-    <!-- 具体API页JS ,分别用于指示当前滚动位置，固定侧边栏导航，高亮代码-->
-    <script src="/static/js/scrollspy.js" type="text/javascript"></script>
-    <script src="/static/js/highlight/highlight.js" type="text/javascript"></script>
-    <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
-    <script src="/static/js/dropdown.js" type="text/javascript"></script>
-        <script src="/static/js/modal.js" type="text/javascript"></script>
-
-    <!-- 全局 JS-->
-    <script src="/static/js/docs.js?v={{.time}}" type="text/javascript"></script>
-
-
     <!-- 资源下载页，社区插件/社区SDK分页插件，暂时未用到 -->
-    <!--    <script type="text/javascript" src="/static/js/jquery.bxslider/jquery.bxslider.min.js"></script>
-
-        -->
-</body>
-
-</html>
+    <!--<script type="text/javascript" src="/static/js/jquery.bxslider/jquery.bxslider.min.js"></script> -->
+    {{.includes.search_result}}
+    {{ .includes.footer }}
