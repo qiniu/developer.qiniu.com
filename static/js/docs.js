@@ -170,6 +170,9 @@ $(function() {
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
         }
+        if (path === 'brand') {
+            $('.download').addClass('active').siblings().removeClass('active');
+        }
     });
 
     //顶部搜索框
@@ -580,4 +583,8 @@ $(function() {
     //     scrollText: '',
     //     activeOverlay: false
     // });
+
+    $('.container.docs .main .sdk ul li:last-child').hide();
+    //hack in api=index.html
+
 });

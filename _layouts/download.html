@@ -50,7 +50,7 @@
                                     <span class="icon global_github_sprited"></span>
                                     源码
                                 </a>
-                                <a href="/{{.doc}}" class="docs" target="_blank">
+                                <a href="{{with .doc}}/{{.}}{{end}} {{with .href }} {{.}} {{end}}" class="docs" target="_blank">
                                     <span class="icon global_source_sprited"></span>
                                     文档
                                 </a>
@@ -97,33 +97,6 @@
                     </div>
                 </div>
                 {{end}}
-                <div class="resource-card">
-                    <div class="resource-card-inner">
-                        <div class="logo">
-                            <span class="icon resource_qwebtest_sprited"></span>
-                        </div>
-                        <div class="content">
-                            <div class="name">qwebtest</div>
-                            <div class="describe">
-                                图形界面的简易下载/上传问题排查工具，支持Windows/Mac/Linux。
-                            </div>
-                            <div class="info">
-                                <span class="version">版本：v1</span>
-                                <span class="update-date">更新：2014-01-24</span>
-                            </div>
-                            <div class="url">
-                                <a href="http://kb.qiniu.com/57a5sl50" class="docs" target="_blank">
-                                    <span class="icon global_source_sprited"></span>
-                                    文档
-                                </a>
-                                <a href="http://kb.qiniu.com/57a5sl50" class="download" target="_blank">
-                                    <span class="icon global_download_sprited"></span>
-                                    下载
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -215,7 +188,7 @@
         </div>
 
 
-        <div class="resource-box cell large community-sdk">
+        <div class="resource-box cell large logo">
             <h2 class="cell-head">
                 推广资源
             </h2>
@@ -228,7 +201,12 @@
                         </div>
                         <div class="content">
                             <div class="name">{{.label}}</div>
+                            <div class="describe">{{.description}}</div>
                             <div class="url">
+                                <a href="/brand" class="download" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    查看
+                                </a>
                                 <a href="{{.download}}" class="download" target="_blank">
                                     <span class="icon global_download_sprited"></span>
                                     下载

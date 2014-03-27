@@ -180,6 +180,12 @@
 							"Href": "docs/v6/api/reference/fop/image/watermark.html",
 							"Child": null,
 							"Order": 160
+						},
+						{
+							"Title": "图片主色调（imageAve）",
+							"Href": "docs/v6/api/reference/fop/image/imageave.html",
+							"Child": null,
+							"Order": 155
 						}
 					],
 					"Order": 170
@@ -223,6 +229,12 @@
 							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
 							"Child": null,
 							"Order": 139
+						},
+						{
+							"Title": "音视频拼接（avconcat）",
+							"Href": "docs/v6/api/reference/fop/av/avconcat.html",
+							"Child": null,
+							"Order": 135
 						}
 					],
 					"Order": 160
@@ -261,7 +273,7 @@
 			"Order": 200
 		},
 		{
-			"Title": "数据格式（DataFormat）",
+			"Title": "数据格式",
 			"Href": "docs/v6/api/reference/data-formats.html",
 			"Child": null,
 			"Order": 150

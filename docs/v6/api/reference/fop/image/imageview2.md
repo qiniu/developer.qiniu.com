@@ -56,7 +56,7 @@ imageView2/<mode>
 参数名称            | 必填  | 说明
 :------------------ | :---- | :--------------------------------------------------------------------------------
 `/q/<Quality>`      |       | 新图的图像质量，取值范围：1-100，缺省为85。<br>如原图质量小于指定值，则按原值输出。
-`/format/<Format>`  |       | 新图的输出格式，取值范围：jpg，gif，png，webp等，缺省为原图格式。
+`/format/<Format>`  |       | 新图的输出格式，取值范围：jpg，gif，png，webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
 
 <a id="imageView2-request"></a>
 ## 请求

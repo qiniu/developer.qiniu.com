@@ -32,6 +32,8 @@ Authorization: QBox <AccessToken>
 <PfopRequestParams>
 ```
 
+<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
+
 <a id="pfop-request-headers"></a>
 ### 头部信息
 
@@ -59,7 +61,7 @@ bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotif
 :------------ | :--- | :----------------------------------------------------------------
 `bucket`      | 是   | 资源空间。
 `key`         | 是   | 源资源名。
-`fops`        | 是   | 云处理操作列表，用“;”分隔,需要进行[URL转义][urlescapeHref]。
+`fops`        | 是   | 云处理操作列表，用“;”分隔,需要进行[URL转义][urlescapeHref]，含义同上传的 persistentOps，见[详解](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)
 `notifyURL`   | 是   | 处理结果通知接收URL,请参考[处理结果通知](#pfop-notification)小节。
 <a id="pfop-force"></a>`force`       |      | 强制执行数据处理。<br>当服务端发现fops指定的数据处理结果已经存在，那就认为已经处理成功，避免重复处理浪费资源。加上本字段并设为1，则可强制执行数据处理并覆盖原结果。
 

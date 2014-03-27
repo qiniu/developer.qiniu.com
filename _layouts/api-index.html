@@ -71,7 +71,7 @@
                     <div class="panel panel-default" data-page="overview">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a href="#"> API使用说明 </a>
+                                <a href="#"> 新手指南 </a>
                                 <span class="icon api_default">
                                 </span>
                             </h4>
@@ -222,13 +222,13 @@
                                         <h5 class="panel-title">
                                             <span class="icon off_1">
                                             </span>
-                                            <a href="http://kb.qiniu.com/57a5sl50" class="link">qwebtest </a>
+                                            <a href="/docs/v6/tools/qwebtest.html" class="link">qwebtest</a>
                                         </h5>
                                     </div>
                                     <div class="panel-body" id="qwebtest">
-                                        
+
                                     </div>
-                                </li>                                 
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -290,8 +290,9 @@
                     <ul>
                         {{range .data.resource.sdk}}
                         <li>
+
                             <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="" class="sdk-logo ">
-                                <img src="/static/image/index/{{.name}}.png" alt="">
+                                <span class="icon sdk-{{.name}}"></span>
                             </a>
                         </li>
                         {{end}}
@@ -407,15 +408,6 @@
                             </div>
                         </li>
                         {{end}}
-                        <li>
-                            <div class="pull-left logo">
-                                <span class="icon resource_qwebtest_sprited"></span>
-                            </div>
-                            <div class="pull-left info">
-                                <a href="http://kb.qiniu.com/57a5sl50">qwebtest</a>
-                                <p>图形界面下载/上传问题排查工具</p>
-                            </div>
-                        </li>                     
                     </ul>
                 </div>
             </div>

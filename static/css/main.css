@@ -26,7 +26,7 @@ img {
 }
 .resource_qwebtest_sprited {
   background: url('../image/css-sprite.png') no-repeat;
-  background-position: 0px -1843px;
+  background-position: 0px -1708px;
   width: 27px;
   height: 27px;
 }
@@ -296,10 +296,7 @@ css-sprite（图片拼合）
 .global_weixin_sprited,
 .icon_close_default_sprited,
 .icon_close_hover_sprited,
-.index_book_sprited,
-.index_clock_sprited,
 .index_cmd_sprited,
-.index_light_sprited,
 .index_resource_sprited,
 .index_social_sprited,
 .index_sync_sprited,
@@ -310,6 +307,7 @@ css-sprite（图片拼合）
 .off_2,
 .on_1,
 .on_2,
+.resource_JavaScript_sprited,
 .resource_android_sprited,
 .resource_c_sprited,
 .resource_cmd_sprited,
@@ -336,18 +334,19 @@ css-sprite（图片拼合）
 .resource_typecho,
 .resource_upload_sprited,
 .resource_wordpress,
+.sdk-JavaScript,
 .sdk-android,
 .sdk-c,
 .sdk-csharp,
 .sdk-go,
 .sdk-ios,
 .sdk-java,
-.sdk-net,
+.sdk-more,
 .sdk-nodejs,
-.sdk-perl,
 .sdk-php,
 .sdk-python,
-.sdk-ruby {
+.sdk-ruby,
+.view_sprited {
   background: url('../image/css-sprite.png') no-repeat;
 }
 .api_default {
@@ -465,265 +464,260 @@ css-sprite（图片拼合）
   width: 16px;
   height: 18px;
 }
-.index_book_sprited {
-  background-position: 0px -608px;
-  width: 65px;
-  height: 57px;
-}
-.index_clock_sprited {
-  background-position: 0px -667px;
-  width: 52px;
-  height: 57px;
-}
 .index_cmd_sprited {
-  background-position: 0px -726px;
+  background-position: 0px -608px;
   width: 19px;
   height: 19px;
 }
-.index_light_sprited {
-  background-position: 0px -747px;
-  width: 53px;
-  height: 57px;
-}
 .index_resource_sprited {
-  background-position: 0px -806px;
+  background-position: 0px -629px;
   width: 18px;
   height: 16px;
 }
 .index_social_sprited {
-  background-position: 0px -824px;
+  background-position: 0px -647px;
   width: 18px;
   height: 16px;
 }
 .index_sync_sprited {
-  background-position: 0px -842px;
+  background-position: 0px -665px;
   width: 19px;
   height: 19px;
 }
 .index_tool_sprited {
-  background-position: 0px -863px;
+  background-position: 0px -686px;
   width: 18px;
   height: 16px;
 }
 .index_upload_sprited {
-  background-position: 0px -881px;
+  background-position: 0px -704px;
   width: 19px;
   height: 19px;
 }
 .menu_down {
-  background-position: 0px -902px;
+  background-position: 0px -725px;
   width: 9px;
   height: 6px;
 }
 .off_1 {
-  background-position: 0px -910px;
+  background-position: 0px -733px;
   width: 12px;
   height: 14px;
 }
 .off_2 {
-  background-position: 0px -926px;
+  background-position: 0px -749px;
   width: 14px;
   height: 16px;
 }
 .on_1 {
-  background-position: 0px -944px;
+  background-position: 0px -767px;
   width: 12px;
   height: 14px;
 }
 .on_2 {
-  background-position: 0px -960px;
+  background-position: 0px -783px;
   width: 14px;
   height: 16px;
 }
+.resource_JavaScript_sprited {
+  background-position: 0px -801px;
+  width: 70px;
+  height: 40px;
+}
 .resource_android_sprited {
-  background-position: 0px -978px;
+  background-position: 0px -843px;
   width: 70px;
   height: 40px;
 }
 .resource_c_sprited {
-  background-position: 0px -1020px;
+  background-position: 0px -885px;
   width: 70px;
   height: 40px;
 }
 .resource_cmd_sprited {
-  background-position: 0px -1062px;
+  background-position: 0px -927px;
   width: 27px;
   height: 27px;
 }
 .resource_csharp_sprited {
-  background-position: 0px -1091px;
+  background-position: 0px -956px;
   width: 70px;
   height: 40px;
 }
 .resource_discuz {
-  background-position: 0px -1133px;
+  background-position: 0px -998px;
   width: 70px;
   height: 40px;
 }
 .resource_django {
-  background-position: 0px -1175px;
+  background-position: 0px -1040px;
   width: 70px;
   height: 40px;
 }
 .resource_drupal {
-  background-position: 0px -1217px;
+  background-position: 0px -1082px;
   width: 70px;
   height: 40px;
 }
 .resource_emlog {
-  background-position: 0px -1259px;
+  background-position: 0px -1124px;
   width: 70px;
   height: 40px;
 }
 .resource_go_sprited {
-  background-position: 0px -1301px;
+  background-position: 0px -1166px;
   width: 70px;
   height: 40px;
 }
 .resource_ios_sprited {
-  background-position: 0px -1343px;
+  background-position: 0px -1208px;
   width: 70px;
   height: 40px;
 }
 .resource_java_sprited {
-  background-position: 0px -1385px;
+  background-position: 0px -1250px;
   width: 70px;
   height: 40px;
 }
 .resource_net_sprited {
-  background-position: 0px -1427px;
+  background-position: 0px -1292px;
   width: 70px;
   height: 40px;
 }
 .resource_nodejs_sprited {
-  background-position: 0px -1469px;
+  background-position: 0px -1334px;
   width: 70px;
   height: 40px;
 }
 .resource_octopress {
-  background-position: 0px -1511px;
+  background-position: 0px -1376px;
   width: 70px;
   height: 40px;
 }
 .resource_opoopress {
-  background-position: 0px -1553px;
+  background-position: 0px -1418px;
   width: 70px;
   height: 40px;
 }
 .resource_perl_sprited {
-  background-position: 0px -1595px;
+  background-position: 0px -1460px;
   width: 70px;
   height: 40px;
 }
 .resource_php_sprited {
-  background-position: 0px -1637px;
+  background-position: 0px -1502px;
   width: 70px;
   height: 40px;
 }
 .resource_phpwind {
-  background-position: 0px -1679px;
+  background-position: 0px -1544px;
   width: 70px;
   height: 40px;
 }
 .resource_plugin {
-  background-position: 0px -1721px;
+  background-position: 0px -1586px;
   width: 36px;
   height: 36px;
 }
 .resource_python_sprited {
-  background-position: 0px -1759px;
+  background-position: 0px -1624px;
   width: 70px;
   height: 40px;
 }
 .resource_ruby_sprited {
-  background-position: 0px -1801px;
+  background-position: 0px -1666px;
   width: 70px;
   height: 40px;
 }
 .resource_sync_sprited {
-  background-position: 0px -1843px;
+  background-position: 0px -1708px;
   width: 27px;
   height: 27px;
 }
 .resource_tool {
-  background-position: 0px -1872px;
+  background-position: 0px -1737px;
   width: 32px;
   height: 29px;
 }
 .resource_typecho {
-  background-position: 0px -1903px;
+  background-position: 0px -1768px;
   width: 70px;
   height: 40px;
 }
 .resource_upload_sprited {
-  background-position: 0px -1945px;
+  background-position: 0px -1810px;
   width: 27px;
   height: 27px;
 }
 .resource_wordpress {
-  background-position: 0px -1974px;
+  background-position: 0px -1839px;
   width: 70px;
   height: 40px;
 }
-.sdk-android {
-  background-position: 0px -2016px;
+.sdk-JavaScript {
+  background-position: 0px -1881px;
   width: 65px;
-  height: 36px;
+  height: 60px;
+}
+.sdk-android {
+  background-position: 0px -1943px;
+  width: 65px;
+  height: 60px;
 }
 .sdk-c {
-  background-position: 0px -2054px;
+  background-position: 0px -2005px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-csharp {
-  background-position: 0px -2092px;
+  background-position: 0px -2067px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-go {
-  background-position: 0px -2130px;
+  background-position: 0px -2129px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-ios {
-  background-position: 0px -2168px;
+  background-position: 0px -2191px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-java {
-  background-position: 0px -2206px;
+  background-position: 0px -2253px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
-.sdk-net {
-  background-position: 0px -2244px;
-  width: 65px;
-  height: 36px;
+.sdk-more {
+  background-position: 0px -2315px;
+  width: 70px;
+  height: 70px;
 }
 .sdk-nodejs {
-  background-position: 0px -2282px;
-  width: 65px;
-  height: 36px;
-}
-.sdk-perl {
-  background-position: 0px -2320px;
-  width: 65px;
-  height: 36px;
+  background-position: 0px -2387px;
+  width: 72px;
+  height: 19px;
 }
 .sdk-php {
-  background-position: 0px -2358px;
+  background-position: 0px -2408px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-python {
-  background-position: 0px -2396px;
+  background-position: 0px -2470px;
   width: 65px;
-  height: 36px;
+  height: 60px;
 }
 .sdk-ruby {
-  background-position: 0px -2434px;
+  background-position: 0px -2532px;
   width: 65px;
-  height: 36px;
+  height: 60px;
+}
+.view_sprited {
+  background-position: 0px -2594px;
+  width: 14px;
+  height: 9px;
 }
 header {
   height: 43px;
@@ -982,7 +976,7 @@ footer .copyright {
   padding: 25px;
   word-wrap: break-word;
 }
-.api-content * {
+.api-content > * {
   max-width: 628px;
 }
 .api-content h1 {
@@ -1077,6 +1071,12 @@ footer .copyright {
 .api-content table caption p {
   margin: 0;
 }
+.api-content table td:last-child {
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+  width: auto;
+}
 .api-content table tbody tr:nth-child(even) {
   background: #f3f3f3;
 }
@@ -1085,6 +1085,9 @@ footer .copyright {
 }
 .api-content table tbody tr:hover {
   background-color: #f5f5f5;
+}
+.api-content table tbody td code {
+  white-space: normal;
 }
 .api-content table caption {
   border-bottom: none;
@@ -1490,6 +1493,22 @@ div.api-resource .social-resource .author {
 .container.docs .cell.cli ul li .info {
   width: 153px;
 }
+.container.index .cell.sdk ul li a:hover {
+  border-left: none;
+  border-right: none;
+}
+.container.index .cell.sdk ul li:first-child a:hover {
+  border-left: 1px solid #f0f0f0;
+  border-right: none;
+}
+.container.index .cell.sdk ul li:last-child a:hover {
+  border-right: 1px solid #f0f0f0;
+  border-left: none;
+}
+.container.index .cell.sdk ul a.last-child:hover {
+  border-right: 1px solid #f0f0f0;
+  border-left: none;
+}
 .container.resource .cell {
   margin-top: 20px;
   position: relative;
@@ -1655,6 +1674,12 @@ div.api-resource .social-resource .author {
 .container.resource .community-sdk.cell .cell-body .resource-card .content .author a {
   color: #999999;
 }
+.container.resource .logo.cell .cell-body .resource-card .resource-card-inner {
+  height: 110px;
+}
+.container.resource .logo.cell .cell-body .resource-card .content {
+  width: 287px;
+}
 .bx-controls {
   position: absolute;
   bottom: -25px;
@@ -1804,6 +1829,145 @@ div.api-resource .social-resource .author {
 .container.changelog .side-bar ul li {
   height: 30px;
   vertical-align: top;
+}
+.container.brand {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell {
+  padding: 25px 25px 10px;
+}
+.container.brand .brand-cell .brand-body .brand-head {
+  text-align: left;
+}
+.container.brand .brand-cell .brand-body .brand-content {
+  text-align: center;
+}
+.container.brand .brand-cell h2 {
+  margin-bottom: 25px;
+}
+.container.brand .brand-cell a {
+  color: #0c94de;
+}
+.container.brand .brand-cell .blue {
+  background-color: #06a7e1;
+}
+.container.brand .brand-cell .black {
+  background-color: #000;
+}
+.container.brand .brand-cell.brand .brand-body {
+  overflow: hidden;
+}
+.container.brand .brand-cell.brand .brand-body p {
+  margin-bottom: 20px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content {
+  position: relative;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  background-color: #e6e6e6;
+  padding: 5px 10px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content .brand-link a {
+  display: block;
+  width: 90px;
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.logo {
+  background: url(../image/logo-bg.png) center center no-repeat;
+  height: 334px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.logo img {
+  margin-top: 58px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.cn {
+  height: 284px;
+  border-top: 0;
+  border-bottom: 0;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.cn img {
+  margin-top: 40px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.en {
+  height: 284px;
+  width: 562px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.en img {
+  margin-top: 53px;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.pic {
+  height: 284px;
+  width: 345px;
+  border-left: 0;
+}
+.container.brand .brand-cell.brand .brand-body .brand-content.pic img {
+  margin-top: 74px;
+}
+.container.brand .brand-cell.color {
+  margin-top: 20px;
+  overflow: hidden;
+}
+.container.brand .brand-cell.color .brand-content {
+  margin-left: 99.5px;
+  border: 1px solid #e9e9e9;
+  width: 235px;
+}
+.container.brand .brand-cell.color .brand-content:first-child {
+  margin-left: 0;
+}
+.container.brand .brand-cell.color .brand-content .brand-title {
+  height: 105px;
+}
+.container.brand .brand-cell.color .brand-content .brand-title a {
+  display: block;
+  width: 235px;
+}
+.container.brand .brand-cell.color .brand-content .brand-link {
+  height: 29px;
+  line-height: 29px;
+  border-top: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.color .brand-content .brand-link:first-child {
+  border-top: none;
+}
+.container.brand .brand-cell.powered {
+  text-align: left;
+  margin-top: 20px;
+}
+.container.brand .brand-cell.powered .brand-content {
+  width: 384px;
+  margin-bottom: 30px;
+  margin-left: 141px;
+}
+.container.brand .brand-cell.powered .brand-content.odd {
+  margin-left: 0;
+}
+.container.brand .brand-cell.powered .brand-content .brand-title {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.container.brand .brand-cell.powered .brand-content .brand-link {
+  height: 88px;
+  width: 384px;
+  border: 1px solid #e9e9e9;
+}
+.container.brand .brand-cell.powered .brand-content .brand-link a {
+  display: block;
+  width: 384px;
 }
 /*----------
 
