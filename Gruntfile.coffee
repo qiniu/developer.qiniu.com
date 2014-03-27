@@ -3,7 +3,7 @@ module.exports = (grunt) ->
     BIN_PATH = 'bin/'
     ASSETS_PATH = 'static/'
     JS_PATH = ASSETS_PATH + 'js/'
-    # ADDON_PATH = ASSETS_PATH + 'add-on/'
+    ADDON_PATH = ASSETS_PATH + 'add-on/'
 
     LESS_MAIN = ASSETS_PATH + 'css/less/main.less'
     CSS_MAIN = ASSETS_PATH + 'css/main.css'
@@ -19,10 +19,14 @@ module.exports = (grunt) ->
         JS_PATH + 'highlight/highlight.js',
         JS_PATH + 'jquery-1.9.1.min.js',
         JS_PATH + 'jquery.autocomplete.js',
-        JS_PATH + 'jquery.scrollUp.min.js',
-        JS_PATH + 'modal.js',
-        JS_PATH + 'scrollspy.js'
-        JS_PATH + 'dropdown.js'
+        JS_PATH + 'jquery.scrollUp.min.js'
+    ]
+
+    JS_BOOTSTRAP_MAIN = ADDON_PATH + 'bootstrap/bootstrap.min.js'
+    JS_BOOTSTRAP_COMBINE =  [
+        ADDON_PATH + 'bootstrap/modal.js',
+        ADDON_PATH + 'bootstrap/scrollspy.js',
+        ADDON_PATH + 'bootstrap/dropdown.js'
     ]
 
     # Project configuration
@@ -73,6 +77,9 @@ module.exports = (grunt) ->
                 files: [{
                     src: JS_COMBINE
                     dest: JS_MAIN
+                },{
+                    src:    JS_BOOTSTRAP_COMBINE
+                    dest:  JS_BOOTSTRAP_MAIN
                 }]
 
     #     uglify:
