@@ -14,10 +14,12 @@ order: 170
 * [基本图片处理（imageView2）][imageView2Href]
 * [高级图片处理（imageMogr2）][imageMogr2Href]
 * [图片水印处理（watermark）][watermarkHref]
+* [图片主色调（imageAve）][imageAveHref]
 
 [imageInfoHref]:    imageinfo.html  "基本图片信息获取"
 [exifHref]:         exif.html       "EXIF信息获取"
 [imageView2Href]:    imageview2.html  "基本图片处理"
 [imageMogr2Href]:    imagemogr2.html  "高级图片处理"
 [watermarkHref]:    watermark.html  "图片水印处理"
+[imageAveHref]:     imageAve.html  "图片主色调"
 
