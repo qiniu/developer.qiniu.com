@@ -50,7 +50,7 @@ Host: api.qiniu.com
 Content-Type: application/x-www-form-urlencoded  
 Authorization: <AccessToken>  
 
-bucket=<bucket>&key=<key>&fops=<urlEncodedFops>&notifyURL=<persistentNotifyUrl>
+bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<urlEncodedPersistentNotifyUrl>&force=<Force>
 ```
 
 其中的`AccessToken`的生成算法可参见[管理凭证规格][accessTokenHref]。
