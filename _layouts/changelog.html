@@ -9,6 +9,7 @@
             <div class="cell" data-log="log-{{print $month}}">
                 <h2>发布日期：{{.date}}</h2>
                 <div class="cell-body">
+                    {{if isnot_nil_or_empty .features}}
                     <div class="cell-line">
                         <h3>
                             <span class="icon changelog_feature"></span>新增功能</h3>
@@ -22,18 +23,21 @@
                             {{end}}
                         </ol>
                     </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ol>
-                            {{range .bugs}}
-                            <li>
-                                <p class="title">{{.title}}</p>
-                                <p class="info">{{.info}}</p>
-                            </li>
-                            {{end}}
-                        </ol>
-                    </div>
+                    {{end}}
+                    {{if isnot_nil_or_empty .bugs}}
+                        <div class="cell-line">
+                            <h3>
+                                <span class="icon changelog_bug"></span>问题修复</h3>
+                            <ol>
+                                {{range .bugs}}
+                                <li>
+                                    <p class="title">{{.title}}</p>
+                                    <p class="info">{{.info}}</p>
+                                </li>
+                                {{end}}
+                            </ol>
+                        </div>
+                    {{end}}
                 </div>
         </div>
         {{end}} {{end}}
