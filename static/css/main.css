@@ -1805,16 +1805,18 @@ div.api-resource .social-resource .author {
   position: relative;
   top: -1px;
 }
-.container.changelog .cell .cell-line ul {
+.container.changelog .cell .cell-line ol {
   overflow: hidden;
-  margin-left: 23px;
 }
-.container.changelog .cell .cell-line ul li {
+.container.changelog .cell .cell-line ol li {
   margin-bottom: 10px;
   line-height: 20px;
 }
-.container.changelog .cell .cell-line ul li p.info {
+.container.changelog .cell .cell-line ol li p.info {
   color: #999;
+}
+.container.changelog .cell .cell-line ol.features {
+  color: #0c94de;
 }
 .container.changelog .main {
   width: 680px;
