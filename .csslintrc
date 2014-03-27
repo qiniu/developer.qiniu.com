@@ -22,6 +22,7 @@
     "display-property-grouping":false,
     "qualified-headings":false,
     "gradients":false,
+    "box-sizing":false,
 
     "underscore-property-hack":false,
     "star-property-hack":false
