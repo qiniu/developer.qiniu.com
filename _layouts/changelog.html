@@ -1,343 +1,56 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta name="robots" content="all" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="七牛云存储API和SDK文档" />
-    <meta name="keywords" content="七牛, 七牛云存储, 七牛云存储API, 七牛云存储SDK, qrsync, qboxrsctl, QinuRS, S3" />
-    <meta name="author" content="qiniu.com" />
-    <meta name="copyright" content="qiniu.com" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Language" content="zh-cn" />
-    <meta http-equiv="imagetoolbar" content="false" />
-    <meta name="MSSmartTagsPreventParsing" content="true" />
+{{ .includes.header_start}}
     <title>
         {{ .page.title }} | 七牛云存储
     </title>
-    <link href="/favicon.ico" rel="shortcut icon">
-    <!--[if lte IE 8]>
-        <script src="static/js/html5.js"></script>
-        <![endif]-->
-
-    <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
-</head>
-
-<body>
-    <header>
-        {{.includes.header}}
-    </header>
-    <div class="container changelog ">
-        <div class="cell">
-            <h2>发布日期：2014-03-07</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                            <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-preset-list">1. m3u8接口增加高码率预设集</a></p>
-                                <p class="info">新增video_1000k和video_1500k两个预设集，提高视频清晰度。</p>
-                            </li>
-                            <li>
-                            <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-remarks">2. m3u8接口支持使用自定义参数覆盖预设参数</a></p>
-                                <p class="info">覆盖预设参数允许开发者对预设集做细微调整，以获得更精细的效果。</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复断点续上传不能根据内容检测mimeType的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">2. 修复对于css和js文件mimeType检测不正确的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">3. 修复转码参数format不支持别名的Bug</p>
-                                <p class="info">例如m4a是纯音频的mp4的别名，可以直接指定为format参数的值。</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2014-02-19</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                            <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr2.html#imageMogr2-blur">1. imageMogr2增加blur参数用于支持高斯模糊</a></p>
-                                <p class="info">可对图片执行高斯模糊处理，以实现毛玻璃效果。</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复上传服务根据上传内容将apk文件检测为zip的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2014-01-27</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                            <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-transform">1. 上传策略支持transform/fopTimeout字段</a></p>
-                                <p class="info">用于支持对上传内容做一次同步数据处理，将结果作为最终资源保存</p>
-                            </li>
-                            <li>
-                            <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">2. 上传策略的mimeLimit字段支持"!"表示不允许的MimeType列表（黑名单效果）</a></p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2014-01-17</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 支持将音频资源转码成amr格式</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">2. avthumb接口增加autoscale参数用于支持自适应分辨率</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                            <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation">3. 持久化处理接口支持自定义保存的bucket和key</a></p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-force">4. pfop接口增加强制转码参数force</a></p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">5. 断点续上传返回的Host Header支持HTTPS</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复下载型文件处理结果在部分浏览器下出现乱码的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2014-01-10</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/fop/image/">1. 新增图片处理imageView2和imageMogr2</a></p>
-                                <p class="info">新增支持处理GIF动图。</p>
-                            </li>
-                            <li>
-                            <p class="title"><a href="/docs/v6/api/reference/fop/av/avconcat.html">2. 新增音视频处理avconcat</a></p>
-                                <p class="info">可将多个音视频文件合并成一个。</p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html">3. 上传服务支持avinfo魔法变量</a></p>
-                                <p class="info">用于在处理结果或通知中包含音视频元信息。</p>
-                            </li>
-                            <li>
-                                <p class="title">4. 镜像存储回源失败时返回579错误码</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复部分请求不能返回ETag的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2013-12-27</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/fop/av/pm3u8.html">1. 新增pm3u8接口</a></p>
-                                <p class="info">本接口用于将私有m3u8文件中各个ts资源的URL重写为带有下载授权凭证的URL。</p>
-                            </li>
-                            <li>
-                                <p class="title">2. 数据处理请求的响应Header增加Accept-Range：Byte</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复视频水印质量下降的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">2. 修复视频水印结果元信息附加在资源尾部的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">3. 修复数据处理结果下载过程在4M卡住的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2013-12-20</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 数据处理接口支持断点续下载</p>
-                                <p class="info">允许通过Bytes-Range Header下载内容片断。</p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/fop/av/avthumb.html#avthumb-remarks">2. 覆盖预设集的参数</a></p>
-                                <p class="info">允许使用自定义参数覆盖预设集中的个别参数。</p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/fop/av/avthumb.html#avthumb-strip-meta">3. 支持去除音视频的元信息</a></p>
-                                <p class="info">使用本接口去除音视频中的元信息，避免泄露信息或引发不良影响。</p>
-                            </li>                            
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复上传服务没有根据文件内容检测MimeType</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                            <li>
-                                <p class="title">2. 修复avinfo接口返回filename无用字段</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-        <div class="cell">
-            <h2>发布日期：2013-12-13</h2>
-                <div class="cell-body">
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_feature"></span>新增功能</h3>
-                        <ul>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/fetch.html">1. 抓取资源接口（/fetch）
-                                </a></p>
-                                <p class="info">本接口从指定URL抓取资源并存储到指定空间中。</p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. 更新镜像资源接口（/prefetch）</a></p>
-                                <p class="info">对于已启用镜像存储功能的空间，可用本接口从镜像源站抓取指定名称资源并存储到该空间中。</p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">3. PutPolicy添加mimeLimit字段</a></p>
-                                <p class="info">本字段用于限制上传资源的MimeType，如匹配则允许上传，不匹配则返回400状态码。</p>
-                            </li>                            
-                        </ul>
-                    </div>
-                    <div class="cell-line">
-                        <h3>
-                            <span class="icon changelog_bug"></span>问题修复</h3>
-                        <ul>
-                            <li>
-                                <p class="title">1. 修复URL不支持"//"的问题</p>
-                                <!--<p class="info"></p>-->
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>
-    </div> 
-<!--     <div class="container changelog">
+{{ .includes.header}}
+    <div class="container changelog">
         <div class="main pull-left">
-            <div class="cell" data-log="log-2014-01">
-                归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>
-            <div class="cell" data-log="log-2014-01">
-                归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>  
-            <div class="cell" data-log="log-2013-12">
-                归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>                               
+            {{range .data.changelog.logs}} {{$month:=.month}} {{range .items}}
+            <div class="cell" data-log="log-{{print $month}}">
+                <h2>发布日期：{{.date}}</h2>
+                <div class="cell-body">
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_feature"></span>新增功能</h3>
+                        <ol class="features">
+                            {{range .features}}
+                            <li>
+                                <p class="title"><a href="{{.href}}">{{.title}}</a>
+                                </p>
+                                <p class="info">{{.info}}</p>
+                            </li>
+                            {{end}}
+                        </ol>
+                    </div>
+                    <div class="cell-line">
+                        <h3>
+                            <span class="icon changelog_bug"></span>问题修复</h3>
+                        <ol>
+                            {{range .bugs}}
+                            <li>
+                                <p class="title">{{.title}}</p>
+                                <p class="info">{{.info}}</p>
+                            </li>
+                            {{end}}
+                        </ol>
+                    </div>
+                </div>
+        </div>
+        {{end}} {{end}}
         </div>
         <div class="side-bar pull-right">
             <div class="cell">
                 <h2>日志归档</h2>
                 <ul>
+                    {{range .data.changelog.logs}}
                     <li>
-                        <a target="blank" href="#" class="log-2014-01">2013年01月</a><sapn> ( 4 )</sapn>
+                        <a target="blank" href="#" class="log-{{.month}}">{{.month}}</a>
+                        <sapn>( {{len .items}} )</sapn>
                     </li>
-                    <li>
-                        <a target="blank" href="#"  class="log-2013-12">2012年12月</a><sapn> ( 14 )</sapn>
-                    </li>    
-                    <li>
-                        <a target="blank" href="#" class="log-2014-01">2012年11月</a><sapn> ( 4 )</sapn>
-                    </li>
+                    {{end}}
                 </ul>
             </div>
         </div>
-    </div> -->
+    </div>
     {{.includes.search_result}}
-    {{.includes.footer}}
-
-    <script src="/static/js/jquery-1.9.1.min.js" type="text/javascript">
-    </script>
-    <script src="/static/js/dropdown.js" type="text/javascript"></script>
-    <script src="/static/js/modal.js?v={{.time}}" type="text/javascript"></script>
-    <script src="/static/js/highlight/highlight.js" type="text/javascript">
-    </script>
-    <script src="/static/js/docs.js?v={{.time}}" type="text/javascript">
-    </script>
-    <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
-    </body>
-
-</html>
+     {{.includes.footer}}

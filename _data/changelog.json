@@ -1,0 +1,127 @@
+{
+    "logs": [{
+        "month": "2014-03",
+        "items": [{
+            "date": "2014-03-07",
+            "features": [{
+                "title": "m3u8接口增加高码率预设集",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-preset-list",
+                "info": "新增video_1000k和video_1500k两个预设集，提高视频清晰度。"
+            }, {
+                "title": "m3u8接口支持使用自定义参数覆盖预设参数",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-remarks",
+                "info": "覆盖预设参数允许开发者对预设集做细微调整，以获得更精细的效果。"
+            }],
+            "bugs": [{
+                "title": "修复断点续上传不能根据内容检测mimeType的问题"
+            }, {
+                "title": "修复对于css和js文件mimeType检测不正确的问题"
+            }, {
+                "title": "修复转码参数format不支持别名的Bug",
+                "info": "例如m4a是纯音频的mp4的别名，可以直接指定为format参数的值。"
+            }]
+        }]
+    }, {
+        "month": "2014-02",
+        "items": [{
+            "date": "2014-02-19",
+            "features": [{
+                "title": "imageMogr2增加blur参数用于支持高斯模糊",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr2.html#imageMogr2-blur",
+                "info": "可对图片执行高斯模糊处理，以实现毛玻璃效果。"
+            }],
+            "bugs": [{
+                "title": "修复上传服务根据上传内容将apk文件检测为zip的问题"
+            }]
+        }]
+    }, {
+        "month": "2014-01",
+        "items": [{
+            "date": "2014-01-27",
+            "features": [{
+                "title": "上传策略支持transform/fopTimeout字段",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-transform",
+                "info": "用于支持对上传内容做一次同步数据处理，将结果作为最终资源保存"
+            }, {
+                "title": "上传策略的mimeLimit字段支持\"!\"表示不允许的MimeType列表（黑名单效果）",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-remarks"
+            }]
+        }, {
+            "date": "2014-01-10",
+            "features": [{
+                "title": "新增图片处理imageView2和imageMogr2",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/image/",
+                "info": "新增支持处理GIF动图。"
+            }, {
+                "title": "新增音视频处理avconcat",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/avconcat.html",
+                "info": "可将多个音视频文件合并成一个。"
+            }, {
+                "title": "上传服务支持avinfo魔法变量",
+                "href": "http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html",
+                "info": "用于在处理结果或通知中包含音视频元信息。"
+            }, {
+                "title": "镜像存储回源失败时返回579错误码"
+            }],
+            "bugs": [{
+                "title": "修复部分请求不能返回ETag的问题"
+            }]
+        }]
+    }, {
+        "month": "2013-12",
+        "items": [{
+            "date": "2013-12-27",
+            "features": [{
+                "title": "新增pm3u8接口",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/pm3u8.html",
+                "info": "本接口用于将私有m3u8文件中各个ts资源的URL重写为带有下载授权凭证的URL"
+            }, {
+                "title": "数据处理请求的响应Header增加Accept-Range：Byte"
+            }],
+            "bugs": [{
+                "title": "修复视频水印质量下降的问题"
+            }, {
+                "title": "修复视频水印结果元信息附加在资源尾部的问题"
+            }, {
+                "title": "修复数据处理结果下载过程在4M卡住的问题"
+            }]
+        }, {
+            "date": "2013-12-20",
+            "features": [{
+                "title": " 数据处理接口支持断点续下载",
+                "info": "允许通过Bytes-Range Header下载内容片断。"
+            }, {
+                "title": "覆盖预设集的参数",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html#avthumb-remarks",
+                "info": "允许使用自定义参数覆盖预设集中的个别参数。"
+            }, {
+                "title": "支持去除音视频的元信息",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html#avthumb-strip-meta",
+                "info": "使用本接口去除音视频中的元信息，避免泄露信息或引发不良影响。"
+            }],
+            "bugs": [{
+                "title": "修复上传服务没有根据文件内容检测MimeType"
+            }, {
+                "title": "修复avinfo接口返回filename无用字段"
+            }]
+        }, {
+            "date": "2013-12-13",
+            "features": [{
+                "title": " 抓取资源接口（/fetch）",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/rs/fetch.html",
+                "info": "本接口从指定URL抓取资源并存储到指定空间中。"
+            }, {
+                "title": "更新镜像资源接口（/prefetch）",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/rs/prefetch.html",
+                "info": "对于已启用镜像存储功能的空间，可用本接口从镜像源站抓取指定名称资源并存储到该空间中。"
+            }, {
+                "title": "PutPolicy添加mimeLimit字段",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit",
+                "info": "本字段用于限制上传资源的MimeType，如匹配则允许上传，不匹配则返回400状态码。"
+            }],
+            "bugs": [{
+                "title": "修复URL不支持\"//\"的问题"
+            }]
+        }]
+    }]
+}
