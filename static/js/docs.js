@@ -558,9 +558,17 @@ $(function() {
     // });
 
     // 更新日志页面JS
+    function adjustMinHeight() {
+        var wHeight = $(window).height();
+        var headerHeight = $('header').height();
+        var footerHeight = $('footer').height();
+        var minHeight = wHeight - headerHeight - footerHeight - 60;
+        if (minHeight > 0) {
+            $('.changelog .main').css('min-height', minHeight);
+        }
+    }
     $('.changelog .side-bar a').on('click', function(e) {
         var cClass = $(this).attr('class');
-        // console.log(cClass);
         $('.changelog .main .cell').each(function() {
             if ($(this).data('log') === cClass) {
                 $(this).show();
@@ -568,11 +576,12 @@ $(function() {
                 $(this).hide();
             }
         });
+        adjustMinHeight();
         e.preventDefault();
         return false;
     });
     $('.changelog .side-bar a').eq(0).trigger('click');
-
+    $(window).on('resize', adjustMinHeight);
     // 返回顶部JS，暂时未用到
     // $.scrollUp({
     //     scrollName: 'scrollUp',
