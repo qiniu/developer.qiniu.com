@@ -20,7 +20,6 @@
     <!--[if lte IE 8]>
         <script src="static/js/html5.js"></script>
         <![endif]-->
-
     <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
 </head>
 
@@ -28,6 +27,13 @@
     <header>
         {{.includes.header}}
     </header>
+<<<<<<< HEAD
+    <div class="container changelog">
+        <div class="main pull-left">
+            {{range .data.changelog.logs}} {{$month:=.month}} {{range .items}}
+            <div class="cell" data-log="log-{{print $month}}">
+                <h2>发布日期：{{.date}}</h2>
+=======
     <div class="container changelog ">
         <div class="cell">
             <h2>发布日期：2014-03-21</h2>
@@ -294,70 +300,52 @@
         </div>
         <div class="cell">
             <h2>发布日期：2013-12-13</h2>
+>>>>>>> qiniu/master
                 <div class="cell-body">
                     <div class="cell-line">
                         <h3>
                             <span class="icon changelog_feature"></span>新增功能</h3>
                         <ul>
+                            {{range .features}}
                             <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/fetch.html">1. 抓取资源接口（/fetch）
-                                </a></p>
-                                <p class="info">本接口从指定URL抓取资源并存储到指定空间中。</p>
+                                <p class="title"><a href="{{.href}}">{{.title}}                                </a> 
+                                </p>
+                                <p class="info">{{.info}}</p>
                             </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/rs/prefetch.html">2. 更新镜像资源接口（/prefetch）</a></p>
-                                <p class="info">对于已启用镜像存储功能的空间，可用本接口从镜像源站抓取指定名称资源并存储到该空间中。</p>
-                            </li>
-                            <li>
-                                <p class="title"><a href="/docs/v6/api/reference/security/put-policy.html#put-policy-mime-limit">3. PutPolicy添加mimeLimit字段</a></p>
-                                <p class="info">本字段用于限制上传资源的MimeType，如匹配则允许上传，不匹配则返回400状态码。</p>
-                            </li>                            
+                            {{end}}
                         </ul>
                     </div>
                     <div class="cell-line">
                         <h3>
                             <span class="icon changelog_bug"></span>问题修复</h3>
                         <ul>
+                            {{range .bugs}}
                             <li>
-                                <p class="title">1. 修复URL不支持"//"的问题</p>
-                                <!--<p class="info"></p>-->
+                                <p class="title">{{.title}}</p>
+                                <p class="info">{{.info}}</p>
                             </li>
+                            {{end}}
                         </ul>
                     </div>
                 </div>
-        </div>
-    </div> 
-<!--     <div class="container changelog">
-        <div class="main pull-left">
-            <div class="cell" data-log="log-2014-01">
-                归档时，可以将以上cell单元的html拷贝到这个地方
             </div>
-            <div class="cell" data-log="log-2014-01">
-                归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>  
-            <div class="cell" data-log="log-2013-12">
-                归档时，可以将以上cell单元的html拷贝到这个地方
-            </div>                               
+            {{end}} {{end}}
         </div>
         <div class="side-bar pull-right">
             <div class="cell">
                 <h2>日志归档</h2>
                 <ul>
+                    {{range .data.changelog.logs}}
                     <li>
-                        <a target="blank" href="#" class="log-2014-01">2013年01月</a><sapn> ( 4 )</sapn>
+                        <a target="blank" href="#" class="log-{{.month}}">{{.month}}</a>
+                        <sapn>( {{len .items}} )</sapn>
                     </li>
-                    <li>
-                        <a target="blank" href="#"  class="log-2013-12">2012年12月</a><sapn> ( 14 )</sapn>
-                    </li>    
-                    <li>
-                        <a target="blank" href="#" class="log-2014-01">2012年11月</a><sapn> ( 4 )</sapn>
-                    </li>
+                    {{end}}
                 </ul>
             </div>
         </div>
-    </div> -->
-    {{.includes.search_result}}
-    {{.includes.footer}}
+    </div>
+    {{.includes.search_result}} {{.includes.footer}}
 
     <script src="/static/js/jquery-1.9.1.min.js" type="text/javascript">
     </script>
@@ -368,6 +356,6 @@
     <script src="/static/js/docs.js?v={{.time}}" type="text/javascript">
     </script>
     <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
-    </body>
+</body>
 
 </html>
