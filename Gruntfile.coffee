@@ -35,7 +35,7 @@ module.exports = (grunt) ->
 
         csslint:
             options:
-                csslintrc: 'csslintrc'
+                csslintrc: '.csslintrc'
             strict:
                 src: [CSS_MAIN]
 
