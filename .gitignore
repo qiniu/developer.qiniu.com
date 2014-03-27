@@ -1,4 +1,4 @@
 _site/*
 node_modules/*
 static/css/main.css
-static/add-on/bootsrap.min.js
+static/add-on/bootstrap/bootstrap.min.js
