@@ -1,6 +1,5 @@
 module.exports = (grunt) ->
     # Constants
-    BIN_PATH = 'bin/'
     ASSETS_PATH = 'static/'
     JS_PATH = ASSETS_PATH + 'js/'
     ADDON_PATH = ASSETS_PATH + 'add-on/'
@@ -12,14 +11,11 @@ module.exports = (grunt) ->
     CSS_MAIN_FILES = CSS_MAIN: [LESS_MAIN]
 
     # COFFEE_FILES = JS_PATH + '**/*.coffee'
-    JS_FILES = JS_PATH + 'docs.js'
+    JS_FILE = JS_PATH + 'docs.js'
 
-    JS_MAIN = JS_PATH + 'boot.min.js'
-    JS_COMBINE = [
-        JS_PATH + 'highlight/highlight.js',
-        JS_PATH + 'jquery-1.9.1.min.js',
-        JS_PATH + 'jquery.autocomplete.js',
-        JS_PATH + 'jquery.scrollUp.min.js'
+    JS_MAIN = JS_PATH + 'docs.min.js'
+    JS_MAIN_COMBINE =  [
+        JS_FILE
     ]
 
     JS_BOOTSTRAP_MAIN = ADDON_PATH + 'bootstrap/bootstrap.min.js'
@@ -35,7 +31,7 @@ module.exports = (grunt) ->
             options:
                 jshintrc: '.jshintrc'
                 ignores: [JS_MAIN]
-            all: [JS_FILES]
+            all: [JS_FILE]
 
         csslint:
             options:
@@ -75,21 +71,21 @@ module.exports = (grunt) ->
                 options:
                     separator: ';'
                 files: [{
-                    src: JS_COMBINE
-                    dest: JS_MAIN
-                },{
                     src:    JS_BOOTSTRAP_COMBINE
                     dest:  JS_BOOTSTRAP_MAIN
+                },{
+                    src:    JS_MAIN_COMBINE
+                    dest:  JS_MAIN
                 }]
 
-    #     uglify:
-    #         compress:
-    #            options:
-    #                report: 'min'
-    #            files: [{
-    #                expand: true
-    #                src: [JS_FILES, 'src/qiniu.com/portal/!public/**/*.min.js']
-    #            }]
+         uglify:
+             compress:
+                options:
+                    report: 'min'
+                files: [{
+                    expand: true
+                    src: [JS_MAIN]
+                }]
 
     #    watch:
     #        options:
@@ -99,7 +95,7 @@ module.exports = (grunt) ->
     #            files: LESS_FILES
     #            tasks: 'less:development'
     #        js:
-    #            files: JS_FILES
+    #            files: JS_FILE
     #            tasks: 'jshint'
     #            options:
     #                spawn:false
@@ -118,7 +114,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-less'
-    # grunt.loadNpmTasks 'grunt-contrib-uglify'
+    grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-jshint'
     grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-csslint'
@@ -131,7 +127,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'production', [
 #        'coffee'
         'jshint'
-#        'uglify:compress'
+        'uglify:compress'
         'less:production'
         'csslint:strict'
     ]
