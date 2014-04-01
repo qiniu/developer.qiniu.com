@@ -23,7 +23,13 @@ clean:
 	rm -rf _site
 
 dev: all
+	npm install
 	grunt
+	./_jkl --server
+
+pro: all
+	npm install
+	grunt production
 	./_jkl --server
 
 mapsite:
