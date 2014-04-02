@@ -28,6 +28,7 @@ avthumb/<Format>
        /acodec/<AudioCodec>
        /ss/<SeekStart>
        /t/<Duration>
+       /s/<Resolution>
        /stripmeta/<StripMeta>
        /rotate/<Degree>
 ```
