@@ -2,6 +2,18 @@
     "logs": [{
         "month": "2014-03",
         "items": [{
+            "date": "2014-03-21",
+            "features": [{
+                "title": "新增imageAve接口与魔法变量",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageave.html",
+                "info": "本接口用于获取指定图片的平均色调（主色调）。"
+            }],
+            "bugs": [{
+                "title": "修复当源文件包含数据流会转码失败的问题"
+            }, {
+                "title": "修复转码参数中编码不能使用copy的问题"
+            }]
+        }, {
             "date": "2014-03-07",
             "features": [{
                 "title": "m3u8接口增加高码率预设集",
