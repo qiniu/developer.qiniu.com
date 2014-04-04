@@ -121,6 +121,19 @@ HTTP状态码 | 含义
 404        | 资源不存在。
 599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
+<a id="pfop-failures"></a>
+## 故障排除
+
+1. 301跳转问题
+
+如果遇到类似如下301跳转现象，请检查Pfop的URL最后是否少了一个斜杠符号（"/"），误写成`http://api.qiniu.com/pfop`：  
+
+```
+W, [2014-04-05T00:14:07.748721 #686]  WARN -- : 301 Moved Permanently => Qiniu::HTTP.post('http://api.qiniu.com/pfop')
+```
+
+正确写法是`http://api.qiniu.com/pfop/`。  
+
 <a id="pfop-notification"></a>
 # 处理结果通知
 
