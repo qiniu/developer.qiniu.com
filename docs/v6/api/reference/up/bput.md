@@ -20,7 +20,7 @@ order: 90
 ### 请求语法
 
 ```
-POST /bput/<ctx>/<nectChunkOffset> HTTP/1.1
+POST /bput/<ctx>/<nextChunkOffset> HTTP/1.1
 Host:           <UpHost>
 Content-Type:   application/octet-stream
 Content-Length: <nextChunkSize>
