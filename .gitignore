@@ -1,2 +1,5 @@
 _site/*
 node_modules/*
+static/css/main.css
+static/add-on/bootstrap/bootstrap.min.js
+static/js/docs.min.js

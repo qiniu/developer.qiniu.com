@@ -1,3 +1,4 @@
+/* global hljs */
 var DocsAddResource;
 var DocsFeedback;
 
@@ -6,9 +7,11 @@ var _IE = (function() {
         div = document.createElement('div'),
         all = div.getElementsByTagName('i');
     while (
-        div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+        div.innerHTML = '<!--[if gt IE ' + v + ']><i></i><![endif]-->',
         all[0]
-    );
+    ) {
+        ++v;
+    }
     return v > 4 ? v : false;
 }());
 
@@ -128,7 +131,7 @@ $(function() {
         var shref = href.split("/");
         var sdk = shref[shref.length - 1];
         sdk = sdk.substring(0, sdk.length - 5);
-        addIndex = function(ul, idx) {
+        var addIndex = function(ul, idx) {
             $(ul).children("li").each(function(i) {
                 i = i + 1;
                 var ii;
@@ -184,7 +187,7 @@ $(function() {
         $(this).next().addClass('global_search_default_sprited').removeClass('global_search_active_sprited');
     }).on('keypress', function(e) {
         var code = e.keyCode || e.which;
-        if (code == 13) { //Enter keycode
+        if (code === 13) { //Enter keycode
             //Do something
             var val = encodeURIComponent($(this).val());
             search(val);
@@ -276,10 +279,10 @@ $(function() {
                             top: top
                         });
                     }
-                    if (IsTaller()) {
+                    if (isTaller()) {
                         $sidebar.on('mouseenter.scrolling', function() {
                             var scrollY = $(window).scrollTop();
-                            var sidebarHeight = $sidebar.height() + 2;
+                            // var sidebarHeight = $sidebar.height() + 2;
                             if (scrollY > sidebarY) {
                                 $(this).addClass('scrolling');
 
@@ -299,7 +302,7 @@ $(function() {
                     });
                 }
                 if ($sidebar.hasClass('in')) {
-                    if (IsTaller()) {
+                    if (isTaller()) {
                         $sidebar.trigger('mouseenter.scrolling');
                     } else {
                         unBindScroll();
@@ -328,7 +331,7 @@ $(function() {
                     var top = getSidebarTop();
                     var scrollY = $(window).scrollTop();
                     var sidebarHeight = $sidebar.height() + 2;
-                    if ((scrollY + top + sidebarHeight < footerY) || IsTaller()) {
+                    if ((scrollY + top + sidebarHeight < footerY) || isTaller()) {
                         changeSidebarPos(direction);
                         e.preventDefault();
                         e.stopPropagation();
@@ -346,7 +349,7 @@ $(function() {
         });
     }
 
-    var IsTaller = function() {
+    var isTaller = function() {
         return $sidebar.height() + getSidebarTop() > $(window).height();
     };
     var unBindScroll = function() {
@@ -356,7 +359,7 @@ $(function() {
     var changeSidebarPos = function(direction) {
         var top = getSidebarTop();
         var scrollY = $(window).scrollTop();
-        var sidebarHeight = $sidebar.height() + 2;
+        // var sidebarHeight = $sidebar.height() + 2;
         if (direction === 'up') {
             if (scrollY + $(window).height() < footerY) {
                 top = top + 40;
@@ -370,7 +373,7 @@ $(function() {
             }
 
         } else {
-            if (IsTaller()) {
+            if (isTaller()) {
                 top = top - 40;
                 $sidebar.css({
                     top: top + 'px'
@@ -423,10 +426,10 @@ $(function() {
             $(this).find('a').removeClass('active');
         } else {
             $next.show('fast', function() {
-                var scrollTop = $(window).scrollTop() - 70;
-                var height = $('.panel-box').height();
-                var mainHeight = $('.main').height();
-                var dHeight = scrollTop + height - mainHeight;
+                // var scrollTop = $(window).scrollTop() - 70;
+                // var height = $('.panel-box').height();
+                // var mainHeight = $('.main').height();
+                // var dHeight = scrollTop + height - mainHeight;
                 adjustApiBoxHeight();
             });
             $(this).find('span.api_default').removeClass('api_default').addClass('api_down');

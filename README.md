@@ -1,5 +1,7 @@
 ## 本地运行文档
 
+安装[NodeJS](http://nodejs.org/)
+
 ``` bash
 make test
 ```
@@ -11,7 +13,7 @@ make test
 编辑 `_jekyll_qiniu.yml` ,填写正确的AccessKey、SecretKey以及Bucket
 
 ``` bash
-make 
+make
 make install
 ```
 
