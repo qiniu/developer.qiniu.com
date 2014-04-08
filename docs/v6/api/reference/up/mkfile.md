@@ -49,11 +49,11 @@ Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]
 <a id="mkfile-request-body"></a>
 ### 请求内容
 
-该请求的内容为所有块的`<ctx>`列表，以“,”分隔，按其在源文件中的位置排序。  
+该请求的内容为每个数据块最后一个数据片上传后得到的`<ctx>`的列表，以“,”分隔，按其在源文件中的位置排序。  
 注意：列表最后一项后面不需要添加“,”。
 
 ```
-<ctx1>,<ctx2>,<ctx3>,<ctx4>,<ctx5>,...,<ctxN>
+<lastCtxOfBlock1>,<lastCtxOfBlock2>,<lastCtxOfBlock3>,...,<lastCtxOfBlockN>
 ```
 
 <a id="mkfile-request-auth"></a>
