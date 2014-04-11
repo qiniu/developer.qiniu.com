@@ -5,7 +5,7 @@ title: C# SDK 使用指南
 
 # C# SDK 使用指南
 
-此 C# SDK 适用于.net framework>4.0版本，基于[七牛云存储官方API](../index.html)构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
+此 C# SDK 适用于.net framework>2.0版本，基于 [七牛云存储官方API](http://docs.qiniu.com/) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 - [安装](#install)
 - [初始化](#setup)
@@ -58,6 +58,8 @@ DLL引用方式:
 	C# SDK引用了第三方的开源项目 Json.NET,因此，您需要在项目中引用它
 项目地址：[http://json.codeplex.com](http://json.codeplex.com)。
 
+<a name=setup></a>
+## 初始化
 <a name=setup-key></a>
 ### 配置密钥
 
@@ -66,7 +68,7 @@ DLL引用方式:
 要接入七牛云存储，您需要拥有一对有效的 Access Key 和 Secret Key 用来进行签名认证。可以通过如下步骤获得：
 
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. 登录七牛开发者平台，查看 [Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 。
+2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 。
 
 在获取到 Access Key 和 Secret Key 之后，您可以在您的程序中调用如下两行代码进行初始化对接, 要确保`ACCESS_KEY` 和 `SECRET_KEY` 在<u>调用所有七牛API服务之前均已赋值</u>：
 
@@ -75,6 +77,22 @@ using Qiniu.Conf;
 qiniu.conf.ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
 qiniu.conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
+
+或者，编译配置文件app.conf或者web.conf等文件，添加以下配置项：
+
+``` xml
+<appSettings>
+    <add key="USER_AGENT" value="" />
+    <add key="ACCESS_KEY" value="" />
+    <add key="SECRET_KEY" value="" />
+    <add key="RS_HOST" value="" />
+    <add key="UP_HOST" value="" />
+    <add key="RSF_HOST" value="" />
+    <add key="PREFETCH_HOST" value="" />
+  </appSettings>
+ ```
+
+添加完成后，在程序启动的时候调用`Qiniu.Conf.Config.Init()`进行初始化。
 
 <a name=rs-api></a>
 ## 资源管理接口
@@ -375,7 +393,7 @@ public static void List (string bucket)
 <a name=putpolicy></a>
 ### 上传策略
 
-PutPolicy类用于定制上传策略，关于上传策略完整的说明，请参考[上传策略（PutPolicy）](../api/reference/security/put-policy.html)。
+PutPolicy类用于定制上传策略，关于上传策略完整的说明，请参考[上传策略（PutPolicy）](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html)。
 
 uptoken 实际上是用 AccessKey/SecretKey对上传策略进行数字签名的字符串,用于上传接口。
 
@@ -408,7 +426,7 @@ public static void PutFile(string bucket, string key, string fname)
 {
 	var policy = new PutPolicy(bucket, 3600);
 	string upToken = policy.Token();
-	PutExtra extra = new PutExtra { Bucket = bucket };
+	PutExtra extra = new PutExtra ();
 	IOClient client = new IOClient();
 	client.PutFinished += new EventHandler<PutRet>((o, ret) => {
 		if (ret.OK)
@@ -439,12 +457,7 @@ public static void ResumablePutFile(string bucket, string key, string fname)
 	string upToken = policy.Token();
 	Settings setting = new Settings();
 	ResumablePutExtra extra = new ResumablePutExtra();
-	extra.Bucket = bucket;
 	ResumablePut client = new ResumablePut(setting, extra);
-	client.Progress += new Action<float>((p) => {
-	    Console.WriteLine("当前进度:{0}%", p * 100);
-
-	});
 	client.PutFinished += new EventHandler<CallRet>((o, ret) => {
 	    if (ret.OK)
 	    {
@@ -459,7 +472,7 @@ public static void ResumablePutFile(string bucket, string key, string fname)
 }
 ```
 
-ResumablePut采用分快上传，各快之间采用并行上传,通过注册事件Progress可以获取当前文件上传进度，同时您也可以通过注册ResumablePutExtra以下两个事件监听当前上传进度以及成功情况：
+ResumablePut采用分快上传，各快之间采用并行上传,可以通过注册ResumablePutExtra以下两个事件监听当前上传进度以及成功情况：
 
 ```c#
 public event EventHandler<PutNotifyEvent> Notify;
@@ -480,9 +493,9 @@ public event EventHandler<PutNotifyErrorEvent> NotifyErr;
 
 	[GET] http://<domain>/<key>
 
-其中<domain>是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，用户可以通过自有域名访问七牛云存储。
+其中<domain>是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛云存储开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，用户可以通过自有域名访问七牛云存储。
 
-**注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
+**注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将返回错误**
 
 <a name=private-download></a>
 #### 私有资源下载
@@ -523,7 +536,7 @@ using Qiniu.FileOp;
 	string key = key;
 	Console.WriteLine("\n===> FileOp.ImageInfo");
 	//生成base_url
-	string url = Qiniu.RS.GetPolicy.MakeBaseUrl(domain, key);
+	string url = Qiniu.RS.GetPolicy.MakeBaseUrl(domian, key);
 	//生成fop_url
 	string imageInfoURL = ImageInfo.MakeRequest(url);
 	//对其签名，生成private_url。如果是公有bucket此步可以省略
@@ -613,7 +626,7 @@ using Qiniu.FileOp;
 <a name=license></a>
 ## 许可证
 
-Copyright (c) 2014 qiniu.com
+Copyright (c) 2013 qiniu.com
 
 基于 MIT 协议发布:
 
