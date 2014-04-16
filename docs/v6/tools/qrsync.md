@@ -37,7 +37,7 @@ qrsync 命令行辅助同步工具下载地址：
     "access_key":               "<AccessKey>",
     "secret_key":               "<SecretKey>",
 
-    "bucket":                   "<目标空间>,
+    "bucket":                   "<目标空间>",
     "sync_dir":                 "<本地源目录路径>",
     "persistent_ops":           "<异步转码规格列表>",
     "persistent_notify_url":    "<异步转码结果通知接收URL>",
