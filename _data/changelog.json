@@ -2,6 +2,14 @@
     "logs": [{
         "month": "2014-03",
         "items": [{
+            "date": "2014-03-31",
+            "features": [],
+            "bugs": [{
+                "title": "imageView2绕过go的image包，导致不支持一些图片而直接返回错误的问题"
+            },{
+                "title": "根据内容识别MimeType：对于文本格式直接根据后缀检测"
+            }]
+        }, {
             "date": "2014-03-21",
             "features": [{
                 "title": "新增imageAve接口与魔法变量",
