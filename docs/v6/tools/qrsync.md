@@ -30,29 +30,35 @@ qrsync 命令行辅助同步工具下载地址：
 <a id="usage"></a>
 ## 用法
 
-先建立一个配置文件，比如叫 conf.json，内容大体如下：
+先建立一个配置文件（[JSON格式](http://json.org/json-zh.html)），比如叫`conf.json`，内容如下：
 
-    {
-        "access_key": "Please apply your access key here",
-        "secret_key": "Dont send your secret key to anyone",
-        "bucket": "Bucket name on qiniu resource storage",
-        "sync_dir": "Local directory to upload",
-        "async_ops": "fop1;fop2;fopN",
-        "debug_level": 1
-    }
+```
+{
+    "access_key":               "<AccessKey>",
+    "secret_key":               "<SecretKey>",
 
-配置文件语法可以参考 [JSON](http://json.org/json-zh.html) 。
+    "bucket":                   "<目标空间>,
+    "sync_dir":                 "<本地源目录路径>",
+    "persistent_ops":           "<异步转码规格列表>",
+    "persistent_notify_url":    "<异步转码结果通知接收URL>",
+    "debug_level":              1
+}
+```
 
-其中，`access_key` 和 `secret_key` 在七牛云存储平台上申请。步骤如下：
+其中，`AccessKey` 和 `SecretKey` 需要在七牛云存储平台上申请。步骤如下：
 
 1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)
+2. [登录七牛管理控制台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)
 
-`bucket` 是你在七牛云存储上希望保存数据的 Bucket 名（类似于数据库的表），这个自己选择一个合适的就可以，要求是只能由字母、数字、下划线等组成。
+参数名称   | 必填 | 说明
+:--------- | :--- | :------
+`bucket`   | 是   | ● 目标空间<br>是你在七牛云存储上希望保存数据的Bucket名称，选择一个合适的名字即可，要求是只能由字母、数字、下划线等组成。<br>可以先在[七牛管理控制台](https://portal.qiniu.com/)上创建。
+`sync_dir` | 是   | ● 本地源目录路径<br>是本地需要同步上传目录的完整的绝对路径。这个目录中的所有内容会被同步到指定的 `bucket` 中。<br>注意：Windows 平台上路径的表示格式为：`盘符:/目录`，比如 E 盘下的目录 data 表示为：`e:/data` 。
+`persistent_ops`        |      | ● 资源上传成功后触发执行的预转持久化处理指令列表<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](../api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)与[示例](../api/reference/security/put-policy.html#put-policy-samples-persisntent-ops)。
+`persistent_notify_url` |      | ● 接收预转持久化结果通知的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。如设置`persistenOps`字段，则本字段必须同时设置（未来可能转为可选项）。
+`debug_level`           | 是   | ● 日志输出等级<br>通常设置1，只输出必要的日志。<br>当上传过程发生问题时，设置为0可以得到详细日志。
 
-`sync_dir` 是本地需要上传的目录，绝对路径完整表示。这个目录中的所有内容会被同步到指定的 `bucket` 上。注意：Windows 平台上路径的表示格式为：`盘符:/目录`，比如 E 盘下的目录 data 表示为：`e:/data` 。
-
-`async_ops` 是设置上传预转参数，一般上传的音视频如果需要转码，可以使用该参数。详情参考：[音视频上传预转 - asyncOps](/api/put.html#uploadToken-asyncOps)
+注意：切勿将配置文件保存在被同步的目录中，否则会带来泄露SecretKey的风险。
 
 可以在 [七牛云存储开发者网站后台](https://portal.qiniu.com/) 进行相应的域名绑定操作，域名绑定成功后，若您将 bucket 设为公用（public）属性，则可以用如下方式对上传的文件进行访问：
 
@@ -68,7 +74,6 @@ qrsync 命令行辅助同步工具下载地址：
 Unix/Linux/MacOS 系统可以用如下命令行：
 
     $ qrsync /path/to/your-conf.json
-
 
 以上命令会将 `sync_dir` 目录中所有的文件包括软链接全部同步到 conf.json 配置文件指定的 `bucket` 中。也可以通过加上 `-skipsym` 选项来忽略软链接。
 

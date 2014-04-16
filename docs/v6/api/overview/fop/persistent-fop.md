@@ -27,7 +27,7 @@ order: 270
 
 字段                   | 类型    | 含义
 --------------------- | ------ | -------------
-`persistentOps`       | string | 需要进行的数据处理命令,可以指定多个命令，以`;`分隔，具体含义见[详解](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)。<p>每一个数据处理命令都应遵循标准格式，参见[数据处理（fop）][fopHref]。
+`persistentOps`       | string | 需要进行的数据处理命令，可以指定多个命令，以`;`分隔，具体含义见[persistentOps详解](../../reference/security/put-policy.html#put-policy-persistent-ops-explanation)。<p>每一个数据处理命令都应遵循标准格式，参见[数据处理（fop）][fopHref]。
 `persistentNotifyUrl` | string | 用户接收视频处理结果的接口URL。<br>设置`persistentOps`字段时，本字段必须同时设置。<br>未来该设置项将改为可选，如未设置，则只能使用返回的`persistentId`主动查询处理进度。
 
 用户使用指定了`persistentOps`和`persistentNotifyUrl`的上传凭证上传一个文件之后，服务端返回的响应内容中会包含此次异步处理的进程ID`persistentId`，该ID可用于获取处理的进度和结果。
@@ -50,7 +50,7 @@ Host: api.qiniu.com
 Content-Type: application/x-www-form-urlencoded  
 Authorization: <AccessToken>  
 
-bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotifyUrl>
+bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<urlEncodedPersistentNotifyUrl>&force=<Force>
 ```
 
 其中的`AccessToken`的生成算法可参见[管理凭证规格][accessTokenHref]。
