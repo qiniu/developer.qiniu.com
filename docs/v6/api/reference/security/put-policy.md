@@ -36,10 +36,7 @@ order: 980
     "fsizeLimit":           <FileSizeLimit            int64>,
 
     "detectMime":           <AutoDetectMimeType       int>,
-    "mimeLimit":           "<MimeLimit                string>",
-
-    "transform":           "<Transform                string>",
-    "fopTimeout":           <FopTimeout               int>
+    "mimeLimit":           "<MimeLimit                string>"
 }
 ```
 
@@ -59,8 +56,6 @@ order: 980
 <a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | ● 限定上传文件的大小，单位：字节（Byte）<br>超过限制的上传内容会被判为上传失败，返回413状态码。
 <a id="put-policy-detect-mime"></a>`detectMime`          |      | ● 开启MimeType侦测功能<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名<br>2. 检查Key扩展名<br>3. 侦测内容。
 <a id="put-policy-mime-limit"></a>`mimeLimit`           |      | ● 限定用户上传的文件类型<br>指定本字段值，七牛服务器会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回403状态码<br>● 示例<br>1. "image/*"表示只允许上传图片类型；<br>2. "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片；<br>3. "!application/json;text/plain"表示禁止上传`json`文本和纯文本（注意最前面的感叹号）。
-<a id="put-policy-transform"></a>`transform`           |      | ● 对文件先进行一次变换操作（比如将音频统一转为某种码率的mp3）再进行存储<br>本字段的值是一个fop指令，比如<br>`imageView/1/w/310/h/395/q/80`<br>其含义是对上传文件执行该fop指令，然后把处理结果作为最终资源保存到七牛云。<br>须与`fopTimeout`字段配合使用。
-<a id="put-policy-fop-timeout"></a>`fopTimeout`           |      | ● 文件变换操作执行的超时时间（单位：秒）<br>这个值太小可能会导致误判（最终存储成功了但客户端得到超时错），太大可能会导致服务端将其判断为低优先级任务。<br>建议取一个相对准确的时间估计值*N（N不要超过5）。<br>须与`transform`字段配合使用。fopTimeout 如果未指定会有一个默认的超时（我们建议尽量主动指定）。
 
 <a id="put-policy-persistent-ops-explanation"></a>
 ### persistentOps详解
