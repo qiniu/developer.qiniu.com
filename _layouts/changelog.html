@@ -39,7 +39,9 @@
                         <ul>
                             {{range .features}}
                             <li>
-                                <p class="title"><a href="{{.href}}">{{.title}}                                </a> 
+                                <p class="title">
+                                    {{if .href}}<a href="{{.href}}">{{.title}}</a>{{else}} {{.title}}
+                                    {{end}}
                                 </p>
                                 <p class="info">{{.info}}</p>
                             </li>
