@@ -599,7 +599,6 @@ $(function() {
 
     $('.container.docs .main .sdk ul li:last-child').hide();
     //hack  ,hide javascript sdk link in api-index.html
-    $('.container.api .side-bar').find('#JavaScript-sdk').parent().remove();
-    //hack  ,remove javascript sdk link of siderbar in api page
+
 
 });
