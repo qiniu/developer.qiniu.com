@@ -14,7 +14,7 @@ fc:
 test: all
 	./_jkl --server
 
-install:
+install: all
 	grunt production
 	rm -rf node_modules
 
