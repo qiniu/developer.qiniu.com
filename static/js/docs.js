@@ -597,8 +597,4 @@ $(function() {
     //     activeOverlay: false
     // });
 
-    $('.container.docs .main .sdk ul li:last-child').hide();
-    //hack  ,hide javascript sdk link in api-index.html
-
-
 });
