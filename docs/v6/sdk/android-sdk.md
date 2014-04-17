@@ -1,4 +1,5 @@
 ---
+layout: docs
 title: Android SDK使用文档
 ---
 
@@ -66,26 +67,26 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 该方法的详细说明如下：
 
 ```java
-public void put(String key, 
-				InputStreamAt isa, 
-				com.qiniu.io.PutExtra extra, 
+public void put(String key,
+				InputStreamAt isa,
+				com.qiniu.io.PutExtra extra,
 				JSONObjectRet ret);
 ```
 
 参数说明：
 
-参数 | 类型 | 说明 
+参数 | 类型 | 说明
 :---: | :----: | :---
-`key` | `String` | 将保存为的资源唯一标识。请参见[关键概念：键值对](http://developer.qiniu.com/docs/v6/api/overview/concepts.html#key-value)。 
-`isa` | `InputStreamAt` | 待上传的本地文件。 
-`extra` | [`PutExtra`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/resumableio/PutExtra.java) | 上传参数。可以设置MIME类型等。 
+`key` | `String` | 将保存为的资源唯一标识。请参见[关键概念：键值对](http://developer.qiniu.com/docs/v6/api/overview/concepts.html#key-value)。
+`isa` | `InputStreamAt` | 待上传的本地文件。
+`extra` | [`PutExtra`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/resumableio/PutExtra.java) | 上传参数。可以设置MIME类型等。
 `ret` | [`JSONObjectRet`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/auth/JSONObjectRet.java)  | 开发者需实现该接口以获取上传进度和上传结果。<br>若上传成功，该接口中的`onSuccess()`方法将被调用。否则`onFailure()`方法将被调用。 `onProgress()`会在文件上传量发生更改的时候被调用，而且处于MainThread环境之中，可以直接操作ProgressBar之类的进度提示控件。
 
 开发者可以在调用方法前构造一个`PutExtra`对象，设置对应的上传参数以控制上传行为。可以设置的参数如下：
 
-参数 | 类型 | 说明 
+参数 | 类型 | 说明
 :---: | :----: | :---
-`mimeType` | `String` | 指定上传文件的MIME类型。如果未指定，服务端将做自动检测。一般情况下无需设置。 
+`mimeType` | `String` | 指定上传文件的MIME类型。如果未指定，服务端将做自动检测。一般情况下无需设置。
 `crc32` | `long` | 本文件的CRC校验码。服务端在上传完成后可以进行一次校验确认文件的完整性。
 `params` | `HashMap<String, String>` | 可设置魔法变量和自定义变量。变量可帮助开发者快速的在客户端、业务服务器、云存储服务之间传递资源元信息。详见[变量](http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html)。
 
@@ -116,9 +117,9 @@ extra.params.put("x:a", "bb"); // 设置一个自定义变量
 
 ```java
 class ResumableIO {
-    public static void put(String key, 
-				InputStreamAt isa, 
-				com.qiniu.resumableio.PutExtra extra, 
+    public static void put(String key,
+				InputStreamAt isa,
+				com.qiniu.resumableio.PutExtra extra,
 				JSONObjectRet ret);
 }
 ```
