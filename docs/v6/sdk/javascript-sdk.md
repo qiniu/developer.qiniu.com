@@ -1,9 +1,54 @@
-qiniu-js-sdk
-============
+---
+layout: docs
+title: PHP SDK 使用指南
+---
+
+# JavaScript SDK 使用指南
 
 基于七牛API及Plupload开发的前端JavaScript SDK
 
 示例网站：[七牛JavaScript SDK 示例网站 - 配合七牛nodejs SDK ](http://jssdk.demo.qiniu.io/)
+
+目录
+----
+- [概述](#overview)
+- [安装](#install)
+- [初始化](#setup)
+    - [配置密钥](#setup-key)
+- [上传文件](#io-put)
+    - [上传流程](#io-put-flow)
+    - [生成上传授权uptoken](#io-put-make-uptoken)
+    - [上传代码](#io-put-upload-code)
+    - [断点续上传、分块并行上传](#io-put-resumable)
+    - [上传策略](#io-put-policy)
+- [下载文件](#io-get)
+    - [公有资源下载](#io-get-public)
+    - [私有资源下载](#io-get-private)
+    - [HTTPS支持](#io-get-https)
+    - [断点续下载](#io-get-resumable)
+- [资源操作](#rs)
+    - [获取文件信息](#rs-stat)
+    - [删除文件](#rs-delete)
+    - [复制文件](#rs-copy)
+    - [移动文件](#rs-move)
+    - [批量操作](#rs-batch)
+        - [批量获取文件信息](#rs-batch-stat)
+        - [批量删除文件](#rs-batch-delete)
+        - [批量复制文件](#rs-batch-copy)
+        - [批量移动文件](#rs-batch-move)
+        - [高级批量操作](#rs-batch-advanced)
+- [数据处理接口](#fop-api)
+    - [图像](#fop-image)
+        - [查看图像属性](#fop-image-info)
+        - [查看图片EXIF信息](#fop-exif)
+        - [生成图片预览](#fop-image-view)
+- [高级资源管理接口](#rsf-api)
+    - [批量获得文件列表](#rsf-listPrefix)
+- [贡献代码](#contribution)
+- [许可证](#license)
+
+----
+<a id="overview"></a>
 ## 概述
 
 本SDK适用于IE8+、Chrome、Firefox、Safari 等浏览器，基于 七牛云存储官方API 构建，其中上传功能基于 Plupload 插件封装。开发者使用本 SDK 可以方便的从浏览器端上传文件至七牛云存储，并对上传成功后的图片进行丰富的数据处理操作。本 SDK 可使开发者忽略上传底层实现细节，而更多的关注 UI 层的展现。
