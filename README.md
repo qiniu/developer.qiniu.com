@@ -2,6 +2,8 @@
 
 安装[NodeJS](http://nodejs.org/)
 
+安装[Grunt CLI](http://gruntjs.com/getting-started#installing-the-cli),`npm install -g grunt-cli`
+
 ``` bash
 make test
 ```
@@ -13,7 +15,6 @@ make test
 编辑 `_jekyll_qiniu.yml` ,填写正确的AccessKey、SecretKey以及Bucket
 
 ``` bash
-make
 make install
 ```
 
