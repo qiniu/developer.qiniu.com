@@ -16,9 +16,9 @@ title: QRSBox 同步工具
 
 ## 简介
 
-QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux、Mac OS X、Windows等操作系统。  
-使用QRSBox，可将用户本地某个目录的所有文件同步上传到七牛云存储中，同时监控目录变化，将目录中新增的文件也上传至七牛云存储。  
-配合操作系统已有的强大文件管理功能（分级存放、按指定项目排序、查找匹配指定条件的文件等），即可轻松优雅地完成繁复的文件管理事务。  
+QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux、Mac OS X、Windows等操作系统。
+使用QRSBox，可将用户本地某个目录的所有文件同步上传到七牛云存储中，同时监控目录变化，将目录中新增的文件也上传至七牛云存储。
+配合操作系统已有的强大文件管理功能（分级存放、按指定项目排序、查找匹配指定条件的文件等），即可轻松优雅地完成繁复的文件管理事务。
 
 请注意QRSBox不会同步文件的删除操作。也就是说，如果受监控的目录中有文件被删除，已上传至七牛云存储的文件副本仍旧保留。如果用户确实需要删除该文件，可以到[七牛管理控制台](https://portal.qiniu.com/) 中删除。这一设计的目的是为了防止误删文件造成数据丢失。同时还可以收获另一个好处，就是同步上传完一个文件后，本地可以马上删除该文件以释放磁盘空间。
 
@@ -37,13 +37,13 @@ QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux
 
 ## 下载
 
-- 图形化工具：  
-    - Windows: [qrsbox windows_386](http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip)
+- 图形化工具：
+    - Windows: [qrsbox windows_386](http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip)
 
 - 命令行工具：
-    - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniudn.com/mac/qrsboxcli)
-    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.tar.gz)
-    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.tar.gz)
+    - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniu.io/mac/qrsboxcli)
+    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz)
+    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz)
 
 ---
 
@@ -133,10 +133,10 @@ nohup ./qrsboxcli sync >/dev/null 2>&1 &
 
 #### 命令使用说明
 
-执行以下命令可以获得各个子命令的使用说明：  
+执行以下命令可以获得各个子命令的使用说明：
 
 ```
-./qrsboxcli 
+./qrsboxcli
 
 Usage:
   qrsboxcli init <AccessKey> <SecretKey> <SyncDir> <Bucket>  - Init qrsbox conf
@@ -150,8 +150,8 @@ BuildVersion:
 
 #### 配置文件
 
-命令行工具的配置文件通常保存在用户主目录的.qrsbox下，执行init命令时会将具体目录路径输出到屏幕上。  
-具体内容如下（JSON格式）：  
+命令行工具的配置文件通常保存在用户主目录的.qrsbox下，执行init命令时会将具体目录路径输出到屏幕上。
+具体内容如下（JSON格式）：
 
 ```
 {
@@ -169,16 +169,16 @@ BuildVersion:
 }
 ```
 
-其中，  
+其中，
 
-- `tasks`字段指定监控任务：  
-    - `src`字段指定受监控的文件目录；  
-    - `dest`字段指定上传目标参数，如空间名（<Bucket>）和文件前缀（KeyPrefix），多个参数须以`&`符号分隔；  
-    - `skipsym`字段指定是否跳过链接文件，`0`表示不跳过，`1`表示跳过；  
-    - `syncdur`字段指定监控检测周期，单位为秒，`0`表示使用默认值（0.5秒）。  
-- `access_key`字段指定AccessKey值；  
-- `secret_key`字段指定SecretKey值；  
-- `debug_level`字段指定日志信息输出等级，默认值为`0`，即输出Debug信息。  
+- `tasks`字段指定监控任务：
+    - `src`字段指定受监控的文件目录；
+    - `dest`字段指定上传目标参数，如空间名（<Bucket>）和文件前缀（KeyPrefix），多个参数须以`&`符号分隔；
+    - `skipsym`字段指定是否跳过链接文件，`0`表示不跳过，`1`表示跳过；
+    - `syncdur`字段指定监控检测周期，单位为秒，`0`表示使用默认值（0.5秒）。
+- `access_key`字段指定AccessKey值；
+- `secret_key`字段指定SecretKey值；
+- `debug_level`字段指定日志信息输出等级，默认值为`0`，即输出Debug信息。
 
 ---
 
@@ -189,13 +189,13 @@ BuildVersion:
 
 1. `No space left on device`问题
 
-现象为日志中出现如下错误：  
+现象为日志中出现如下错误：
 
 ```
 2014/02/21 10:24:50 [ERROR][github.com/qiniu/fsw] utils.go:22: Watcher failed: no space left on device
 ```
 
-遇到此问题，请先执行如下两行命令检查内核参数和监视文件数量：  
+遇到此问题，请先执行如下两行命令检查内核参数和监视文件数量：
 
 ```
 cat /proc/sys/fs/inotify/max_user_watches
@@ -203,7 +203,7 @@ cat /proc/sys/fs/inotify/max_user_watches
 find <受监视文件夹路径> | wc -l
 ```
 
-如果cat输出值小于wc输出值，则执行如下命令（设定值为`wc输出值 X 2`）：  
+如果cat输出值小于wc输出值，则执行如下命令（设定值为`wc输出值 X 2`）：
 
 ```
 echo 设定值 > /proc/sys/fs/inotify/max_user_watches
