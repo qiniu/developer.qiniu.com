@@ -92,13 +92,12 @@
         "doc": "docs/v6/sdk/go-sdk.html",
         "source": "https://github.com/qiniu/api"
     }, {
-        "name": "JavaScript",
+        "name": "javascript",
         "menuName": "JavaScript",
         "label": "SDK for JavaScript (客户端)",
         "download": "https://github.com/qiniupd/qiniu-js-sdk/releases",
         "version": "v1.0.0",
         "date": "2014-02-27",
-        "href": "https://github.com/qiniupd/qiniu-js-sdk",
         "doc": "docs/v6/sdk/javascript-sdk.html",
         "source": "https://github.com/qiniupd/qiniu-js-sdk"
     }],
