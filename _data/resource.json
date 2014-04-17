@@ -99,6 +99,7 @@
         "version": "v1.0.0",
         "date": "2014-02-27",
         "href": "https://github.com/qiniupd/qiniu-js-sdk",
+        "doc": "docs/v6/sdk/javascript-sdk.html",
         "source": "https://github.com/qiniupd/qiniu-js-sdk"
     }],
     "devtools": [{
