@@ -144,7 +144,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 ## 内部参考资源
 
 - [EncodedEntryURI格式][encodedEntryURIHref]
-- [触发持久华处理][pfopHref]
+- [触发持久化处理][pfopHref]
 
 [encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
 [pfopHref]:                     pfop/pfop.html                                     "触发持久化处理"

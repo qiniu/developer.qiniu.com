@@ -19,7 +19,7 @@ order: 10
 ### 请求语法
 
 ```
-POST /mkfile/<fileSize>/key/<encodedKey> HTTP/1.1
+POST /mkfile/<fileSize>/key/<encodedKey>/x:user-var/<encodedUserVars> HTTP/1.1
 Host:           <UpHost>
 Content-Type:   text/plain
 Content-Length: <ctxListSize>
@@ -35,6 +35,7 @@ Authorization:  UpToken <UploadToken>
 :------------------ | :--- | :----- | :------------------------------
 `/<fileSize>`       | 是   | int64  | 资源文件大小。
 `/key/<encodedKey>` |      | string | 进行[URL安全的Base64编码][urlsafeBase64Href]后的资源名<br>若未指定，则使用[saveKey](../security/put-policy.html#put-policy-save-key)；<br>若未指定`saveKey`，则使用资源内容的SHA1值作为资源名。
+`/x:user-var/<encodedUserVars>` |     | string | 指定[自定义变量](../../overview/up/response/vars.html#xvar)。
 
 <a id="mkfile-request-headers"></a>
 ### 头部信息

@@ -110,7 +110,7 @@ imageAve     |          | 图片主色调。      |
 ```
 put_policy = '{
     ...
-    "callbackBody" : "name=$(fname)&hash=$(etag)&location=$(x:location)&=$(x:price)"
+    "callbackBody" : "name=$(fname)&hash=$(etag)&location=$(x:location)&price=$(x:price)"
     ...
 }'
 ```
