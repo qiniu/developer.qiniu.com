@@ -48,11 +48,11 @@ qboxrsctl 是根据七牛云存储API实现的一个简易命令行辅助工具�
 
 qboxrsctl 命令行辅助工具下载地址：
 
-- Mac OS: <http://devtools.qiniudn.com/qiniu-devtools-darwin_amd64-current.tar.gz>
-- Linux 64bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.tar.gz>
-- Linux 32bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.tar.gz>
-- Windows 32bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip>
-- Windows 64bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_amd64-current.zip>
+- Mac OS: <http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz>
+- Linux 64bits: <http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz>
+- Linux 32bits: <http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz>
+- Windows 32bits: <http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip>
+- Windows 64bits: <http://devtools.qiniu.io/qiniu-devtools-windows_amd64-current.zip>
 
 qboxrsctl 各个指令的用法可以在命令行直接输入 qboxrsctl 不带参数来获得。
 
@@ -244,7 +244,7 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
     qboxrsctl put -c <Bucket> <Key> <SrcFile>
 
-加上选项 `c`　会启用切片并行上传一个超过大文件。（超过 4MB） 
+加上选项 `c`　会启用切片并行上传一个超过大文件。（超过 4MB）
 
 <a id="get"></a>
 

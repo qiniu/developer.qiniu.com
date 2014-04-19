@@ -36,6 +36,7 @@ order: 980
     "fsizeLimit":           <FileSizeLimit            int64>,
 
     "detectMime":           <AutoDetectMimeType       int>,
+
     "mimeLimit":           "<MimeLimit                string>"
 }
 ```
