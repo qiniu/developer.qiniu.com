@@ -41,7 +41,7 @@ QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux
     - Windows: [qrsbox windows_386](http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip)
 
 - 命令行工具：
-    - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniu.io/mac/qrsboxcli)
+    - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz)
     - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz)
     - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz)
 
