@@ -51,6 +51,7 @@ qboxrsctl 命令行辅助工具下载地址：
 - Mac OS: <http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz>
 - Linux 64bits: <http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz>
 - Linux 32bits: <http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz>
+- Linux ARMv6: <http://devtools.qiniu.io/qiniu-devtools-linux_arm-current.tar.gz>
 - Windows 32bits: <http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip>
 - Windows 64bits: <http://devtools.qiniu.io/qiniu-devtools-windows_amd64-current.zip>
 
