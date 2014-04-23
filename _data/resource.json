@@ -373,6 +373,14 @@
         "author": "小问",
         "date": "2013-10-22",
         "doc": "https://github.com/iwillwen/qiniu.js/tree/develop"
+    }, {
+        "name": "CSharp",
+        "label": "CSharp SDK (icattlecoder/qiniu-csharp-sdk)",
+        "description": "此SDK实现了七牛云存储的核心部分，即文件上传，目的是简化文件上传并提供更加便捷的编程接口，从更高层面进行了抽象。",
+        "download": "https://github.com/icattlecoder/qiniu-csharp-sdk/archive/master.zip",
+        "author": "王明",
+        "date": "2014-04-08",
+        "doc": "https://github.com/icattlecoder/qiniu-csharp-sdk/blob/master/README.md"
     }],
     "tuiguanziyuan": [{
         "name": "logo",
