@@ -32,6 +32,9 @@ avthumb/m3u8/segtime/<SegSeconds>
             /t/<Duration>
             /stripmeta/<StripMeta>
             /rotate/<Degree>
+            /hlsKey/<HLSKey>
+            /hlsKeyType/<HLSKeyType>
+            /hlsKeyUrl/<HLSKeyUrl>
 ```
 
 参数名称                | 类别 | 必填 | 说明
@@ -49,6 +52,9 @@ avthumb/m3u8/segtime/<SegSeconds>
 `/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为 wxh 或者预定义值。 
 <a id="m3u8-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="m3u8-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
+`/hlsKey/<HLSKey>`      |  A/V |      | AES128加密视频的秘钥，必须是16个字节
+`/hlsKeyType/<HLSKeyType>` | A/V|     | 秘钥传递给我们的方式，0或不填：<urlsafe_base64_encode>, 1.x(1.0, 1.1, ...): 见下面详细解释
+`/hlsKeyUrl/<HLSKeyUrl>` |  A/V |     | 秘钥的访问url
 
 <a id="segtime-preset-list"></a>
 ### 预设集列表
@@ -119,6 +125,33 @@ video_1500k     | 码率为1500K，长宽比沿用源视频设置。| WIFI
 以上示例的处理结果通知方式请参考[持久化处理结果通知][pfopNotificationHref]。  
 
 <a id="segtime-internal-resources"></a>
+
+### hls加密
+
+hls加密是利用AES-128位对每个ts文件进行加密，播放器在取得PlayList文件的时候，会根据里面的`#EXT-X-KEY`标签请求获得解密的URL，再请求解密秘钥，之后会用秘钥对获取的ts文件解密。用户可以对秘钥的URL做cookie验证等方法来对用户做认证。  
+例子：[PlayList文件](http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k%3D%2FFgCBc3IlydY6CFIA8jhe7jIxCt1y) （复制链接，查看文件内容或直接用vlc播放器播放）
+
+参数解释：
+
+`hlsKey`  base64_urlsafe编码或加密过后的秘钥  
+`hlsKeyUrl` 指定了秘钥放置的url，经过base64_urlsafe编码，这是生成m3u8 PlayList会使用到的  
+`hlsKeyType` 指定了传送秘钥的方式  
+ - 不指定或者指定为0，则仅仅是以base64_urlsafe编码的方式传送
+ - 指定为1.x(1.0, 1.1, ...)，以RSA的OAEP加密方式，再以<urlsafe_base64_encode>编码传送秘钥，x表示秘钥的版本
+ - 公钥：[1.0](http://ztest.qiniudn.com/hls_rsa1.0.pub)
+
+如何加密RSA：
+
+可以编程的方法，或者使用`openssl`，下面提供`openssl`的版本：
+```
+$ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE] -pubin | openssl base64 -A | tr "+/" "-_"
+```
+
+例子：
+
+- 不使用rsa加密： `avthumb/m3u8/preset/video_640k/hlsKey/ZXhhbXBsZWtleTEyMzQ1Ng==/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
+- 使用rsa加密： `avthumb/m3u8/preset/video_640k/hlsKey/SyyishA7ompSehjBHsq9EkBpbw6RfPnl49FOyMPoQZa4uxFlyHUCLxmXQ56F5WIteknZWahbqcdNx06pGBNk1zVBm5K6czZ_nCdy7y6PBon7NSUamoUPIGGBuevXOcyuc-4IpkmkcG3MWz7_Lop8zk98k8IVmKYCD_LMv-C_8D0=/hlsKeyType/1.0/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
+ 
 ## 内部参考资源
 
 - [预转持久化处理][persistentOpsHref]
