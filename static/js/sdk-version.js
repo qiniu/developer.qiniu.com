@@ -73,23 +73,20 @@ $(function() {
 
 
     var self_remove = function() {
-        // console.log($(this));
         $(this).remove();
-        console.log('hhhhhhhhhhhhh>>>>>>>>>>>>>>')
     };
     var $script_version = [];
     for (var i = 0, len = sdk.length; i < len; i++) {
         $script_version[i] = $('<script/>');
         $('head').append($script_version[i]);
-        $('body').on('load', $script_version[i], self_remove);
+        $script_version[i].on('load', self_remove);
         $script_version[i].attr('src', sdk[i].url + 'tags?callback=getVesion');
-        // $script_version[i].on('load', self_remove);
     }
     var $script_date = [];
     for (i = 0; i < len; i++) {
         $script_date[i] = $('<script/>');
         $('head').append($script_date[i]);
-        $('body').on('load', $script_date[i], self_remove);
+        $script_date[i].on('load', self_remove);
         $script_date[i].attr('src', sdk[i].url + 'issues?state=closed&&callback=getUpdateDate');
     }
 });
