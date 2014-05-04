@@ -15,7 +15,7 @@
                         <div class="logo">
                             <span class="icon resource_{{.name}}_sprited"></span>
                         </div>
-                        <div class="content">
+                        <div class="content" id="sdk_{{.name}}">
                             <div class="name">{{.label}}</div>
                             <div class="version">版本：{{.version}}</div>
                             <div class="update-date">更新：{{.date}}</div>
@@ -205,6 +205,6 @@
     </div>
     <!-- 资源下载页，社区插件/社区SDK分页插件，暂时未用到 -->
     <!--<script type="text/javascript" src="/static/add-on/jquery.plugin/jquery.bxslider/jquery.bxslider.min.js"></script> -->
+    <script type="text/javascript" src="/static/js/sdk-version.js" defer></script>
     {{.includes.search_result}}
     {{.includes.footer}}
-
