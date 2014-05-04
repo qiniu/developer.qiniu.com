@@ -13,7 +13,11 @@ var maps = {
 };
 
 function getVesion(res) {
-    var sdk = res.data[0].tarball_url.split('/');
+    var tarball_url = res.data[0].tarball_url;
+    if (!tarball_url) {
+        return false;
+    }
+    var sdk = tarball_url.split('/');
     var pos_of_sdk = 5;
     var version = res.data[0].name;
     $('#sdk_' + maps[sdk[pos_of_sdk]]).find('.version').text('版本：' + version);
@@ -21,6 +25,10 @@ function getVesion(res) {
 }
 
 function getUpdateDate(res) {
+    var url = res.data[0].url;
+    if (!url) {
+        return false;
+    }
     var sdk = res.data[0].url.split('/');
     var pos_of_sdk = 5;
     var date = res.data[0].updated_at.substr(0, 10);
