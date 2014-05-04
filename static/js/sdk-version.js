@@ -13,7 +13,7 @@ var maps = {
 };
 
 function getVesion(res) {
-    var tarball_url = res.data[0].tarball_url;
+    var tarball_url = res.data[0] && res.data[0].tarball_url;
     if (!tarball_url) {
         return false;
     }
@@ -25,7 +25,7 @@ function getVesion(res) {
 }
 
 function getUpdateDate(res) {
-    var url = res.data[0].url;
+    var url = res.data[0] && res.data[0].url;
     if (!url) {
         return false;
     }
@@ -73,22 +73,23 @@ $(function() {
 
 
     var self_remove = function() {
-        console.log($(this));
-        $('head').remove($(this));
+        // console.log($(this));
+        $(this).remove();
+        console.log('hhhhhhhhhhhhh>>>>>>>>>>>>>>')
     };
     var $script_version = [];
     for (var i = 0, len = sdk.length; i < len; i++) {
         $script_version[i] = $('<script/>');
-        $script_version[i].attr('src', sdk[i].url + 'tags?callback=getVesion');
         $('head').append($script_version[i]);
-        $script_version[i].on('load', self_remove);
+        $('body').on('load', $script_version[i], self_remove);
+        $script_version[i].attr('src', sdk[i].url + 'tags?callback=getVesion');
+        // $script_version[i].on('load', self_remove);
     }
     var $script_date = [];
     for (i = 0; i < len; i++) {
         $script_date[i] = $('<script/>');
-        $script_date[i].attr('src', sdk[i].url + 'issues?state=closed&&callback=getUpdateDate');
         $('head').append($script_date[i]);
-        $script_date[i].on('load', self_remove);
+        $('body').on('load', $script_date[i], self_remove);
+        $script_date[i].attr('src', sdk[i].url + 'issues?state=closed&&callback=getUpdateDate');
     }
-
 });
