@@ -15,7 +15,7 @@ order: 148
 以下用 HLS 代指 HTTP Live Streaming 。
 
 ## 使用
-使用上可以使用我们预先定义的预设集或者自己选择需要的参数，如：
+命令可以使用我们预先定义的预设集或者自己选择需要的参数，如：
 ```
 预设集：avthumb/m3u8/segtime/10/preset/audio_32k
 自定义：avthumb/m3u8/vb/500k/t/10
