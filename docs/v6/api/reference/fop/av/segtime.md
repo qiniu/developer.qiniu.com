@@ -9,10 +9,20 @@ order: 148
 <a id="segtime-description"></a>
 ## 描述
 
-音视频切片是七牛云存储提供的云处理功能，用于支持HTTP Live Streaming回放。  
-HTTP Live Streaming是由Apple提出的基于HTTP的流媒体传输协议。  
+音视频切片是七牛云存储提供的云处理功能，用于支持HTTP Live Streaming播放。  
+[HTTP Live Streaming](https://developer.apple.com/streaming/)是由Apple提出的基于HTTP的流媒体传输协议。  
 它将一整个音视频流切割成可由HTTP下载的一个个小的音视频流，并生成一个播放列表（M3U8），客户端只需要获取资源的 M3U8 播放列表即可播放音视频。  
 以下用 HLS 代指 HTTP Live Streaming 。
+
+## 使用
+命令可以使用我们预先定义的预设集或者自己选择需要的参数，如：
+```
+预设集：avthumb/m3u8/segtime/10/preset/audio_32k
+自定义：avthumb/m3u8/vb/500k/t/10
+```
+
+预设集参见[hls预设集](#segtime-preset)  
+命令的调用可以使用上传时指定[persistentOps](../reference/security/put-policy.html)或者调用[pfop](../reference/fop/pfop/pfop.html)命令
 
 <a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
