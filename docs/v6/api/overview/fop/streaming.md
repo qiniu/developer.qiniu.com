@@ -13,27 +13,8 @@ order: 240
 
 [HTTP Live Streaming](https://developer.apple.com/streaming/)（以下简称为HLS）是基于HTTP的流媒体传输协议。它将一整个音视频流切割成一个个小的音视频文件，并生成一个播放列表（m3u8）。客户端只需要获取资源的播放列表即可以流的方式播放音视频。
 
-HLS播放方式必须使用友好风格的URL，如下所示：
 
-```
-[GET] http://<Domain>/<Key>.m3u8_audio
-[GET] http://<Domain>/<Key>.m3u8_video
-```
-
-返回的响应如下：
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/x-mpegurl
-
-<M3U8File>
-```
-
-收到这样的响应后，支持m3u8的播放器就会以流媒体的方式开始播放音视频内容。
-
-理论上，我们可以在用户访问一个多媒体资源时利用数据处理机制实时生成一个播放列表并返回，但考虑到这个时间损耗，我们不建议这种看起来方便但实际上会非常影响用户体验的用法。
-
-合理的用法是使用[处理结果持久化功能](persistent-fop.html)，在播放前事先以异步方式创建播放列表并切割小文件，然后将两类文件均持久化存储在空间中。
+使用[处理结果持久化功能](persistent-fop.html)，在播放前事先以异步方式创建播放列表并切割小文件，然后将两类文件均持久化存储在空间中。
 
 <a id="streaming-pfop"></a>
 ## 流媒体处理结果持久化
