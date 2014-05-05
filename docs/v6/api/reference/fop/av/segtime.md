@@ -21,7 +21,7 @@ order: 148
 自定义：avthumb/m3u8/vb/500k/t/10
 ```
 
-预设集参见[hls预设集](#segtime-preset)
+预设集参见[hls预设集](#segtime-preset)  
 命令的调用可以使用上传时指定[persistentOps](../reference/security/put-policy.html)或者调用[pfop](../reference/fop/pfop/pfop.html)命令
 
 <a id="segtime-preset"></a>
