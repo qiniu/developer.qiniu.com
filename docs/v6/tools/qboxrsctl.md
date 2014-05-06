@@ -34,6 +34,7 @@ title: qboxrsctl 命令行辅助工具
     - [复制文件](#cp)
     - [移动文件](#mv)
     - [删除文件](#del)
+- [使用技巧](#skills)
 
 
 <a id="intro"></a>
@@ -280,3 +281,14 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 ### 5.6 删除文件
 
     qboxrsctl del <Bucket> <Key>
+
+<a id="skills"></a>
+
+## 使用技巧
+
+qboxrsctl 遵循标准Linux工作方式，无出错则无提示，只打印必要的操作信息。  
+如想知道执行过程是否出错，可以使用下列技巧：  
+
+    qboxrsctl command [arguments] && echo 'OK'
+
+如执行过程中无错误，则会在屏幕上输出`OK`字样。  
