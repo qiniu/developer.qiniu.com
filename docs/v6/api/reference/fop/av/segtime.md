@@ -145,7 +145,9 @@ hls加密是利用AES-128位对每个ts文件进行加密，播放器在取得Pl
 参数解释：
 
 `hlsKey`  base64_urlsafe编码或加密过后的秘钥
+
 `hlsKeyUrl` 指定了秘钥放置的url，经过base64_urlsafe编码，这是生成m3u8 PlayList会使用到的
+
 `hlsKeyType` 指定了传送秘钥的方式
  - 不指定或者指定为0，则仅仅是以base64_urlsafe编码的方式传送
  - 指定为1.x(1.0, 1.1, ...)，以RSA的OAEP加密方式，再以<urlsafe_base64_encode>编码传送秘钥，x表示秘钥的版本
