@@ -71,7 +71,7 @@ Gem发布：[![Gem Version](https://badge.fury.io/rb/qiniu.png)](http://badge.fu
 1. 在您 Ruby 应用程序的 `Gemfile` 文件中，添加如下一行代码：  
 
 	```
-	gem 'qiniu', '~> 6.1.0'
+	gem 'qiniu', '~> 6.2.1'
 	```
 
 2. 然后，在应用程序所在的目录下，可以运行 `bundle` 安装依赖包：  
@@ -249,7 +249,7 @@ require 'qiniu'
 # 已在某处调用Qiniu#establish_connection!方法
 # 已生成一个有效的put_policy，参考前文
 
-code, result, response_headers = Qiniu::Upload.upload_with_put_policy(
+code, result, response_headers = Qiniu::Storage.upload_with_put_policy(
     put_policy,     # 上传策略
     local_file,     # 本地文件名
     key,            # 最终资源名，可省略，缺省为上传策略 scope 字段中指定的Key值
