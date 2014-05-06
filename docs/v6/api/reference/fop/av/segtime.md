@@ -16,6 +16,7 @@ order: 148
 
 ## 使用
 命令可以使用我们预先定义的预设集或者自己选择需要的参数，如：
+
 ```
 预设集：avthumb/m3u8/segtime/10/preset/audio_32k
 自定义：avthumb/m3u8/vb/500k/t/10
@@ -143,9 +144,9 @@ hls加密是利用AES-128位对每个ts文件进行加密，播放器在取得Pl
 
 参数解释：
 
-`hlsKey`  base64_urlsafe编码或加密过后的秘钥  
-`hlsKeyUrl` 指定了秘钥放置的url，经过base64_urlsafe编码，这是生成m3u8 PlayList会使用到的  
-`hlsKeyType` 指定了传送秘钥的方式  
+- `hlsKey`  base64_urlsafe编码或加密过后的秘钥
+- `hlsKeyUrl` 指定了秘钥放置的url，经过base64_urlsafe编码，这是生成m3u8 PlayList会使用到的
+- `hlsKeyType` 指定了传送秘钥的方式
  - 不指定或者指定为0，则仅仅是以base64_urlsafe编码的方式传送
  - 指定为1.x(1.0, 1.1, ...)，以RSA的OAEP加密方式，再以<urlsafe_base64_encode>编码传送秘钥，x表示秘钥的版本
  - 公钥：[1.0](http://ztest.qiniudn.com/hls_rsa1.0.pub)
@@ -153,6 +154,7 @@ hls加密是利用AES-128位对每个ts文件进行加密，播放器在取得Pl
 如何加密RSA：
 
 可以编程的方法，或者使用`openssl`，下面提供`openssl`的版本：
+
 ```
 $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE] -pubin | openssl base64 -A | tr "+/" "-_"
 ```
