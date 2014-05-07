@@ -124,6 +124,6 @@ order: 980
 [xVariablesHref]:           ../../overview/up/response/vars.html#xvar                    "自定义变量"
 [fopHref]:                  ../../overview/up/response/persistent-op.html                "预转持久化处理"
 [encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
-[urlsafeBase64Href]: ../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"
