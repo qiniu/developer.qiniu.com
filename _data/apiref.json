@@ -104,6 +104,12 @@
 					"Order": 400
 				},
 				{
+					"Title": "列举资源（list）",
+					"Href": "docs/v6/api/reference/rs/list.html",
+					"Child": null,
+					"Order": 400
+				},
+				{
 					"Title": "更新镜像资源（prefetch）",
 					"Href": "docs/v6/api/reference/rs/prefetch.html",
 					"Child": null,
@@ -302,6 +308,25 @@
 				}
 			],
 			"Order": 5
+		},
+		{
+			"Title": "acc",
+			"Href": "",
+			"Child": [
+				{
+					"Title": "获取账户管理凭证（oauth/token）",
+					"Href": "docs/v6/api/reference/acc/access-token.html",
+					"Child": null,
+					"Order": 900
+				},
+				{
+					"Title": "刷新账户管理凭证（oauth/token）",
+					"Href": "docs/v6/api/reference/acc/refresh-token.html",
+					"Child": null,
+					"Order": 900
+				}
+			],
+			"Order": 0
 		}
 	]
 }

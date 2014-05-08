@@ -16,6 +16,7 @@ order: 600
 * [批量管理资源（batch）][batchHref]
 * [抓取资源（fetch）][fetchHref]
 * [更新镜像资源（prefetch）][prefetchHref]
+* [列举资源（list）][listHref]
 
 [statHref]:     stat.html   "获取资源信息"
 [copyHref]:     copy.html   "复制资源"
@@ -25,3 +26,5 @@ order: 600
 
 [fetchHref]:    fetch.html  "批量管理资源"
 [prefetchHref]: prefetch.html  "批量管理资源"
+
+[listHref]:     list.html   "列举资源"
