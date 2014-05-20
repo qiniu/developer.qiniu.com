@@ -1,3 +1,4 @@
+/*exported getSdkInfo*/
 var sdk_map = {
     'ios-sdk': 'ios',
     'android-sdk': 'android',
@@ -13,19 +14,24 @@ var sdk_map = {
 };
 
 function getSdkInfo(res) {
-    var data = res.data[0];
-    var tarball_url = data && data.tarball_url;
+    var data = res.data;
+    var tarball_url = data[0] && data[0].tarball_url;
     if (!tarball_url) {
         return false;
     }
     var pos_of_sdk = 5; // the index of repo name
     // tarball_url looks like https://api.github.com/repos/qiniupd/qiniu-js-sdk/tarball/v1.0.1-beta
     var sdk_key = tarball_url.split('/')[pos_of_sdk];
-    var version = data.tag_name;
-    var date = data.created_at.substr(0, 10);
-    $('#sdk_' + sdk_map[sdk_key]).find('.version').text('版本：' + version);
-    $('#sdk_' + sdk_map[sdk_key]).find('.update-date').text('更新：' + date);
 
+    for (var i = 0, len = data.length; i < len; i++) {
+        if (data[i].target_commitish === 'master') {
+            var version = data[i].tag_name;
+            var date = data[i].created_at.substr(0, 10);
+            $('#sdk_' + sdk_map[sdk_key]).find('.version').text('版本：' + version);
+            $('#sdk_' + sdk_map[sdk_key]).find('.update-date').text('更新：' + date);
+            break;
+        }
+    }
 }
 
 $(function() {
@@ -69,7 +75,6 @@ $(function() {
         $(this).remove();
     };
     var $script_version = [];
-    var $script_date = [];
     for (var i = 0, len = sdk.length; i < len; i++) {
         $script_version[i] = $('<script/>');
         $('head').append($script_version[i]);
