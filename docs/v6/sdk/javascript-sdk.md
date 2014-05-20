@@ -350,8 +350,10 @@ title: JavaScript SDK 使用指南
 <a id="license"></a>
 ## 6.许可证
 
+许可证
+
 > Copyright (c) 2014 qiniu.com
 
-## 基于 MIT 协议发布:
+## 基于 GPL V2 协议发布:
 
-> [www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)
+> [www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
