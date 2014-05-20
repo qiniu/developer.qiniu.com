@@ -170,12 +170,6 @@
 					"Href": "docs/v6/api/overview/fop/builtin-fop.html",
 					"Child": null,
 					"Order": 250
-				},
-				{
-					"Title": "流媒体播放",
-					"Href": "docs/v6/api/overview/fop/streaming.html",
-					"Child": null,
-					"Order": 240
 				}
 			],
 			"Order": 200

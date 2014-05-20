@@ -1,5 +1,38 @@
 {
     "logs": [{
+        "month": "2014-05",
+        "items": [{
+            "date": "2014-05-06",
+            "features": [{
+                "title": "imageInfo 支持 gif 帧数检测"
+            },{
+                "title": "avthumb 提供水印支持"
+            },{
+                "title": "去除必须在上传策略中指定 PersistentNotifyUrl 的限制"
+            }],
+            "bugs": []
+        }]
+    }, {
+        "month": "2014-04",
+        "items": [{
+            "date": "2014-04-18",
+            "features": [{
+                "title": "m3u8 支持加密",
+                "href": "http://developer.qiniu.com/docs/v6/api/reference/fop/av/segtime.html#segtime-internal-resources",
+                "info": "使用AES 128位加密的密钥，对生成的ts文件做内容加密。"
+            },{
+                "title": "增加 ogv 转码格式支持",
+                "info": "ogv 格式是 ogg 格式的视频版本。"
+            },{
+                "title": "imageView2 支持只修改图片质量"
+            }],
+            "bugs": [{
+                "title": "修复 io 对于 mimeType 为 \"text/css; charset=utf-8\" 不会进行 gzip 压缩的问题"
+            },{
+                "title": "修复 ipa 文件上传根据内容检测 mimeType 错误的问题"
+            }]
+        }]
+    }, {
         "month": "2014-03",
         "items": [{
             "date": "2014-03-31",
