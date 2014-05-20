@@ -113,6 +113,61 @@
 			"Order": 600
 		},
 		{
+			"Title": "账号管理",
+			"Href": "docs/v6/api/reference/acc/",
+			"Child": [
+				{
+					"Title": "获取账户管理凭证（oauth/token）",
+					"Href": "docs/v6/api/reference/acc/access-token.html",
+					"Child": null,
+					"Order": 900
+				},
+				{
+					"Title": "刷新账户管理凭证（oauth/token）",
+					"Href": "docs/v6/api/reference/acc/refresh-token.html",
+					"Child": null,
+					"Order": 850
+				},
+				{
+					"Title": "获取账户信息（user/info）",
+					"Href": "docs/v6/api/reference/acc/user-info.html",
+					"Child": null,
+					"Order": 800
+				},
+				{
+					"Title": "创建子账号（user/create_child）",
+					"Href": "docs/v6/api/reference/acc/user-create-child.html",
+					"Child": null,
+					"Order": 750
+				},
+				{
+					"Title": "禁用子账号（user/disable_child）",
+					"Href": "docs/v6/api/reference/acc/user-disable-child.html",
+					"Child": null,
+					"Order": 700
+				},
+				{
+					"Title": "启用子账号（user/enable_child）",
+					"Href": "docs/v6/api/reference/acc/user-enable-child.html",
+					"Child": null,
+					"Order": 650
+				},
+				{
+					"Title": "列举子账号（user/children）",
+					"Href": "docs/v6/api/reference/acc/user-children.html",
+					"Child": null,
+					"Order": 600
+				},
+				{
+					"Title": "",
+					"Href": "",
+					"Child": null,
+					"Order": 0
+				}
+			],
+			"Order": 550
+		},
+		{
 			"Title": "数据处理",
 			"Href": "docs/v6/api/reference/fop/",
 			"Child": [
@@ -302,25 +357,6 @@
 				}
 			],
 			"Order": 5
-		},
-		{
-			"Title": "acc",
-			"Href": "",
-			"Child": [
-				{
-					"Title": "获取账户管理凭证（oauth/token）",
-					"Href": "docs/v6/api/reference/acc/access-token.html",
-					"Child": null,
-					"Order": 900
-				},
-				{
-					"Title": "刷新账户管理凭证（oauth/token）",
-					"Href": "docs/v6/api/reference/acc/refresh-token.html",
-					"Child": null,
-					"Order": 900
-				}
-			],
-			"Order": 0
 		}
 	]
 }

@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 刷新账户管理凭证（oauth/token）
-order: 900
+order: 850
 ---
 
 <a id="oauth-token"></a>
@@ -60,13 +60,12 @@ Content-Type  | 是   | 固定为`application/x-www-form-urlencoded`。
 请求参数以表单形式组织，作为请求内容提交，格式如下：  
 
 ```
-grant_type=refresh_token&client_id=<UrlEncodedClientAppId>&refresh_token=<UrlEncodedRefreshToken>
+grant_type=refresh_token&refresh_token=<UrlEncodedRefreshToken>
 ```
 
 参数名称      | 必填 | 需要[URL转义][urlescapeHref] | 说明
 :------------ | :--- | :--------------------------- | :-----------------------------
 grant_type    | 是   |                              | 固定为`refresh_token`。
-client_id     | 是   | 是                           | 客户端应用的API Key（TODO）。
 refresh_token | 是   | 是                           | 上次授权时得到的RefreshToken。
 
 <a id="oauth-token-response"></a>
