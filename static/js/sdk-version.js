@@ -1,4 +1,5 @@
-var maps = {
+/*exported getSdkInfo*/
+var sdk_map = {
     'ios-sdk': 'ios',
     'android-sdk': 'android',
     'java-sdk': 'java',
@@ -12,27 +13,25 @@ var maps = {
     'qiniu-js-sdk': 'javascript'
 };
 
-function getVesion(res) {
-    var tarball_url = res.data[0] && res.data[0].tarball_url;
+function getSdkInfo(res) {
+    var data = res.data;
+    var tarball_url = data[0] && data[0].tarball_url;
     if (!tarball_url) {
         return false;
     }
-    var sdk = tarball_url.split('/');
-    var pos_of_sdk = 5;
-    var version = res.data[0].name;
-    $('#sdk_' + maps[sdk[pos_of_sdk]]).find('.version').text('版本：' + version);
+    var pos_of_sdk = 5; // the index of repo name
+    // tarball_url looks like https://api.github.com/repos/qiniupd/qiniu-js-sdk/tarball/v1.0.1-beta
+    var sdk_key = tarball_url.split('/')[pos_of_sdk];
 
-}
-
-function getUpdateDate(res) {
-    var url = res.data[0] && res.data[0].url;
-    if (!url) {
-        return false;
+    for (var i = 0, len = data.length; i < len; i++) {
+        if (data[i].target_commitish === 'master') {
+            var version = data[i].tag_name;
+            var date = data[i].created_at.substr(0, 10);
+            $('#sdk_' + sdk_map[sdk_key]).find('.version').text('版本：' + version);
+            $('#sdk_' + sdk_map[sdk_key]).find('.update-date').text('更新：' + date);
+            break;
+        }
     }
-    var sdk = res.data[0].url.split('/');
-    var pos_of_sdk = 5;
-    var date = res.data[0].updated_at.substr(0, 10);
-    $('#sdk_' + maps[sdk[pos_of_sdk]]).find('.update-date').text('更新：' + date);
 }
 
 $(function() {
@@ -76,17 +75,10 @@ $(function() {
         $(this).remove();
     };
     var $script_version = [];
-    var $script_date = [];
     for (var i = 0, len = sdk.length; i < len; i++) {
         $script_version[i] = $('<script/>');
         $('head').append($script_version[i]);
         $script_version[i].on('load', self_remove);
-        $script_version[i].attr('src', sdk[i].url + 'tags?callback=getVesion');
-
-        $script_date[i] = $('<script/>');
-        $('head').append($script_date[i]);
-        $script_date[i].on('load', self_remove);
-        $script_date[i].attr('src', sdk[i].url + 'issues?state=closed&&callback=getUpdateDate');
-
+        $script_version[i].attr('src', sdk[i].url + 'releases?callback=getSdkInfo');
     }
 });

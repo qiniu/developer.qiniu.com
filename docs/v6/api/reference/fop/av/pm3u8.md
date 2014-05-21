@@ -61,10 +61,15 @@ HTTP状态码 | 含义
 <a id="pm3u8-response-body"></a>
 ### 响应内容
 
-■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求成功，返回新的、包含已颁发下载授权凭证的各个ts资源访问URL的m3u8文件：
 
 ```
-
+...过多内容已省略...
+#EXTINF:30.826000,
+http://developer.qiniu.com/samples/fop/av/live_00000_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:qhXZvVauNafcUMoBeo4SkRWaWiw
+#EXTINF:30.826000,
+http://developer.qiniu.com/samples/fop/av/live_00001_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:h1Oy8oW7oAIOGWZP8QNVAPI82Vw
+...过多内容已省略...
 ```
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  

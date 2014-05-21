@@ -25,3 +25,4 @@ order: 600
 
 [fetchHref]:    fetch.html  "批量管理资源"
 [prefetchHref]: prefetch.html  "批量管理资源"
+

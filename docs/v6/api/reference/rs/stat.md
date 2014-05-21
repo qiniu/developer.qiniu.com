@@ -69,8 +69,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 {
 	"fsize":     <FileSize  int>, 
     "hash":     "<FileETag  string>",
-    "mimeType:  "<MimeType  string>",
-    "putTime:    <PutTime   int64> 
+    "mimeType": "<MimeType  string>",
+    "putTime":   <PutTime   int64> 
 }
 ```
 
@@ -78,10 +78,10 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 字段名称       | 必填 | 说明
 :------------- | :--- | :------------------------------
-fsize          | 是   | 文件尺寸，单位：字节（Byte）
-hash           | 是   | 文件的ETag信息
-mimeType       | 是   | 以MIME信息表达的文件类型<p>关于各种MIME值的含义，请参见[MIME Media Types][mimeMediaTypesHref]（内容由IANA维护）
-putTime        | 是   | 文件上传时的服务器端Epoch时间戳，单位：100纳秒<p>例如值为`13603956734587420`的时间对应实际时间为`2013-02-09 15:41:13`
+`fsize`        | 是   | 文件尺寸，单位：字节（Byte）
+`hash`         | 是   | 文件的ETag信息
+`mimeType`     | 是   | 以MIME信息表达的文件类型<p>关于各种MIME值的含义，请参见[MIME Media Types][mimeMediaTypesHref]（内容由IANA维护）
+`putTime`      | 是   | 文件上传时的服务器端Epoch时间戳，单位：100纳秒<p>例如值为`13603956734587420`的时间对应实际时间为`2013-02-09 15:41:13`
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 

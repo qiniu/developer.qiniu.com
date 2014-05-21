@@ -104,14 +104,18 @@
                                 </span>
                             </div>
                             <div class="url">
+                                {{if .doc}}
                                 <a href="{{.doc}}" class="docs" target="_blank">
                                     <span class="icon global_source_sprited"></span>
                                     文档
                                 </a>
+                                {{end}}
+                                {{if .download}}
                                 <a href="{{.download}}" class="download" target="_blank">
                                     <span class="icon global_download_sprited"></span>
                                     下载
                                 </a>
+                                {{end}}
                             </div>
                         </div>
                     </div>
@@ -145,14 +149,18 @@
                                 </span>
                             </div>
                             <div class="url">
+                                {{if .doc}}
                                 <a href="{{.doc}}" class="docs" target="_blank">
                                     <span class="icon global_source_sprited"></span>
                                     文档
                                 </a>
+                                {{end}}
+                                {{if .download}}
                                 <a href="{{.download}}" class="download" target="_blank">
                                     <span class="icon global_download_sprited"></span>
                                     下载
                                 </a>
+                                {{end}}
                             </div>
                         </div>
                     </div>
