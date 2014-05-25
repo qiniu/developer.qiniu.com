@@ -86,7 +86,8 @@ Cache-Control | 是    | 正常情况下该值将被设为`no-store`，表示不
     "userid":       "<UserId    string>",
     "uid":           <UserUuid  int64>,
     "parent_uid":   "<ParentId  int64>",
-    "email":        "<UserEmail string>"
+    "email":        "<UserEmail string>",
+    "is_disabled":   <IsDiabled bool>
 }
 ```
 
@@ -96,6 +97,7 @@ userid        | 是    | 用户注册名，通常是注册邮箱。
 uid           | 是    | 用户UUID，纯数字。
 parent_uid    | 是    | 父账号的用户UUID，纯数字。
 email         | 是    | 用户注册邮箱。
+is_disabled   | 是    | 是否处于禁用状态。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
