@@ -61,15 +61,15 @@ HTTP状态码 | 含义
 
 ## 示例
 
-测试ppt: [http://qiniudocs.u.qiniudn.com/dive-into-golang.pptx](http://qiniudocs.u.qiniudn.com/dive-into-golang.pptx)
+测试ppt: [http://developer.qiniu.com/resource/dive-into-golang.pptx](http://developer.qiniu.com/resource/dive-into-golang.pptx)
 
 1. 将ppt转换为pdf:
 
-[http://qiniudocs.u.qiniudn.com/dive-into-golang.pptx?odconv/pdf](http://qiniudocs.u.qiniudn.com/dive-into-golang.pptx?odconv/pdf)
+[http://developer.qiniu.com/resource/dive-into-golang.pptx?odconv/pdf](http://developer.qiniu.com/resource/dive-into-golang.pptx?odconv/pdf)
 
 2. 获取pdf信息：
 
-[http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/info](http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/info)
+[http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/info](http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/info)
 
 返回信息：
 
@@ -83,13 +83,13 @@ HTTP状态码 | 含义
 
 3. 将pdf转为图片
 
-[http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800](http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800)
+[http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800](http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800)
 
 上面将pdf的第4页转换为jpg图片，其中设置像素密度150, 图像质量80%，并且调整图像宽度为800（高度自动缩放为600）
 
 我们可以通过imageInfo来查看生成的图像信息：
 
-[http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800|imageInfo](http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800|imageInfo)
+[http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800|imageInfo](http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800|imageInfo)
 
 ```
 {"format":"jpeg","width":800,"height":600,"colorModel":"gray"}
@@ -97,6 +97,6 @@ HTTP状态码 | 含义
 
 转换效果：
 
-![http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800
-](http://qiniudocs.u.qiniudn.com/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800
+![http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800
+](http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800
 )

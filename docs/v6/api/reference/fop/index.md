@@ -15,6 +15,7 @@ order: 500
 * [持久化处理][pfopHref]
 * [二维码处理（qrcode）][qrcodeHref]
 * [Markdown文本处理（md2html）][md2htmlHref]
+* [office文档处理（odconv）][odconvHref]
 
 [imageHref]:        image/index.html        "图片处理"
 [avHref]:           av/index.html           "音视频处理"
