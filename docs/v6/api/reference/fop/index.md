@@ -21,4 +21,5 @@ order: 500
 [pfopHref]:         pfop/index.html         "持久化处理"
 [qrcodeHref]:       qrcode.html             "二维码处理"
 [md2htmlHref]:      md2html.html            "Markdown文本处理"
+[odconvHref]:       odconv.html             "office文档处理"
 [saveasHref]:       saveas.html             "处理结果另存"

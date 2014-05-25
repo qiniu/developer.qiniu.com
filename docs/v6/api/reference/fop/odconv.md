@@ -20,6 +20,7 @@ order: 111
 ## 接口规格（odconvSpec）
 
 1. 将ppt转换为pdf
+
 ```
 odconv/pdf
 ```
@@ -27,11 +28,13 @@ odconv/pdf
 无附加参数。
 
 2. 获取pdf信息，如pdf总页数等。
+
 ```
 odconv/[jpg|png]/info
 ```
 
 3. pdf转换成图片
+
 ```
 odconv/[jpg|png]/page/<page>/density/<density>/quality/<quality>/resize/<resize>
 ```
@@ -54,7 +57,7 @@ HTTP状态码 | 含义
 404        | 资源不存在
 500	       | 转换失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a id="remarks"></a>
+<a id="samples"></a>
 
 ## 示例
 
