@@ -45,7 +45,7 @@ order: 270
 如果需要对已存在于空间中的资源进行处理并持久化处理结果，可按以下方式使用我们的异步处理接口：  
 
 ```
-POST /pfop/ HTTP/1.1
+POST /pfop HTTP/1.1
 Host: api.qiniu.com  
 Content-Type: application/x-www-form-urlencoded  
 Authorization: <AccessToken>  
