@@ -36,55 +36,41 @@ vframe/<Format>
 <a id="request-syntax"></a>
 ### 请求语法
 
-```
-GET <VideoDownloadURI>?<接口规格> HTTP/1.1
-Host: <VideoDownloadHost>
-```
+可以通过[上传预转](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)或者[触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)的方式来调用
 
-<a id="response"></a>
-## 响应
 
-<a id="response-syntax"></a>
-### 响应语法
 
-```
-HTTP/1.1 200 OK
-Content-Type: <ImageMimeType>
-
-<ImageBinaryData>
-```
-
-如果请求失败，具体信息请参考响应状态码。
-
-<a id="response-code"></a>
-### 响应状态码
-
-HTTP状态码 | 含义
-:--------- | :--------------------------
-200        | 截图并缩放成功
-400	       | 请求语法错误
-404        | 资源不存在
-TODO       | 未支持的图片格式
-599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
-
-<a id="remarks"></a>
-## 附注
-
-无。
 
 <a id="samples"></a>
 ## 示例
 
 1. 取视频第7秒的截图，图片格式为jpg，宽度为480px，高度为360px：
 
-	```
-    http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg
-                                                     /offset/7
-                                                     /w/480
-                                                     /h/360
-	```
+[上传预转](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)上传的`token`中指定`persistentOps`:
 
-	![Go——基于连接与组合的语言](http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360)
+```
+    {
+        "scope":                "qiniu-ts-demo:thinking-in-go.mp4",
+        "deadline":             1390528576,
+        "persistentOps":        "vframe/jpg/offset/7/w/480/h/360",
+        "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
+    }
+```
+
+
+[触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html):
+
+```
+    POST /pfop/ HTTP/1.1
+    Host: api.qiniu.com  
+    Content-Type: application/x-www-form-urlencoded  
+    Authorization: QBox <AccessToken>  
+
+    bucket=qiniu-ts-demo
+    &key=thinking-in-go.mp4
+    &fops=vframe%2fjpg%2foffset%2f7%2fw%2f480%2fh%2f360
+```
+
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
