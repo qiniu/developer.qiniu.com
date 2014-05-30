@@ -68,7 +68,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 `<uploadToken>`               | 是   | [上传凭证][uploadTokenHref]，位于`token`消息中。
 `<xVariableName>`             |      | [自定义变量][xVariablesHref]的名字。
 `<xVariableValue>`            |      | [自定义变量][xVariablesHref]的值。
-`<fileName>`                  | 是   | 原文件名。
+`<fileName>`                  | 是   | 原文件名。<br>对于没有文件名的情况，建议填入随机生成的纯文本字符串。<br>本参数的值将作为[魔法变量$(fname)](../../overview/up/response/vars.html#magicvar-fname)的值使用。
 `<fileBinaryData>`            | 是   | 上传文件的完整内容。
 `<key>`                       |      | 资源的最终名称，位于`key`消息中。如不指定则使用[上传策略][putPolicyHref]saveKey字段所指定模板生成Key，如无模板则使用Hash值作为Key。
 
