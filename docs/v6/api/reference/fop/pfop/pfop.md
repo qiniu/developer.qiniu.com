@@ -54,7 +54,7 @@ Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]�
 请求参数以表单形式组织，作为请求内容提交，格式如下：  
 
 ```
-bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<urlEncodedPersistentNotifyUrl>&force=<Force>
+bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<urlEncodedPersistentNotifyUrl>&force=<Force>&pipeline=<Pipeline Name>
 ```
 
 参数名称      | 必填 | 需要[URL转义][urlescapeHref] | 说明
@@ -64,6 +64,7 @@ bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<u
 `fops`        | 是   | 是                           | 云处理操作列表，用“;”分隔，并进行[URL转义][urlescapeHref]，含义请参见[persistentOps详解](../../security/put-policy.html#put-policy-persistent-ops-explanation)。
 `notifyURL`   | 是   | 是                           | 处理结果通知接收URL，请参考[处理结果通知](#pfop-notification)小节。
 <a id="pfop-force"></a>`force`       |      |       | 强制执行数据处理。<br>当服务端发现fops指定的数据处理结果已经存在，那就认为已经处理成功，避免重复处理浪费资源。加上本字段并设为1，则可强制执行数据处理并覆盖原结果。
+`pipeline`	  |    |  | 指定独立的队列，转码的时候使用独立的计算资源
 
 <a id="pfop-response"></a>
 ## 响应
