@@ -24,7 +24,7 @@ order: 512
 bucket       |          | 获得上传的目标空间名。    |
 key          |          | 获得文件保存在空间中的资源名。    |
 etag         |          | 文件上传成功后的[Etag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。    |
-fname        |          | 上传的原始文件名。    |
+<a id="magicvar-fname"></a>fname        |          | 上传的原始文件名。    |
 fsize        |          | 资源尺寸，单位为字节。    |
 mimeType     |          | 资源类型，比如JPG图片的资源类型为`image/jpg`。    |
 endUser      |          | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。    |
