@@ -28,19 +28,21 @@ imageMogr2/auto-orient
           /rotate/<rotateDegree>
           /format/<destinationImageFormat>
           /blur/<radius>x<sigma>
+          /interlace/<Interlace>
 ```
 
 参数名称                             | 必填 | 说明                                                
 :----------------------------------- | :--- | :---------------------------------------------------
-`/auto-orient`                       |      | 根据原图EXIF信息自动旋正，便于后续处理，建议放在首位。
-`/strip`                             |      | 去除图片中的元信息。
+`/auto-orient`                       |      | ● 根据原图EXIF信息自动旋正，便于后续处理<br>建议放在首位。
+`/strip`                             |      | ● 去除图片中的元信息
 `/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imageMogr2-thumbnail-spec)，缺省为不缩放。
 `/gravity/<gravityType>`             |      | 参看[裁剪锚点参数表](#imageMogr2-anchor-spec)，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
-`/quality/<imageQuality>`            |      | 图片质量，取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
-`/rotate/<rotateDegree>`             |      | 旋转角度，取值范围1-360，缺省为不旋转。
-`/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
-<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | 高斯模糊参数，`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
+`/quality/<imageQuality>`            |      | ● 图片质量<br>取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
+`/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
+`/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
+<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
+<a id="imageMogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 
 <a id="imageMogr2-thumbnail-spec"></a>
 ### 缩放操作参数表
@@ -448,6 +450,16 @@ HTTP状态码 | 含义
 	```
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/blur/3x5)
+
+### 其它
+
+1. 渐进显示图片：  
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/300x300/interlace/1
+	```
+
+	![查看效果图](../../../../../../resource/gogopher-imagemogr2-interlace.jpg)
 
 ---
 

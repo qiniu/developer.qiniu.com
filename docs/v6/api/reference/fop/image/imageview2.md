@@ -34,6 +34,7 @@ imageView2/<mode>
           /h/<ShortEdge>
           /q/<Quality>
           /format/<Format>
+          /interlace/<Interlace>
 ```
 
 其中 `<mode>` 分为如下几种情况：  
@@ -55,8 +56,9 @@ imageView2/<mode>
 
 参数名称            | 必填  | 说明
 :------------------ | :---- | :--------------------------------------------------------------------------------
-`/q/<Quality>`      |       | 新图的图像质量，取值范围：1-100，缺省为85。<br>如原图质量小于指定值，则按原值输出。
-`/format/<Format>`  |       | 新图的输出格式，取值范围：jpg，gif，png，webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
+`/q/<Quality>`      |       | ● 新图的图像质量<br>取值范围：1-100，缺省为85。<br>如原图质量小于指定值，则按原值输出。
+`/format/<Format>`  |       | ● 新图的输出格式<br>取值范围：jpg，gif，png，webp等，缺省为原图格式。<br>参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)。
+<a id="imageView2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 
 <a id="imageView2-request"></a>
 ## 请求
@@ -166,6 +168,14 @@ HTTP状态码 | 含义
 	```
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/h/200)
+
+4. 渐进显示图片：  
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
+	```
+
+	![查看效果图](../../../../../../resource/gogopher-imageview2-interlace.jpg)
 
 ---
 
