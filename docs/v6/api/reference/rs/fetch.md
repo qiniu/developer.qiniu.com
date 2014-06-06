@@ -25,7 +25,7 @@ Content-Type:   application/x-www-form-urlencoded
 Authorization:  QBox <AccessToken>
 ```
 
-EncodedURL参数为对指定URL地址进行[URL安全的Base64编码][urlsafeBase64Href]后的字符串，EncodedEntryURI的细节请查看[EncodedEntryURI]。
+EncodedURL参数为对指定URL地址进行[URL安全的Base64编码][urlsafeBase64Href]后的字符串，EncodedEntryURI的细节请查看[EncodedEntryURI][encodedEntryURIHref]。
 
 <a id="fetch-request-auth"></a>
 ### 访问权限
