@@ -98,3 +98,5 @@ HTTP状态码 | 含义
 	![http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800
 	](http://developer.qiniu.com/resource/dive-into-golang.pdf?odconv/jpg/page/4/density/150/quality/80/resize/800
 	)
+
+[sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志 "发送错误报告"
