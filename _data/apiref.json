@@ -289,20 +289,26 @@
 					"Order": 160
 				},
 				{
+					"Title": "文件拼接（concat）",
+					"Href": "docs/v6/api/reference/fop/concat.html",
+					"Child": null,
+					"Order": 135
+				},
+				{
 					"Title": "office文档转换（odconv）",
 					"Href": "docs/v6/api/reference/fop/odconv.html",
 					"Child": null,
 					"Order": 111
 				},
 				{
-					"Title": "MD转HTML（md2html）",
-					"Href": "docs/v6/api/reference/fop/md2html.html",
+					"Title": "资源下载二维码（qrcode）",
+					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
 					"Order": 110
 				},
 				{
-					"Title": "资源下载二维码（qrcode）",
-					"Href": "docs/v6/api/reference/fop/qrcode.html",
+					"Title": "MD转HTML（md2html）",
+					"Href": "docs/v6/api/reference/fop/md2html.html",
 					"Child": null,
 					"Order": 110
 				},
