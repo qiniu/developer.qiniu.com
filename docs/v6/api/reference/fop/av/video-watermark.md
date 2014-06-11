@@ -1,29 +1,34 @@
 ---
 layout: docs
-title: 视频水印（vwatermark）
+title: 视频水印（watermark）
 order: 139
 ---
 <a id="vwatermark"></a>
-# 视频水印（vwatermark）
+# 视频水印
 
 <a id="vwatermark-spec"></a>
 ## 视频水印规格
 
+```
+现在视频水印功能已经和转码（avthumb）功能合并，可以同时转码以及做水印
+在avthumb中添加wmImage，wmGravity与原先的vwatermark里面的image，gravity对应
+
+```
+
 注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
 ```
-vwatermark/<Mode>
-          /image/<EncodedRemoteImageUrl>
-          /gravity/<Gravity>
-          /format/<OutputFormat>
+avthumb/<format>
+       /...
+       /vmImage/<EncodedRemoteImageUrl>
+       /vmGravity/<Gravity>
 ```
 
 参数名称                   | 必填 | 说明
 :------------------------- | :--- | :---------------------------------
-`<Mode>`                   | 是   | 固定为1，表示`图片水印`。
+`...`                      |      | [avthumb](avthumb.html)的其他参数 
 `<EncodedRemoteImageUrl>`  | 是   | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。
 `<Gravity>`                |      | 打水印的位置，参考[水印锚点参数表](#vwatermark-anchor-spec)，缺省值为`NorthEast`（右上角）。
-`<OutputFormat>`           |      | 指定目标视频的输出格式，取值范围：mp4，flv等，缺省值为`mp4`。
 
 <a id="vwatermark-anchor-spec"></a>
 ### 水印锚点参数表
@@ -51,7 +56,7 @@ SouthWest     |     South      |     SouthEast
     {
         "scope":                "qiniu-ts-demo:sample.mp4",
         "deadline":             1390528576,
-        "persistentOps":        "vwatermark/1/image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=/gravity/NorthEast/format/mp4",
+        "persistentOps":        "avthumb/mp4/vmImage/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=/vmGravity/NorthEast",
         "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
     }
 	```
