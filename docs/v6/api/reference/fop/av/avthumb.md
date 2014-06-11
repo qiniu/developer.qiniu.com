@@ -32,6 +32,8 @@ avthumb/<Format>
        /autoscale/<Autoscale>
        /stripmeta/<StripMeta>
        /rotate/<Degree>
+       /vmImage/<EncodedRemoteImageUrl>
+       /vmGravity/<Gravity>
 ```
 
 参数名称                | 类别 | 必填 | 说明
@@ -51,6 +53,8 @@ avthumb/<Format>
 `/autoscale/<Autoscale>`|  V   |      | 配合参数`/s/`使用，指定为1时，把视频按原始比例缩放到`/s/`指定的矩形框内，0或者不指定会强制缩放到对应分辨率，可能造成视频变形
 <a id="video-strip-meta"></a><a id="avthumb-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="video-rotate"></a><a id="avthumb-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
+`/vmImage/<EncodedRemoteImageUrl>`| V | | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。具体介绍见[视频水印](video-watermark.html)
+`/vmGravity/<Gravity>`  |  V   |      | 视频水印位置，存在`/vmImage/`时生效
 
 <a id="avthumb-samples"></a>
 ## 示例
