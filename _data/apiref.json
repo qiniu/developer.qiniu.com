@@ -274,7 +274,7 @@
 							"Order": 146
 						},
 						{
-							"Title": "视频水印（vwatermark）",
+							"Title": "视频水印（watermark）",
 							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
 							"Child": null,
 							"Order": 139
@@ -301,16 +301,28 @@
 					"Order": 111
 				},
 				{
+					"Title": "MD转HTML（md2html）",
+					"Href": "docs/v6/api/reference/fop/md2html.html",
+					"Child": null,
+					"Order": 110
+				},
+				{
 					"Title": "资源下载二维码（qrcode）",
 					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
 					"Order": 110
 				},
 				{
-					"Title": "MD转HTML（md2html）",
-					"Href": "docs/v6/api/reference/fop/md2html.html",
+					"Title": "支持字体列表",
+					"Href": "docs/v6/api/reference/fop/fonts.html",
 					"Child": null,
-					"Order": 110
+					"Order": 50
+				},
+				{
+					"Title": "",
+					"Href": "",
+					"Child": null,
+					"Order": 0
 				},
 				{
 					"Title": "",
