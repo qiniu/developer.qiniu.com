@@ -274,7 +274,7 @@
 							"Order": 146
 						},
 						{
-							"Title": "视频水印（vwatermark）",
+							"Title": "视频水印（watermark）",
 							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
 							"Child": null,
 							"Order": 139
@@ -287,6 +287,12 @@
 						}
 					],
 					"Order": 160
+				},
+				{
+					"Title": "文件拼接（concat）",
+					"Href": "docs/v6/api/reference/fop/concat.html",
+					"Child": null,
+					"Order": 135
 				},
 				{
 					"Title": "office文档转换（odconv）",
@@ -305,6 +311,18 @@
 					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
 					"Order": 110
+				},
+				{
+					"Title": "支持字体列表",
+					"Href": "docs/v6/api/reference/fop/fonts.html",
+					"Child": null,
+					"Order": 50
+				},
+				{
+					"Title": "",
+					"Href": "",
+					"Child": null,
+					"Order": 0
 				},
 				{
 					"Title": "",

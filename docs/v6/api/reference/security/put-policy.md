@@ -20,7 +20,7 @@ order: 980
     "deadline":             <UnixTimestamp            int64>,
     "insertOnly":           <AllowFileUpdating        int>,
 
-    "saveKey":             "<KeyFomart                string>",
+    "saveKey":             "<SaveKey                  string>",
 
     "endUser":             "<EndUserId                string>",
 
