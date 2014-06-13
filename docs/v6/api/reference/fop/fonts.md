@@ -9,6 +9,15 @@ order: 50
 
 本节列出七牛云存储数据处理支持的所有字体。  
 
+<a id="fonts-chinese"></a>
+## 中文字体
+
+- 仿宋
+- 黑体
+- 楷体
+- 宋体
+- 微软雅黑
+
 <a id="fonts-english"></a>
 ## 英文字体
 
@@ -132,12 +141,3 @@ order: 50
 - vrinda
 - webdings
 - wingdings
-
-<a id="fonts-chinese"></a>
-## 中文字体
-
-- 仿宋
-- 黑体
-- 楷体
-- 宋体
-- 微软雅黑
