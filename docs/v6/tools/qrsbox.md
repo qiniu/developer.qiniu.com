@@ -181,6 +181,10 @@ BuildVersion:
 - `secret_key`字段指定SecretKey值；
 - `debug_level`字段指定日志信息输出等级，默认值为`0`，即输出Debug信息。
 
+#### ignore 文件与规则
+
+`qrsbox` 和 `qrsboxcli` 支持使用 ignore 文件来忽略某些不需要上传的文件，详见[ ignore 规则](/docs/v6/tools/ignore-rules.html)。  
+
 ---
 
 <a id="failures">

@@ -91,3 +91,6 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 
 需要注意的是，qrsync 是增量同步的，如果你上一次同步成功后修改了部分文件，那么再次运行 qrsync 时只同步新增的和被修改的文件。当然，如果上一次同步过程出错了，也可以重新运行 qrsync 程序继续同步。
 
+### ignore 文件与规则
+
+`qrsync` 支持使用 ignore 文件来忽略某些不需要上传的文件，详见[ ignore 规则](/docs/v6/tools/ignore-rules.html)。  
