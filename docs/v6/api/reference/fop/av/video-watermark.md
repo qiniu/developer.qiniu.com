@@ -20,8 +20,8 @@ order: 139
 ```
 avthumb/<format>
        /...
-       /vmImage/<EncodedRemoteImageUrl>
-       /vmGravity/<Gravity>
+       /wmImage/<EncodedRemoteImageUrl>
+       /wmGravity/<Gravity>
 ```
 
 参数名称                   | 必填 | 说明
@@ -56,7 +56,7 @@ SouthWest     |     South      |     SouthEast
     {
         "scope":                "qiniu-ts-demo:sample.mp4",
         "deadline":             1390528576,
-        "persistentOps":        "avthumb/mp4/vmImage/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=/vmGravity/NorthEast",
+        "persistentOps":        "avthumb/mp4/wmImage/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=/wmGravity/NorthEast",
         "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
     }
 	```
@@ -69,7 +69,7 @@ SouthWest     |     South      |     SouthEast
     Content-Type: application/x-www-form-urlencoded  
     Authorization: QBox <AccessToken>  
 
-    bucket=qiniu-ts-demo&key=sample.mp4&fops=vwatermark%2F1%2Fimage%2FaHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc%3D%2Fgravity%2FNorthEast%2Fformat%2Fmp4&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
+    bucket=qiniu-ts-demo&key=sample.mp4&fops=avthumb%2fmp4%2fwmImage%2faHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc%3d%2fwmGravity%2fNorthEast%2Fformat%2Fmp4&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
 	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
