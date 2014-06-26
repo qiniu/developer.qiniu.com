@@ -7,7 +7,7 @@ order: 170
 <a id="imageFop"></a>
 # 图片处理
 
-本节描述图片资源处理的接口规格，涵盖以下内容：  
+本节描述图片资源处理的接口规格，涵盖以下内容：
 
 * [基本图片信息获取（imageInfo）][imageInfoHref]
 * [EXIF信息获取（exif）][exifHref]
@@ -21,5 +21,5 @@ order: 170
 [imageView2Href]:    imageview2.html  "基本图片处理"
 [imageMogr2Href]:    imagemogr2.html  "高级图片处理"
 [watermarkHref]:    watermark.html  "图片水印处理"
-[imageAveHref]:     imageAve.html  "图片主色调"
+[imageAveHref]:     imageave.html  "图片主色调"
 
