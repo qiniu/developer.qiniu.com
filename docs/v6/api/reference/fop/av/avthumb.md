@@ -34,6 +34,9 @@ avthumb/<Format>
        /rotate/<Degree>
        /wmImage/<EncodedRemoteImageUrl>
        /wmGravity/<Gravity>
+       /writeXing/<Xing>
+       /an/<AudioNo>
+       /vn/<VideoNo>
 ```
 
 参数名称                | 类别 | 必填 | 说明
@@ -55,6 +58,9 @@ avthumb/<Format>
 <a id="video-rotate"></a><a id="avthumb-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
 `/wmImage/<EncodedRemoteImageUrl>`| V | | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。水印具体介绍见[视频水印](video-watermark.html)
 `/wmGravity/<Gravity>`  |  V   |      | 视频水印位置，存在`/wmImage/`时生效
+<a id="mp3-xing">`/writeXing/<Xing>`     | A    |      | 转码成mp3时是否写入xing header，默认1写入，写入会导致 `file`，`afinfo` 等命令识别出错误的码率。好处是在需要音频时长、帧数的时候只需要获取header。
+<a id="an">`/an/<AudioNo>`     | A    |      | 是否去除音频流，0为保留，1为去除。<br>默认值为0。
+<a id="vn">`/vn/<VideoNo>`     |  V   |      | 是否去除视频流，0为保留，1为去除。<br>默认值为0。
 
 <a id="avthumb-samples"></a>
 ## 示例
