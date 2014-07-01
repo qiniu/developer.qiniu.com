@@ -74,7 +74,7 @@ order: 980
 
 2. 使用指定存储空间和资源名：
 
-	当在数据处理命令后用管道连接`saveas/<encodedEntryURI>`时，七牛服务器会从指定的[EntryURI][encodedEntryURIHref]中取得处理结果的存储空间与资源名。  
+	在数据处理命令后用管道符 `|` 拼接 `saveas/<encodedEntryURI>` 指令，指示七牛服务器使用 [EntryURI][encodedEntryURIHref] 格式中指定的 Bucket 与 Key 来保存处理结果。  
 	例如`avthumb/flv|saveas/cWJ1Y2tldDpxa2V5`，是将上传的视频文件转码成`flv`格式后存储为`qbucket:qkey`，其中**cWJ1Y2tldDpxa2V5**是**qbucket:qkey**的[UrlSafe-Base64编码][urlsafeBase64Href]结果。  
 	以上方式可以同时作用于多个数据处理命令，用“;”分隔，例如`avthumb/mp4|saveas/cWJ1Y2tldDpxa2V5;avthumb/flv|saveas/cWJ1Y2tldDpxa2V5Mg==`。
 
