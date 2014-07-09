@@ -53,6 +53,9 @@ order: 960
 ## 附注
 
 - 为确保客户端、业务服务器和七牛服务器对于授权截止时间的理解保持一致，需要同步校准各自的时钟。频繁返回401状态码时请先检查时钟同步性与生成e参数值的代码逻辑。  
+- 对于包含中文或其它非英文字符的Key，需要做到以下两点：  
+    - Key 本身要做 UTF-8 编码；
+    - 为 URL 签名之前，对 Path 部分（不含前导`/`符号，通常就是 Key 本身，即上例中的 `sunflower.jpg`）做一次 [URL转义][urlescapeHref]。
 
 <a id="download-token-samples"></a>
 ## 代码示例
@@ -76,3 +79,5 @@ order: 960
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1签名"
 [urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+
+[urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
