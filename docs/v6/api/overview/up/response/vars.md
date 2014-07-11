@@ -121,7 +121,7 @@ put_policy = '{
 之后，用户的客户端构造了如下请求：
 
 ```
-<form method="post" action="http://up.qiniu.com/" 
+<form method="post" action="http://upload.qiniu.com/" 
 enctype="multipart/form-data">
     <input name="key" type="hidden" value="sunflower.jpg">
     <input name="x:location" type="hidden" value="Shanghai">

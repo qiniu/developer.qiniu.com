@@ -20,7 +20,7 @@ order: 100
 
 ```
 POST /mkblk/<blockSize> HTTP/1.1
-Host:           up.qiniu.com
+Host:           upload.qiniu.com
 Content-Type:   application/octet-stream
 Content-Length: <firstChunkSize>
 Authorization:  UpToken <UploadToken>
@@ -109,8 +109,9 @@ host           | 是   | 后续上传接收地址。
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 创建块成功。
-400	       | 请求报文格式错误。
+400	       | 请求报文格式错误，报文构造不正确或者没有完整发送。
 401        | 上传凭证无效。
+413        | 上传内容长度大于 [fsizeLimit](/docs/v6/api/reference/security/put-policy.html#put-policy-fsize-limit) 中指定的长度限制。
 599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 <a id="mkblk-examples"></a>
@@ -126,7 +127,7 @@ curl -i \
      --data-binary '@test.txt' \
      -H "Authorization: UpToken QNJi_bYJlmO5LeY..." \
      -H "Content-Length: 1024" \
-     "http://up.qiniu.com/mkblk/1024"
+     "http://upload.qiniu.com/mkblk/1024"
 ```
 
 <a id="mkblk-example1-request"></a>
@@ -135,7 +136,7 @@ curl -i \
 ```
 POST /mkblk/1024 HTTP/1.1
 User-Agent: curl/7.30.0
-Host: up.qiniu.com
+Host: upload.qiniu.com
 Accept: */*
 Authorization: UpToken QNJi_bYJlmO5LeY08FfoNj9w_r...(过长已省略)
 ```

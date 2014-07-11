@@ -46,7 +46,7 @@ put_policy = '{
 假设应用客户端发出了如下的上传请求：
 
 ```
-<form method="post" action="http://up.qiniu.com/" enctype="multipart/form-data">
+<form method="post" action="http://upload.qiniu.com/" enctype="multipart/form-data">
     <input name="key" type="hidden" value="sunflower.jpg">
     <input name="x:location" value="Shanghai">
     <input name="x:price" value="1500.00">
