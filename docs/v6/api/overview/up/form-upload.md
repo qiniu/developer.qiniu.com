@@ -8,7 +8,7 @@ order: 540
 
 表单上传功能适用于文件内容可以在一次HTTP请求即可传递完成的场景。该功能非常适合于在浏览器中使用HTML表单上传资源，或者在不需要处理复杂情况的客户端开发中使用。
 
-开发者只要组装一个符合**HTML文件上传表单**规范（参见[RFC1867](http://www.ietf.org/rfc/rfc1867.txt)）的HTTP请求，并以POST方式向域名`up.qiniu.com`发起这个请求，即可将指定文件上传到服务端。业务逻辑非常简单明了。
+开发者只要组装一个符合**HTML文件上传表单**规范（参见[RFC1867](http://www.ietf.org/rfc/rfc1867.txt)）的HTTP请求，并以POST方式向域名`upload.qiniu.com`发起这个请求，即可将指定文件上传到服务端。业务逻辑非常简单明了。
 
 <a id="form-upload-usage"></a>
 ## 使用方法
@@ -16,7 +16,7 @@ order: 540
 我们可以用如下的HTML表单来描述表单上传的基本用法：
 
 ```
-<form method="post" action="http://up.qiniu.com/"
+<form method="post" action="http://upload.qiniu.com/"
  enctype="multipart/form-data">
   <input name="key" type="hidden" value="<resource_key>">
   <input name="x:<custom_name>" type="hidden" value="<custom_value>">
@@ -39,7 +39,7 @@ x:\<custom_field_name\> | string | 否 | [自定义变量](response/vars.html#xv
 提交以上这个HTML表单而生成的HTTP请求内容大致如下所示：
 
 ```
-POST http://up.qiniu.com/
+POST http://upload.qiniu.com/
 Content-Type: multipart/form-data; boundary=<Boundary>
 --<Boundary>
 

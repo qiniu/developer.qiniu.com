@@ -24,7 +24,7 @@ order: 200
 
 ```
 POST / HTTP/1.1
-Host:           up.qiniu.com
+Host:           upload.qiniu.com
 Content-Type:   multipart/form-data; boundary=<frontier>
 Content-Length: <multipartContentLength>
 
@@ -54,7 +54,7 @@ Content-Transfer-Encoding: binary
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 上传服务器域名，固定为up.qiniu.com。
+Host           | 是   | 上传服务器域名，固定为upload.qiniu.com。
 Content-Type   | 是   | 固定为multipart/form-data。`<frontier>`为[Multipart分隔符][multipartFrontierHref]，必须是任何Multipart消息都不包含的字符串。
 Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（Byte）。
 
@@ -138,8 +138,9 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存。
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 上传成功。
-400	       | 请求报文格式错误。
+400	       | 请求报文格式错误，报文构造不正确或者没有完整发送。
 401        | 上传凭证无效。
+413        | 上传内容长度大于 [fsizeLimit](/docs/v6/api/reference/security/put-policy.html#put-policy-fsize-limit) 中指定的长度限制。
 579        | 回调业务服务器失败。
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在。

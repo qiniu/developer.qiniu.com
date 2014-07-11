@@ -93,7 +93,7 @@ order: 600
 对此，在发起上传或下载请求的时候，七牛的服务会返回相应的支持跨域的 Header:
 
 <a id="upload-cors"></a>
-### 上传(`up.qiniu.com`)
+### 上传(`upload.qiniu.com`)
 
 	Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size
 	Access-Control-Allow-Methods: OPTIONS, HEAD, POST
