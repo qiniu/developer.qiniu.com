@@ -29,8 +29,8 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 <a name="download"></a> 
 ## 下载 
 
-- iOS SDK 下载地址：<https://codeload.github.com/qiniu/android-sdk/zip/master>
-- iOS SDK 源码地址：<https://github.com/qiniu/android-sdk> 
+- SDK 下载地址：<https://codeload.github.com/qiniu/android-sdk/zip/master>
+- SDK 源码地址：<https://github.com/qiniu/android-sdk> 
 
 <a name="use-scenario"></a>
 ## 使用场景
