@@ -8,7 +8,7 @@ title: Android SDK使用文档
 ## 目录
 
 - [概述](#overview)
-- [下载](#download)
+- [下载链接](#download-link)
 - [使用场景](#use-scenario)
 - [接入SDK](#integration)
 - [安全性](#security)
@@ -26,8 +26,8 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 
 该SDK支持不低于2.2的Android版本（api8）。
 
-<a name="download"></a> 
-## 下载 
+<a name="download-link"></a> 
+## 下载链接
 
 - SDK 下载地址：<https://codeload.github.com/qiniu/android-sdk/zip/master>
 - SDK 源码地址：<https://github.com/qiniu/android-sdk> 
