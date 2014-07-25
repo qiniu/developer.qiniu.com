@@ -160,15 +160,9 @@ Bucket  | 空间名称，字母数字下划线组合。
 
     qboxrsctl bucketinfo <Bucket>
 
-<a id="drop"></a>
-
-### 3.6 删除空间（Bucket）
-
-    qboxrsctl drop -f <Bucket>
-
 <a id="img"></a>
 
-### 3.7 设置镜像存储（源站加速）
+### 3.6 设置镜像存储（源站加速）
 
     qboxrsctl img <Bucket> <SrcUrl>[,<SrcUrl2>,...] [SrcHost]
 
@@ -180,13 +174,13 @@ SrcHost | 源站域名，可选
 
 <a id="unimg"></a>
 
-### 3.8 取消镜像存储
+### 3.7 取消镜像存储
 
     qboxrsctl unimg <Bucket>
 
 <a id="refresh"></a>
 
-### 3.9 清除配置缓存
+### 3.8 清除配置缓存
 
     qboxrsctl refresh <Bucket>
 
