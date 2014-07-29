@@ -15,6 +15,7 @@ order: 600
 * [删除资源（delete）][deleteHref]
 * [批量管理资源（batch）][batchHref]
 * [抓取资源（fetch）][fetchHref]
+* [列举资源（list）][listHref]
 * [更新镜像资源（prefetch）][prefetchHref]
 
 [statHref]:     stat.html   "获取资源信息"
@@ -24,5 +25,6 @@ order: 600
 [batchHref]:    batch.html  "批量管理资源"
 
 [fetchHref]:    fetch.html  "批量管理资源"
+[listHref]:     list.html   "列举资源"
 [prefetchHref]: prefetch.html  "批量管理资源"
 
