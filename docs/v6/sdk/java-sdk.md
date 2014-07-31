@@ -57,7 +57,7 @@ jar文件下载：[http://search.maven.org/#search%7Cga%7C1%7Cqiniu](http://sear
 	<dependency>
 		<groupId>com.qiniu</groupId>
 		<artifactId>sdk</artifactId>
-		<version></version>
+		<version>[6.1.7, 6.999]</version>
 	</dependency>
 
 
@@ -235,9 +235,9 @@ key，mimeType 可为null。
 
 ### 3.5 上传策略
 
-[uptoken][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
+uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
 
-* `expires` 指定 [uptoken][uploadTokenHref] 有效时长。单位：秒（s），默认1小时，3600秒。deadline = System.currentTimeMillis() / 1000 + this.expires，不直接指定deadline。一个 [uptoken][uploadTokenHref] 可以被用于多次上传（只要它还没有过期）。
+* `expires` 指定 uptoken 有效时长。单位：秒（s），默认1小时，3600秒。deadline = System.currentTimeMillis() / 1000 + this.expires，不直接指定deadline。一个 uptoken 可以被用于多次上传（只要它还没有过期）。
 
 关于上传策略更完整的说明，请参考 [uptoken][uploadTokenHref]。
 
