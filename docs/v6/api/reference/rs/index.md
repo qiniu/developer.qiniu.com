@@ -13,6 +13,7 @@ order: 600
 * [复制资源（copy）][copyHref]
 * [移动资源（move）][moveHref]
 * [删除资源（delete）][deleteHref]
+* [列举资源（list）][listHref]
 * [批量管理资源（batch）][batchHref]
 * [抓取资源（fetch）][fetchHref]
 * [列举资源（list）][listHref]
@@ -22,6 +23,7 @@ order: 600
 [copyHref]:     copy.html   "复制资源"
 [moveHref]:     move.html   "移动资源"
 [deleteHref]:   delete.html "删除资源"
+[listHref]:   	list.html   "列举资源"
 [batchHref]:    batch.html  "批量管理资源"
 
 [fetchHref]:    fetch.html  "批量管理资源"
