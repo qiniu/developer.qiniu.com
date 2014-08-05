@@ -95,18 +95,12 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/400
 
 如果觉得`url?<fop1>|<fop2>|<fop3>|<fopN>`这种形式过于冗长，还可以为这些串行的`<fop>`集合定义一个友好别名，之后可以用这个友好的别名来取代冗长的指令和参数。我们称这个别名为`样式`。样式是对一个或一组数据处理操作的命名。
 
-假如我们需要从目标视频中截取指定的一帧图片，并对该图片打上一个水印后作为该视频的封面图片，该数据处理的示例URL如下所示：
-
-```
-http://open.qiniu.com/thinkingingo.mp4?vframe/jpg/offset/7/w/480/h/360
+还以上一个Fop处理的URL为例，看起来非常长且难以理解目的。我们可以定义一个名为`watermark`的样式，对应以上的数据处理操作：`imageView/2/w/400
 |watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
-```
-
-这个URL看起来非常长且难以理解目的。我们可以定义一个名为`coverpic`的样式，对应以上的数据处理操作：`vframe/jpg/offset/7/w/480/h/360
-|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==`，则之后我们可以用如下使用方式：
+`，则之后我们可以用如下使用方式进行访问：
 
 ```
-http://open.qiniu.com/thinkingingo.mp4-coverpic
+http://qiniuphotos.qiniudn.com/gogopher.jpg-watermark
 ```
 
 显然简洁很多也方便很多（注：上面的 '-' 我们称为数据处理样式的分隔符）。
