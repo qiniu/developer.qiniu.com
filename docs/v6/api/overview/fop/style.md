@@ -17,17 +17,20 @@ order: 255
     qboxrsctl style <bucket> <aliasName> <fop>
 
 例如:
-
-    qboxrsctl separator <bucket> "."
-    qboxrsctl style <bucket> "jpg" "vframe/jpg/offset/7/w/480/h/360|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw=="
+    
+    // 定义 url 和 fop 之间的分隔符为 "-"
+    qboxrsctl separator <bucket> "-"
+    
+    // 定义该管道fop 样式名为 "pipeline" 
+    qboxrsctl style <bucket> "pipeline" "imageView/2/h/200|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw=="
 
 那么，以下两个 URL 则等价:
 
 原始URL:
 
-- <http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==>
+- <http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==>
 
 友好风格URL:
 
-- <http://open.qiniudn.com/thinking-in-go.mp4.jpg>
+- <http://qiniuphotos.qiniudn.com/gogopher.jpg-pipeline>
 
