@@ -13,7 +13,7 @@ title: qboxrsctl 命令行辅助工具
     - [查看密钥（AccessKey/SecretKey）](#appinfo)
     - [删除密钥（AccessKey/SecretKey）](#delaccess)
 - [空间管理](#bucketmgr)
-    - [创建空间（Bucket）](#mkbucket)
+    - [创建空间（Bucket）](#mkbucket2)
     - [将空间设置为公开](#set-bucket-public)
     - [将空间设置为私有](#set-bucket-private)
     - [列出所有空间（Buckets）](#buckets)
@@ -126,11 +126,11 @@ AccessKey | 指定要删除掉的 AccessKey
 
 ## 空间管理
 
-<a id="mkbucket"></a>
+<a id="mkbucket2"></a>
 
 ### 创建空间（Bucket）
 
-    qboxrsctl mkbucket <Bucket>
+    qboxrsctl mkbucket2 <Bucket>
 
 参数    | 说明
 --------|------------------------------------------------
