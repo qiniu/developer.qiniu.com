@@ -142,8 +142,7 @@ public class Init {
 
 uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
 
-```{java}
-import com.qiniu.api.auth.digest.Mac;
+<pre><code>import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
 import com.qiniu.api.rs.PutPolicy;
 
@@ -159,8 +158,7 @@ public class Uptoken {
 		String uptoken = putPolicy.token(mac);
 	}
 }
-
-```
+</code></pre>
 
 <a id="upload-code"></a>
 
@@ -179,8 +177,7 @@ public class Uptoken {
 
 具体代码如下：
 
-```{java}
-import java.io.File;
+<pre><code>import java.io.File;
 
 import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
@@ -205,16 +202,14 @@ public class UploadFile {
 		PutRet ret = IoApi.putFile(uptoken, key, localFile, extra);
 	}
 }
-
-```
+</code></pre>
 
 <a id="resumable-io-put"></a>
 
 ### 3.4 断点续上传、分块并行上传
 
 与普通上传类似：
-```{java}
-	private void uploadFile() throws AuthException, JSONException{
+<pre><code>private void uploadFile() throws AuthException, JSONException{
 		PutPolicy p = new PutPolicy(bucketName);
 		p.returnBody = "{\"key\": $(key), \"hash\": $(etag),\"mimeType\": $(mimeType)}";
 		String upToken = p.token(mac);
@@ -228,7 +223,7 @@ public class UploadFile {
 		PutRet ret = ResumeableIoApi.put(fis, upToken, key, mimeType);
 	}
 
-```
+</code></pre>
 key，mimeType 可为null。
 
 <a id="io-put-policy"></a>
@@ -273,8 +268,7 @@ uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs
 
 `downloadToken` 可以使用 SDK 提供的如下方法生成：
 
-```{java}
-import com.qiniu.api.auth.digest.Mac;
+<pre><code>import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
 import com.qiniu.api.rs.GetPolicy;
 import com.qiniu.api.rs.URLUtils;
@@ -290,7 +284,7 @@ public class DownloadFile {
 		String downloadUrl = getPolicy.makeRequest(baseUrl, mac);
 	}
 }
-```
+</code></pre>
 
 <a id="rs-api"></a>
 
