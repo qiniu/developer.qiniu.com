@@ -106,7 +106,7 @@ public class Init {
 
     客户端（终端用户） => 七牛 => 业务服务器
 
-客户端（终端用户）直接上传到七牛的服务器。通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会相比数据存放在用户自己的业务服务器上的方式更快。而且，七牛云存储可以在用户文件上传成功以后，替用户的客户端向用户的业务服务器发送反馈信息，减少用户的客户端同业务服务器之间的交互。详情请参考[上传策略](#io-put-policy)
+客户端（终端用户）直接上传到七牛的服务器。通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会相比数据存放在用户自己的业务服务器上的方式更快。而且，七牛云存储可以在用户文件上传成功以后，替用户的客户端向用户的业务服务器发送反馈信息，减少用户的客户端同业务服务器之间的交互。详情请参考[上传策略](../api/reference/security/put-policy.html)
 
 **注意**：如果您只是想要将您电脑上，或者是服务器上的文件上传到七牛云存储，可以直接使用七牛提供的 [qrsync](../tools/qrsync.html) 上传工具，而无需额外开发。
 
@@ -123,11 +123,11 @@ public class Init {
 1. 客户端凭借 [uptoken](#make-uptoken) 上传文件到七牛
 1. 在七牛获得完整数据后，根据用户请求的设定执行以下操作：
 
-	a. 如果用户设定了[returnUrl](#io-put-policy)，七牛云存储将反馈一个指向returnUrl的HTTP 303，驱动客户端执行跳转；
+	a. 如果用户设定了[returnUrl](../api/reference/security/put-policy.html)，七牛云存储将反馈一个指向returnUrl的HTTP 303，驱动客户端执行跳转；
 	
-	b. 如果用户设定了[callbackUrl](#io-put-policy)，七牛云存储将向callbackUrl指定的地址发起一个HTTP 请求回调业务服务器，同时向业务服务器发送数据。发送的数据内容由[callbackBody](#io-put-policy)指定。业务服务器完成回调的处理后，可以在HTTP Response中放入数据，七牛云存储会响应客户端，并将业务服务器反馈的数据发送给客户端；
+	b. 如果用户设定了[callbackUrl](../api/reference/security/put-policy.html)，七牛云存储将向callbackUrl指定的地址发起一个HTTP 请求回调业务服务器，同时向业务服务器发送数据。发送的数据内容由[callbackBody](../api/reference/security/put-policy.html)指定。业务服务器完成回调的处理后，可以在HTTP Response中放入数据，七牛云存储会响应客户端，并将业务服务器反馈的数据发送给客户端；
 	
-	c. 如果两者都没有设置，七牛云存储根据[returnBody](#io-put-policy)的设定向客户端发送反馈信息。
+	c. 如果两者都没有设置，七牛云存储根据[returnBody](../api/reference/security/put-policy.html)的设定向客户端发送反馈信息。
 
 需要注意的是，回调到业务服务器的过程是可选的，它取决于业务服务器颁发的 [uptoken](#make-uptoken)。如果没有回调，七牛会返回一些标准的信息（比如文件的 hash）给客户端。如果上传发生在业务服务器，以上流程可以自然简化为：
 
@@ -142,8 +142,7 @@ public class Init {
 
 uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
 
-```{java}
-import com.qiniu.api.auth.digest.Mac;
+<pre><code>import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
 import com.qiniu.api.rs.PutPolicy;
 
@@ -159,8 +158,7 @@ public class Uptoken {
 		String uptoken = putPolicy.token(mac);
 	}
 }
-
-```
+</code></pre>
 
 <a id="upload-code"></a>
 
@@ -179,8 +177,7 @@ public class Uptoken {
 
 具体代码如下：
 
-```{java}
-import java.io.File;
+<pre><code>import java.io.File;
 
 import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
@@ -205,16 +202,14 @@ public class UploadFile {
 		PutRet ret = IoApi.putFile(uptoken, key, localFile, extra);
 	}
 }
-
-```
+</code></pre>
 
 <a id="resumable-io-put"></a>
 
 ### 3.4 断点续上传、分块并行上传
 
 与普通上传类似：
-```{java}
-	private void uploadFile() throws AuthException, JSONException{
+<pre><code>private void uploadFile() throws AuthException, JSONException{
 		PutPolicy p = new PutPolicy(bucketName);
 		p.returnBody = "{\"key\": $(key), \"hash\": $(etag),\"mimeType\": $(mimeType)}";
 		String upToken = p.token(mac);
@@ -228,7 +223,7 @@ public class UploadFile {
 		PutRet ret = ResumeableIoApi.put(fis, upToken, key, mimeType);
 	}
 
-```
+</code></pre>
 key，mimeType 可为null。
 
 <a id="io-put-policy"></a>
@@ -273,8 +268,7 @@ uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs
 
 `downloadToken` 可以使用 SDK 提供的如下方法生成：
 
-```{java}
-import com.qiniu.api.auth.digest.Mac;
+<pre><code>import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
 import com.qiniu.api.rs.GetPolicy;
 import com.qiniu.api.rs.URLUtils;
@@ -290,7 +284,7 @@ public class DownloadFile {
 		String downloadUrl = getPolicy.makeRequest(baseUrl, mac);
 	}
 }
-```
+</code></pre>
 
 <a id="rs-api"></a>
 

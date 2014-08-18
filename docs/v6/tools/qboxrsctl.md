@@ -9,9 +9,7 @@ title: qboxrsctl 命令行辅助工具
     - [登录](#login)
 - [账号管理](#ak_sk)
     - [查看帐号信息](#info)
-    - [生成密钥（AccessKey/SecretKey）](#newaccess)
     - [查看密钥（AccessKey/SecretKey）](#appinfo)
-    - [删除密钥（AccessKey/SecretKey）](#delaccess)
 - [空间管理](#bucketmgr)
     - [创建空间（Bucket）](#mkbucket2)
     - [将空间设置为公开](#set-bucket-public)
@@ -60,11 +58,11 @@ qboxrsctl 各个指令的用法可以在命令行直接输入 qboxrsctl 不带�
 
 <a id="oauth"></a>
 
-## 授权操作
+##1 授权操作
 
 <a id="login"></a>
 
-### 登录
+###1.1 登录
 
     qboxrsctl login <User> <Passwd>
 
@@ -80,29 +78,20 @@ Passwd  | 登录密码
 
 <a id="ak_sk"></a>
 
-## 账号管理
+##2 账号管理
 
 <a id="info"></a>
 
-### 查看帐号信息
+###2.1 查看帐号信息
 
     qboxrsctl info
 
 返回账号信息
 
-<a id="newaccess"></a>
-
-### 生成密钥（AccessKey/SecretKey）
-
-    qboxrsctl newaccess <AppName>
-
-参数    | 说明
---------|------------------------------------------------
-AppName | 应用名称，网站上默认创建的应用名称是：`default`
 
 <a id="appinfo"></a>
 
-### 查看密钥（AccessKey/SecretKey）
+###2.2 查看密钥（AccessKey/SecretKey）
 
     qboxrsctl appinfo <AppName>
 
@@ -111,24 +100,13 @@ AppName | 应用名称，网站上默认创建的应用名称是：`default`
 --------|------------------------------------------------
 AppName | 应用名称，网站上默认使用的应用名称是：`default`
 
-<a id="delaccess"></a>
-
-### 删除密钥（AccessKey/SecretKey）
-
-    qboxrsctl delaccess <AppName> <AccessKey>
-
-参数      | 说明
-----------|------------------------------------------------
-AppName   | 应用名称，网站上默认使用的应用名称是：`default`
-AccessKey | 指定要删除掉的 AccessKey
-
 <a id="bucketmgr"></a>
 
-## 空间管理
+##3  空间管理
 
 <a id="mkbucket2"></a>
 
-### 创建空间（Bucket）
+### 3.1 创建空间（Bucket）
 
     qboxrsctl mkbucket2 <Bucket>
 
