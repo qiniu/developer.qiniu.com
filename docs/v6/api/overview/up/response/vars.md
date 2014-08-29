@@ -41,18 +41,23 @@ avinfo       | 是       | 音视频资源的元信息。    | 暂不支持用�
 imageAve     |          | 图片主色调。      | 
 ext          |          | 上传资源的后缀名，通过自动检测的 mimeType 或者原文件的后缀来获取。 | 
 
-魔法变量支持`$(<Object>.<Property>)`形式的访问子项，但是不支持数组访问，例如：
+魔法变量支持`$(<Object>.<Property>)`形式的访问子项，例如：
 
 - $(\<var\>)
 - $(\<var\>.\<field_name\>)
 - $(\<var\>.\<field_name\>.\<sub_field_name\>)
-- *不支持* $(\<var\>.\<field_name\>[0].\<sub_field_name\>)
 
 求值举例：
 
 - `$(bucket)` 				- 获得上传目标bucket名字
 - `$(imageInfo)` 			- 获取当前上传图片的基本属性信息
 - `$(imageInfo.height)`	 	- 获取当前上传图片的原始高度
+
+
+魔法变量不支持访问子项为数组形式
+
+- **不支持**$(\<var\>[0])
+- **不支持**$(\<var\>.\<field_name\>[0])
 
 变量`avinfo`在[`returnBody`](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-return-body)中返回的格式不同于url触发返回的`avinfo`格式，`avinfo`在[魔法变量](#magicvar)中的类型如下（内容经过格式化以便阅读）：
 
