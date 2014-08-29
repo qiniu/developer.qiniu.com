@@ -53,7 +53,66 @@ ext          |          | 上传资源的后缀名，通过自动检测的 mimeT
 - `$(imageInfo)` 			- 获取当前上传图片的基本属性信息
 - `$(imageInfo.height)`	 	- 获取当前上传图片的原始高度
 
-变量`exif`的类型以下（内容经过格式化以便阅读，具体细节请参考[EXIF技术白皮书](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)）：  
+
+魔法变量不支持访问子项为数组形式
+
+- **不支持**$(\<var\>[0])
+- **不支持**$(\<var\>.\<field_name\>[0])
+
+变量`avinfo`在[`returnBody`](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-return-body)中返回的格式不同于url触发返回的`avinfo`格式，`avinfo`在[魔法变量](#magicvar)中的类型如下（内容经过格式化以便阅读）：
+
+```
+{
+	"audio":{
+		"bit_rate":"64028",
+		"channels":1,
+		"codec_name":"mp3",
+		"codec_type":"audio",
+		"duration":"30.105556",
+		"index":1,
+		"nb_frames":"1153",
+		"r_frame_rate":"0/0",
+		"sample_fmt":"s16p",
+		"sample_rate":"44100",
+		"start_time":"0.000000",
+		"tags":{
+			"creation_time":"2012-10-21 01:13:54"
+		}
+	},
+	"format":{
+		"bit_rate":"918325",
+		"duration":"30.106000",
+		"format_long_name":"QuickTime / MOV",
+		"format_name":"mov,mp4,m4a,3gp,3g2,mj2",
+		"nb_streams":2,
+		"size":"3455888",
+		"start_time":"0.000000",
+		"tags":{
+			"creation_time":"2012-10-21 01:13:54"
+		}
+	},
+	"video":{
+		"bit_rate":"856559",
+		"codec_name":"h264",
+		"codec_type":"video",
+		"display_aspect_ratio":"4:3",
+		"duration":"29.791667",
+		"height":480,
+		"index":0,
+		"nb_frames":"715",
+		"pix_fmt":"yuv420p",
+		"r_frame_rate":"24/1",
+		"sample_aspect_ratio":"1:1",
+		"start_time":"0.000000",
+		"tags":{
+			"creation_time":"2012-10-21 01:13:54"
+		},
+		"width":640
+	}
+}
+```
+
+变量`exif`的类型如下（内容经过格式化以便阅读，具体细节请参考[EXIF技术白皮书](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)）：  
 
 ```
 {
