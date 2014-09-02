@@ -23,7 +23,7 @@ order: 148
 ```
 
 预设集参见[hls预设集](#segtime-preset)
-命令的调用可以使用上传时指定[persistentOps](../reference/security/put-policy.html)或者调用[pfop](../reference/fop/pfop/pfop.html)命令
+命令的调用可以使用上传时指定[persistentOps](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html)或者调用[pfop](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)命令
 
 <a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
