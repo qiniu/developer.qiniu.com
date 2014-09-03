@@ -26,4 +26,4 @@ encodedEntryURI = urlsafe_base64_encode(entry)
 
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[urlsafeBase64Href]: ../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"

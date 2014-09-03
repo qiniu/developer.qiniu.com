@@ -66,8 +66,8 @@ HTTP状态码 | 含义
 404        | 资源不存在。
 599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-[pfopHref]:             pfop.html                                        "触发持久化处理"
-[accessTokenHref]:      ../../security/access-token.html                 "管理凭证"
+[pfopHref]:             http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                        "触发持久化处理"
+[accessTokenHref]:      http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                 "管理凭证"
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 
 [urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81

@@ -175,7 +175,7 @@ HTTP状态码 | 含义
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
 	```
 
-	![查看效果图](../../../../../../resource/gogopher-imageview2-interlace.jpg)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher-imageview2-interlace.jpg)
 
 ---
 
@@ -187,8 +187,8 @@ HTTP状态码 | 含义
 - [预转持久化处理][persistentOpsHref]
 
 [cnameBindingHref]:  http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:          ../pfop/pfop.html                                "触发持久化处理"
-[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[exifHref]:          exif.html                                        "EXIF信息"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                "触发持久化处理"
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[exifHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html                                        "EXIF信息"
 
 [sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志 "发送错误报告"

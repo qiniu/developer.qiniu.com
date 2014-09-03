@@ -58,4 +58,4 @@ http://<domain>/<key>?e=<deadline>&token=<downloadToken>
 
 防盗链是一个系统设置，不影响开发工作。如发现有盗链情况，开发者可在开发者平台的空间设置页面进行相应的设置。
 
-[downloadTokenHref]: ../../reference/security/download-token.html "下载凭证"
+[downloadTokenHref]: /docs/v6/api/reference/security/download-token.html "下载凭证"

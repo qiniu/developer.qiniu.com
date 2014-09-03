@@ -317,12 +317,6 @@
 					"Href": "docs/v6/api/reference/fop/fonts.html",
 					"Child": null,
 					"Order": 50
-				},
-				{
-					"Title": "",
-					"Href": "docs/v6/api/reference/fop/download.html",
-					"Child": null,
-					"Order": 0
 				}
 			],
 			"Order": 500

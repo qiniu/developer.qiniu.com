@@ -16,10 +16,10 @@ order: 170
 * [图片水印处理（watermark）][watermarkHref]
 * [图片主色调（imageAve）][imageAveHref]
 
-[imageInfoHref]:    imageinfo.html  "基本图片信息获取"
-[exifHref]:         exif.html       "EXIF信息获取"
-[imageView2Href]:    imageview2.html  "基本图片处理"
-[imageMogr2Href]:    imagemogr2.html  "高级图片处理"
-[watermarkHref]:    watermark.html  "图片水印处理"
-[imageAveHref]:     imageave.html  "图片主色调"
+[imageInfoHref]:    http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageinfo.html  "基本图片信息获取"
+[exifHref]:         http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html       "EXIF信息获取"
+[imageView2Href]:   http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview2.html  "基本图片处理"
+[imageMogr2Href]:   http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr2.html  "高级图片处理"
+[watermarkHref]:    http://developer.qiniu.com/docs/v6/api/reference/fop/image/watermark.html  "图片水印处理"
+[imageAveHref]:     http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageave.html  "图片主色调"
 

@@ -401,11 +401,11 @@ HTTP状态码 | 含义
 - [saveas处理][saveasHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[qboxrsctlHref]:       ../../../../tools/qboxrsctl.html                "七牛工具"
+[qboxrsctlHref]:       http://developer.qiniu.com/docs/v6/tools/qboxrsctl.html                "七牛工具"
 [resourceProtectHref]: http://kb.qiniu.com/52uad43y                    "原图保护"
 [sendBugReportHref]:   mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
-[saveasHref]:                   ../saveas.html                                   "saveas处理"
+[pfopHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                            "触发持久化处理"
+[saveasHref]:                   http://developer.qiniu.com/docs/v6/api/reference/fop/saveas.html                                   "saveas处理"
 
-[urlsafeBase64Href]: ../../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"

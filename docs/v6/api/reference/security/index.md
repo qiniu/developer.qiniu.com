@@ -14,7 +14,7 @@ order: 900
 * [下载凭证][downloadTokenHref]
 * [管理凭证][accessTokenHref]
 
-[putPolicyHref]:     put-policy.html     "上传策略"
-[uploadTokenHref]:   upload-token.html   "上传凭证"
-[downloadTokenHref]: download-token.html "下载凭证"
-[accessTokenHref]:   access-token.html   "管理凭证"
+[putPolicyHref]:     http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html     "上传策略"
+[uploadTokenHref]:   http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html   "上传凭证"
+[downloadTokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html "下载凭证"
+[accessTokenHref]:   http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html   "管理凭证"
