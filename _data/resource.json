@@ -342,6 +342,14 @@
         "date": "2013-09-12",
         "doc": "https://github.com/yueyoum/seven-cow"
     }, {
+        "name": "Python",
+        "label": "Python SDK (shell909090/python-qiniu)",
+        "description": "",
+        "download": "https://github.com/shell909090/python-qiniu",
+        "author": "shell",
+        "date": "2014-09-02",
+        "doc": "https://github.com/shell909090/python-qiniu"
+    }, {
         "name": "Scala",
         "label": "Scala SDK (livehl/qiniu-scala-sdk)",
         "description": "Scala版七牛的SDK",
