@@ -29,12 +29,12 @@ HTML表单上传的几个关键参数说明如下：
 
 名称        | 类型   | 必须 | 说明
 ------------|--------|------|-------------------------------------
-token       | string | 是   | 必须是一个符合相应规格的[上传凭证](../../reference/security/upload-token.html)，否则会返回401表示权限认证失败。
+token       | string | 是   | 必须是一个符合相应规格的[上传凭证](/docs/v6/api/reference/security/upload-token.html)，否则会返回401表示权限认证失败。
 file        | file   | 是   | 文件本身。
 key         | string | 否   | 资源名，必须为UTF-8编码。
-x:\<custom_field_name\> | string | 否 | [自定义变量](response/vars.html#xvar)，必须以 `x:` 开头命名，不限个数。里面的内容将在 `callbackBody` 参数中的 `$(x:custom_field_name)` 求值时使用。
+x:\<custom_field_name\> | string | 否 | [自定义变量](/docs/v6/api/overview/up/response/vars.html#xvar)，必须以 `x:` 开头命名，不限个数。里面的内容将在 `callbackBody` 参数中的 `$(x:custom_field_name)` 求值时使用。
 
-上传过程在一个HTTP请求和响应中完成，因此该过程将阻塞直到文件传输成功完成或失败为止。如果文件较大，或者网络环境较差，可能会导致HTTP连接超时而上传失败。若发生这种情况，开发者需要考虑换用更安全但也相对复杂的[分片上传](chunked-upload.html)功能。
+上传过程在一个HTTP请求和响应中完成，因此该过程将阻塞直到文件传输成功完成或失败为止。如果文件较大，或者网络环境较差，可能会导致HTTP连接超时而上传失败。若发生这种情况，开发者需要考虑换用更安全但也相对复杂的[分片上传](/docs/v6/api/overview/up/chunked-upload.html)功能。
 
 提交以上这个HTML表单而生成的HTTP请求内容大致如下所示：
 
@@ -66,11 +66,11 @@ Content-Type: <MimeType>
 <a id="form-upload-response"></a>
 ## 后续动作
 
-我们可以在生成上传凭证时指定一系列的参数，以控制服务器在文件上传完成后的后续动作。我们将在[上传后续动作](response/)中详细描述各种参数的用法和作用。
+我们可以在生成上传凭证时指定一系列的参数，以控制服务器在文件上传完成后的后续动作。我们将在[上传后续动作](/docs/v6/api/overview/up/response/)中详细描述各种参数的用法和作用。
 
-另外如果需要，我们可以在表单参数中增加一系列的[魔法变量](response/vars.html#magicvar)和[自定义变量](response/vars.html#xvar)。上述表单例子中的`<x:custom_field_name>`就是变量的使用方法示意。我们可以将其更换为一系列魔法变量或自定义变量。
+另外如果需要，我们可以在表单参数中增加一系列的[魔法变量](/docs/v6/api/overview/up/response/vars.html#magicvar)和[自定义变量](/docs/v6/api/overview/up/response/vars.html#xvar)。上述表单例子中的`<x:custom_field_name>`就是变量的使用方法示意。我们可以将其更换为一系列魔法变量或自定义变量。
 
-变量将会在回调和自定义返回内容中起到极大的作用。具体用法请参见[回调](response/callback.html)和[自定义返回内容](response/response-body.html)对应的使用方法描述。
+变量将会在回调和自定义返回内容中起到极大的作用。具体用法请参见[回调](/docs/v6/api/overview/up/response/callback.html)和[自定义返回内容](/docs/v6/api/overview/up/response/response-body.html)对应的使用方法描述。
 
 <a id="form-upload-example"></a>
 ## 在线示例

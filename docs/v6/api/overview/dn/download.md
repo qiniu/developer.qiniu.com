@@ -30,6 +30,6 @@ Range: bytes=<first-byte-pos>-<last-byte-pos>
 
 资源下载的响应符合HTTP GET的规范，比如200表示下载成功。除了标准的HTTP字段比如`Content-Type`、`Content-Length`外还会携带一些扩展字段，如`ETag`、`X-Log`、`X-Reqid`等。这些扩展字段非常有助于排查问题。
 
-关于HTTP扩展字段的更多信息，请参见[HTTP扩展字段](../../reference/extended-headers.html)。
+关于HTTP扩展字段的更多信息，请参见[HTTP扩展字段](/docs/v6/api/reference/extended-headers.html)。
 
 如果下载过程中遇到任何错误，我们建议开发者将这些详细信息都写入日志，在请求技术支持时提供这些错误信息以便快速排查。

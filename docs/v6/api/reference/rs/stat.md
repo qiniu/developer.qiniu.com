@@ -168,9 +168,9 @@ X-Reqid: swEAAMipp-5bIjMT
 - [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
-[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
-[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[accessTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [mimeMediaTypesHref]:           http://www.iana.org/assignments/media-types      "MIME媒体类型"
-[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
+[commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"

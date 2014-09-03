@@ -8,7 +8,7 @@ order: 255
 
 如果觉得 `url?<fop1>|<fop2>|<fop3>|<fopN>` 这样的形式够冗长，还可以为这些串行的 `<fop>` 集合定义一个友好别名。如此一来，就可以用友好URL风格进行访问。
 
-我们先来熟悉 [qboxrsctl](../../../tools/qboxrsctl.html) 的两个命令行，
+我们先来熟悉 [qboxrsctl](/docs/v6/tools/qboxrsctl.html) 的两个命令行，
 
     // 定义 url 和 fop 之间的分隔符为 separator 
     qboxrsctl separator <bucket> <separator>

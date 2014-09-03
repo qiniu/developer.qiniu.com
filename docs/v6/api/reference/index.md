@@ -9,6 +9,6 @@ title: 七牛云存储API参考手册
 * [资源管理][rsHref]
 * [资源处理][fopHref]
 
-[upHref]:       up/index.html       "资源上传"
-[rsHref]:       rs/index.html       "资源管理"
-[fopHref]:      fop/index.html      "资源处理"
+[upHref]:       http://developer.qiniu.com/docs/v6/api/reference/up/index.html "资源上传"
+[rsHref]:       http://developer.qiniu.com/docs/v6/api/reference/rs/index.html "资源管理"
+[fopHref]:      http://developer.qiniu.com/docs/v6/api/reference/fop/index.html "资源处理"

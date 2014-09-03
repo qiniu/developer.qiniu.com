@@ -114,7 +114,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
     `key`        | 是   | 资源名。
     `putTime`    | 是   | 上传时间，单位：100纳秒，其值去掉低七位即为[Unix时间][unixTimeHref]。
     `fsize`      | 是   | 资源内容的大小，单位：字节。
-    `hash`       | 是   | 资源内容的[ETag](../../overview/appendix.html#qiniu-etag)值。
+    `hash`       | 是   | 资源内容的[ETag](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)值。
     `mimeType`   | 是   | 资源内容的MIME类型。
     `customer`   |      | 资源内容的唯一属主标识，请参考[上传策略][putPolicyHref]。
 
@@ -204,8 +204,8 @@ bucket=qiniu-ts-demo&prefix=00&limit=2&delimiter=%2F
 - [URL转义][urlescapeHref]
 
 [sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[accessTokenHref]:   ../security/access-token.html                    "管理凭证"
-[putPolicyHref]:     ../security/put-policy.html                      "上传策略"
+[accessTokenHref]:   http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
+[putPolicyHref]:     http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html                      "上传策略"
 
 [unixTimeHref]:      http://en.wikipedia.org/wiki/Unix_time           "Unix时间"
 

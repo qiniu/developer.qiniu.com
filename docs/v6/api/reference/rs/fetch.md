@@ -151,10 +151,10 @@ X-Reqid: wxIAAD3btw-v3TwT
 - [EncodedEntryURI格式][encodedEntryURIHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[encodedEntryURIHref]:          ../data-formats.html                             "EncodedEntryURI格式"
-[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html                             "EncodedEntryURI格式"
+[accessTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
+[commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"
 
-[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
