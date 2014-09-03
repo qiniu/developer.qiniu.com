@@ -11,7 +11,7 @@ order: 514
 
 ![带回调的上传流程](img/upload-with-callback.png)
 
-要启用回调功能，业务服务器在签发上传凭证时需要设置[上传策略](../../../reference/security/put-policy.html)中的`callbackUrl`字段,并且设置`callbackBody`字段。
+要启用回调功能，业务服务器在签发上传凭证时需要设置[上传策略](/docs/v6/api/reference/security/put-policy.html)中的`callbackUrl`字段,并且设置`callbackBody`字段。
 
 <a id="callback-url"></a>
 ## 回调地址
@@ -109,7 +109,7 @@ X-Reqid: iDYAAPBicOGXLUET
 {"success":true,"name":"sunflowerb.jpg"}
 ```
 
-如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579](../../../reference/codes.html)以及详细的失败信息。
+如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579](/docs/v6/api/reference/codes.html)以及详细的失败信息。
 
 <a id="callback-security"></a>
 ## 安全性

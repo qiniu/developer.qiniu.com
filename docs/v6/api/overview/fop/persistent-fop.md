@@ -27,7 +27,7 @@ order: 270
 
 字段                   | 类型    | 含义
 --------------------- | ------ | -------------
-`persistentOps`       | string | 需要进行的数据处理命令，可以指定多个命令，以`;`分隔，具体含义见[persistentOps详解](../../reference/security/put-policy.html#put-policy-persistent-ops-explanation)。<p>每一个数据处理命令都应遵循标准格式，参见[数据处理（fop）][fopHref]。
+`persistentOps`       | string | 需要进行的数据处理命令，可以指定多个命令，以`;`分隔，具体含义见[persistentOps详解](/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)。<p>每一个数据处理命令都应遵循标准格式，参见[数据处理（fop）][fopHref]。
 `persistentNotifyUrl` | string | 用户接收视频处理结果的接口URL。<br>设置`persistentOps`字段时，本字段必须同时设置。<br>未来该设置项将改为可选，如未设置，则只能使用返回的`persistentId`主动查询处理进度。
 
 用户使用指定了`persistentOps`和`persistentNotifyUrl`的上传凭证上传一个文件之后，服务端返回的响应内容中会包含此次异步处理的进程ID`persistentId`，该ID可用于获取处理的进度和结果。
@@ -167,7 +167,7 @@ key   | string | 数据处理结果的唯一资源ID。数据处理结果可通�
 [处理1(avthumb/mp3/aq/6/ar/16000)结果](http://t-test.qiniudn.com/persistent.mp3?p/1/avthumb/mp3/aq/6/ar/16000)  
 [处理2(avthumb/mp3/ar/44100/ab/32k)结果](http://t-test.qiniudn.com/persistent.mp3?p/1/avthumb/mp3/ar/44100/ab/32k)   
 
-[putPolicyHref]:			../../reference/security/put-policy.html "上传策略"
-[uploadTokenHref]:			../../reference/security/upload-token.html "上传凭证"
-[accessTokenHref]:                   ../../reference/security/access-token.html "管理凭证"
-[fopHref]:					fop.html "数据处理"
+[putPolicyHref]:			/docs/v6/api/reference/security/put-policy.html "上传策略"
+[uploadTokenHref]:			/docs/v6/api/reference/security/upload-token.html "上传凭证"
+[accessTokenHref]:         /docs/v6/api/reference/security/access-token.html "管理凭证"
+[fopHref]:					/docs/v6/api/overview/fop/fop.html "数据处理"

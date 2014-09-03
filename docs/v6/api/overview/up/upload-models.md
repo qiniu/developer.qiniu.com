@@ -17,7 +17,7 @@ order: 550
 
 	该模型在一个单一的HTTP POST请求中完成一个文件的上传，比较适合于简单的应用场景和尺寸较小的文件。
 	
-	关于表单上传的使用细节，请参见[表单上传](form-upload.html)。
+	关于表单上传的使用细节，请参见[表单上传](/docs/v6/api/overview/up/form-upload.html)。
 	
 1. 分片上传
 
@@ -32,7 +32,7 @@ order: 550
 	
 	相比简单上传，分片上传需要多次HTTP请求才能完成上传过程，因此必然会有额外的成本开销。另外代码的复杂度也会有明显增加，因此选择是否使用分片上传时应谨慎评估使用该方法的必要性。
 	
-	分片上传的相关细节请参见[分片上传](chunked-upload.html)。
+	分片上传的相关细节请参见[分片上传](/docs/v6/api/overview/up/chunked-upload.html)。
 	
 <a id="response-types"></a>
 ## 响应类型	
@@ -43,13 +43,13 @@ order: 550
 
 	简单反馈是指最直接的HTTP响应方式。客户端发起一次上传请求，然后等待服务端返回结果。服务端在处理完该次上传请求后，将处理结果以HTTP响应的方式反馈给客户端。
 	
-	简单反馈的相关细节请参见[简单反馈](response/simple-response.html)。
+	简单反馈的相关细节请参见[简单反馈](/docs/v6/api/overview/up/response/simple-response.html)。
 	
 1. 303重定向
 
 	303重定向通常在浏览器上传的场景中使用。浏览器中的网页可以在发起上传请求的同时通知服务器，一旦上传成功，服务器应该返回HTTP 303状态码并带上一个重定向URL。浏览器在收到服务器返回的这个重定向指令后，将当前页面跳转到对应的重定向URL。
 	
-	303重定向的使用细节请参见[303重定向](response/redirect.html)。
+	303重定向的使用细节请参见[303重定向](/docs/v6/api/overview/up/response/redirect.html)。
 	
 1. 回调通知
 
@@ -57,17 +57,17 @@ order: 550
 	
 	因为加入了回调请求和响应的过程，相比简单上传，使用回调通知机制一般会导致客户端花费更多的等待时间。
 	
-	回调通知的使用细节请参见[回调通知](response/callback.html)。
+	回调通知的使用细节请参见[回调通知](/docs/v6/api/overview/up/response/callback.html)。
 	
 1. 异步数据处理
 
 	客户端可以要求服务端在资源上传完成后以异步的方式开始处理刚刚上传的资源。要达到这个目标，可以在上传时指定相应的数据处理操作和参数。所有七牛云存储已经支持的数据处理服务均可以作为该请求的设置目标。
 	
-	异步数据处理的使用细节请参见[异步数据处理](response/persistent-op.html)。
+	异步数据处理的使用细节请参见[异步数据处理](/docs/v6/api/overview/up/response/persistent-op.html)。
 	
 ## 授权机制
 
-资源的上传授权机制采用[上传凭证](../security.html#upload-token)。
+资源的上传授权机制采用[上传凭证](/docs/v6/api/overview/security.html#upload-token)。
 
 ## 常见问题
 

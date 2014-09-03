@@ -50,7 +50,7 @@ order: 600
 1. 可选择设置的最终用户标识ID。这是为了让业务服务器在收到结果回调时能够识别产生该请求的最终用户信息；
 1. 可选择设置的[结果返回方式](up/response/index.html)和[数据预处理指令](up/response/persistent-op.html)；
 
-我们使用一个[上传策略（PutPolicy）结构](../reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](../reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](up/index.html)。
+我们使用一个[上传策略（PutPolicy）结构](/docs/v6/api/reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](/docs/v6/api/reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](up/index.html)。
 
 <a id="download-token"></a>
 ## 下载凭证（DownloadToken）
@@ -62,7 +62,7 @@ order: 600
 1. 保证请求发起者拥有对目标空间的访问权限；
 1. 保证服务端收到的下载请求内容未经中途篡改，具体包括目标资源的URI和该访问请求的有效期信息均应未受到篡改；
 
-关于下载凭证的生成细节，请查看[下载凭证规格](../reference/security/download-token.html)。关于下载凭证的具体使用方法，请参见[私有资源下载](dn/security.html#download-private-resource)。
+关于下载凭证的生成细节，请查看[下载凭证规格](/docs/v6/api/reference/security/download-token.html)。关于下载凭证的具体使用方法，请参见[私有资源下载](/docs/v6/api/overview/dn/security.html#download-private-resource)。
 
 <a id="anti-leech"></a>
 ## 防盗链
@@ -83,7 +83,7 @@ order: 600
 1. 保证请求发起者拥有对目标空间的管理权限；
 1. 保证服务端收到的管理请求内容未经中途篡改，具体包括代表管理动作的URI和该管理动作的参数信息均应未受到篡改；
 
-关于管理凭证的生成细节，请查看[管理凭证规格](../reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理](rs/security.html)。
+关于管理凭证的生成细节，请查看[管理凭证规格](/docs/v6/api/reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理](/docs/v6/api/overview/rs/security.html)。
 
 <a id="cors-support"></a>
 ## 跨域访问
