@@ -104,12 +104,7 @@ extra.params.put("x:a", "bb"); // 设置一个自定义变量
 <a name="resumable-upload"></a>
 ### 断点续上传
 
-开发者可以通过调用`ResumableIO.put()`方法以分片形式上传一个文件。该方法签名和`IO.put()`一致。
-
-分片上传的示例代码请参见SDK示例中[`MyResumableActivity.doResumableUpload()`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/demo/MyResumableActivity.java)方法的实现。
-
-
-开发者可以基于分片上传机制实现断点续上传功能。
+可基于分片上传机制实现断点续上传功能。
 
 ```java
 public static UploadTaskExecutor put(Authorizer auth, String key, 
@@ -130,11 +125,13 @@ public Block(int idx, String ctx, int length, String host)
 `length` | `int` | 块的长度。小于等于4M
 `host` | `String` | 后续上传接收地址
 
-`CallBack#onBlockSuccess(Block blk)` 一个块上传成功后，会调用此回调，可根据情况保存断点记录。 
+`CallBack#onBlockSuccess(Block blk)` 一个块上传成功后，会调用此回调，可根据情况保存断点记录。
+
+分片上传的示例代码请参见SDK示例中[`MyResumableActivity.doResumableUpload()`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/demo/MyResumableActivity.java)方法的实现。
 
 实际情况中，本地文件可能修改，在恢复上传前先做相应的校验。
 
-参考： 分片上传（断点续上传）(http://developer.qiniu.com/docs/v6/api/overview/up/chunked-upload.html)  上传(http://developer.qiniu.com/docs/v6/api/reference/up/)
+参考： [`分片上传（断点续上传）`](http://developer.qiniu.com/docs/v6/api/overview/up/chunked-upload.html)  [`上传`](http://developer.qiniu.com/docs/v6/api/reference/up/)
 
 <a name="download"></a>
 ## 下载文件
