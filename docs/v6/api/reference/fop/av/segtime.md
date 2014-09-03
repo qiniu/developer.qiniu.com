@@ -23,7 +23,7 @@ order: 148
 ```
 
 预设集参见[hls预设集](#segtime-preset)
-命令的调用可以使用上传时指定[persistentOps](../../security/put-policy.html)或者调用[pfop](pfopHref)命令
+命令的调用可以使用上传时指定[persistentOps](persistentOpsHref)或者调用[pfop](pfopHref)命令
 
 <a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
@@ -169,6 +169,6 @@ $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE
 - [预转持久化处理][persistentOpsHref]
 - [触发持久化处理][pfopHref]
 
-[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[pfopHref]:          ../pfop/pfop.html                                        "触发持久化处理"
-[pfopNotificationHref]: ../pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html "触发持久化处理"
+[pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification  "持久化处理结果通知"

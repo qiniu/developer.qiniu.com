@@ -34,8 +34,8 @@ Authorization:  UpToken <UploadToken>
 参数名称            | 必填 | 类型   | 说明
 :------------------ | :--- | :----- | :------------------------------
 `/<fileSize>`       | 是   | int64  | 资源文件大小。
-`/key/<encodedKey>` |      | string | 进行[URL安全的Base64编码][urlsafeBase64Href]后的资源名<br>若未指定，则使用[saveKey](../security/put-policy.html#put-policy-save-key)；<br>若未指定`saveKey`，则使用资源内容的SHA1值作为资源名。
-`/x:user-var/<encodedUserVars>` |     | string | 指定[自定义变量](../../overview/up/response/vars.html#xvar)。
+`/key/<encodedKey>` |      | string | 进行[URL安全的Base64编码][urlsafeBase64Href]后的资源名<br>若未指定，则使用[saveKey](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-save-key)；<br>若未指定`saveKey`，则使用资源内容的SHA1值作为资源名。
+`/x:user-var/<encodedUserVars>` |     | string | 指定[自定义变量](http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#xvar)。
 
 <a id="mkfile-request-headers"></a>
 ### 头部信息
@@ -122,7 +122,7 @@ HTTP状态码 | 含义
 
 - 可以复用创建块时使用的上传凭证。  
 - 上传凭证将被重新验证，若已过期，可以使用重新生成的凭证。  
-- 若参数中指定了资源名，而所用上传策略的[scope字段](../security/put-policy.html#put-policy-scope)中也指定了资源名，且两者不一致，操作将失败且返回401状态码。
+- 若参数中指定了资源名，而所用上传策略的[scope字段](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-scope)中也指定了资源名，且两者不一致，操作将失败且返回401状态码。
 
 <a id="mkfile-internal-resources"></a>
 ## 内部参考资源
@@ -133,6 +133,6 @@ HTTP状态码 | 含义
 - [URL安全的Base64编码][urlsafeBase64Href]
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[uploadTokenHref]:              ../security/upload-token.html                    "上传凭证"
-[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
-[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[uploadTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html                    "上传凭证"
+[commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"

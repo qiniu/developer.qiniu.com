@@ -56,7 +56,7 @@ avthumb/<Format>
 `/autoscale/<Autoscale>`|  V   |      | 配合参数`/s/`使用，指定为1时，把视频按原始比例缩放到`/s/`指定的矩形框内，0或者不指定会强制缩放到对应分辨率，可能造成视频变形
 <a id="video-strip-meta"></a><a id="avthumb-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="video-rotate"></a><a id="avthumb-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
-`/wmImage/<EncodedRemoteImageUrl>`| V | | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。水印具体介绍见[视频水印](video-watermark.html)
+`/wmImage/<EncodedRemoteImageUrl>`| V | | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。水印具体介绍见[视频水印](http://developer.qiniu.com/docs/v6/api/reference/fop/av/video-watermark.html)
 `/wmGravity/<Gravity>`  |  V   |      | 视频水印位置，存在`/wmImage/`时生效
 <a id="mp3-xing">`/writeXing/<Xing>`     | A    |      | 转码成mp3时是否写入xing header，默认1写入，写入会导致 `file`，`afinfo` 等命令识别出错误的码率。好处是在需要音频时长、帧数的时候只需要获取header。
 <a id="an">`/an/<AudioNo>`     | A    |      | 是否去除音频流，0为保留，1为去除。<br>默认值为0。
@@ -179,6 +179,6 @@ amr          | -          | -        | amr_nb     | 12.20k   | 8000
 - [预转持久化处理][persistentOpsHref]
 - [触发持久化处理][pfopHref]
 
-[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[pfopHref]:          ../pfop/pfop.html                                        "触发持久化处理"
-[pfopNotificationHref]: ../pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                        "触发持久化处理"
+[pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification                   "持久化处理结果通知"

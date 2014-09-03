@@ -78,6 +78,6 @@ order: 960
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                                               "Unix时间"
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1签名"
-[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
