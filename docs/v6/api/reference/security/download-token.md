@@ -18,13 +18,13 @@ order: 960
 1. 构造下载URL：  
 
 	```
-    DownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg'
+    DownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg'
 	```
 
 2. 为下载URL加上过期时间（e参数，[Unix时间][unixTimeHref]）：  
 
 	```
-    DownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg?e=1451491200'
+    DownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg?e=1451491200'
 	```
 
 3. 对上一步得到的URL字符串计算HMAC-SHA1签名（假设`SecretKey`是`MY_SECRET_KEY`），并对结果做[URL安全的Base64编码][urlsafeBase64Href]：
@@ -43,7 +43,7 @@ order: 960
 5. 将下载凭证添加到含过期时间参数的下载URL之后，作为最后一个参数（token参数）：  
 
 	```
-    RealDownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg?e=1451491200&token=MY_ACCESS_KEY:NTQ3YWI5N2E5MjcxN2Y1ZTBiZTY3ZTZlZWU2NDAxMDY1YmI4ZWRhNwo='
+    RealDownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg?e=1451491200&token=MY_ACCESS_KEY:NTQ3YWI5N2E5MjcxN2Y1ZTBiZTY3ZTZlZWU2NDAxMDY1YmI4ZWRhNwo='
 	```
 
 `RealDownloadUrl`即为下载对应私有资源的可用URL，并在指定时间后失效。  

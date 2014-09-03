@@ -28,6 +28,7 @@ order: 980
     "returnBody":          "<ResponseBodyForAppClient string>",
 
     "callbackUrl":         "<RequestUrlForAppServer   string>",
+    "callbackHost":        "<RequestHostForAppServer  string>",
     "callbackBody":        "<RequestBodyForAppServer  string>",
 
     "persistentOps":       "<persistentOpsCmds        string>",
@@ -50,11 +51,12 @@ order: 980
 <a id="put-policy-end-user"></a>`endUser`             |      | ● 唯一属主标识<br>特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印。
 <a id="put-policy-return-url"></a>`returnUrl`           |      | ● Web端文件上传成功后，浏览器执行303跳转的URL<br>通常用于`HTML Form`上传。<br>文件上传成功后会跳转到`<returnUrl>?upload_ret=<queryString>`, `<queryString>`包含`returnBody`内容。<br>如不设置`returnUrl`，则直接将`returnBody`的内容返回给客户端。
 <a id="put-policy-return-body"></a>`returnBody`          |      | ● 上传成功后，自定义七牛云最终返回給上传端（在指定`returnUrl`时是携带在跳转路径参数中）的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`returnBody` 要求是合法的 JSON 文本。如：`{"key": $(key), "hash": $(etag), "w": $(imageInfo.width), "h": $(imageInfo.height)}`。
-<a id="put-policy-callback-url"></a>`callbackUrl`         |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。另外，为了给客户端有一致的体验，我们要求 `callbackUrl` 返回包 `Content-Type` 为 `"application/json"`，即返回的内容必须是合法的 JSON 文本。
+<a id="put-policy-callback-url"></a>`callbackUrl`         |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。另外，为了给客户端有一致的体验，我们要求 `callbackUrl` 返回包 `Content-Type` 为 `"application/json"`，即返回的内容必须是合法的 JSON 文本。<br>出于高可用的考虑，本字段允许设置多个 `callbackUrl`(用 `;` 分隔)，在前一个 `callbackUrl` 请求失败的时候会依次重试下一个 `callbackUrl`。一个典型例子是 `http://<ip1>/callback;http://<ip2>/callback`，并同时指定下面的 `callbackHost` 字段。在 `callbackUrl` 中使用 ip 的好处是减少了对 dns 解析的依赖，可改善回调的性能和稳定性。
+<a id="put-policy-callback-host"></a>`callbackHost`         |      | ● 上传成功后，七牛云向`App-Server`发送回调通知时的 Host 值，仅当同时设置了 `callbackUrl` 时有效。
 <a id="put-policy-callback-body"></a>`callbackBody`        |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`callbackBody` 要求是合法的 url query string。如：`key=$(key)&hash=$(etag)&w=$(imageInfo.width)&h=$(imageInfo.height)`。
 <a id="put-policy-persistent-ops"></a>`persistentOps`       |      | ● 资源上传成功后触发执行的预转持久化处理指令列表<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。
 <a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | ● 接收预转持久化结果通知的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。
-`persistentPipeline`| | ● 转码队列名<br>资源上传成功后，触发转码时指定独立的队列进行转码
+`persistentPipeline`| | ● 转码队列名<br>资源上传成功后，触发转码时指定独立的队列进行转码。`为空则表示使用公用队列，处理速度比较慢。`建议使用[专用队列][mpsHref]
 <a id="put-policy-save-key"></a>`saveKey`             |      | ● 自定义资源名<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。这个字段仅当用户上传的时候没有主动指定key的时候起作用。
 <a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | ● 限定上传文件的大小，单位：字节（Byte）<br>超过限制的上传内容会被判为上传失败，返回413状态码。
 <a id="put-policy-detect-mime"></a>`detectMime`          |      | ● 开启MimeType侦测功能<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名<br>2. 检查Key扩展名<br>3. 侦测内容。
