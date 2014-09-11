@@ -80,7 +80,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 ### 更多
 
-- [七牛云存储图像处理 API](/api/image-process.html)
+- [七牛云存储图像处理 API](/docs/v6/api/reference/fop/image/index.html)
 - 蟬游记-七牛云存储使用心得：<http://quake.iteye.com/blog/1816807>
 
 
