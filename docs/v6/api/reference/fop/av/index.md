@@ -25,3 +25,4 @@ order: 160
 [avinfoHref]:           http://developer.qiniu.com/docs/v6/api/reference/fop/av/avinfo.html             "音视频元信息"
 [pm3u8Href]:            http://developer.qiniu.com/docs/v6/api/reference/fop/av/pm3u8.html              "私有M3U8"
 [avconcatHref]:         http://developer.qiniu.com/docs/v6/api/reference/fop/av/avconcat.html           "音视频拼接"
+[vsampleHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/av/vsample.html            "视频采样缩略图"
