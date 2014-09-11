@@ -23,7 +23,7 @@ order: 148
 ```
 
 预设集参见[hls预设集](#segtime-preset)
-命令的调用可以使用上传时指定[persistentOps](persistentOpsHref)或者调用[pfop](pfopHref)命令
+命令的调用可以使用上传时指定[persistentOps][persistentOpsHref]或者调用[pfop][pfopHref]命令
 
 <a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
