@@ -131,3 +131,4 @@ order: 980
 [urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"
+[mpsHref]:                 https://portal.qiniu.com/mps/pipeline  "专用队列"
