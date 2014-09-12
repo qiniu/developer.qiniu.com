@@ -26,7 +26,7 @@ avthumb/<format>
 
 参数名称                   | 必填 | 说明
 :------------------------- | :--- | :---------------------------------
-`...`                      |      | [avthumb](avthumb.html)的其他参数 
+`...`                      |      | [avthumb](http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html)的其他参数 
 `<EncodedRemoteImageUrl>`  | 是   | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。
 `<Gravity>`                |      | 打水印的位置，参考[水印锚点参数表](#vwatermark-anchor-spec)，缺省值为`NorthEast`（右上角）。
 
@@ -82,7 +82,7 @@ SouthWest     |     South      |     SouthEast
 - [预转持久化处理][persistentOpsHref]
 - [触发持久化处理][pfopHref]
 
-[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[pfopHref]:          ../pfop/pfop.html                                        "触发持久化处理"
-[pfopNotificationHref]: ../pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
+[persistentOpsHref]:  http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                        "触发持久化处理"
+[pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
 

@@ -61,7 +61,7 @@ bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<u
 :------------ | :--- | :--------------------------- | :----------------------------------------------------------------
 `bucket`      | 是   | 是                           | 资源空间。
 `key`         | 是   | 是                           | 源资源名。
-`fops`        | 是   | 是                           | 云处理操作列表，用 `;` 分隔，整个字串（包括 `;` 分隔符）进行[URL转义][urlescapeHref]，含义请参见[persistentOps详解](../../security/put-policy.html#put-policy-persistent-ops-explanation)。
+`fops`        | 是   | 是                           | 云处理操作列表，用 `;` 分隔，整个字串（包括 `;` 分隔符）进行[URL转义][urlescapeHref]，含义请参见[persistentOps详解](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)。
 `notifyURL`   | 是   | 是                           | 处理结果通知接收URL，请参考[处理结果通知](#pfop-notification)小节。
 <a id="pfop-force"></a>`force`       |      |       | 强制执行数据处理。<br>当服务端发现fops指定的数据处理结果已经存在，那就认为已经处理成功，避免重复处理浪费资源。加上本字段并设为1，则可强制执行数据处理并覆盖原结果。
 `pipeline`	  |    |  | `为空则表示使用公用队列，处理速度比较慢。`建议指定[专用队列][mpsHref]，转码的时候使用独立的计算资源
@@ -100,7 +100,7 @@ Content-Type  | 是    | 正常情况下该值将被设为`application/json`，�
 
 字段名称      | 必填  | 说明                              
 :------------ | :---- | :----------------------------------------------------------------
-persistentId  | 是    | 持久化处理会话标识，可用于查询处理进度，请参考[持久化处理状态查询](prefop.html)。
+persistentId  | 是    | 持久化处理会话标识，可用于查询处理进度，请参考[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
@@ -228,7 +228,7 @@ Content-Type  | 是   | 固定为`application/json`。
 http://<domain>/tZ-w8jHlQ0__PYJdiisskrK5h3k=/FjgJQXuH7OresQL4zgRqYG5bZ64x
 ```
 
-[accessTokenHref]:      ../../security/access-token.html                 "管理凭证"
+[accessTokenHref]:      http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                 "管理凭证"
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 
 [urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81

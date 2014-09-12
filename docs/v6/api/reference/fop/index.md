@@ -18,11 +18,11 @@ order: 500
 * [Markdown文本处理（md2html）][md2htmlHref]
 * [office文档处理（odconv）][odconvHref]
 
-[imageHref]:        image/index.html        "图片处理"
-[avHref]:           av/index.html           "音视频处理"
-[pfopHref]:         pfop/index.html         "持久化处理"
-[concatHref]:       concat.html             "文件拼接"
-[qrcodeHref]:       qrcode.html             "二维码处理"
-[md2htmlHref]:      md2html.html            "Markdown文本处理"
-[odconvHref]:       odconv.html             "office文档处理"
-[saveasHref]:       saveas.html             "处理结果另存"
+[imageHref]:        http://developer.qiniu.com/docs/v6/api/reference/fop/image/index.html        "图片处理"
+[avHref]:           http://developer.qiniu.com/docs/v6/api/reference/fop/av/index.html           "音视频处理"
+[pfopHref]:         http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/index.html         "持久化处理"
+[concatHref]:       http://developer.qiniu.com/docs/v6/api/reference/fop/concat.html             "文件拼接"
+[qrcodeHref]:       http://developer.qiniu.com/docs/v6/api/reference/fop/qrcode.html             "二维码处理"
+[md2htmlHref]:      http://developer.qiniu.com/docs/v6/api/reference/fop/md2html.html            "Markdown文本处理"
+[odconvHref]:       http://developer.qiniu.com/docs/v6/api/reference/fop/odconv.html             "office文档处理"
+[saveasHref]:       http://developer.qiniu.com/docs/v6/api/reference/fop/saveas.html             "处理结果另存"

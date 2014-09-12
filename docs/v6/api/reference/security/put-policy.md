@@ -124,11 +124,11 @@ order: 980
 - [Unix时间][unixTimeHref]
 
 [uploadTokenHref]:          upload-token.html                                            "上传凭证"
-[magicVariablesHref]:       ../../overview/up/response/vars.html#magicvar                "魔法变量"
-[xVariablesHref]:           ../../overview/up/response/vars.html#xvar                    "自定义变量"
-[fopHref]:                  ../../overview/up/response/persistent-op.html                "预转持久化处理"
-[encodedEntryURIHref]:      ../data-formats.html#data-format-encoded-entry-ur		 "EncodedEntryURI格式"
-[urlsafeBase64Href]:        ../../overview/appendix.html#urlsafe-base64 		 "URL安全的Base64编码"
-[mpsHref]:                  https://portal.qiniu.com/mps/pipeline       		 "多媒体处理"
+[magicVariablesHref]:       http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#magicvar                "魔法变量"
+[xVariablesHref]:           http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#xvar                    "自定义变量"
+[fopHref]:                  http://developer.qiniu.com/docs/v6/api/overview/up/response/persistent-op.html                "预转持久化处理"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"
+[mpsHref]:                 https://portal.qiniu.com/mps/pipeline  "专用队列"

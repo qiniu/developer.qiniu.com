@@ -62,8 +62,8 @@ concat/mimeType/<encodedMimeType>
 - [预转持久化处理][persistentOpsHref]
 - [触发持久化处理][pfopHref]
 
-[persistentOpsHref]: ../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[pfopHref]:          pfop/pfop.html                                        "触发持久化处理"
-[pfopNotificationHref]: pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html "触发持久化处理"
+[pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification "持久化处理结果通知"
 
-[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"

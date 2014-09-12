@@ -20,4 +20,4 @@ order: 100
 :----------- | :--- | :--------------------------------------------------------------------
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
-[codesHref]: codes.html "响应状态码"
+[codesHref]: http://developer.qiniu.com/docs/v6/api/reference/codes.html "响应状态码"

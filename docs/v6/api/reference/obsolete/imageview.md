@@ -167,9 +167,9 @@ HTTP状态码 | 含义
 - [saveas处理][saveasHref]
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                    "域名绑定"
-[pfopHref]:                     ../fop/pfop/pfop.html                           "触发持久化处理"
-[saveasHref]:                   ../fop/saveas.html                              "saveas处理"
-[exifHref]:                     ../fop/image/exif.html                          "EXIF信息"
-[imageView2Href]:               ../fop/image/imageview2.html                    "imageView2"
+[pfopHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                           "触发持久化处理"
+[saveasHref]:                   http://developer.qiniu.com/docs/v6/api/reference/fop/saveas.html                              "saveas处理"
+[exifHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html                          "EXIF信息"
+[imageView2Href]:               http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview2.html                    "imageView2"
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

@@ -8,5 +8,5 @@ order: 300
 
 本节描述资源管理的相关操作，包含以下内容：
 
-* [安全机制](security.html)
-* [管理操作](rs.html)
+* [安全机制](/docs/v6/api/overview/rs/security.html)
+* [管理操作](/docs/v6/api/overview/rs/rs.html)

@@ -23,7 +23,7 @@ order: 148
 ```
 
 预设集参见[hls预设集](#segtime-preset)
-命令的调用可以使用上传时指定[persistentOps](../reference/security/put-policy.html)或者调用[pfop](../reference/fop/pfop/pfop.html)命令
+命令的调用可以使用上传时指定[persistentOps][persistentOpsHref]或者调用[pfop][pfopHref]命令
 
 <a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
@@ -50,7 +50,7 @@ avthumb/m3u8/segtime/<SegSeconds>
 
 参数名称                | 类别 | 必填 | 说明
 :---------------------- | :--- | :--- | :----------------------------------------
-`/segtime/<SegSeconds>` | A/V  |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围10-60秒，默认值为10秒。
+`/segtime/<SegSeconds>` | A/V  |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围5-60秒，默认值为10秒。
 `/preset/<Preset>`      | A/V  |      | 预设集（Preset）名称。
 `/ab/<BitRate>`         | A    |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。
 `/aq/<AudioQuality>`    | A    |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。
@@ -169,6 +169,6 @@ $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE
 - [预转持久化处理][persistentOpsHref]
 - [触发持久化处理][pfopHref]
 
-[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[pfopHref]:          ../pfop/pfop.html                                        "触发持久化处理"
-[pfopNotificationHref]: ../pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html "触发持久化处理"
+[pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification  "持久化处理结果通知"

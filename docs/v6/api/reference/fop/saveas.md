@@ -146,5 +146,5 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 - [EncodedEntryURI格式][encodedEntryURIHref]
 - [触发持久化处理][pfopHref]
 
-[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
-[pfopHref]:                     pfop/pfop.html                                     "触发持久化处理"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[pfopHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                     "触发持久化处理"
