@@ -23,11 +23,11 @@ order: 320
 http://<domain>/<key>?attname=<file_name>
 ```
 
-如果访问的URL是带[数据处理操作](docs/v6/api/overview/fop/index.html)的，那么可以给URL添加参数`&attname=<file_name>`，多个[数据处理操作](docs/v6/api/overview/fop/index.html)间用[管道](docs/v6/api/overview/fop/pipeline.html)连接，如下所示：
+如果访问的URL是带[数据处理操作](/docs/v6/api/overview/fop/index.html)的，那么可以给URL添加参数`&attname=<file_name>`，多个[数据处理操作](/docs/v6/api/overview/fop/index.html)间用[管道](/docs/v6/api/overview/fop/pipeline.html)连接，如下所示：
 
 ```
 http://<domain>/<key>?<fop>&attname=<file_name>
-http://<domain>/<key>?<fop1>|<fop2>|<fop3>&attname=<file_name>
+http://<domain>/<key>?<fop1>|<fop2>|<fop3>&attname=<file_name>  （被下载的是fop3的处理结果）
 
 ```
 
@@ -37,8 +37,13 @@ http://<domain>/<key>?<fop1>|<fop2>|<fop3>&attname=<file_name>
 Content-Disposition: attachment;filename="<file_name>"
 ```
 
-该字段告诉浏览器将资源下载成为指定的文件名`<file_name>`。下面是几个可体验的完整示例：<br>
+该字段告诉浏览器将资源下载成为指定的文件名`<file_name>`。下面是几个可体验的完整示例：
+
+**原图按照原图文件名下载：**<br>
 <http://newdocs.qiniudn.com/gogopher.jpg?attname=><br>
+**原图按照文件名down.jpg下载：**<br>
 <http://newdocs.qiniudn.com/gogopher.jpg?attname=down.jpg><br>
+**原图先按照200x200大小缩放，再将处理结果按照文件名down.jpg下载：**<br>
 <http://newdocs.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200&attname=down2.jpg><br>
+**原图先按照200x200大小缩放，然后将缩放结果按照50x50裁剪，再将最后裁剪结果结果按照文件名down.jpg下载：**<br>
 <http://newdocs.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200|imageMogr2/crop/50x50&attname=down3.jpg>
