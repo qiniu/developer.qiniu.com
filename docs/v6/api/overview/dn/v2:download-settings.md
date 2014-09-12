@@ -40,7 +40,7 @@ Content-Disposition: attachment;filename="<file_name>"
 该字段告诉浏览器将资源下载成为指定的文件名`<file_name>`。下面是几个可体验的完整示例：
 
 **原图按照原图文件名下载：**<br>
-<http://newdocs.qiniudn.com/gogopher.jpg?attname=> 
+[http://newdocs.qiniudn.com/gogopher.jpg?attname=](http://newdocs.qiniudn.com/gogopher.jpg?attname=) 
 <br>
 **原图按照文件名down.jpg下载：**<br>
 <http://newdocs.qiniudn.com/gogopher.jpg?attname=down.jpg><br>
