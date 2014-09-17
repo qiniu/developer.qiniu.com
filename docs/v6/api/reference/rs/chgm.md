@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 修改元信息（chgm）
-order: 600
+order: 200
 ---
 
 <a id="delete"></a>
