@@ -42,7 +42,7 @@ EncodedEntryURI和EncodedMimeType的细节请查看[EncodedEntryURI格式][encod
 
 头部名称      | 必填 | 说明
 :------------ | :--- | :-----------------------------
-Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`
+Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码<p>一个合法的Authorization值应类似于：`QBox bt500PzCG9tV0bccCOdnrmC...`
 
 <a id="chgm-request-body"></a>
 ### 请求内容
@@ -129,7 +129,7 @@ POST /chgm/aXRpc2F0ZXN0OmdvZ29waGVyLmpwZw==/mime/YXBwbGljYXRpb24vdGVzdA== HTTP/1
 User-Agent: curl/7.30.0
 Host: rs.qiniu.com
 Accept: */*
-Authorization: QBox u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:2LJIG...(过长已省略)
+Authorization: QBox bt500PzCG9tV0bccCOdnrmCHPXCPLieGSDEprB7M:4wG...(过长已省略)
 ```
 
 <span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
