@@ -38,7 +38,7 @@ order: 340
 <a id="prefetch"></a>
 ## 更新镜像资源（prefetch）
 
-对于设置了镜像存储的空间，从镜像源站抓取指定名称的资源并存储到该空间中。如果该空间中已存在该名称的资源，则自动覆盖。具体参考[更新镜像资源（prefetch）](/docs/v6/api/reference/rs/prefetch.html)。
+对于设置了镜像存储的空间，从镜像源站抓取指定名称的资源并存储到该空间中。如果该空间中已存在该名称的资源，则将镜像源站的资源覆盖空间的资源。具体参考[更新镜像资源（prefetch）](/docs/v6/api/reference/rs/prefetch.html)。
 
 <a id="chgm"></a>
 ## 修改元信息 (chgm)

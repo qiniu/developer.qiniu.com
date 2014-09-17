@@ -4,7 +4,7 @@ title: 修改元信息（chgm）
 order: 200
 ---
 
-<a id="delete"></a>
+<a id="chgm"></a>
 # 修改元信息（chgm）
 
 <a id="chgm-description"></a>
