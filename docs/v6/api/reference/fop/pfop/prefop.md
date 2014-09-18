@@ -127,8 +127,7 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 ```
 {
-	"code":     <HttpCode  int>, 
-    "error":   "<ErrMsg    string>",
+    "error":   "<ErrMsg    string>"
 }
 ```
 
@@ -139,7 +138,7 @@ HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 查询成功。
 400	       | 请求报文格式错误。
-404        | 查询对象不存在。
+612        | 查询对象不存在。
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
