@@ -34,6 +34,11 @@ avthumb/<Format>
        /rotate/<Degree>
        /wmImage/<EncodedRemoteImageUrl>
        /wmGravity/<Gravity>
+       /wmText/<text>
+       /wmGravityText/<gravity_text>
+       /wmFont/<font>
+       /wmFontColor<fontcolor>
+       /wmFontSize<fontsize>
        /writeXing/<Xing>
        /an/<AudioNo>
        /vn/<VideoNo>
@@ -49,15 +54,20 @@ avthumb/<Format>
 `/vb/<VideoBitRate>`    |  V   |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。 
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。 
 `/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
-`/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等
+`/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等。
 `/ss/<SeekStart>`       |  V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为 wxh 或者预定义值。 
 `/autoscale/<Autoscale>`|  V   |      | 配合参数`/s/`使用，指定为1时，把视频按原始比例缩放到`/s/`指定的矩形框内，0或者不指定会强制缩放到对应分辨率，可能造成视频变形
 <a id="video-strip-meta"></a><a id="avthumb-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="video-rotate"></a><a id="avthumb-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
-`/wmImage/<EncodedRemoteImageUrl>`| V | | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。水印具体介绍见[视频水印](http://developer.qiniu.com/docs/v6/api/reference/fop/av/video-watermark.html)
-`/wmGravity/<Gravity>`  |  V   |      | 视频水印位置，存在`/wmImage/`时生效
+`/wmImage/<EncodedRemoteImageUrl>`| V | | 水印图片的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。水印具体介绍见[视频水印](http://developer.qiniu.com/docs/v6/api/reference/fop/av/video-watermark.html)
+`/wmGravity/<Gravity>`  |  V   |      | 视频图片水印位置，存在`/wmImage/`时生效。
+`/wmText/<EncodedText>`        |  V   |      | 水印文本内容,需要经过`urlsafe_base64_encode`。
+`/wmGravityText/<GravityText>` |   V  |      |  文本位置（默认NorthEast）
+`/wmFont/<Font>`        |  V   |      | 文本字体，需要经过`urlsafe_base64_encode`，默认为黑体,注意：中文水印必须指定中文字体。
+`/wmFontColor/<FontColor>` |  V   |     | 水印文字颜色，RGB格式，可以是颜色名称（比如red）或十六进制（比如#FF0000），参考RGB颜色编码表，默认为黑色
+`/wmFontSize<FontSize>`    |  V   |     | 水印文字大小，单位: 缇，等于1/20磅，默认值0（默认大小）
 <a id="mp3-xing">`/writeXing/<Xing>`     | A    |      | 转码成mp3时是否写入xing header，默认1写入，写入会导致 `file`，`afinfo` 等命令识别出错误的码率。好处是在需要音频时长、帧数的时候只需要获取header。
 <a id="an">`/an/<AudioNo>`     | A    |      | 是否去除音频流，0为保留，1为去除。<br>默认值为0。
 <a id="vn">`/vn/<VideoNo>`     |  V   |      | 是否去除视频流，0为保留，1为去除。<br>默认值为0。
