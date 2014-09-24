@@ -31,7 +31,7 @@ HTML表单上传的几个关键参数说明如下：
 ------------|--------|------|-------------------------------------
 token       | string | 是   | 必须是一个符合相应规格的[上传凭证](/docs/v6/api/reference/security/upload-token.html)，否则会返回401表示权限认证失败。
 file        | file   | 是   | 文件本身。
-key         | string | 否   | 资源名，必须为UTF-8编码。
+key         | string | 否   | 资源名，必须为UTF-8编码。`注:` 如果在生成上传凭证的[上传策略](/docs/v6/api/reference/security/put-policy.html) 中 `scope`指定为：`<bucket>:<key>`, 则该字段也必须指定。
 x:\<custom_field_name\> | string | 否 | [自定义变量](/docs/v6/api/overview/up/response/vars.html#xvar)，必须以 `x:` 开头命名，不限个数。里面的内容将在 `callbackBody` 参数中的 `$(x:custom_field_name)` 求值时使用。
 
 上传过程在一个HTTP请求和响应中完成，因此该过程将阻塞直到文件传输成功完成或失败为止。如果文件较大，或者网络环境较差，可能会导致HTTP连接超时而上传失败。若发生这种情况，开发者需要考虑换用更安全但也相对复杂的[分片上传](/docs/v6/api/overview/up/chunked-upload.html)功能。
