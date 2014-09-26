@@ -41,6 +41,14 @@ Content-Disposition:       form-data; name="<xVariableName>"
 
 <xVariableValue>
 --<frontier>
+Content-Disposition:       form-data; name="crc32"
+
+<crc32>
+--<frontier>
+Content-Disposition:       form-data; name="accept"
+
+<acceptContentType>
+--<frontier>
 Content-Disposition:       form-data; name="file"; filename="<fileName>"
 Content-Type:              application/octet-stream
 Content-Transfer-Encoding: binary
@@ -71,6 +79,8 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 `<fileName>`                  | 是   | 原文件名。<br>对于没有文件名的情况，建议填入随机生成的纯文本字符串。<br>本参数的值将作为[魔法变量$(fname)](/docs/v6/api/overview/up/response/vars.html#magicvar-fname)的值使用。
 `<fileBinaryData>`            | 是   | 上传文件的完整内容。
 `<key>`                       |      | 资源的最终名称，位于`key`消息中。如不指定则使用[上传策略][putPolicyHref]saveKey字段所指定模板生成Key，如无模板则使用Hash值作为Key。
+`<crc32>`                     |      | 上传内容的 CRC32 校验码。<br>如填入，则七牛服务器会使用此值进行内容检验。
+`<acceptContentType>`         |      | 当 HTTP 请求指定 `Accept` 头部时，七牛会返回的 `Content-Type` 头部的值。<br>该值用于兼容低版本 IE 浏览器行为。低版本 IE 浏览器在 multiform 返回 `application/json` 的时候会表现为下载，返回 `text/plain` 才会显示返回内容。
 
 注意：用户自定义变量可以有多对。  
 
