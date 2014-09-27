@@ -7,6 +7,7 @@ title: QRSBox 同步工具
 - [简介](#intro)
 - [功能特性](#feature)
 - [下载](#download)
+- [视频教程](#tutorials)
 - [使用方法](#usage)
     - [Windows图形工具的使用方法](#usage-gui)
     - [命令行工具使用方法](#usage-cmd)
@@ -45,6 +46,14 @@ QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux
     - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz)
     - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz)
     - Linux ARMv6: [qrsboxcli linux_arm](http://devtools.qiniu.io/qiniu-devtools-linux_arm-current.tar.gz)
+
+---
+
+<a id="tutorials"></a>
+
+# 视频教程
+
+Windows 版视频教程：[http://developer.qiniu.com/tutorial%2Fqrsbox_video_for_win_web_low_origin.mp4](http://developer.qiniu.com/tutorial%2Fqrsbox_video_for_win_web_low_origin.mp4)
 
 ---
 
