@@ -17,6 +17,7 @@ order: 600
 * [抓取资源（fetch）][fetchHref]
 * [列举资源（list）][listHref]
 * [更新镜像资源（prefetch）][prefetchHref]
+* [修改元信息（chgm）][chgmHref]
 
 [statHref]:     http://developer.qiniu.com/docs/v6/api/reference/rs/stat.html   "获取资源信息"
 [copyHref]:     http://developer.qiniu.com/docs/v6/api/reference/rs/copy.html   "复制资源"
@@ -27,4 +28,4 @@ order: 600
 [fetchHref]:    http://developer.qiniu.com/docs/v6/api/reference/rs/fetch.html  "批量管理资源"
 [listHref]:     http://developer.qiniu.com/docs/v6/api/reference/rs/list.html   "列举资源"
 [prefetchHref]: http://developer.qiniu.com/docs/v6/api/reference/rs/prefetch.html  "更新镜像资源"
-
+[chgmHref]:     http://developer.qiniu.com/docs/v6/api/reference/rs/chgm.html   "修改元信息"
