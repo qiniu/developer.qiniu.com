@@ -38,7 +38,7 @@ Authorization:  UpToken <UploadToken>
 
 参数名称            | 必填 | 类型   | 说明
 :------------------ | :--- | :----- | :------------------------------
-`<blockSize>`       | 是   | int64  | 块大小，不超过4MB。
+`<blockSize>`       | 是   | int64  | 块大小，为4MB，最后一块大小不超过4MB。
 
 <a id="mkblk-request-headers"></a>
 ### 头部信息
