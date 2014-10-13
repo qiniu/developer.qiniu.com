@@ -6,6 +6,7 @@ title: qwebtest 命令行检测工具
 
 - [简介](#intro)
 - [下载](#download)
+- [视频教程](#tutorials)
 - [使用方法](#usage)
     - [检测下载问题](#usage-download)
     - [检测上传问题](#usage-upload)
@@ -35,6 +36,14 @@ qwebtest是七牛云存储提供的一款检测工具，用于应对如下场景
     - Linux 32位：[http://devtools.qiniu.io/linux_386/qwebtest](http://devtools.qiniu.io/linux_386/qwebtest)
     - Linux 64位：[http://devtools.qiniu.io/linux_amd64/qwebtest](http://devtools.qiniu.io/linux_amd64/qwebtest)
     - Mac OS X：[http://devtools.qiniu.io/darwin_amd64/qwebtest](http://devtools.qiniu.io/darwin_amd64/qwebtest)
+
+---
+
+<a id="tutorials"></a>
+
+# 视频教程
+
+Windows 版视频教程：[http://developer.qiniu.com/tutorial%2Fqwebtest_video_for_win_web_low.mp4](http://developer.qiniu.com/tutorial%2Fqwebtest_video_for_win_web_low.mp4)
 
 ---
 
