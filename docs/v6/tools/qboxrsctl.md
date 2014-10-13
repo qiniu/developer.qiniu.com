@@ -58,11 +58,11 @@ qboxrsctl 各个指令的用法可以在命令行直接输入 qboxrsctl 不带�
 
 <a id="oauth"></a>
 
-##1 授权操作
+## 1 授权操作
 
 <a id="login"></a>
 
-###1.1 登录
+### 1.1 登录
 
     qboxrsctl login <User> <Passwd>
 
@@ -78,11 +78,11 @@ Passwd  | 登录密码
 
 <a id="ak_sk"></a>
 
-##2 账号管理
+## 2 账号管理
 
 <a id="info"></a>
 
-###2.1 查看帐号信息
+### 2.1 查看帐号信息
 
     qboxrsctl info
 
@@ -91,7 +91,7 @@ Passwd  | 登录密码
 
 <a id="appinfo"></a>
 
-###2.2 查看密钥（AccessKey/SecretKey）
+### 2.2 查看密钥（AccessKey/SecretKey）
 
     qboxrsctl appinfo <AppName>
 
@@ -102,7 +102,7 @@ AppName | 应用名称，网站上默认使用的应用名称是：`default`
 
 <a id="bucketmgr"></a>
 
-##3  空间管理
+## 3  空间管理
 
 <a id="mkbucket2"></a>
 
