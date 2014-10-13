@@ -40,7 +40,7 @@ mkzip/<mode>
 <a id="samples"></a>
 ## 示例
 
-以[触发持久化处理](pfopHref)的形式：
+以[触发持久化处理][pfopHref]的形式：
 
 1. 获取`http://qiniuphotos.qiniudn.com/gogopher.jpg`、`http://developer.qiniu.com/resource/dive-into-golang.pptx`和`http://open.qiniudn.com/thinking-in-go.mp4`中的资源；
 2. 将`http://developer.qiniu.com/resource/dive-into-golang.pptx`重命名为`golang.pptx`；
