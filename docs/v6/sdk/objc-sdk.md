@@ -20,7 +20,10 @@ title: Objective-C SDK 使用指南
 - Objective-C SDK 单元测试：<https://github.com/qiniu/objc-sdk/tree/master/QiniuSDKTests>
 
 或者使用Cocoapods 进行安装，命令如下
+
+```ruby
 pod "Qiniu", "~> 7.0"
+```
 
 本SDK同时支持Mac和iOS，会根据文件大小自动选择mulipart form直传还是断点续上传。
 
@@ -30,6 +33,7 @@ pod "Qiniu", "~> 7.0"
 
 <a id="upload"></a>
 ## 上传文件
+
 ```objective-c
 #import <QiniuSDK.h>
 ...
@@ -43,6 +47,7 @@ pod "Qiniu", "~> 7.0"
     } option:nil];
 ...
 ```
+
 **注意： key及所有需要输入的字符串必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
 ### 关于option参数
@@ -62,7 +67,9 @@ checkCrc 为 NO 时，服务端不会校验 crc32 值，checkCrc 为 YES 时，�
 #### params
 
 用户自定义参数，必须以 "x:" 开头，这些参数可以作为变量用于 upToken 的 callbackBody，returnBody，asyncOps 参数中，具体见：[自定义变量][xVariablesHref]。简单的一个例子为：
+
 ```objective-c
+
     QNUploadOption *opt = [[QNUploadOption alloc] initWithMime:@"text/plain" progressHandler:nil params:@{ @"x:foo":@"fooval" } checkCrc:YES cancellationSignal:nil];
     [upManager putData:data key:@"hello" token:token
         complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
@@ -75,22 +82,27 @@ checkCrc 为 NO 时，服务端不会校验 crc32 值，checkCrc 为 YES 时，�
 #### 上传进度
 
 上传进度的block 为
+
 ```
 typedef void (^QNUpProgressHandler)(NSString *key, float percent);
 ```
+
 如果实现了这个block, 并作为option参数传入，会及时得到上传进度通知。
 
 #### 取消上传
 
 如果希望中途可以取消上传，需要实现下面的block，并作为参数传入option
+
 ```
 typedef BOOL (^QNUpCancellationSignal)(void);
 ```
+
 当进行取消操作时，让这个函数返回YES，这样上传中途即可停止
 
 ### 失败或取消后继续上传
 
 本SDK实现了断点续上传，如果需要保存上传进度，需要您在生成UploaderManager 实例时传入一个实现了进度保存的代理，SDK自带了将进度保存到文件的方法，您可以自己实现其他保存方式。
+
 ```objective-c
     QNFileRecorder *file = [QNFileRecorder fileRecorderWithFolder:@"保存目录" error:nil];
     QNUploadManager *upManager = [[QNUploadManager alloc] initWithRecorder:file
