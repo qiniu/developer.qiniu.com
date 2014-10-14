@@ -162,6 +162,13 @@ HTTP状态码 | 含义
 
 无。
 
+<a id="upload-example"></a>
+## 在线示例
+
+- [表单上传](http://jsfiddle.net/gh/get/library/pure/icattlecoder/jsfiddle/tree/master/formupload)
+
+- [异步表单上传](http://jsfiddle.net/gh/get/jquery/1.9.1/icattlecoder/jsfiddle/tree/master/ajaxupload)
+
 ---
 
 <a id="upload-internal-resources"></a>
