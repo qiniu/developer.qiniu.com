@@ -1,14 +1,14 @@
 {
     "sdk": [{
-        "name": "ios",
-        "menuName": "Objective-C (iOS)",
-        "title": "ios",
-        "label": "SDK for Objective-C (iOS客户端)",
-        "download": "https://github.com/qiniu/ios-sdk/archive/master.zip",
-        "version": "v6.0.0",
-        "date": "2013-07-04",
-        "doc": "docs/v6/sdk/ios-sdk.html",
-        "source": "https://github.com/qiniu/ios-sdk"
+        "name": "objc",
+        "menuName": "Objective-C (iOS/Mac)",
+        "title": "objc",
+        "label": "SDK for Objective-C (iOS/Mac)",
+        "download": "https://github.com/qiniu/objc-sdk/archive/master.zip",
+        "version": "v7.0.2",
+        "date": "2014-10-14",
+        "doc": "docs/v6/sdk/objc-sdk.html",
+        "source": "https://github.com/qiniu/objc-sdk"
     }, {
         "name": "android",
         "menuName": "Java (Android)",
