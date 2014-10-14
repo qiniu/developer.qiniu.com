@@ -17,6 +17,7 @@ title: Objective-C SDK 使用指南
 
 - Objective-C SDK 下载地址：<https://github.com/qiniu/objc-sdk/releases>
 - Objective-C SDK 源码地址：<https://github.com/qiniu/objc-sdk>
+- Objective-C SDK 单元测试：<https://github.com/qiniu/objc-sdk/tree/master/QiniuSDKTests>
 
 或者使用Cocoapods 进行安装，命令如下
 pod "Qiniu", "~> 7.0"
