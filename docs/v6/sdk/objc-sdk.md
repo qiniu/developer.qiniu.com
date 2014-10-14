@@ -20,7 +20,10 @@ title: Objective-C SDK 使用指南
 - Objective-C SDK 单元测试：<https://github.com/qiniu/objc-sdk/tree/master/QiniuSDKTests>
 
 或者使用Cocoapods 进行安装，命令如下
+
+```ruby
 pod "Qiniu", "~> 7.0"
+```
 
 本SDK同时支持Mac和iOS，会根据文件大小自动选择mulipart form直传还是断点续上传。
 
