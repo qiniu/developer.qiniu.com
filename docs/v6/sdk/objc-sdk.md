@@ -97,17 +97,17 @@ typedef void (^QNUpProgressHandler)(NSString *key, float percent);
 typedef BOOL (^QNUpCancellationSignal)(void);
 ```
 
-当进行取消操作时，让这个函数返回YES，这样上传中途即可停止
+当进行取消操作时，让这个函数返回YES，这样上传中途即可停止，具体可参考 [QNFileRecorderTest.m](https://github.com/qiniu/objc-sdk/blob/master/QiniuSDKTests/QNFileRecorderTest.m) 这个测试中的例子。
 
 ### 失败或取消后继续上传
 
-本SDK实现了断点续上传，如果需要保存上传进度，需要您在生成UploaderManager 实例时传入一个实现了进度保存的代理，SDK自带了将进度保存到文件的方法，您可以自己实现其他保存方式。
+本SDK实现了断点续上传，如果需要保存上传进度，需要您在生成UploaderManager 实例时传入一个实现了进度保存的代理，SDK自带了将进度保存到文件的方法，您可以自己实现其他保存方式。具体可参考 [QNFileRecorderTest.m](https://github.com/qiniu/objc-sdk/blob/master/QiniuSDKTests/QNFileRecorderTest.m)  这个测试中的例子。
 
 ```objective-c
     NSError *error;
     QNFileRecorder *file = [QNFileRecorder fileRecorderWithFolder:@"保存目录" error:&error];
     //check error
-    QNUploadManager *upManager = [[QNUploadManager alloc] initWithRecorder:file
+    QNUploadManager *upManager = [[QNUploadManager alloc] initWithRecorder:file];
 ```
 
 <a id="reference"></a>
