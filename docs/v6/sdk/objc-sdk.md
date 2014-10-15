@@ -104,7 +104,9 @@ typedef BOOL (^QNUpCancellationSignal)(void);
 本SDK实现了断点续上传，如果需要保存上传进度，需要您在生成UploaderManager 实例时传入一个实现了进度保存的代理，SDK自带了将进度保存到文件的方法，您可以自己实现其他保存方式。
 
 ```objective-c
-    QNFileRecorder *file = [QNFileRecorder fileRecorderWithFolder:@"保存目录" error:nil];
+    NSError *error;
+    QNFileRecorder *file = [QNFileRecorder fileRecorderWithFolder:@"保存目录" error:&error];
+    //check error
     QNUploadManager *upManager = [[QNUploadManager alloc] initWithRecorder:file
 ```
 
