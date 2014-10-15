@@ -107,7 +107,7 @@ typedef BOOL (^QNUpCancellationSignal)(void);
     NSError *error;
     QNFileRecorder *file = [QNFileRecorder fileRecorderWithFolder:@"保存目录" error:&error];
     //check error
-    QNUploadManager *upManager = [[QNUploadManager alloc] initWithRecorder:file
+    QNUploadManager *upManager = [[QNUploadManager alloc] initWithRecorder:file];
 ```
 
 <a id="reference"></a>
