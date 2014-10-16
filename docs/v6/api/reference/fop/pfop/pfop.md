@@ -62,7 +62,7 @@ bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<u
 `bucket`      | 是   | 是                           | 资源空间。
 `key`         | 是   | 是                           | 源资源名。
 `fops`        | 是   | 是                           | 云处理操作列表，用 `;` 分隔，整个字串（包括 `;` 分隔符）进行[URL转义][urlescapeHref]，含义请参见[persistentOps详解](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)。
-`notifyURL`   | 是   | 是                           | 处理结果通知接收URL，请参考[处理结果通知](#pfop-notification)小节。
+`notifyURL`   | 是   | 是                           | 处理结果通知接收URL，七牛将会向你设置的URL发起 `Content-Type: application/json`的POST请求。请参考[处理结果通知](#pfop-notification)小节。
 <a id="pfop-force"></a>`force`       |      |       | 强制执行数据处理。<br>当服务端发现fops指定的数据处理结果已经存在，那就认为已经处理成功，避免重复处理浪费资源。加上本字段并设为1，则可强制执行数据处理并覆盖原结果。
 `pipeline`	  |    |  | `为空则表示使用公用队列，处理速度比较慢。`建议指定[专用队列][mpsHref]，转码的时候使用独立的计算资源
 
