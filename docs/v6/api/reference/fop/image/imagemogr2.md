@@ -36,7 +36,7 @@ imageMogr2/auto-orient
 `/auto-orient`                       |      | ● 根据原图EXIF信息自动旋正，便于后续处理<br>建议放在首位。
 `/strip`                             |      | ● 去除图片中的元信息
 `/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imageMogr2-thumbnail-spec)，缺省为不缩放。
-`/gravity/<gravityType>`             |      | 参看[裁剪锚点参数表](#imageMogr2-anchor-spec)，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
+`/gravity/<gravityType>`             |      | 参看[图片处理重心参数表](#imageMogr2-anchor-spec)，目前在`imageMogr2`中只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
 `/quality/<imageQuality>`            |      | ● 图片质量<br>取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
@@ -62,7 +62,9 @@ imageMogr2/auto-orient
 `/thumbnail/<Area>@`            |      | 按原图高宽比例等比缩放，缩放后的像素数量不超过指定值。<br>取值范围不限，但若像素数超过100000000只能缩不能放。
 
 <a id="imageMogr2-anchor-spec"></a>
-### 裁剪锚点参数表
+### 图片处理重心参数表
+
+在[高级图片处理](#imageMogr2)现有的功能中只影响其后的[裁剪偏移参数](#imageMogr2-crop-size-spec)，即裁剪操作以`gravity`为原点开始偏移后，进行裁剪操作。
 
 ```
 NorthWest     |     North      |     NorthEast
