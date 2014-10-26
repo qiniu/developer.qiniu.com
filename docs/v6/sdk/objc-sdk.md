@@ -10,6 +10,7 @@ title: Objective-C SDK 使用指南
 - [上传文件](#upload)
 - [上传选项](#option)
 - [实现参考](#reference)
+- [常见问题](#troubleshooting)
 - [许可证](#license)
 
 <a id="download"></a>
@@ -113,6 +114,13 @@ typedef BOOL (^QNUpCancellationSignal)(void);
 <a id="reference"></a>
 ##代码参考
 本SDK代码都有对应的单元测试检查，如果需要实现某个功能，参考单元测试可以很快获得答案。
+
+<a id="troubleshooting"></a>
+##常见问题
+
+- 如果碰到crc链接错误，请把libz.dylib加入到项目中去。
+- 如果需要支持iOS 5 或者支持restKit, 请用 AFNetworking 1.x 分支的版本
+- 如果碰到其他编译错误，请参考 Cocoapods 的 [troubleshooting](http://guides.cocoapods.org/using/troubleshooting.html)
 
 <a id="License"></a>
 ## 许可证

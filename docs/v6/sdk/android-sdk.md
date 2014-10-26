@@ -49,7 +49,10 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 <a name="integration"></a>
 ## 安装
 ### 直接通过jar包
-下载jar包，导入到项目中去。
+下载jar包，导入到项目中去。 此版本sdk依赖 http://loopj.com/android-async-http/ 1.4.6及以上版本
+
+### 通过maven
+在Android Studio 或者 ADT 项目中，将 qiniu-android-sdk 7.0.0 加入进去。
 
 <a name="security"></a>
 ## 安全性
@@ -94,7 +97,7 @@ import com.qiniu.android.storage.UploadManager;
 `options` | UploadOptions  | 如果需要进度通知，以及crc验证，中途取消，指定mimeType需要填写相应字段
 
 <a id="reference"></a>
-##代码参考
+## 代码参考
 本SDK代码都有对应的单元测试检查，如果需要实现某个功能，参考单元测试可以很快获得答案。
 
 <a name="download"></a>
