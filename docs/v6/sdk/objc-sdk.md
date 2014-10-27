@@ -112,11 +112,12 @@ typedef BOOL (^QNUpCancellationSignal)(void);
 ```
 
 <a id="reference"></a>
-##代码参考
+## 代码参考
+
 本SDK代码都有对应的单元测试检查，如果需要实现某个功能，参考单元测试可以很快获得答案。
 
 <a id="troubleshooting"></a>
-##常见问题
+## 常见问题
 
 - 如果碰到crc链接错误，请把libz.dylib加入到项目中去。
 - 如果需要支持iOS 5 或者支持restKit, 请用 AFNetworking 1.x 分支的版本
