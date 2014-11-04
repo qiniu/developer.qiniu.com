@@ -28,7 +28,7 @@ concat/mimeType/<encodedMimeType>
 参数名称                | 必填 | 说明
 :---------------------- | :--- | :---------------------------------------------------------------
 `/mimeType`             | 是   | ● 目标文件的MIME类型<br>需要进行[URL安全的Base64编码][urlsafeBase64Href]。
-`/encodedUrlN`          | 是   | ● 经过[URL安全的Base64编码][urlsafeBase64Href]的完整源文件URL<br>1. 除去作为数据处理对象的源文件以外，还可以指定多个源文件；<br>2. 所有源文件必须属于同一存储空间。
+`/encodedUrlN`          | 是   | ● 经过[URL安全的Base64编码][urlsafeBase64Href]的完整源文件URL<br>1. 除去作为数据处理对象的源文件以外，还可以指定多个源文件；<br>2. 所有源文件必须属于同一存储空间；<br>3. 最多1000 个文件(含当前文件)。
 
 <a id="concat-remarks"></a>
 ## 附注
