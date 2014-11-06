@@ -169,6 +169,53 @@
             </div>
         </div>
 
+        <div class="resource-box cell large community-sdk">
+            <h2 class="cell-head">
+                Demo 锦集
+            </h2>
+            <div class="cell-body">
+                {{range .data.resource.demo}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon resource_tool"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if eq .author_link "#"}}
+                                    <a href="{{.author_link}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                {{if .doc}}
+                                <a href="{{.doc}}" class="docs" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    查看
+                                </a>
+                                {{end}}
+                                {{if .download}}
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+                <div class="resource-card">
+                    <div class="resource-card-inner demo-more">
+                       <a href="/demo"  target="_blank"><span class="icon sdk-more"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="resource-box cell large logo">
             <h2 class="cell-head">
