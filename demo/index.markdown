@@ -1,4 +1,4 @@
 ---
 layout: demo
-title: Demo 锦集
+title: Demo 集锦
 ---
