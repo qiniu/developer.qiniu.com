@@ -3,14 +3,14 @@
         "name": "WPJAM - 七牛镜像存储 WordPress 插件",
         "author": "WPJAM",
         "img": "",
-        "description": "七牛镜像存储 WordPress 插件是基于七牛镜像存储功能制作的一个 WordPress 插件。",
+        "description": "七牛镜像存储 WordPress 插件是基于七牛镜像存储功能制作的一个 WordPress 插件",
         "code": "https://gitcafe.com/denishua/WPJAM-Qiniu",
         "website": ""
     }, {
         "name": "QiniuUploadFiles 七牛云插件",
-        "author": "",
+        "author": "QiniuUploadFiles 七牛云插件",
         "img": "",
-        "description": "七牛云的chrome插件，支持拖拽上传，多文件上传，文件夹上传等。",
+        "description": "七牛云的chrome插件，支持拖拽上传，多文件上传，文件夹上传等",
         "code": "https://gitcafe.com/hackpar/QiniuUploadFiles",
         "website": "https://chrome.google.com/webstore/detail/emmfkgdgapbjphdolealbojmcmnphdcc"
     }, {
@@ -38,7 +38,7 @@
         "name": "Clipper 剪·爱",
         "author": "Clipper 剪·爱",
         "img": "",
-        "description": "一个Chrome插件，通过右键菜单，把喜爱的图片、选取的文字、喜欢的页面(自动提取网页内容没做)保存到指定的七牛账号里。",
+        "description": "一个Chrome插件，通过右键菜单，把喜爱的图片、选取的文字、喜欢的页面(自动提取网页内容没做)保存到指定的七牛账号里",
         "website": "",
         "code": "https://gitcafe.com/MadDemon/Clipper"
     }],
@@ -46,35 +46,35 @@
         "name": "docker-registry-driver-qiniu",
         "author": "docker-registry-driver-qiniu",
         "img": "",
-        "description": "使用七牛云存储保存Docker Registry。国内用户可以创建高效、安全、文档和廉价的私有Docker Registry。",
+        "description": "使用七牛云存储保存Docker Registry。国内用户可以创建高效、安全、文档和廉价的私有Docker Registry",
         "website": "",
         "code": "https://gitcafe.com/zhangpeihao/docker-registry-driver-qiniu"
     }, {
         "name": "Linuxmirrors新网络开源镜像站",
         "author": "Linuxmirrors新网络开源镜像站",
         "img": "",
-        "description": "新网络开源镜像站是一个基于七牛云存储的镜像系统，方便中国的用户高效访问开源项目的各种资源的非盈利计划……",
+        "description": "新网络开源镜像站是一个基于七牛云存储的镜像系统，方便中国的用户高效访问开源项目的各种资源的非盈利计划",
         "website": "http://mirrors.xinwl.com/index.md",
         "code": ""
     }, {
         "name": "Switch Go 语言包管理",
         "author": "Switch Go 语言包管理",
         "img": "",
-        "description": "Switch 是一个基于七牛云存储的用于提供版本化缓存和分发 Go 语言包服务的服务器。",
+        "description": "Switch 是一个基于七牛云存储的用于提供版本化缓存和分发 Go 语言包服务的服务器",
         "website": "http://gopm.io/",
         "code": "https://gitcafe.com/Unknown/switch"
     }, {
         "name": "cae-for-qiniu 七牛云应用引擎",
         "author": "cae-for-qiniu 七牛云应用引擎",
         "img": "",
-        "description": "cae是基于PHP云存储应用引擎，可以方便的将传统的PHP网站应用移植到各个云存储。目前支持七牛。",
+        "description": "cae是基于PHP云存储应用引擎，可以方便的将传统的PHP网站应用移植到各个云存储。目前支持七牛",
         "website": "",
         "code": "https://gitcafe.com/yange/cae-for-qiniu"
     }, {
         "name": "ApkUpdate",
         "author": "ApkUpdate",
         "img": "",
-        "description": "APK 软件更新利用 七牛 存储实现 APK 在线实时更新，另外基于存储可以实现 apk 日志异常存储，问题反馈存储，软件推荐解析",
+        "description": "APK 软件更新利用 七牛 存储实现 APK 在线实时更新，另外基于存储可以实现 apk 日志异常存储等功能",
         "website": "https://gitcafe.com/243194995/ApkUpdate/raw/master/QiniuDemo/QiniuDemo.apk",
         "code": "https://gitcafe.com/243194995/ApkUpdate"
     }, {
@@ -89,7 +89,7 @@
         "name": "Miclle 美摄图志",
         "author": "Miclle 美摄图志",
         "img": "",
-        "description": "面向专业摄影人士的网站，作品展示平台。 '记录精彩瞬间 还原真实影像'。",
+        "description": "面向专业摄影人士的网站，作品展示平台。 '记录精彩瞬间 还原真实影像'",
         "website": "http://miclle.com/",
         "code": "https://gitcafe.com/miclle/miclle"
     }, {
@@ -103,28 +103,28 @@
         "name": "fm-cloud七牛音乐电台",
         "author": "fm-cloud七牛音乐电台",
         "img": "",
-        "description": "一个javaweb项目，采用自己写的一个mvc框架，集成众多插件，基于七牛云存储的一个音乐电台。",
+        "description": "一个javaweb项目，采用自己写的一个mvc框架，集成众多插件，基于七牛云存储的一个音乐电台",
         "website": "http://fm.im90.me/",
         "code": "https://gitcafe.com/unique/fm-cloud"
     }, {
         "name": "爱狗APP",
         "author": "爱狗APP",
         "img": "",
-        "description": "爱狗APP是针对养宠物人群的交友社区。目前提供html5网页版和android版。两者都使用了七牛云存储空间，调用的功能有： 1）图片的上传存储 2）图片的水印、缩放、剪裁等处理功能……",
+        "description": "爱狗APP是针对养宠物人群的交友社区",
         "website": "http://g.bj20080808.cn/m/BbsPosts-demo.jsp?fid=1028&gid=101",
         "code": "https://gitcafe.com/eg654321/dog.bj20080808.cn"
     }, {
         "name": "draw_online 在线画画",
         "author": "draw_online 在线画画",
         "img": "",
-        "description": "在线画画 1. 可以保存到本地 2. 可以分享 【上传到7牛服务器 并给出图片地址】 3. 可以分享给朋友，在你画的基础上继续作画",
+        "description": "在线画画 1. 可以保存到本地 2. 可以分享 【上传到7牛服务器 并给出图片地址】 3. 可以分享给朋友",
         "website": "http://7niuniu.sinaapp.com/",
         "code": "https://gitcafe.com/yzbczq/draw_online"
     }, {
         "name": "MMBrowser 极品写真",
         "author": "MMBrowser 极品写真",
         "img": "",
-        "description": "自动采集网站图片并上传到七牛云……",
+        "description": "自动采集网站图片并上传到七牛云",
         "website": "http://www.windowsphone.com/zh-cn/store/app/%E6%9E%81%E5%93%81%E5%86%99%E7%9C%9F/23c54cad-14ef-4292-b658-ce2c73c59d93",
         "code": "https://gitcafe.com/yanxiaodi/MMBrowser"
     }, {
@@ -138,7 +138,7 @@
         "name": "Html2Pdf",
         "author": "Html2Pdf",
         "img": "",
-        "description": "实现网页转pdf。有多重模式：可以生成整个页面的pdf文件、可以自动识别网页正文生成pdf文件、可以指定生成区域。",
+        "description": "实现网页转pdf。有多重模式：可以生成整个页面的pdf文件、可以自动识别网页正文生成pdf文件、可以指定生成区域",
         "website": "http://pdf.luger.me/",
         "code": "https://gitcafe.com/luger1990/Html2Pdf"
     }, {
@@ -148,8 +148,7 @@
         "description": "项目使用响应式布局,采用了七牛云存储图片处理功能，通过前端获取用户屏幕分辨率获得最适合用户屏幕大小的图片",
         "website": "http://www.quan.mx/",
         "code": "https://gitcafe.com/crazyfd/quan.mx"
-    }],
-    "Other": [{
+    }, {
         "name": "聊天室demo",
         "author": "聊天室demo",
         "img": "",
@@ -175,7 +174,7 @@
         "name": "clouddoc 在线云盘",
         "author": "clouddoc 在线云盘",
         "img": "",
-        "description": "本项目基于七牛云存储实现一个简单的在线云盘，用户可以构建目录结构，管理文件结构。",
+        "description": "本项目基于七牛云存储实现一个简单的在线云盘，用户可以构建目录结构，管理文件结构",
         "website": "http://clouddoc.sinaapp.com/index.html",
         "code": "http://gitcafe.com/P_Chou/clouddoc"
     }, {
@@ -203,7 +202,7 @@
         "name": "super_mp3 个人MP3管理中心",
         "author": "super_mp3 个人MP3管理中心",
         "img": "",
-        "description": "使用七牛云存储作为存储空间，在SAE上基于PHP+MYSQL进行开发。 目标是为各个站长提供一个专门的MP3管理中心",
+        "description": "使用七牛云存储作为存储空间，在SAE上基于PHP+MYSQL进行开发",
         "website": "http://mp3.likfe.com",
         "code": "https://gitcafe.com/likfe/super_mp3"
     }, {
