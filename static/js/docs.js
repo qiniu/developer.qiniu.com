@@ -173,7 +173,7 @@ $(function() {
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
         }
-        if (path === 'brand') {
+        if (path === 'brand' || path === 'demo') {
             $('.download').addClass('active').siblings().removeClass('active');
         }
     });
