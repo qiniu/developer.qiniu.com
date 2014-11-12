@@ -10,5 +10,5 @@ order: 350
 
 * [安全机制](/docs/v6/api/overview/dn/security.html)
 * [资源下载](/docs/v6/api/overview/dn/download.html)
-* [下载设置](/docs/v6/api/overview/dn/download-settings.html)
+* [下载设置](/docs/v6/api/overview/dn/v2:download-settings.html)
 * [高级下载](/docs/v6/api/overview/dn/advanced-download.html)
