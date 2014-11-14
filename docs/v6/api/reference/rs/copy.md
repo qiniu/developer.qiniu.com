@@ -76,7 +76,7 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
-
+{
     "error":   "<errMsg    string>",
 }
 ```
