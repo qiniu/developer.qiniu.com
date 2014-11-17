@@ -207,10 +207,11 @@ $(function() {
                 if (data.items.length > 0) {
                     var markup = '',
                         tData = '',
-                        escaped = '';
+                        escaped = '',
+                        $p = $('<p/>');
                     for (var i = 0, len = data.items.length; i < len; i++) {
                         tData = data.items[i];
-                        escaped = $('<p/>').text(tData.description).html();
+                        escaped = $p.text(tData.description).html();
                         markup += '<div class="ops-line ">' +
                             ' <h5><a href=' + tData.url + ' target="_blank">' + tData.title + '</a></h5>' +
                             ' <div class="url">' +
