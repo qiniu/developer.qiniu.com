@@ -205,15 +205,18 @@ $(function() {
             $('#myModal').find('.result-line').html('');
             $.getJSON('http://183.60.175.38:9988?query=' + val + '&callback=?', function(data) {
                 if (data.items.length > 0) {
-                    var markup = '';
+                    var markup = '',
+                        tData = '',
+                        escaped = '';
                     for (var i = 0, len = data.items.length; i < len; i++) {
-                        var tData = data.items[i];
+                        tData = data.items[i];
+                        escaped = $('<p/>').text(tData.description).html();
                         markup += '<div class="ops-line ">' +
                             ' <h5><a href=' + tData.url + ' target="_blank">' + tData.title + '</a></h5>' +
                             ' <div class="url">' +
                             '<a  href=' + tData.url + ' target="_blank">' + tData.display_url + '</a>' +
                             '</div>' +
-                            '<div class="content">' + tData.description + '</div > ' +
+                            '<div class="content">' + escaped + '</div > ' +
                             ' </div> ';
                     }
                     $('#myModal').find('p').html('为您找到了如下结果，感谢您对七牛的支持。');
