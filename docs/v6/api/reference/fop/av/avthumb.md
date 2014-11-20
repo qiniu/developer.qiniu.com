@@ -47,11 +47,11 @@ avthumb/<Format>
 参数名称                | 类别 | 必填 | 说明
 :---------------------- | :--- | :--- | :---------------------------------------------------------------
 `<Format>`              | A/V  | 是   | 目标视频的格式（比如flv、mp4等），参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats)
-`/ab/<BitRate>`         | A    |      | 音频码率，单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。 
+`/ab/<BitRate>`         | A    |      | 音频码率，单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。若指定码率大于原音频码率，则使用原音频码率进行转码。 
 `/aq/<AudioQuality>`    | A    |      | 音频质量，取值范围为0-9（mp3），10-500（aac），仅支持mp3和aac，值越小越高。不能与上述码率参数共用。 
 `/ar/<SamplingRate>`    | A    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
 `/r/<FrameRate>`        |  V   |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。 
-`/vb/<VideoBitRate>`    |  V   |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。 
+`/vb/<VideoBitRate>`    |  V   |      | 视频码率，单位：比特每秒（bit/s），常用视频码率：128k，1.25m，5m等。若指定码率大于原视频码率，则使用原视频码率进行转码。 
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。 
 `/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
 `/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等。该参数仅用于修改带字幕视频的字幕编码。
@@ -71,6 +71,10 @@ avthumb/<Format>
 <a id="mp3-xing">`/writeXing/<Xing>`     | A    |      | 转码成mp3时是否写入xing header，默认1写入，写入会导致 `file`，`afinfo` 等命令识别出错误的码率。好处是在需要音频时长、帧数的时候只需要获取header。
 <a id="an">`/an/<AudioNo>`     | A    |      | 是否去除音频流，0为保留，1为去除。<br>默认值为0。
 <a id="vn">`/vn/<VideoNo>`     |  V   |      | 是否去除视频流，0为保留，1为去除。<br>默认值为0。
+
+**注意**
+
+转码操作若未指定音视频码率，转码结果的码率会小于等于原音视频码率，若指定码率大于原音视频码率，转码操作会使用原视频码率进行转码
 
 <a id="avthumb-samples"></a>
 ## 示例
