@@ -66,26 +66,40 @@ module.exports = (grunt) ->
     #                src: [COFFEE_FILES]
     #            }]
 
+        useminPrepare:
+            html: '_includes/footer.html'
+            options:
+              root: 'app'
+              dest: 'static'
+
         concat:
             combine:
                 options:
                     separator: ';'
-                files: [{
+                files: [
                     src:    JS_BOOTSTRAP_COMBINE
                     dest:  JS_BOOTSTRAP_MAIN
-                },{
+                ,
                     src:    JS_MAIN_COMBINE
                     dest:  JS_MAIN
-                }]
+                ]
 
-         uglify:
-             compress:
+        uglify:
+            compress:
                 options:
                     report: 'min'
-                files: [{
+                files: [
                     expand: true
                     src: [JS_MAIN]
-                }]
+                ]
+
+
+
+        usemin:
+            html: '_includes/footer.html'
+            options:
+              dest: 'static'
+
 
     #    watch:
     #        options:
@@ -118,6 +132,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-jshint'
     grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-csslint'
+    grunt.loadNpmTasks 'grunt-usemin'
     # grunt.loadNpmTasks 'grunt-contrib-imagemin'
 
     # on watch events configure jshint:all to only run on changed file
@@ -126,17 +141,21 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'production', [
 #        'coffee'
+        'useminPrepare'
         'jshint'
         'uglify:compress'
         'less:production'
         'csslint:strict'
+        'usemin'
     ]
 
     grunt.registerTask 'default', [
 #        'coffee'
+        'useminPrepare'
         'jshint'
         'less:development'
         'csslint:strict'
         'concat'
+        'usemin'
     ]
 
