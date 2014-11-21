@@ -79,10 +79,10 @@ DLL引用方式:
 
 ```c#
 using Qiniu.Conf;
-qiniu.conf.ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
-qiniu.conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
+Qiniu.Conf.ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
+Qiniu.Conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
- 
+
 或者，编译配置文件app.conf或者web.conf等文件，添加以下配置项：
 
 ``` xml
