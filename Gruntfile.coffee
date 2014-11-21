@@ -1,5 +1,8 @@
 module.exports = (grunt) ->
     # Constants
+
+    require('load-grunt-tasks')(grunt)
+
     ASSETS_PATH = 'static/'
     JS_PATH = ASSETS_PATH + 'js/'
     ADDON_PATH = ASSETS_PATH + 'add-on/'
@@ -78,7 +81,7 @@ module.exports = (grunt) ->
         useminPrepare:
             html: '_includes/footer.html'
             options:
-              root: 'app'
+              root: 'developer.qiniu.com'
               dest: 'static'
 
         concat:
@@ -96,6 +99,12 @@ module.exports = (grunt) ->
                     dest:  JS_ADDON_MAIN
                 ]
 
+        copy:
+            html:
+                src: '_includes/footer_backup.html'
+                dest: '_includes/footer.html'
+
+
         uglify:
             compress:
                 options:
@@ -108,6 +117,10 @@ module.exports = (grunt) ->
                     src: [JS_ADDON_LAST]
                 ]
 
+        filerev:
+            images:
+                src: ['static/image/logo-download.png', 'static/image/logo.png', 'static/image/qiniu_logo_small.png']
+                dest: 'tmp'
 
 
         usemin:
@@ -138,17 +151,7 @@ module.exports = (grunt) ->
     #            files: COFFEE_FILES
     #            tasks: 'coffee'
 
-    # Dependencies
-    grunt.loadNpmTasks 'grunt-contrib-coffee'
-    grunt.loadNpmTasks 'grunt-contrib-clean'
-    grunt.loadNpmTasks 'grunt-contrib-watch'
-    grunt.loadNpmTasks 'grunt-contrib-less'
-    grunt.loadNpmTasks 'grunt-contrib-uglify'
-    grunt.loadNpmTasks 'grunt-contrib-jshint'
-    grunt.loadNpmTasks 'grunt-contrib-concat'
-    grunt.loadNpmTasks 'grunt-contrib-csslint'
-    grunt.loadNpmTasks 'grunt-usemin'
-    # grunt.loadNpmTasks 'grunt-contrib-imagemin'
+
 
     # on watch events configure jshint:all to only run on changed file
     grunt.event.on 'watch', (action, filepath) ->
@@ -156,6 +159,7 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'production', [
 #        'coffee'
+        'copy:html'
         'useminPrepare'
         'jshint'
         'uglify:compress'
@@ -166,11 +170,15 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'default', [
 #        'coffee'
+        'copy:html'
         'useminPrepare'
         'jshint'
         'less:development'
         'csslint:strict'
+        'cssmin'
+        'uglify'
         'concat'
+        'filerev'
         'usemin'
     ]
 
