@@ -25,6 +25,15 @@ module.exports = (grunt) ->
         ADDON_PATH + 'bootstrap/dropdown.js'
     ]
 
+    JS_ADDON_MAIN = ADDON_PATH + 'app.js'
+    JS_ADDON_COMBINE =  [
+        ADDON_PATH + 'bootstrap/bootstrap.min.js',
+        ADDON_PATH + 'jquery-1.9.1.min.js',
+        ADDON_PATH + 'jquery.plugin/jquery.autocomplete.js'
+    ]
+
+    JS_ADDON_LAST = ADDON_PATH + 'app.min.js'
+
     # Project configuration
     grunt.initConfig
         jshint:
@@ -82,6 +91,9 @@ module.exports = (grunt) ->
                 ,
                     src:    JS_MAIN_COMBINE
                     dest:  JS_MAIN
+                ,
+                    src:    JS_ADDON_COMBINE
+                    dest:  JS_ADDON_MAIN
                 ]
 
         uglify:
@@ -91,6 +103,9 @@ module.exports = (grunt) ->
                 files: [
                     expand: true
                     src: [JS_MAIN]
+                ,
+                    expand: true
+                    src: [JS_ADDON_LAST]
                 ]
 
 
