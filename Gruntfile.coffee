@@ -21,21 +21,21 @@ module.exports = (grunt) ->
         JS_FILE
     ]
 
-    JS_BOOTSTRAP_MAIN = ADDON_PATH + 'bootstrap/bootstrap.min.js'
-    JS_BOOTSTRAP_COMBINE =  [
-        ADDON_PATH + 'bootstrap/modal.js',
-        ADDON_PATH + 'bootstrap/scrollspy.js',
-        ADDON_PATH + 'bootstrap/dropdown.js'
-    ]
+    # JS_BOOTSTRAP_MAIN = ADDON_PATH + 'bootstrap/bootstrap.min.js'
+    # JS_BOOTSTRAP_COMBINE =  [
+    #     ADDON_PATH + 'bootstrap/modal.js',
+    #     ADDON_PATH + 'bootstrap/scrollspy.js',
+    #     ADDON_PATH + 'bootstrap/dropdown.js'
+    # ]
 
-    JS_ADDON_MAIN = ADDON_PATH + 'app.js'
-    JS_ADDON_COMBINE =  [
-        ADDON_PATH + 'bootstrap/bootstrap.min.js',
-        ADDON_PATH + 'jquery-1.9.1.min.js',
-        ADDON_PATH + 'jquery.plugin/jquery.autocomplete.js'
-    ]
+    # JS_ADDON_MAIN = ADDON_PATH + 'app.js'
+    # JS_ADDON_COMBINE =  [
+    #     ADDON_PATH + 'bootstrap/bootstrap.min.js',
+    #     ADDON_PATH + 'jquery-1.9.1.min.js',
+    #     ADDON_PATH + 'jquery.plugin/jquery.autocomplete.js'
+    # ]
 
-    JS_ADDON_LAST = ADDON_PATH + 'app.min.js'
+    # JS_ADDON_LAST = ADDON_PATH + 'app.min.js'
 
     # Project configuration
     grunt.initConfig
@@ -82,22 +82,16 @@ module.exports = (grunt) ->
             html: '_includes/footer.html'
             options:
               root: 'developer.qiniu.com'
-              dest: 'static'
 
-        concat:
-            combine:
-                options:
-                    separator: ';'
-                files: [
-                    src:    JS_BOOTSTRAP_COMBINE
-                    dest:  JS_BOOTSTRAP_MAIN
-                ,
-                    src:    JS_MAIN_COMBINE
-                    dest:  JS_MAIN
-                ,
-                    src:    JS_ADDON_COMBINE
-                    dest:  JS_ADDON_MAIN
-                ]
+
+        # concat:
+        #     combine:
+        #         options:
+        #             separator: ';'
+        #         files: [
+        #             src:    JS_BOOTSTRAP_COMBINE
+        #             dest:  JS_BOOTSTRAP_MAIN
+        #         ]
 
         copy:
             html:
@@ -105,28 +99,29 @@ module.exports = (grunt) ->
                 dest: '_includes/footer.html'
 
 
-        uglify:
-            compress:
-                options:
-                    report: 'min'
-                files: [
-                    expand: true
-                    src: [JS_MAIN]
-                ,
-                    expand: true
-                    src: [JS_ADDON_LAST]
-                ]
+        # uglify:
+        #     compress:
+        #         options:
+        #             report: 'min'
+        #         files: [
+        #             expand: true
+        #             src: [JS_MAIN]
+        #         ]
 
         filerev:
+            options:
+                algorithm: 'md5'
+                length: 8
             images:
                 src: ['static/image/logo-download.png', 'static/image/logo.png', 'static/image/qiniu_logo_small.png']
-                dest: 'tmp'
-
+                dest: '.tmp'
+            js:
+                src: ['static/js/docs.min.js', 'static/js/app.js']
+                dest: '/'
 
         usemin:
             html: '_includes/footer.html'
-            options:
-              dest: 'static'
+
 
 
     #    watch:
@@ -175,7 +170,6 @@ module.exports = (grunt) ->
         'jshint'
         'less:development'
         'csslint:strict'
-        'cssmin'
         'uglify'
         'concat'
         'filerev'
