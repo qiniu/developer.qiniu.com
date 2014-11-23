@@ -44,16 +44,16 @@ module.exports = (grunt) ->
                 }]
 
         useminPrepare:
-            html: 'footer.html'
+            html: '_footer.html'
             options:
                 dest: '.'
 
         copy:
             html:
                 src: '_includes/footer_template.html'
-                dest: 'footer.html'
-            html2:
-                src: 'footer.html'
+                dest: '_footer.html'
+            back:
+                src: '_footer.html'
                 dest: '_includes/footer.html'
 
         filerev:
@@ -67,7 +67,12 @@ module.exports = (grunt) ->
                 src: ['static/js/docs.min.js', 'static/js/app.js']
 
         usemin:
-            html: ['footer.html']
+            html: ['_footer.html']
+
+        clean:[
+            '_footer.html'
+        ]
+
 
     grunt.registerTask 'production', [
 #        'coffee'
@@ -91,6 +96,7 @@ module.exports = (grunt) ->
         'concat'
         'filerev'
         'usemin'
-        'copy:html2'
+        'copy:back'
+        'clean'
     ]
 
