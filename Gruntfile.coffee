@@ -55,9 +55,6 @@ module.exports = (grunt) ->
             options:
                 algorithm: 'md5'
                 length: 8
-            images:
-                src: ['static/image/logo-download.png', 'static/image/logo.png', 'static/image/qiniu_logo_small.png']
-                dest: '.tmp'
             js:
                 src: ['static/js/docs.min.js', 'static/js/app.js']
             css:
