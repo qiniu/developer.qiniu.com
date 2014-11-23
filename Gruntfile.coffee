@@ -44,13 +44,16 @@ module.exports = (grunt) ->
                 }]
 
         useminPrepare:
-            html: '_includes/footer.html'
+            html: 'footer.html'
             options:
-                dest: '_includes'
+                dest: '.'
 
         copy:
             html:
-                src: '_includes/footer_backup.html'
+                src: '_includes/footer_template.html'
+                dest: 'footer.html'
+            html2:
+                src: 'footer.html'
                 dest: '_includes/footer.html'
 
         filerev:
@@ -61,10 +64,10 @@ module.exports = (grunt) ->
                 src: ['static/image/logo-download.png', 'static/image/logo.png', 'static/image/qiniu_logo_small.png']
                 dest: '.tmp'
             js:
-                src: ['_includes/js/docs.min.js', '_includes/js/app.js']
+                src: ['static/js/docs.min.js', 'static/js/app.js']
 
         usemin:
-            html: ['_includes/footer.html']
+            html: ['footer.html']
 
     grunt.registerTask 'production', [
 #        'coffee'
@@ -88,5 +91,6 @@ module.exports = (grunt) ->
         'concat'
         'filerev'
         'usemin'
+        'copy:html2'
     ]
 

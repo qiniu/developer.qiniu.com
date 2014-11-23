@@ -5,3 +5,6 @@ static/add-on/bootstrap/bootstrap.min.js
 static/js/docs.min.js
 .tmp/*
 _includes/footer.html
+footer.html
+static/js/app.*.js
+static/js/docs.min.*.js
