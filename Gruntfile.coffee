@@ -3,16 +3,9 @@ module.exports = (grunt) ->
 
     require('load-grunt-tasks')(grunt)
 
-    ASSETS_PATH = 'static/'
-    JS_PATH = ASSETS_PATH + 'js/'
-    ADDON_PATH = ASSETS_PATH + 'add-on/'
-
-    LESS_MAIN = ASSETS_PATH + 'css/less/main.less'
-    CSS_MAIN = ASSETS_PATH + 'css/main.css'
-    LESS_FILES = ASSETS_PATH + 'css/less/_*.less'
-
-    CSS_MAIN_FILES = CSS_MAIN: [LESS_MAIN]
-
+    JS_PATH = 'static/js/'
+    LESS_MAIN =  'static/css/less/main.less'
+    CSS_MAIN = 'static/css/main.css'
     JS_FILE = JS_PATH + 'docs.js'
 
     grunt.initConfig
@@ -20,12 +13,6 @@ module.exports = (grunt) ->
             options:
                 jshintrc: '.jshintrc'
             all: [JS_FILE]
-
-        csslint:
-            options:
-                csslintrc: '.csslintrc'
-            strict:
-                src: [CSS_MAIN]
 
         less:
             development:
@@ -44,18 +31,26 @@ module.exports = (grunt) ->
                 }]
 
         useminPrepare:
-            html: '_footer.html'
+            html: [
+                '_footer.html'
+                '_header.html'
+            ]
             options:
                 dest: '.'
 
         copy:
-            html:
+            footer:
                 src: '_includes/footer_template.html'
                 dest: '_footer.html'
-            back:
+            header:
+                src: '_includes/header_template.html'
+                dest: '_header.html'
+            back_footer:
                 src: '_footer.html'
                 dest: '_includes/footer.html'
-
+            back_header:
+                src: '_header.html'
+                dest: '_includes/header.html'
         filerev:
             options:
                 algorithm: 'md5'
@@ -65,38 +60,49 @@ module.exports = (grunt) ->
                 dest: '.tmp'
             js:
                 src: ['static/js/docs.min.js', 'static/js/app.js']
+            css:
+                src: ['static/css/main.css']
 
         usemin:
-            html: ['_footer.html']
+            html: [
+                '_footer.html'
+                '_header.html'
+            ]
 
         clean:[
             '_footer.html'
+            '_header.html'
         ]
 
 
     grunt.registerTask 'production', [
 #        'coffee'
-        'copy:html'
-        'useminPrepare'
-        'jshint'
-        'uglify:compress'
+        'copy:header'
+        'copy:footer'
         'less:production'
-        'csslint:strict'
-        'usemin'
-    ]
-
-    grunt.registerTask 'default', [
-#        'coffee'
-        'copy:html'
         'useminPrepare'
         'jshint'
-        'less:development'
-        'csslint:strict'
         'uglify'
         'concat'
         'filerev'
         'usemin'
-        'copy:back'
+        'copy:back_footer'
+        'copy:back_header'
+    ]
+
+    grunt.registerTask 'default', [
+#        'coffee'
+        'copy:header'
+        'copy:footer'
+        'less:development'
+        'useminPrepare'
+        'jshint'
+        'uglify'
+        'concat'
+        'filerev'
+        'usemin'
+        'copy:back_footer'
+        'copy:back_header'
         'clean'
     ]
 
