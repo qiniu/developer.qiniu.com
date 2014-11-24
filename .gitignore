@@ -10,3 +10,4 @@ footer.html
 static/js/app.*.js
 static/js/docs.min.*.js
 static/css/main.*.js
+dist/*
