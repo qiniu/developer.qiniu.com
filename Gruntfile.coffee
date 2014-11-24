@@ -3,31 +3,26 @@ module.exports = (grunt) ->
 
     require('load-grunt-tasks')(grunt)
 
-    JS_PATH = 'static/js/'
-    LESS_MAIN =  'static/css/less/main.less'
-    CSS_MAIN = 'static/css/main.css'
-    JS_FILE = JS_PATH + 'docs.js'
-
     grunt.initConfig
         jshint:
             options:
                 jshintrc: '.jshintrc'
-            all: [JS_FILE]
+            all: ['_src/js/docs.js','_src/js/sdk-version.js']
 
         less:
             development:
                 options:
                     dumpLineNumbers: 'comments'
                 files: [{
-                    src: LESS_MAIN
-                    dest: CSS_MAIN
+                    src: '_src/css/less/main.less'
+                    dest: 'dist/css/main.css'
                 }]
             production:
                 options:
                     yuicompress: true
                 files: [{
-                    src: LESS_MAIN
-                    dest: CSS_MAIN
+                    src: '_src/css/less/main.less'
+                    dest: 'dist/css/main.css'
                 }]
 
         useminPrepare:
@@ -40,10 +35,16 @@ module.exports = (grunt) ->
 
         copy:
             footer:
-                src: '_includes/footer_template.html'
+                src: '_src/html/footer.html'
                 dest: '_footer.html'
+            js:
+                src: '_src/js/sdk-version.js'
+                dest: 'dist/js/sdk-version.js'
+            image:
+                src: '_src/image/**'
+                dest: 'dist/image/**'
             header:
-                src: '_includes/header_template.html'
+                src: '_src/html/header.html'
                 dest: '_header.html'
             back_footer:
                 src: '_footer.html'
@@ -56,9 +57,9 @@ module.exports = (grunt) ->
                 algorithm: 'md5'
                 length: 8
             js:
-                src: ['static/js/docs.min.js', 'static/js/app.js']
+                src: ['dist/js/docs.js', 'dist/add-on/app.js']
             css:
-                src: ['static/css/main.css']
+                src: ['dist/css/main.css']
 
         usemin:
             html: [
@@ -73,9 +74,10 @@ module.exports = (grunt) ->
 
 
     grunt.registerTask 'production', [
-#        'coffee'
         'copy:header'
         'copy:footer'
+        'copy:js'
+        'copy:image'
         'less:production'
         'useminPrepare'
         'jshint'
@@ -88,9 +90,10 @@ module.exports = (grunt) ->
     ]
 
     grunt.registerTask 'default', [
-#        'coffee'
         'copy:header'
         'copy:footer'
+        'copy:js'
+        'copy:image'
         'less:development'
         'useminPrepare'
         'jshint'

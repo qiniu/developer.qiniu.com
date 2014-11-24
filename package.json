@@ -1,29 +1,28 @@
 {
-  "name": "deverloper.qiniu.com",
-  "version": "0.0.1",
-  "scripts": {
-    "start": "portal.qiniu.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/qiniu/developer.qiniu.com"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-csslint": "~0.2.0",
-    "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-less": "~0.7.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-filerev": "^2.1.2",
-    "grunt-usemin": "^2.6.2",
-    "load-grunt-tasks": "~0.4.0"
-  }
+    "name": "deverloper.qiniu.com",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "portal.qiniu.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/qiniu/developer.qiniu.com"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-clean": "^0.6.0",
+        "grunt-contrib-coffee": "~0.7.0",
+        "grunt-contrib-concat": "^0.5.0",
+        "grunt-contrib-copy": "~0.5.0",
+        "grunt-contrib-csslint": "~0.2.0",
+        "grunt-contrib-cssmin": "^0.10.0",
+        "grunt-contrib-jshint": "~0.7.2",
+        "grunt-contrib-less": "~0.7.0",
+        "grunt-contrib-uglify": "^0.6.0",
+        "grunt-contrib-watch": "~0.5.3",
+        "grunt-filerev": "^2.1.2",
+        "grunt-usemin": "^2.6.2",
+        "load-grunt-tasks": "~0.4.0"
+    }
 }
