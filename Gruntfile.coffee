@@ -1,43 +1,18 @@
 module.exports = (grunt) ->
     # Constants
-    ASSETS_PATH = 'static/'
-    JS_PATH = ASSETS_PATH + 'js/'
-    ADDON_PATH = ASSETS_PATH + 'add-on/'
 
-    LESS_MAIN = ASSETS_PATH + 'css/less/main.less'
-    CSS_MAIN = ASSETS_PATH + 'css/main.css'
-    LESS_FILES = ASSETS_PATH + 'css/less/_*.less'
+    require('load-grunt-tasks')(grunt)
 
-    CSS_MAIN_FILES = CSS_MAIN: [LESS_MAIN]
-
-    # COFFEE_FILES = JS_PATH + '**/*.coffee'
+    JS_PATH = 'static/js/'
+    LESS_MAIN =  'static/css/less/main.less'
+    CSS_MAIN = 'static/css/main.css'
     JS_FILE = JS_PATH + 'docs.js'
 
-    JS_MAIN = JS_PATH + 'docs.min.js'
-    JS_MAIN_COMBINE =  [
-        JS_FILE
-    ]
-
-    JS_BOOTSTRAP_MAIN = ADDON_PATH + 'bootstrap/bootstrap.min.js'
-    JS_BOOTSTRAP_COMBINE =  [
-        ADDON_PATH + 'bootstrap/modal.js',
-        ADDON_PATH + 'bootstrap/scrollspy.js',
-        ADDON_PATH + 'bootstrap/dropdown.js'
-    ]
-
-    # Project configuration
     grunt.initConfig
         jshint:
             options:
                 jshintrc: '.jshintrc'
-                ignores: [JS_MAIN]
             all: [JS_FILE]
-
-        csslint:
-            options:
-                csslintrc: '.csslintrc'
-            strict:
-                src: [CSS_MAIN]
 
         less:
             development:
@@ -55,88 +30,76 @@ module.exports = (grunt) ->
                     dest: CSS_MAIN
                 }]
 
-    #    coffee:
-    #        compile:
-    #            options:
-    #                bare: true
-    #                join: false
-    #            files: [{
-    #                expand: true
-    #                ext: '.js'
-    #                src: [COFFEE_FILES]
-    #            }]
+        useminPrepare:
+            html: [
+                '_footer.html'
+                '_header.html'
+            ]
+            options:
+                dest: '.'
 
-        concat:
-            combine:
-                options:
-                    separator: ';'
-                files: [{
-                    src:    JS_BOOTSTRAP_COMBINE
-                    dest:  JS_BOOTSTRAP_MAIN
-                },{
-                    src:    JS_MAIN_COMBINE
-                    dest:  JS_MAIN
-                }]
+        copy:
+            footer:
+                src: '_includes/footer_template.html'
+                dest: '_footer.html'
+            header:
+                src: '_includes/header_template.html'
+                dest: '_header.html'
+            back_footer:
+                src: '_footer.html'
+                dest: '_includes/footer.html'
+            back_header:
+                src: '_header.html'
+                dest: '_includes/header.html'
+        filerev:
+            options:
+                algorithm: 'md5'
+                length: 8
+            js:
+                src: ['static/js/docs.min.js', 'static/js/app.js']
+            css:
+                src: ['static/css/main.css']
 
-         uglify:
-             compress:
-                options:
-                    report: 'min'
-                files: [{
-                    expand: true
-                    src: [JS_MAIN]
-                }]
+        usemin:
+            html: [
+                '_footer.html'
+                '_header.html'
+            ]
 
-    #    watch:
-    #        options:
-    #            livereload: true
-    #            debounceDelay: 600
-    #        less:
-    #            files: LESS_FILES
-    #            tasks: 'less:development'
-    #        js:
-    #            files: JS_FILE
-    #            tasks: 'jshint'
-    #            options:
-    #                spawn:false
-    #        concat:
-    #            files: [JS_PATH + 'global/_*.js']
-    #            tasks: 'concat'
-    #        csslint:
-    #            files: CSS_MAIN
-    #            tasks: 'csslint:strict'
-    #        coffee:
-    #            files: COFFEE_FILES
-    #            tasks: 'coffee'
+        clean:[
+            '_footer.html'
+            '_header.html'
+        ]
 
-    # Dependencies
-    grunt.loadNpmTasks 'grunt-contrib-coffee'
-    grunt.loadNpmTasks 'grunt-contrib-clean'
-    grunt.loadNpmTasks 'grunt-contrib-watch'
-    grunt.loadNpmTasks 'grunt-contrib-less'
-    grunt.loadNpmTasks 'grunt-contrib-uglify'
-    grunt.loadNpmTasks 'grunt-contrib-jshint'
-    grunt.loadNpmTasks 'grunt-contrib-concat'
-    grunt.loadNpmTasks 'grunt-contrib-csslint'
-    # grunt.loadNpmTasks 'grunt-contrib-imagemin'
-
-    # on watch events configure jshint:all to only run on changed file
-    grunt.event.on 'watch', (action, filepath) ->
-        grunt.config ['jshint', 'all'], filepath
 
     grunt.registerTask 'production', [
 #        'coffee'
-        'jshint'
-        'uglify:compress'
+        'copy:header'
+        'copy:footer'
         'less:production'
-        'csslint:strict'
+        'useminPrepare'
+        'jshint'
+        'uglify'
+        'concat'
+        'filerev'
+        'usemin'
+        'copy:back_footer'
+        'copy:back_header'
     ]
 
     grunt.registerTask 'default', [
 #        'coffee'
-        'jshint'
+        'copy:header'
+        'copy:footer'
         'less:development'
-        'csslint:strict'
+        'useminPrepare'
+        'jshint'
+        'uglify'
         'concat'
+        'filerev'
+        'usemin'
+        'copy:back_footer'
+        'copy:back_header'
+        'clean'
     ]
 

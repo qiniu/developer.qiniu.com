@@ -17,7 +17,7 @@ test: all
 install: all
 	grunt production
 	rm -rf node_modules
-
+	rm -rf .tmp
 	#指定上传文件：
 	#make install file=file1,file2,file3
 	#file1,file2,file3采用弱匹配模式,指定文件名的部分即可，副作用是可能上传其它的文件
