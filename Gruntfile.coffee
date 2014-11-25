@@ -39,6 +39,8 @@ module.exports = (grunt) ->
                   # makes all src relative to cwd
                   {expand: true, cwd: '_src/image/', src: ['**'], dest: 'dist/image/'},
                   {expand: true, cwd: '_src/html/', src: ['**'], dest: '.'},
+                  {expand: true, cwd: '_src/add-on/highlight/', src: ['highlight.js'], dest: 'dist/add-on/'},
+                  {expand: true, cwd: '_src/add-on/', src: ['html5.js'], dest: 'dist/add-on/'},
                   {expand: true, cwd: '_src/js/', src: ['sdk-version.js'], dest: 'dist/js/'}
                 ]
             back:
