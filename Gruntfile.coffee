@@ -27,31 +27,25 @@ module.exports = (grunt) ->
 
         useminPrepare:
             html: [
-                '_footer.html'
-                '_header.html'
+                'footer.html'
+                'header.html'
             ]
             options:
                 dest: '.'
 
         copy:
-            footer:
-                src: '_src/html/footer.html'
-                dest: '_footer.html'
-            js:
-                src: '_src/js/sdk-version.js'
-                dest: 'dist/js/sdk-version.js'
-            image:
-                src: '_src/image/**'
-                dest: 'dist/image/**'
-            header:
-                src: '_src/html/header.html'
-                dest: '_header.html'
-            back_footer:
-                src: '_footer.html'
-                dest: '_includes/footer.html'
-            back_header:
-                src: '_header.html'
-                dest: '_includes/header.html'
+            main:
+                files: [
+                  # makes all src relative to cwd
+                  {expand: true, cwd: '_src/image/', src: ['**'], dest: 'dist/image/'},
+                  {expand: true, cwd: '_src/html/', src: ['**'], dest: '.'},
+                  {expand: true, cwd: '_src/js/', src: ['sdk-version.js'], dest: 'dist/js/'}
+                ]
+            back:
+                files :[
+                    {expand: true, cwd: '.', src: ['*.html'], dest: '_includes'}
+                ]
+
         filerev:
             options:
                 algorithm: 'md5'
@@ -63,21 +57,18 @@ module.exports = (grunt) ->
 
         usemin:
             html: [
-                '_footer.html'
-                '_header.html'
+                'footer.html'
+                'header.html'
             ]
 
         clean:[
-            '_footer.html'
-            '_header.html'
+            'footer.html'
+            'header.html'
         ]
 
 
     grunt.registerTask 'production', [
-        'copy:header'
-        'copy:footer'
-        'copy:js'
-        'copy:image'
+        'copy:main'
         'less:production'
         'useminPrepare'
         'jshint'
@@ -85,15 +76,12 @@ module.exports = (grunt) ->
         'concat'
         'filerev'
         'usemin'
-        'copy:back_footer'
-        'copy:back_header'
+        'copy:back'
+        'clean'
     ]
 
     grunt.registerTask 'default', [
-        'copy:header'
-        'copy:footer'
-        'copy:js'
-        'copy:image'
+        'copy:main'
         'less:development'
         'useminPrepare'
         'jshint'
@@ -101,8 +89,7 @@ module.exports = (grunt) ->
         'concat'
         'filerev'
         'usemin'
-        'copy:back_footer'
-        'copy:back_header'
+        'copy:back'
         'clean'
     ]
 
