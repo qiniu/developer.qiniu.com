@@ -3,79 +3,75 @@ module.exports = (grunt) ->
 
     require('load-grunt-tasks')(grunt)
 
-    JS_PATH = 'static/js/'
-    LESS_MAIN =  'static/css/less/main.less'
-    CSS_MAIN = 'static/css/main.css'
-    JS_FILE = JS_PATH + 'docs.js'
-
     grunt.initConfig
         jshint:
             options:
                 jshintrc: '.jshintrc'
-            all: [JS_FILE]
+            all: ['_src/js/docs.js','_src/js/sdk-version.js']
 
         less:
             development:
                 options:
                     dumpLineNumbers: 'comments'
                 files: [{
-                    src: LESS_MAIN
-                    dest: CSS_MAIN
+                    src: '_src/css/less/main.less'
+                    dest: 'dist/css/main.css'
                 }]
             production:
                 options:
                     yuicompress: true
                 files: [{
-                    src: LESS_MAIN
-                    dest: CSS_MAIN
+                    src: '_src/css/less/main.less'
+                    dest: 'dist/css/main.css'
                 }]
 
         useminPrepare:
             html: [
-                '_footer.html'
-                '_header.html'
+                'footer.html'
+                'header.html'
             ]
             options:
                 dest: '.'
 
         copy:
-            footer:
-                src: '_includes/footer_template.html'
-                dest: '_footer.html'
-            header:
-                src: '_includes/header_template.html'
-                dest: '_header.html'
-            back_footer:
-                src: '_footer.html'
-                dest: '_includes/footer.html'
-            back_header:
-                src: '_header.html'
-                dest: '_includes/header.html'
+            main:
+                files: [
+                  # makes all src relative to cwd
+                  {expand: true, cwd: '_src/image/', src: ['**'], dest: 'dist/image/'},
+                  {expand: true, cwd: '_src/html/', src: ['**'], dest: '.'},
+                  {expand: true, cwd: '_src/add-on/highlight/', src: ['highlight.js'], dest: 'dist/add-on/'},
+                  {expand: true, cwd: '_src/add-on/jquery.plugin/jquery.bxslider/', src: ['jquery.bxslider.min.js'], dest: 'dist/add-on/'},
+                  {expand: true, cwd: '_src/add-on/', src: ['html5.js'], dest: 'dist/add-on/'},
+                  {expand: true, cwd: '_src/js/', src: ['sdk-version.js'], dest: 'dist/js/'}
+                ]
+            back:
+                files :[
+                    {expand: true, cwd: '.', src: ['*.html'], dest: '_includes'}
+                ]
+
         filerev:
             options:
                 algorithm: 'md5'
                 length: 8
             js:
-                src: ['static/js/docs.min.js', 'static/js/app.js']
+                src: ['dist/js/docs.js', 'dist/add-on/app.js']
             css:
-                src: ['static/css/main.css']
+                src: ['dist/css/main.css']
 
         usemin:
             html: [
-                '_footer.html'
-                '_header.html'
+                'footer.html'
+                'header.html'
             ]
 
         clean:[
-            '_footer.html'
-            '_header.html'
+            'footer.html'
+            'header.html'
         ]
 
 
     grunt.registerTask 'production', [
-#        'coffee'
-        'copy:header'
-        'copy:footer'
+        'copy:main'
         'less:production'
         'useminPrepare'
         'jshint'
@@ -83,14 +79,12 @@ module.exports = (grunt) ->
         'concat'
         'filerev'
         'usemin'
-        'copy:back_footer'
-        'copy:back_header'
+        'copy:back'
+        'clean'
     ]
 
     grunt.registerTask 'default', [
-#        'coffee'
-        'copy:header'
-        'copy:footer'
+        'copy:main'
         'less:development'
         'useminPrepare'
         'jshint'
@@ -98,8 +92,7 @@ module.exports = (grunt) ->
         'concat'
         'filerev'
         'usemin'
-        'copy:back_footer'
-        'copy:back_header'
+        'copy:back'
         'clean'
     ]
 

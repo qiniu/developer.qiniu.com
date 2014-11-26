@@ -27,8 +27,10 @@ install: all
 
 clean:
 	rm -rf _site
+	rm -rf dist
 
 dev: all
+	rm -rf dist
 	grunt
 	./_jkl --server
 

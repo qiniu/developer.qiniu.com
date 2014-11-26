@@ -6,7 +6,8 @@ static/js/docs.min.js
 .tmp/*
 _includes/footer.html
 _includes/header.html
-footer.html
 static/js/app.*.js
 static/js/docs.min.*.js
 static/css/main.*.js
+dist/*
+static/css/main*.js
