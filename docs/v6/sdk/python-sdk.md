@@ -7,7 +7,7 @@ title: Python SDK 使用指南
 
 此 Python SDK 适用于2.6、2.7、3.3、3.4版本，基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
-SDK 下载地址：<https://github.com/qiniu/python-sdk>
+SDK 下载地址：<https://github.com/qiniu/python-sdk/releases>
 
 **文档大纲**
 
@@ -32,6 +32,8 @@ SDK 下载地址：<https://github.com/qiniu/python-sdk>
 		- [复制文件](#rs-copy)
 		- [移动文件](#rs-move)
 		- [删除文件](#rs-delete)
+		- [抓取资源](#rs-fetch)
+		- [更新镜像资源](#rs-prefetch)
 		- [批量操作](#rs-batch)
 			- [批量获取文件信息](#batch-stat)
 			- [批量复制文件](#batch-copy)
@@ -56,11 +58,12 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 
 从内容上来说，Python-SDK 主要包含如下几方面的内容：
 
-* 公共部分，所有用况下都用到：qiniu/http.py，qiniu/utils.py
-* 客户端上传文件：qiniu/storage/uploader.py
-* 数据处理：qiniu/processing/cmd.py，qiniu/processing/pfop.py
-* 服务端操作：qiniu/auth.py（包括上传凭证、下载凭证的签名），qiniu/storage/bucket.py（对资源的移动、删除的数据管理）
-
+* 基本配置部分：`from .config import set_default`（包括的接口HOST设置、连接超时设置、连接重试次数设置）
+* 安全部分：`from .auth import Auth`（包括上传凭证、下载凭证的签名以及对管理凭证的签名）
+* 空间管理部分：`from .services.storage.bucket import BucketManager, bulid_bactch_*`（包括了基本的[空间资源管理](http://developer.qiniu.com/docs/v6/api/reference/rs/)操作）
+* 上传部分：`from .services.storage.uploader import put*`（包括了上传流、上传文件、断点续上传）
+* 数据处理部分：`from .services.processing.pfop import PersistentFop`（包括了触发[持久化处理][pfopHref]）
+* 处理工具部分：`from .utils import urlsafe_base64_encode, urlsafe_base64_decode, etag, entry`（包括[urlsafe的base64编码](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64)和解码部分，文件[etag值](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)生成部分，七牛API中使用的[EncodedEntryUrI](http://developer.qiniu.com/docs/v6/api/reference/data-formats.html)的构造）
 
 
 <a id="prepare"></a>
@@ -75,6 +78,8 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 直接安装:
 	
 	pip install qiniu
+	或者
+	easy_install qiniu
 
 
 源码安装：
@@ -193,10 +198,11 @@ _deprecated_policy_fields = set([
 服务端生成 [上传凭证][uploadTokenHref] 代码如下：
 
 ```
-import qiniu.auth
+from qiniu import Auth
 
 q = Auth(access_key, secret_key)
 token = q.upload_token(bucket_name, key)
+token2 = q.upload_token(bucket_name, key, 7200, {'callbackUrl':"http://callback.do", 'callbackBody':"name=$(fname)&hash=$(etag)"})
 ```
 
 <a id="upload-do"></a>
@@ -205,37 +211,47 @@ token = q.upload_token(bucket_name, key)
 
 上传文件到七牛（通常是客户端完成，但也可以发生在服务端）：
 
-直接上传二进制流
 
 ```
-import qiniu.auth
-import qiniu.storage.uploader
+# -*- coding: utf-8 -*-
+# flake8: noqa
+from qiniu import Auth
+from qiniu import put_data, put_file
+from qiniu.compat import is_py2
 
-mime_type = "text/plain"
-params = {'x:a': 'a'}
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+access_key = '...'
+secret_key = '...'
+bucket_name = '...'
+
 q = Auth(access_key, secret_key)
 
+# 直接上传二进制流
+
 key = 'a\\b\\c"你好'
-# data 可以是str或read()able对象
 data = 'hello bubby!'
 token = q.upload_token(bucket_name)
 ret, info = put_data(token, key, data)
 print(info)
 assert ret['key'] == key
-```
 
-上传本地文件
+key = ''
+data = 'hello bubby!'
+token = q.upload_token(bucket_name, key)
+ret, info = put_data(token, key, data, check_crc=True)
+print(info)
+assert ret['key'] == key
 
-```
-import qiniu.auth
-import qiniu.storage.uploader
-
-mime_type = "text/plain"
-params = {'x:a': 'a'}
-q = Auth(access_key, secret_key)
+# 上传本地文件
 
 localfile = __file__
 key = 'test_file'
+mime_type = "text/plain"
+params = {'x:a': 'a'}
 
 token = q.upload_token(bucket_name, key)
 ret, info = put_file(token, key, localfile, mime_type=mime_type, check_crc=True)
@@ -254,41 +270,39 @@ ret是一个字典，含有`hash`，`key`等信息。
 
 我们来看支持了断点上续传、分块并行上传的基本样例：
 
-上传二进制流
-
 ```
-import qiniu.auth
-import qiniu.storage.uploader
+# -*- coding: utf-8 -*-
+# flake8: noqa
+from qiniu import Auth
+from qiniu import put_file
+from qiniu.compat import is_py2
+
+import qiniu.config
+
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+access_key = '...'
+secret_key = '...'
+bucket_name = '...'
 
 q = Auth(access_key, secret_key)
 
 mime_type = "text/plain"
 params = {'x:a': 'a'}
-  
-localfile = __file__
-key = 'test_file_r'
-size = os.stat(localfile).st_size
-with open(localfile, 'rb') as input_stream:
-token = q.upload_token(bucket_name, key)
-ret, info = put_stream(token, key, input_stream, size, params, mime_type)
-print(info)
-assert ret['key'] == key
-```
-
-上传本地文件
-
-```
-import qiniu.anth
-import qiniu.config
-import qiniu.storage.uploader
+localfile = '.../.../...'
 
 key = 'big'
 token = q.upload_token(bucket_name, key)
-localfile = create_temp_file(4 * 1024 * 1024 + 1)
+
 progress_handler = lambda progress, total: progress
+qiniu.set_default(default_up_host='a')  # 该处理仅为测试上传重试而存在
 ret, info = put_file(token, key, localfile, params, mime_type, progress_handler=progress_handler)
 print(info)
 assert ret['key'] == key
+qiniu.set_default(default_up_host=qiniu.config.UPAUTO_HOST)
 ```
 
 <a id="io-get"></a>
@@ -320,16 +334,30 @@ assert ret['key'] == key
 其中 dntoken 是由业务服务器签发的一个[临时下载授权凭证][downloadTokenHref]，deadline 是 dntoken 的有效期。dntoken 不需要单独生成，SDK 提供了生成完整 private_url 的方法（包含了 dntoken），示例代码如下：
 
 ```
-import qiniu.auth
+# -*- coding: utf-8 -*-
+# flake8: noqa
+import requests
+
+from qiniu import Auth
+from qiniu.compat import is_py2
+
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+access_key = '...'
+secret_key = '...'
 
 q = Auth(access_key, secret_key)
 
 bucket = 'test_private_bucket'
 key = 'test_private_key'
-key = key.encode('utf8')
-base_url = 'http://%s/%s' % (bucket, key)
+base_url = 'http://%s/%s' % (bucket + '.qiniudn.com', key)
 private_url = q.private_download_url(base_url, expires=3600)
 print(private_url)
+r = requests.get(private_url)
+assert r.status_code == 200
 ```
 
 生成 private_url 后，服务端下发 private_url 给客户端。客户端收到 private_url 后，和公有资源类似，直接用任意的 HTTP 客户端就可以下载该资源了。唯一需要注意的是，在 private_url 失效却还没有完成下载时，需要重新向服务器申请授权。
@@ -348,66 +376,64 @@ print(private_url)
 
 <!--TODO:资源操作介绍-->
 
-<a id="rs-stat"></a>
-#### 获取文件信息
+```
+# -*- coding: utf-8 -*-
+# flake8: noqa
+from qiniu import Auth
+from qiniu import BucketManager
 
-``` 
-import qiniu.auth
-import qiniu.storage.bucket
+from qiniu.compat import is_py2
+
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+access_key = '...'
+secret_key = '...'
+bucket_name = '...'
 
 q = Auth(access_key, secret_key)
 bucket = BucketManager(q)
+```
 
-ret, info = bucket.stat(bucket_name, 'python-sdk.html')
+
+<a id="rs-stat"></a>
+
+``` 
+# 获取文件信息
+key = '...'
+ret, info = bucket.stat(bucket_name, key)
 print(info)
 assert 'hash' in ret
 ```
 
-
 <a id="rs-copy"></a>
-#### 复制文件
 
 ``` 
-import qiniu.auth
-import qiniu.storage.bucket
-
-q = Auth(access_key, secret_key)
-bucket = BucketManager(q)
-
-key = 'copyto'+rand_string(8)
+# 复制文件
+key = '...'
 ret, info = bucket.copy(bucket_name, 'copyfrom', bucket_name, key)
 print(info)
 assert ret == {}
 ```
 
-
 <a id="rs-move"></a>
-#### 移动文件
 
 ```
-import qiniu.auth
-import qiniu.storage.bucket
-
-q = Auth(access_key, secret_key)
-bucket = BucketManager(q)
-
-key = 'copyto'+rand_string(8)
-ret, info = bucket.move(bucket_name, 'movefrom', bucket_name, key)
+# 移动文件
+key = '...'
+key2 = key + 'move'
+ret, info = bucket.move(bucket_name, key, bucket_name, key2)
 print(info)
 assert ret == {}
 ```
 
-
 <a id="rs-delete"></a>
-#### 删除文件
 
 ```
-import qiniu.auth
-import qiniu.storage.bucket
-
-q = Auth(access_key, secret_key)
-bucket = BucketManager(q)
-
+# 删除文件
+key = '...'
 ret, info = bucket.delete(bucket_name, key)
 print(info)
 assert ret is None
@@ -415,39 +441,70 @@ assert info.status_code == 612
 ```
 
 
+<a id="rs-fetch"></a>
+
+```
+# 抓取资源
+ret, info = bucket.fetch('http://developer.qiniu.com/docs/v6/sdk/python-sdk.html', bucket_name, 'fetch.html')
+print(info)
+assert ret == {}
+```
+
+
+<a id="rs-prefetch"></a>
+
+```
+# 更新镜像资源
+ret, info = bucket.prefetch(bucket_name, 'python-sdk.html')
+print(info)
+assert ret == {}
+```
+
 <a id="rs-batch"></a>
 #### 批量操作
 
 当您需要一次性进行多个操作时, 可以使用批量操作。
 
+```
+# -*- coding: utf-8 -*-
+# flake8: noqa
+from qiniu import Auth
+from qiniu import BucketManager
+from qiniu.compat import is_py2
 
-<a id="batch-stat"></a>
-##### 批量获取文件信息
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
 
-``` 
-import qiniu.auth
-import qiniu.storage.bucket
+access_key = '...'
+secret_key = '...'
+bucket_name = '...'
 
 q = Auth(access_key, secret_key)
 bucket = BucketManager(q)
+```
 
-ops = build_batch_stat(bucket_name, ['python-sdk.html'])
+
+<a id="batch-stat"></a>
+
+``` 
+# 批量获取文件信息
+from qiniu import build_batch_stat
+
+ops = build_batch_stat(bucket_name, ['python-sdk.html','python-sdk2.html'])
 ret, info = bucket.batch(ops)
 print(info)
 assert ret[0]['code'] == 200
 ```
 
 <a id="batch-copy"></a>
-# ##### 批量复制文件
 
 ``` 
-import qiniu.auth
-import qiniu.storage.bucket
+# 批量复制文件
+from qiniu import build_batch_copy
 
-q = Auth(access_key, secret_key)
-bucket = BucketManager(q)
-
-key = 'copyto'+rand_string(8)
+key = 'copyto'
 ops = build_batch_copy(bucket_name, {'copyfrom': key}, bucket_name)
 ret, info = bucket.batch(ops)
 print(info)
@@ -455,17 +512,12 @@ assert ret[0]['code'] == 200
 ```
 
 <a id="batch-move"></a>
-##### 批量移动文件
 
 ``` 
-import qiniu.auth
-import qiniu.storage.bucket
+# 批量移动文件
+from qiniu import build_batch_move
 
-q = Auth(access_key, secret_key)
-bucket = BucketManager(q)
-
-key = 'moveto'+rand_string(8)
-bucket.copy(bucket_name, 'copyfrom', bucket_name, key)
+key = 'moveto'
 key2 = key + 'move'
 ops = build_batch_move(bucket_name, {key: key2}, bucket_name)
 ret, info = bucket.batch(ops)
@@ -474,19 +526,15 @@ assert ret[0]['code'] == 200
 ```
 
 <a id="batch-delete"></a>
-##### 批量删除文件
 
-``` 
-import qiniu.auth
-import qiniu.storage.bucket
+```
+# 批量删除文件 
+from qiniu import build_batch_delete
 
-q = Auth(access_key, secret_key)
-bucket = BucketManager(q)
-
-ret, info = bucket.delete(bucket_name, 'del')
+ops = build_batch_delete(bucket_name, ['python-sdk.html'])
+ret, info = self.bucket.batch(ops)
 print(info)
-assert ret is None
-assert info.status_code == 612
+assert ret[0]['code'] == 612
 ```
 
 
@@ -499,8 +547,21 @@ assert info.status_code == 612
 请求某个存储空间（bucket）下的文件列表，如果有前缀，可以按前缀（prefix）进行过滤；如果前一次返回marker就表示还有资源，下一步请求需要将marker参数填上。
 
 ``` 
-import qiniu.auth
-import qiniu.storage.bucket
+# -*- coding: utf-8 -*-
+# flake8: noqa
+from qiniu import Auth
+from qiniu import BucketManager
+
+from qiniu.compat import is_py2
+
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+access_key = '...'
+secret_key = '...'
+bucket_name = '...'
 
 q = Auth(access_key, secret_key)
 bucket = BucketManager(q)
@@ -509,8 +570,10 @@ ret, eof, info = bucket.list(bucket_name, limit=4)
 print(info)
 assert eof is False
 assert len(ret.get('items')) == 4
+
 ret, eof, info = bucket.list(bucket_name, limit=100)
 print(info)
+assert eof is True
 
 # 从上一次list_prefix的位置继续列出文件
 ret2, eof, info = bucket.list(bucket_name, prefix="test", marker=ret['marker'], limit=1)
@@ -527,12 +590,12 @@ def list_all(bucket_name, bucket=None, prefix=None, limit=None):
 	if bucket is None:
 		bucket = BucketManager(q)
 	marker = None
-	eof = None
-	while eof is None:
-		ret, eof, info = bucket.list(bucket_name, prefix=prefix, marker=ret['marker'], limit=limit)
+	eof = False
+	while eof is False:
+		ret, eof, info = bucket.list(bucket_name, prefix=prefix, marker=marker, limit=limit)
 		marker = ret.get('marker', None)
 		for item in ret['items']:
-			#do something
+			print(item['key'])
 			pass
 	if eof is not True:
 		# 错误处理
@@ -546,17 +609,33 @@ def list_all(bucket_name, bucket=None, prefix=None, limit=None):
 ### 持久化处理
 
 ```
-import qniu.processing.pfop
+# -*- coding: utf-8 -*-
+# flake8: noqa
+from qiniu import Auth, PersistentFop, build_op, op_save
+from qiniu.compat import is_py2
+
+if is_py2:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+access_key = '...'
+secret_key = '...'
+bucket_src = '...'
+key_src = '...'
+saved_bucket = '...'
+saved_key = '...'
+pipeline = '...'
 
 q = Auth(access_key, secret_key)
 
-pfop = PersistentFop(q, 'testres', 'sdktest')
-op = op_save('avthumb/m3u8/segtime/10/vcodec/libx264/s/320x240', 'pythonsdk', 'pfoptest')
+pfop = PersistentFop(q, bucket_src, pipeline)
+op = op_save('avthumb/m3u8/segtime/10/vcodec/libx264/s/320x240', saved_bucket, saved_key)
 ops = []
 ops.append(op)
-ret, info = pfop.execute('sintel_trailer.mp4', ops, 1)
+ret, info = pfop.execute(key_src, ops, 1)
 print(info)
-assert ret[0]['persistentId'] is not None
+assert ret['persistentId'] is not None
 ```
 
 <a id="contribution"></a>
@@ -582,3 +661,4 @@ assert ret[0]['persistentId'] is not None
 [downloadTokenHref]:  ../api/reference/security/download-token.html  "下载凭证"
 [magicVariablesHref]: ../api/overview/up/response/vars.html#magicvar "魔法变量"
 [xVariablesHref]:     ../api/overview/up/response/vars.html#xvar     "自定义变量"
+[pfopHref]:           ../api/reference/fop/pfop/pfop.html            "持久化处理"
