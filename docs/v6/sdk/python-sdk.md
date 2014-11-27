@@ -58,12 +58,11 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 
 从内容上来说，Python-SDK 主要包含如下几方面的内容：
 
-* 基本配置部分：`from .config import set_default`（包括的接口HOST设置、连接超时设置、连接重试次数设置）
-* 安全部分：`from .auth import Auth`（包括上传凭证、下载凭证的签名以及对管理凭证的签名）
-* 空间管理部分：`from .services.storage.bucket import BucketManager, bulid_bactch_*`（包括了基本的[空间资源管理](http://developer.qiniu.com/docs/v6/api/reference/rs/)操作）
-* 上传部分：`from .services.storage.uploader import put*`（包括了上传流、上传文件、断点续上传）
-* 数据处理部分：`from .services.processing.pfop import PersistentFop`（包括了触发[持久化处理][pfopHref]）
-* 处理工具部分：`from .utils import urlsafe_base64_encode, urlsafe_base64_decode, etag, entry`（包括[urlsafe的base64编码](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64)和解码部分，文件[etag值](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)生成部分，七牛API中使用的[EncodedEntryUrI](http://developer.qiniu.com/docs/v6/api/reference/data-formats.html)的构造）
+* 基本配置部分：`qiniu.config`（包括的接口HOST设置、连接超时设置、连接重试次数设置）
+* 安全部分：`qiniu.Auth`（包括上传凭证、下载凭证的签名以及对管理凭证的签名）
+* 上传部分：`qiniu.put_file, qiniu.put_stream`（包括了上传流、上传文件、断点续上传）
+* 数据处理部分：`qiniu.pfop`（包括了触发[持久化处理][pfopHref]）
+* 处理工具部分：`qiniu.utils`（包括[urlsafe的base64编码](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64)和解码部分，文件[etag值](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)生成部分，七牛API中使用的[EncodedEntryUrI](http://developer.qiniu.com/docs/v6/api/reference/data-formats.html)的构造）
 
 
 <a id="prepare"></a>
@@ -215,14 +214,6 @@ token2 = q.upload_token(bucket_name, key, 7200, {'callbackUrl':"http://callback.
 ```
 # -*- coding: utf-8 -*-
 # flake8: noqa
-from qiniu import Auth
-from qiniu import put_data, put_file
-from qiniu.compat import is_py2
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
 
 access_key = '...'
 secret_key = '...'
@@ -275,14 +266,8 @@ ret是一个字典，含有`hash`，`key`等信息。
 # flake8: noqa
 from qiniu import Auth
 from qiniu import put_file
-from qiniu.compat import is_py2
 
 import qiniu.config
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
 
 access_key = '...'
 secret_key = '...'
@@ -339,12 +324,6 @@ qiniu.set_default(default_up_host=qiniu.config.UPAUTO_HOST)
 import requests
 
 from qiniu import Auth
-from qiniu.compat import is_py2
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
 
 access_key = '...'
 secret_key = '...'
@@ -381,13 +360,6 @@ assert r.status_code == 200
 # flake8: noqa
 from qiniu import Auth
 from qiniu import BucketManager
-
-from qiniu.compat import is_py2
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
 
 access_key = '...'
 secret_key = '...'
@@ -470,12 +442,6 @@ assert ret == {}
 # flake8: noqa
 from qiniu import Auth
 from qiniu import BucketManager
-from qiniu.compat import is_py2
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
 
 access_key = '...'
 secret_key = '...'
@@ -552,13 +518,6 @@ assert ret[0]['code'] == 612
 from qiniu import Auth
 from qiniu import BucketManager
 
-from qiniu.compat import is_py2
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
-
 access_key = '...'
 secret_key = '...'
 bucket_name = '...'
@@ -612,12 +571,6 @@ def list_all(bucket_name, bucket=None, prefix=None, limit=None):
 # -*- coding: utf-8 -*-
 # flake8: noqa
 from qiniu import Auth, PersistentFop, build_op, op_save
-from qiniu.compat import is_py2
-
-if is_py2:
-    import sys
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
 
 access_key = '...'
 secret_key = '...'
