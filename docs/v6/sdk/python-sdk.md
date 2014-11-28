@@ -112,9 +112,9 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 在获取到 Access Key 和 Secret Key 之后，您可以在您的程序中调用如下两行代码进行初始化对接, 要确保`access_key` 和 `secret_key` 在调用所有七牛API服务之前均已赋值：
 
 ```
-import qiniu.auth
+from qiniu import Auth
 
-q = qiniu.Auth(access_key, secret_key)
+q = Auth(access_key, secret_key)
 ```
 
 <a id="io-put"></a>
@@ -289,11 +289,9 @@ key = 'big'
 token = q.upload_token(bucket_name, key)
 
 progress_handler = lambda progress, total: progress
-qiniu.set_default(default_up_host='a')  # 该处理仅为测试上传重试而存在
 ret, info = put_file(token, key, localfile, params, mime_type, progress_handler=progress_handler)
 print(info)
 assert ret['key'] == key
-qiniu.set_default(default_up_host=qiniu.config.UPAUTO_HOST)
 ```
 
 <a id="io-get"></a>
