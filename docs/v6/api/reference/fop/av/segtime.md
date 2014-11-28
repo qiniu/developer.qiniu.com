@@ -41,6 +41,7 @@ avthumb/m3u8/segtime/<SegSeconds>
             /acodec/<AudioCodec>
             /ss/<SeekStart>
             /t/<Duration>
+            /s/<Resolution>
             /stripmeta/<StripMeta>
             /rotate/<Degree>
             /hlsKey/<HLSKey>
@@ -59,8 +60,10 @@ avthumb/m3u8/segtime/<SegSeconds>
 `/vb/<VideoBitRate>`    |  V   |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。
 `/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。
-`/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等
-`/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为 wxh 或者预定义值。
+`/scodec/<SubtitleCodec>`|  V  |      | 字幕的编码方案，支持方案：mov_text, srt, ass等。该参数仅用于修改带字幕视频的字幕编码。
+`/ss/<SeekStart>`       |  V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
+`/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
+`/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为`<width>x<height>`或者预定义值。
 <a id="m3u8-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="m3u8-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
 `/hlsKey/<HLSKey>`      |  A/V |      | AES128加密视频的秘钥，必须是16个字节

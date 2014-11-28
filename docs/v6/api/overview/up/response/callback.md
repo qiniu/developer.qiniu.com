@@ -151,7 +151,7 @@ function IsQiniuCallback(){
 	if(strpos($authstr,"QBox ")!=0){
 		return false;
 	}
-	$auth = explode(":",$substr($authstr,5));
+	$auth = explode(":",substr($authstr,5));
 	if(sizeof($auth)!=2||$auth[0]!=C('accessKey')){
 		return false;
 	}

@@ -1,0 +1,223 @@
+{
+    "Plugin": [{
+        "name": "WPJAM - 七牛镜像存储 WordPress 插件",
+        "author": "WPJAM",
+        "img": "",
+        "description": "七牛镜像存储 WordPress 插件是基于七牛镜像存储功能制作的一个 WordPress 插件",
+        "code": "https://gitcafe.com/denishua/WPJAM-Qiniu",
+        "website": ""
+    }, {
+        "name": "QiniuUploadFiles 七牛云插件",
+        "author": "QiniuUploadFiles 七牛云插件",
+        "img": "",
+        "description": "七牛云的chrome插件，支持拖拽上传，多文件上传，文件夹上传等",
+        "code": "https://gitcafe.com/hackpar/QiniuUploadFiles",
+        "website": "https://chrome.google.com/webstore/detail/emmfkgdgapbjphdolealbojmcmnphdcc"
+    }, {
+        "name": "octopress_qiniu",
+        "author": "octopress_qiniu",
+        "img": "",
+        "description": "A simple qiniu tool for Octopress",
+        "website": "",
+        "code": "https://gitcafe.com/androidyue/octopress_qiniu"
+    }, {
+        "name": "Jenkins 七牛插件",
+        "author": "Jenkins 七牛插件",
+        "img": "",
+        "description": "自动构建工具 Jenkins 的七牛插件, 用来把构建完成的结果上传到七牛",
+        "website": "",
+        "code": "https://gitcafe.com/ipy/qiniu-plugin"
+    }, {
+        "name": "qiniu-demo 图片上传插件",
+        "author": "qiniu-demo 图片上传插件",
+        "img": "",
+        "description": "图片上传插件 本demo是一个chrome插件，在安装本插件后，在浏览页面时，图片上右键选择Get image info",
+        "website": "http://tenny.qiniudn.com/qiniu-demo1.1.zip",
+        "code": "https://gitcafe.com/lvming6816077/qiniu-demo"
+    }, {
+        "name": "Clipper 剪·爱",
+        "author": "Clipper 剪·爱",
+        "img": "",
+        "description": "一个Chrome插件，通过右键菜单，把喜爱的图片、选取的文字、喜欢的页面(自动提取网页内容没做)保存到指定的七牛账号里",
+        "website": "",
+        "code": "https://gitcafe.com/MadDemon/Clipper"
+    }],
+    "Tool": [{
+        "name": "docker-registry-driver-qiniu",
+        "author": "docker-registry-driver-qiniu",
+        "img": "",
+        "description": "使用七牛云存储保存Docker Registry。国内用户可以创建高效、安全、文档和廉价的私有Docker Registry",
+        "website": "",
+        "code": "https://gitcafe.com/zhangpeihao/docker-registry-driver-qiniu"
+    }, {
+        "name": "Linuxmirrors新网络开源镜像站",
+        "author": "Linuxmirrors新网络开源镜像站",
+        "img": "",
+        "description": "新网络开源镜像站是一个基于七牛云存储的镜像系统，方便中国的用户高效访问开源项目的各种资源的非盈利计划",
+        "website": "http://mirrors.xinwl.com/index.md",
+        "code": ""
+    }, {
+        "name": "Switch Go 语言包管理",
+        "author": "Switch Go 语言包管理",
+        "img": "",
+        "description": "Switch 是一个基于七牛云存储的用于提供版本化缓存和分发 Go 语言包服务的服务器",
+        "website": "http://gopm.io/",
+        "code": "https://gitcafe.com/Unknown/switch"
+    }, {
+        "name": "cae-for-qiniu 七牛云应用引擎",
+        "author": "cae-for-qiniu 七牛云应用引擎",
+        "img": "",
+        "description": "cae是基于PHP云存储应用引擎，可以方便的将传统的PHP网站应用移植到各个云存储。目前支持七牛",
+        "website": "",
+        "code": "https://gitcafe.com/yange/cae-for-qiniu"
+    }, {
+        "name": "ApkUpdate",
+        "author": "ApkUpdate",
+        "img": "",
+        "description": "APK 软件更新利用 七牛 存储实现 APK 在线实时更新，另外基于存储可以实现 apk 日志异常存储等功能",
+        "website": "https://gitcafe.com/243194995/ApkUpdate/raw/master/QiniuDemo/QiniuDemo.apk",
+        "code": "https://gitcafe.com/243194995/ApkUpdate"
+    }, {
+        "name": "simple-upload 简单上传",
+        "author": "simple-upload 简单上传",
+        "img": "",
+        "description": "简单的文件上传功能",
+        "website": "http://simpleupload.sinaapp.com/",
+        "code": "https://gitcafe.com/isnowfy/simple-upload"
+    }],
+    "Fop": [{
+        "name": "Miclle 美摄图志",
+        "author": "Miclle 美摄图志",
+        "img": "",
+        "description": "面向专业摄影人士的网站，作品展示平台。 '记录精彩瞬间 还原真实影像'",
+        "website": "http://miclle.com/",
+        "code": "https://gitcafe.com/miclle/miclle"
+    }, {
+        "name": "Vrpano 360°全景展示",
+        "author": "Vrpano 360°全景展示",
+        "img": "",
+        "description": "基于七牛储存的360°全景展示制作",
+        "website": "http://vrpano.sinaapp.com/",
+        "code": "https://gitcafe.com/czt/vrpano"
+    }, {
+        "name": "fm-cloud七牛音乐电台",
+        "author": "fm-cloud七牛音乐电台",
+        "img": "",
+        "description": "一个javaweb项目，采用自己写的一个mvc框架，集成众多插件，基于七牛云存储的一个音乐电台",
+        "website": "http://fm.im90.me/",
+        "code": "https://gitcafe.com/unique/fm-cloud"
+    }, {
+        "name": "爱狗APP",
+        "author": "爱狗APP",
+        "img": "",
+        "description": "爱狗APP是针对养宠物人群的交友社区",
+        "website": "http://g.bj20080808.cn/m/BbsPosts-demo.jsp?fid=1028&gid=101",
+        "code": "https://gitcafe.com/eg654321/dog.bj20080808.cn"
+    }, {
+        "name": "draw_online 在线画画",
+        "author": "draw_online 在线画画",
+        "img": "",
+        "description": "在线画画 1. 可以保存到本地 2. 可以分享 【上传到7牛服务器 并给出图片地址】 3. 可以分享给朋友",
+        "website": "http://7niuniu.sinaapp.com/",
+        "code": "https://gitcafe.com/yzbczq/draw_online"
+    }, {
+        "name": "MMBrowser 极品写真",
+        "author": "MMBrowser 极品写真",
+        "img": "",
+        "description": "自动采集网站图片并上传到七牛云",
+        "website": "http://www.windowsphone.com/zh-cn/store/app/%E6%9E%81%E5%93%81%E5%86%99%E7%9C%9F/23c54cad-14ef-4292-b658-ce2c73c59d93",
+        "code": "https://gitcafe.com/yanxiaodi/MMBrowser"
+    }, {
+        "name": "七牛在线转化工具",
+        "author": "SunLn",
+        "img": "",
+        "description": "基于七牛API，提供上传文件后简单格式转化功能",
+        "website": "http://qiniutool.duapp.com/",
+        "code": "https://gitcafe.com/SunLn/qiniu-online-convert-tool"
+    }, {
+        "name": "Html2Pdf",
+        "author": "Html2Pdf",
+        "img": "",
+        "description": "实现网页转pdf。有多重模式：可以生成整个页面的pdf文件、可以自动识别网页正文生成pdf文件、可以指定生成区域",
+        "website": "http://pdf.luger.me/",
+        "code": "https://gitcafe.com/luger1990/Html2Pdf"
+    }, {
+        "name": "quan.mx 圈子",
+        "author": "quan.mx 圈子",
+        "img": "",
+        "description": "项目使用响应式布局,采用了七牛云存储图片处理功能，通过前端获取用户屏幕分辨率获得最适合用户屏幕大小的图片",
+        "website": "http://www.quan.mx/",
+        "code": "https://gitcafe.com/crazyfd/quan.mx"
+    }, {
+        "name": "聊天室demo",
+        "author": "聊天室demo",
+        "img": "",
+        "description": "使用七牛云储存作为图片储存空间的一款在线聊天室Demo",
+        "website": "http://qiniudemolts.sinaapp.com/",
+        "code": "https://gitcafe.com/yulemao/chatroomdemo"
+    }, {
+        "name": "carry",
+        "author": "carry",
+        "img": "",
+        "description": "精美的私人电台FM",
+        "website": "http://carry.gitcafe.com/",
+        "code": "https://gitcafe.com/carry/carry"
+    }, {
+        "name": "WaterNote 云端记事本",
+        "author": "WaterNote 云端记事本",
+        "img": "",
+        "description": "一个基于七牛云存储的云记事本",
+        "website": "http://waternote.sinaapp.com/p/view.php",
+        "code": "https://gitcafe.com/0xmiracle/waternote"
+    }],
+    "Rs": [{
+        "name": "clouddoc 在线云盘",
+        "author": "clouddoc 在线云盘",
+        "img": "",
+        "description": "本项目基于七牛云存储实现一个简单的在线云盘，用户可以构建目录结构，管理文件结构",
+        "website": "http://clouddoc.sinaapp.com/index.html",
+        "code": "http://gitcafe.com/P_Chou/clouddoc"
+    }, {
+        "name": "cfs小牛文件系统",
+        "author": "cfs小牛文件系统",
+        "img": "",
+        "description": "cfs-fuse-小牛文件系统，帮助嵌入式设备快速集成云存储",
+        "website": "",
+        "code": "https://gitcafe.com/teacup/cfs"
+    }, {
+        "name": "qn_pan",
+        "author": "qn_pan",
+        "img": "",
+        "description": "愿景 功能大于百度云，现在只是基础功能",
+        "website": "http://qnpan.coding.io/#/",
+        "code": "https://gitcafe.com/zcfrank1st/qn_pan"
+    }, {
+        "name": "objbox对象盒子",
+        "author": "objbox对象盒子",
+        "img": "",
+        "description": "在线文档创作、阅读、协同、分享平台。它采用一套基于七牛云的文档格式，实现了复杂文档的跨平台、跨设备阅读",
+        "website": "http://objbox.sinaapp.com/",
+        "code": "https://gitcafe.com/putilaozu/objbox"
+    }, {
+        "name": "super_mp3 个人MP3管理中心",
+        "author": "super_mp3 个人MP3管理中心",
+        "img": "",
+        "description": "使用七牛云存储作为存储空间，在SAE上基于PHP+MYSQL进行开发",
+        "website": "http://mp3.likfe.com",
+        "code": "https://gitcafe.com/likfe/super_mp3"
+    }, {
+        "name": "getlink 轻松生成图片外链",
+        "author": "getlink 轻松生成图片外链",
+        "img": "",
+        "description": "东半球最好用的图床外链【配套chrome插件】",
+        "website": "http://getlink.sinaapp.com/",
+        "code": "https://gitcafe.com/int64ago/getlink"
+    }, {
+        "name": "FFTS 快速文件中转站",
+        "author": "FFTS 快速文件中转站",
+        "img": "",
+        "description": "快速文件中转站，使用七牛云，简单易用!",
+        "website": "http://widgets.better2web.com/loader/",
+        "code": "https://gitcafe.com/miclle/FFTS"
+    }]
+}

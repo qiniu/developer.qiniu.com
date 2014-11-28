@@ -79,14 +79,12 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 ```
 {
-	"code":     <httpCode  int>, 
     "error":   "<errMsg    string>",
 }
 ```
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#delete-response-status)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="delete-response-status"></a>
@@ -97,8 +95,8 @@ HTTP状态码 | 含义
 200        | 删除成功
 400	       | 请求报文格式错误
 401        | 管理凭证无效
-404        | 待删除资源不存在
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
+612        | 待删除资源不存在
 
 <a id="delete-example1-command"></a>
 ### 命令行示例

@@ -1,9 +1,8 @@
-{{ .includes.header_start}}
+{{ .includes.header}}
     <title>
         {{ .page.title }} | 七牛云存储
     </title>
-    <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
-{{ .includes.header}}
+{{ .includes.header_bottom}}
 
     <div class="container resource">
         <div class="resource-box small cell">
@@ -169,6 +168,53 @@
             </div>
         </div>
 
+        <div class="resource-box cell large community-sdk">
+            <h2 class="cell-head">
+                Demo 集锦
+            </h2>
+            <div class="cell-body">
+                {{range .data.resource.demo}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon resource_tool"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.label}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if eq .author_link "#"}}
+                                    <a href="{{.author_link}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                {{if .doc}}
+                                <a href="{{.doc}}" class="docs" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    查看
+                                </a>
+                                {{end}}
+                                {{if .download}}
+                                <a href="{{.download}}" class="download" target="_blank">
+                                    <span class="icon global_download_sprited"></span>
+                                    下载
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+                <div class="resource-card">
+                    <div class="resource-card-inner demo-more">
+                       <a href="/demo"  target="_blank"><span class="icon sdk-more"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="resource-box cell large logo">
             <h2 class="cell-head">
@@ -212,7 +258,7 @@
     </ul> -->
     </div>
     <!-- 资源下载页，社区插件/社区SDK分页插件，暂时未用到 -->
-    <!--<script type="text/javascript" src="/static/add-on/jquery.plugin/jquery.bxslider/jquery.bxslider.min.js"></script> -->
-    <script type="text/javascript" src="/static/js/sdk-version.js" defer></script>
+    <!--<script type="text/javascript" src="/dist/add-on/jquery.bxslider.min.js"></script> -->
+    <script type="text/javascript" src="/dist/js/sdk-version.js" defer></script>
     {{.includes.search_result}}
     {{.includes.footer}}

@@ -1,16 +1,15 @@
-{{ .includes.header_start}}
+{{ .includes.header}}
     <title>
         {{ .page.title }} | 七牛云存储
     </title>
-    <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
-{{ .includes.header}}
+{{ .includes.header_bottom}}
     <div class="container index">
         <div class="sdk cell">
             <h2>SDK</h2>
             <ul>
                 <li>
                     <a target="blank" href="/docs/v6/sdk/objc-sdk.html" title="iOS/Mac SDK" class="sdk-logo">
-                        <span class="icon sdk-ios"></span>
+                        <span class="icon sdk-objc"></span>
                     </a>
                 </li>
                 <li>
@@ -167,6 +166,11 @@
                     </li>
                     {{end}}
                 </ul>
+            </div>
+            <div class="demo cell">
+                <a href="/demo/index.html">
+                    <img src="/dist/image/css-sprite/demo_dev.png" alt="">
+                </a>
             </div>
         </div>
         <div class="side-bar pull-left">

@@ -19,7 +19,7 @@ title: qboxrsctl 命令行辅助工具
     - [删除空间（Bucket）](#drop)
     - [设置镜像存储（源站加速）](#img)
     - [取消镜像存储](#unimg)
-    - [清除配置缓存](#refresh)
+    - [清除cdn缓存](#refresh)
 - [云处理](#foper)
     - [设置API规格别名](#style)
     - [取消API规格别名](#unstyle)
@@ -158,9 +158,9 @@ SrcHost | 源站域名，可选
 
 <a id="refresh"></a>
 
-### 3.8 清除配置缓存
+### 3.8 清除cdn缓存
 
-    qboxrsctl refresh <Bucket>
+    qboxrsctl cdn/refresh <Bucket> <Url1>,<Url2>...<UrlN>
 
 <a id="foper"></a>
 

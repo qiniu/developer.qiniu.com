@@ -67,16 +67,6 @@ Content-Length: <length>
 
 处理完成后会向用户指定的`notifyURL`发送处理结果，用户也可以根据`persistentId`来主动查询。详情可以参考：[处理状态通知和查询](#pfop-status)。
 
-<a id="pfop-download"></a>
-## 下载处理结果
-数据处理完成后，用户即可通过：
-
-```
-http://<domain>/<key>?p/1/<fop>
-```
-
-这样形式的URL访问处理结果。如果访问的处理结果不存在则返回404。  
-
 <a id="pfop-status"></a>
 ## 状态通知和查询
 
@@ -164,8 +154,8 @@ key   | string | 数据处理结果的唯一资源ID。数据处理结果可通�
 
 3. 访问链接：  
 [原文件](http://t-test.qiniudn.com/persistent.mp3)  
-[处理1(avthumb/mp3/aq/6/ar/16000)结果](http://t-test.qiniudn.com/persistent.mp3?p/1/avthumb/mp3/aq/6/ar/16000)  
-[处理2(avthumb/mp3/ar/44100/ab/32k)结果](http://t-test.qiniudn.com/persistent.mp3?p/1/avthumb/mp3/ar/44100/ab/32k)   
+[处理1(avthumb/mp3/aq/6/ar/16000)结果](http://t-test.qiniudn.com/1G8-OWwP3jPLvi7O3qOf7yCl4YI=/lgxucMCQso_KOW_YDM-_KVIeX6o5)  
+[处理2(avthumb/mp3/ar/44100/ab/32k)结果](http://t-test.qiniudn.com/sFhZ4dSjB1zvL3De1UBX2qZ_VR0=/lgxucMCQso_KOW_YDM-_KVIeX6o5)   
 
 [putPolicyHref]:			/docs/v6/api/reference/security/put-policy.html "上传策略"
 [uploadTokenHref]:			/docs/v6/api/reference/security/upload-token.html "上传凭证"
