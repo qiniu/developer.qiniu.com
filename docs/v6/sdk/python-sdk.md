@@ -289,7 +289,6 @@ key = 'big'
 token = q.upload_token(bucket_name, key)
 
 progress_handler = lambda progress, total: progress
-qiniu.set_default(default_up_host=qiniu.config.UPAUTO_HOST)
 ret, info = put_file(token, key, localfile, params, mime_type, progress_handler=progress_handler)
 print(info)
 assert ret['key'] == key
