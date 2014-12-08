@@ -9,7 +9,7 @@ title: Python SDK 使用指南
 
 SDK 下载地址：<https://github.com/qiniu/python-sdk/releases>
 
-**文档大纲**
+历史版本 参考：[python-sdk-6](http://developer.qiniu.com/docs/v6/sdk/python-sdk-6.html)
 
 - [概述](#overview)
 - [准备开发环境](#prepare)
