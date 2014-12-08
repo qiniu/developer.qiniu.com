@@ -41,6 +41,7 @@ avinfo       | 是       | 音视频资源的元信息。    | 暂不支持用�
 imageAve     |          | 图片主色调。      | 暂不支持用于`分片上传`中
 ext          |          | 上传资源的后缀名，通过自动检测的 mimeType 或者原文件的后缀来获取。 | 不支持用于`分片上传`
 uuid         |          | 生成uuid          | 暂不支持用于'saveKey'中
+bodySha1     |          | callbackBody的sha1(hex编码) | 只支持用于'callbackUrl'中
 
 魔法变量支持`$(<Object>.<Property>)`形式的访问子项，例如：
 
