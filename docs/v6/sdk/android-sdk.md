@@ -25,6 +25,8 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 
 该SDK支持不低于2.2的Android版本（api8）。
 
+历史版本 参考: [android-sdk-6](http://developer.qiniu.com/docs/v6/sdk/android-sdk-6.html)
+
 <a name="use-scenario"></a>
 ## 使用场景
 
@@ -79,7 +81,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 <a name="upload"></a>
 ### 上传文件
 
-SDK内置两种上传方式：表单上传和分片上传，并根据情况内部做了自动切换。表单上传使用一个HTTP POST请求完成文件的上传，因此比较适合较小的文件和较好的网络环境。相比而言，分片上传更能适应不稳定的网络环境，也比较适合上传比较大的文件（数百MB或更大），在本SDK中，通过设置`Config.PUT_THRESHOLD`，自动将大于`Config.PUT_THRESHOLD`的文件进行分片上传。
+SDK内置两种上传方式：表单上传和分片上传，并根据情况内部做了自动切换。表单上传使用一个HTTP POST请求完成文件的上传，因此比较适合较小的文件和较好的网络环境。相比而言，分片上传更能适应不稳定的网络环境，也比较适合上传比较大的文件（数百MB或更大）。
 
 若需深入了解上传方式之间的区别，请查看[上传类型](http://developer.qiniu.com/docs/v6/api/overview/up/upload-models.html#upload-types)，[表单上传接口说明](http://developer.qiniu.com/docs/v6/api/overview/up/form-upload.html)，[分片上传接口说明（断点续上传）](http://developer.qiniu.com/docs/v6/api/overview/up/chunked-upload.html)。
 
@@ -179,13 +181,13 @@ FileRecorder fr = new FileRecorder(dirPath)
 UploadManager uploadManager = new UploadManager(fr);
 uploadManager.put(data, key, ...)
 
-//默认使用 key 的url_safe_base64编码字符串作为断点记录文件的文件名。避免记录文件冲突（特别是key指定为null时），可自定义文件名：
+//默认使用 key 的url_safe_base64编码字符串作为断点记录文件的文件名。避免记录文件冲突（特别是key指定为null时），也可自定义文件名：
 
 UploadManager uploadManager = new UploadManager(fr, new KeyGenerator(){
 	public String gen(String key, File file){
     	// 不必使用url_safe_base64转换，uploadManager内部会处理
-    	// 该返回值可替换为基于key、文件内容、上下文的其它值生成的文件名
-    	return key;
+    	// 该返回值可替换为基于key、文件内容、上下文的其它信息生成的文件名
+    	return key + file.getName();
   	}
 });
 ```
