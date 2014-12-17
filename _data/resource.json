@@ -292,7 +292,7 @@
         "name": "UEditor（php）（编辑器）",
         "label": "UEditor（php）",
         "description": "本插件可为UEditor添加向七牛云存储上传图片资源的功能。",
-        "download": "http://developer.qiniu.com/resource/utf8_qiniu_ueditor.zip",
+        "download": "https://github.com/widuu/qiniu_ueditor_1.4.3",
         "defaultSprite": true,
         "author": "widuu",
         "author_link": "http://weibo.com/widuu",
