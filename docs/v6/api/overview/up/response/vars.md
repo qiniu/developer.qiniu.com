@@ -19,18 +19,18 @@ order: 512
 
 目前可用的魔法变量如下:
 
-变量名       | 包含子项 | 变量说明 | 适用范围 
+变量名       | 包含子项 | 变量说明 | 适用范围
 :----------- | :------- |------------------------------------------- |----
 bucket       |          | 获得上传的目标空间名。    |
 key          |          | 获得文件保存在空间中的资源名。    |
 etag         |          | 文件上传成功后的[Etag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。    |
 <a id="magicvar-fname"></a>fname        |          | 上传的原始文件名。    |   不支持用于`分片上传`
-fsize        |          | 资源尺寸，单位为字节。    |   不支持用于`分片上传`
-mimeType     |          | 资源类型，比如JPG图片的资源类型为`image/jpg`。    |   不支持用于`分片上传`
+fsize        |          | 资源尺寸，单位为字节。    |
+mimeType     |          | 资源类型，比如JPG图片的资源类型为`image/jpg`。    |
 endUser      |          | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。    |
 persistentId |          | 音视频转码持久化的进度查询ID。     |
-exif         | 是       | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。    | 暂不支持用于'saveKey'中
-imageInfo    | 是       | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。    | 暂不支持用于'saveKey'中
+exif         | 是       | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。    | 暂不支持用于`saveKey`、`分片上传`中
+imageInfo    | 是       | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。    | 暂不支持用于`saveKey`、`分片上传`中
 year         |          | 上传时的年份。    | 暂不支持用于'returnBody'、'callbackBody'中
 mon          |          | 上传时的月份。    | 暂不支持用于'returnBody'、'callbackBody'中
 day          |          | 上传时的日期。    | 暂不支持用于'returnBody'、'callbackBody'中
@@ -182,7 +182,7 @@ put_policy = '{
 之后，用户的客户端构造了如下请求：
 
 ```
-<form method="post" action="http://upload.qiniu.com/" 
+<form method="post" action="http://upload.qiniu.com/"
 enctype="multipart/form-data">
     <input name="key" type="hidden" value="sunflower.jpg">
     <input name="x:location" type="hidden" value="Shanghai">
