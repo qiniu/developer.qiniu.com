@@ -55,7 +55,7 @@ avthumb/<Format>
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。 
 `/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
 `/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等。该参数仅用于修改带字幕视频的字幕编码。
-`/ss/<SeekStart>`       |  V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
+`/ss/<SeekStart>`       |  A/V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为`<width>x<height>`或者预定义值。 
 `/autoscale/<Autoscale>`|  V   |      | 配合参数`/s/`使用，指定为1时，把视频按原始比例缩放到`/s/`指定的矩形框内，0或者不指定会强制缩放到对应分辨率，可能造成视频变形
