@@ -23,8 +23,10 @@ imageMogr2/auto-orient
           /thumbnail/<imageSizeGeometry>
           /strip
           /gravity/<gravityType>
+          /extent/<backgroundSizeGeometry>
+          /background/<ecodedBackgroundColor>
+          /position/<imagePosition>
           /crop/<imageSizeAndOffsetGeometry>
-          /quality/<imageQuality>
           /rotate/<rotateDegree>
           /format/<destinationImageFormat>
           /blur/<radius>x<sigma>
@@ -38,7 +40,6 @@ imageMogr2/auto-orient
 `/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imageMogr2-thumbnail-spec)，缺省为不缩放。
 `/gravity/<gravityType>`             |      | 参看[图片处理重心参数表](#imageMogr2-anchor-spec)，目前在`imageMogr2`中只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
-`/quality/<imageQuality>`            |      | ● 图片质量<br>取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
 <a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
