@@ -239,7 +239,7 @@ assert ret['key'] == key
 key = ''
 data = 'hello bubby!'
 token = q.upload_token(bucket_name, key)
-ret, info = put_data(token, key, data, check_crc=True)
+ret, info = put_data(token, key, data, mime_type="application/octet-stream", check_crc=True)
 print(info)
 assert ret['key'] == key
 
