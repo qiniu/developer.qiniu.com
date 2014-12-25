@@ -160,6 +160,8 @@ _policy_fields = set([
     'callbackUrl',
     'callbackBody',
     'callbackHost',
+    'callbackBodyType'
+    'callbackFetchKey'
 
     'returnUrl',
     'returnBody',
@@ -184,6 +186,8 @@ _deprecated_policy_fields = set([
 
 * `callbackUrl` 设定业务服务器的回调地址，这样业务服务器才能感知到上传行为的发生。
 * `callbackBody` 设定业务服务器的回调信息。文件上传成功后，七牛向业务服务器的callbackUrl发送的POST请求携带的数据。支持 [魔法变量][magicVariablesHref] 和 [自定义变量][xVariablesHref]。
+* `callbackBodyType`设定七牛向业务服务器发起回调的body的Content-Type，默认为`application/x-www-form-urlencoded`，也可设置为`application/json`。
+* `callbackFetchKey`设置是否启用fetchKey上传模式，0为关闭，1为启用；具体见[fetchKey上传模式](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#fetch-key-explaination)。
 * `returnUrl` 设置用于浏览器端文件上传成功后，浏览器执行303跳转的URL，一般为 HTML Form 上传时使用。文件上传成功后浏览器会自动跳转到 `returnUrl?upload_ret=returnBody`。
 * `returnBody` 可调整返回给客户端的数据包，支持 [魔法变量][magicVariablesHref] 和 [自定义变量][xVariablesHref]。`returnBody` 只在没有 `callbackUrl` 时有效（否则直接返回 `callbackUrl` 返回的结果）。不同情形下默认返回的 `returnBody` 并不相同。在一般情况下返回的是文件内容的 `hash`，也就是下载该文件时的 `etag`；但指定 `returnUrl` 时默认的 `returnBody` 会带上更多的信息。
 * `asyncOps` 已经废弃，取而代之的是`persistentOps`，上传完成后进行的异步处理的持久化操作，具体操作可以参考上传预处理[详解](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)和[示例](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-samples-persisntent-ops)。
