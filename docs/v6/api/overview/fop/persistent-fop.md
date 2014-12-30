@@ -48,7 +48,7 @@ order: 270
 POST /pfop HTTP/1.1
 Host: api.qiniu.com  
 Content-Type: application/x-www-form-urlencoded  
-Authorization: <AccessToken>  
+Authorization: QBox <AccessToken>  
 
 bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<urlEncodedPersistentNotifyUrl>&force=<Force>
 ```
