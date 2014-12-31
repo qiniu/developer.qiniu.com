@@ -34,7 +34,7 @@ avthumb/<format>
 `...`                      |      | [avthumb](http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html)的其他参数 
 `<EncodedRemoteImageUrl>`<p>`<EncodedText>` | 至少填一项  | 水印的源路径，图片水印目前仅支持远程路径，需要经过`urlsafe_base64_encode`。
 `<Gravity>`及`<GravityText>`|      | 打水印的位置，参考[水印锚点参数表](#vwatermark-anchor-spec)，缺省值为`NorthEast`（右上角）。
-`<Font>`         |      | 文本字体，需要经过`urlsafe_base64_encode`，缺省为黑体,注意：中文水印必须指定中文字体。
+`<Font>`         |      | 文本字体（详见支持[字体列表](http://kb.qiniu.com/support-fonts)），需要经过`urlsafe_base64_encode`，缺省为黑体,注意：中文水印必须指定中文字体。
 `<FontColor>`    |      | 水印文字颜色，RGB格式，可以是颜色名称（比如red）或十六进制（比如#FF0000），参考RGB颜色编码表，缺省为黑色
 `<FontSize>`     |      | 水印文字大小，单位: 缇，等于1/20磅，缺省值0（默认大小）
 
