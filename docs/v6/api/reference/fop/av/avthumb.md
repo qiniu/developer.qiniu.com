@@ -53,7 +53,7 @@ avthumb/<Format>
 `/r/<FrameRate>`        |  V   |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。 
 `/vb/<VideoBitRate>`    |  V   |      | 视频码率，单位：比特每秒（bit/s），常用视频码率：128k，1.25m，5m等。若指定码率大于原视频码率，则使用原视频码率进行转码。 
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。 
-`/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
+`/acodec/<AudioCodec>`  |  A   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
 `/scodec/<SubtitleCodec>`|  V  |      | 字幕的编方案，支持方案：mov_text, srt, ass等。该参数仅用于修改带字幕视频的字幕编码。
 `/ss/<SeekStart>`       |  A/V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
