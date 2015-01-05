@@ -17,24 +17,29 @@ test: all
 install: all
 	grunt production
 	rm -rf node_modules
-	rm -rf .tmp
+
 	#指定上传文件：
 	#make install file=file1,file2,file3
 	#file1,file2,file3采用弱匹配模式,指定文件名的部分即可，副作用是可能上传其它的文件
 
 	./_jkl --qiniu-config _jekyll_qiniu.yml --qiniu --qiniu-up-files '$(file)' --verbose 2>&1 | sed '/_site/{h; s,^.*/_site,http://developer.qiniu.com,; H; x;}'
 	@echo
+	rm -rf .tmp
 
 clean:
 	rm -rf _site
 	rm -rf dist
 
 dev: all
+	rm _includes/footer.html
+	rm _includes/header.html
 	rm -rf dist
 	grunt
 	./_jkl --server
 
 production: all
+	rm _includes/footer.html
+	rm _includes/header.html
 	grunt production
 	./_jkl --server
 
