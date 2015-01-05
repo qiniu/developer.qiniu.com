@@ -27,6 +27,9 @@ install: all
 	rm -rf .tmp
 
 clean:
+	rm _includes/footer.html
+	rm _includes/header.html
+	rm -rf .tmp
 	rm -rf _site
 	rm -rf dist
 
