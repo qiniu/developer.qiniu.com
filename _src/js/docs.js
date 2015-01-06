@@ -203,7 +203,7 @@ $(function() {
             $('#myModal').modal();
             $('#myModal').find('p').html('正在搜索中，请耐心等待。');
             $('#myModal').find('.result-line').html('');
-            $.getJSON('http://183.60.175.38:9988?query=' + val + '&callback=?', function(data) {
+            $.getJSON('http://search-developer.qiniu.io?query=' + val + '&callback=?', function(data) {
                 if (data.items.length > 0) {
                     var markup = '',
                         tData = '',
