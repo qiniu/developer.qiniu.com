@@ -519,7 +519,7 @@ $(function() {
         $(this).siblings('a').trigger('click');
         e.stopPropagation();
     });
-    // 资源下载页提交社区SDK/插件
+    // 资源下载页提交社区SDK/插件/Demo
 
     DocsAddResource = new Zendesk({
         'width': 740,
@@ -534,8 +534,8 @@ $(function() {
         DocsAddResource.init();
     }
     $('.js-add-resource').on('click', function() {
-        var title = $.trim($(this).text());
-        var type = title === '提交我的插件/工具' ? 'Plugin' : 'SDK';
+        var title = $.trim($(this).data('title'));
+        var type = title === 'Demo' ? 'Plugin' : 'SDK';
         DocsAddResource.show(type);
         return false;
     });
