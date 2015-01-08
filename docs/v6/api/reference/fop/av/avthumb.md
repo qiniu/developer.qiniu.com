@@ -30,6 +30,7 @@ avthumb/<Format>
        /t/<Duration>
        /s/<Resolution>
        /autoscale/<Autoscale>
+       /aspect/<Aspect>
        /stripmeta/<StripMeta>
        /rotate/<Degree>
        /wmImage/<EncodedRemoteImageUrl>
@@ -59,6 +60,7 @@ avthumb/<Format>
 `/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为`<width>x<height>`或者预定义值。 
 `/autoscale/<Autoscale>`|  V   |      | 配合参数`/s/`使用，指定为1时，把视频按原始比例缩放到`/s/`指定的矩形框内，0或者不指定会强制缩放到对应分辨率，可能造成视频变形
+`/aspect/<Aspect>`      |   V  |      | 该参数为视频在播放器中显示的宽高比，格式为格式为`<width>:<height>`，譬如取值为`3:4`，表示视频在播放器中播放是`宽:高=3:4`。
 <a id="video-strip-meta"></a><a id="avthumb-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="video-rotate"></a><a id="avthumb-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
 `/wmImage/<EncodedRemoteImageUrl>`| V | | 水印图片的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode`。水印具体介绍见[视频水印](http://developer.qiniu.com/docs/v6/api/reference/fop/av/video-watermark.html)
