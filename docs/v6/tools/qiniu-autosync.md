@@ -12,7 +12,7 @@ qiniu-autosync 是一段 bash shell script，可用于监控 Linux/Unix 上指�
 ## 安装
 
 1. 需先安装 inotify-tools - <https://github.com/rvoicilas/inotify-tools/wiki>
-2. 然后下载 [qboxrsctl](qboxrsctl.html)
+2. 然后下载 [qrsctl](qrsctl.html)
 3. 下载脚本 qiniu-autosync.sh
 
 Linux 下可以使用如下命令:
@@ -29,7 +29,7 @@ Linux 下可以使用如下命令:
 
     ./qiniu-autosync.sh -a /PATH/TO/appkey.json \
                         -b BUCKET_NAME \
-                        -c /PATH/TO/qboxrsctl \
+                        -c /PATH/TO/qrsctl \
                         -d /PATH/TO/WATCH_DIR \
                         -e ALLOW_DELETE_TrueOrFalse \
                         -f FILE_BLOCK_SIZE \
@@ -39,7 +39,7 @@ Linux 下可以使用如下命令:
 -----|------|-------------------------------------------------------------------------
 a    | 是   | 指定 `/PATH/to/appkey.json` (密钥文件存放路径)
 b    | 是   | 用于存储文件的七牛空间名称
-c    | 是   | qboxrsctl 可执行命令所在路径
+c    | 是   | qrsctl 可执行命令所在路径
 d    | 是   | 要监控的目录，绝对路径
 e    | 否   | 是否允许自动删除，缺省为 `false`
 f    | 否   | 文件切片分块大小，超过这个大小启用并行断点续上传，缺省为 `4194304` (4MB)
