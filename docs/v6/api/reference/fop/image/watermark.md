@@ -355,14 +355,14 @@ HTTP状态码 | 含义
 - 原图尺寸小于水印图片尺寸时，直接返回原图，不加水印。
 - watermark生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]和[saveas处理][saveasHref]。  
 
-- 使用[qboxrsctl][qboxrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
+- 使用[qrsctl][qrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
 
 	```
-    qboxrsctl login <email> <password>
+    qrsctl login <email> <password>
 
-    qboxrsctl style <bucket> watermarked.jpg watermark/2/text/<encodedText>
+    qrsctl style <bucket> watermarked.jpg watermark/2/text/<encodedText>
 
-    qboxrsctl separator <bucket> -
+    qrsctl separator <bucket> -
 	```
 	
 	此时，如下两个URL等价:
@@ -401,7 +401,7 @@ HTTP状态码 | 含义
 - [saveas处理][saveasHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[qboxrsctlHref]:       http://developer.qiniu.com/docs/v6/tools/qboxrsctl.html                "七牛工具"
+[qrsctlHref]:       http://developer.qiniu.com/docs/v6/tools/qrsctl.html                "七牛工具"
 [resourceProtectHref]: http://kb.qiniu.com/52uad43y                    "原图保护"
 [sendBugReportHref]:   mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
