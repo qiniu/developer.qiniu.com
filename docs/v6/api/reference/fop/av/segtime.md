@@ -31,7 +31,6 @@ order: 148
 
 ```
 avthumb/m3u8/segtime/<SegSeconds>
-            /preset/<Preset>
             /ab/<BitRate>
             /aq/<AudioQuality>
             /ar/<SamplingRate>
@@ -53,7 +52,6 @@ avthumb/m3u8/segtime/<SegSeconds>
 参数名称                | 类别 | 必填 | 说明
 :---------------------- | :--- | :--- | :----------------------------------------
 `/segtime/<SegSeconds>` | A/V  |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围5-120秒，默认值为10秒。
-`/preset/<Preset>`      | A/V  |      | 预设集（Preset）名称。
 `/ab/<BitRate>`         | A    |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。
 `/aq/<AudioQuality>`    | A    |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。
 `/ar/<SamplingRate>`    | A    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
@@ -71,13 +69,6 @@ avthumb/m3u8/segtime/<SegSeconds>
 `/hlsKey/<HLSKey>`      |  A/V |      | AES128加密视频的秘钥，必须是16个字节
 `/hlsKeyType/<HLSKeyType>` | A/V|     | 秘钥传递给我们的方式，0或不填：<urlsafe_base64_encode>, 1.x(1.0, 1.1, ...): 见下面详细解释
 `/hlsKeyUrl/<HLSKeyUrl>` |  A/V |     | 秘钥的访问url
-
-
-<a id="segtime-remarks"></a>
-## 附注
-
-- 指定`/preset/<Preset>`参数时，可以同时指定其它参数以覆盖对应预设参数。
-- 不指定`/preset/<Preset>`参数时，通过指定其它参数构造自定义切片规格，未指定的参数使用默认值。
 
 <a id="segtime-samples"></a>
 ## 示例
