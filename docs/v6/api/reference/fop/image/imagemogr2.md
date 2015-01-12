@@ -24,7 +24,6 @@ imageMogr2/auto-orient
           /strip
           /gravity/<gravityType>
           /extent/<backgroundSizeGeometry>
-          /background/<ecodedBackgroundColor>
           /position/<imagePosition>
           /crop/<imageSizeAndOffsetGeometry>
           /rotate/<rotateDegree>
