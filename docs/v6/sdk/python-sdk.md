@@ -506,7 +506,7 @@ assert ret[0]['code'] == 200
 from qiniu import build_batch_delete
 
 ops = build_batch_delete(bucket_name, ['python-sdk.html'])
-ret, info = self.bucket.batch(ops)
+ret, info = bucket.batch(ops)
 print(info)
 assert ret[0]['code'] == 612
 ```
