@@ -526,7 +526,7 @@ $(function() {
         'minHeight': 866,
         'frameId': 'AddDocsResource',
         'hideFrameId': 'AddDocsResourceHide',
-        'url': 'https://portal.qiniu.com/zendesk/docs',
+        'url': 'http://low.com:9009/zendesk/docs',
     });
     if (window.location.hash === '#hide_docs') {
         window.parent.DocsAddResource.hide();
@@ -534,8 +534,7 @@ $(function() {
         DocsAddResource.init();
     }
     $('.js-add-resource').on('click', function() {
-        var title = $.trim($(this).data('title'));
-        var type = title === 'Demo' ? 'Plugin' : 'SDK';
+        var type = $.trim($(this).data('title'));
         DocsAddResource.show(type);
         return false;
     });
@@ -547,7 +546,7 @@ $(function() {
         'minHeight': 740,
         'frameId': 'feedbackFrame',
         'hideFrameId': 'feedbackFrameHide',
-        'url': 'https://portal.qiniu.com/zendesk/docs-feedback',
+        'url': 'http://low.com:9009/zendesk/docs-feedback',
     });
     if (window.location.hash === '#hide_feedback') {
         window.parent.DocsFeedback.hide();
