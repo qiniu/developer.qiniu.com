@@ -25,7 +25,7 @@ mkzip/<mode>
 
 参数名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
-`<Mode>`      | 当前固定值为`1`，该字段主要用作后续功能扩展 | 必填
+`<Mode>`      | 当前固定值为`2`，该字段主要用作后续功能扩展 | 必填
 `<Base64EncodedURL>` | 需要被压缩的资源的URL，必须是公网可访资源，在请求中需要经过[URL安全的Base64编码](/docs/v6/api/overview/appendix.html#urlsafe-base64) |  至少一项
 `<Base64EncodedAlias>` | 资源在压缩文件中的别名，需要经过[URL安全的Base64编码](/docs/v6/api/overview/appendix.html#urlsafe-base64)，若不指定则为url中资源的原文件名 |
 
@@ -54,7 +54,7 @@ mkzip/<mode>
 
     bucket=test
     &key=sample.mp4
-    &fops=mkzip%2f1%2furl%2faHR0cDovL3Fpbml1cGhvdG9zLnFpbml1ZG4uY29tL2dvZ29waGVyLmpwZw==%2furl%2faHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvZGl2ZS1pbnRvLWdvbGFuZy5wcHR4%2falias%2fZ29sYW5nLnBwdHg=%2faHR0cDovL29wZW4ucWluaXVkbi5jb20vdGhpbmtpbmctaW4tZ28ubXA0%2csaveas%2fdGVzdDp0ZXN0LnppcA==
+    &fops=mkzip%2f2%2furl%2faHR0cDovL3Fpbml1cGhvdG9zLnFpbml1ZG4uY29tL2dvZ29waGVyLmpwZw==%2furl%2faHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvZGl2ZS1pbnRvLWdvbGFuZy5wcHR4%2falias%2fZ29sYW5nLnBwdHg=%2faHR0cDovL29wZW4ucWluaXVkbi5jb20vdGhpbmtpbmctaW4tZ28ubXA0%2csaveas%2fdGVzdDp0ZXN0LnppcA==
     
 ```
 

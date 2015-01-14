@@ -101,7 +101,7 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
             "key": "8ehryqviSaMIjkVQDGeDcKRZ6qc=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
         },
         {
-            "cmd": "avthumb/m3u8/preset/video_16x9_440k",
+            "cmd": "avthumb/m3u8/vb/440k",
             "code": 0,
             "desc": "The fop was completed successfully",
             "error": "",

@@ -156,7 +156,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 - <http://apitest.b1.qiniudn.com/sample-m3u8>
 
-其中 `m3u8_audio` 是自定义的 API 规格别名（`avthumb/m3u8/preset/audio_32k`）。
+其中 `m3u8_audio` 是自定义的 API 规格别名（`avthumb/m3u8/ab/32k`）。
 
 您可以使用播放器来打开该 URL 进行流媒体播放体验。参考:
 
