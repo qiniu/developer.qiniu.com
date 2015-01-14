@@ -140,7 +140,7 @@ order: 980
 {
     "scope":                "qiniu-ts-demo",
     "deadline":             1390528576,
-    "persistentOps":        "avthumb/mp4;avthumb/m3u8/segtime/15/preset/video_440k",
+    "persistentOps":        "avthumb/mp4;avthumb/m3u8/segtime/15/vb/440k",
     "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
 }
 ```
