@@ -23,8 +23,6 @@ imageMogr2/auto-orient
           /thumbnail/<imageSizeGeometry>
           /strip
           /gravity/<gravityType>
-          /extent/<backgroundSizeGeometry>
-          /position/<imagePosition>
           /crop/<imageSizeAndOffsetGeometry>
           /rotate/<rotateDegree>
           /format/<destinationImageFormat>
