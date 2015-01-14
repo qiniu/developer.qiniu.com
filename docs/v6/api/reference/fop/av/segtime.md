@@ -15,17 +15,14 @@ order: 148
 以下用 HLS 代指 HTTP Live Streaming 。
 
 ## 使用
-命令可以使用我们预先定义的预设集或者自己选择需要的参数，如：
+命令可以使用自己选择需要的参数，如：
 
 ```
-预设集：avthumb/m3u8/segtime/10/preset/audio_32k
 自定义：avthumb/m3u8/vb/500k/t/10
 ```
 
-预设集参见[hls预设集](#segtime-preset)
 命令的调用可以使用上传时指定[persistentOps][persistentOpsHref]或者调用[pfop][pfopHref]命令
 
-<a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
 ## 音视频切片接口规格
 
@@ -128,8 +125,8 @@ $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE
 
 例子：
 
-- 不使用rsa加密： `avthumb/m3u8/preset/video_640k/hlsKey/ZXhhbXBsZWtleTEyMzQ1Ng==/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
-- 使用rsa加密： `avthumb/m3u8/preset/video_640k/hlsKey/SyyishA7ompSehjBHsq9EkBpbw6RfPnl49FOyMPoQZa4uxFlyHUCLxmXQ56F5WIteknZWahbqcdNx06pGBNk1zVBm5K6czZ_nCdy7y6PBon7NSUamoUPIGGBuevXOcyuc-4IpkmkcG3MWz7_Lop8zk98k8IVmKYCD_LMv-C_8D0=/hlsKeyType/1.0/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
+- 不使用rsa加密： `avthumb/m3u8/vb/640k/hlsKey/ZXhhbXBsZWtleTEyMzQ1Ng==/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
+- 使用rsa加密： `avthumb/m3u8/vb/640k/hlsKey/SyyishA7ompSehjBHsq9EkBpbw6RfPnl49FOyMPoQZa4uxFlyHUCLxmXQ56F5WIteknZWahbqcdNx06pGBNk1zVBm5K6czZ_nCdy7y6PBon7NSUamoUPIGGBuevXOcyuc-4IpkmkcG3MWz7_Lop8zk98k8IVmKYCD_LMv-C_8D0=/hlsKeyType/1.0/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
 
 ## 内部参考资源
 
