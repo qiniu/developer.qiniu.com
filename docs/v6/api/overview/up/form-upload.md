@@ -75,13 +75,3 @@ Content-Type: <MimeType>
 另外如果需要，我们可以在表单参数中增加一系列的[魔法变量](/docs/v6/api/overview/up/response/vars.html#magicvar)和[自定义变量](/docs/v6/api/overview/up/response/vars.html#xvar)。上述表单例子中的`<x:custom_field_name>`就是变量的使用方法示意。我们可以将其更换为一系列魔法变量或自定义变量。
 
 变量将会在回调和自定义返回内容中起到极大的作用。具体用法请参见[回调](/docs/v6/api/overview/up/response/callback.html)和[自定义返回内容](/docs/v6/api/overview/up/response/response-body.html)对应的使用方法描述。
-
-<a id="form-upload-example"></a>
-## 在线示例
-
-- [表单上传](http://jsfiddle.net/gh/get/library/pure/icattlecoder/jsfiddle/tree/master/formupload)
-
-- [异步表单上传](http://jsfiddle.net/gh/get/jquery/1.9.1/icattlecoder/jsfiddle/tree/master/ajaxupload)
-
-
-请参见<https://github.com/qiniu/form-upload>。

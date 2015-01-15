@@ -534,8 +534,7 @@ $(function() {
         DocsAddResource.init();
     }
     $('.js-add-resource').on('click', function() {
-        var title = $.trim($(this).data('title'));
-        var type = title === 'Demo' ? 'Plugin' : 'SDK';
+        var type = $.trim($(this).data('title'));
         DocsAddResource.show(type);
         return false;
     });
