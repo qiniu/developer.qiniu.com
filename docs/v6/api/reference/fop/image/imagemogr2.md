@@ -23,8 +23,6 @@ imageMogr2/auto-orient
           /thumbnail/<imageSizeGeometry>
           /strip
           /gravity/<gravityType>
-          /extent/<backgroundSizeGeometry>
-          /position/<imagePosition>
           /crop/<imageSizeAndOffsetGeometry>
           /rotate/<rotateDegree>
           /format/<destinationImageFormat>
@@ -41,7 +39,7 @@ imageMogr2/auto-orient
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
-<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
+<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 <a id="imageMogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 
 <a id="imageMogr2-thumbnail-spec"></a>
