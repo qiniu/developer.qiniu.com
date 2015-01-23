@@ -197,7 +197,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 为方便测试，我们在测试帐号申里边创建了一个名为 `qtestbucket` 的存储空间。
 
-然后可以使用七牛云存储提供的 [qrysnc](/tools/qrsync.html) 进行文件上传。
+然后可以使用七牛云存储提供的 [qrysnc](/docs/v6/tools/qrsync.html) 进行文件上传。
 
 可以点击如下网址下载 qrsync 工具，以及了解其用法：
 
@@ -212,7 +212,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
         "debug_level": 1
     }
 
-配置项说明可参考上述提到的 [qrsync使用文档](/tools/qrsync.html) 。
+配置项说明可参考上述提到的 [qrsync使用文档](/docs/v6/tools/qrsync.html) 。
 
 `qiniu-test-config.json` 修改并存档完毕后，可在 `sync_dir` 所指定的目录放入需要进行上传的具体文件（可包含子目录结构）。然后进入到 qrsync 所在的目录，运行以下命令行：
 
