@@ -10,7 +10,7 @@ order: 100
 <a id="description"></a>
 ## 描述
 
-多文件压缩存储为用户提供了批量文件的压缩存储功能。 用户通过指定一系列URL，即可将若干个对应的网络上**可访**的资源文件（不局限于七牛服务器上的资源文件）在七牛服务端压缩后存储。若用户同时指定了[saveas](/docs/v6/api/reference/fop/saveas.html)，则将生成的压缩文件以用户指定的key存储到指定的bucket中，若未指定[saveas](/docs/v6/api/reference/fop/saveas.html)，则以压缩文件的hash值作为key并存储到当前bucket中。  
+多文件压缩存储为用户提供了批量文件的压缩存储功能。 用户通过指定一系列URL，即可将若干七牛空间中的资源文件，在七牛服务端压缩后存储。若用户同时指定了[saveas](/docs/v6/api/reference/fop/saveas.html)，则将生成的压缩文件以用户指定的key存储到指定的bucket中，若未指定[saveas](/docs/v6/api/reference/fop/saveas.html)，则以压缩文件的hash值作为key并存储到当前bucket中。  
 
 <a id="specification"></a>
 ## 接口规格（mkzipSpec）
@@ -58,7 +58,7 @@ mkzip/<mode>
     
 ```
 
-其中，请求body中的`key=sample.mp4`仅仅为符合[pfop操作][pfopHref]的接口规格而存在，并没有实际的意义。
+其中，请求body中的`key=sample.mp4`仅仅为符合[pfop操作][pfopHref]的接口规格而存在，并没有实际的意义，但需要是操作空间中存在的资源的key。
 
 <a id="avthumb-internal-resources"></a>
 ## 内部参考资源
