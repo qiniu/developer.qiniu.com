@@ -341,6 +341,14 @@
         "author": "yueyoum",
         "date": "2013-09-12",
         "doc": "https://github.com/yueyoum/seven-cow"
+    }, , {
+        "name": "Python",
+        "label": "Python SDK ",
+        "description": "python的第三方sdk，基本的文件操作都有",
+        "download": "https://coding.net/u/tuxpy/p/cattle/git",
+        "author": "疯狂的小企鹅",
+        "date": "2015-02-02",
+        "doc": "https://coding.net/u/tuxpy/p/cattle/git"
     }, {
         "name": "Python",
         "label": "Python SDK (shell909090/python-qiniu)",
