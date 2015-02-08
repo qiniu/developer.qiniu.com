@@ -47,6 +47,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 - 源码地址：<https://github.com/qiniu/android-sdk>
 - jar地址：<https://github.com/qiniu/android-sdk/tree/master/releases>
 - 单元测试地址：<https://github.com/qiniu/android-sdk/tree/master/library/src/androidTest/java/com/qiniu/android>
+- Android SDK 在线文档：<http://developer.qiniu.com/android_docs/index.html>
 
 <a name="integration"></a>
 ## 安装

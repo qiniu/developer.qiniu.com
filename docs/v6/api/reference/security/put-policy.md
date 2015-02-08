@@ -17,7 +17,7 @@ order: 980
 ```
 {
     "scope":               "<Bucket                   string>",
-    "deadline":             <UnixTimestamp            int64>,
+    "deadline":             <UnixTimestamp            uint32>,
     "insertOnly":           <AllowFileUpdating        int>,
 
     "saveKey":             "<SaveKey                  string>",
