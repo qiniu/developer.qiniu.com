@@ -200,7 +200,7 @@ Content-Type  | 是   | 固定为`application/json`。
             "key": "8ehryqviSaMIjkVQDGeDcKRZ6qc=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
         },
         {
-            "cmd": "avthumb/m3u8/preset/video_16x9_440k",
+            "cmd": "avthumb/m3u8/vb/440k",
             "code": 0,
             "desc": "The fop was completed successfully",
             "error": "",

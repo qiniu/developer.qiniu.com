@@ -10,7 +10,7 @@ order: 100
 <a id="description"></a>
 ## 描述
 
-多文件压缩存储为用户提供了批量文件的压缩存储功能。 用户通过指定一系列URL，即可将若干个对应的网络上**可访**的资源文件（不局限于七牛服务器上的资源文件）在七牛服务端压缩后存储。若用户同时指定了[saveas](/docs/v6/api/reference/fop/saveas.html)，则将生成的压缩文件以用户指定的key存储到指定的bucket中，若未指定[saveas](/docs/v6/api/reference/fop/saveas.html)，则以压缩文件的hash值作为key并存储到当前bucket中。  
+多文件压缩存储为用户提供了批量文件的压缩存储功能。 用户通过指定一系列URL，即可将若干七牛空间中的资源文件，在七牛服务端压缩后存储。若用户同时指定了[saveas](/docs/v6/api/reference/fop/saveas.html)，则将生成的压缩文件以用户指定的key存储到指定的bucket中，若未指定[saveas](/docs/v6/api/reference/fop/saveas.html)，则以压缩文件的hash值作为key并存储到当前bucket中。  
 
 <a id="specification"></a>
 ## 接口规格（mkzipSpec）
@@ -25,7 +25,7 @@ mkzip/<mode>
 
 参数名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
-`<Mode>`      | 当前固定值为`1`，该字段主要用作后续功能扩展 | 必填
+`<Mode>`      | 当前固定值为`2`，该字段主要用作后续功能扩展 | 必填
 `<Base64EncodedURL>` | 需要被压缩的资源的URL，必须是公网可访资源，在请求中需要经过[URL安全的Base64编码](/docs/v6/api/overview/appendix.html#urlsafe-base64) |  至少一项
 `<Base64EncodedAlias>` | 资源在压缩文件中的别名，需要经过[URL安全的Base64编码](/docs/v6/api/overview/appendix.html#urlsafe-base64)，若不指定则为url中资源的原文件名 |
 
@@ -54,11 +54,11 @@ mkzip/<mode>
 
     bucket=test
     &key=sample.mp4
-    &fops=mkzip%2f1%2furl%2faHR0cDovL3Fpbml1cGhvdG9zLnFpbml1ZG4uY29tL2dvZ29waGVyLmpwZw==%2furl%2faHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvZGl2ZS1pbnRvLWdvbGFuZy5wcHR4%2falias%2fZ29sYW5nLnBwdHg=%2faHR0cDovL29wZW4ucWluaXVkbi5jb20vdGhpbmtpbmctaW4tZ28ubXA0%2csaveas%2fdGVzdDp0ZXN0LnppcA==
+    &fops=mkzip%2f2%2furl%2faHR0cDovL3Fpbml1cGhvdG9zLnFpbml1ZG4uY29tL2dvZ29waGVyLmpwZw==%2furl%2faHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvZGl2ZS1pbnRvLWdvbGFuZy5wcHR4%2falias%2fZ29sYW5nLnBwdHg=%2faHR0cDovL29wZW4ucWluaXVkbi5jb20vdGhpbmtpbmctaW4tZ28ubXA0%2csaveas%2fdGVzdDp0ZXN0LnppcA==
     
 ```
 
-其中，请求body中的`key=sample.mp4`仅仅为符合[pfop操作][pfopHref]的接口规格而存在，并没有实际的意义。
+其中，请求body中的`key=sample.mp4`仅仅为符合[pfop操作][pfopHref]的接口规格而存在，并没有实际的意义，但需要是操作空间中存在的资源的key。
 
 <a id="avthumb-internal-resources"></a>
 ## 内部参考资源

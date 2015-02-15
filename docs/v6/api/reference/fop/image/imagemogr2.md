@@ -24,7 +24,6 @@ imageMogr2/auto-orient
           /strip
           /gravity/<gravityType>
           /crop/<imageSizeAndOffsetGeometry>
-          /quality/<imageQuality>
           /rotate/<rotateDegree>
           /format/<destinationImageFormat>
           /blur/<radius>x<sigma>
@@ -38,10 +37,9 @@ imageMogr2/auto-orient
 `/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imageMogr2-thumbnail-spec)，缺省为不缩放。
 `/gravity/<gravityType>`             |      | 参看[图片处理重心参数表](#imageMogr2-anchor-spec)，目前在`imageMogr2`中只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
-`/quality/<imageQuality>`            |      | ● 图片质量<br>取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
-<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
+<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 <a id="imageMogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 
 <a id="imageMogr2-thumbnail-spec"></a>
@@ -50,8 +48,8 @@ imageMogr2/auto-orient
 参数名称                        | 必填 | 说明
 :------------------------------ | :--- | :---------------------------------------------------
 `/thumbnail/!<Scale>p`          |      | 基于原图大小，按指定百分比缩放。<br>取值范围0-1000。
-`/thumbnail/!<Scale>px`         |      | 以百分比形式指定目标图片宽度，高度等比缩放。<br>取值范围0-1000。
-`/thumbnail/!x<Scale>p`         |      | 以百分比形式指定目标图片高度，宽度等比缩放。<br>取值范围0-1000。
+`/thumbnail/!<Scale>px`         |      | 以百分比形式指定目标图片宽度，高度不变。<br>取值范围0-1000。
+`/thumbnail/!x<Scale>p`         |      | 以百分比形式指定目标图片高度，宽度不变。<br>取值范围0-1000。
 `/thumbnail/<Width>x`           |      | 指定目标图片宽度，高度等比缩放。<br>取值范围0-10000。
 `/thumbnail/x<Height>`          |      | 指定目标图片高度，宽度等比缩放。<br>取值范围0-10000。
 `/thumbnail/<Width>x<Height>`   |      | 限定长边，短边自适应缩放，将目标图片限制在指定宽高矩形内。<br>取值范围不限，但若宽高超过10000只能缩不能放。

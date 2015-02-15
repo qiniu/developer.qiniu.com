@@ -112,12 +112,12 @@
         "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传。"
     }, {
         "name": "cmd",
-        "label": "qboxrsctl",
+        "label": "qrsctl",
         "title": "命令行辅助工具",
-        "download": "/docs/v6/tools/qboxrsctl.html#download",
+        "download": "/docs/v6/tools/qrsctl.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "docs/v6/tools/qboxrsctl.html",
+        "doc": "docs/v6/tools/qrsctl.html",
         "description": "命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
     }, {
         "name": "sync",

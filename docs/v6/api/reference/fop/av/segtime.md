@@ -15,23 +15,19 @@ order: 148
 以下用 HLS 代指 HTTP Live Streaming 。
 
 ## 使用
-命令可以使用我们预先定义的预设集或者自己选择需要的参数，如：
+命令可以使用自己选择需要的参数，如：
 
 ```
-预设集：avthumb/m3u8/segtime/10/preset/audio_32k
 自定义：avthumb/m3u8/vb/500k/t/10
 ```
 
-预设集参见[hls预设集](#segtime-preset)
 命令的调用可以使用上传时指定[persistentOps][persistentOpsHref]或者调用[pfop][pfopHref]命令
 
-<a id="segtime-preset"></a>
 <a id="segtime-specification"></a>
 ## 音视频切片接口规格
 
 ```
 avthumb/m3u8/segtime/<SegSeconds>
-            /preset/<Preset>
             /ab/<BitRate>
             /aq/<AudioQuality>
             /ar/<SamplingRate>
@@ -44,6 +40,7 @@ avthumb/m3u8/segtime/<SegSeconds>
             /s/<Resolution>
             /stripmeta/<StripMeta>
             /rotate/<Degree>
+            /noDomain/<NoDomain>
             /hlsKey/<HLSKey>
             /hlsKeyType/<HLSKeyType>
             /hlsKeyUrl/<HLSKeyUrl>
@@ -52,59 +49,23 @@ avthumb/m3u8/segtime/<SegSeconds>
 参数名称                | 类别 | 必填 | 说明
 :---------------------- | :--- | :--- | :----------------------------------------
 `/segtime/<SegSeconds>` | A/V  |      | 用于自定义每一小段音/视频流的播放时长，单位：秒，取值范围5-120秒，默认值为10秒。
-`/preset/<Preset>`      | A/V  |      | 预设集（Preset）名称。
 `/ab/<BitRate>`         | A    |      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。
 `/aq/<AudioQuality>`    | A    |      | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用。
 `/ar/<SamplingRate>`    | A    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
 `/r/<FrameRate>`        |  V   |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。
 `/vb/<VideoBitRate>`    |  V   |      | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等。
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等。
-`/acodec/<AudioCodec>`  |  V   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。
+`/acodec/<AudioCodec>`  |  A   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。
 `/scodec/<SubtitleCodec>`|  V  |      | 字幕的编码方案，支持方案：mov_text, srt, ass等。该参数仅用于修改带字幕视频的字幕编码。
 `/ss/<SeekStart>`       |  V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为`<width>x<height>`或者预定义值。
 <a id="m3u8-strip-meta"></a>`/stripmeta/<StripMeta>` | A/V   |      | 是否清除文件的metadata，1为清除，0为保留。
 <a id="m3u8-rotate"></a>`/rotate/<Degree>` |  V   |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
+`/noDomain/<NoDomain>`  |  A/V  |      | 取值为0或者1，不设置的情况下为0。表示切片索引中的切片列表，是否使用相对地址，设置为1则使用相对地址，设置为0则使用绝对地址。
 `/hlsKey/<HLSKey>`      |  A/V |      | AES128加密视频的秘钥，必须是16个字节
 `/hlsKeyType/<HLSKeyType>` | A/V|     | 秘钥传递给我们的方式，0或不填：<urlsafe_base64_encode>, 1.x(1.0, 1.1, ...): 见下面详细解释
 `/hlsKeyUrl/<HLSKeyUrl>` |  A/V |     | 秘钥的访问url
-
-<a id="segtime-preset-list"></a>
-### 预设集列表
-
-音频预设集：
-
-预设集    | 说明
-:-------- | :--------------
-audio_32k | 码率为32k的音频。
-audio_48k | 码率为48k的音频。
-audio_64k | 码率为64k的音频。
-
-视频预设集：
-
-预设集          | 说明                               | 推荐应用环境
-:-------------- | :--------------------------------- | :--------------
-video_16x9_150k | 码率为150K，长宽比为16x9。分辨率400x224 | 3G
-video_16x9_240k | 码率为240K，长宽比为16x9。分辨率400x224 | 3G
-video_16x9_440k | 码率为440K，长宽比为16x9。分辨率400x224 | WIFI
-video_16x9_640k | 码率为640K，长宽比为16x9。分辨率400x224 | WIFI
-video_4x3_150k  | 码率为150K，长宽比为4x3。分辨率400x300  | 3G
-video_4x3_240k  | 码率为240K，长宽比为4x3。分辨率400x300  | 3G
-video_4x3_440k  | 码率为440K，长宽比为4x3。分辨率400x300  | WIFI
-video_4x3_640k  | 码率为640K，长宽比为4x3。分辨率400x300  | WIFI
-video_150k      | 码率为150K，长宽比沿用源视频设置。 | 3G
-video_240k      | 码率为240K，长宽比沿用源视频设置。 | 3G
-video_440k      | 码率为440K，长宽比沿用源视频设置。 | WIFI
-video_640k      | 码率为640K，长宽比沿用源视频设置。 | WIFI
-video_1000k     | 码率为1000K，长宽比沿用源视频设置。| WIFI
-video_1500k     | 码率为1500K，长宽比沿用源视频设置。| WIFI
-
-<a id="segtime-remarks"></a>
-## 附注
-
-- 指定`/preset/<Preset>`参数时，可以同时指定其它参数以覆盖对应预设参数。
-- 不指定`/preset/<Preset>`参数时，通过指定其它参数构造自定义切片规格，未指定的参数使用默认值。
 
 <a id="segtime-samples"></a>
 ## 示例
@@ -164,8 +125,8 @@ $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE
 
 例子：
 
-- 不使用rsa加密： `avthumb/m3u8/preset/video_640k/hlsKey/ZXhhbXBsZWtleTEyMzQ1Ng==/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
-- 使用rsa加密： `avthumb/m3u8/preset/video_640k/hlsKey/SyyishA7ompSehjBHsq9EkBpbw6RfPnl49FOyMPoQZa4uxFlyHUCLxmXQ56F5WIteknZWahbqcdNx06pGBNk1zVBm5K6czZ_nCdy7y6PBon7NSUamoUPIGGBuevXOcyuc-4IpkmkcG3MWz7_Lop8zk98k8IVmKYCD_LMv-C_8D0=/hlsKeyType/1.0/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
+- 不使用rsa加密： `avthumb/m3u8/vb/640k/hlsKey/ZXhhbXBsZWtleTEyMzQ1Ng==/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
+- 使用rsa加密： `avthumb/m3u8/vb/640k/hlsKey/SyyishA7ompSehjBHsq9EkBpbw6RfPnl49FOyMPoQZa4uxFlyHUCLxmXQ56F5WIteknZWahbqcdNx06pGBNk1zVBm5K6czZ_nCdy7y6PBon7NSUamoUPIGGBuevXOcyuc-4IpkmkcG3MWz7_Lop8zk98k8IVmKYCD_LMv-C_8D0=/hlsKeyType/1.0/hlsKeyUrl/aHR0cDovL3p0ZXN0LnFpbml1ZG4uY29tL2NyeXB0MC5rZXk=`
 
 ## 内部参考资源
 

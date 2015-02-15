@@ -75,6 +75,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
     "id": "16864pauo1vc9nhp12",
     "code": 0,
     "desc": "The fop was completed successfully",
+    "inputKey": "sample.mp4",
+    "inputBucket": "dutest",
     "items": [
         {
             "cmd": "avthumb/mp4/r/30/vb/256k/vcodec/libx264/ar/22061/ab/64k/acodec/libmp3lame",
@@ -101,14 +103,16 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
             "key": "8ehryqviSaMIjkVQDGeDcKRZ6qc=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
         },
         {
-            "cmd": "avthumb/m3u8/preset/video_16x9_440k",
+            "cmd": "avthumb/m3u8/vb/440k",
             "code": 0,
             "desc": "The fop was completed successfully",
             "error": "",
             "hash": "FtuxnwAY9NVBxAZLcxNUuToR9y97",
             "key": "s2_PQlcIOz1uP6VVBXk5O9dXYLY=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
         }
-    ]
+    ],
+    pipeline: "0.default",
+    reqid: "ffmpeg.3hMAAH3p5Gupb6oT"
 }
 ```
 
@@ -117,11 +121,15 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 `id`          | 是    | 持久化处理的进程ID，即前文中的`<persistentId>`。
 `code`        | 是    | 状态码，`0`（成功），`1`（等待处理），`2`（正在处理），`3`（处理失败），`4`（通知提交失败）。
 `desc`        | 是    | 与状态码相对应的详细描述。
+`inputKey`    | 是    | 处理源文件的文件名。
+`inputBucket` | 是    | 处理源文件所在的空间名。
 `items`       | 是    | 云处理操作列表，包含每个云处理操作的状态信息。
     `cmd`     | 是    | 所执行的云处理操作命令（fopN）。
     `error`   |       | 如果处理失败，该字段会给出失败的详细原因。
     `hash`    | 是    | 云处理结果保存在服务端的唯一`hash`标识。
     `key`     | 是    | 云处理结果的外链资源名（Key）。
+`pipeline`    | 是    | 云处理操作的处理队列，默认使用队列为共享队列`0.default`。
+`reqid`       | 是    | 云处理请求的请求id，主要用于七牛技术人员的问题排查。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 

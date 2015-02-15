@@ -164,7 +164,7 @@ watermark/2
 参数名称                   | 必填 | 说明
 :------------------------- | :--- | :-----------------------------------------------------------
 `/text/<encodedText>`      | 是   | 水印文字内容（经过[URL安全的Base64编码][urlsafeBase64Href]）
-`/font/<encodedFontName>`  |      | 水印文字字体（经过URL安全的Base64编码），缺省为黑体<br><span style="color: red;">注意：中文水印必须指定中文字体。</span>
+`/font/<encodedFontName>`  |      | 水印文字字体（经过URL安全的Base64编码），缺省为黑体，详见支持[字体列表](http://kb.qiniu.com/support-fonts)<br><span style="color: red;">注意：中文水印必须指定中文字体。</span>
 `/fontsize/<fontSize>`     |      | 水印文字大小，单位: [缇](http://en.wikipedia.org/wiki/Twip)，等于1/20磅，缺省值0（默认大小），参考DPI为72
 `/fill/<encodedTextColor>` |      | 水印文字颜色，RGB格式，可以是颜色名称（比如`red`）或十六进制（比如`#FF0000`），参考[RGB颜色编码表](http://www.rapidtables.com/web/color/RGB_Color.htm)，缺省为白色(TODO)
 `/dissolve/<dissolve>`     |      | 透明度，取值范围1-100，缺省值100（完全不透明）
@@ -355,14 +355,14 @@ HTTP状态码 | 含义
 - 原图尺寸小于水印图片尺寸时，直接返回原图，不加水印。
 - watermark生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]和[saveas处理][saveasHref]。  
 
-- 使用[qboxrsctl][qboxrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
+- 使用[qrsctl][qrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
 
 	```
-    qboxrsctl login <email> <password>
+    qrsctl login <email> <password>
 
-    qboxrsctl style <bucket> watermarked.jpg watermark/2/text/<encodedText>
+    qrsctl style <bucket> watermarked.jpg watermark/2/text/<encodedText>
 
-    qboxrsctl separator <bucket> -
+    qrsctl separator <bucket> -
 	```
 	
 	此时，如下两个URL等价:
@@ -401,7 +401,7 @@ HTTP状态码 | 含义
 - [saveas处理][saveasHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[qboxrsctlHref]:       http://developer.qiniu.com/docs/v6/tools/qboxrsctl.html                "七牛工具"
+[qrsctlHref]:       http://developer.qiniu.com/docs/v6/tools/qrsctl.html                "七牛工具"
 [resourceProtectHref]: http://kb.qiniu.com/52uad43y                    "原图保护"
 [sendBugReportHref]:   mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
