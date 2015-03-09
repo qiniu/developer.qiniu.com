@@ -91,8 +91,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
-	
 	$key2 = 'php-logo2.png';
+	
 	list($ret, $err) = $bucket_mgr->copy($bucket, $key, $bucket, $key2);
 	echo "\n====> stat result: \n";
 	if ($err !== null) {
@@ -117,8 +117,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
-	
 	$key3 = 'php-logo3.png';
+	
 	list($ret, $err) = $bucket_mgr->move($bucket, $key, $bucket, $key3);
 	echo "\n====> move result: \n";
 	if ($err !== null) {
