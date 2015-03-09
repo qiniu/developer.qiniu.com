@@ -54,42 +54,47 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 示例代码如下：
 
-	require_once("qiniu/rs.php");
+	require_once '<path_to_autoload>/autoload.php';
 
-	$bucket = "phpsdk";
-	$key = "pic.jpg";
+	use Qiniu\Auth;
+	use Qiniu\Storage\BucketManager;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$client = new Qiniu_MacHttpClient(null);
+	$auth = new Auth($accessKey, $secretKey);
 
-	list($ret, $err) = Qiniu_RS_Stat($client, $bucket, $key);
-	echo "Qiniu_RS_Stat result: \n";
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
+
+	$bucket_mgr = New BucketManager($auth);
+	list($ret, $err) = $bucket_mgr->stat($bucket, $key);
+	echo "\n====> stat result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		var_dump($ret);
 	}
-	
+
 <a id="rs-copy"></a>
 ### 复制单个文件
 
 示例代码如下：
 
-	require_once("qiniu/rs.php");
+	require_once '<path_to_autoload>/autoload.php';
 
-	$bucket = "phpsdk";
-	$key = "pic.jpg";
-	$key1 = "file_name1";
+	use Qiniu\Auth;
+	use Qiniu\Storage\BucketManager;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
 	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$client = new Qiniu_MacHttpClient(null);
-	
-	$err = Qiniu_RS_Copy($client, $bucket, $key, $bucket, $key1);
-	echo "====> Qiniu_RS_Copy result: \n";
+	$key2 = 'php-logo2.png';
+	list($ret, $err) = $bucket_mgr->copy($bucket, $key, $bucket, $key2);
+	echo "\n====> stat result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
@@ -101,47 +106,53 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 示例代码如下：
 
-	require_once("qiniu/rs.php");
+	require_once '<path_to_autoload>/autoload.php';
 
-	$bucket = "phpsdk";
-	$key = "pic.jpg";
-	$key1 = "file_name1";
+	use Qiniu\Auth;
+	use Qiniu\Storage\BucketManager;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
 	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$client = new Qiniu_MacHttpClient(null);
-	
-	$err = Qiniu_RS_Move($client, $bucket, $key, $bucket, $key1);
-	echo "====> Qiniu_RS_Move result: \n";
+	$key3 = 'php-logo3.png';
+	list($ret, $err) = $bucket_mgr->move($bucket, $key, $bucket, $key3);
+	echo "\n====> move result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		echo "Success!";
 	}
+
 	
 <a name=rs-delete></a>
 ### 删除单个文件
 
 示例代码如下：
 
-	require_once("qiniu/rs.php");
-	
-	$bucket = "phpsdk";
-	$key1 = "file_name1";
+	require_once '<path_to_autoload>/autoload.php';
+
+	use Qiniu\Auth;
+	use Qiniu\Storage\BucketManager;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
 	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$client = new Qiniu_MacHttpClient(null);
-	
-	$err = Qiniu_RS_Delete($client, $bucket, $key1);
-	echo "====> Qiniu_RS_Delete result: \n";
+	list($ret, $err) = $bucket_mgr->delete($bucket, $key);
+	echo "\n====> delete result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		echo "Success!";
 	}
+
 
 <a id="get-and-put-api"></a>
 ## 上传下载接口
@@ -179,82 +190,97 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 服务端生成 [上传凭证][uploadTokenHref] 代码如下：
 
 
-	require_once("qiniu/rs.php");
-	
-	$bucket = 'phpsdk';
+	require_once '<path_to_autoload>/autoload.php';
+
+	use Qiniu\Auth;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$putPolicy = new Qiniu_RS_PutPolicy($bucket);
-	$upToken = $putPolicy->Token(null);
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+    $token = $auth->uploadToken($bucket);
 	
 上传文件到七牛（通常是客户端完成，但也可以发生在服务端）：
 
 
 上传字符串
 
-	require_once("qiniu/io.php");
-	require_once("qiniu/rs.php");
-	
-	$bucket = "phpsdk";
-	$key1 = "file_name1";
+	require_once '<path_to_autoload>/autoload.php';
+
+	use Qiniu\Auth;
+	use Qiniu\Storage\UploadManager;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+    $token = $auth->uploadToken($bucket);
+    $upload_mgr = New UploadManager();
 	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$putPolicy = new Qiniu_RS_PutPolicy($bucket);
-	$upToken = $putPolicy->Token(null);
-	list($ret, $err) = Qiniu_Put($upToken, $key1, "Qiniu Storage!", null);
-	echo "====> Qiniu_Put result: \n";
+	list($ret, $err) = $upload_mgr->put($token, null, 'content string');
+	echo "\n====> put result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		var_dump($ret);
-	}
+	}    
 
 上传本地文件
 
-	require_once("qiniu/io.php");
-	require_once("qiniu/rs.php");
-	
-	$bucket = "phpsdk";
-	$key1 = "file_name1";
+	require_once '<path_to_autoload>/autoload.php';
+
+	use Qiniu\Auth;
+	use Qiniu\Storage\UploadManager;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);
-	$putPolicy = new Qiniu_RS_PutPolicy($bucket);
-	$upToken = $putPolicy->Token(null);
-	$putExtra = new Qiniu_PutExtra();
-	$putExtra->Crc32 = 1;
-	list($ret, $err) = Qiniu_PutFile($upToken, $key1, __file__, $putExtra);
-	echo "====> Qiniu_PutFile result: \n";
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+    $token = $auth->uploadToken($bucket);
+    $upload_mgr = New UploadManager();
+    
+    list($ret, $err) = $upload_mgr->putFile($token, null, __file__);
+	echo "\n====> putFile result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		var_dump($ret);
 	}
+
 
 
 <a id="io-put-policy"></a>
 ### 上传策略
 
-[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`Qiniu_RS_PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
+[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
 
-	class Qiniu_RS_PutPolicy
-	{
-		public $Scope;				// 必选项。可以是 bucketName 或者 bucketName:key
-		public $CallbackUrl;		// 可选
-		public $CallbackBody;		// 可选
-		public $ReturnUrl;			// 可选， 更贴切的名字是 redirectUrl。
-		public $ReturnBody;			// 可选
-		public $AsyncOps;			// 可选
-		public $EndUser;			// 可选
-		public $Expires;			// 可选。默认是 3600 秒
-		public $PersistentOps;		// 可选。
-		public $PersistentNotifyUrl;	// 如果设置了PersistentOps，必须同时设置此项。
-	}
+
+		'scope',                   // 必选项。可以是 bucketName 或者 bucketName:key
+		'deadline',					// 可选。设置上传token的有效期
+        'callbackUrl',				// 可选
+        'callbackBody',				// 可选
+        'callbackHost',				// 可选
+        'callbackBodyType',			// 可选
+        'callbackFetchKey',			// 可选
+
+        'returnUrl',				//可选， 更贴切的名字是 redirectUrl。
+        'returnBody',
+
+        'endUser',					// 可选
+        'saveKey',                 // 可选
+        'insertOnly',              // 可选
+
+        'detectMime',              // 可选
+        'mimeLimit',               // 可选
+        'fsizeLimit',              // 可选
+
+        'persistentOps',           // 可选
+        'persistentNotifyUrl',     // 可选
+        'persistentPipeline',      // 可选
+  
 
 * `scope` 限定客户端的权限。如果 `scope` 是 bucket，则客户端只能新增文件到指定的 bucket，不能修改文件。如果 `scope` 为 bucket:key，则客户端可以修改指定的文件。**注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 * `callbackUrl` 设定业务服务器的回调地址，这样业务服务器才能感知到上传行为的发生。
@@ -282,13 +308,6 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	[GET] http://<domain>/<key>
 	
-示例代码：
-
-	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
-	//$baseUrl 就是您要访问资源的地址
-	$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
-
 其中\<domain\>是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛云存储开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，通过自有域名访问七牛云存储。
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
@@ -302,21 +321,17 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 注意，尖括号不是必需，代表替换项。  
 私有下载链接可以使用 SDK 提供的如下方法生成：
 
-	require_once("qiniu/rs.php");
+	require_once '<path_to_autoload>/autoload.php';
 
-	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	use Qiniu\Auth;
+
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);	
-	$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
-	$getPolicy = new Qiniu_RS_GetPolicy();
-	$privateUrl = $getPolicy->MakeRequest($baseUrl, null);
-	echo "====> getPolicy result: \n";
-	echo $privateUrl . "\n";
+	$auth = new Auth($accessKey, $secretKey);
 
-
+	$baseUrl = 'http://phpsdk.qiniudn.com/php-logo.png';
+	$authUrl = $auth->privateDownloadUrl($baseUrl);
+    
 <a name=fop-api></a>
 ## 数据处理接口
 七牛支持在云端对图像, 视频, 音频等富媒体进行个性化处理
@@ -326,83 +341,80 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 <a name=fop-image-info></a>
 #### 查看图像属性
 
-	require_once("qiniu/rs.php");
-	require_once("qiniu/fop.php");
+	require_once '<path_to_autoload>/autoload.php';
 
-	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	use Qiniu\Auth;
+	use Qiniu\Processing\Operation;
+	
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);	
-	//生成baseUrl
-	$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
+	$auth = new Auth($accessKey, $secretKey);
 
-	//生成fopUrl
- 	$imgInfo = new Qiniu_ImageInfo;
- 	$imgInfoUrl = $imgInfo->MakeRequest($baseUrl);
- 	
- 	//对fopUrl 进行签名，生成privateUrl。 公有bucket 此步可以省去。
- 	$getPolicy = new Qiniu_RS_GetPolicy();
- 	$imgInfoPrivateUrl = $getPolicy->MakeRequest($imgInfoUrl, null);
-	echo "====> imageInfo privateUrl: \n";
-	echo $imgInfoPrivateUrl . "\n";
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
 
-将`$imgInfoPrivateUrl`粘贴到浏览器地址栏中就可以查看该图像的信息了。
+	$domain = 'phpsdk.qiniudn.com';
+	$op = New Operation($domain);
+
+	list($ret, $err) = $op->imageInfo($key);
+	echo "\n====> imageInfo result: \n";
+	if ($err !== null) {
+		var_dump($err);
+	} else {
+		var_dump($ret);
+	}
+
 
 <a name=fop-exif></a>
 #### 查看图片EXIF信息
 
+	require_once '<path_to_autoload>/autoload.php';
 
-	require_once("qiniu/rs.php");
-	require_once("qiniu/fop.php");
-
-	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	use Qiniu\Auth;
+	use Qiniu\Processing\Operation;
+	
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);	
-	//生成baseUrl
-	$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
-	
-	//生成fopUrl
-	$imgExif = new Qiniu_Exif;
- 	$imgExifUrl = $imgExif->MakeRequest($baseUrl);
- 	
- 	//对fopUrl 进行签名，生成privateUrl。 公有bucket 此步可以省去。
- 	$getPolicy = new Qiniu_RS_GetPolicy();
- 	$imgExifPrivateUrl = $getPolicy->MakeRequest($imgExifUrl, null);
-	echo "====> imageView privateUrl: \n";
-	echo $imgExifPrivateUrl . "\n";
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
+
+	$domain = 'phpsdk.qiniudn.com';
+	$op = New Operation($domain);
+
+	list($ret, $err) = $op->exif($key);
+	echo "\n====> exif result: \n";
+	if ($err !== null) {
+		var_dump($err);
+	} else {
+		var_dump($ret);
+	}
+
 	
 <a name=fop-image-view></a>
 #### 生成图片预览
 
-	require_once("qiniu/rs.php");
-	require_once("qiniu/fop.php");
+	require_once '<path_to_autoload>/autoload.php';
 
-	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	use Qiniu\Auth;
+	use Qiniu\Processing\Operation;
+	
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	
-	Qiniu_SetKeys($accessKey, $secretKey);	
-	//生成baseUrl
-	$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
-	
-	//生成fopUrl
- 	$imgView = new Qiniu_ImageView;
- 	$imgView->Mode = 1;
- 	$imgView->Width = 60;
- 	$imgView->Height = 120;
- 	$imgViewUrl = $imgView->MakeRequest($baseUrl);
- 	
- 	//对fopUrl 进行签名，生成privateUrl。 公有bucket 此步可以省去。
- 	$getPolicy = new Qiniu_RS_GetPolicy();
- 	$imgViewPrivateUrl = $getPolicy->MakeRequest($imgViewUrl, null);
-	echo "====> imageView privateUrl: \n";
-	echo $imgViewPrivateUrl . "\n";
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+	$key = 'php-logo.png';
+
+	$domain = 'phpsdk.qiniudn.com';
+	$op = New Operation($domain);
+
+	$ops = array('w' => 100, 'h' => 20);
+	$ret = $op->buildUrl($key, 'imageView2', 0, $ops);
+	echo "\n====> imageView2 result: \n";
+	var_dump($ret);
+
 	
 	
 <a name=contribution></a>
