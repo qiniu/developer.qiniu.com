@@ -62,12 +62,12 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
-
+	
+	$bucketMgr = New BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 
-	$bucket_mgr = New BucketManager($auth);
-	list($ret, $err) = $bucket_mgr->stat($bucket, $key);
+	list($ret, $err) = $bucketMgr->stat($bucket, $key);
 	echo "\n====> stat result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -89,11 +89,13 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
+	
+	$bucketMgr = New BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	$key2 = 'php-logo2.png';
 	
-	list($ret, $err) = $bucket_mgr->copy($bucket, $key, $bucket, $key2);
+	list($ret, $err) = $bucketMgr->copy($bucket, $key, $bucket, $key2);
 	echo "\n====> stat result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -115,11 +117,13 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
+	
+	$bucketMgr = New BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	$key3 = 'php-logo3.png';
 	
-	list($ret, $err) = $bucket_mgr->move($bucket, $key, $bucket, $key3);
+	list($ret, $err) = $bucketMgr->move($bucket, $key, $bucket, $key3);
 	echo "\n====> move result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -142,10 +146,11 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
+	$bucketMgr = New BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	
-	list($ret, $err) = $bucket_mgr->delete($bucket, $key);
+	list($ret, $err) = $bucketMgr->delete($bucket, $key);
 	echo "\n====> delete result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -165,6 +170,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
+	$bucketMgr = New BucketManager($auth);
 	$bucket = 'phpsdk';
 	$prefix = 'php';
 	
@@ -241,9 +247,9 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	$bucket = 'phpsdk';
     $token = $auth->uploadToken($bucket);
-    $upload_mgr = New UploadManager();
+    $uploadMgr = New UploadManager();
 	
-	list($ret, $err) = $upload_mgr->put($token, null, 'content string');
+	list($ret, $err) = $uploadMgr->put($token, null, 'content string');
 	echo "\n====> put result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -264,16 +270,15 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	$bucket = 'phpsdk';
     $token = $auth->uploadToken($bucket);
-    $upload_mgr = New UploadManager();
+    $uploadMgr = New UploadManager();
     
-    list($ret, $err) = $upload_mgr->putFile($token, null, __file__);
+    list($ret, $err) = $uploadMgr->putFile($token, null, __file__);
 	echo "\n====> putFile result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		var_dump($ret);
 	}
-
 
 
 <a id="io-put-policy"></a>
@@ -375,16 +380,9 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	require_once '<path_to_autoload_file>/autoload.php';
 
-	use Qiniu\Auth;
 	use Qiniu\Processing\Operation;
-	
-	$accessKey = '<YOUR_APP_ACCESS_KEY>';
-	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	$auth = new Auth($accessKey, $secretKey);
 
-	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
-
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
@@ -402,16 +400,9 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	require_once '<path_to_autoload_file>/autoload.php';
 
-	use Qiniu\Auth;
 	use Qiniu\Processing\Operation;
-	
-	$accessKey = '<YOUR_APP_ACCESS_KEY>';
-	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	$auth = new Auth($accessKey, $secretKey);
 
-	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
-
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
@@ -429,16 +420,9 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 	require_once '<path_to_autoload_file>/autoload.php';
 
-	use Qiniu\Auth;
 	use Qiniu\Processing\Operation;
-	
-	$accessKey = '<YOUR_APP_ACCESS_KEY>';
-	$secretKey = '<YOUR_APP_SECRET_KEY>';
-	$auth = new Auth($accessKey, $secretKey);
 
-	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
-
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
