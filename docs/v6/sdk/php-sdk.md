@@ -29,6 +29,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		- [查看图像属性](#fop-image-info)
 		- [查看图片EXIF信息](#fop-exif)
 		- [生成图片预览](#fop-image-view)
+- [持久化数据处理](#pfop-api)
+	
 - [贡献代码](#contribution)
 - [许可证](#license)
 
@@ -310,12 +312,6 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
         'persistentPipeline',      // 可选
       );
   
-  
-    private static $deprecatedPolicyFields = array(
-        'asyncOps',
-    );
-
-
 * `callbackUrl` 设定业务服务器的回调地址，这样业务服务器才能感知到上传行为的发生。
 * `callbackBody` 设定业务服务器的回调信息。文件上传成功后，七牛向业务服务器的callbackUrl发送的POST请求携带的数据。支持 [魔法变量][magicVariablesHref] 和 [自定义变量][xVariablesHref]。
 * `callbackBodyType`设定七牛向业务服务器发起回调的body的Content-Type，默认为`application/x-www-form-urlencoded`，也可设置为`application/json`。
@@ -324,9 +320,6 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 * `returnBody` 可调整返回给客户端的数据包，支持 [魔法变量][magicVariablesHref] 和 [自定义变量][xVariablesHref]。`returnBody` 只在没有 `callbackUrl` 时有效（否则直接返回 `callbackUrl` 返回的结果）。不同情形下默认返回的 `returnBody` 并不相同。在一般情况下返回的是文件内容的 `hash`，也就是下载该文件时的 `etag`；但指定 `returnUrl` 时默认的 `returnBody` 会带上更多的信息。
 * `persistentOps` 可指定音视频文件上传完成后，需要进行的转码持久化操作。asyncOps的处理结果保存在缓存当中，有可能失效。而persistentOps的处理结果以文件形式保存在bucket中，体验更佳。[数据处理(持久化)](../api/overview/fop/index.html)  
 * `persistentNotifyUrl` 音视频转码持久化完成后，七牛的服务器会向用户发送处理结果通知。这里指定的url就是用于接收通知的接口。设置了`persistentOps`,则需要同时设置此字段。
-
-* `asyncOps` 过时参数。可指定上传完成后，需要自动执行哪些数据处理。这是因为有些数据处理操作（比如音视频转码）比较慢，如果不进行预转可能第一次访问的时候效果不理想，预转可以很大程度改善这一点。  
-
 
 关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
 
