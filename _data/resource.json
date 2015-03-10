@@ -1,14 +1,14 @@
 {
     "sdk": [{
-        "name": "ios",
-        "menuName": "Objective-C (iOS)",
-        "title": "ios",
-        "label": "SDK for Objective-C (iOS客户端)",
-        "download": "https://github.com/qiniu/ios-sdk/archive/master.zip",
-        "version": "v6.0.0",
-        "date": "2013-07-04",
-        "doc": "docs/v6/sdk/ios-sdk.html",
-        "source": "https://github.com/qiniu/ios-sdk"
+        "name": "objc",
+        "menuName": "Objective-C (iOS/Mac)",
+        "title": "objc",
+        "label": "SDK for Objective-C (iOS/Mac)",
+        "download": "https://github.com/qiniu/objc-sdk/archive/master.zip",
+        "version": "v7.0.2",
+        "date": "2014-10-14",
+        "doc": "docs/v6/sdk/objc-sdk.html",
+        "source": "https://github.com/qiniu/objc-sdk"
     }, {
         "name": "android",
         "menuName": "Java (Android)",
@@ -112,12 +112,12 @@
         "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传。"
     }, {
         "name": "cmd",
-        "label": "qboxrsctl",
+        "label": "qrsctl",
         "title": "命令行辅助工具",
-        "download": "/docs/v6/tools/qboxrsctl.html#download",
+        "download": "/docs/v6/tools/qrsctl.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "docs/v6/tools/qboxrsctl.html",
+        "doc": "docs/v6/tools/qrsctl.html",
         "description": "命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
     }, {
         "name": "sync",
@@ -225,7 +225,7 @@
         "download": "https://github.com/piglei/django-qiniu",
         "defaultSprite": false,
         "author": "piglei",
-        "author_link": "piglei2007@gmail.com",
+        "author_link": "http://www.zlovezl.cn/",
         "date": "2013-09-12",
         "doc": "https://github.com/piglei/django-qiniu"
     }, {
@@ -292,12 +292,12 @@
         "name": "UEditor（php）（编辑器）",
         "label": "UEditor（php）",
         "description": "本插件可为UEditor添加向七牛云存储上传图片资源的功能。",
-        "download": "http://developer.qiniu.com/resource/utf8_qiniu_ueditor.zip",
+        "download": "https://github.com/widuu/qiniu_ueditor_1.4.3",
         "defaultSprite": true,
         "author": "widuu",
         "author_link": "http://weibo.com/widuu",
         "date": "2014-03-08",
-        "doc": "https://github.com/widuu/utf8_qiniu_ueditor"
+        "doc": "https://github.com/widuu/qiniu_ueditor_1.4.3"
     }, {
         "name": "Ghost插件（博客）",
         "label": "Ghost Plugin",
@@ -342,6 +342,22 @@
         "date": "2013-09-12",
         "doc": "https://github.com/yueyoum/seven-cow"
     }, {
+        "name": "Python",
+        "label": "Python SDK (tuxpy/cattle)",
+        "description": "python的第三方sdk",
+        "download": "https://coding.net/u/tuxpy/p/cattle/git",
+        "author": "疯狂的小企鹅",
+        "date": "2015-02-02",
+        "doc": "https://coding.net/u/tuxpy/p/cattle/git"
+    }, {
+        "name": "Python",
+        "label": "Python SDK (shell909090/python-qiniu)",
+        "description": "",
+        "download": "https://github.com/shell909090/python-qiniu",
+        "author": "shell",
+        "date": "2014-09-02",
+        "doc": "https://github.com/shell909090/python-qiniu"
+    }, {
         "name": "Scala",
         "label": "Scala SDK (livehl/qiniu-scala-sdk)",
         "description": "Scala版七牛的SDK",
@@ -381,6 +397,48 @@
         "author": "王明",
         "date": "2014-04-08",
         "doc": "https://github.com/icattlecoder/qiniu-csharp-sdk/blob/master/README.md"
+    }, {
+        "name": "clojure",
+        "label": "SDK for Clojure",
+        "description": "包装了七牛云存储官方 Java SDK 的 Clojure SDK。",
+        "download": "https://github.com/killme2008/clj.qiniu/archive/master.zip",
+        "version": "v0.1.0-RC3",
+        "author": "zx-dennis",
+        "author_link": "killme2008@gmail.com",
+        "date": "2014-07-10",
+        "doc": "https://github.com/killme2008/clj.qiniu/blob/master/README.md",
+        "source": "https://github.com/killme2008/clj.qiniu"
+    }],
+    "demo": [{
+        "name": "clouddoc",
+        "label": "clouddoc 在线云盘",
+        "description": "本项目基于七牛云存储实现一个简单的在线云盘，用户可以构建目录结构，管理文件结构。",
+        "download": "https://gitcafe.com/P_Chou/clouddoc",
+        "defaultSprite": false,
+        "author": "clouddoc 在线云盘",
+        "author_link": "https://gitcafe.com/P_Chou/clouddoc",
+        "date": "2014-10-07",
+        "doc": "http://clouddoc.sinaapp.com/index.html"
+    }, {
+        "name": "WPJAM",
+        "label": "七牛镜像存储 WordPress 插件",
+        "description": "七牛镜像存储 WordPress 插件是基于七牛镜像存储功能制作的一个 WordPress 插件。",
+        "download": "https://gitcafe.com/denishua/WPJAM-Qiniu",
+        "defaultSprite": false,
+        "author": "WPJAM",
+        "author_link": "#",
+        "date": "2014-10-07",
+        "doc": "https://gitcafe.com/denishua/WPJAM-Qiniu"
+    }, {
+        "name": "QiniuUploadFiles",
+        "label": "QiniuUploadFiles七牛云插件",
+        "description": "七牛云的chrome插件，支持拖拽上传，多文件上传，文件夹上传等",
+        "download": "https://chrome.google.com/webstore/detail/qiniu-upload-files/emmfkgdgapbjphdolealbojmcmnphdcc",
+        "defaultSprite": false,
+        "author": "QiniuUploadFiles",
+        "author_link": "#",
+        "date": "2014-10-07",
+        "doc": "https://gitcafe.com/hackpar/QiniuUploadFiles"
     }],
     "tuiguanziyuan": [{
         "name": "logo",

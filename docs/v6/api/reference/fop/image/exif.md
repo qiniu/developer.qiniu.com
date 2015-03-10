@@ -79,19 +79,13 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 
 各EXIF字段说明，请参考[EXIF技术白皮书][exifWhitePaperHref]。  
 
-■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求失败，返回包含错误信息的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
-	"code":     <httpCode  int>, 
-    "error":   "<errMsg    string>",
+    "error":   "<errMsg    string>"
 }
 ```
-
-字段名称     | 必填 | 说明                              
-:----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#exif-response-status)
-`error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="exif-response-code"></a>
 ### 响应状态码

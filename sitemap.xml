@@ -19,7 +19,7 @@
   <loc>http://developer.qiniu.com/changelog/index.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/sdk/ios-sdk.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/sdk/objc-sdk.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/sdk/android-sdk.html</loc>
@@ -121,7 +121,7 @@
   <loc>http://developer.qiniu.com/docs/v6/tools/qrsync.html</loc>
 </url>
 <url>
-  <loc>http://developer.qiniu.com/docs/v6/tools/qboxrsctl.html</loc>
+  <loc>http://developer.qiniu.com/docs/v6/tools/qrsctl.html</loc>
 </url>
 <url>
   <loc>http://developer.qiniu.com/docs/v6/tools/qrsbox.html</loc>

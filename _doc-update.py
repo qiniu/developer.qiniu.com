@@ -23,7 +23,7 @@ jklpath = cwddir + "/jkl"
 jklconfpath = cwddir + "/_jekyll_qiniu.yml"
 
 githost = "https://github.com"
-doc_lists = ["docs.qiniu.com","apidoc","c-sdk","php-sdk","perl-sdk","csharp-sdk","android-sdk","ios-sdk","python-sdk","ruby-sdk","java-sdk","nodejs-sdk","go-sdk"]
+doc_lists = ["docs.qiniu.com","apidoc","c-sdk","php-sdk","perl-sdk","csharp-sdk","android-sdk","objc-sdk","python-sdk","ruby-sdk","java-sdk","nodejs-sdk","go-sdk"]
 
 # where is common layout files
 commonpos = ("qiniu", "docs.qiniu.com", "develop")
@@ -380,7 +380,7 @@ def getpath(gituser, repo, branch):
     rootpath = "/".join([docsroot, repo])
     package = "/".join([docsroot, ".".join([repo, branch, "tar.gz"])])
 
-    if repo in ("csharp-sdk", "ios-sdk"):
+    if repo in ("csharp-sdk", "objc-sdk"):
         docpath = untarpath + "/Docs/"
     elif repo == "apidoc":
         docpath = untarpath + "/api/"
@@ -397,7 +397,7 @@ def optparse():
     usage = 'Usage: ./doc-update.py [options]'
     parser = OptionParser(usage=usage)
     parser.add_option('-B', '--branch', help=u'choose which branch to update')
-    parser.add_option('-R', '--repo', help=u'set repo name: docs.qiniu.com | apidoc | c-sdk | php-sdk | perl-sdk | csharp-sdk | android-sdk | ios-sdk | python-sdk | ruby-sdk | java-sdk | nodejs-sdk | go-sdk')
+    parser.add_option('-R', '--repo', help=u'set repo name: docs.qiniu.com | apidoc | c-sdk | php-sdk | perl-sdk | csharp-sdk | android-sdk | objc-sdk | python-sdk | ruby-sdk | java-sdk | nodejs-sdk | go-sdk')
     parser.add_option('-U', '--user', help=u'set github name')
 
     options = parser.parse_args()[0]

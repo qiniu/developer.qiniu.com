@@ -173,7 +173,7 @@ $(function() {
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
         }
-        if (path === 'brand') {
+        if (path === 'brand' || path === 'demo') {
             $('.download').addClass('active').siblings().removeClass('active');
         }
     });
@@ -203,17 +203,21 @@ $(function() {
             $('#myModal').modal();
             $('#myModal').find('p').html('正在搜索中，请耐心等待。');
             $('#myModal').find('.result-line').html('');
-            $.getJSON('http://183.60.175.38:9988?query=' + val + '&callback=?', function(data) {
+            $.getJSON('http://search-developer.qiniu.io?query=' + val + '&callback=?', function(data) {
                 if (data.items.length > 0) {
-                    var markup = '';
+                    var markup = '',
+                        tData = '',
+                        escaped = '',
+                        $p = $('<p/>');
                     for (var i = 0, len = data.items.length; i < len; i++) {
-                        var tData = data.items[i];
+                        tData = data.items[i];
+                        escaped = $p.text(tData.description).html();
                         markup += '<div class="ops-line ">' +
                             ' <h5><a href=' + tData.url + ' target="_blank">' + tData.title + '</a></h5>' +
                             ' <div class="url">' +
                             '<a  href=' + tData.url + ' target="_blank">' + tData.display_url + '</a>' +
                             '</div>' +
-                            '<div class="content">' + tData.description + '</div > ' +
+                            '<div class="content">' + escaped + '</div > ' +
                             ' </div> ';
                     }
                     $('#myModal').find('p').html('为您找到了如下结果，感谢您对七牛的支持。');
@@ -515,7 +519,7 @@ $(function() {
         $(this).siblings('a').trigger('click');
         e.stopPropagation();
     });
-    // 资源下载页提交社区SDK/插件
+    // 资源下载页提交社区SDK/插件/Demo
 
     DocsAddResource = new Zendesk({
         'width': 740,
@@ -530,8 +534,7 @@ $(function() {
         DocsAddResource.init();
     }
     $('.js-add-resource').on('click', function() {
-        var title = $.trim($(this).text());
-        var type = title === '提交我的插件/工具' ? 'Plugin' : 'SDK';
+        var type = $.trim($(this).data('title'));
         DocsAddResource.show(type);
         return false;
     });

@@ -98,6 +98,12 @@
 					"Order": 500
 				},
 				{
+					"Title": "列举资源（list）",
+					"Href": "docs/v6/api/reference/rs/list.html",
+					"Child": null,
+					"Order": 400
+				},
+				{
 					"Title": "抓取资源（fetch）",
 					"Href": "docs/v6/api/reference/rs/fetch.html",
 					"Child": null,
@@ -108,58 +114,15 @@
 					"Href": "docs/v6/api/reference/rs/prefetch.html",
 					"Child": null,
 					"Order": 300
+				},
+				{
+					"Title": "修改元信息（chgm）",
+					"Href": "docs/v6/api/reference/rs/chgm.html",
+					"Child": null,
+					"Order": 200
 				}
 			],
 			"Order": 600
-		},
-		{
-			"Title": "账号管理",
-			"Href": "docs/v6/api/reference/acc/",
-			"Child": [
-				{
-					"Title": "获取账户管理凭证（oauth/token）",
-					"Href": "docs/v6/api/reference/acc/access-token.html",
-					"Child": null,
-					"Order": 900
-				},
-				{
-					"Title": "刷新账户管理凭证（oauth/token）",
-					"Href": "docs/v6/api/reference/acc/refresh-token.html",
-					"Child": null,
-					"Order": 850
-				},
-				{
-					"Title": "获取账户信息（user/info）",
-					"Href": "docs/v6/api/reference/acc/user-info.html",
-					"Child": null,
-					"Order": 800
-				},
-				{
-					"Title": "创建子账号（user/create_child）",
-					"Href": "docs/v6/api/reference/acc/user-create-child.html",
-					"Child": null,
-					"Order": 750
-				},
-				{
-					"Title": "禁用子账号（user/disable_child）",
-					"Href": "docs/v6/api/reference/acc/user-disable-child.html",
-					"Child": null,
-					"Order": 700
-				},
-				{
-					"Title": "启用子账号（user/enable_child）",
-					"Href": "docs/v6/api/reference/acc/user-enable-child.html",
-					"Child": null,
-					"Order": 650
-				},
-				{
-					"Title": "列举子账号（user/children）",
-					"Href": "docs/v6/api/reference/acc/user-children.html",
-					"Child": null,
-					"Order": 600
-				}
-			],
-			"Order": 550
 		},
 		{
 			"Title": "数据处理",
@@ -180,12 +143,6 @@
 							"Href": "docs/v6/api/reference/fop/pfop/pfop.html",
 							"Child": null,
 							"Order": 300
-						},
-						{
-							"Title": "访问持久化处理的结果（p）",
-							"Href": "docs/v6/api/reference/fop/pfop/p.html",
-							"Child": null,
-							"Order": 290
 						},
 						{
 							"Title": "查询持久化处理状态（prefop）",
@@ -274,7 +231,13 @@
 							"Order": 146
 						},
 						{
-							"Title": "视频水印（watermark）",
+							"Title": "视频采样缩略图（vsample）",
+							"Href": "docs/v6/api/reference/fop/av/vsample.html",
+							"Child": null,
+							"Order": 144
+						},
+						{
+							"Title": "视频水印（vwatermark）",
 							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
 							"Child": null,
 							"Order": 139
@@ -295,12 +258,6 @@
 					"Order": 135
 				},
 				{
-					"Title": "office文档转换（odconv）",
-					"Href": "docs/v6/api/reference/fop/odconv.html",
-					"Child": null,
-					"Order": 111
-				},
-				{
 					"Title": "资源下载二维码（qrcode）",
 					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
@@ -313,10 +270,10 @@
 					"Order": 110
 				},
 				{
-					"Title": "支持字体列表",
-					"Href": "docs/v6/api/reference/fop/fonts.html",
+					"Title": "多文件压缩（mkzip）",
+					"Href": "docs/v6/api/reference/fop/mkzip.html",
 					"Child": null,
-					"Order": 50
+					"Order": 100
 				},
 				{
 					"Title": "",

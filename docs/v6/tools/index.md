@@ -9,7 +9,7 @@ title: 七牛云存储工具使用指南
 
     同步工具。用于文件上传，支持断点续上传、增量同步，支持超过几百GB的大文件上传，亦可同步整个目录内的文件。
 
-1. [qboxrsctl](http://developer.qiniu.com/docs/v6/tools/qboxrsctl.html)
+1. [qrsctl](http://developer.qiniu.com/docs/v6/tools/qrsctl.html)
 
     管理工具。可以管理用户帐号、空间，进行文件操作和云处理。
 

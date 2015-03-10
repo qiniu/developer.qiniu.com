@@ -1,6 +1,6 @@
 /*exported getSdkInfo*/
 var sdk_map = {
-    'ios-sdk': 'ios',
+    'objc-sdk': 'objc',
     'android-sdk': 'android',
     'java-sdk': 'java',
     'php-sdk': 'php',
@@ -36,8 +36,8 @@ function getSdkInfo(res) {
 
 $(function() {
     var sdk = [{
-        "name": "ios",
-        "url": "https://api.github.com/repos/qiniu/ios-sdk/"
+        "name": "objc",
+        "url": "https://api.github.com/repos/qiniu/objc-sdk/"
     }, {
         "name": "android",
         "url": "https://api.github.com/repos/qiniu/android-sdk/"
