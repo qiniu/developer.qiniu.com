@@ -24,15 +24,25 @@ install: all
 
 	./_jkl --qiniu-config _jekyll_qiniu.yml --qiniu --qiniu-up-files '$(file)' --verbose 2>&1 | sed '/_site/{h; s,^.*/_site,http://developer.qiniu.com,; H; x;}'
 	@echo
+	rm -rf .tmp
 
 clean:
+	rm _includes/footer.html
+	rm _includes/header.html
+	rm -rf .tmp
 	rm -rf _site
+	rm -rf dist
 
 dev: all
+	rm _includes/footer.html
+	rm _includes/header.html
+	rm -rf dist
 	grunt
 	./_jkl --server
 
 production: all
+	rm _includes/footer.html
+	rm _includes/header.html
 	grunt production
 	./_jkl --server
 

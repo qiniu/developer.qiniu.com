@@ -45,8 +45,8 @@ Connection: close
 }
 ```
 
-这些返回的错误信息可以帮助开发者分析问题原因。完整的返回码信息请参见[返回码](../../../reference/codes.html)。
+这些返回的错误信息可以帮助开发者分析问题原因。完整的返回码信息请参见[返回码](/docs/v6/api/reference/codes.html)。
 
 从上面的错误示例中可以看到，响应头中还包含了一些以`X-`为前缀的扩展字段，如`X-Reqid`和`X-Log`等。这些扩展信息非常有助于问题定位。我们建议开发者将所有接收到的错误信息写到日志中，以便于我们的技术支持人员在协助分析问题时有足够详细的线索。
 
-关于这些扩展字段的详细描述，请参见[HTTP扩展字段](../../../reference/extended-headers.html)。
+关于这些扩展字段的详细描述，请参见[HTTP扩展字段](/docs/v6/api/reference/extended-headers.html)。

@@ -79,8 +79,8 @@ DLL引用方式:
 
 ```c#
 using Qiniu.Conf;
-qiniu.conf.ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
-qiniu.conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
+Qiniu.Conf.ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
+Qiniu.Conf.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
 
 或者，编译配置文件app.conf或者web.conf等文件，添加以下配置项：
@@ -411,7 +411,7 @@ string uptoken = put.Token();
     
 <a name=upload></a>
 ### 文件上传
-**注意**：如果您只是想要上传已存在您电脑本地或者是服务器上的文件到七牛云存储，可以直接使用七牛提供的 [qrsync](/tools/qrsync.html/) 上传工具。
+**注意**：如果您只是想要上传已存在您电脑本地或者是服务器上的文件到七牛云存储，可以直接使用七牛提供的 [qrsync](/docs/v6/tools/qrsync.html) 上传工具。
 文件上传有两种方式，一种是以普通方式直传文件，简称普通上传，另一种方式是断点续上传，断点续上传在网络条件很一般的情况下也能有出色的上传速度，而且对大文件的传输非常友好。
 
 <a name=io-upload></a>

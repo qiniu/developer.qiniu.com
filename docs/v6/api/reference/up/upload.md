@@ -24,7 +24,7 @@ order: 200
 
 ```
 POST / HTTP/1.1
-Host:           up.qiniu.com
+Host:           upload.qiniu.com
 Content-Type:   multipart/form-data; boundary=<frontier>
 Content-Length: <multipartContentLength>
 
@@ -41,6 +41,14 @@ Content-Disposition:       form-data; name="<xVariableName>"
 
 <xVariableValue>
 --<frontier>
+Content-Disposition:       form-data; name="crc32"
+
+<crc32>
+--<frontier>
+Content-Disposition:       form-data; name="accept"
+
+<acceptContentType>
+--<frontier>
 Content-Disposition:       form-data; name="file"; filename="<fileName>"
 Content-Type:              application/octet-stream
 Content-Transfer-Encoding: binary
@@ -54,7 +62,7 @@ Content-Transfer-Encoding: binary
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 上传服务器域名，固定为up.qiniu.com。
+Host           | 是   | 上传服务器域名，固定为upload.qiniu.com。
 Content-Type   | 是   | 固定为multipart/form-data。`<frontier>`为[Multipart分隔符][multipartFrontierHref]，必须是任何Multipart消息都不包含的字符串。
 Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（Byte）。
 
@@ -68,9 +76,11 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 `<uploadToken>`               | 是   | [上传凭证][uploadTokenHref]，位于`token`消息中。
 `<xVariableName>`             |      | [自定义变量][xVariablesHref]的名字。
 `<xVariableValue>`            |      | [自定义变量][xVariablesHref]的值。
-`<fileName>`                  | 是   | 原文件名。<br>对于没有文件名的情况，建议填入随机生成的纯文本字符串。<br>本参数的值将作为[魔法变量$(fname)](../../overview/up/response/vars.html#magicvar-fname)的值使用。
+`<fileName>`                  | 是   | 原文件名。<br>对于没有文件名的情况，建议填入随机生成的纯文本字符串。<br>本参数的值将作为[魔法变量$(fname)](/docs/v6/api/overview/up/response/vars.html#magicvar-fname)的值使用。
 `<fileBinaryData>`            | 是   | 上传文件的完整内容。
 `<key>`                       |      | 资源的最终名称，位于`key`消息中。如不指定则使用[上传策略][putPolicyHref]saveKey字段所指定模板生成Key，如无模板则使用Hash值作为Key。
+`<crc32>`                     |      | 上传内容的 CRC32 校验码。<br>如填入，则七牛服务器会使用此值进行内容检验。
+`<acceptContentType>`         |      | 当 HTTP 请求指定 `Accept` 头部时，七牛会返回的 `Content-Type` 头部的值。<br>该值用于兼容低版本 IE 浏览器行为。低版本 IE 浏览器在 multiform 返回 `application/json` 的时候会表现为下载，返回 `text/plain` 才会显示返回内容。
 
 注意：用户自定义变量可以有多对。  
 
@@ -115,7 +125,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存。
 
 字段名称 | 必填 | 说明                              
 :------- | :--- | :--------------------------------------------------------------------
-`hash`   | 是   | 目标资源的[hash值](../../overview/appendix.html#qiniu-etag)，可用于ETag头部。
+`hash`   | 是   | 目标资源的[hash值](/docs/v6/api/overview/appendix.html#qiniu-etag)，可用于ETag头部。
 `key`    | 是   | 目标资源的最终名字，可由七牛云存储自动命名。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
@@ -138,8 +148,10 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存。
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 上传成功。
-400	       | 请求报文格式错误。
+400	       | 请求报文格式错误，报文构造不正确或者没有完整发送。
 401        | 上传凭证无效。
+413        | 上传内容长度大于 [fsizeLimit](/docs/v6/api/reference/security/put-policy.html#put-policy-fsize-limit) 中指定的长度限制。
+579        | 回调业务服务器失败。
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在。
 
@@ -149,6 +161,13 @@ HTTP状态码 | 含义
 ## 附注
 
 无。
+
+<a id="upload-example"></a>
+## 在线示例
+
+- [表单上传](http://jsfiddle.net/gh/get/library/pure/icattlecoder/jsfiddle/tree/master/formupload)
+
+- [异步表单上传](http://jsfiddle.net/gh/get/jquery/1.9.1/icattlecoder/jsfiddle/tree/master/ajaxupload)
 
 ---
 
@@ -168,15 +187,15 @@ HTTP状态码 | 含义
 - [MIME类型][mimeTypeHref]
 - [MIME清单][mimeTypeListHref]
 
-[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[encodedEntryURIHref]:          /docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
 
-[uploadTokenHref]:          ../security/upload-token.html                                "上传凭证"
-[putPolicyHref]:            ../security/put-policy.html                                  "上传策略"
-[xVariablesHref]:           ../../overview/up/response/vars.html#xvar                    "自定义变量"
+[uploadTokenHref]:          /docs/v6/api/reference/security/upload-token.html                               "上传凭证"
+[putPolicyHref]:            /docs/v6/api/reference/security/put-policy.html                                  "上传策略"
+[xVariablesHref]:           /docs/v6/api/overview/up/response/vars.html#xvar                    "自定义变量"
 
 [multipartFrontierHref]:    http://en.wikipedia.org/wiki/MIME#Multipart_messages           "Multipart分隔符"
 [mimeTypeHref]:             http://en.wikipedia.org/wiki/MIME                              "MIME类型"
 [mimeTypeListHref]:         http://www.iana.org/assignments/media-types/media-types.xhtml  "MIME清单"
-[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: /docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"

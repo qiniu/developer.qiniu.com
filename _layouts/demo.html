@@ -1,0 +1,196 @@
+{{ .includes.header}}
+    <title>
+        {{ .page.title }} | 七牛云存储
+    </title>
+{{ .includes.header_bottom}}
+    <div class="container resource demo">
+        <div class="resource-box cell large">
+            <h2 class="cell-head">
+                插件类
+                <a href="" class="js-add-resource" data-title="Demo">
+                    提交我的Demo
+                </a>
+            </h2>
+            <div class="cell-body">
+                {{range .data.demo.Plugin}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon plugin_sprited"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.name}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者：
+                                     {{if .code}}
+                                    <a href="{{.code}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                {{if .code}}
+                                <a href="{{.code}}" class="docs" target="_blank">
+                                    <span class="icon global_github_sprited"></span>
+                                    源码
+                                </a>
+                                {{end}}
+                                {{if .website}}
+                                <a href="{{.website}}" class="download" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    示例
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+        <div class="resource-box cell large">
+            <h2 class="cell-head">
+                工具类
+
+                <a href="" class="js-add-resource" data-title="Demo">
+                    提交我的Demo
+                </a>
+            </h2>
+            <div class="cell-body">
+                {{range .data.demo.Tool}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon tools_sprited"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.name}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if .code}}
+                                    <a href="{{.code}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                {{if .code}}
+                                <a href="{{.code}}" class="docs" target="_blank">
+                                    <span class="icon global_github_sprited"></span>
+                                    源码
+                                </a>
+                                {{end}}
+                                {{if .website}}
+                                <a href="{{.website}}" class="download" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    示例
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+
+        </div>
+        <div class="resource-box cell large">
+            <h2 class="cell-head">
+                资源管理类
+
+                <a href="" class="js-add-resource" data-title="Demo">
+                    提交我的Demo
+                </a>
+            </h2>
+            <div class="cell-body">
+                {{range .data.demo.Rs}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon resource_sprited"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.name}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if .code}}
+                                    <a href="{{.code}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                {{if .code}}
+                                <a href="{{.code}}" class="docs" target="_blank">
+                                    <span class="icon global_github_sprited"></span>
+                                    源码
+                                </a>
+                                {{end}}
+                                {{if .website}}
+                                <a href="{{.website}}" class="download" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    示例
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+        <div class="resource-box cell large">
+            <h2 class="cell-head">
+                数据处理类
+
+                <a href="" class="js-add-resource" data-title="Demo">
+                    提交我的Demo
+                </a>
+            </h2>
+            <div class="cell-body">
+                {{range .data.demo.Fop}}
+                <div class="resource-card">
+                    <div class="resource-card-inner">
+                        <div class="logo">
+                            <span class="icon processing_sprited"></span>
+                        </div>
+                        <div class="content">
+                            <div class="name">{{.name}}</div>
+                            <div class="describe">
+                                {{.description}}
+                            </div>
+                            <div class="info">
+                                <span class="author">作者： {{if .code}}
+                                    <a href="{{.code}}" target="_blank">{{.author}}</a>
+                                    {{else}} {{.author}} {{end}}
+                                </span>
+                            </div>
+                            <div class="url">
+                                {{if .code}}
+                                <a href="{{.code}}" class="docs" target="_blank">
+                                    <span class="icon global_github_sprited"></span>
+                                    源码
+                                </a>
+                                {{end}}
+                                {{if .website}}
+                                <a href="{{.website}}" class="download" target="_blank">
+                                    <span class="icon view_sprited"></span>
+                                    示例
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+
+    </div>
+    </div>
+    {{.includes.search_result}}
+    {{.includes.footer}}

@@ -56,8 +56,8 @@ jar文件下载：[http://search.maven.org/#search%7Cga%7C1%7Cqiniu](http://sear
 
 	<dependency>
 		<groupId>com.qiniu</groupId>
-		<artifactId>sdk</artifactId>
-		<version>6.1.0</version>
+		<artifactId>qiniu-java-sdk</artifactId>
+		<version>[6.1.7, 6.999]</version>
 	</dependency>
 
 
@@ -106,7 +106,7 @@ public class Init {
 
     客户端（终端用户） => 七牛 => 业务服务器
 
-客户端（终端用户）直接上传到七牛的服务器。通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会相比数据存放在用户自己的业务服务器上的方式更快。而且，七牛云存储可以在用户文件上传成功以后，替用户的客户端向用户的业务服务器发送反馈信息，减少用户的客户端同业务服务器之间的交互。详情请参考[上传策略](#io-put-policy)
+客户端（终端用户）直接上传到七牛的服务器。通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会相比数据存放在用户自己的业务服务器上的方式更快。而且，七牛云存储可以在用户文件上传成功以后，替用户的客户端向用户的业务服务器发送反馈信息，减少用户的客户端同业务服务器之间的交互。详情请参考[上传策略](../api/reference/security/put-policy.html)
 
 **注意**：如果您只是想要将您电脑上，或者是服务器上的文件上传到七牛云存储，可以直接使用七牛提供的 [qrsync](../tools/qrsync.html) 上传工具，而无需额外开发。
 
@@ -123,11 +123,11 @@ public class Init {
 1. 客户端凭借 [uptoken](#make-uptoken) 上传文件到七牛
 1. 在七牛获得完整数据后，根据用户请求的设定执行以下操作：
 
-	a. 如果用户设定了[returnUrl](#io-put-policy)，七牛云存储将反馈一个指向returnUrl的HTTP 303，驱动客户端执行跳转；
+	a. 如果用户设定了[returnUrl](../api/reference/security/put-policy.html)，七牛云存储将反馈一个指向returnUrl的HTTP 303，驱动客户端执行跳转；
 	
-	b. 如果用户设定了[callbackUrl](#io-put-policy)，七牛云存储将向callbackUrl指定的地址发起一个HTTP 请求回调业务服务器，同时向业务服务器发送数据。发送的数据内容由[callbackBody](#io-put-policy)指定。业务服务器完成回调的处理后，可以在HTTP Response中放入数据，七牛云存储会响应客户端，并将业务服务器反馈的数据发送给客户端；
+	b. 如果用户设定了[callbackUrl](../api/reference/security/put-policy.html)，七牛云存储将向callbackUrl指定的地址发起一个HTTP 请求回调业务服务器，同时向业务服务器发送数据。发送的数据内容由[callbackBody](../api/reference/security/put-policy.html)指定。业务服务器完成回调的处理后，可以在HTTP Response中放入数据，七牛云存储会响应客户端，并将业务服务器反馈的数据发送给客户端；
 	
-	c. 如果两者都没有设置，七牛云存储根据[returnBody](#io-put-policy)的设定向客户端发送反馈信息。
+	c. 如果两者都没有设置，七牛云存储根据[returnBody](../api/reference/security/put-policy.html)的设定向客户端发送反馈信息。
 
 需要注意的是，回调到业务服务器的过程是可选的，它取决于业务服务器颁发的 [uptoken](#make-uptoken)。如果没有回调，七牛会返回一些标准的信息（比如文件的 hash）给客户端。如果上传发生在业务服务器，以上流程可以自然简化为：
 
@@ -142,8 +142,7 @@ public class Init {
 
 uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
 
-```{java}
-import com.qiniu.api.auth.digest.Mac;
+<pre><code>import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
 import com.qiniu.api.rs.PutPolicy;
 
@@ -159,8 +158,7 @@ public class Uptoken {
 		String uptoken = putPolicy.token(mac);
 	}
 }
-
-```
+</code></pre>
 
 <a id="upload-code"></a>
 
@@ -179,8 +177,7 @@ public class Uptoken {
 
 具体代码如下：
 
-```{java}
-import java.io.File;
+<pre><code>import java.io.File;
 
 import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
@@ -205,30 +202,39 @@ public class UploadFile {
 		PutRet ret = IoApi.putFile(uptoken, key, localFile, extra);
 	}
 }
-
-```
+</code></pre>
 
 <a id="resumable-io-put"></a>
 
 ### 3.4 断点续上传、分块并行上传
 
-建设中...
+与普通上传类似：
+<pre><code>private void uploadFile() throws AuthException, JSONException{
+		PutPolicy p = new PutPolicy(bucketName);
+		p.returnBody = "{\"key\": $(key), \"hash\": $(etag),\"mimeType\": $(mimeType)}";
+		String upToken = p.token(mac);
+		PutRet ret = ResumeableIoApi.put(file, upToken, key, mimeType);
+	}
+	
+	private void uploadStream() throws AuthException, JSONException, FileNotFoundException{
+		PutPolicy p = new PutPolicy(bucketName);
+		String upToken = p.token(mac);
+		FileInputStream fis = new FileInputStream(file);
+		PutRet ret = ResumeableIoApi.put(fis, upToken, key, mimeType);
+	}
+
+</code></pre>
+key，mimeType 可为null。
 
 <a id="io-put-policy"></a>
 
 ### 3.5 上传策略
 
-[上传凭证][uploadTokenHref] 实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
+uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略(`rs.PutPolicy`)，它控制则整个上传流程的行为。让我们快速过一遍你都能够决策啥：
 
-* `expires` 指定 [上传凭证][uploadTokenHref] 有效期（默认1小时）。一个 [上传凭证][uploadTokenHref] 可以被用于多次上传（只要它还没有过期）。
-* `scope` 限定客户端的权限。如果 `scope` 是 bucket，则客户端只能新增文件到指定的 bucket，不能修改文件。如果 `scope` 为 bucket:key，则客户端可以修改指定的文件。**注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
-* `callbackUrl` 设定业务服务器的回调地址，这样业务服务器才能感知到上传行为的发生。可选。
-* `asyncOps` 可指定上传完成后，需要自动执行哪些数据处理。这是因为有些数据处理操作（比如音视频转码）比较慢，如果不进行预转可能第一次访问的时候效果不理想，预转可以很大程度改善这一点。
-* `returnBody` 可调整返回给客户端的数据包（默认情况下七牛返回文件内容的 `hash`，也就是下载该文件时的 `etag`）。这只在没有 `CallbackUrl` 时有效。
-* `escape` 为真（非0）时，表示客户端传入的 `callbackParams` 中含有转义符。通过这个特性，可以很方便地把上传文件的某些元信息如 `fsize`（文件大小）、`ImageInfo.width/height`（图片宽度/高度）、`exif`（图片EXIF信息）等传给业务服务器。
-* `detectMime` 为真（非0）时，表示服务端忽略客户端传入的 `mimeType`，自己自行检测。
+* `expires` 指定 uptoken 有效时长。单位：秒（s），默认1小时，3600秒。deadline = System.currentTimeMillis() / 1000 + this.expires，不直接指定deadline。一个 uptoken 可以被用于多次上传（只要它还没有过期）。
 
-关于上传策略更完整的说明，请参考 [上传凭证][uploadTokenHref]。
+关于上传策略更完整的说明，请参考 [uptoken][uploadTokenHref]。
 
 ### 3.6 文件下载
 
@@ -262,8 +268,7 @@ public class UploadFile {
 
 `downloadToken` 可以使用 SDK 提供的如下方法生成：
 
-```{java}
-import com.qiniu.api.auth.digest.Mac;
+<pre><code>import com.qiniu.api.auth.digest.Mac;
 import com.qiniu.api.config.Config;
 import com.qiniu.api.rs.GetPolicy;
 import com.qiniu.api.rs.URLUtils;
@@ -279,7 +284,7 @@ public class DownloadFile {
 		String downloadUrl = getPolicy.makeRequest(baseUrl, mac);
 	}
 }
-```
+</code></pre>
 
 <a id="rs-api"></a>
 

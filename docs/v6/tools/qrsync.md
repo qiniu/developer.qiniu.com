@@ -36,12 +36,7 @@ qrsync 命令行辅助同步工具下载地址：
 ```
 {
     "src":          "/home/your/sync_dir",
-    "dest":         "qiniu:
-                        access_key=<AccessKey>
-                        &secret_key=<SecretKey>
-                        &bucket=<Bucket>
-                        &key_prefix=<KeyPrefix>
-                        &threshold=<Threshold>",
+    "dest":         "qiniu:access_key=<AccessKey>&secret_key=<SecretKey>&bucket=<Bucket>&key_prefix=<KeyPrefix>&threshold=<Threshold>",
     "deletable":    0,
     "debug_level":  1
 }

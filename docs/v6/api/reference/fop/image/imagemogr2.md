@@ -24,7 +24,6 @@ imageMogr2/auto-orient
           /strip
           /gravity/<gravityType>
           /crop/<imageSizeAndOffsetGeometry>
-          /quality/<imageQuality>
           /rotate/<rotateDegree>
           /format/<destinationImageFormat>
           /blur/<radius>x<sigma>
@@ -36,12 +35,11 @@ imageMogr2/auto-orient
 `/auto-orient`                       |      | ● 根据原图EXIF信息自动旋正，便于后续处理<br>建议放在首位。
 `/strip`                             |      | ● 去除图片中的元信息
 `/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imageMogr2-thumbnail-spec)，缺省为不缩放。
-`/gravity/<gravityType>`             |      | 参看[裁剪锚点参数表](#imageMogr2-anchor-spec)，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
+`/gravity/<gravityType>`             |      | 参看[图片处理重心参数表](#imageMogr2-anchor-spec)，目前在`imageMogr2`中只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imageMogr2-crop-size-spec)，缺省为不裁剪。
-`/quality/<imageQuality>`            |      | ● 图片质量<br>取值范围1-100，缺省为85<br>如原图质量小于指定质量，则使用原图质量。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
-<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。
+<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 <a id="imageMogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 
 <a id="imageMogr2-thumbnail-spec"></a>
@@ -50,19 +48,21 @@ imageMogr2/auto-orient
 参数名称                        | 必填 | 说明
 :------------------------------ | :--- | :---------------------------------------------------
 `/thumbnail/!<Scale>p`          |      | 基于原图大小，按指定百分比缩放。<br>取值范围0-1000。
-`/thumbnail/!<Scale>px`         |      | 以百分比形式指定目标图片宽度，高度等比缩放。<br>取值范围0-1000。
-`/thumbnail/!x<Scale>p`         |      | 以百分比形式指定目标图片高度，宽度等比缩放。<br>取值范围0-1000。
+`/thumbnail/!<Scale>px`         |      | 以百分比形式指定目标图片宽度，高度不变。<br>取值范围0-1000。
+`/thumbnail/!x<Scale>p`         |      | 以百分比形式指定目标图片高度，宽度不变。<br>取值范围0-1000。
 `/thumbnail/<Width>x`           |      | 指定目标图片宽度，高度等比缩放。<br>取值范围0-10000。
 `/thumbnail/x<Height>`          |      | 指定目标图片高度，宽度等比缩放。<br>取值范围0-10000。
-`/thumbnail/<Width>x<Height>`   |      | 限定长边，短边自适应缩放，将目标图片限制在指定宽高矩形内。<br>取值范围0-10000。
-`/thumbnail/!<Width>x<Height>r` |      | 限定短边，长边自适应缩放，目标图片会延伸至指定宽高矩形外。<br>取值范围0-10000。
-`/thumbnail/<Width>x<Height>!`  |      | 限定目标图片宽高值，忽略原图宽高比例，按照指定宽高值强行缩略，可能导致目标图片变形。<br>取值范围0-10000。
-`/thumbnail/<Width>x<Height>>`  |      | 当原图尺寸大于给定的宽度或高度时，按照给定宽高值缩小。<br>取值范围0-10000。
-`/thumbnail/<Width>x<Height><`  |      | 当原图尺寸小于给定的宽度或高度时，按照给定宽高值放大。<br>取值范围0-10000。
-`/thumbnail/<Area>@`            |      | 按原图高宽比例等比缩放，缩放后的像素数量不超过指定值。<br>取值范围0-100000000。
+`/thumbnail/<Width>x<Height>`   |      | 限定长边，短边自适应缩放，将目标图片限制在指定宽高矩形内。<br>取值范围不限，但若宽高超过10000只能缩不能放。
+`/thumbnail/!<Width>x<Height>r` |      | 限定短边，长边自适应缩放，目标图片会延伸至指定宽高矩形外。<br>取值范围不限，但若宽高超过10000只能缩不能放。
+`/thumbnail/<Width>x<Height>!`  |      | 限定目标图片宽高值，忽略原图宽高比例，按照指定宽高值强行缩略，可能导致目标图片变形。<br>取值范围不限，但若宽高超过10000只能缩不能放。
+`/thumbnail/<Width>x<Height>>`  |      | 当原图尺寸大于给定的宽度或高度时，按照给定宽高值缩小。<br>取值范围不限，但若宽高超过10000只能缩不能放。
+`/thumbnail/<Width>x<Height><`  |      | 当原图尺寸小于给定的宽度或高度时，按照给定宽高值放大。<br>取值范围不限，但若宽高超过10000只能缩不能放。
+`/thumbnail/<Area>@`            |      | 按原图高宽比例等比缩放，缩放后的像素数量不超过指定值。<br>取值范围不限，但若像素数超过100000000只能缩不能放。
 
 <a id="imageMogr2-anchor-spec"></a>
-### 裁剪锚点参数表
+### 图片处理重心参数表
+
+在[高级图片处理](#imageMogr2)现有的功能中只影响其后的[裁剪偏移参数](#imageMogr2-crop-size-spec)，即裁剪操作以`gravity`为原点开始偏移后，进行裁剪操作。
 
 ```
 NorthWest     |     North      |     NorthEast
@@ -92,10 +92,10 @@ SouthWest     |     South      |     SouthEast
 
 参数名称                      | 必填 | 说明
 :---------------------------- | :--- | :--------------------------------------------------
-`/crop/!{cropSize}a<dx>a<dy>` |      | 相对于偏移锚点，向右偏移<dx>个像素，同时向下偏移<dy>个像素。<br>取值范围0－1000。
-`/crop/!{cropSize}-<dx>a<dy>` |      | 相对于偏移锚点，向下偏移<dy>个像素，同时从指定宽度中减去<dx>个像素。<br>取值范围0－1000。
-`/crop/!{cropSize}a<dx>-<dy>` |      | 相对于偏移锚点，向右偏移<dx>个像素，同时从指定高度中减去<dy>个像素。<br>取值范围0－1000。
-`/crop/!{cropSize}-<dx>-<dy>` |      | 相对于偏移锚点，从指定宽度中减去<dx>个像素，同时从指定高度中减去<dy>个像素。<br>取值范围0－1000。
+`/crop/!{cropSize}a<dx>a<dy>` |      | 相对于偏移锚点，向右偏移`dx`个像素，同时向下偏移`dy`个像素。<br>取值范围不限，小于原图宽高即可。
+`/crop/!{cropSize}-<dx>a<dy>` |      | 相对于偏移锚点，向下偏移`dy`个像素，同时从指定宽度中减去`dx`个像素。<br>取值范围不限，小于原图宽高即可。
+`/crop/!{cropSize}a<dx>-<dy>` |      | 相对于偏移锚点，向右偏移`dx`个像素，同时从指定高度中减去<dy>个像素。<br>取值范围不限，小于原图宽高即可。
+`/crop/!{cropSize}-<dx>-<dy>` |      | 相对于偏移锚点，从指定宽度中减去`dx`个像素，同时从指定高度中减去`dy`个像素。<br>取值范围不限，小于原图宽高即可。
 
 例如，  
 
@@ -459,7 +459,7 @@ HTTP状态码 | 含义
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/300x300/interlace/1
 	```
 
-	![查看效果图](../../../../../../resource/gogopher-imagemogr2-interlace.jpg)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher-imagemogr2-interlace.jpg)
 
 ---
 
@@ -472,9 +472,9 @@ HTTP状态码 | 含义
 - [saveas处理][saveasHref]
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:                     ../pfop/pfop.html                            "触发持久化处理"
-[persistentOpsHref]:            ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[saveasHref]:                   ../saveas.html                                   "saveas处理"
+[pfopHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                            "触发持久化处理"
+[persistentOpsHref]:            http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[saveasHref]:                   http://developer.qiniu.com/docs/v6/api/reference/fop/saveas.html                                   "saveas处理"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

@@ -26,12 +26,10 @@ order: 180
 * [预转持久化处理（persistentOps）][persistentOpsHref]
 * [触发持久化处理（pfop）][pfopHref]
 * [持久化处理结果通知][pfopNotificationHref]
-* [访问持久化结果（p）][pHref]
 * [查询持久化处理状态（prefop）][prefopHref]
 
-[persistentOpsHref]:        ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[persistentOpsHref]:        http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
 
-[pfopHref]:                 pfop.html                   "触发持久化处理"
-[pfopNotificationHref]:     pfop.html#pfop-notification "持久化处理结果通知"
-[pHref]:                    p.html                      "访问持久化结果"
-[prefopHref]:               prefop.html                 "查询持久化处理状态"
+[pfopHref]:                 http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                   "触发持久化处理"
+[pfopNotificationHref]:     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification "持久化处理结果通知"
+[prefopHref]:               http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html                 "查询持久化处理状态"

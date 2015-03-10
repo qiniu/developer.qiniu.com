@@ -77,7 +77,6 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 ```
 {
-	"code":     <httpCode  int>, 
     "error":   "<errMsg    string>",
 }
 ```
@@ -95,8 +94,8 @@ HTTP状态码 | 含义
 200        | 复制成功
 400	       | 请求报文格式错误
 401        | 管理凭证无效
-404        | 待复制资源不存在
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
+612        | 待复制资源不存在
 614        | 目标资源已存在
 
 <a id="copy-sample1-command"></a>
@@ -149,7 +148,7 @@ X-Reqid: wxIAAD3btw-v3TwT
 - [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
-[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
-[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[accessTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志        "发送错误报告"

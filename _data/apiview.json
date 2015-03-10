@@ -105,7 +105,7 @@
 				},
 				{
 					"Title": "下载设置",
-					"Href": "docs/v6/api/overview/dn/download-settings.html",
+					"Href": "docs/v6/api/overview/dn/v2:download-settings.html",
 					"Child": null,
 					"Order": 320
 				},

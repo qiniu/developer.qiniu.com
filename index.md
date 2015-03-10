@@ -27,7 +27,7 @@ title: 七牛云存储使用指南
 
 七牛云存储提供以下SDK：
 
-- [Objective-C (iOS)](http://developer.qiniu.com/docs/v6/sdk/ios-sdk.html)
+- [Objective-C (iOS/Mac)](http://developer.qiniu.com/docs/v6/sdk/objc-sdk.html)
 - [Java (Android)](http://developer.qiniu.com/docs/v6/sdk/android-sdk.html)
 - [Java](http://developer.qiniu.com/docs/v6/sdk/java-sdk.html)
 - [PHP](http://developer.qiniu.com/docs/v6/sdk/php-sdk.html)

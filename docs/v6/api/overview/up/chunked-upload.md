@@ -61,13 +61,13 @@ order: 530
 
 这里需要明确的是，虽然后续动作在生成[上传凭证][uploadTokenHref]时已经指定，但这些后续动作只在服务端处理完mkfile请求后才会发生，而且也只有mkfile请求的内容可以包含[变量][varsHref]。
 
-[uploadModelHref]:	upload-models.html "上传模型"
-[formUploadHref]:	form-upload.html "表单上传"
-[mkblkHref]:		../../reference/up/mkblk.html
-[bputHref]:			../../reference/up/bput.html
-[mkfileHref]:		../../reference/up/mkfile.html
-[uploadTokenHref]:	../../reference/security/upload-token.html "上传凭证"
-[varsHref]:			response/vars.html "变量"
+[uploadModelHref]:	/docs/v6/api/overview/up/upload-models.html "上传模型"
+[formUploadHref]:	/docs/v6/api/overview/up/form-upload.html "表单上传"
+[mkblkHref]:		/docs/v6/api/reference/up/mkblk.html
+[bputHref]:			/docs/v6/api/reference/up/bput.html
+[mkfileHref]:		/docs/v6/api/reference/up/mkfile.html
+[uploadTokenHref]:	/docs/v6/api/reference/security/upload-token.html "上传凭证"
+[varsHref]:			/docs/v6/api/overview/up/response/vars.html "变量"
 
 <a id="online-demo"></a>
 ## 在线示例

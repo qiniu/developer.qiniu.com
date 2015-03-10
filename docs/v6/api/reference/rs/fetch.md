@@ -79,14 +79,12 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 ```
 {
-	"code":     <httpCode  int>, 
     "error":   "<errMsg    string>",
 }
 ```
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#fetch-response-status)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="fetch-response-status"></a>
@@ -97,6 +95,8 @@ HTTP状态码 | 含义
 200        | 抓取成功
 400	       | 请求报文格式错误
 401        | 管理凭证无效
+404        | 抓取资源不存在
+478        | 源站返回404外，所有非200的response都返回478
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 其余状态码 | 源站返回的状态码，请检查源站资源的可访问性
 
@@ -151,10 +151,10 @@ X-Reqid: wxIAAD3btw-v3TwT
 - [EncodedEntryURI格式][encodedEntryURIHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[encodedEntryURIHref]:          ../data-formats.html                             "EncodedEntryURI格式"
-[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html                             "EncodedEntryURI格式"
+[accessTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
+[commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"
 
-[urlsafeBase64Href]: ../../overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"

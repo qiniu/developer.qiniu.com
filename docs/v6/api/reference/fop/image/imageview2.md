@@ -22,7 +22,6 @@ imageView2是原[imageView接口](http://developer.qiniu.com/docs/v6/api/referen
 imageView2/<mode>
           /w/<Width>
           /h/<Height>
-          /q/<Quality>
           /format/<Format>
 ```
 
@@ -32,7 +31,6 @@ imageView2/<mode>
 imageView2/<mode>
           /w/<LongEdge>
           /h/<ShortEdge>
-          /q/<Quality>
           /format/<Format>
           /interlace/<Interlace>
 ```
@@ -56,7 +54,6 @@ imageView2/<mode>
 
 参数名称            | 必填  | 说明
 :------------------ | :---- | :--------------------------------------------------------------------------------
-`/q/<Quality>`      |       | ● 新图的图像质量<br>取值范围：1-100，缺省为85。<br>如原图质量小于指定值，则按原值输出。
 `/format/<Format>`  |       | ● 新图的输出格式<br>取值范围：jpg，gif，png，webp等，缺省为原图格式。<br>参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)。
 <a id="imageView2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 
@@ -175,7 +172,7 @@ HTTP状态码 | 含义
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
 	```
 
-	![查看效果图](../../../../../../resource/gogopher-imageview2-interlace.jpg)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher-imageview2-interlace.jpg)
 
 ---
 
@@ -187,8 +184,8 @@ HTTP状态码 | 含义
 - [预转持久化处理][persistentOpsHref]
 
 [cnameBindingHref]:  http://kb.qiniu.com/53a48154                     "域名绑定"
-[pfopHref]:          ../pfop/pfop.html                                "触发持久化处理"
-[persistentOpsHref]: ../../security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
-[exifHref]:          exif.html                                        "EXIF信息"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                "触发持久化处理"
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[exifHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html                                        "EXIF信息"
 
 [sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志 "发送错误报告"

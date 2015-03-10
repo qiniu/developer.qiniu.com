@@ -96,6 +96,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 - 此处签名内容不包含Scheme部分，与DownloadToken签名不一样。
 - 当要持久化保存的fop耗时较长时候，saveas请求会返回CDN超时，但是只要保证发送的saveas请求合法，七牛服务器还是会对请求做正确处理。
 - 大多数使用场景下，建议使用[触发持久化处理][pfopHref]接口来实现处理结果持久存储，避免使用同步操作的`saveas`接口，提升访问速度。
+- c# http库发送请求的时候会把 | 转成 %7c，由于签名签的是 | ，导致报400错误，可以在发送请求的时候url中把 | 改为 %7c 或者签名的时候签 %7c 两种方法解决
 
 <a id="saveas-samples"></a>
 ## 示例
@@ -146,5 +147,5 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 - [EncodedEntryURI格式][encodedEntryURIHref]
 - [触发持久化处理][pfopHref]
 
-[encodedEntryURIHref]:          ../data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
-[pfopHref]:                     pfop/pfop.html                                     "触发持久化处理"
+[encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
+[pfopHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                     "触发持久化处理"

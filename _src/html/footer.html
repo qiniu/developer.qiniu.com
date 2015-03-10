@@ -1,8 +1,8 @@
-     <footer>
+ <footer>
         <div class="container">
                 <div class="link">
                     <div class="link-content cooperation">
-                        <h4>购买咨询</h4>
+                        <h4>技术/购买咨询</h4>
                         <ul>
                             <li>
                                 <span class="icon global_tel_sprited"></span>400-808-9176</li>
@@ -45,7 +45,7 @@
                             </li>
                             <li><a href="/download/" target="_blank">资源下载</a>
                             </li>
-                            <li><a href="http://segmentfault.com/qiniu" target="_blank">问答社区</a>
+                            <li><a href="http://segmentfault.net/qiniu" target="_blank">问答社区</a>
                             </li>
                             <li><a href="#" class="js-zendesk">技术支持</a>
                             </li>
@@ -65,10 +65,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="copyright">© 2014 七牛云存储 - 沪ICP备11037377号-5</div>
+                <div class="copyright">© 2015 七牛云存储 - 沪ICP备11037377号-5</div>
             </div>
     </footer>
     <div class="zendesk js-zendesk"><a href="#"><span>咨询建议</span></a></div>
+
+
+
+
+    <!-- build:js /dist/add-on/app.js -->
+    <script src="/_src/add-on/jquery-1.9.1.min.js"></script>
+    <script src="/_src/add-on/bootstrap/dropdown.js"></script>
+    <script src="/_src/add-on/bootstrap/scrollspy.js"></script>
+    <script src="/_src/add-on/bootstrap/modal.js"></script>
+    <script src="/_src/add-on/jquery.plugin/jquery.autocomplete.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js /dist/js/docs.js -->
+    <script src="/_src/js/docs.js"></script>
+    <!-- endbuild -->
 
     <script type="text/javascript">
     //google anlysis
@@ -76,14 +91,19 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-40857860-3', 'qiniu.com');
       ga('send', 'pageview');
     </script>
-    <script src="/static/add-on/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="/static/add-on/bootstrap/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/static/add-on/jquery.plugin/jquery.autocomplete.js" type="text/javascript"></script>
-    <script src="/static/js/docs.min.js" type="text/javascript"></script>
+    <script>
+    //百度统计
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?178ab5b9f03abf187e59df982cccdcc0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
    </body>
 
 </html>

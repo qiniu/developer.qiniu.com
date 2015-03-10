@@ -86,7 +86,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 字段名称       | 必填 | 说明
 :------------- | :--- | :------------------------------
-ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](bput.html)及[生成文件](mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
+ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](http://developer.qiniu.com/docs/v6/api/reference/up/bput.html)及[生成文件](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
 checksum       | 是   | 本块已上传部分的校验码，只能被七牛服务器解读使用。
 crc32          | 是   | 本块已上传部分的CRC32值，上传端可通过此字段对本块已上传部分的完整性进行校验。
 offset         | 是   | 下一个上传片在上传块中的偏移。
@@ -112,7 +112,7 @@ host           | 是   | 后续上传接收地址。
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 上传片成功。
-400	       | 请求报文错误。
+400	       | 请求报文格式错误，报文构造不正确或者没有完整发送。
 401        | 上传凭证无效。
 599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 701        | 后续上传接收地址不正确，或ctx信息已过期。
@@ -127,9 +127,9 @@ HTTP状态码 | 含义
 ## 内部参考资源
 
 - [上传凭证][uploadTokenHref]
-- [创建块（mkblk）](mkblk.html)
-- [创建资源（mkfile）](mkfile.html)
+- [创建块（mkblk）](http://developer.qiniu.com/docs/v6/api/reference/up/mkblk.html)
+- [创建资源（mkfile）](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[uploadTokenHref]:              ../security/upload-token.html                    "上传凭证"
-[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
+[uploadTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html                    "上传凭证"
+[commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"

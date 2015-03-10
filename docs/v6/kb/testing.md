@@ -26,7 +26,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 实测全国平均下载速度为：**3.75MB/s**
 
-实测地址: <http://17ce.com/>
+实测地址: <http://www.17ce.com/>
 
 
 <a id="image-process"></a>
@@ -80,27 +80,43 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 ### 更多
 
-- [七牛云存储图像处理 API](/api/image-process.html)
+- [七牛云存储图像处理 API](/docs/v6/api/reference/fop/image/index.html)
 - 蟬游记-七牛云存储使用心得：<http://quake.iteye.com/blog/1816807>
 
 
 <a id="audio-video-process"></a>
 
-## 音频/视频在线压缩转码
+## 音频/视频预处理持久化压缩转码
 
 七牛云存储支持常见的音视频格式互转，比如 mp3、aac，m4a, mp4、avi、flv 等。支持互转的音频格式可参考：<http://ffmpeg.org/general.html#File-Formats>
 
 示例1：将 wav 音频格式转换为 mp3 格式：
 
-[GET] <http://apitest.b1.qiniudn.com/sample.wav?avthumb/mp3>
+    {
+        "scope":                "qiniu-ts-demo:sample.wav",
+        "deadline":             1390528576,
+        "persistentOps":        "avthumb/mp3",
+        "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
+    }
 
 示例2：将 wav 音频格式转换为 mp3 格式，并指定静态码率（CBR）为 192k：
 
-[GET] <http://apitest.b1.qiniudn.com/sample.wav?avthumb/mp3/ab/192k>
-
+    {
+        "scope":                "qiniu-ts-demo:sample.wav",
+        "deadline":             1390528576,
+        "persistentOps":        "avthumb/mp3/ab/192k",
+        "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
+    }
+    
 示例3：将 wav 音频格式转换为 mp3 格式，并指定动态码率（VBR）参数为3，采样频率为 44100：
 
-[GET] <http://apitest.b1.qiniudn.com/sample.wav?avthumb/mp3/ar/44100/aq/3>
+    POST /pfop/ HTTP/1.1
+    Host: api.qiniu.com  
+    Content-Type: application/x-www-form-urlencoded  
+    Authorization: QBox <AccessToken>  
+
+    bucket=qiniu-ts-demo&key=sample.wav&fops=avthumb%2Fmp3%2Far%2F44100%2Faq%2F3&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
+
 
 示例4：视频帧提取
 
@@ -110,11 +126,20 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 取视频第 7 秒的截图，图片格式为 jpg，宽度为 480px，高度为 360px
 
-- [GET] <http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360>
+- [上传预转](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)上传的`token`中指定`persistentOps`:
+
+```
+    {
+        "scope":                "qiniu-ts-demo:thinking-in-go.mp4",
+        "deadline":             1390528576,
+        "persistentOps":        "vframe/jpg/offset/7/w/480/h/360",
+        "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
+    }
+```
 
 ![获取视频帧缩略图](http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360)
 
-- [七牛云存储音/视频处理接口](/api/audio-video-hls-process.html)
+- [七牛云存储音/视频处理接口](http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html)
 
 
 <a id="hls"></a>
@@ -129,9 +154,9 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 以下URL就是一个已经使用七牛 HLS API 处理的流媒体资源：
 
-- <http://apitest.b1.qiniudn.com/sample.wav-m3u8_audio>
+- <http://apitest.b1.qiniudn.com/sample-m3u8>
 
-其中 `m3u8_audio` 是自定义的 API 规格别名（`avthumb/m3u8/preset/audio_32k`）。
+其中 `m3u8_audio` 是自定义的 API 规格别名（`avthumb/m3u8/ab/32k`）。
 
 您可以使用播放器来打开该 URL 进行流媒体播放体验。参考:
 
@@ -153,9 +178,9 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 将以上 HTML 代码保存为一个后缀为 `.html` 的文件，然后用 [Apple Safari](http://www.apple.com.cn/safari/) 浏览器打开网页即可体验流媒体播放。
 
-- 七牛云存储 [HTTP Live Streaming API](/api/audio-video-hls-process.html#hls)
+- 七牛云存储 [HTTP Live Streaming API](/docs/v6/api/reference/fop/av/segtime.html)
 
-支持 [在上传时进行异步预转](/api/audio-video-hls-process.html#upload-fop)，终端用户访问时获得更好的用户体验。
+支持 [在上传时进行异步预转](/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)，终端用户访问时获得更好的用户体验。
 
 我们还在深化 HLS API, 欢迎提供建议！
 
@@ -172,7 +197,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 为方便测试，我们在测试帐号申里边创建了一个名为 `qtestbucket` 的存储空间。
 
-然后可以使用七牛云存储提供的 [qrysnc](/tools/qrsync.html) 进行文件上传。
+然后可以使用七牛云存储提供的 [qrysnc](/docs/v6/tools/qrsync.html) 进行文件上传。
 
 可以点击如下网址下载 qrsync 工具，以及了解其用法：
 
@@ -187,7 +212,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
         "debug_level": 1
     }
 
-配置项说明可参考上述提到的 [qrsync使用文档](/tools/qrsync.html) 。
+配置项说明可参考上述提到的 [qrsync使用文档](/docs/v6/tools/qrsync.html) 。
 
 `qiniu-test-config.json` 修改并存档完毕后，可在 `sync_dir` 所指定的目录放入需要进行上传的具体文件（可包含子目录结构）。然后进入到 qrsync 所在的目录，运行以下命令行：
 
@@ -221,7 +246,7 @@ key 一般是具体的文件名称或路径（非“/”开头）。比如 `samp
 
 `downloadToken` 支持有效期和作用域，
 
-私有资源详情参考：[下载接口——私有资源下载](/api/get.html#private-download)
+下载凭证详情参考：[下载凭证生成过程](/docs/v6/api/reference/security/download-token.html)
 
 
 

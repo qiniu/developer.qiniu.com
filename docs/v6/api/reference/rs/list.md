@@ -19,13 +19,13 @@ order: 400
 bucket=<UrlEncodedBucket>&marker=<Marker>&limit=<Limit>&prefix=<UrlEncodedPrefix>&delimiter=<UrlEncodedDelimiter>
 ```
 
-参数名称    | 必填 | 需要[URL转义][urlescapeHref] | 说明
-:---------- | :--- | :--------------------------- | :-----------------------------
-`bucket`    | 是   | 是                           | 指定空间。
-`limit`     |      |                              | 本次列举的条目数，范围为1-1000。<p>缺省值为1000。
-`prefix`    |      | 是                           | 指定前缀，只有资源名匹配该前缀的资源会被列出。<p>缺省值为空字符串。
-`delimiter` |      | 是                           | 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。<p>缺省值为空字符串。
-`marker`    |      |                              | 上一次列举返回的位置标记，作为本次列举的起点信息。<p>缺省值为空字符串。
+参数名称    | 必填  | 说明
+:---------- | :---  | :-----------------------------
+`bucket`    | 是    | 指定空间。
+`limit`     |       | 本次列举的条目数，范围为1-1000。<p>缺省值为1000。
+`prefix`    |       | 指定前缀，只有资源名匹配该前缀的资源会被列出。<p>缺省值为空字符串。
+`delimiter` |       | 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。<p>缺省值为空字符串。
+`marker`    |       | 上一次列举返回的位置标记，作为本次列举的起点信息。<p>缺省值为空字符串。
 
 <a id="list-request"></a>
 ## 请求
@@ -114,7 +114,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
     `key`        | 是   | 资源名。
     `putTime`    | 是   | 上传时间，单位：100纳秒，其值去掉低七位即为[Unix时间][unixTimeHref]。
     `fsize`      | 是   | 资源内容的大小，单位：字节。
-    `hash`       | 是   | 资源内容的[ETag](../../overview/appendix.html#qiniu-etag)值。
+    `hash`       | 是   | 资源内容的[ETag](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)值。
     `mimeType`   | 是   | 资源内容的MIME类型。
     `customer`   |      | 资源内容的唯一属主标识，请参考[上传策略][putPolicyHref]。
 
@@ -122,14 +122,12 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 ```
 {
-	"code":     <httpCode  int>, 
     "error":   "<errMsg    string>",
 }
 ```
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#list-response-status)。
 `error`      | 是   | 与HTTP状态码对应的消息文本。
 
 <a id="list-response-status"></a>
@@ -204,8 +202,8 @@ bucket=qiniu-ts-demo&prefix=00&limit=2&delimiter=%2F
 - [URL转义][urlescapeHref]
 
 [sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[accessTokenHref]:   ../security/access-token.html                    "管理凭证"
-[putPolicyHref]:     ../security/put-policy.html                      "上传策略"
+[accessTokenHref]:   http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
+[putPolicyHref]:     http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html                      "上传策略"
 
 [unixTimeHref]:      http://en.wikipedia.org/wiki/Unix_time           "Unix时间"
 

@@ -50,7 +50,8 @@ Cache-Control: no-store
     "format":       "<ImageType         string>",
     "width":         <ImageWidth        int>,
     "height":        <ImageHeight       int>,
-    "colorModel":   "<ImageColorModel   string>"
+    "colorModel":   "<ImageColorModel   string>",
+    "frameNumber":   <ImageFrameNumber  int>
 }
 ```
 
@@ -72,16 +73,18 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
     "format":       "<ImageType         string>",
     "width":         <ImageWidth        int>,
     "height":        <ImageHeight       int>,
-    "colorModel":   "<ImageColorModel   string>"
+    "colorModel":   "<ImageColorModel   string>",
+    "frameNumber":   <ImageFrameNumber  int>
 }
 ```
 
 字段名称       | 必填   | 说明
 :------------- | :----- | :------------------------------
-format         | 是     | 图片类型，如png、jpeg、gif、bmp等
-width          | 是     | 图片宽度，单位：像素（px）
-height         | 是     | 图片高度，单位：像素（px）
-colorModel     | 是     | 彩色空间，如palette16、ycbcr等
+format         | 是     | 图片类型，如png、jpeg、gif、bmp等。
+width          | 是     | 图片宽度，单位：像素（px）。
+height         | 是     | 图片高度，单位：像素（px）。
+colorModel     | 是     | 彩色空间，如palette16、ycbcr等。
+frameNumber    |        | 帧数，gif 图片会返回此项。
 
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
