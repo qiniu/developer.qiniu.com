@@ -30,7 +30,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		- [查看图片EXIF信息](#fop-exif)
 		- [生成图片预览](#fop-image-view)
 - [持久化数据处理](#pfop-api)
-	
+	- [视频切片](#av-hls)	
+
 - [贡献代码](#contribution)
 - [许可证](#license)
 
