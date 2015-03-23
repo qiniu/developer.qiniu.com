@@ -366,6 +366,14 @@
         "date": "2013-09-12",
         "doc": "http://git.oschina.net/livehl/qiniu-scala-sdk"
     }, {
+        "name": "fibjs SDK",
+        "label": "fibjs SDK (Hi-Rube/qn-fibjs)",
+        "description": "七牛的fibjs SDK",
+        "download": "https://github.com/Hi-Rube/qn-fibjs ",
+        "author": "Rube ",
+        "date": "2015-03-22",
+        "doc": "https://github.com/Hi-Rube/qn-fibjs "
+    }, {
         "name": "Nodejs",
         "label": "Node.js SDK (iwillwen/node-qiniu)",
         "description": "Node.js SDK",
