@@ -44,7 +44,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 ###  PHP-SDK 安装
 
-* ####使用 `composer` 安装（推荐）
+* 使用 `composer` 安装（推荐）
 
 此 SDK 使用composer 进行依赖管理。我们也推荐使用composer进行该sdk的安装。
 可以在你项目的`composer.json`中添加对phpsdk的依赖，或者运行下面命令：
@@ -70,7 +70,8 @@ vendor
 ```
 这样你就可以在你的程序中引用composer生成的autoloader程序`require ./vendor/autolaod.php` 。
 
-* ####下载源码安装
+* 下载源码安装
+
 本 SDK 没有依赖其他第三方库，但需要增加一个自己的autoloader程序。
 
 <a id="acc-appkey"></a>
