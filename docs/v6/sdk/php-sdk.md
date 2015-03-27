@@ -30,8 +30,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		- [查看图像属性](#fop-image-info)
 		- [查看图片EXIF信息](#fop-exif)
 		- [生成图片预览](#fop-image-view)
-- [持久化数据处理](#pfop-api)
-	- [视频切片](#av-hls)	
+	- [持久化数据处理](#pfop-api)
+		- [视频切片](#av-hls)	
 
 - [贡献代码](#contribution)
 - [许可证](#license)
@@ -478,7 +478,7 @@ vendor
 	
 	
 <a name=pfop-api></a>
-## 持久化数据处理
+### 持久化数据处理
 七牛支持在云端对图像, 视频, 音频等富媒体进行持久化处理处理。 由于音视频的处理比较耗时，所以音视频的处理较多采用异步持久化操作。
 
 <a name=av-hls></a>
