@@ -39,6 +39,39 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 <a name=install></a>
 ## 应用接入
 
+<a id="sdk-install"></a>
+
+###  PHP-SDK 安装
+
+* ####使用 `composer` 安装（推荐）
+
+此 SDK 使用composer 进行依赖管理。我们也推荐使用composer进行该sdk的安装。
+可以在你项目的`composer.json`中添加对phpsdk的依赖，或者运行下面命令：
+
+```
+$ composer require qiniu/php-sdk
+```
+使用该命令进行安装,会在你的当前目录生成如下目录结构：
+
+```
+vendor
+├── autoload.php
+├── composer
+│   ├── ClassLoader.php
+│   ├── autoload_classmap.php
+│   ├── autoload_files.php
+│   ├── autoload_namespaces.php
+│   ├── autoload_psr4.php
+│   ├── autoload_real.php
+│   └── installed.json
+└── qiniu
+    └── php-sdk
+```
+这样你就可以在你的程序中引用composer生成的autoloader程序`require ./vendor/autolaod.php` 。
+
+* ####下载源码安装
+本 SDK 没有依赖其他第三方库，但需要增加一个自己的autoloader程序。
+
 <a id="acc-appkey"></a>
 
 ###  获取Access Key 和 Secret Key
@@ -52,7 +85,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 ## 资源管理接口
 
 <a id="rs-stat"></a>
-### 1.查看单个文件属性信息
+### 查看单个文件属性信息
 
 示例代码如下：
 
@@ -248,6 +281,13 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$auth = new Auth($accessKey, $secretKey);
 
 	$bucket = 'phpsdk';
+	// 设置put policy的其他参数
+	$opts = array(
+				'callbackUrl' => 'http://www.callback.com/',  
+				'callbackBody' => 'name=$(fname)&hash=$(etag)'
+			);
+		
+	$token = $auth->uploadToken($bucket, null, 3600, $opts);
     $token = $auth->uploadToken($bucket);
     $uploadMgr = New UploadManager();
 	
@@ -271,7 +311,12 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	$auth = new Auth($accessKey, $secretKey);
 
 	$bucket = 'phpsdk';
-    $token = $auth->uploadToken($bucket);
+	// 设置put policy的其他参数
+	$opts = array(
+				'callbackUrl' => 'http://www.callback.com/',  
+				'callbackBody' => 'name=$(fname)&hash=$(etag)'
+			);
+	$token = $auth->uploadToken($bucket, null, 3600, $opts);
     $uploadMgr = New UploadManager();
     
     list($ret, $err) = $uploadMgr->putFile($token, null, __file__);
