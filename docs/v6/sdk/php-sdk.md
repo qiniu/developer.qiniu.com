@@ -11,6 +11,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 
 - [应用接入](#install)
+	- [PHP-SDK 安装](#sdk-install)
 	- [获取Access Key 和 Secret Key](#acc-appkey)
 - [资源管理接口](#rs-api)
 	- [查看单个文件属性信息](#rs-stat)
