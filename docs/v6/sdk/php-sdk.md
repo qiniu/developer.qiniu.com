@@ -31,7 +31,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		- [查看图片EXIF信息](#fop-exif)
 		- [生成图片预览](#fop-image-view)
 - [持久化数据处理](#pfop-api)
-	
+	- [视频切片](#av-hls)	
+
 - [贡献代码](#contribution)
 - [许可证](#license)
 
@@ -474,8 +475,44 @@ vendor
 		var_dump($ret);
 	}
 	
-
 	
+<a name=pfop-api></a>
+## 持久化数据处理
+七牛支持在云端对图像, 视频, 音频等富媒体进行持久化处理处理。 由于音视频的处理比较耗时，所以音视频的处理较多采用异步持久化操作。
+
+<a name=av-hls></a>
+#### 视频切片
+
+	require_once __DIR__.'/../vendor/autoload.php';
+
+	use Qiniu\Auth;
+	use Qiniu\Processing\PersistentFop;
+
+	$accessKey = '<YOUR_APP_ACCESS_KEY>';
+	$secretKey = '<YOUR_APP_SECRET_KEY>';
+	$auth = new Auth($accessKey, $secretKey);
+
+	$bucket = 'phpsdk';
+	$key = 'clock.flv';
+	$pfop = New PersistentFop($auth, $bucket);
+
+	$options = array(
+		'segtime' => 10,
+		'vcodec' => 'libx264',
+		's' => '320x240'
+		);
+
+	list($id, $err) = $pfop->avthumb($key, 'm3u8', $options, $bucket, 'avthumtest.m3u8');
+	echo "\n====> pfop avthumb result: \n";
+	if ($err != null) {
+		var_dump($err);
+	} else {
+		echo "PersistentFop Id: $id";
+	}
+
+
+
+
 	
 <a name=contribution></a>
 ## 贡献代码
