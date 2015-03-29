@@ -48,11 +48,11 @@ jar文件下载：[http://search.maven.org/#search|ga|1|a:"qiniu-java-sdk"](http
 MAVEN
 
 ```
-    <dependency>
-        <groupId>com.qiniu</groupId>
-        <artifactId>qiniu-java-sdk</artifactId>
-        <version>[7.0.0, 7.0.99]</version>
-    </dependency>
+<dependency>
+    <groupId>com.qiniu</groupId>
+    <artifactId>qiniu-java-sdk</artifactId>
+    <version>[7.0.0, 7.0.99]</version>
+</dependency>
 ```
 
 GRADLE
