@@ -8,8 +8,10 @@ title: Java SDK 使用指南
 此SDK适用于Java 6及以上版本。基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 SDK下载地址：[https://github.com/qiniu/java-sdk](https://github.com/qiniu/java-sdk)
-jar文件下载：[http://search.maven.org/#search%7Cga%7C1%7Cqiniu](http://search.maven.org/#search%7Cga%7C1%7Cqiniu)
-历史文档： [qiniu-java-sdk-6](#http://developer.qiniu.com/docs/v6/sdk/java-sdk-6.html)
+
+jar文件下载：[http://search.maven.org/#search|ga|1|a:"qiniu-java-sdk"](http://search.maven.org/#search|ga|1|a:"qiniu-java-sdk")
+
+历史文档： [qiniu-java-sdk-6](http://developer.qiniu.com/docs/v6/sdk/java-sdk-6.html)
 
 目录
 ----
@@ -60,7 +62,7 @@ compile 'com.qiniu:qiniu-java-sdk:7.0.+'
 ```
 
 相关包：
-[qiniu-java-sdk-7](#http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)
+[qiniu-java-sdk-7](#http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、
 [Google Gson](#http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp](#http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio](#http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)
 
 <a id="setup"></a>
@@ -134,35 +136,35 @@ Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
 
 ```
-    private String getUpToken0(){
-        return auth.uploadToken("bucket");
-    }
+private String getUpToken0(){
+    return auth.uploadToken("bucket");
+}
 
-    private String getUpToken1(){
-        return auth.uploadToken("bucket", "key");
-    }
+private String getUpToken1(){
+    return auth.uploadToken("bucket", "key");
+}
 
-    private String getUpToken2(){
-        return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""));
-    }
+private String getUpToken2(){
+    return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""));
+}
 
 
-    private String getUpToken3(){
-        return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""), true);
-    }
+private String getUpToken3(){
+    return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""), true);
+}
 
-    /**
-    * 生成上传token
-    *
-    * @param bucket  空间名
-    * @param key     key，可为 null
-    * @param expires 有效时长，单位秒。默认3600s
-    * @param policy  上传策略的其它参数，如 new StringMap().put("endUser", "uid").putNotEmpty("returnBody", "")。
-    *                scope通过 bucket、key间接设置，deadline 通过 expires 间接设置
-    * @param strict  是否去除非限定的策略字段，默认true
-    * @return 生成的上传token
-    */
-    public String uploadToken(String bucket, String key, long expires, StringMap policy, boolean strict)
+/**
+* 生成上传token
+*
+* @param bucket  空间名
+* @param key     key，可为 null
+* @param expires 有效时长，单位秒。默认3600s
+* @param policy  上传策略的其它参数，如 new StringMap().put("endUser", "uid").putNotEmpty("returnBody", "")。
+*        scope通过 bucket、key间接设置，deadline 通过 expires 间接设置
+* @param strict  是否去除非限定的策略字段，默认true
+* @return 生成的上传token
+*/
+public String uploadToken(String bucket, String key, long expires, StringMap policy, boolean strict)
 ```
 
 <a id="upload-code"></a>
@@ -179,52 +181,52 @@ uptoken是一个字符串，作为http协议Header的一部分（Authorization�
 简单上传代码如下：
 
 ```
-    private UploadManager uploadManager = new UploadManager();
-    private Auth auth = Auth.create(getAK(), getSK());
+private UploadManager uploadManager = new UploadManager();
+private Auth auth = Auth.create(getAK(), getSK());
 
-    //上传内存中数据
-    public void upload(byte[] data, String UpToken, String key){
-      try {
-            Response res = uploadManager.put(data, key, UpToken);
-            // log.info(res);
-            // log.info(res.bodyString());
-            if(res.isOK()){
-                //success
-            }
-        } catch (QiniuException e) {
-            e.printStackTrace();
-            //dosomething
+//上传内存中数据
+public void upload(byte[] data, String UpToken, String key){
+  try {
+        Response res = uploadManager.put(data, key, UpToken);
+        // log.info(res);
+        // log.info(res.bodyString());
+        if(res.isOK()){
+            //success
         }
+    } catch (QiniuException e) {
+        e.printStackTrace();
+        //dosomething
     }
+}
 
-    public void uploadFilePath(){
-        String key = null;
-        try {
-            Response res = uploadManager.put(getFilePath(), key, getUpToken());
-            // log.info(res);
-            // log.info(res.bodyString());
-            if(res.isOK()){
-                //success
-            }
-        } catch (QiniuException e) {
-            e.printStackTrace();
-            //dosomething
+public void uploadFilePath(){
+    String key = null;
+    try {
+        Response res = uploadManager.put(getFilePath(), key, getUpToken());
+        // log.info(res);
+        // log.info(res.bodyString());
+        if(res.isOK()){
+            //success
         }
+    } catch (QiniuException e) {
+        e.printStackTrace();
+        //dosomething
     }
+}
 
-    public void uploadFile(){
-        try {
-            Response res = uploadManager.put(getFile(), getKey(), getUpToken());
-            // log.info(res);
-            // log.info(res.bodyString());
-            if(res.isOK()){
-                //success
-            }
-        } catch (QiniuException e) {
-            e.printStackTrace();
-            //dosomething
+public void uploadFile(){
+    try {
+        Response res = uploadManager.put(getFile(), getKey(), getUpToken());
+        // log.info(res);
+        // log.info(res.bodyString());
+        if(res.isOK()){
+            //success
         }
+    } catch (QiniuException e) {
+        e.printStackTrace();
+        //dosomething
     }
+}
 ```
 
 指定mimetype:
@@ -284,7 +286,7 @@ uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略，�
 如果在给bucket绑定了域名的话，可以通过以下地址访问。
 
 ```
-  [GET] http://<domain>/<key>
+[GET] http://<domain>/<key>
 ```
 
 其中`<domain>`是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛云存储开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，通过自有域名访问七牛云存储。
@@ -300,9 +302,9 @@ uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略，�
 
 私有资源必须通过临时下载授权凭证(downloadToken)下载，如下：
 
-  ```
-  [GET] http://<domain>/<key>?e=<deadline>token=<downloadToken>
-  ```
+```
+[GET] http://<domain>/<key>?e=<deadline>token=<downloadToken>
+```
 
 注意，尖括号不是必需，代表替换项。  
 
@@ -341,27 +343,27 @@ String[] buckets = bucketManager.buckets();
 批量获取文件列表
 
 ```
-    /**
-     * 根据前缀获取文件列表的迭代器
-     *
-     * @param bucket    空间名
-     * @param prefix    文件名前缀
-     * @param limit     每次迭代的长度限制，最大1000，推荐值 100
-     * @param delimiter 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。缺省值为空字符串
-     * @return FileInfo迭代器
-     */
+/**
+* 根据前缀获取文件列表的迭代器
+*
+* @param bucket    空间名
+* @param prefix    文件名前缀
+* @param limit     每次迭代的长度限制，最大1000，推荐值 100
+* @param delimiter 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。缺省值为空字符串
+* @return FileInfo迭代器
+*/
 
 
-    BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix)
+BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix)
 
-    BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix, 100, null);
+BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix, 100, null);
 
-    while (it.hasNext()) {
-        FileInfo[] items = it.next();
-        if (items.length > 1) {
-            assertNotNull(items[0]);
-        }
+while (it.hasNext()) {
+    FileInfo[] items = it.next();
+    if (items.length > 1) {
+        assertNotNull(items[0]);
     }
+}
 ```
 
 <a id="rs-stat"></a>
@@ -406,22 +408,22 @@ bucketManager.delete(bucket, key);
 当您需要一次性进行多个操作时, 可以使用批量操作.
 
 ```
-    BucketManager.Batch ops = new BucketManager.Batch()
-            .copy(TestConfig.bucket, TestConfig.key, TestConfig.bucket, key)
-            .move(TestConfig.bucket, key1, TestConfig.bucket, key2)
-            .rename(TestConfig.bucket, key3, key4)
-            .stat(TestConfig.bucket, array)
-            .stat(TestConfig.bucket, array[0]);
-    try {
-        Response r = bucketManager.batch(ops);
-        BatchStatus[] bs = r.jsonToObject(BatchStatus[].class);
-        for (BatchStatus b : bs) {
-            assertEquals(200, b.code);
-        }
-    } catch (QiniuException e) {
-        e.printStackTrace();
-        fail();
+BucketManager.Batch ops = new BucketManager.Batch()
+        .copy(TestConfig.bucket, TestConfig.key, TestConfig.bucket, key)
+        .move(TestConfig.bucket, key1, TestConfig.bucket, key2)
+        .rename(TestConfig.bucket, key3, key4)
+        .stat(TestConfig.bucket, array)
+        .stat(TestConfig.bucket, array[0]);
+try {
+    Response r = bucketManager.batch(ops);
+    BatchStatus[] bs = r.jsonToObject(BatchStatus[].class);
+    for (BatchStatus b : bs) {
+        assertEquals(200, b.code);
     }
+} catch (QiniuException e) {
+    e.printStackTrace();
+    fail();
+}
 ```
 
 <a id="rs-fetch"></a>
