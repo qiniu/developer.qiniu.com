@@ -291,7 +291,6 @@ uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略，�
 其中`<domain>`是bucket所对应的域名。七牛云存储为每一个bucket提供一个默认域名。默认域名可以到[七牛云存储开发者平台](https://portal.qiniu.com/)中，空间设置的域名设置一节查询。用户也可以将自有的域名绑定到bucket上，通过自有域名访问七牛云存储。
 `<key>`可理解为文件名，但可包含文件分隔符等其它字符。可参考[特殊key资源的访问](http://kb.qiniu.com/52slk76w)
 
-通过
 
 **注意： key必须采用utf8编码，如使用非utf8编码访问七牛云存储将反馈错误**
 
