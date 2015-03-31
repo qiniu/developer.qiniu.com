@@ -200,8 +200,8 @@ public void upload(byte[] data, String UpToken, String key){
         }
     } catch (QiniuException e) {
         // Response r = e.response;
-        // log.info(res);
-        // log.info(res.bodyString());
+        // log.info(r);
+        // log.info(r.bodyString());
         // e.printStackTrace();
         //dosomething
     }
@@ -215,8 +215,8 @@ public void uploadFilePath(){
         // log.info(res.bodyString());
     } catch (QiniuException e) {
         // Response r = e.response;
-        // log.info(res);
-        // log.info(res.bodyString());
+        // log.info(r);
+        // log.info(r.bodyString());
         // e.printStackTrace();
         //dosomething
     }
@@ -229,8 +229,8 @@ public void uploadFile(){
         // log.info(res.bodyString());
     } catch (QiniuException e) {
         // Response r = e.response;
-        // log.info(res);
-        // log.info(res.bodyString());
+        // log.info(r);
+        // log.info(r.bodyString());
         // e.printStackTrace();
         //dosomething
     }
