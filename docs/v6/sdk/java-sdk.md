@@ -9,8 +9,6 @@ title: Java SDK 使用指南
 
 SDK下载地址：[github](https://github.com/qiniu/java-sdk)
 
-jar文件下载：[maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)
-
 历史文档： [qiniu-java-sdk-6](http://developer.qiniu.com/docs/v6/sdk/java-sdk-6.html)
 
 目录
@@ -45,6 +43,8 @@ jar文件下载：[maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com
 
 ## 环境准备
 
+####  JDK1.7 及 以上
+
 MAVEN
 
 ```
@@ -61,8 +61,12 @@ GRADLE
 compile 'com.qiniu:qiniu-java-sdk:7.0.+'
 ```
 
-相关包：
-[qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)
+#### JDK 1.6
+
+sdk中依赖 okhttp ，要求 JDK 1.7 及以上。建议升级JDK。若确实需要 JDK 1.6 版本，可在依赖中排除 com.squareup.okhttp:okhttp ,下载 okhttp-jdk1.6 、okio-jdk1.6 加入到classpath中。
+
+#### 相关包：
+[qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)、[okhttp-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okhttp-2.3.0-SNAPSHOT.jar) 、[okio-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okio-1.3.0-SNAPSHOT.jar)
 
 <a id="setup"></a>
 ## 初始化
