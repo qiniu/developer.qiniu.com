@@ -52,7 +52,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 <a name="integration"></a>
 ## 安装
 
-* 通过maven安转
+* 通过maven安装
 
 ```
 <dependency>
