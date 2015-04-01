@@ -17,7 +17,7 @@ SDK下载地址：[github](https://github.com/qiniu/java-sdk)
 - [初始化](#setup)
 - [上传下载接口](#get-and-put-api)
   - [上传流程](#io-put-flow)
-  - [生成上传授权uptoken](#make-uptoken)
+  - [通过上传策略生成上传凭证](#make-uptoken)
   - [上传代码](#upload-code)
   - [断点续上传](#resumable-io-put)
   - [上传策略](#io-put-policy)
@@ -134,24 +134,33 @@ Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
 <a id="make-uptoken"></a>
 
-###  生成上传授权uptoken
+###  通过上传策略生成上传凭证
 
 uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
+上传策略描述上传行为，通过签名生成上传凭证。详细参考[上传策略][uploadTokenHref]。
+sdk中，scope通过 bucket、key间接设置(bucket:key)；deadline 通过 expires 间接设置(系统时间+3600秒)。
+简单上传可使用默认策略生成上传凭证(getUpToken0)，覆盖上传参考getUpToken1，其它策略--如设置回调、异步处理等--参考getUpToken2、getUpToken3 。
 
 ```
+Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
+
+
+// 简单上传，使用默认策略
 private String getUpToken0(){
     return auth.uploadToken("bucket");
 }
 
+// 覆盖上传
 private String getUpToken1(){
     return auth.uploadToken("bucket", "key");
 }
 
+// 设置指定上传策略
 private String getUpToken2(){
-    return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""));
+    return auth.uploadToken("bucket", null, 3600, new StringMap().put("callbackUrl", "call back url").putNotEmpty("callbackHost", "").put("callbackBody", "key=$(key)&hash=$(etag)"));
 }
 
-
+// 去除非限定的策略字段
 private String getUpToken3(){
     return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""), true);
 }
@@ -173,8 +182,6 @@ public String uploadToken(String bucket, String key, long expires, StringMap pol
 <a id="upload-code"></a>
 
 ###  上传
-
-上传本地文件。如果用户从自己的计算机或服务器上传文件，可以直接使用七牛云存储提供的[qrsync](../tools/qrsync.html)工具。用户也可以自行编写上传程序。
 
 上传程序大体步骤如下：
 
@@ -200,8 +207,8 @@ public void upload(byte[] data, String UpToken, String key){
         }
     } catch (QiniuException e) {
         // Response r = e.response;
-        // log.info(res);
-        // log.info(res.bodyString());
+        // log.info(r);
+        // log.info(r.bodyString());
         // e.printStackTrace();
         //dosomething
     }
@@ -215,8 +222,8 @@ public void uploadFilePath(){
         // log.info(res.bodyString());
     } catch (QiniuException e) {
         // Response r = e.response;
-        // log.info(res);
-        // log.info(res.bodyString());
+        // log.info(r);
+        // log.info(r.bodyString());
         // e.printStackTrace();
         //dosomething
     }
@@ -229,8 +236,8 @@ public void uploadFile(){
         // log.info(res.bodyString());
     } catch (QiniuException e) {
         // Response r = e.response;
-        // log.info(res);
-        // log.info(res.bodyString());
+        // log.info(r);
+        // log.info(r.bodyString());
         // e.printStackTrace();
         //dosomething
     }
@@ -270,14 +277,6 @@ UploadManager#put方法会根据 Config.PUT_THRESHOLD 参数判断是否使用�
 ```
 //TODO 保留断点记录功能正在开发中。。。
 ```
-
-<a id="io-put-policy"></a>
-
-###  上传策略
-
-uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略，它控制则整个上传流程的行为。
-`deadline` 由服务器时间加上 指定秒数 表示过期时间点。默认 3600 秒，服务器时间需校准，不要于标准时间相差太大。
-请参考 [uptoken][uploadTokenHref]。
 
 ###  文件下载
 
@@ -319,6 +318,8 @@ uptoken实际上是用 AccessKey/SecretKey 进行数字签名的上传策略，�
 `downloadToken` 可以使用 SDK 提供的如下方法生成：
 
 ```
+private Auth auth = Auth.create(getAK(), getSK());
+
 String url = "http://abc.resdet.com/dfe/hg.jpg";
 String url2 = "http://abd.resdet.com/dfe/hg.jpg?imageView2/1/w/100";
 //默认有效时长：3600秒
@@ -360,8 +361,7 @@ String[] buckets = bucketManager.buckets();
 * @return FileInfo迭代器
 */
 
-
-BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix)
+//BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix)
 
 BucketManager.FileListIterator it = bucketManager.createFileListIterator(bucket, prefix, 100, null);
 
