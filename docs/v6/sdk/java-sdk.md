@@ -136,7 +136,7 @@ Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
 ###  通过上传策略生成上传凭证
 
-uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
+uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。 
 上传策略描述上传行为，通过签名生成上传凭证。详细参考[上传策略][uploadTokenHref]。
 sdk中，scope通过 bucket、key间接设置(bucket:key)；deadline 通过 expires 间接设置(系统时间+3600秒)。
 简单上传可使用默认策略生成上传凭证(getUpToken0)，覆盖上传参考getUpToken1，其它策略--如设置回调、异步处理等--参考getUpToken2、getUpToken3 。
@@ -157,12 +157,15 @@ private String getUpToken1(){
 
 // 设置指定上传策略
 private String getUpToken2(){
-    return auth.uploadToken("bucket", null, 3600, new StringMap().put("callbackUrl", "call back url").putNotEmpty("callbackHost", "").put("callbackBody", "key=$(key)&hash=$(etag)"));
+    return auth.uploadToken("bucket", null, 3600, new StringMap()
+         .put("callbackUrl", "call back url").putNotEmpty("callbackHost", "")
+         .put("callbackBody", "key=$(key)&hash=$(etag)"));
 }
 
 // 去除非限定的策略字段
 private String getUpToken3(){
-    return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""), true);
+    return auth.uploadToken("bucket", null, 3600, new StringMap()
+            .put("endUser", "uid").putNotEmpty("returnBody", ""), true);
 }
 
 /**
