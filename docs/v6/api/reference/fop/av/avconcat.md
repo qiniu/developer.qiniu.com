@@ -41,7 +41,7 @@ avconcat/<Mode>
 <a id="avconcat-samples"></a>
 ## 示例
 
-2. 以触发持久化处理形式，将多段mp4视频拼接成一段（分别是thinking-in-go.1.mp4、thinking-in-go.2.mp4、thinking-in-go.3.mp4）：  
+2. 以触发持久化处理形式，将多段mp4视频拼接成一段（分别是thinking-in-go.1.mp4、thinking-in-go.2.mp4、thinking-in-go.3.mp4, 这几个视频在同一个空间中,并且绑定了域名`test.cloudd.com`）：  
 
 	```
     POST /pfop/ HTTP/1.1
@@ -51,7 +51,7 @@ avconcat/<Mode>
 
     bucket=qiniu-ts-demo
     &key=thinking-in-go.1.mp4
-    &fops=avconcat%2Fmode%2F1%2Fformat%2Fmp4%2FdGhpbmtpbmctaW4tZ28uMi5tcDQ%3D%2FdGhpbmtpbmctaW4tZ28uMy5tcDQ%3D
+    &fops=avconcat%2Fmode%2F1%2Fformat%2Fmp4%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMi5tcDQ%3D%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMy5tcDQ%3D
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
