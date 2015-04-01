@@ -25,7 +25,7 @@ Content-Type:   application/x-www-form-urlencoded
 Authorization:  QBox <AccessToken>
 ```
 
-EncodedURL参数为对指定URL地址进行[URL安全的Base64编码][urlsafeBase64Href]后的字符串，EncodedEntryURI的细节请查看[EncodedEntryURI][encodedEntryURIHref]。
+EncodedURL参数为对指定URL地址进行[URL安全的Base64编码][urlsafeBase64Href]后的字符串，[EncodedEntryURI][encodedEntryURIHref]为 `<bucket>:<key>` 或者 `<bucket>` 的 urlsafe base64 编码,如果只指定`<bucket>`，则默认为文件的[hash][qetag]值作为key。
 
 <a id="fetch-request-auth"></a>
 ### 访问权限
@@ -150,6 +150,7 @@ X-Reqid: wxIAAD3btw-v3TwT
 - [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
+- [七牛etag算法][qetag]
 
 [encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html                             "EncodedEntryURI格式"
 [accessTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/access-token.html                    "管理凭证"
@@ -158,3 +159,4 @@ X-Reqid: wxIAAD3btw-v3TwT
 [commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"
 
 [urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[qetag]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html "文件etag算法"
