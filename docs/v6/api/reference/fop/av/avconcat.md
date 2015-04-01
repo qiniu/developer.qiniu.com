@@ -41,7 +41,7 @@ avconcat/<Mode>
 <a id="avconcat-samples"></a>
 ## 示例
 
-2. 以触发持久化处理形式，将多段mp4视频拼接成一段（分别是thinking-in-go.1.mp4、thinking-in-go.2.mp4、thinking-in-go.3.mp4, 这几个视频在同一个空间中,并且绑定了域名`test.cloudd.com`）：  
+2. 以触发持久化处理形式，将多段mp4视频拼接成一段（分别是thinking-in-go.1.mp4、thinking-in-go.2.mp4、thinking-in-go.3.mp4。 假设这几个视频放在一个绑定了域名`test.clouddn.com`的空间中）：  
 
 	```
     POST /pfop/ HTTP/1.1
