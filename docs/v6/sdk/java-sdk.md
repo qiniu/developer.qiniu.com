@@ -63,9 +63,10 @@ compile 'com.qiniu:qiniu-java-sdk:7.0.+'
 
 #### JDK 1.6
 
-sdk中依赖 okhttp ，要求 JDK 1.7 及以上。建议升级JDK。若确实需要 JDK 1.6 版本，可在依赖中排除 com.squareup.okhttp:okhttp ,下载 okhttp-jdk1.6 、okio-jdk1.6 加入到classpath中。
+qiniu-java-sdk 依赖 [okhttp](http://square.github.io/okhttp/) ，要求 JDK 1.7 及以上。建议升级JDK。若确实需要 JDK 1.6 版本，在包管理器中排除 okhttp，直接下载 okhttp-jdk1.6 、okio-jdk1.6 加入到classpath中。
 
 #### 相关包：
+若没有使用包管理器，可直接下载对应包，加入classpath中。 
 [qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)、[okhttp-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okhttp-2.3.0-SNAPSHOT.jar) 、[okio-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okio-1.3.0-SNAPSHOT.jar)
 
 <a id="setup"></a>
@@ -136,7 +137,7 @@ Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
 ###  通过上传策略生成上传凭证
 
-uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。 
+uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
 上传策略描述上传行为，通过签名生成上传凭证。详细参考[上传策略][uploadTokenHref]。
 sdk中，scope通过 bucket、key间接设置(bucket:key)；deadline 通过 expires 间接设置(系统时间+3600秒)。
 简单上传可使用默认策略生成上传凭证(getUpToken0)，覆盖上传参考getUpToken1，其它策略--如设置回调、异步处理等--参考getUpToken2、getUpToken3 。
