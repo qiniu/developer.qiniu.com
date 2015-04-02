@@ -26,10 +26,10 @@ SDK下载地址：[github](https://github.com/qiniu/java-sdk)
 - [资源管理接口](#rs-api)
   - [空间名列表](#rs-buckets)
   - [列举资源](#rsf-listPrefix)
-  - [查看单个文件属性](#rs-stat)
-  - [复制单个文件](#rs-copy)
-  - [重命名、移动单个文件](#rs-move)
-  - [删除单个文件](#rs-delete)
+  - [查看文件属性](#rs-stat)
+  - [复制文件](#rs-copy)
+  - [重命名、移动文件](#rs-move)
+  - [删除文件](#rs-delete)
   - [批量操作](#rs-batch)
   - [抓取资源](#rs-fetch)
   - [更新镜像资源](#rs-prefetch)
@@ -66,8 +66,8 @@ compile 'com.qiniu:qiniu-java-sdk:7.0.+'
 qiniu-java-sdk 依赖 [okhttp](http://square.github.io/okhttp/) ，要求 JDK 1.7 及以上。建议升级JDK。若确实需要 JDK 1.6 版本，在包管理器中排除 okhttp，直接下载 okhttp-jdk1.6 、okio-jdk1.6 加入到classpath中。
 
 #### 相关包：
-若没有使用包管理器，可直接下载对应包，加入classpath中。 
-[qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)、[okhttp-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okhttp-2.3.0-SNAPSHOT.jar) 、[okio-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okio-1.3.0-SNAPSHOT.jar)
+若没有使用包管理器，可直接下载对应包，加入classpath中。
+[qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp (JDK1.7 及以上)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio (JDK1.7 及以上)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)、[okhttp-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okhttp-2.3.0-SNAPSHOT.jar) 、[okio-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okio-1.3.0-SNAPSHOT.jar)
 
 <a id="setup"></a>
 ## 初始化
@@ -379,7 +379,7 @@ while (it.hasNext()) {
 
 <a id="rs-stat"></a>
 
-###  查看单个文件属性信息
+###  查看文件属性
 
 ```
 FileInfo info = bucketManager.stat(bucket, key);
@@ -388,7 +388,7 @@ FileInfo info = bucketManager.stat(bucket, key);
 
 <a id="rs-copy"></a>
 
-###  复制单个文件
+###  复制文件
 
 ```
 bucketManager.copy(bucket, key, targetBucket, targetKey);
@@ -396,7 +396,7 @@ bucketManager.copy(bucket, key, targetBucket, targetKey);
 
 <a id="rs-move"></a>
 
-###  重命名、移动单个文件
+###  重命名、移动文件
 
 ```
 bucketManager.rename(bucket, key, key2);
@@ -405,7 +405,7 @@ bucketManager.move(bucket, key, targetBucket, targetKey);
 
 <a id="rs-delete"></a>
 
-###  删除单个文件
+###  删除文件
 
 ```
 bucketManager.delete(bucket, key);
@@ -424,7 +424,11 @@ BucketManager.Batch ops = new BucketManager.Batch()
         .move(TestConfig.bucket, key1, TestConfig.bucket, key2)
         .rename(TestConfig.bucket, key3, key4)
         .stat(TestConfig.bucket, array)
-        .stat(TestConfig.bucket, array[0]);
+        .stat(TestConfig.bucket, array[0])
+        .stat(TestConfig.bucket, array[1], array[2])
+        .delete(TestConfig.bucket, array1)
+        .delete(TestConfig.bucket, array1[0])
+        .delete(TestConfig.bucket, array1[1], array1[2]);
 try {
     Response r = bucketManager.batch(ops);
     BatchStatus[] bs = r.jsonToObject(BatchStatus[].class);
@@ -432,8 +436,11 @@ try {
         assertEquals(200, b.code);
     }
 } catch (QiniuException e) {
-    e.printStackTrace();
-    fail();
+    // Response r = e.response;
+    // log.info(r);
+    // log.info(r.bodyString());
+    // e.printStackTrace();
+    // something else
 }
 ```
 
@@ -442,6 +449,9 @@ try {
 ###  抓取资源
 
 ```
+//要求url可公网正常访问，不指定 key 时以文件的 hash 值为 key
+bucketManager.fetch(url, bucket);
+
 //要求url可公网正常访问
 bucketManager.fetch(url, bucket, key);
 ```
