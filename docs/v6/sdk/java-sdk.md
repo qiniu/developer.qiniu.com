@@ -315,11 +315,29 @@ Response res = uploadManager.put(getDataOrFile(), key, getUpToken(), null, null,
 <a id="resumable-io-put"></a>
 
 ###  断点上传
-UploadManager#put方法会根据 Config.PUT_THRESHOLD 参数判断是否使用分片上传，默认分片上传记录保留在内存中，方法终止记录就消失。
-下面会将断点记录序列化后记录下来，可反序列化，再次上传时从上次的记录处开始上传。
+UploadManager#put方法`上传文件时`会根据 Config.PUT_THRESHOLD 参数判断是否使用分片上传，默认分片上传记录保留在内存中，方法终止记录就消失。
+下面会将断点记录序列化后记录下来，可反序列化，再次上传时从上次的记录处开始上传。默认实现将断点记录文件保存在指定文件夹中：
 
 ```
-//TODO 保留断点记录功能正在开发中。。。
+// 设置断点文件保存的位置： 文件夹路径 或 其表示的File
+Recorder recorder = new FileRecorder(getPathFile());
+UploadManager uploader = new UploadManager(recorder);
+
+// 执行文件上传：中断或失败后，使用行为相同的recorder生成的uploader执行上传，
+// 会在上次上传记录基础上再次上传。
+uploadManager.put(...)
+
+// 也可自己制定断点记录文件生成规则
+RecordKeyGenerator recordGen = new RecordKeyGenerator() {
+        @Override
+        public String gen(String key, File file) {
+            return key + "_._" + file.getAbsolutePath();
+        }
+    };
+
+UploadManager uploader = new UploadManager(recorder, recordGen);
+uploadManager.put(...)
+
 ```
 
 ###  文件下载
