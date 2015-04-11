@@ -25,11 +25,11 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 
 该SDK支持不低于2.3的Android版本（api9）。
 
-<a name="download-link"></a> 
+<a name="download-link"></a>
 ## 下载链接
 
 - SDK 下载地址：<https://codeload.github.com/qiniu/android-sdk/zip/master>
-- SDK 源码地址：<https://github.com/qiniu/android-sdk> 
+- SDK 源码地址：<https://github.com/qiniu/android-sdk>
 
 <a name="use-scenario"></a>
 ## 使用场景
@@ -73,7 +73,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 该方法的详细说明如下：
 
 ```java
-public static UploadTaskExecutor put(Authorizer auth, String key, 
+public static UploadTaskExecutor put(Authorizer auth, String key,
 		InputStreamAt isa, PutExtra extra, CallBack callback);
 ```
 
@@ -84,8 +84,8 @@ public static UploadTaskExecutor put(Authorizer auth, String key,
 `auth` | `Authorizer` | 用于设置或获取上传token。获取新的token后，设置到auth中，下次上传(如分片上传的下一片)会使用新的token，减少token过期。
 `key` | `String` | 将保存为的资源唯一标识。请参见[关键概念：键值对](http://developer.qiniu.com/docs/v6/api/overview/concepts.html#key-value)。
 `isa` | `InputStreamAt` | 待上传的Uri、File、InputStream、byte[]的包装类。
-`extra` | [`PutExtra`](https://github.com/simon-liubin/android-sdk/blob/master/src/com/qiniu/rs/PutExtra.java) | 上传额外参数。可以设置MIME类型等。
-`callback` | [`CallBack`](https://github.com/simon-liubin/android-sdk/blob/master/src/com/qiniu/rs/CallBack.java)  | 开发者需实现该接口以获取上传进度和上传结果。<br>若上传成功，该接口中的`onSuccess()`方法将被调用。否则`onFailure()`方法将被调用。 `onProgress()`会在文件上传量发生更改的时候被调用。运行在主线程中。
+`extra` | [`PutExtra`](https://github.com/qiniu/android-sdk/blob/6.x/src/com/qiniu/rs/PutExtra.java) | 上传额外参数。可以设置MIME类型等。
+`callback` | [`CallBack`](https://github.com/qiniu/android-sdk/blob/6.x/src/com/qiniu/rs/CallBack.java)  | 开发者需实现该接口以获取上传进度和上传结果。<br>若上传成功，该接口中的`onSuccess()`方法将被调用。否则`onFailure()`方法将被调用。 `onProgress()`会在文件上传量发生更改的时候被调用。运行在主线程中。
 
 返回值： `UploadTaskExecutor` 提供 `cancel` 等方法。
 
@@ -106,7 +106,7 @@ extra.params = new HashMap<String, String>();
 extra.params.put("x:a", "bb"); // 设置一个自定义变量
 ```
 
-表单上传的示例代码请参见SDK示例中[`MyActivity.doUpload()`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/demo/MyActivity.java)方法的实现。
+表单上传的示例代码请参见SDK示例中[`MyActivity.doUpload()`](https://github.com/qiniu/android-sdk/blob/6.x/src/com/qiniu/demo/MyActivity.java)方法的实现。
 
 <a name="resumable-upload"></a>
 ### 断点续上传
@@ -114,12 +114,12 @@ extra.params.put("x:a", "bb"); // 设置一个自定义变量
 可基于分片上传机制实现断点续上传功能。
 
 ```java
-public static UploadTaskExecutor put(Authorizer auth, String key, 
+public static UploadTaskExecutor put(Authorizer auth, String key,
 			InputStreamAt input, PutExtra extra, CallBack callback)
-			
-public static UploadTaskExecutor put(Authorizer auth, String key, 
+
+public static UploadTaskExecutor put(Authorizer auth, String key,
 			InputStreamAt input, PutExtra extra, List<Block> blocks, CallBack callback)
-			
+
 public Block(int idx, String ctx, int length, String host)
 ```
 
@@ -134,7 +134,7 @@ public Block(int idx, String ctx, int length, String host)
 
 `CallBack#onBlockSuccess(Block blk)` 一个块上传成功后，会调用此回调，可根据情况保存断点记录。
 
-分片上传的示例代码请参见SDK示例中[`MyResumableActivity.doResumableUpload()`](https://github.com/qiniu/android-sdk/blob/develop/src/com/qiniu/demo/MyResumableActivity.java)方法的实现。
+分片上传的示例代码请参见SDK示例中[`MyResumableActivity.doResumableUpload()`](https://github.com/qiniu/android-sdk/blob/6.x/src/com/qiniu/demo/MyResumableActivity.java)方法的实现。
 
 实际情况中，本地文件可能修改，在恢复上传前先做相应的校验。
 
