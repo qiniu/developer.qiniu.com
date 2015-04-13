@@ -26,10 +26,10 @@ SDK下载地址：[github](https://github.com/qiniu/java-sdk)
 - [资源管理接口](#rs-api)
   - [空间名列表](#rs-buckets)
   - [列举资源](#rsf-listPrefix)
-  - [查看单个文件属性](#rs-stat)
-  - [复制单个文件](#rs-copy)
-  - [重命名、移动单个文件](#rs-move)
-  - [删除单个文件](#rs-delete)
+  - [查看文件属性](#rs-stat)
+  - [复制文件](#rs-copy)
+  - [重命名、移动文件](#rs-move)
+  - [删除文件](#rs-delete)
   - [批量操作](#rs-batch)
   - [抓取资源](#rs-fetch)
   - [更新镜像资源](#rs-prefetch)
@@ -63,10 +63,12 @@ compile 'com.qiniu:qiniu-java-sdk:7.0.+'
 
 #### JDK 1.6
 
-sdk中依赖 okhttp ，要求 JDK 1.7 及以上。建议升级JDK。若确实需要 JDK 1.6 版本，可在依赖中排除 com.squareup.okhttp:okhttp ,下载 okhttp-jdk1.6 、okio-jdk1.6 加入到classpath中。
+qiniu-java-sdk 依赖 [okhttp](http://square.github.io/okhttp/) ，要求 JDK 1.7 及以上。建议升级JDK。若确实需要 JDK 1.6 版本，在包管理器中排除 okhttp，直接下载 okhttp-jdk1.6 、okio-jdk1.6 加入到classpath中。
 
 #### 相关包：
-[qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)、[okhttp-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okhttp-2.3.0-SNAPSHOT.jar) 、[okio-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okio-1.3.0-SNAPSHOT.jar)
+若没有使用包管理器，可直接下载对应包，加入classpath中。qiniu-java-sdk-7 依赖 Google Gson 、 okhttp， okhttp 依赖 okio。
+
+[qiniu-java-sdk-7](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-java-sdk%22)、[Google Gson](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.google.code.gson%22%20AND%20a%3A%22gson%22) 、[okhttp (JDK1.7 及以上)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okhttp%22%20AND%20a%3A%22okhttp%22) 、[okio (JDK1.7 及以上)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.squareup.okio%22%20AND%20a%3A%22okio%22)、[okhttp-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okhttp-2.3.0-SNAPSHOT.jar) 、[okio-jdk1.6](https://raw.githubusercontent.com/qiniu/java-sdk/master/libs/okio-1.3.0-SNAPSHOT.jar)
 
 <a id="setup"></a>
 ## 初始化
@@ -85,28 +87,6 @@ Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 <a id="get-and-put-api"></a>
 
 ## 上传下载接口
-
-为了尽可能地改善终端用户的上传体验，七牛云存储首创了客户端直传功能。
-
-一般云存储的上传流程是：
-
-    客户端（终端用户） => 业务服务器 => 云存储服务
-
-这样通过用户自己的业务服务器中转上传至云存储服务端。这种方式存在一些不足：
-
-2. 多了一次中转的上传过程，同数据存放在用户的业务服务器中相比，会相对慢一些；
-2. 增加了用户业务服务器的负载，消耗了带宽，占用了磁盘，降低了服务能力；
-2. 增加了用户的流量消耗，来自终端用户的上传数据进入业务服务器，然后再次上传至云存储服务，净增一倍流量。
-
-因此，七牛云存储引入了客户端直传的模式，将整个上传过程调整为：
-
-    客户端（终端用户） => 七牛 => 业务服务器
-
-客户端（终端用户）直接上传到七牛的服务器。通过DNS智能解析，七牛会选择到离终端用户最近的ISP服务商节点，速度会相比数据存放在用户自己的业务服务器上的方式更快。而且，七牛云存储可以在用户文件上传成功以后，替用户的客户端向用户的业务服务器发送反馈信息，减少用户的客户端同业务服务器之间的交互。详情请参考[上传策略](../api/reference/security/put-policy.html)
-
-**注意**：如果您只是想要将您电脑上，或者是服务器上的文件上传到七牛云存储，可以直接使用七牛提供的 [qrsync](../tools/qrsync.html) 上传工具，而无需额外开发。
-
-文件上传有两种方式：普通方式，即一次性上传整个文件；断点续上传，即将文件分割成若干小块，分别上传，然后在七牛云存储服务端重新合并成一个文件。一般情况下，用户可以采用普通上传。如果文件较大，或者网络条件不佳，那么可以使用断点续上传，提高上传的速度和成功率。
 
 
 <a id="io-put-flow"></a>
@@ -137,7 +117,7 @@ Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 ###  通过上传策略生成上传凭证
 
 uptoken是一个字符串，作为http协议Header的一部分（Authorization字段）发送到我们七牛的服务端，表示这个http请求是经过用户授权的。
-上传策略描述上传行为，通过签名生成上传凭证。详细参考[上传策略][uploadTokenHref]。
+上传策略描述上传行为，通过签名生成上传凭证。详细参考 [上传策略][uploadTokenHref]。
 sdk中，scope通过 bucket、key间接设置(bucket:key)；deadline 通过 expires 间接设置(系统时间+3600秒)。
 简单上传可使用默认策略生成上传凭证(getUpToken0)，覆盖上传参考getUpToken1，其它策略--如设置回调、异步处理等--参考getUpToken2、getUpToken3 。
 
@@ -157,12 +137,16 @@ private String getUpToken1(){
 
 // 设置指定上传策略
 private String getUpToken2(){
-    return auth.uploadToken("bucket", null, 3600, new StringMap().put("callbackUrl", "call back url").putNotEmpty("callbackHost", "").put("callbackBody", "key=$(key)&hash=$(etag)"));
+    return auth.uploadToken("bucket", null, 3600, new StringMap()
+         .put("callbackUrl", "call back url").putNotEmpty("callbackHost", "")
+         .put("callbackBody", "key=$(key)&hash=$(etag)"));
 }
 
 // 去除非限定的策略字段
 private String getUpToken3(){
-    return auth.uploadToken("bucket", null, 3600, new StringMap().put("endUser", "uid").putNotEmpty("returnBody", ""), true);
+    return auth.uploadToken("bucket", null, 3600, new StringMap()
+            .putNotEmpty("persistentOps", "").putNotEmpty("persistentNotifyUrl", "")
+            .putNotEmpty("persistentPipeline", ""), true);
 }
 
 /**
@@ -183,10 +167,74 @@ public String uploadToken(String bucket, String key, long expires, StringMap pol
 
 ###  上传
 
-上传程序大体步骤如下：
 
-1. 生成UploadToken；
-1. 上传byte[] 或 文件；
+```
+/**
+ * 上传数据
+ *
+ * @param data     上传的数据 byte[]、File、filePath
+ * @param key      上传数据保存的文件名
+ * @param token    上传凭证
+ * @param params   自定义参数，如 params.put("x:foo", "foo")
+ * @param mime     指定文件mimetype
+ * @param checkCrc 是否验证crc32
+ * @return
+ * @throws QiniuException
+ */
+public Response put(XXXX data, String key, String token, StringMap params,
+                    String mime, boolean checkCrc) throws QiniuException
+```
+响应Response中包含响应头、响应体及其它状态。如 reqId、xvia 等，`Response#body()`返回请求体，`Response#bodyString`()获得body字符串表示。
+七牛返回内容均是json，`Response#jsonToObject(Class<T> classOfT)` 将请求体转为为对应的类实例。如：
+```
+private void upload() {
+    try {
+        Response res = uploadManager.put(byteOrFile, key, getUpToken());
+        MyRet ret = res.jsonToObject(MyRet.class);
+        log.info(res.toString());
+        log.info(res.bodyString());
+    } catch (QiniuException e) {
+        Response r = e.response;
+        // 请求失败时简单状态信息
+        log.error(r.toString());
+        try {
+            // 响应的文本信息
+            log.error(r.bodyString());
+        } catch (QiniuException e1) {
+            //ignore
+        }
+    }
+}
+
+
+private String getUpToken(){
+    return auth.uploadToken("bucket", null, 3600, new StringMap()
+            .putNotEmpty("returnBody", "{\"key\": $(key), \"hash\": $(etag), \"width\": $(imageInfo.width), \"height\": $(imageInfo.height)}"));
+}
+
+public class MyRet {
+    public long fsize;
+    public String key;
+    public String hash;
+    public int width;
+    public int height;
+}
+```
+
+也可传入 Map.class 或 HashMap.class，然后获得各项属性。如：
+```
+Response res = uploadManager.put(byteOrFile, key, getUpToken());
+Map m2 = res.jsonToObject(Map.class);
+Map<String, Object> m3 = res.jsonToObject(Map.class);
+Map<String, Object> m4 = res.jsonToObject(HashMap.class);
+StringMap m1 = res.jsonToMap();
+```
+
+默认uptoken以及其它“没有”设置returnbody、callback、预处理的上传，可直接使用 DefaultPutRet：
+
+```
+DefaultPutRet ret = res.jsonToObject(DefaultPutRet.class);
+```
 
 简单上传代码如下：
 
@@ -195,51 +243,47 @@ private UploadManager uploadManager = new UploadManager();
 private Auth auth = Auth.create(getAK(), getSK());
 
 //上传内存中数据
-public void upload(byte[] data, String UpToken, String key){
+public void upload(byte[] data, String key, String upToken){
   try {
-        Response res = uploadManager.put(data, key, UpToken);
+        Response res = uploadManager.put(data, key, upToken);
         // log.info(res);
         // log.info(res.bodyString());
+        // Ret ret = res.jsonToObject(Ret.class);
         if(res.isOK()){
             //success
         }else {
             //
         }
     } catch (QiniuException e) {
-        // Response r = e.response;
-        // log.info(r);
-        // log.info(r.bodyString());
-        // e.printStackTrace();
-        //dosomething
+        Response r = e.response;
+        // 请求失败时简单状态信息
+        log.error(r.toString());
+        try {
+            // 响应的文本信息
+            log.error(r.bodyString());
+        } catch (QiniuException e1) {
+            //ignore
+        }
     }
 }
 
-public void uploadFilePath(){
-    String key = null;
-    try {
-        Response res = uploadManager.put(getFilePath(), key, getUpToken());
-        // log.info(res);
-        // log.info(res.bodyString());
-    } catch (QiniuException e) {
-        // Response r = e.response;
-        // log.info(r);
-        // log.info(r.bodyString());
-        // e.printStackTrace();
-        //dosomething
-    }
-}
 
 public void uploadFile(){
     try {
         Response res = uploadManager.put(getFile(), getKey(), getUpToken());
         // log.info(res);
         // log.info(res.bodyString());
+        // Ret ret = res.jsonToObject(Ret.class);
     } catch (QiniuException e) {
-        // Response r = e.response;
-        // log.info(r);
-        // log.info(r.bodyString());
-        // e.printStackTrace();
-        //dosomething
+        Response r = e.response;
+        // 请求失败时简单状态信息
+        log.error(r.toString());
+        try {
+            // 响应的文本信息
+            log.error(r.bodyString());
+        } catch (QiniuException e1) {
+            //ignore
+        }
     }
 }
 ```
@@ -271,11 +315,29 @@ Response res = uploadManager.put(getDataOrFile(), key, getUpToken(), null, null,
 <a id="resumable-io-put"></a>
 
 ###  断点上传
-UploadManager#put方法会根据 Config.PUT_THRESHOLD 参数判断是否使用分片上传，默认分片上传记录保留在内存中，方法终止记录就消失。
-下面会将断点记录序列化后记录下来，可反序列化，再次上传时从上次的记录处开始上传。
+UploadManager#put方法`上传文件时`会根据 Config.PUT_THRESHOLD 参数判断是否使用分片上传，默认分片上传记录保留在内存中，方法终止记录就消失。
+下面会将断点记录序列化后记录下来，可反序列化，再次上传时从上次的记录处开始上传。默认实现将断点记录文件保存在指定文件夹中：
 
 ```
-//TODO 保留断点记录功能正在开发中。。。
+// 设置断点文件保存的位置： 文件夹路径 或 其表示的File
+Recorder recorder = new FileRecorder(getPathFile());
+UploadManager uploader = new UploadManager(recorder);
+
+// 执行文件上传：中断或失败后，使用行为相同的recorder生成的uploader执行上传，
+// 会在上次上传记录基础上再次上传。
+uploadManager.put(...)
+
+// 也可自己制定断点记录文件生成规则
+RecordKeyGenerator recordGen = new RecordKeyGenerator() {
+        @Override
+        public String gen(String key, File file) {
+            return key + "_._" + file.getAbsolutePath();
+        }
+    };
+
+UploadManager uploader = new UploadManager(recorder, recordGen);
+uploadManager.put(...)
+
 ```
 
 ###  文件下载
@@ -375,7 +437,7 @@ while (it.hasNext()) {
 
 <a id="rs-stat"></a>
 
-###  查看单个文件属性信息
+###  查看文件属性
 
 ```
 FileInfo info = bucketManager.stat(bucket, key);
@@ -384,7 +446,7 @@ FileInfo info = bucketManager.stat(bucket, key);
 
 <a id="rs-copy"></a>
 
-###  复制单个文件
+###  复制文件
 
 ```
 bucketManager.copy(bucket, key, targetBucket, targetKey);
@@ -392,7 +454,7 @@ bucketManager.copy(bucket, key, targetBucket, targetKey);
 
 <a id="rs-move"></a>
 
-###  重命名、移动单个文件
+###  重命名、移动文件
 
 ```
 bucketManager.rename(bucket, key, key2);
@@ -401,7 +463,7 @@ bucketManager.move(bucket, key, targetBucket, targetKey);
 
 <a id="rs-delete"></a>
 
-###  删除单个文件
+###  删除文件
 
 ```
 bucketManager.delete(bucket, key);
@@ -420,7 +482,11 @@ BucketManager.Batch ops = new BucketManager.Batch()
         .move(TestConfig.bucket, key1, TestConfig.bucket, key2)
         .rename(TestConfig.bucket, key3, key4)
         .stat(TestConfig.bucket, array)
-        .stat(TestConfig.bucket, array[0]);
+        .stat(TestConfig.bucket, array[0])
+        .stat(TestConfig.bucket, array[1], array[2])
+        .delete(TestConfig.bucket, array1)
+        .delete(TestConfig.bucket, array1[0])
+        .delete(TestConfig.bucket, array1[1], array1[2]);
 try {
     Response r = bucketManager.batch(ops);
     BatchStatus[] bs = r.jsonToObject(BatchStatus[].class);
@@ -428,8 +494,15 @@ try {
         assertEquals(200, b.code);
     }
 } catch (QiniuException e) {
-    e.printStackTrace();
-    fail();
+    Response r = e.response;
+    // 请求失败时简单状态信息
+    log.error(r.toString());
+    try {
+        // 响应的文本信息
+        log.error(r.bodyString());
+    } catch (QiniuException e1) {
+        //ignore
+    }
 }
 ```
 
@@ -438,6 +511,9 @@ try {
 ###  抓取资源
 
 ```
+//要求url可公网正常访问，不指定 key 时以文件的 hash 值为 key
+bucketManager.fetch(url, bucket);
+
 //要求url可公网正常访问
 bucketManager.fetch(url, bucket, key);
 ```
