@@ -184,8 +184,10 @@ public String uploadToken(String bucket, String key, long expires, StringMap pol
 public Response put(XXXX data, String key, String token, StringMap params,
                     String mime, boolean checkCrc) throws QiniuException
 ```
+
 响应Response中包含响应头、响应体及其它状态。如 reqId、xvia 等，`Response#body()`返回请求体，`Response#bodyString`()获得body字符串表示。
 七牛返回内容均是json，`Response#jsonToObject(Class<T> classOfT)` 将请求体转为为对应的类实例。如：
+
 ```
 private void upload() {
     try {
@@ -222,6 +224,7 @@ public class MyRet {
 ```
 
 也可传入 Map.class 或 HashMap.class，然后获得各项属性。如：
+
 ```
 Response res = uploadManager.put(byteOrFile, key, getUpToken());
 Map m2 = res.jsonToObject(Map.class);
