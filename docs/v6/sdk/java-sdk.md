@@ -539,7 +539,7 @@ bucketManager.prefetch(bucket, key);
 
 针对大图片(大于 20M)、音视频等处理。
 在上传策略中(设置 persistentOps、persistentNotifyUrl、persistentPipeline参数)可指定上传成功后，生成一个异步任务，后台执行。
-或 针对在线的文件执行转码等预处理：
+或 触发在线文件生成异步转码任务：
 
 ```
 private OperationManager operater = new OperationManager(auth);
