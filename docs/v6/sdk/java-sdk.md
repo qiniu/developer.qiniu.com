@@ -142,7 +142,7 @@ private String getUpToken2(){
          .put("callbackBody", "key=$(key)&hash=$(etag)"));
 }
 
-// 去除非限定的策略字段
+// 设置预处理、去除非限定的策略字段
 private String getUpToken3(){
     return auth.uploadToken("bucket", null, 3600, new StringMap()
             .putNotEmpty("persistentOps", "").putNotEmpty("persistentNotifyUrl", "")
@@ -189,6 +189,16 @@ public Response put(XXXX data, String key, String token, StringMap params,
 七牛返回内容均是json，`Response#jsonToObject(Class<T> classOfT)` 将请求体转为为对应的类实例。如：
 
 ```
+
+public class MyRet {
+    public long fsize;
+    public String key;
+    public String hash;
+    public int width;
+    public int height;
+}
+
+
 private void upload() {
     try {
         Response res = uploadManager.put(byteOrFile, key, getUpToken());
@@ -214,16 +224,9 @@ private String getUpToken(){
             .putNotEmpty("returnBody", "{\"key\": $(key), \"hash\": $(etag), \"width\": $(imageInfo.width), \"height\": $(imageInfo.height)}"));
 }
 
-public class MyRet {
-    public long fsize;
-    public String key;
-    public String hash;
-    public int width;
-    public int height;
-}
 ```
 
-也可传入 Map.class 或 HashMap.class，然后获得各项属性。如：
+也可传入 `Map.class` 或 `HashMap.class`，然后获得各项属性。如：
 
 ```
 Response res = uploadManager.put(byteOrFile, key, getUpToken());
@@ -534,10 +537,45 @@ bucketManager.prefetch(bucket, key);
 
 ##  数据处理接口
 
-大图片(大于 20M)、音视频等处理比较耗时。在上传策略中可指定上传成功后，或在线的文件执行转码等预处理----生成一个异步任务，后台执行。
+针对大图片(大于 20M)、音视频等处理。
+在上传策略中(设置 persistentOps、persistentNotifyUrl、persistentPipeline参数)可指定上传成功后，生成一个异步任务，后台执行。
+或 针对在线的文件执行转码等预处理：
 
 ```
-//TODO 触发资源预处理功能正在开发中。。。
+private OperationManager operater = new OperationManager(auth);
+//....
+
+String bucket = "testres";
+String key = "sintel_trailer.mp4";
+
+String notifyURL = "";
+boolean force = true;
+String pipeline = "";
+
+StringMap params = new StringMap().putNotEmpty("notifyURL", notifyURL)
+        .putWhen("force", 1, force).putNotEmpty("pipeline", pipeline);
+
+String fops = "avthumb/mp4/vcodec/libx264/acodec/libfaac/stripmeta/1";
+fops += "|saveas/" + UrlSafeBase64.encodeToString(getBucket() + ":" + getKey());
+
+try {
+        // 针对指定空间的文件触发 pfop 操作
+        String id = operater.pfop(bucket, key, fops, params);
+        // 可通过下列地址查看处理状态信息。
+        // 实际项目中设置 notifyURL，接受通知。通知内容和处理完成后的查看信息一致。
+        //String url = "http://api.qiniu.com/status/get/prefop?id=" + id;
+    } catch (QiniuException e) {
+        Response r = e.response;
+        // 请求失败时简单状态信息
+        log.error(r.toString());
+        try {
+            // 响应的文本信息
+            log.error(r.bodyString());
+        } catch (QiniuException e1) {
+            //ignore
+        }
+    }
+
 ```
 
 <a id="contribution"></a>
