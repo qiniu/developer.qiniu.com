@@ -5,9 +5,12 @@ title: PHP SDK 使用指南
 
 # PHP SDK 使用指南
 
-此 SDK 适用于 PHP 5.3 及其以上版本。基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
+此 SDK ( version: 7.x.x ) 适用于 PHP 5.3 及其以上版本。基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
+
+SDK( version: 6.x.x )相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
+
 
 
 - [应用接入](#install)
@@ -45,15 +48,35 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 ###  PHP-SDK 安装
 
-* 使用 `composer` 安装（推荐）
 
-此 SDK 使用composer 进行依赖管理。我们也推荐使用composer进行该sdk的安装。
-可以在你项目的`composer.json`中添加对phpsdk的依赖，或者运行下面命令：
+###### 使用 `Composer` 安装（推荐）
+
+---
+
+此 SDK 使用 Composer 进行依赖管理。我们也推荐使用 Composer 进行该sdk的安装。
+Composer是PHP的依赖管理工具，用来管理你项目中的依赖。首先需要先[安装 Composer](http://docs.phpcomposer.com/00-intro.html)， 然后就可以使用了：
+
+1 . 在你项目中的`composer.json`中添加对七牛phpsdk的依赖。
+
+```
+{
+	"require": {
+		"qiniu/php-sdk": "7.*"
+	}
+}
+```
+
+然后在 `composer.json` 所在的文件夹, 运行安装命令 `composer install` 即可将该sdk安装到你的项目中。
+
+
+2 . 如果你之前的项目没有使用 Composer，也可以在项目中运行以下命令来安装七牛phpsdk：
 
 ```
 $ composer require qiniu/php-sdk
 ```
-使用该命令进行安装,会在你的当前目录生成如下目录结构：
+
+
+3 . 安装成功后会在当前目录生成如下目录结构：
 
 ```
 vendor
@@ -69,11 +92,26 @@ vendor
 └── qiniu
     └── php-sdk
 ```
-这样你就可以在你的程序中引用composer生成的autoloader程序`require ./vendor/autolaod.php` 。
 
-* 下载源码安装
+4 . 引用 Composer 生成的 autoloader
 
-本 SDK 没有依赖其他第三方库，但需要增加一个自己的autoloader程序。
+```
+require '/path/to/sdk/vendor/autoload.php';
+```
+
+PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较慢， 我们将phpsdk的 Composer 依赖进行了打包。你可以也可以通过以下方式来使用：
+
+* 下载依赖包 [vender.tar.gz](http://devtools.qiniu.io/vendor.tar.gz)
+* 解压vendor.tar.gz到您的项目目录下，在需要使用七牛的源文件头部加入 `require '/path/to/sdk/vendor/autoload.php';` 既可引用七牛phpsdk中的包。
+
+
+###### 下载源码安装（不推荐）
+
+---
+* 首先需要下载一个你需要的版本的sdk： [https://github.com/qiniu/php-sdk/releases](https://github.com/qiniu/php-sdk/releases)
+* 将你下载的zip文件解压到你项目中，并增加你的autoloader程序。  
+
+
 
 <a id="acc-appkey"></a>
 
