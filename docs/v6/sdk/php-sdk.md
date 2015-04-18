@@ -49,7 +49,7 @@ SDK( version: 6.x.x )相关文档：<http://developer.qiniu.com/docs/v6/sdk/lega
 ###  PHP-SDK 安装
 
 
-##### 使用 `Composer` 安装（推荐）
+###### 使用 `Composer` 安装（推荐）
 
 ---
 
@@ -66,10 +66,10 @@ Composer是PHP的依赖管理工具，用来管理你项目中的依赖。首先
 }
 ```
 
-然后在 `composer.json` 所在的文件夹运行安装命令 `composer install` 即可将该sdk安装到你的项目中。
+然后在 `composer.json` 所在的文件夹, 运行安装命令 `composer install` 即可将该sdk安装到你的项目中。
 
 
-2 . 如果你之前的项目没有使用过 Composer，也可以在项目根目录中直接运行以下命令来安装七牛phpsdk：
+2 . 如果你之前的项目没有使用 Composer，也可以在项目中运行以下命令来安装七牛phpsdk：
 
 ```
 $ composer require qiniu/php-sdk
@@ -92,19 +92,20 @@ vendor
 └── qiniu
     └── php-sdk
 ```
+
 4 . 引用 Composer 生成的 autoloader
 
 ```
 require '/path/to/sdk/vendor/autoload.php';
 ```
 
-
 PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较慢， 我们将phpsdk的 Composer 依赖进行了打包。你可以也可以通过以下方式来使用：
 
 * 下载依赖包 [vender.tar.gz](http://devtools.qiniu.io/vendor.tar.gz)
 * 解压vendor.tar.gz到您的项目目录下，在需要使用七牛的源文件头部加入 `require '/path/to/sdk/vendor/autoload.php';` 既可引用七牛phpsdk中的包。
 
-##### 下载源码安装（不推荐）
+
+###### 下载源码安装（不推荐）
 
 ---
 * 首先需要下载一个你需要的版本的sdk： [https://github.com/qiniu/php-sdk/releases](https://github.com/qiniu/php-sdk/releases)
