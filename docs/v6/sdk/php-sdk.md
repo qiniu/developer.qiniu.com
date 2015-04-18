@@ -465,14 +465,13 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	list($ret, $err) = $op->imageInfo($key);
+	list($ret, $err) = $op->execute($key, 'imageInfo');
 	echo "\n====> imageInfo result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		var_dump($ret);
 	}
-
 
 <a name=fop-exif></a>
 #### 查看图片EXIF信息
@@ -485,7 +484,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	list($ret, $err) = $op->exif($key);
+	list($ret, $err) = $op->execute($key, 'exif');
 	echo "\n====> exif result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -493,9 +492,8 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 		var_dump($ret);
 	}
 
-	
 <a name=fop-image-view></a>
-#### 生成图片预览
+#### 生成图片预览URL
 
 	require_once '<path_to_autoload_file>/autoload.php';
 
@@ -505,15 +503,9 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	$ops = array('w' => 100, 'h' => 20);
-	list($ret, $err) = $op->imageView2($key, 0, $ops);
-	echo "\n====> imageView2 result: \n";
-	if ($err !== null) {
-		var_dump($err);
-	} else {
-		var_dump($ret);
-	}
-	
+	ops = 'imageView2/0/w/10/h/20';
+	$url = $op->buildUrl($key, $ops);
+	echo "\n====> imageView2 URL: \n $url";
 	
 <a name=pfop-api></a>
 ### 持久化数据处理
@@ -522,7 +514,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 <a name=av-hls></a>
 #### 视频切片
 
-	require_once __DIR__.'/../vendor/autoload.php';
+	require_once '<path_to_autoload_file>/autoload.php';
 
 	use Qiniu\Auth;
 	use Qiniu\Processing\PersistentFop;
@@ -535,13 +527,9 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$key = 'clock.flv';
 	$pfop = New PersistentFop($auth, $bucket);
 
-	$options = array(
-		'segtime' => 10,
-		'vcodec' => 'libx264',
-		's' => '320x240'
-		);
-
-	list($id, $err) = $pfop->avthumb($key, 'm3u8', $options, $bucket, 'avthumtest.m3u8');
+	$fops='avthumb/m3u8/segtime/40/vcodec/libx264/s/320x240';
+	list($id, $err) = $pfop->execute($key, $fops);
+	
 	echo "\n====> pfop avthumb result: \n";
 	if ($err != null) {
 		var_dump($err);
