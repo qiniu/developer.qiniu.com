@@ -49,7 +49,7 @@ order: 980
 字段名称              | 必填 | 说明
 :-------------------- | :--- | :-----------------------------------------------
 <a id="put-policy-scope"></a>`scope`               | 是   | ● 指定上传的目标资源空间（Bucket）和资源名（Key）<br>有两种格式：<br>1. `<bucket>`，表示允许用户上传文件到指定的 bucket。在这种模式下文件只能“新增”，若已存在同名资源则会失败；<br>2. `<bucket>:<key>`，表示只允许用户上传指定key的文件。在这种模型下文件默认允许“修改”，已存在同名资源则会本次覆盖。如果希望只能上传指定key的文件，并且不允许修改，那么可以将下面的 `insertOnly` 属性值设为 `1`。
-<a id="put-policy-deadline"></a>`deadline`            | 是   | ● 上传请求授权的截止时间<br>[UNIX时间戳][unixTimeHref]，单位：秒。
+<a id="put-policy-deadline"></a>`deadline`            | 是   | ● 上传请求授权的截止时间<br>[UNIX时间戳][unixTimeHref]，单位：秒。**该截止时间为上传完成后，在七牛空间生成文件的校验时间，而非上传的开始时间**，一般建议设置为`上传开始时间+3600s`，用户可根据具体的业务场景对凭证截止时间进行调整。
 <a id="put-policy-insert-only"></a>`insertOnly`          |      | ● 限定为“新增”语意<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
 <a id="put-policy-end-user"></a>`endUser`             |      | ● 唯一属主标识<br>特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印。
 <a id="put-policy-return-url"></a>`returnUrl`           |      | ● Web端文件上传成功后，浏览器执行303跳转的URL<br>通常用于`HTML Form`上传。<br>文件上传成功后会跳转到`<returnUrl>?upload_ret=<queryString>`, `<queryString>`包含`returnBody`内容。<br>如不设置`returnUrl`，则直接将`returnBody`的内容返回给客户端。
