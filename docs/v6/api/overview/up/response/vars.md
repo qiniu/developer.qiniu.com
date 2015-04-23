@@ -29,16 +29,16 @@ fsize        |          | 资源尺寸，单位为字节。    |
 mimeType     |          | 资源类型，比如JPG图片的资源类型为`image/jpg`。    |
 endUser      |          | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。    |
 persistentId |          | 音视频转码持久化的进度查询ID。     |
-exif         | 是       | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。    | 暂不支持用于`saveKey`、`分片上传`中
-imageInfo    | 是       | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。    | 暂不支持用于`saveKey`、`分片上传`中
+exif         | 是       | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。    | 暂不支持用于`saveKey`中
+imageInfo    | 是       | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。    | 暂不支持用于`saveKey`中
 year         |          | 上传时的年份。    | 暂不支持用于'returnBody'、'callbackBody'中
 mon          |          | 上传时的月份。    | 暂不支持用于'returnBody'、'callbackBody'中
 day          |          | 上传时的日期。    | 暂不支持用于'returnBody'、'callbackBody'中
 hour         |          | 上传时的小时。    | 暂不支持用于'returnBody'、'callbackBody'中
 min          |          | 上传时的分钟。    | 暂不支持用于'returnBody'、'callbackBody'中
 sec          |          | 上传时的秒钟。    | 暂不支持用于'returnBody'、'callbackBody'中
-avinfo       | 是       | 音视频资源的元信息。    | 暂不支持用于'saveKey'、`分片上传`中
-imageAve     |          | 图片主色调。      | 暂不支持用于`分片上传`中
+avinfo       | 是       | 音视频资源的元信息。    | 暂不支持用于'saveKey'中
+imageAve     |          | 图片主色调。      | 
 ext          |          | 上传资源的后缀名，通过自动检测的 mimeType 或者原文件的后缀来获取。 | 不支持用于`分片上传`
 uuid         |          | 生成uuid          | 暂不支持用于'saveKey'中
 bodySha1     |          | callbackBody的sha1(hex编码) | 只支持用于'callbackUrl'中
