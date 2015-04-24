@@ -9,7 +9,7 @@ title: PHP SDK 使用指南
 
 SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
-SDK( version: 6.x.x )相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
+SDK( version: 6.x.x 适用于PHP 5.1.0 及其以上版本)相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
 
 
 
@@ -21,6 +21,7 @@ SDK( version: 6.x.x )相关文档：<http://developer.qiniu.com/docs/v6/sdk/lega
 	- [复制单个文件](#rs-copy)
 	- [移动单个文件](#rs-move)
 	- [删除单个文件](#rs-delete)
+	- [列举空间中的文件](#rs-list)
 - [上传下载接口](#get-and-put-api)
 	- [文件上传](#upload)
 		- [上传流程](#io-put-flow)
@@ -234,6 +235,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	}
 	
 	
+<a name=rs-list></a>
 ### 列举空间中的文件
 
 	require_once '<path_to_autoload_file>/autoload.php';
@@ -502,7 +504,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	ops = 'imageView2/0/w/10/h/20';
+	$ops = 'imageView2/0/w/10/h/20';
 	$url = $op->buildUrl($key, $ops);
 	echo "\n====> imageView2 URL: \n $url";
 	
@@ -536,10 +538,6 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 		echo "PersistentFop Id: $id";
 	}
 
-
-
-
-	
 <a name=contribution></a>
 ## 贡献代码
 
@@ -548,7 +546,6 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 3. 提交您的改动 (`git commit -am 'Added some feature'`)
 4. 将您的修改记录提交到远程 `git` 仓库 (`git push origin my-new-feature`)
 5. 然后到 github 网站的该 `git` 远程仓库的 `my-new-feature` 分支下发起 Pull Request
-
 
 <a name=license></a>
 ## 许可证
