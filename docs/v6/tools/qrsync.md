@@ -7,6 +7,7 @@ title: qrsync 命令行同步工具
 - [简介](#overview)
 - [下载](#download)
 - [用法](#usage)
+- [常见故障排查][#FAQ]
 
 
 <a id="overview"></a>
@@ -85,3 +86,48 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 
 需要注意的是，qrsync 是增量同步的，如果你上一次同步成功后修改了部分文件，那么再次运行 qrsync 时只同步新增的和被修改的文件。当然，如果上一次同步过程出错了，也可以重新运行 qrsync 程序继续同步。
 
+<a id="FAQ"></a>
+## 常见故障排查
+
+1. 配置文件`<src>`设置错误：
+
+**错误信息**
+
+```
+# Windows下
+[WARN][qbox.us/shell/qrsync] qrsync.go:70: qrsync.Run failed failed:
+ ==> FindNextFile <src>: The system cannot find the file specified. ~ qrsync.Run failed
+```
+
+或
+
+```
+# Linux或者Mac下
+[WARN] qbox.us/shell/qrsync-v2/qrsync.go:70: qrsync.Run failed failed:
+ ==> stat <src>: no such file or directory ~ qrsync.Run failed
+ ==> qbox.us/qrsync/v2/sync/sync.go:36: stat <src>: no such file or directory ~ sync.Run: src.ListAll failed
+```
+
+**解决方案**
+
+- Windows下配置如下：
+
+```
+{
+    "src": "C:/Users/Username/Desktop/Test_Directory",
+    ...
+}
+```
+
+主要需要关注目录分隔符为`/`，另外文件夹路径如果包含中文需要为UTF-8编码;
+
+- Linux或者Mac下
+
+```
+{
+    "src": "/Users/Username/Documents/Test_Directory",
+    ...
+}
+```
+
+建议路径设置为待同步目录的绝对路径。
