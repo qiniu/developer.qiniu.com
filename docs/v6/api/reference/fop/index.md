@@ -17,6 +17,7 @@ order: 500
 * [二维码处理（qrcode）][qrcodeHref]
 * [Markdown文本处理（md2html）][md2htmlHref]
 * [多文件压缩（mkzip）][mkzipHref] 
+* [第三方数据处理服务][thirdPartyHref]
 
 [imageHref]:        /docs/v6/api/reference/fop/image/index.html        "图片处理"
 [avHref]:           /docs/v6/api/reference/fop/av/index.html           "音视频处理"
@@ -26,3 +27,4 @@ order: 500
 [md2htmlHref]:      /docs/v6/api/reference/fop/md2html.html            "Markdown文本处理"
 [saveasHref]:       /docs/v6/api/reference/fop/saveas.html             "处理结果另存"
 [mkzipHref]:        /docs/v6/api/reference/fop/mkzip.html              "多文件压缩"
+[thirdPartyHref]:   /docs/v6/api/reference/fop/third-party/index.html  "第三方数据处理服务"
