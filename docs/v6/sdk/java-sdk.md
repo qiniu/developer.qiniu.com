@@ -325,15 +325,16 @@ UploadManager#put方法`上传文件时`会根据 Config.PUT_THRESHOLD 参数判
 下面会将断点记录序列化后记录下来，可反序列化，再次上传时从上次的记录处开始上传。默认实现将断点记录文件保存在指定文件夹中：
 
 ```
-// 设置断点文件保存的位置： 文件夹路径 或 其表示的File
-Recorder recorder = new FileRecorder(getPathFile());
+// 默认实现，设置断点文件保存的位置： pathFile变量表示断点记录文件所在 “文件夹” 的路径或其表示的File对象
+Recorder recorder = new FileRecorder(pathFile);
+
 UploadManager uploader = new UploadManager(recorder);
 
 // 执行文件上传：中断或失败后，使用行为相同的recorder生成的uploader执行上传，
 // 会在上次上传记录基础上再次上传。
 uploadManager.put(...)
 
-// 也可自己制定断点记录文件生成规则
+// 也可自己制定断点记录文件生成规则，根据返回值生成断点记录文件，保存在 pathFile 指定的目录下
 RecordKeyGenerator recordGen = new RecordKeyGenerator() {
         @Override
         public String gen(String key, File file) {
