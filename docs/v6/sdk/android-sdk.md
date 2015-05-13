@@ -85,7 +85,7 @@ SDK内置两种上传方式：表单上传和分片上传，并根据情况内�
 若需深入了解上传方式之间的区别，请查看[上传类型](http://developer.qiniu.com/docs/v6/api/overview/up/upload-models.html#upload-types)，[表单上传接口说明](http://developer.qiniu.com/docs/v6/api/overview/up/form-upload.html)，[分片上传接口说明（断点续上传）](http://developer.qiniu.com/docs/v6/api/overview/up/chunked-upload.html)。
 
 
-参数说明：
+UploadManager.put参数说明：
 
 参数 | 类型 | 说明
 :---: | :----: | :---
@@ -112,10 +112,11 @@ UploadOptions参数说明：
 
 #### 简单上传
 ```
+// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
+UploadManager uploadManager = new UploadManager();
 data = <File对象、或 文件路径、或 字节数组>
 String key = <指定七牛服务上的文件名，或 null>;
 String token = <从服务端SDK获取>;
-UploadManager uploadManager = new UploadManager();
 uploadManager.put(data, key, token,
 new UpCompletionHandler() {
     @Override
@@ -177,6 +178,7 @@ uploadManager.put(data, key, token,handler,
 ```
 String dirPath = <断点记录文件保存的文件夹位置>
 FileRecorder fr = new FileRecorder(dirPath)
+// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
 UploadManager uploadManager = new UploadManager(fr);
 uploadManager.put(data, key, ...)
 
