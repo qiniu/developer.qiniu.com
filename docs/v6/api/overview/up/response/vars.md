@@ -38,7 +38,7 @@ hour         |          | 上传时的小时。    | 暂不支持用于'returnBo
 min          |          | 上传时的分钟。    | 暂不支持用于'returnBody'、'callbackBody'中
 sec          |          | 上传时的秒钟。    | 暂不支持用于'returnBody'、'callbackBody'中
 avinfo       | 是       | 音视频资源的元信息。    | 暂不支持用于'saveKey'中
-imageAve     |          | 图片主色调。      | 
+imageAve     |          | 图片主色调，算法由<a href="http://hr.camera360.com/" target="_blank">Camera360</a>友情提供。| 
 ext          |          | 上传资源的后缀名，通过自动检测的 mimeType 或者原文件的后缀来获取。 | 不支持用于`分片上传`
 uuid         |          | 生成uuid          | 暂不支持用于'saveKey'中
 bodySha1     |          | callbackBody的sha1(hex编码) | 只支持用于'callbackUrl'中
