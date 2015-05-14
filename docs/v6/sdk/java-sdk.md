@@ -190,6 +190,9 @@ public Response put(XXXX data, String key, String token, StringMap params,
 
 ```
 
+// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
+UploadManager uploadManager = new UploadManager();
+
 public class MyRet {
     public long fsize;
     public String key;
@@ -245,8 +248,6 @@ DefaultPutRet ret = res.jsonToObject(DefaultPutRet.class);
 简单上传代码如下：
 
 ```
-private UploadManager uploadManager = new UploadManager();
-private Auth auth = Auth.create(getAK(), getSK());
 
 //上传内存中数据
 public void upload(byte[] data, String key, String upToken){
@@ -327,7 +328,7 @@ UploadManager#put方法`上传文件时`会根据 Config.PUT_THRESHOLD 参数判
 ```
 // 默认实现，设置断点文件保存的位置： pathFile变量表示断点记录文件所在 “文件夹” 的路径或其表示的File对象
 Recorder recorder = new FileRecorder(pathFile);
-
+// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
 UploadManager uploader = new UploadManager(recorder);
 
 // 执行文件上传：中断或失败后，使用行为相同的recorder生成的uploader执行上传，
