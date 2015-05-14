@@ -13,6 +13,21 @@ order: 200
 `upload`是七牛云存储提供的最基础的接口，用于在一次HTTP会话中上传单一的一个文件。  
 
 ---
+## 使用方法
+
+我们可以用如下的HTML表单来描述表单上传的基本用法：
+
+```
+<form method="post" action="http://upload.qiniu.com/"
+ enctype="multipart/form-data">
+  <input name="key" type="hidden" value="<resource_key>">
+  <input name="x:<custom_name>" type="hidden" value="<custom_value>">
+  <input name="token" type="hidden" value="<upload_token>">
+  <input name="file" type="file" />
+  <input name="crc32" type="hidden" />
+  <input name="accept" type="hidden" />
+</form>
+```
 
 <a id="upload-request"></a>
 ## 请求报文
@@ -73,14 +88,14 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 
 参数名称                      | 必填 | 说明
 :---------------------------- | :--- | :-----------------------------------------
-`<uploadToken>`               | 是   | [上传凭证][uploadTokenHref]，位于`token`消息中。
+`<token>`                     | 是   | [上传凭证][uploadTokenHref]，位于`token`消息中。
 `<xVariableName>`             |      | [自定义变量][xVariablesHref]的名字。
 `<xVariableValue>`            |      | [自定义变量][xVariablesHref]的值。
-`<fileName>`                  | 是   | 原文件名。<br>对于没有文件名的情况，建议填入随机生成的纯文本字符串。<br>本参数的值将作为[魔法变量$(fname)](/docs/v6/api/overview/up/response/vars.html#magicvar-fname)的值使用。
+`<file>`                      | 是   | 原文件名。<br>对于没有文件名的情况，建议填入随机生成的纯文本字符串。<br>本参数的值将作为[魔法变量$(fname)](/docs/v6/api/overview/up/response/vars.html#magicvar-fname)的值使用。
 `<fileBinaryData>`            | 是   | 上传文件的完整内容。
 `<key>`                       |      | 资源的最终名称，位于`key`消息中。如不指定则使用[上传策略][putPolicyHref]saveKey字段所指定模板生成Key，如无模板则使用Hash值作为Key。
 `<crc32>`                     |      | 上传内容的 CRC32 校验码。<br>如填入，则七牛服务器会使用此值进行内容检验。
-`<acceptContentType>`         |      | 当 HTTP 请求指定 `Accept` 头部时，七牛会返回的 `Content-Type` 头部的值。<br>该值用于兼容低版本 IE 浏览器行为。低版本 IE 浏览器在 multiform 返回 `application/json` 的时候会表现为下载，返回 `text/plain` 才会显示返回内容。
+`<accept>`             |      | 当 HTTP 请求指定 `Accept` 头部时，七牛会返回的 `Content-Type` 头部的值。<br>该值用于兼容低版本 IE 浏览器行为。低版本 IE 浏览器在 multiform 返回 `application/json` 的时候会表现为下载，返回 `text/plain` 才会显示返回内容。
 
 注意：用户自定义变量可以有多对。  
 
