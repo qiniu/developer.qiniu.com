@@ -77,7 +77,7 @@ DLL引用方式:
 
 在获取到 Access Key 和 Secret Key 之后，您可以在您的程序中调用如下两行代码进行初始化对接, 要确保`ACCESS_KEY` 和 `SECRET_KEY` 在<u>调用所有七牛API服务之前均已赋值</u>：
 ###第一种方案
-直接在代码中调用如下代码即可。
+直接在代码中调用如下代码即可
 
 ```c#
 using Qiniu.Conf;
@@ -85,7 +85,7 @@ Qiniu.Conf.Config.ACCESS_KEY= "<YOUR_APP_ACCESS_KEY>"
 Qiniu.Conf.Config.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
 ###第二种方案
-编译配置文件app.conf或者web.conf等文件，添加以下配置项。添加完成后，在程序启动的时候调用`Qiniu.Conf.Config.Init()`进行初始化。
+编译配置文件app.conf或者web.conf等文件，添加以下配置项。添加完成后，在程序启动的时候调用`Qiniu.Conf.Config.Init()`进行初始化
 
 ``` xml
 <appSettings>
