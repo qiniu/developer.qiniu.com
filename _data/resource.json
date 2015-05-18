@@ -229,6 +229,16 @@
         "date": "2013-09-12",
         "doc": "https://github.com/piglei/django-qiniu"
     }, {
+        "name": "ghost-qiniu",
+        "label": "Ghost博客七牛存储插件",
+        "description": "Ghost博客官方存储引擎的七牛云存储插件，可以将图片直接上传到七牛云空间中。",
+        "download": "http://7vzmnh.com1.z0.glb.clouddn.com/plugin/qiniu-store.zip",
+        "defaultSprite": true,
+        "author": "点云DianCloud ",
+        "author_link": "https://diancloud.com/apps",
+        "date": "2015-04-22",
+        "doc": "http://blog.diancloud.com/ghost-0-6-0/"
+    }, {
         "name": "ueditor",
         "label": "Ueditor(java) （编辑器）",
         "description": "本插件可为UEditor添加向七牛云存储上传图片资源的功能。",
@@ -258,6 +268,16 @@
         "author_link": "http://www.idashu.me/",
         "date": "2013-11-28",
         "doc": "http://symphony.b3log.org/article/1385649507137"
+    }, {
+        "name": "qiniu4blog",
+        "label": "qiniu4blog",
+        "description": "使用七牛云存储做图床,在写博客时,直接截图上传生成外链一步搞定,写博客利器",
+        "download": "https://github.com/wzyuliyang/qiniu4blog",
+        "defaultSprite": true,
+        "author": "wzyuliyang",
+        "author_link": "https://github.com/wzyuliyang/qiniu4blog",
+        "date": "2013-11-28",
+        "doc": "https://github.com/wzyuliyang/qiniu4blog"
     }, {
         "name": "startBBS",
         "label": "STB （论坛）",

@@ -5,9 +5,12 @@ title: PHP SDK 使用指南
 
 # PHP SDK 使用指南
 
-此 SDK 适用于 PHP 5.3 及其以上版本。基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
+此 SDK ( version: 7.x.x ) 适用于 PHP 5.3 及其以上版本。基于 [七牛云存储官方API](../index.html) 构建。使用此 SDK 构建您的网络应用程序，能让您以非常便捷地方式将数据安全地存储到七牛云存储上。无论您的网络应用是一个网站程序，还是包括从云端（服务端程序）到终端（手持设备应用）的架构的服务或应用，通过七牛云存储及其 SDK，都能让您应用程序的终端用户高速上传和下载，同时也让您的服务端更加轻盈。
 
 SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
+
+SDK( version: 6.x.x 适用于PHP 5.1.0 及其以上版本)相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
+
 
 
 - [应用接入](#install)
@@ -18,6 +21,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	- [复制单个文件](#rs-copy)
 	- [移动单个文件](#rs-move)
 	- [删除单个文件](#rs-delete)
+	- [列举空间中的文件](#rs-list)
 - [上传下载接口](#get-and-put-api)
 	- [文件上传](#upload)
 		- [上传流程](#io-put-flow)
@@ -30,9 +34,8 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 		- [查看图像属性](#fop-image-info)
 		- [查看图片EXIF信息](#fop-exif)
 		- [生成图片预览](#fop-image-view)
-- [持久化数据处理](#pfop-api)
-	- [视频切片](#av-hls)	
-
+	- [持久化数据处理](#pfop-api)
+		- [视频切片](#av-hls)
 - [贡献代码](#contribution)
 - [许可证](#license)
 
@@ -45,15 +48,35 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
 ###  PHP-SDK 安装
 
-* 使用 `composer` 安装（推荐）
 
-此 SDK 使用composer 进行依赖管理。我们也推荐使用composer进行该sdk的安装。
-可以在你项目的`composer.json`中添加对phpsdk的依赖，或者运行下面命令：
+###### 使用 `Composer` 安装（推荐）
+
+---
+
+此 SDK 使用 Composer 进行依赖管理。我们也推荐使用 Composer 进行该sdk的安装。
+Composer是PHP的依赖管理工具，用来管理你项目中的依赖。首先需要先[安装 Composer](http://docs.phpcomposer.com/00-intro.html)， 然后就可以使用了：
+
+1 . 在你项目中的`composer.json`中添加对七牛phpsdk的依赖。
+
+```
+{
+	"require": {
+		"qiniu/php-sdk": "7.*"
+	}
+}
+```
+
+然后在 `composer.json` 所在的文件夹, 运行安装命令 `composer install` 即可将该sdk安装到你的项目中。
+
+
+2 . 如果你之前的项目没有使用 Composer，也可以在项目中运行以下命令来安装七牛phpsdk：
 
 ```
 $ composer require qiniu/php-sdk
 ```
-使用该命令进行安装,会在你的当前目录生成如下目录结构：
+
+
+3 . 安装成功后会在当前目录生成如下目录结构：
 
 ```
 vendor
@@ -69,11 +92,26 @@ vendor
 └── qiniu
     └── php-sdk
 ```
-这样你就可以在你的程序中引用composer生成的autoloader程序`require ./vendor/autolaod.php` 。
 
-* 下载源码安装
+4 . 引用 Composer 生成的 autoloader
 
-本 SDK 没有依赖其他第三方库，但需要增加一个自己的autoloader程序。
+```
+require '/path/to/sdk/vendor/autoload.php';
+```
+
+PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较慢， 我们将phpsdk的 Composer 依赖进行了打包。你可以也可以通过以下方式来使用：
+
+* 下载依赖包 [vender.tar.gz](http://devtools.qiniu.io/vendor.tar.gz)
+* 解压vendor.tar.gz到您的项目目录下，在需要使用七牛的源文件头部加入 `require '/path/to/sdk/vendor/autoload.php';` 既可引用七牛phpsdk中的包。
+
+
+###### 下载源码安装（不推荐）
+
+---
+* 首先需要下载一个你需要的版本的sdk： [https://github.com/qiniu/php-sdk/releases](https://github.com/qiniu/php-sdk/releases)
+* 将你下载的zip文件解压到你项目中，并增加你的autoloader程序。  
+
+
 
 <a id="acc-appkey"></a>
 
@@ -197,6 +235,7 @@ vendor
 	}
 	
 	
+<a name=rs-list></a>
 ### 列举空间中的文件
 
 	require_once '<path_to_autoload_file>/autoload.php';
@@ -427,14 +466,13 @@ vendor
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	list($ret, $err) = $op->imageInfo($key);
+	list($ret, $err) = $op->execute($key, 'imageInfo');
 	echo "\n====> imageInfo result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		var_dump($ret);
 	}
-
 
 <a name=fop-exif></a>
 #### 查看图片EXIF信息
@@ -447,7 +485,7 @@ vendor
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	list($ret, $err) = $op->exif($key);
+	list($ret, $err) = $op->execute($key, 'exif');
 	echo "\n====> exif result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -455,9 +493,8 @@ vendor
 		var_dump($ret);
 	}
 
-	
 <a name=fop-image-view></a>
-#### 生成图片预览
+#### 生成图片预览URL
 
 	require_once '<path_to_autoload_file>/autoload.php';
 
@@ -467,24 +504,18 @@ vendor
 	$domain = 'phpsdk.qiniudn.com';
 	$op = New Operation($domain);
 
-	$ops = array('w' => 100, 'h' => 20);
-	list($ret, $err) = $op->imageView2($key, 0, $ops);
-	echo "\n====> imageView2 result: \n";
-	if ($err !== null) {
-		var_dump($err);
-	} else {
-		var_dump($ret);
-	}
-	
+	$ops = 'imageView2/0/w/10/h/20';
+	$url = $op->buildUrl($key, $ops);
+	echo "\n====> imageView2 URL: \n $url";
 	
 <a name=pfop-api></a>
-## 持久化数据处理
+### 持久化数据处理
 七牛支持在云端对图像, 视频, 音频等富媒体进行持久化处理处理。 由于音视频的处理比较耗时，所以音视频的处理较多采用异步持久化操作。
 
 <a name=av-hls></a>
 #### 视频切片
 
-	require_once __DIR__.'/../vendor/autoload.php';
+	require_once '<path_to_autoload_file>/autoload.php';
 
 	use Qiniu\Auth;
 	use Qiniu\Processing\PersistentFop;
@@ -497,13 +528,9 @@ vendor
 	$key = 'clock.flv';
 	$pfop = New PersistentFop($auth, $bucket);
 
-	$options = array(
-		'segtime' => 10,
-		'vcodec' => 'libx264',
-		's' => '320x240'
-		);
-
-	list($id, $err) = $pfop->avthumb($key, 'm3u8', $options, $bucket, 'avthumtest.m3u8');
+	$fops='avthumb/m3u8/segtime/40/vcodec/libx264/s/320x240';
+	list($id, $err) = $pfop->execute($key, $fops);
+	
 	echo "\n====> pfop avthumb result: \n";
 	if ($err != null) {
 		var_dump($err);
@@ -511,10 +538,6 @@ vendor
 		echo "PersistentFop Id: $id";
 	}
 
-
-
-
-	
 <a name=contribution></a>
 ## 贡献代码
 
@@ -523,7 +546,6 @@ vendor
 3. 提交您的改动 (`git commit -am 'Added some feature'`)
 4. 将您的修改记录提交到远程 `git` 仓库 (`git push origin my-new-feature`)
 5. 然后到 github 网站的该 `git` 远程仓库的 `my-new-feature` 分支下发起 Pull Request
-
 
 <a name=license></a>
 ## 许可证
