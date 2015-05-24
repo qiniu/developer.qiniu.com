@@ -200,24 +200,23 @@ $(function() {
 
     function search(val) {
         if (val !== '' && val !== undefined) {
+            var host = window.location.protocol + '//' + window.location.host;
             $('#myModal').modal();
             $('#myModal').find('p').html('正在搜索中，请耐心等待。');
             $('#myModal').find('.result-line').html('');
-            $.getJSON('http://search-developer.qiniu.io?query=' + val + '&callback=?', function(data) {
+            $.getJSON('http://127.0.0.1:3000/?query=' + val + '&callback=?', function(data) {
                 if (data.items.length > 0) {
                     var markup = '',
-                        tData = '',
-                        escaped = '',
-                        $p = $('<p/>');
+                        tData = '';
+                        // $p = $('<p/>');
                     for (var i = 0, len = data.items.length; i < len; i++) {
                         tData = data.items[i];
-                        escaped = $p.text(tData.description).html();
                         markup += '<div class="ops-line ">' +
                             ' <h5><a href=' + tData.url + ' target="_blank">' + tData.title + '</a></h5>' +
                             ' <div class="url">' +
-                            '<a  href=' + tData.url + ' target="_blank">' + tData.display_url + '</a>' +
+                            '<a  href=' + tData.url + ' target="_blank">' + host + tData.url + '</a>' +
                             '</div>' +
-                            '<div class="content">' + escaped + '</div > ' +
+                            '<div class="content">' + tData.description + '</div > ' +
                             ' </div> ';
                     }
                     $('#myModal').find('p').html('为您找到了如下结果，感谢您对七牛的支持。');

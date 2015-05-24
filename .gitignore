@@ -1,5 +1,5 @@
 _site/*
-node_modules/*
+node_modules
 static/css/main.css
 static/add-on/bootstrap/bootstrap.min.js
 static/js/docs.min.js
@@ -11,3 +11,4 @@ static/js/docs.min.*.js
 static/css/main.*.js
 dist/*
 static/css/main*.js
+.idea
