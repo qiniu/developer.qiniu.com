@@ -204,7 +204,7 @@ $(function() {
             $('#myModal').modal();
             $('#myModal').find('p').html('正在搜索中，请耐心等待。');
             $('#myModal').find('.result-line').html('');
-            $.getJSON('http://127.0.0.1:3000/?query=' + val + '&callback=?', function(data) {
+            $.getJSON('http://developer-search.qiniu.com/?query=' + val + '&callback=?', function(data) {
                 if (data.items.length > 0) {
                     var markup = '',
                         tData = '';
