@@ -1,3 +1,4 @@
+// for building index of developer docs
 var path = require('path'),
     scan = require('./scan'),
     elasticsearch = require('elasticsearch'),
@@ -8,12 +9,12 @@ var path = require('path'),
 program
     .option('-p, --path [path]', 'path')
     .option('-i, --index', 'index')
+    .option('-e, --eshost <host>', 'Port on which to listen to (defaults to localhost:9200)')
     .parse(process.argv);
 
 var path = program.path || './';
 var needIndex = program.index || false;
-
-var endPoint = 'localhost:9200';
+var endPoint = program.eshost || 'localhost:9200';
 var index = 'developer';
 var type = 'docs';
 

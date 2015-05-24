@@ -1,3 +1,4 @@
+// for developer search api
 var express = require('express');
 var elasticsearch = require('elasticsearch');
 
@@ -5,16 +6,16 @@ var program = require('commander');
 
 program
     .option('-p, --port <port>', 'Port on which to listen to (defaults to 3000)', parseInt)
+    .option('-e, --eshost <host>', 'Port on which to listen to (defaults to localhost:9200)')
     .parse(process.argv);
 
 var port = program.port || 3000;
+var endPoint = program.eshost || 'localhost:9200';
 
 var esClient = new elasticsearch.Client({
     host: endPoint,
 });
 
-
-var endPoint = 'localhost:9200';
 var index = 'developer';
 var type = 'docs';
 
