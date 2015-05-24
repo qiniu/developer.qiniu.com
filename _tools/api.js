@@ -27,7 +27,9 @@ app.get('/', function(req, res) {
         res.status(400);
         return res.end();
     }
-    // "highlight": M{"fields": M{"subject": M{}, "content": M{}}},
+
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(new Date().getTime(), ip, q, req.get('Referer'), req.get('User-Agent'));
     esClient.search({
         index: index,
         type: type,
@@ -60,12 +62,17 @@ app.get('/', function(req, res) {
             if (hits[i]._source.doc.description.length > 200) {
                 hits[i]._source.doc.description = hits[i]._source.doc.description.substring(0, 200) + '...';
             }
-
             items.push(hits[i]._source.doc);
         }
-        res.jsonp({
-            'items': items
-        });
-    })
+        if (req.query.callback) {
+            res.jsonp({
+                'items': items
+            });
+        } else {
+            res.send({
+                'items': items
+            });
+        }
+    });
 });
 app.listen(port);
