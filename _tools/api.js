@@ -13,7 +13,7 @@ var port = program.port || 3000;
 var endPoint = program.eshost || 'localhost:9200';
 
 var esClient = new elasticsearch.Client({
-    host: endPoint,
+    host: endPoint.split(',')
 });
 
 var index = 'developer';

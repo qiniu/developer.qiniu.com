@@ -19,7 +19,7 @@ var index = 'developer';
 var type = 'docs';
 
 var esClient = new elasticsearch.Client({
-    host: endPoint
+    host: endPoint.split(',')
 });
 
 if (needIndex) {
