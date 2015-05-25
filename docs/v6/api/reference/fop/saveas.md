@@ -31,7 +31,7 @@ saveas/<EncodedEntryURI>/sign/<Sign>
 参数名称             | 必填  | 类型   | 说明                                                          
 :------------------  | :---- | :----- | :---------------------------------------------------------------
 `<EncodedEntryURI>`  | 是    | string | 以[EncodedEntryURI格式][encodedEntryURIHref]组织的目标Bucket与Key
-`/sign/<Sign>`       | 是    | string | 请求签名部分，算法见下方
+`/sign/<Sign>`       | 是    | string | 请求签名部分，算法见下方 `在pfop操作中不用指定该参数`
 
 <a id="saveas-sign-algorithm"></a>
 ## 签名算法
