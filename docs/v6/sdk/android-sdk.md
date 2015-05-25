@@ -13,6 +13,7 @@ title: Android SDK使用指南
 - [安装](#integration)
 - [功能说明](#functions)
     - [安全性](#security)
+    - [配置](#config)
     - [上传文件](#upload)
     - [代码参考](#reference)
     - [下载文件](#download)
@@ -45,7 +46,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 
 - 下载地址：<https://github.com/qiniu/android-sdk/releases>
 - 源码地址：<https://github.com/qiniu/android-sdk>
-- jar地址：<https://github.com/qiniu/android-sdk/tree/master/releases>
+- jar地址：<http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-android-sdk%22>
 - 单元测试地址：<https://github.com/qiniu/android-sdk/tree/master/library/src/androidTest/java/com/qiniu/android>
 - Android SDK 在线文档：<http://developer.qiniu.com/android_docs/index.html>
 
@@ -62,7 +63,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 </dependency>
 ```
 
-* 下载[qiniu-android-sdk-VERSION.jar](https://github.com/qiniu/android-sdk/tree/master/releases)包，导入到项目中去；下载[http://loopj.com/android-async-http](http://loopj.com/android-async-http/) 1.4.6及以上版本导入到项目中。
+* 下载[qiniu-android-sdk-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-android-sdk%22)包，导入到项目中去；下载[http://loopj.com/android-async-http](http://loopj.com/android-async-http/) 1.4.6及以上版本导入到项目中。
 
 
 <a name="functions"></a>
@@ -76,6 +77,27 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 开发者可以在生成上传凭证前通过配置上传策略以控制上传的后续动作，比如在上传完成后通过回调机制通知业务服务器。该工作在业务服务器端进行，因此非本SDK的功能范畴。
 
 完整的内容请参考[上传策略规格](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html)，[上传凭证规格](http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html)，[下载凭证规格](http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html)。关于上传后可以进行哪些后续动作，请查看[上传后续动作](http://developer.qiniu.com/docs/v6/api/overview/up/response/)。
+
+
+<a name="config"></a>
+### 初始化配置
+
+一般下直接使用默认设置，不用单独配置。
+可以配置超时时长、分片上传阀值等。
+
+```
+Configuration config = new Configuration.Builder()
+                    .chunkSize(256 * 1024)  //分片上传时，每片的大小。 默认 256K
+                    .putThreshhold(512 * 1024)  // 启用分片上传阀值。默认 512K
+                    .connectTimeout(10) // 链接超时。默认 10秒
+                    .responseTimeout(60) // 服务器响应超时。默认 60秒
+                    .recorder(recorder)  // recorder 分片上传时，已上传片记录器。默认 null
+                    .recorder(recorder, keyGen)  // keyGen 分片上传时，生成标识符，用于片记录器区分是那个文件的上传记录
+                    .build();
+// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
+UploadManager uploadManager = new UploadManager(config);
+
+```
 
 <a name="upload"></a>
 ### 上传文件
@@ -177,20 +199,32 @@ uploadManager.put(data, key, token,handler,
 
 ```
 String dirPath = <断点记录文件保存的文件夹位置>
-FileRecorder fr = new FileRecorder(dirPath)
-// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
-UploadManager uploadManager = new UploadManager(fr);
-uploadManager.put(data, key, ...)
+Recorder recorder = new FileRecorder(dirPath);
 
-//默认使用 key 的url_safe_base64编码字符串作为断点记录文件的文件名。避免记录文件冲突（特别是key指定为null时），也可自定义文件名：
 
-UploadManager uploadManager = new UploadManager(fr, new KeyGenerator(){
+//默认使用 key 的url_safe_base64编码字符串作为断点记录文件的文件名。
+//避免记录文件冲突（特别是key指定为null时），也可自定义文件名(下方为默认实现)：
+KeyGenerator keyGen = new KeyGenerator(){
 	public String gen(String key, File file){
     	// 不必使用url_safe_base64转换，uploadManager内部会处理
     	// 该返回值可替换为基于key、文件内容、上下文的其它信息生成的文件名
-    	return key + file.getName();
+        return key + "_._" + new StringBuffer(file.getAbsolutePath()).reverse();
   	}
-});
+};
+
+// 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
+//UploadManager uploadManager = new UploadManager(recorder);  // 1
+//UploadManager uploadManager = new UploadManager(recorder, keyGen); // 2
+// 或 在初始化时指定：
+Configuration config = new Configuration.Builder()
+                    // recorder 分片上传时，已上传片记录器
+                    // keyGen 分片上传时，生成标识符，用于片记录器区分是那个文件的上传记录
+                    .recorder(recorder, keyGen)  
+                    .build();
+
+UploadManager uploadManager = new UploadManager(config);
+
+uploadManager.put(data, key, ...)
 ```
 
 <a name="download"></a>
