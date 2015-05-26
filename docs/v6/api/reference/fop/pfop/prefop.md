@@ -33,7 +33,7 @@ id=<persistentId>
 ### 请求语法
 
 ```
-GET /status/get/prefop?<接口规格> HTTP/1.1
+GET /status/get/prefop?id=<persistentId> HTTP/1.1
 Host: api.qiniu.com  
 ```
 
