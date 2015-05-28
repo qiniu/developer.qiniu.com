@@ -171,7 +171,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$key = 'php-logo.png';
 	$key2 = 'php-logo2.png';
 	
-	list($ret, $err) = $bucketMgr->copy($bucket, $key, $bucket, $key2);
+	$err = $bucketMgr->copy($bucket, $key, $bucket, $key2);
 	echo "\n====> stat result: \n";
 	if ($err !== null) {
 		var_dump($err);
@@ -199,7 +199,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$key = 'php-logo.png';
 	$key3 = 'php-logo3.png';
 	
-	list($ret, $err) = $bucketMgr->move($bucket, $key, $bucket, $key3);
+	$err = $bucketMgr->move($bucket, $key, $bucket, $key3);
 	echo "\n====> move result: \n";
 	if ($err !== null) {
 		var_dump($err);
