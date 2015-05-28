@@ -34,9 +34,9 @@ clean:
 	rm -rf dist
 
 dev: all
-	rm _includes/footer.html
-	rm _includes/header.html
-	rm -rf dist
+	# rm _includes/footer.html
+	# rm _includes/header.html
+	# rm -rf dist
 	grunt
 	./_jkl --server
 
