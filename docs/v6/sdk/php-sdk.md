@@ -226,7 +226,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	
-	list($ret, $err) = $bucketMgr->delete($bucket, $key);
+	$err = $bucketMgr->delete($bucket, $key);
 	echo "\n====> delete result: \n";
 	if ($err !== null) {
 		var_dump($err);
