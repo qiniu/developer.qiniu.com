@@ -329,8 +329,8 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	//			'callbackUrl' => 'http://www.callback.com/',  
 	//			'callbackBody' => 'name=$(fname)&hash=$(etag)'
 	//		);
+	//$token = $auth->uploadToken($bucket, null, 3600, $opts);
 
-	$token = $auth->uploadToken($bucket, null, 3600, $opts);
         $token = $auth->uploadToken($bucket);
         $uploadMgr = New UploadManager();
 	
@@ -360,8 +360,9 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	//			'callbackUrl' => 'http://www.callback.com/',  
 	//			'callbackBody' => 'name=$(fname)&hash=$(etag)'
 	//		);
+	//$token = $auth->uploadToken($bucket, null, 3600, $opts);
 
-	$token = $auth->uploadToken($bucket, null, 3600, $opts);
+        $token = $auth->uploadToken($bucket);
 	$uploadMgr = New UploadManager();
     
 	list($ret, $err) = $uploadMgr->putFile($token, null, __file__);
