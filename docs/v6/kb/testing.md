@@ -47,7 +47,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 - <http://goo.gl/29i2B> (可点击查看完整URL)
 
-![水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast/dx/20/dy/20)
+![水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?watermark/1/image/aHR0cDovLzc4cmU1Mi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS90ZXN0X2d1aWRlL3RvcC1sb2dvLWU5NTljZjkyMDg2MTRhOTU2M2MzMmEwNGZlYTM1MGEyLnBuZw==/dissolve/85/gravity/SouthEast/dx/20/dy/20)
 
 **缩略图1**
 
@@ -75,7 +75,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 - <http://goo.gl/kkxGe> (可点击查看完整URL)
 
-![API链式处理，基于缩略图打水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80|watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast)
+![API链式处理，基于缩略图打水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80|watermark/1/image/aHR0cDovLzc4cmU1Mi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS90ZXN0X2d1aWRlL3RvcC1sb2dvLWU5NTljZjkyMDg2MTRhOTU2M2MzMmEwNGZlYTM1MGEyLnBuZw==/dissolve/85/gravity/SouthEast)
 
 
 ### 更多
