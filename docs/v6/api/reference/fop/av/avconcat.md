@@ -28,7 +28,7 @@ avconcat/<Mode>
 
 参数名称                | 必填 | 说明
 :---------------------- | :--- | :---------------------------------------------------------------
-`<Mode>`                | 是   | ● 拼接模式<br>`1`表示使用demuxer方法：不经过编解码，运行速度快，在所有源的流编码器一致的情况下推荐使用；<br>`2`表示使用filter方法：流编码器不一致时可以考虑该模式，经过编解码，速度慢。
+`<Mode>`                | 是   | ● `2` 表示使用filter方法。
 `<Format>`              | 是   | ● 目标视频的格式（比如flv、mp4等）<br>请参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats)。
 `<encodedUrlN>`         | 是   | ● 经过[URL安全的Base64编码][urlsafeBase64Href]的完整源文件URL<br>1. 除去作为数据处理对象的源文件以外，还可以指定最多5个源文件（即总计6个片段）；<br>2. 所有源文件必须属于同一存储空间。
 
@@ -41,7 +41,7 @@ avconcat/<Mode>
 <a id="avconcat-samples"></a>
 ## 示例
 
-2. 以触发持久化处理形式，将多段mp4视频拼接成一段（分别是thinking-in-go.1.mp4、thinking-in-go.2.mp4、thinking-in-go.3.mp4）：  
+2. 以触发持久化处理形式，将多段mp4视频拼接成一段（分别是thinking-in-go.1.mp4、thinking-in-go.2.mp4、thinking-in-go.3.mp4。 假设这几个视频放在一个绑定了域名`test.clouddn.com`的空间中）：  
 
 	```
     POST /pfop/ HTTP/1.1
@@ -51,7 +51,7 @@ avconcat/<Mode>
 
     bucket=qiniu-ts-demo
     &key=thinking-in-go.1.mp4
-    &fops=avconcat%2Fmode%2F1%2Fformat%2Fmp4%2FdGhpbmtpbmctaW4tZ28uMi5tcDQ%3D%2FdGhpbmtpbmctaW4tZ28uMy5tcDQ%3D
+    &fops=avconcat%2Fmode%2F1%2Fformat%2Fmp4%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMi5tcDQ%3D%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMy5tcDQ%3D
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 

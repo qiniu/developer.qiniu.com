@@ -166,7 +166,7 @@ watermark/2
 `/text/<encodedText>`      | 是   | 水印文字内容（经过[URL安全的Base64编码][urlsafeBase64Href]）
 `/font/<encodedFontName>`  |      | 水印文字字体（经过URL安全的Base64编码），缺省为黑体，详见支持[字体列表](http://kb.qiniu.com/support-fonts)<br><span style="color: red;">注意：中文水印必须指定中文字体。</span>
 `/fontsize/<fontSize>`     |      | 水印文字大小，单位: [缇](http://en.wikipedia.org/wiki/Twip)，等于1/20磅，缺省值0（默认大小），参考DPI为72
-`/fill/<encodedTextColor>` |      | 水印文字颜色，RGB格式，可以是颜色名称（比如`red`）或十六进制（比如`#FF0000`），参考[RGB颜色编码表](http://www.rapidtables.com/web/color/RGB_Color.htm)，缺省为白色(TODO)
+`/fill/<encodedTextColor>` |      | 水印文字颜色，RGB格式，可以是颜色名称（比如`red`）或十六进制（比如`#FF0000`），参考[RGB颜色编码表](http://www.rapidtables.com/web/color/RGB_Color.htm)，缺省为白色(TODO). `（经过URL安全的Base64编码）`
 `/dissolve/<dissolve>`     |      | 透明度，取值范围1-100，缺省值100（完全不透明）
 `/gravity/<gravity>`       |      | 水印位置，参考水印位置参数表，缺省值为SouthEast（右下角）
 `/dx/<distanceX>`          |      | 横轴边距，单位:像素(px)，缺省值为10

@@ -38,7 +38,7 @@ concat/mimeType/<encodedMimeType>
 <a id="concat-samples"></a>
 ## 示例
 
-1. 以触发持久化处理形式，将多个文本文件拼接成一个（分别是a.txt、b.txt和c.txt）：  
+1. 以触发持久化处理形式，将多个文本文件拼接成一个（分别是a.txt、b.txt和c.txt 在同一个空间中，并且绑定域名`test.clouddn.com`）：  
 
 	```
     POST /pfop HTTP/1.1
@@ -48,8 +48,7 @@ concat/mimeType/<encodedMimeType>
 
     bucket=qiniu-ts-demo
     &key=a.txt
-    &fops=concat%2FmimeType%2FdGV4dC9wbGFpbg%3D%3D%2FYi50eHQ%3D%2FYy50eHQ%3D
-    &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
+    &fops=concat%2FmimeType%2FdGV4dC9wbGFpbg%3D%3D%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vYi50eHQ%3D%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vYy50eHQ%3D%26notifyURL%3Dhttp%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
 	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>

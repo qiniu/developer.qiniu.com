@@ -114,7 +114,6 @@ HTTP状态码 | 含义
 200        | 上传片成功。
 400	       | 请求报文格式错误，报文构造不正确或者没有完整发送。
 401        | 上传凭证无效。
-413        | 上传内容长度大于 [fsizeLimit](/docs/v6/api/reference/security/put-policy.html#put-policy-fsize-limit) 中指定的长度限制。
 599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 701        | 后续上传接收地址不正确，或ctx信息已过期。
 

@@ -104,7 +104,7 @@
         "author": "fm-cloud七牛音乐电台",
         "img": "",
         "description": "一个javaweb项目，采用自己写的一个mvc框架，集成众多插件，基于七牛云存储的一个音乐电台",
-        "website": "http://fm.im90.me/",
+        "website": "",
         "code": "https://gitcafe.com/unique/fm-cloud"
     }, {
         "name": "爱狗APP",
@@ -132,7 +132,7 @@
         "author": "SunLn",
         "img": "",
         "description": "基于七牛API，提供上传文件后简单格式转化功能",
-        "website": "http://qiniutool.duapp.com/",
+        "website": "",
         "code": "https://gitcafe.com/SunLn/qiniu-online-convert-tool"
     }, {
         "name": "Html2Pdf",
@@ -189,7 +189,7 @@
         "author": "qn_pan",
         "img": "",
         "description": "愿景 功能大于百度云，现在只是基础功能",
-        "website": "http://qnpan.coding.io/#/",
+        "website": "",
         "code": "https://gitcafe.com/zcfrank1st/qn_pan"
     }, {
         "name": "objbox对象盒子",
