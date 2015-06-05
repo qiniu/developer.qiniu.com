@@ -16,7 +16,6 @@ order: 500
 * [文件拼接][concatHref]
 * [二维码处理（qrcode）][qrcodeHref]
 * [Markdown文本处理（md2html）][md2htmlHref]
-* [多文件压缩（mkzip）][mkzipHref] 
 
 [imageHref]:        /docs/v6/api/reference/fop/image/index.html        "图片处理"
 [avHref]:           /docs/v6/api/reference/fop/av/index.html           "音视频处理"
