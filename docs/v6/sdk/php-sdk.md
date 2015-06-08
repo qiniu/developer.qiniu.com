@@ -139,7 +139,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 	
-	$bucketMgr = New BucketManager($auth);
+	$bucketMgr = new BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 
@@ -166,7 +166,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$auth = new Auth($accessKey, $secretKey);
 
 	
-	$bucketMgr = New BucketManager($auth);
+	$bucketMgr = new BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	$key2 = 'php-logo2.png';
@@ -194,7 +194,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$auth = new Auth($accessKey, $secretKey);
 
 	
-	$bucketMgr = New BucketManager($auth);
+	$bucketMgr = new BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	$key3 = 'php-logo3.png';
@@ -222,7 +222,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
-	$bucketMgr = New BucketManager($auth);
+	$bucketMgr = new BucketManager($auth);
 	$bucket = 'phpsdk';
 	$key = 'php-logo.png';
 	
@@ -247,18 +247,18 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
-	$bucketMgr = New BucketManager($auth);
+	$bucketMgr = new BucketManager($auth);
 	$bucket = 'phpsdk';
 	$prefix = 'php';
 	
-	list($iterms, $marker, $err) = $bucketMgr->listFiles($bucket, $prefix);
+	list($items, $marker, $err) = $bucketMgr->listFiles($bucket, $prefix);
 	echo "\n====> List result: \n";
 	if ($err !== null) {
 		var_dump($err);
 	} else {
 		echo "Marker: $marker\n";
-		echo 'iterms====>\n';
-		var_dump($iterms);
+		echo 'items====>\n';
+		var_dump($items);
 	}
 
 <a id="get-and-put-api"></a>
@@ -332,7 +332,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	//$token = $auth->uploadToken($bucket, null, 3600, $opts);
 
         $token = $auth->uploadToken($bucket);
-        $uploadMgr = New UploadManager();
+        $uploadMgr = new UploadManager();
 	
 	list($ret, $err) = $uploadMgr->put($token, null, 'content string');
 	echo "\n====> put result: \n";
@@ -363,7 +363,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	//$token = $auth->uploadToken($bucket, null, 3600, $opts);
 
         $token = $auth->uploadToken($bucket);
-	$uploadMgr = New UploadManager();
+	$uploadMgr = new UploadManager();
     
 	list($ret, $err) = $uploadMgr->putFile($token, null, __file__);
 	echo "\n====> putFile result: \n";
@@ -468,7 +468,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 
 	$key = 'php-logo.png';
 	$domain = 'phpsdk.qiniudn.com';
-	$op = New Operation($domain);
+	$op = new Operation($domain);
 
 	list($ret, $err) = $op->execute($key, 'imageInfo');
 	echo "\n====> imageInfo result: \n";
@@ -487,7 +487,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 
 	$key = 'php-logo.png';
 	$domain = 'phpsdk.qiniudn.com';
-	$op = New Operation($domain);
+	$op = new Operation($domain);
 
 	list($ret, $err) = $op->execute($key, 'exif');
 	echo "\n====> exif result: \n";
@@ -506,7 +506,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 
 	$key = 'php-logo.png';
 	$domain = 'phpsdk.qiniudn.com';
-	$op = New Operation($domain);
+	$op = new Operation($domain);
 
 	$ops = 'imageView2/0/w/10/h/20';
 	$url = $op->buildUrl($key, $ops);
@@ -530,7 +530,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 
 	$bucket = 'phpsdk';
 	$key = 'clock.flv';
-	$pfop = New PersistentFop($auth, $bucket);
+	$pfop = new PersistentFop($auth, $bucket);
 
 	$fops='avthumb/m3u8/segtime/40/vcodec/libx264/s/320x240';
 	list($id, $err) = $pfop->execute($key, $fops);
