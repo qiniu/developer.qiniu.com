@@ -11,7 +11,7 @@ order: 800
 - [资源（Resource）](#resource)
 - [空间（Bucket）](#bucket)
 - [数据处理（Fop）](#fop)
-- [数据处理样式（Fop Style）](#style)
+- [数据处理样式（Fop-Style）](#style)
 
 <a id="user"></a>
 ## 开发者、客户、用户
@@ -98,7 +98,7 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/400
 ```
 
 <a id="style"></a>
-## 数据处理样式（Fop Style）
+## 数据处理样式（Fop-Style）
 
 如果觉得`url?<fop1>|<fop2>|<fop3>|<fopN>`这种形式过于冗长，还可以为这些串行的`<fop>`集合定义一个友好别名，之后可以用这个友好的别名来取代冗长的指令和参数。我们称这个别名为`样式`。样式是对一个或一组数据处理操作的命名。
 
