@@ -245,12 +245,12 @@ void debug(Qiniu_Client* client, Qiniu_Error err)
 服务端生成 [上传凭证][uploadTokenHref] 代码如下：
 
 ```{c}
-char* uptoken(Qiniu_Client* client, const char* bucket)
+char* uptoken(const char* bucket, Qiniu_Mac* mac)
 {
-	Qiniu_RS_PutPolicy putPolicy;
-	Qiniu_Zero(putPolicy);
-	putPolicy.scope = bucket;
-	return Qiniu_RS_PutPolicy_Token(&putPolicy, NULL);
+    Qiniu_RS_PutPolicy putPolicy;
+    Qiniu_Zero(putPolicy);
+    putPolicy.scope = bucket;
+    return Qiniu_RS_PutPolicy_Token(&putPolicy, mac);
 }
 ```
 
@@ -359,18 +359,19 @@ int resumable_upload(Qiniu_Client* client, char* uptoken, const char* key, const
 其中`<dntoken>`是由业务服务器签发的一个临时[下载凭证][downloadTokenHref]，`<deadline>`是其有效期。下载凭证不需要单独生成，C-SDK 提供了生成完整 downloadUrl 的方法（包含了 dntoken），示例代码如下：
 
 ```{c}
-char* downloadUrl(Qiniu_Client* client, const char* domain, const char* key)
+char* downloadUrl(const char* domain, const char* key, Qiniu_Mac* mac)
 {
-	char* url;
-	char* baseUrl;
-	Qiniu_RS_GetPolicy getPolicy;
 
-	Qiniu_Zero(getPolicy);
-	baseUrl = Qiniu_RS_MakeBaseUrl(domain, key); // baseUrl也可以自己拼接："http://"+domain+"/"+urlescape(key)
-	url = Qiniu_RS_GetPolicy_MakeRequest(&getPolicy, baseUrl, NULL);
+    char* url = 0;
+    char* baseUrl = 0;
 
-	Qiniu_Free(baseUrl);
-	return url;                                  // When url is no longer being used, free it by Qiniu_Free.
+    Qiniu_RS_GetPolicy getPolicy;
+    Qiniu_Zero(getPolicy);
+
+    baseUrl = Qiniu_RS_MakeBaseUrl(domain, key);
+    url = Qiniu_RS_GetPolicy_MakeRequest(&getPolicy, baseUrl, mac);
+    Qiniu_Free(baseUrl);
+    return url;
 }
 ```
 
