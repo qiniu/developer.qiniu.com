@@ -9,8 +9,9 @@ title: PHP SDK 使用指南
 
 SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 
-SDK( version: 6.x.x 适用于PHP 5.1.0 及其以上版本)相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
+SDK在线文档：<http://developer.qiniu.com/php_docs/index.html>
 
+SDK( version: 6.x.x 适用于PHP 5.1.0 及其以上版本)相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
 
 
 - [应用接入](#install)
