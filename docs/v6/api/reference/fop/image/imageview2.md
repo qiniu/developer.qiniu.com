@@ -1,11 +1,25 @@
 ---
 layout: docs
-title: 图片处理（imageView2）
-order: 250
+title: 基本图片处理版本2（imageview2）
+order: 238
 ---
 
-<a id="imageView2"></a>
-# 图片处理（imageView2）
+<a id="imageview2"></a>
+# 基本图片处理版本2（imageview2）
+
+- [描述](#imageView2-description)
+- [接口规格](#imageView2-specification)
+- [请求](#imageView2-request)
+    - [请求报文格式](#imageView2-request-syntax)
+    - [请求头部](#imageView2-request-header) 	
+- [响应](#imageView2-response)
+    - [响应报文格式](#imageView2-response-syntax)
+	- [响应头部](#imageView2-response-header)
+    - [响应内容](#imageView2-response-content) 	 	
+    - [响应状态码](#imageView2-response-code)
+- [附注](#imageView2-remarks)
+- [示例](#imageView2-samples)
+- [内部参考资源](#imageView2-internal-resources)
 
 <a id="imageView2-description"></a>
 ## 描述

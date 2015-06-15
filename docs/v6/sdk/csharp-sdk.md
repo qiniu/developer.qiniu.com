@@ -60,7 +60,7 @@ DLL引用方式:
 
 其它:
 
-	C# SDK引用了第三方的开源项目 Json.NET,因此，您需要在项目中引用它(如果使用NuGet管理dll，刚不需要手工加载Json.NET)
+	C# SDK引用了第三方的开源项目 Json.NET,因此，您需要在项目中引用它(如果使用NuGet管理dll，则不需要手工加载Json.NET)
 项目地址：[http://json.codeplex.com](http://json.codeplex.com)。
 
 <a name=setup></a>

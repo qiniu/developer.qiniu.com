@@ -7,6 +7,9 @@ order: 320
 <a id="download-settings"></a>
 # 下载设置
 
+- [自定义404响应](#404-not-found)
+- [自定义资源下载名](#download-friendly-name)
+
 <a id="404-not-found"></a>
 ## 自定义404响应
 
@@ -23,7 +26,7 @@ order: 320
 http://<domain>/<key>?attname=<file_name>
 ```
 
-如果访问的URL是带[数据处理操作](/docs/v6/api/overview/fop/index.html)的，那么可以给URL添加参数`&attname=<file_name>`，多个[数据处理操作](/docs/v6/api/overview/fop/index.html)间用[管道](/docs/v6/api/overview/fop/pipeline.html)连接，如下所示：
+如果访问的URL是带[数据处理（Fop）](/docs/v6/api/overview/fop/index.html)的，那么可以给URL添加参数`&attname=<file_name>`，多个[数据处理（Fop）](/docs/v6/api/overview/fop/index.html)间用[管道](/docs/v6/api/overview/fop/pipeline.html)连接，如下所示：
 
 ```
 http://<domain>/<key>?<fop>&attname=<file_name>

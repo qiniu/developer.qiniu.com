@@ -1,11 +1,15 @@
 ---
 layout: docs
-title: 安全机制
-order: 490
+title: 下载安全机制
+order: 340
 ---
 
 <a id="security"></a>
-# 安全机制
+# 下载安全机制
+
+- [公开资源下载](#download-public-resource)
+- [私有资源下载](#download-private-resource)
+- [防盗链](#anti-leech)
 
 <a id="download-public-resource"></a>
 ## 公开资源下载

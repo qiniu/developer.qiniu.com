@@ -1,32 +1,45 @@
 ---
 layout: docs
-title: 图片基本信息（imageInfo）
-order: 173
+title: 图片基本信息（imageinfo）
+order: 236
 ---
 
-<a id="imageInfo"></a>
-# 图片基本信息（imageInfo）
+<a id="imageinfo"></a>
+# 图片基本信息（imageinfo）
 
-<a id="imageInfo-description"></a>
+- [描述](#imageinfo-description)
+- [请求](#imageinfo-request)
+    - [请求报文格式](#imageinfo-request-syntax)
+    - [请求头部](#imageinfo-request-header) 	
+- [响应](#imageinfo-response)
+    - [响应报文格式](#imageinfo-response-syntax)
+	- [响应头部](#imageinfo-response-header)
+    - [响应内容](#imageinfo-response-content) 	 	
+    - [响应状态码](#imageinfo-response-code)
+- [附注](#imageinfo-remarks)
+- [示例](#imageinfo-samples)
+- [内部参考资源](#imageinfo-internal-resources)
+
+<a id="imageinfo-description"></a>
 ## 描述
 
 图片基本信息包括图片格式、图片大小、色彩模型。  
-在图片下载URL后附加`imageInfo`指示符（区分大小写），即可获取JSON格式的图片基本信息。  
+在图片下载URL后附加`imageinfo`指示符（区分大小写），即可获取JSON格式的图片基本信息。  
 
 ---
 
-<a id="imageInfo-request"></a>
+<a id="imageinfo-request"></a>
 ## 请求
 
-<a id="imageInfo-request-syntax"></a>
+<a id="imageinfo-request-syntax"></a>
 ### 请求报文格式
 
 ```
-GET <imageDownloadUri>?imageInfo HTTP/1.1
+GET <imageDownloadUri>?imageinfo HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
-<a id="imageInfo-request-header"></a>
+<a id="imageinfo-request-header"></a>
 ### 请求头部
 
 头部名称       | 必填 | 说明
@@ -35,10 +48,10 @@ Host           | 是   | 下载服务器域名，可为七牛三级域名或自�
 
 ---
 
-<a id="imageInfo-response"></a>
+<a id="imageinfo-response"></a>
 ## 响应
 
-<a id="imageInfo-response-syntax"></a>
+<a id="imageinfo-response-syntax"></a>
 ### 响应报文格式
 
 ```
@@ -55,7 +68,7 @@ Cache-Control: no-store
 }
 ```
 
-<a id="imageInfo-response-header"></a>
+<a id="imageinfo-response-header"></a>
 ### 响应头部
 
 头部名称       | 必填 | 说明
@@ -63,7 +76,7 @@ Cache-Control: no-store
 Content-Type   | 是   | MIME类型，固定为application/json
 Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 
-<a id="imageInfo-response-content"></a>
+<a id="imageinfo-response-content"></a>
 ### 响应内容
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
@@ -97,10 +110,10 @@ frameNumber    |        | 帧数，gif 图片会返回此项。
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageInfo-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态](#imageinfo-response-status)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
-<a id="imageInfo-response-code"></a>
+<a id="imageinfo-response-code"></a>
 ### 响应状态码
 
 HTTP状态码 | 含义
@@ -112,14 +125,14 @@ HTTP状态码 | 含义
 
 ---
 
-<a id="imageInfo-remarks"></a>
+<a id="imageinfo-remarks"></a>
 ## 附注
 
 - 缩略图等经过云处理的新图片不支持该方法。  
 
 ---
 
-<a id="imageInfo-samples"></a>
+<a id="imageinfo-samples"></a>
 ## 示例
 
 1. 获取图片基本信息：  
@@ -127,7 +140,7 @@ HTTP状态码 | 含义
 	在Web浏览器中输入以下图片地址  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageInfo
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageinfo
 	```
 
 	返回结果（内容经过格式化以便阅读）  
@@ -141,7 +154,7 @@ HTTP状态码 | 含义
     }
 	```
 
-<a id="imageInfo-internal-resources"></a>
+<a id="imageinfo-internal-resources"></a>
 ## 内部参考资源
 
 - [域名绑定][cnameBindingHref]

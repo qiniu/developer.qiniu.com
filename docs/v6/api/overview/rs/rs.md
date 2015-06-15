@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 管理操作
-order: 340
+order: 298
 ---
 
 <a id="rs-manage"></a>
@@ -9,10 +9,18 @@ order: 340
 
 用户可以对存储在七牛云存储的资源进行管理和操作。与文件管理类似，七牛云存储资源管理的主要操作有：查看、移动、复制、删除及其对应的批量操作，另外还有更新镜像资源操作和修改资源元信息操作。
 
-<a id="stat"></a>
+- [查看 (stat)](#stat)
+- [移动 (move)](#move)
+- [复制 (copy)](#copy)
+- [删除 (delete)](#delete)
+- [批量操作 (batch)](#batch)
+- [更新镜像资源（prefetch）](#prefetch)
+- [修改元信息 (chgm)](#chgm)
+
+a id="stat"></a>
 ## 查看 (stat)
 
-查看操作用于查看资源的基本信息，包含：文件哈希值、文件大小、媒体类型及上传时间。具体参考[获取资源信息（stat）](/docs/v6/api/reference/rs/stat.html)。
+查看操作用于查看资源的基本信息，包含：文件哈希值、文件大小、媒体类型及上传时间。具体参考[获取资源信息](/docs/v6/api/reference/rs/stat.html)。
 
 
 <a id="move"></a>
@@ -43,4 +51,4 @@ order: 340
 <a id="chgm"></a>
 ## 修改元信息 (chgm)
 
-修改元信息操作用于修改资源的mimeType，可以在七牛服务器自动识别文件类型错误或者是类型描述不够详细的情况下，自定义的对空间已有资源的类型进行修改。具体参考[修改资源元信息 (chgm) ](/docs/v6/api/reference/rs/chgm.html)。
+修改元信息操作用于修改资源的mimeType，可以在七牛服务器自动识别文件类型错误或者是类型描述不够详细的情况下，自定义的对空间已有资源的类型进行修改。具体参考[修改元信息 (chgm) ](/docs/v6/api/reference/rs/chgm.html)。

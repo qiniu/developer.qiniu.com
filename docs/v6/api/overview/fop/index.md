@@ -1,10 +1,10 @@
 ---
 layout: docs
 title: 数据处理
-order: 200
+order: 297
 ---
 <a id="fop"></a>
-# 数据处理（fop）
+# 数据处理（Fop）
 
 ## 处理机制
 
@@ -14,8 +14,7 @@ order: 200
 * [管道](/docs/v6/api/overview/fop/pipeline.html "管道")
 * [处理结果持久化](/docs/v6/api/overview/fop/persistent-fop.html "处理结果持久化")
 * [样式](/docs/v6/api/overview/fop/style.html "样式")
-* [内置数据处理功能（图片、音视频等）](/docs/v6/api/overview/fop/builtin-fop.html "内置数据处理功能")
-* [流媒体播放](/docs/v6/api/reference/fop/av/segtime.html "流媒体播放")
+* [图片、音视频等数据处理功能](/docs/v6/api/overview/fop/builtin-fop.html)
 
 ## 内置数据处理功能
 
@@ -23,11 +22,11 @@ order: 200
 
 ### 图片
 
-* [基本图片处理](/docs/v6/api/reference/fop/image/imageview2.html)
-* [高级图片处理](/docs/v6/api/reference/fop/image/imagemogr2.html)
+* [基本图片处理版本2(imageview2)](/docs/v6/api/reference/fop/image/imageview2.html)
+* [高级图片处理版本2(imagemogr2)](/docs/v6/api/reference/fop/image/imagemogr2.html)
 * [获取图片基本信息](/docs/v6/api/reference/fop/image/imageinfo.html)
-* [获取图片EXIF信息](/docs/v6/api/reference/fop/image/exif.html)
-* [图片水印和文字水印](/docs/v6/api/reference/fop/image/watermark.html)
+* [获取图片Exif信息](/docs/v6/api/reference/fop/image/Exif.html)
+* [水印](/docs/v6/api/reference/fop/image/watermark.html)
 
 ### 音视频
 

@@ -1,16 +1,20 @@
 ---
 layout: docs
 title: 变量
-order: 512
+order: 420
+
 ---
 <a id="vars"></a>
 # 变量
 
 变量是七牛云存储同用户交换数据的机制，引入变量概念的目的在于更灵活的控制上传后续动作中的内容组织和传递。可以认为变量是一种占位符，七牛云存储会将占位符按约定替换为实际内容。
 
-在构造[上传策略](/docs/v6/api/reference/security/put-policy.html)时，可在上传策略的`returnBody`和`callbackBody`字段内容中使用变量。
+在构造[上传策略（PutPolicy）](/docs/v6/api/reference/security/put-policy.html)时，可在上传策略的`ReturnBody`和`callbackBody`字段内容中使用变量。
 
 变量分为两种：[魔法变量](#magicvar)和[自定义变量](#xvar)。魔法变量是系统提供的一系列预定义变量，可直接使用，而自定义变量则由调用方指定，通常应对应于上传时的表单参数。服务端会将这些上传参数的具体值返回给调用方。
+
+- [魔法变量](#magicvar)
+- [自定义变量](#xvar)
 
 <a id="magicvar"></a>
 ## 魔法变量
@@ -23,13 +27,13 @@ order: 512
 :----------- | :------- |------------------------------------------- |----
 bucket       |          | 获得上传的目标空间名。    |
 key          |          | 获得文件保存在空间中的资源名。    |
-etag         |          | 文件上传成功后的[Etag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。    |
+etag         |          | 文件上传成功后的[HTTP ETag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。    |
 <a id="magicvar-fname"></a>fname        |          | 上传的原始文件名。    |   不支持用于`分片上传`
 fsize        |          | 资源尺寸，单位为字节。    |
 mimeType     |          | 资源类型，比如JPG图片的资源类型为`image/jpg`。    |
 endUser      |          | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。    |
 persistentId |          | 音视频转码持久化的进度查询ID。     |
-exif         | 是       | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。    | 暂不支持用于`saveKey`中
+exif         | 是       | 获取所上传图片的[Exif](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。    | 暂不支持用于`saveKey`中
 imageInfo    | 是       | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。    | 暂不支持用于`saveKey`中
 year         |          | 上传时的年份。    | 暂不支持用于'returnBody'、'callbackBody'中
 mon          |          | 上传时的月份。    | 暂不支持用于'returnBody'、'callbackBody'中
@@ -61,7 +65,7 @@ bodySha1     |          | callbackBody的sha1(hex编码) | 只支持用于'callb
 - **不支持**$(\<var\>[0])
 - **不支持**$(\<var\>.\<field_name\>[0])
 
-变量`avinfo`在[`returnBody`](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-return-body)中返回的格式不同于url触发返回的`avinfo`格式，`avinfo`在[魔法变量](#magicvar)中的类型如下（内容经过格式化以便阅读）：
+变量`avinfo`在[`ReturnBody`](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-return-body)中返回的格式不同于url触发返回的`avinfo`格式，`avinfo`在[魔法变量](#magicvar)中的类型如下（内容经过格式化以便阅读）：
 
 ```
 {
@@ -114,7 +118,7 @@ bodySha1     |          | callbackBody的sha1(hex编码) | 只支持用于'callb
 }
 ```
 
-变量`exif`的类型如下（内容经过格式化以便阅读，具体细节请参考[EXIF技术白皮书](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)）：  
+变量`exif`的类型如下（内容经过格式化以便阅读，具体细节请参考[Exif技术白皮书](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)）：  
 
 ```
 {
@@ -163,7 +167,7 @@ bodySha1     |          | callbackBody的sha1(hex编码) | 只支持用于'callb
 <a id="xvar"></a>
 ## 自定义变量
 
-应用客户端则在上传请求中设定自定义变量的值。七牛云存储收到这些变量信息后，置换掉`returnBody`和`callbackBody`中的自定义变量设置，形成最终的反馈结果。
+应用客户端则在上传请求中设定自定义变量的值。七牛云存储收到这些变量信息后，置换掉`ReturnBody`和`callbackBody`中的自定义变量设置，形成最终的反馈结果。
 
 自定义变量的行为同魔法变量基本一致，但变量名必须以`x:`开始。下面是一个自定义变量的示例：
 

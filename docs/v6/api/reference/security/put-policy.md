@@ -1,15 +1,15 @@
 ---
 layout: docs
-title: 上传策略（PutPolicy）
+title: 上传策略
 order: 980
 ---
 
 <a id="put-policy"></a>
-# 上传策略（PutPolicy）
+# 上传策略
 
 上传策略是资源上传时附带的一组配置设定。通过这组配置信息，七牛云存储可以了解用户上传的需求：它将上传什么资源，上传到哪个空间，上传结果是回调通知还是使用重定向跳转，是否需要设置反馈信息的内容，以及授权上传的截止时间等等。  
 
-上传策略同时还参与请求验证。实际上，[上传凭证（UploadToken）][uploadTokenHref]就是上传策略的签名结果。通过对上传策略签名，可以确保用户对某个资源的上传请求是完全受到验证的。
+上传策略同时还参与请求验证。实际上，[上传凭证（UploadToken）][uploadTokenHref]就是上传策略的签名结果。通过对上传策略签名，可以验证用户对某个资源的上传请求是否完整。
 
 <a id="put-policy-struct"></a>
 ## 格式
@@ -49,7 +49,7 @@ order: 980
 字段名称              | 必填 | 说明
 :-------------------- | :--- | :-----------------------------------------------
 <a id="put-policy-scope"></a>`scope`               | 是   | ● 指定上传的目标资源空间（Bucket）和资源名（Key）<br>有两种格式：<br>1. `<bucket>`，表示允许用户上传文件到指定的 bucket。在这种模式下文件只能“新增”，若已存在同名资源则会失败；<br>2. `<bucket>:<key>`，表示只允许用户上传指定key的文件。在这种模型下文件默认允许“修改”，已存在同名资源则会本次覆盖。如果希望只能上传指定key的文件，并且不允许修改，那么可以将下面的 `insertOnly` 属性值设为 `1`。
-<a id="put-policy-deadline"></a>`deadline`            | 是   | ● 上传请求授权的截止时间<br>[UNIX时间戳][unixTimeHref]，单位：秒。**该截止时间为上传完成后，在七牛空间生成文件的校验时间，而非上传的开始时间**，一般建议设置为`上传开始时间+3600s`，用户可根据具体的业务场景对凭证截止时间进行调整。
+<a id="put-policy-deadline"></a>`deadline`            | 是   | ● 上传请求授权的截止时间<br>[Unix时间戳][unixTimeHref]，单位：秒。**该截止时间为上传完成后，在七牛空间生成文件的校验时间，而非上传的开始时间**，一般建议设置为`上传开始时间+3600s`，用户可根据具体的业务场景对凭证截止时间进行调整。
 <a id="put-policy-insert-only"></a>`insertOnly`          |      | ● 限定为“新增”语意<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
 <a id="put-policy-end-user"></a>`endUser`             |      | ● 唯一属主标识<br>特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印。
 <a id="put-policy-return-url"></a>`returnUrl`           |      | ● Web端文件上传成功后，浏览器执行303跳转的URL<br>通常用于`HTML Form`上传。<br>文件上传成功后会跳转到`<returnUrl>?upload_ret=<queryString>`, `<queryString>`包含`returnBody`内容。<br>如不设置`returnUrl`，则直接将`returnBody`的内容返回给客户端。
@@ -114,8 +114,8 @@ order: 980
 
 2. 使用指定存储空间和资源名：
 
-	在数据处理命令后用管道符 `|` 拼接 `saveas/<encodedEntryURI>` 指令，指示七牛服务器使用 [EntryURI][encodedEntryURIHref] 格式中指定的 Bucket 与 Key 来保存处理结果。  
-	例如`avthumb/flv|saveas/cWJ1Y2tldDpxa2V5`，是将上传的视频文件转码成`flv`格式后存储为`qbucket:qkey`，其中**cWJ1Y2tldDpxa2V5**是**qbucket:qkey**的[UrlSafe-Base64编码][urlsafeBase64Href]结果。  
+	在数据处理命令后用管道符 `|` 拼接 `saveas/<encodedEntryURI>` 指令，指示七牛服务器使用 [EncodedEntryURI][encodedEntryURIHref] 格式中指定的 Bucket 与 Key 来保存处理结果。  
+	例如`avthumb/flv|saveas/cWJ1Y2tldDpxa2V5`，是将上传的视频文件转码成`flv`格式后存储为`qbucket:qkey`，其中**cWJ1Y2tldDpxa2V5**是**qbucket:qkey**的[URL安全的Base64编码][urlsafeBase64Href]结果。  
 	以上方式可以同时作用于多个数据处理命令，用“;”分隔，例如`avthumb/mp4|saveas/cWJ1Y2tldDpxa2V5;avthumb/flv|saveas/cWJ1Y2tldDpxa2V5Mg==`。
 
 <a id="put-policy-remarks"></a>
@@ -159,7 +159,7 @@ order: 980
 <a id="download-external-resources"></a>
 ## 外部参考资源
 
-- [Unix时间][unixTimeHref]
+- [Unix时间戳][unixTimeHref]
 
 [uploadTokenHref]:          upload-token.html                                            "上传凭证"
 [magicVariablesHref]:       http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#magicvar                "魔法变量"

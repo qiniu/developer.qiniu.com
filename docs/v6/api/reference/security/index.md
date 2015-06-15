@@ -10,9 +10,9 @@ order: 900
 本节描述与资源访问安全性相关的接口规格，涵盖以下内容：  
 
 * [上传策略（PutPolicy）][putPolicyHref]
-* [上传凭证][uploadTokenHref]
-* [下载凭证][downloadTokenHref]
-* [管理凭证][accessTokenHref]
+* [上传凭证（UploadToken）][uploadTokenHref]
+* [下载凭证（DownloadToken）][downloadTokenHref]
+* [管理凭证（AccessToken）][accessTokenHref]
 
 [putPolicyHref]:     http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html     "上传策略"
 [uploadTokenHref]:   http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html   "上传凭证"

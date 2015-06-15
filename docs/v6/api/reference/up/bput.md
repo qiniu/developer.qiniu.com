@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 上传片（bput）
+title: 上传片
 order: 90
 ---
 
 <a id="bput"></a>
-# 上传片（bput）
+# 上传片
 
 <a id="bput-description"></a>
 ## 描述

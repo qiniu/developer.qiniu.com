@@ -3,10 +3,20 @@ layout: docs
 title: 安全机制
 order: 600
 ---
+
 <a id="security"></a>
 # 安全机制
 
-数据安全性是云存储服务的重中之重。云存储的安全机制需要考虑主要以下几个因素：
+- [密钥（AccessKey/SecretKey）](#aksk)
+- [上传凭证（UploadToken）](#upload-token)
+- [下载凭证（DownloadToken）](#download-token)
+- [防盗链](#anti-leech)
+- [管理凭证（AccessToken）](#accesstoken)
+- [跨域访问](#cors-support)
+    - [上传](#upload-cors)
+	- [下载](#download-cors) 
+
+数据安全性是云存储服务的重中之重。云存储的安全机制主要需要考虑以下几个因素：
 
 1. 如何判断该请求方合法，且对目标空间有相应的访问权限？
 1. 因为服务的访问协议同时支持HTTP和HTTPS，服务端需要判断收到的请求是否经过篡改。
@@ -48,9 +58,9 @@ order: 600
 	> 因为时间戳的创建和验证在不同的服务端进行（在业务服务器创建，在云存储服务器验证），因此开发者的业务服务器需要尽可能校准时间，否则可能出现凭证刚创建就过期等各种奇怪的问题。
 	
 1. 可选择设置的最终用户标识ID。这是为了让业务服务器在收到结果回调时能够识别产生该请求的最终用户信息；
-1. 可选择设置的[结果返回方式](up/response/index.html)和[数据预处理指令](up/response/persistent-op.html)；
+1. 可选择设置的[响应类型](/docs/v6/api/overview/up/upload-models/response-types.html)；
 
-我们使用一个[上传策略（PutPolicy）结构](/docs/v6/api/reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](/docs/v6/api/reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](up/index.html)。
+我们使用一个[上传策略（PutPolicy）](/docs/v6/api/reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证](/docs/v6/api/reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[上传过程](up/index.html)。
 
 <a id="download-token"></a>
 ## 下载凭证（DownloadToken）
@@ -62,7 +72,7 @@ order: 600
 1. 保证请求发起者拥有对目标空间的访问权限；
 1. 保证服务端收到的下载请求内容未经中途篡改，具体包括目标资源的URI和该访问请求的有效期信息均应未受到篡改；
 
-关于下载凭证的生成细节，请查看[下载凭证规格](/docs/v6/api/reference/security/download-token.html)。关于下载凭证的具体使用方法，请参见[私有资源下载](/docs/v6/api/overview/dn/security.html#download-private-resource)。
+关于下载凭证的生成细节，请查看[下载凭证](/docs/v6/api/reference/security/download-token.html)。关于下载凭证的具体使用方法，请参见[私有资源下载](/docs/v6/api/overview/dn/security.html#download-private-resource)。
 
 <a id="anti-leech"></a>
 ## 防盗链
@@ -83,7 +93,7 @@ order: 600
 1. 保证请求发起者拥有对目标空间的管理权限；
 1. 保证服务端收到的管理请求内容未经中途篡改，具体包括代表管理动作的URI和该管理动作的参数信息均应未受到篡改；
 
-关于管理凭证的生成细节，请查看[管理凭证规格](/docs/v6/api/reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理](/docs/v6/api/overview/rs/security.html)。
+关于管理凭证的生成细节，请查看[管理凭证](/docs/v6/api/reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理安全机制](/docs/v6/api/overview/rs/security.html)。
 
 <a id="cors-support"></a>
 ## 跨域访问

@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 查询持久化处理状态（prefop）
+title: 持久化处理状态查询（prefop）
 order: 200
 ---
 
 <a id="prefop"></a>
-# 查询持久化处理状态（prefop）
+# 持久化处理状态查询（prefop）
 
 <a id="prefop-description"></a>
 ## 描述

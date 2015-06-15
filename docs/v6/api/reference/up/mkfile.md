@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 创建文件（mkfile）
+title: 创建文件
 order: 10
 ---
 
 <a id="mkfile"></a>
-# 创建文件（mkfile）
+# 创建文件
 
 <a id="mkfile-description"></a>
 ## 描述
