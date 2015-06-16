@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 音视频处理（avthumb）
+title: 音视频处理
 order: 150
 ---
 
 <a id="avthumb"></a>
-# 音视频处理（avthumb）
+# 音视频处理
 
 <a id="avthumb-description"></a>
 ## 描述

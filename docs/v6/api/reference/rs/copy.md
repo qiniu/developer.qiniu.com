@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 复制资源（copy）
+title: 复制资源
 order: 800
 ---
 
 <a id="copy"></a>
-# 复制资源（copy）
+# 复制资源
 
 <a id="copy-description"></a>
 ## 描述

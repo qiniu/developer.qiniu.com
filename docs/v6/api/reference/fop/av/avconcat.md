@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 音视频拼接（avconcat）
+title: 音视频拼接
 order: 135
 ---
 
 <a id="avconcat"></a>
-# 音视频拼接（avconcat）
+# 音视频拼接
 
 <a id="avconcat-description"></a>
 ## 描述

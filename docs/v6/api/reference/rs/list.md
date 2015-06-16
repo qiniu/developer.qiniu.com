@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 列举资源（list）
+title: 列举资源
 order: 399
 ---
 
 <a id="list"></a>
-# 列举资源（list）
+# 列举资源
 
 <a id="list-description"></a>
 ## 描述

@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 触发持久化处理（pfop）
+title: 触发持久化处理
 order: 300
 ---
 
 <a id="pfop-existing-resource"></a>
-# 触发持久化处理（pfop）
+# 触发持久化处理
 
 <a id="pfop-description"></a>
 ## 描述

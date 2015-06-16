@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 图片基本信息（imageinfo）
+title: 图片基本信息
 order: 236
 ---
 
 <a id="imageinfo"></a>
-# 图片基本信息（imageinfo）
+# 图片基本信息
 
 - [描述](#imageinfo-description)
 - [请求](#imageinfo-request)

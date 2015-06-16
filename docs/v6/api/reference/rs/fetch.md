@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 抓取资源（fetch）
+title: 抓取资源
 order: 400
 ---
 
 <a id="fetch"></a>
-# 抓取资源（fetch）
+# 抓取资源
 
 <a id="fetch-description"></a>
 ## 描述

@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 水印（watermark）
+title: 水印
 order: 160
 ---
 
 <a id="watermark"></a>
-# 水印（watermark）
+# 水印
 
 <a id="description"></a>
 ## 描述

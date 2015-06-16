@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 资源下载二维码（qrcode）
+title: 资源下载二维码
 order: 110
 ---
 
 <a id="qrcode"></a>
-# 资源下载二维码（qrcode）
+# 资源下载二维码
 
 <a id="description"></a>
 ## 描述

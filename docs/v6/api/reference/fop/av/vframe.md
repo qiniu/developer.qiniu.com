@@ -1,5 +1,5 @@
 ---
-title: 视频截图（vframe）
+title: 视频截图
 order: 149
 ---
 

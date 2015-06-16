@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 文件拼接（concat）
+title: 文件拼接
 order: 135
 ---
 
 <a id="concat"></a>
-# 文件拼接（concat）
+# 文件拼接
 
 <a id="concat-description"></a>
 ## 描述

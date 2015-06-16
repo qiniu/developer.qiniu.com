@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 图片主色调（imageAve）
+title: 图片主色调
 order: 155
 ---
 
 <a id="imageAve"></a>
-# 图片主色调（imageAve）
+# 图片主色调
 
 <a id="imageAve-description"></a>
 ## 描述

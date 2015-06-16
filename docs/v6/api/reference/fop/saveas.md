@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 处理结果另存（saveas）
+title: 处理结果另存
 order: 185
 ---
 
 <a id="saveas"></a>
-# 处理结果另存（saveas）
+# 处理结果另存
 
 <a id="saveas-description"></a>
 ## 描述

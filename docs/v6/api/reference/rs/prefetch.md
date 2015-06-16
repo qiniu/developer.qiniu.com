@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 更新镜像资源（prefetch）
+title: 更新镜像资源
 order: 300
 ---
 
 <a id="prefetch"></a>
-# 更新镜像资源（prefetch）
+# 更新镜像资源
 
 <a id="prefetch-description"></a>
 ## 描述

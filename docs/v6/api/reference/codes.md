@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: 状态码
+title: HTTP状态码
 order: 300
 ---
 

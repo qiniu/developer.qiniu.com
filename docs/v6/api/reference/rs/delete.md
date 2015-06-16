@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 删除资源（delete）
+title: 删除资源
 order: 600
 ---
 
 <a id="delete"></a>
-# 删除资源（delete）
+# 删除资源
 
 <a id="delete-description"></a>
 ## 描述

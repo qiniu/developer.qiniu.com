@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 图片Exif信息（Exif）
+title: 图片Exif信息
 order: 235
 ---
 
 <a id="Exif-Exif"></a>
-# 图片Exif信息（Exif）
+# 图片Exif信息
 
 - [描述](#Exif-description)
 - [请求](#Exif-request)

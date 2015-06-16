@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 基本图片处理版本2（imageview2）
+title: 基本图片处理版本2
 order: 238
 ---
 
 <a id="imageview2"></a>
-# 基本图片处理版本2（imageview2）
+# 基本图片处理版本2
 
 - [描述](#imageView2-description)
 - [接口规格](#imageView2-specification)

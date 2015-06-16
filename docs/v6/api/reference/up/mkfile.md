@@ -7,6 +7,20 @@ order: 10
 <a id="mkfile"></a>
 # 创建文件
 
+- [描述](#mkfile-description)
+- [请求](#mkfile-request)
+  - [请求语法](#mkfile-request-syntax)
+  - [请求参数](#mkfile-request-params)
+  - [头部信息](#mkfile-request-headers)
+  - [请求内容](#mkfile-request-body)  
+  - [访问权限](#mkfile-request-auth)
+- [响应](#mkfile-response)
+  - [头部信息](#mkfile-response-headers)
+  - [响应内容](#mkfile-response-body)
+  - [响应状态码](#mkfile-response-status)
+- [附注](#mkfile-remarks)
+- [内部参考资源](#mkfile-internal-resources)
+
 <a id="mkfile-description"></a>
 ## 描述
 
@@ -73,7 +87,7 @@ Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]
 :------------ | :--- | :--------------------------------------------------------------------
 Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
+其它可能返回的头部信息，请参考[HTTP响应扩展字段][commonHttpResponseHeaderHref]。
 
 <a id="mkfile-response-body"></a>
 ### 响应内容
@@ -129,8 +143,8 @@ HTTP状态码 | 含义
 ## 内部参考资源
 
 - [上传凭证][uploadTokenHref]
-- [创建块（mkblk）](mkblk.html)
-- [上传片（bput）](bput.html)
+- [创建块](mkblk.html)
+- [上传片](mkfile.html)
 - [URL安全的Base64编码][urlsafeBase64Href]
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"

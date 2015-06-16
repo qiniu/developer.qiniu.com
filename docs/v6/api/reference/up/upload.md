@@ -19,9 +19,9 @@ order: 200
   - [响应内容](#upload-response-content)
   - [响应状态](#upload-response-status)
 - [附注](#upload-response)
-- [响应报文](#upload-response)
-- [响应报文](#upload-response)
-- [响应报文](#upload-response)
+- [在线示例](#upload-example)
+- [内部参考资源](#upload-internal-resources)
+- [外部参考资源](#upload-external-resources)
  
 <a id="upload-description"></a>
 ## 描述

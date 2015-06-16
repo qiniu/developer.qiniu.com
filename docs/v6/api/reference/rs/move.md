@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 移动资源（move）
+title: 移动资源
 order: 700
 ---
 
 <a id="move"></a>
-# 移动资源（move）
+# 移动资源
 
 <a id="move-description"></a>
 ## 描述
