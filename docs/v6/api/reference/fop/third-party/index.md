@@ -9,7 +9,8 @@ order: 90
 
 - [描述](#ufop-description)
 - [第三方数据处理服务列表](#ufop-content-table)
-
+  - [广告过滤服务（ad）][nropHref]
+  - [图片鉴黄服务（nrop）][nropHref]
 
 <a id="ufop-description"></a>
 ## 描述
