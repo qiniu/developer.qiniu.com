@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 图片主色调
-order: 155
+order: 231
 ---
 
 <a id="imageAve"></a>

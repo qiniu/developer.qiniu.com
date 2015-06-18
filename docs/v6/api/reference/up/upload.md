@@ -18,7 +18,7 @@ order: 200
   - [响应头部](#upload-response-header)
   - [响应内容](#upload-response-content)
   - [响应状态](#upload-response-status)
-- [附注](#upload-response)
+- [附注](#upload-remarks)
 - [在线示例](#upload-example)
 - [内部参考资源](#upload-internal-resources)
 - [外部参考资源](#upload-external-resources)
@@ -28,7 +28,7 @@ order: 200
 
 `upload`是七牛云存储提供的最基础的接口，用于在一次HTTP会话中上传单一的一个文件。  
 
----
+
 <a id="method"></a>
 ## 使用方法
 
@@ -116,7 +116,6 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 
 注意：用户自定义变量可以有多对。  
 
----
 
 <a id="upload-response"></a>
 ## 响应报文
@@ -187,7 +186,7 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在。
 
----
+
 
 <a id="upload-remarks"></a>
 ## 附注
@@ -201,7 +200,7 @@ HTTP状态码 | 含义
 
 - [JS表单上传（异步）](http://jsfiddle.net/gh/get/jquery/1.9.1/icattlecoder/jsfiddle/tree/master/ajaxupload)
 
----
+
 
 <a id="upload-internal-resources"></a>
 ## 内部参考资源

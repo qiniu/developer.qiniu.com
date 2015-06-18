@@ -1,6 +1,6 @@
 ---
 title: 视频截图
-order: 149
+order: 146
 ---
 
 <a id="video-thumbnail"></a>

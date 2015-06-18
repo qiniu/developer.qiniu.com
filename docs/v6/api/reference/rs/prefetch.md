@@ -7,6 +7,25 @@ order: 300
 <a id="prefetch"></a>
 # 更新镜像资源
 
+- [描述](#prefetch-description)
+- [请求](#prefetch-request)
+  - [请求语法](#prefetch-request-syntax)
+  - [访问权限](#prefetch-request-auth)
+  - [请求参数](#prefetch-request-params)
+  - [头部信息](#prefetch-request-headers)
+  - [请求内容](#prefetch-request-body)
+- [响应](#prefetch-response)
+  - [响应语法](#prefetch-response-syntax)
+  - [头部信息](#prefetch-response-headers)
+  - [响应内容](#prefetch-response-body)
+  - [响应状态码](#prefetch-response-status)
+- [示例](#prefetch-samples)
+  - [命令行示例](#prefetch-sample1-command)
+  - [请求示例](#prefetch-sample1-request)
+  - [响应示例](#prefetch-sample1-response)
+- [附注](#prefetch-remarks)
+- [内部参考资源](#prefetch-internal-resources)
+
 <a id="prefetch-description"></a>
 ## 描述
 
@@ -100,6 +119,9 @@ HTTP状态码 | 含义
 478        | 源站返回404外，所有非200的response都返回478
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 其余状态码 | 源站返回的状态码，请检查源站资源的可访问性
+
+<a id="prefetch-samples"></a>prefetch
+## 示例
 
 <a id="prefetch-sample1-command"></a>
 ### 命令行示例

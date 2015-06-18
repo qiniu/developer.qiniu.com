@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 私有M3U8
-order: 146
+order: 143
 ---
 
 <a id="pm3u8"></a>

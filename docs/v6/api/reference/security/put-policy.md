@@ -11,6 +11,14 @@ order: 980
 
 上传策略同时还参与请求验证。实际上，[上传凭证（UploadToken）][uploadTokenHref]就是上传策略的签名结果。通过对上传策略签名，可以验证用户对某个资源的上传请求是否完整。
 
+- [格式](#put-policy-struct)
+  - [fetchKey上传模式](#fetch-key-explaination)
+  - [persistentOps详解](#put-policy-persistent-ops-explanation)
+- [附注](#put-policy-remarks)
+- [示例](#put-policy-sample)
+- [内部参考资源](#upload-internal-resources)
+- [外部参考资源](#download-external-resources)
+
 <a id="put-policy-struct"></a>
 ## 格式
 
@@ -130,7 +138,7 @@ order: 980
     2. 客户端未指定`Key`，上传策略中设置了`saveKey`，以`saveKey`的格式命名；
     3. 客户端未指定`Key`，上传策略中未设置`saveKey`，以文件hash（etag）命名。
 
-<a id="put-policy-samples"></a>
+<a id="put-policy-sample"></a>
 ## 示例
 
 <a id="put-policy-samples-persisntent-ops"></a>

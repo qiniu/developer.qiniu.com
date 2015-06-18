@@ -7,6 +7,25 @@ order: 600
 <a id="delete"></a>
 # 删除资源
 
+- [描述](#delete-description)
+- [请求](#delete-request)
+  - [请求语法](#delete-request-syntax)
+  - [访问权限](#delete-request-auth)
+  - [请求参数](#delete-request-params)
+  - [头部信息](#delete-request-headers)
+  - [请求内容](#delete-request-body)
+- [响应](#delete-response)
+  - [响应语法](#delete-response-syntax)
+  - [头部信息](#delete-response-headers)
+  - [响应内容](#delete-response-body)
+  - [响应状态码](#delete-response-status)
+- [示例](#delete-samples)
+  - [命令行示例](#delete-example1-command)
+  - [请求示例](#delete-example1-request)
+  - [响应示例](#delete-example1-response)
+- [附注](#delete-remarks)
+- [内部参考资源](#delete-internal-resources)
+
 <a id="delete-description"></a>
 ## 描述
 
@@ -52,7 +71,7 @@ Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]�
 <a id="delete-response"></a>
 ## 响应
 
-<a id="delete-request-syntax"></a>
+<a id="delete-response-syntax"></a>
 ### 响应语法
 
 ```
@@ -97,6 +116,9 @@ HTTP状态码 | 含义
 401        | 管理凭证无效
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 612        | 待删除资源不存在
+
+<a id="delete-samples"></a>
+## 示例
 
 <a id="delete-example1-command"></a>
 ### 命令行示例

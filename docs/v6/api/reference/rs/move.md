@@ -7,6 +7,25 @@ order: 700
 <a id="move"></a>
 # 移动资源
 
+- [描述](#move-description)
+- [请求](#move-request)
+  - [请求语法](#move-request-syntax)
+  - [访问权限](#move-request-auth)
+  - [请求参数](#move-request-params)
+  - [头部信息](#move-request-headers)
+  - [请求内容](#move-request-body)
+- [响应](#move-response)
+  - [响应语法](#move-response-headers)
+  - [头部信息](#move-response-headers)
+  - [响应内容](#move-response-body)
+  - [响应状态码](#move-response-status)
+- [示例](#move-samples)
+  - [命令行示例](#move-sample1-command)
+  - [请求示例](#move-sample1-request)
+  - [响应示例](#move-sample1-response)
+- [附注](#move-remarks)
+- [内部参考资源](#move-internal-resources)
+
 <a id="move-description"></a>
 ## 描述
 
@@ -98,6 +117,9 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 612        | 待移动资源不存在
 614        | 目标资源已存在
+
+<a id="copy-samples"></a>
+## 示例
 
 <a id="move-sample1-command"></a>
 ### 命令行示例

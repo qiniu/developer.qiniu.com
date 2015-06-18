@@ -10,7 +10,13 @@ order: 960
 下载凭证是七牛云存储用于验证下载私有资源请求合法性的机制。  
 用户通过下载凭证授权客户端，使其具备访问指定私有资源的能力。  
 
-下载公开空间资源不需要下载凭证。  
+下载公开空间资源不需要下载凭证。
+
+- [算法](#download-token-algorithm)
+- [附注](#download-token-remarks)
+- [代码示例](#download-token-samples)
+- [内部参考资源](#download-internal-resources) 
+- [外部参考资源](#download-external-resources)   
 
 <a id="download-token-algorithm"></a>
 ## 算法

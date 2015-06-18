@@ -7,6 +7,25 @@ order: 400
 <a id="fetch"></a>
 # 抓取资源
 
+- [描述](#fetch-description)
+- [请求](#fetch-request)
+  - [请求语法](#fetch-request-syntax)
+  - [访问权限](#fetch-request-auth)
+  - [请求参数](#fetch-request-params)
+  - [头部信息](#fetch-request-headers)
+  - [请求内容](#fetch-request-body)
+- [响应](#fetch-response)
+  - [响应语法](#fetch-response-headers)
+  - [头部信息](#fetch-response-headers)
+  - [响应内容](#fetch-response-body)
+  - [响应状态码](#fetch-response-fetchus)
+- [示例](#fetch-samples)
+  - [命令行示例](#fetch-sample1-command)
+  - [请求示例](#fetch-sample1-request)
+  - [响应示例](#fetch-sample1-response)
+- [附注](#fetch-remarks)
+- [内部参考资源](#fetch-internal-resources)
+
 <a id="fetch-description"></a>
 ## 描述
 

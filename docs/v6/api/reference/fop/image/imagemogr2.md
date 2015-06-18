@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 高级图片处理版本2
-order: 237
+title: 高级图片处理
+order: 233
 ---
 
 <a id="imagemogr2"></a>
-# 高级图片处理版本2
+# 高级图片处理
 
 - [描述](#imagemogr2-description)
 - [接口规格](#imagemogr2-specification)

@@ -7,6 +7,15 @@ order: 185
 <a id="saveas"></a>
 # 处理结果另存
 
+- [描述](#saveas-description)
+- [接口规格](#saveas-specification)
+- [签名算法](#saveas-sign-algorithm)
+  - [算法描述](#describe-algorithm)
+  - [算法实例](#case-algorithm)
+- [附注](#saveas-remarks)
+- [示例](#saveas-samples)
+- [内部参考资源](#saveas-internal-resources)
+
 <a id="saveas-description"></a>
 ## 描述
 
@@ -36,6 +45,7 @@ saveas/<EncodedEntryURI>/sign/<Sign>
 <a id="saveas-sign-algorithm"></a>
 ## 签名算法
 
+<a id="describe-algorithm"></a>
 ### 算法描述
 
 1. 在下载URL（不含Scheme部分，即去除`http://`）后附加`saveas`接口（不含签名部分）：  
@@ -61,7 +71,7 @@ saveas/<EncodedEntryURI>/sign/<Sign>
 	```
     FinalURL = NewURL + "/sign/<AccessKey>:<EncodedSign>"
 	```
-
+<a id="case-algorithm"></a>
 ### 算法实例
 
 生成saveas请求的完整Go代码如下：  

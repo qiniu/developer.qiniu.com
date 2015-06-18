@@ -7,7 +7,14 @@ order: 970
 <a id="upload-token"></a>
 # 上传凭证
 
-上传凭证是七牛云存储用于验证上传请求合法性的机制。用户通过上传凭证授权客户端，使其具备访问指定资源的能力。  
+上传凭证是七牛云存储用于验证上传请求合法性的机制。用户通过上传凭证授权客户端，使其具备访问指定资源的能力。
+
+- [算法](#upload-token-algorithm)
+- [附注](#upload-token-remarks)
+- [代码示例](#upload-token-samples)
+- [上传凭证生成器](#put-policy-maker) 
+- [内部参考资源](#upload-internal-resources) 
+- [外部参考资源](#upload-external-resources)  
 
 <a id="upload-token-algorithm"></a>
 ## 算法
@@ -99,7 +106,7 @@ order: 970
 // TODO: 代码示例goes here.
 ```
 
-<a id="upload-token-samples"></a>
+<a id="put-policy-maker"></a>
 ## 上传凭证生成器
 
 [在线示例](http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken)

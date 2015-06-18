@@ -7,6 +7,25 @@ order: 800
 <a id="copy"></a>
 # 复制资源
 
+- [描述](#copy-description)
+- [请求](#copy-request)
+  - [请求语法](#copy-request-syntax)
+  - [访问权限](#copy-request-auth)
+  - [请求参数](#copy-request-params)
+  - [头部信息](#copy-request-headers)
+  - [请求内容](#copy-request-body)
+- [响应](#copy-response)
+  - [响应语法](#copy-response-syntax)
+  - [头部信息](#copy-response-headers)
+  - [响应内容](#copy-response-body)
+  - [响应状态码](#copy-response-copyus)
+- [示例](#copy-samples)
+  - [命令行示例](#copy-sample1-command)
+  - [请求示例](#copy-sample1-request)
+  - [响应示例](#copy-sample1-response)
+- [附注](#copy-remarks)
+- [内部参考资源](#copy-internal-resources)
+
 <a id="copy-description"></a>
 ## 描述
 
@@ -52,7 +71,7 @@ Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]�
 <a id="copy-response"></a>
 ## 响应
 
-<a id="copy-request-syntax"></a>
+<a id="copy-response-syntax"></a>
 ### 响应语法
 
 ```
@@ -83,10 +102,10 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#copy-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态](#copy-response-copyus)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
-<a id="copy-response-status"></a>
+<a id="copy-response-copyus"></a>
 ### 响应状态码
 
 HTTP状态码 | 含义
@@ -97,6 +116,9 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
 612        | 待复制资源不存在
 614        | 目标资源已存在
+
+<a id="copy-samples"></a>
+## 示例
 
 <a id="copy-sample1-command"></a>
 ### 命令行示例
