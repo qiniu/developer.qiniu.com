@@ -22,5 +22,7 @@ order: 90
 ## 第三方数据处理服务列表
 
 * [图片鉴黄服务（nrop）][nropHref]
+* [广告过滤服务（ad）][adHref]
 
 [nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html
+[adHref]:          /docs/v6/api/reference/fop/third-party/ad.html

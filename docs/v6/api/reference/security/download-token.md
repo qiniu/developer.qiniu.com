@@ -43,13 +43,13 @@ order: 960
 4. 将`AccessKey`（假设是`MY_ACCESS_KEY`）与上一步计算得到的结果以“:”连接起来：
 
 	```
-    Token = 'MY_ACCESS_KEY:NTQ3YWI5N2E5MjcxN2Y1ZTBiZTY3ZTZlZWU2NDAxMDY1YmI4ZWRhNwo='
+    Token = 'MY_ACCESS_KEY:yN9WtB0lQheegAwva64yBuH3ZgU='
 	```
 
 5. 将下载凭证添加到含过期时间参数的下载URL之后，作为最后一个参数（token参数）：  
 
 	```
-    RealDownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg?e=1451491200&token=MY_ACCESS_KEY:NTQ3YWI5N2E5MjcxN2Y1ZTBiZTY3ZTZlZWU2NDAxMDY1YmI4ZWRhNwo='
+    RealDownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg?e=1451491200&token=MY_ACCESS_KEY:yN9WtB0lQheegAwva64yBuH3ZgU='
 	```
 
 `RealDownloadUrl`即为下载对应私有资源的可用URL，并在指定时间后失效。  
