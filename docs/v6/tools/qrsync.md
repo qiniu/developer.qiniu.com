@@ -7,7 +7,7 @@ title: qrsync 命令行同步工具
 - [简介](#overview)
 - [下载](#download)
 - [用法](#usage)
-- [常见故障排查][#faq]
+- [常见故障排查](#faq)
 
 
 <a id="overview"></a>
@@ -84,7 +84,7 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 
     > qrsync.exe [--check-exist] /path/to/your-conf.json
 
-__`--check-exist`__ : 第一次使用qrsync时，若加上`--check-exist`，上传时会先比对本地文件和目标空间的文件是否一致。一致的文件则会跳过避免重复上传。
+`--check-exist`: 第一次使用qrsync时，若加上`--check-exist`，上传时会先比对本地文件和目标空间的文件是否一致。一致的文件则会跳过避免重复上传。
 
 需要注意的是，qrsync 是增量同步的，如果你上一次同步成功后修改了部分文件，那么再次运行 qrsync 时只同步新增的和被修改的文件。当然，如果上一次同步过程出错了，也可以重新运行 qrsync 程序继续同步。
 
