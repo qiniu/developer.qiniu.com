@@ -1,5 +1,16 @@
 {
     "logs": [{
+        "month": "2015-06",
+        "items": [{
+            "date": "2015-06-20",
+            "features": [{
+                "title": "qrsync新增--check-exist flag",
+                "href": "http://developer.qiniu.com/docs/v6/tools/qrsync.html",
+                "info": "首次上传时会先比对本地文件和目标空间的文件是否一致，一致的文件则会跳过避免重复上传。感谢@sinkcup(微博)反馈问题"
+            }],
+            "bugs": []
+        }]
+    }, {
         "month": "2014-05",
         "items": [{
             "date": "2014-05-06",
