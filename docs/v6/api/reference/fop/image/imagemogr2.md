@@ -47,6 +47,7 @@ imagemogr2/auto-orient
           /format/<destinationImageFormat>
           /blur/<radius>x<sigma>
           /interlace/<Interlace>
+          /quality/<quality>
 ```
 
 参数名称                             | 必填 | 说明                                                
@@ -58,8 +59,17 @@ imagemogr2/auto-orient
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imagemogr2-crop-size-spec)，缺省为不裁剪。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
+<<<<<<< HEAD
 <a id="imagemogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 <a id="imagemogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
+=======
+<a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
+<a id="imageMogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
+`/quality/<quality>` |   |  ● 图片质量，取值范围是[1, 100]。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。quality后面可以增加!，表示强制使用指定值
+
+<a id="image-quality"></a>
+`<quality>`修正值算法： `min(90, 原图quality*sqrt(原图长宽乘积/结果图片长宽乘积)`
+>>>>>>> qiniu/master
 
 <a id="imagemogr2-thumbnail-spec"></a>
 ### 缩放操作参数表

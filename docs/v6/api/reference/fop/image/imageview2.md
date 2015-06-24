@@ -34,19 +34,11 @@ imageView2是原[imageView接口](http://developer.qiniu.com/docs/v6/api/referen
 
 ```
 imageView2/<mode>
-          /w/<Width>
-          /h/<Height>
-          /format/<Format>
-```
-
-或
-
-```
-imageView2/<mode>
           /w/<LongEdge>
           /h/<ShortEdge>
           /format/<Format>
           /interlace/<Interlace>
+          /q/<Quality>
 ```
 
 其中 `<mode>` 分为如下几种情况：  
@@ -71,6 +63,10 @@ imageView2/<mode>
 :------------------ | :---- | :--------------------------------------------------------------------------------
 `/format/<Format>`  |       | ● 新图的输出格式<br>取值范围：jpg，gif，png，webp等，缺省为原图格式。<br>参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)。
 <a id="imageView2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
+`/q/<Quality>` |   |  ● 图片质量，取值范围是[1, 100]。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。quality后面可以增加!，表示强制使用指定值
+
+<a id="image-quality"></a>
+`<Quality>`修正值算法： `min(90, 原图quality*sqrt(原图长宽乘积/结果图片长宽乘积)`
 
 <a id="imageView2-request"></a>
 ## 请求

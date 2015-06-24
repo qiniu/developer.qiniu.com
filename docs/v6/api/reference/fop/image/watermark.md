@@ -7,6 +7,25 @@ order: 232
 <a id="watermark"></a>
 # 水印处理
 
+- [描述](#description)
+- [图片水印](#pic-watermark)
+  - [接口规格](#pic-watermark-spec)
+  - [水印锚点参数表](#watermark-anchor-spec)
+  - [请求](#pic-watermark-request)
+  - [响应](#pic-watermark-response)
+  - [示例](#pic-watermark-samples)
+- [文字水印](#text-watermark)
+  - [接口规格](#text-watermark-spec)
+  - [请求](#text-watermark-request)
+  - [响应](#text-watermark-response)
+  - [示例](#text-watermark-samples)
+- [同时打多个水印](#multi-watermark)
+  - [接口规格](#multi-watermark-spec)
+  - [请求](#multi-watermark-request)
+  - [响应](#multi-watermark-response)
+- [附注](watermark-remarks)
+- [内部参考资源](imageView-internal-resources)
+
 <a id="description"></a>
 ## 描述
 
@@ -16,7 +35,7 @@ order: 232
 ## 图片水印
 
 <a id="pic-watermark-spec"></a>
-### 规格接口规格  
+### 接口规格  
 
 注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
@@ -260,7 +279,7 @@ HTTP状态码 | 含义
 本接口用于同时在一个原图上打多个不同类型的水印。  
 
 <a id="multi-watermark-spec"></a>
-### 规格接口规格  
+### 接口规格  
 
 注意1：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读；  
 注意2：省略号表示可以附加多个规格参数。  

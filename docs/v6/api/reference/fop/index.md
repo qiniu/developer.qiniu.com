@@ -14,27 +14,27 @@ order: 500
   * [触发持久化处理（pfop）][pfopHref]
   * [持久化处理状态查询（prefop）][prefopHref]
 * [图片][imageHref]
-  * [基本图片处理（imageview2）][view2Href]
-  * [高级图片处理（imagemogr2）][mogr2Href]
   * [图片基本信息（imageinfo）][infoHref]
   * [图片Exif信息（exif）][pfopHref]
+  * [基本图片处理（imageview2）][view2Href]
+  * [高级图片处理（imagemogr2）][mogr2Href]
   * [水印处理（watermark）][pfopHref]
   * [图片主色调（imageave）][pfopHref]
 * [音视频][avHref]
   * [音视频处理（avthumb）][pfopHref]
-  * [视频截图（vframe）][pfopHref]
   * [音视频切片（segtime）][pfopHref]
-  * [音视频元信息（avinfo）][pfopHref]
-  * [私有M3U8（pm3u8）][pfopHref]
-  * [视频采样缩略图（vsample）][pfopHref]
-  * [视频水印（vwatermark）][pfopHref]
   * [音视频拼接（avconcat）][pfopHref]
+  * [音视频元信息（avinfo）][pfopHref]
+  * [视频截图（vframe）][pfopHref]
+  * [视频水印（vwatermark）][pfopHref]
+  * [视频采样缩略图（vsample）][pfopHref]
+  * [私有M3U8（pm3u8）][pfopHref]
 * [文件拼接（concat）][concatHref]
 * [资源下载二维码（qrcode）][qrcodeHref]
 * [MD转HTML（md2html）][md2htmlHref]
-* [第三方数据处理服务][md2htmlHref]
-  * [广告过滤服务][pfopHref]
-  * [图片鉴黄服务][pfopHref]
+* [第三方数据处理服务][third-partHref]
+  * [广告过滤服务（ad）][adHref]
+  * [图片鉴黄服务（nrop）][nropHref]
 
 [imageHref]:        /docs/v6/api/reference/fop/image/index.html        "图片处理"
 [avHref]:           /docs/v6/api/reference/fop/av/index.html           "音视频处理"
@@ -52,4 +52,5 @@ order: 500
 [exifHref]:        /docs/v6/api/reference/fop/image/exif.html        "图片Exif信息"
 [watermarkHref]:        /docs/v6/api/reference/fop/image/watermark.html        "水印处理"
 [imageaveHref]:        /docs/v6/api/reference/fop/image/imageave.html        "图片主色调"
-
+[adHref]:        /docs/v6/api/reference/fop/third-party/ad.html        "广告过滤服务"
+[nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html        "图片鉴黄服务"
