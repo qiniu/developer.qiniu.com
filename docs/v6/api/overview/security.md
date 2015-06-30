@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 安全机制
-order: 600
+order: 296
 ---
 
 <a id="security"></a>
