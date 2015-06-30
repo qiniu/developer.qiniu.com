@@ -536,7 +536,7 @@ qiniu.rsf.listPrefix(bucketname, prefix, marker, limit, function(err, ret) {
 
 ```{javascript}
 // 生成访问图片的url
-var url = qiniu.rs.makeBaseUrl(bucketName, key);
+var url = qiniu.rs.makeBaseUrl(bucketDomain, key); // bucketDomain为空间域名
 
 // 生成fop_url
 var ii = new qiniu.fop.ImageInfo();
@@ -554,7 +554,7 @@ console.log('在浏览器输入: ' + url);
 
 ```{javascript}
 // 生成访问图片的url
-var url = qiniu.rs.makeBaseUrl(bucketName, key);
+var url = qiniu.rs.makeBaseUrl(bucketDomain, key); // bucketDomain为空间域名
 
 // 生成fop_url
 var exif = new qiniu.fop.Exif();
