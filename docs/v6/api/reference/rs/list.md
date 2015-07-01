@@ -5,7 +5,7 @@ order: 399
 ---
 
 <a id="list"></a>
-# 列举资源
+# 列举资源（list）
 
 - [描述](#list-description)
 - [接口规格](#list-description)

@@ -5,7 +5,7 @@ order: 234
 ---
 
 <a id="imageview2"></a>
-# 基本图片处理
+# 基本图片处理（imageView2）
 
 - [描述](#imageView2-description)
 - [接口规格](#imageView2-specification)
@@ -24,7 +24,7 @@ order: 234
 <a id="imageView2-description"></a>
 ## 描述
 
-imageView2是原[imageView接口](http://developer.qiniu.com/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
+imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
 同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。  
 
 <a id="imageView2-specification"></a>
@@ -125,7 +125,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageView2-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态码](#imageView2-response-code)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageView2-response-code"></a>
