@@ -76,7 +76,9 @@ DLL引用方式:
 2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key) 。
 
 在获取到 Access Key 和 Secret Key 之后，您可以在您的程序中调用如下两行代码进行初始化对接, 要确保`ACCESS_KEY` 和 `SECRET_KEY` 在<u>调用所有七牛API服务之前均已赋值</u>：
-###第一种方案
+
+第一种方案
+
 直接在代码中调用如下代码即可
 
 ```c#
@@ -84,7 +86,9 @@ using Qiniu.Conf;
 Qiniu.Conf.Config.ACCESS_KEY= "<YOUR_APP_ACCESS_KEY>"
 Qiniu.Conf.Config.SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
 ```
-###第二种方案
+
+第二种方案
+
 编译配置文件app.conf或者web.conf等文件，添加以下配置项。添加完成后，在程序启动的时候调用`Qiniu.Conf.Config.Init()`进行初始化
 
 ``` xml
@@ -464,6 +468,10 @@ ResumablePut采用分快上传，各快之间采用并行上传,可以通过注�
 public event EventHandler<PutNotifyEvent> Notify;
 public event EventHandler<PutNotifyErrorEvent> NotifyErr;
 ```
+### 上传不指定key（由七牛生成hash作为默认key）
+```
+ public static void PutFileWithoutKey(string bucket, string fname)        {            var policy = new PutPolicy(bucket, 3600);            System.Console.WriteLine(policy);            string upToken = policy.Token();            IOClient target = new IOClient();            PutExtra extra = new PutExtra();            PutRet ret = target.PutFileWithoutKey(upToken, "A:\\buty-picture\\1111aa.jpg", extra);            Console.WriteLine(ret.Response.ToString());        }
+```
 
 <a name=io-download></a>
 ### 文件下载
@@ -599,7 +607,10 @@ using Qiniu.FileOp;
 	marker = new ImageWaterMarker("http://www.b1.qiniudn.com/images/logo-2.png");
 	MarkerUrl = marker.MakeRequest(url);
 ```
-
+### pfop
+```
+ public static void pfop()        {            Qiniu.RS.Pfop fop = new Qiniu.RS.Pfop();            EntryPath entry = new EntryPath("liuhanlin-work", "liuhanlin-movi");            string savekey = "liuhanlin-work:bugpfop";        //  savekey = "saveas/" + entry.Base64EncodedURI;            savekey = "saveas/" + Qiniu.Util.Base64URLSafe.Encode(savekey);            string fo = "imageView2/1/w/20/h/20" + "|" + savekey;            string[] fops = new string[] { fo };            Uri uri = new Uri("http://www.baidu.com");            string s = fop.Do(entry, fops, uri,"xiaoliu",1);            Console.WriteLine(s);        }
+```
 <a name=contribution></a>
 ## 贡献代码
 
