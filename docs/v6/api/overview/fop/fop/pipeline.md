@@ -29,7 +29,7 @@ order: 285
 [GET] url?<fop1>|<fop2>|<fop3>|<fopN>
 ```
 
-`url` 获取可以参考[资源下载](../dn/)。
+`url` 获取可以参考[资源下载](/docs/v6/api/overview/dn/download.html)。
 
 <a id="example"></a>
 ## 样例

@@ -32,7 +32,7 @@ order: 250
 
 七牛云存储服务内置了音频的转码等相关的数据处理功能。具体请参见[音频处理规格](/docs/v6/api/reference/fop/av/avthumb.html)。
 
-因为视频处理是非常耗时的操作，因此应使用异步的处理结果持久化机制。请参见[处理结果持久化](/docs/v6/api/overview/fop/persistent-fop.html)。
+因为视频处理是非常耗时的操作，因此应使用异步的处理结果持久化机制。请参见[处理结果持久化](/docs/v6/api/overview/Fop/fop/persistent-fop.html)。
 
 <a id="segtime"></a>
 ## 音视频切片

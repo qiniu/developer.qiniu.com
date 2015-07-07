@@ -5,7 +5,7 @@ order: 233
 ---
 
 <a id="imagemogr2"></a>
-# 高级图片处理
+# 高级图片处理（imageMogr2）
 
 - [描述](#imagemogr2-description)
 - [接口规格](#imagemogr2-specification)
@@ -29,7 +29,7 @@ order: 233
 <a id="imagemogr2-description"></a>
 ## 描述
 
-imagemogr2是原imageMogr接口的更新版本，实现略有差异，功能更为丰富。  
+imageMogr2是原imageMogr接口的更新版本，实现略有差异，功能更为丰富。  
 同样，为开发者提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。  
 
 <a id="imagemogr2-specification"></a>
@@ -38,7 +38,7 @@ imagemogr2是原imageMogr接口的更新版本，实现略有差异，功能更�
 注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
 ```
-imagemogr2/auto-orient
+imageMogr2/auto-orient
           /thumbnail/<imageSizeGeometry>
           /strip
           /gravity/<gravityType>
@@ -55,21 +55,17 @@ imagemogr2/auto-orient
 `/auto-orient`                       |      | ● 根据原图EXIF信息自动旋正，便于后续处理<br>建议放在首位。
 `/strip`                             |      | ● 去除图片中的元信息
 `/thumbnail/<imageSizeGeometry>`     |      | 参看[缩放操作参数表](#imagemogr2-thumbnail-spec)，缺省为不缩放。
-`/gravity/<gravityType>`             |      | 参看[图片处理重心参数表](#imagemogr2-anchor-spec)，目前在`imagemogr2`中只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
+`/gravity/<gravityType>`             |      | 参看[图片处理重心参数表](#imagemogr2-anchor-spec)，目前在`imageMogr2`中只影响其后的裁剪偏移参数，缺省为左上角（NorthWest）。
 `/crop/<imageSizeAndOffsetGeometry>` |      | 参看[裁剪操作参数表](#imagemogr2-crop-size-spec)，缺省为不裁剪。
 `/rotate/<rotateDegree>`             |      | ● 旋转角度<br>取值范围1-360，缺省为不旋转。
 `/format/<destinationImageFormat>`   |      | ● 图片格式<br>支持jpg、gif、png、webp等，缺省为原图格式。参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)
-<<<<<<< HEAD
-<a id="imagemogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
-<a id="imagemogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
-=======
+`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 <a id="imageMogr2-blur"></a>`/blur/<radius>x<sigma>`             |      | ● 高斯模糊参数<br>`<radius>`是模糊半径，取值范围是[1,50]，`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 <a id="imageMogr2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
 `/quality/<quality>` |   |  ● 图片质量，取值范围是[1, 100]。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。quality后面可以增加!，表示强制使用指定值
 
 <a id="image-quality"></a>
 `<quality>`修正值算法： `min(90, 原图quality*sqrt(原图长宽乘积/结果图片长宽乘积)`
->>>>>>> qiniu/master
 
 <a id="imagemogr2-thumbnail-spec"></a>
 ### 缩放操作参数表
@@ -91,7 +87,7 @@ imagemogr2/auto-orient
 <a id="imagemogr2-anchor-spec"></a>
 ### 图片处理重心参数表
 
-在[高级图片处理](#imagemogr2)现有的功能中只影响其后的[裁剪偏移参数](#imagemogr2-crop-size-spec)，即裁剪操作以`gravity`为原点开始偏移后，进行裁剪操作。
+在[高级图片处理](#imagemogr2)现有的功能中只影响其后的[裁剪偏移参数表](#imagemogr2-crop-size-spec)，即裁剪操作以`gravity`为原点开始偏移后，进行裁剪操作。
 
 ```
 NorthWest     |     North      |     NorthEast
@@ -132,7 +128,7 @@ SouthWest     |     South      |     SouthEast
 `/crop/!300x400-10a10`表示从源图坐标为x:0,y:10处截取290x400的子图片。  
 
 注意1：必须同时指定横轴偏移和纵轴偏移。  
-注意2：计算偏移值会受到位置偏移指示符（/gravity/<gravityType>）影响。默认为相对于左上角计算偏移值（即NorthWest），参看[裁剪锚点参数表](#imagemogr2-anchor-spec)。  
+注意2：计算偏移值会受到位置偏移指示符（/gravity/<gravityType>）影响。默认为相对于左上角计算偏移值（即NorthWest），参看[图片处理重心参数表](#imagemogr2-anchor-spec)。  
 
 <a id="imagemogr2-escape-sequence"></a>
 ### 转义说明
@@ -166,7 +162,7 @@ Host: <imageDownloadHost>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
 
 ---
 
@@ -207,7 +203,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imagemogr2-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态码](#imagemogr2-response-code)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imagemogr2-response-code"></a>
@@ -225,7 +221,7 @@ HTTP状态码 | 含义
 <a id="imagemogr2-remarks"></a>
 ## 附注
 
-- imagemogr2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]和[saveas处理][saveasHref]。  
+- imageMogr2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理（pfop）][pfopHref]和[处理结果另存（saveas）][saveasHref]。  
 - `auto-orient` 参数是和图像处理顺序相关的，一般建议放在首位（根据原图EXIF信息自动旋正）。
 - `thumbnail` 和 `crop` 之间的操作可以链式处理，即可以先对图进行缩略再裁剪，或者先裁剪再缩略。
 - `gravity` 只会使其后的裁剪偏移(cropoffset)受到影响，建议放在`/crop`参数之前。
@@ -243,262 +239,262 @@ HTTP状态码 | 含义
 	等比缩小75%：
 	
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!75p
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!75p
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!75p)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!75p)
 
 	按原宽度75%等比缩小：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!75px
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!75px
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!75px)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!75px)
 
 	按原高度75%等比缩小：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!x75p
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!x75p
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!x75p)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!x75p)
 
 2. 生成700x467放大图
 
 	指定新宽度为700px：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/700x
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/700x
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/700x)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/700x)
 
 	指定新高度为467px：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/x467
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/x467
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/x467)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/x467)
 
 3. 限定长边，生成不超过300x300的缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/300x300)
 
 4. 限定短边，生成不小于200x200的缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!200x200r
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!200x200r
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/!200x200r)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/!200x200r)
 
 5. 强制生成200x300的缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/200x300!
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/200x300!
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/200x300!)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/200x300!)
 
 6. 原图大于指定长宽矩形，按长边自动缩小为200x133缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/200x300>
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/200x300>
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/200x300>)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/200x300>)
 
 7. 原图小于指定长宽矩形，按长边自动拉伸为700x467放大图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/700x600<
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/700x600<
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/700x600<)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/700x600<)
 
 8. 生成图的像素总数小于指定值
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/350000@
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/350000@
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/350000@)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/350000@)
 
 ### 裁剪
 
 1. 生成300x427裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/300x
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/300x
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/300x)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/300x)
 
 2. 生成640x200裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/x200
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/x200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/x200)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/x200)
 
 3. 生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/300x300)
 
 4. 生成300x300裁剪图，偏移距离30x100
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300a30a100
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300a30a100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300a30a100)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300a30a100)
 
 5. 生成300x200裁剪图，偏移距离30x0
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300a30-100
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300a30-100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300a30-100)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300a30-100)
 
 6. 生成270x300裁剪图，偏移距离0x100
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300-30a100
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300-30a100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300-30a100)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300-30a100)
 
 7. 生成270x200裁剪图，偏移距离0x0
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300-30-100
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300-30-100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/crop/!300x300-30-100)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/crop/!300x300-30-100)
 
 8. 锚点在左上角（NorthWest），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/NorthWest/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/NorthWest/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/NorthWest/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/NorthWest/crop/300x300)
 
 9. 锚点在正上方（North），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/North/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/North/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/North/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/North/crop/300x300)
 
 10. 锚点在右上角（NorthEast），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/NorthEast/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/NorthEast/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/NorthEast/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/NorthEast/crop/300x300)
 
 11. 锚点在正左方（West），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/West/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/West/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/West/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/West/crop/300x300)
 
 12. 锚点在正中（Center），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/Center/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/Center/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/Center/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/Center/crop/300x300)
 
 13. 锚点在正右方（East），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/East/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/East/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/East/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/East/crop/300x300)
 
 14. 锚点在左下角（SouthWest），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/SouthWest/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/SouthWest/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/SouthWest/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/SouthWest/crop/300x300)
 
 15. 锚点在正下方（South），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/South/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/South/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/South/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/South/crop/300x300)
 
 16. 锚点在右下角（SouthEast），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/SouthEast/crop/300x300
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/SouthEast/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/gravity/SouthEast/crop/300x300)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/gravity/SouthEast/crop/300x300)
 
 ### 旋转
 
 1. 顺时针旋转45度
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/rotate/45
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/rotate/45
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/rotate/45)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/rotate/45)
 
 ### 高斯模糊
 
 1. 半径为3，Sigma值为5
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/blur/3x5
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/blur/3x5
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/blur/3x5)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/blur/3x5)
 
 ### 其它
 
 1. 渐进显示图片：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imagemogr2/thumbnail/300x300/interlace/1
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/300x300/interlace/1
 	```
 
-	![查看效果图](http://developer.qiniu.com/resource/gogopher-imagemogr2-interlace.jpg)
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr2/thumbnail/300x300/interlace/1)
 
 ---
 
 <a id="imagemogr2-internal-resources"></a>
 ## 内部参考资源
 
-- [域名绑定][cnameBindingHref]
-- [触发持久化处理][pfopHref]
-- [预转持久化处理][persistentOpsHref]
-- [saveas处理][saveasHref]
+- [七牛自定义域名绑定流程][cnameBindingHref]
+- [触发持久化处理（pfop）][pfopHref]
+- [预转持久化处理（persistentOps）][persistentOpsHref]
+- [处理结果另存（saveas）][saveasHref]
 
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
 [pfopHref]:                     http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                            "触发持久化处理"

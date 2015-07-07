@@ -81,7 +81,7 @@ order: 296
 
 下载还有一种常见的场景，即公开资源的防盗链，比如禁止特定来源域名的访问，禁止非浏览器发起的访问等。
 
-我们可以通过HTTP协议支持的Referer机制（参见[HTTP referer](http://en.wikipedia.org/wiki/Referrer)）来进行相应的来源识别和管理。
+我们可以通过HTTP协议支持的Referer机制（参见[HTTP Referer](http://en.wikipedia.org/wiki/Referrer)）来进行相应的来源识别和管理。
 
 防盗链是一个系统设置，不影响开发工作。如发现有盗链情况，开发者可在[开发者平台](https://portal.qiniu.com/)的空间设置页面进行相应的设置。
 

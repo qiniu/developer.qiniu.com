@@ -23,7 +23,7 @@ order: 235
 <a id="Exif-description"></a>
 ## 描述
 
-[Exif（EXchangeable Image File Format）](http://zh.wikipedia.org/wiki/Exif)是专门为数码相机的照片设定的可交换图像文件格式，通过在图片下载URL后附加`Exif`指示符（区分大小写）获取。  
+[EXIF（EXchangeable Image File Format）](http://zh.wikipedia.org/wiki/Exif)是专门为数码相机的照片设定的可交换图像文件格式，通过在图片下载URL后附加`exif`指示符（区分大小写）获取。  
 
 注意：缩略图等经过云处理的新图片不支持该方法。  
 
@@ -34,7 +34,7 @@ order: 235
 ### 请求报文格式
 
 ```
-GET <imageDownloadUri>?Exif HTTP/1.1
+GET <imageDownloadUri>?exif HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
@@ -59,7 +59,7 @@ Content-Type: application/json
 Cache-Control: no-store
 
 {
-    // ...Exif Data...
+    // ...EXIF Data...
 }
 ```
 
@@ -89,8 +89,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
    ...
 }
 ```
-
-各Exif字段说明，请参考[Exif技术白皮书][ExifWhitePaperHref]。  
+各EXIF字段说明，请参考[EXIF技术白皮书][ExifWhitePaperHref]。  
 
 ■ 如果请求失败，返回包含错误信息的JSON字符串（已格式化，便于阅读）：  
 
@@ -115,12 +114,12 @@ HTTP状态码 | 含义
 <a id="Exif-samples"></a>
 ## 示例
 
-1. 获取图片Exif信息  
+1. 获取图片EXIF信息  
 
 	在Web浏览器中输入以下图片地址：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?Exif
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?exif
 	```
 
 	返回结果（内容经过格式化以便阅读）  
@@ -161,7 +160,7 @@ HTTP状态码 | 含义
 <a id="Exif-internal-resources"></a>
 ## 内部参考资源
 
-- [域名绑定][cnameBindingHref]
+- [七牛自定义域名绑定流程][cnameBindingHref]
 
 <a id="Exif-external-resources"></a>
 ## 外部参考资源

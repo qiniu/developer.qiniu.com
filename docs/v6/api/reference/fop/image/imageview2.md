@@ -84,7 +84,7 @@ Host: <ImageDownloadHost>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
 
 ---
 
@@ -143,11 +143,11 @@ HTTP状态码 | 含义
 <a id="imageView2-remarks"></a>
 ## 附注
 
-- imageView2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]。  
+- imageView2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理（pfop）][pfopHref]。  
 - 如果原图带有[EXIF][exifHref]信息且包含`Orientation`字段，imageView2缺省根据此字段的值进行自动旋转修正。
 - 具备处理动态gif图片的能力。
 - 当一张含有透明区域的图片，转换成不支持透明的格式（jpg, bmp, etc...）时，透明区域填充白色。
-- 当处理并输出多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大，建议使用[预转持久化处理][persistentOpsHref]或[触发持久化处理][pfopHref]进行转码。
+- 当处理并输出多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大，建议使用[预转持久化处理（persistentOps）][persistentOpsHref]或[触发持久化处理（pfop）][pfopHref]进行转码。
 
 <a id="imageView2-samples"></a>
 ## 示例
@@ -190,9 +190,9 @@ HTTP状态码 | 含义
 <a id="imageView2-internal-resources"></a>
 ## 内部参考资源
 
-- [域名绑定][cnameBindingHref]
-- [触发持久化处理][pfopHref]
-- [预转持久化处理][persistentOpsHref]
+- [七牛自定义域名绑定流程][cnameBindingHref]
+- [触发持久化处理（pfop）][pfopHref]
+- [预转持久化处理（persistentOps）][persistentOpsHref]
 
 [cnameBindingHref]:  http://kb.qiniu.com/53a48154                     "域名绑定"
 [pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                "触发持久化处理"

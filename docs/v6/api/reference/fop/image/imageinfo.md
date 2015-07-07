@@ -5,7 +5,7 @@ order: 236
 ---
 
 <a id="imageinfo"></a>
-# 图片基本信息
+# 图片基本信息（imageInfo）
 
 - [描述](#imageinfo-description)
 - [请求](#imageinfo-request)
@@ -24,7 +24,7 @@ order: 236
 ## 描述
 
 图片基本信息包括图片格式、图片大小、色彩模型。  
-在图片下载URL后附加`imageinfo`指示符（区分大小写），即可获取JSON格式的图片基本信息。  
+在图片下载URL后附加`imageInfo`指示符（区分大小写），即可获取JSON格式的图片基本信息。  
 
 ---
 
@@ -35,7 +35,7 @@ order: 236
 ### 请求报文格式
 
 ```
-GET <imageDownloadUri>?imageinfo HTTP/1.1
+GET <imageDownloadUri>?imageInfo HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
@@ -44,7 +44,7 @@ Host: <imageDownloadHost>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
 
 ---
 
@@ -110,7 +110,7 @@ frameNumber    |        | 帧数，gif 图片会返回此项。
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageinfo-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态码](#imageinfo-response-code)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageinfo-response-code"></a>
@@ -128,7 +128,7 @@ HTTP状态码 | 含义
 <a id="imageinfo-remarks"></a>
 ## 附注
 
-- 缩略图等经过云处理的新图片不支持该方法。  
+缩略图等经过云处理的新图片不支持该方法。  
 
 ---
 
@@ -140,7 +140,7 @@ HTTP状态码 | 含义
 	在Web浏览器中输入以下图片地址  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageinfo
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageInfo
 	```
 
 	返回结果（内容经过格式化以便阅读）  
@@ -157,7 +157,7 @@ HTTP状态码 | 含义
 <a id="imageinfo-internal-resources"></a>
 ## 内部参考资源
 
-- [域名绑定][cnameBindingHref]
+- [七牛自定义域名绑定流程][cnameBindingHref]
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
