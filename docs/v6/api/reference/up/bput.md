@@ -1,11 +1,25 @@
 ---
 layout: docs
-title: 上传片（bput）
+title: 上传片
 order: 90
 ---
 
 <a id="bput"></a>
-# 上传片（bput）
+# 上传片
+
+- [描述](#bput-description)
+- [请求](#bput-request)
+  - [请求语法](#bput-request-syntax)
+  - [请求参数](#bput-request-params)
+  - [头部信息](#bput-request-headers)
+  - [请求内容](#bput-request-body)  
+  - [访问权限](#bput-request-auth)
+- [响应](#bput-response)
+  - [头部信息](#bput-response-headers)
+  - [响应内容](#bput-response-body)
+  - [响应状态码](#bput-response-status)
+- [附注](#bput-remarks)
+- [内部参考资源](#bput-internal-resources)
 
 <a id="bput-description"></a>
 ## 描述
@@ -67,7 +81,7 @@ Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]
 :------------ | :--------------------------------------------------------------------
 Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
+其它可能返回的头部信息，请参考[HTTP响应扩展字段][commonHttpResponseHeaderHref]。
 
 <a id="bput-response-body"></a>
 ### 响应内容
@@ -86,7 +100,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 字段名称       | 必填 | 说明
 :------------- | :--- | :------------------------------
-ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](http://developer.qiniu.com/docs/v6/api/reference/up/bput.html)及[生成文件](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
+ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](http://developer.qiniu.com/docs/v6/api/reference/up/bput.html)及[创建文件](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
 checksum       | 是   | 本块已上传部分的校验码，只能被七牛服务器解读使用。
 crc32          | 是   | 本块已上传部分的CRC32值，上传端可通过此字段对本块已上传部分的完整性进行校验。
 offset         | 是   | 下一个上传片在上传块中的偏移。
@@ -127,8 +141,8 @@ HTTP状态码 | 含义
 ## 内部参考资源
 
 - [上传凭证][uploadTokenHref]
-- [创建块（mkblk）](http://developer.qiniu.com/docs/v6/api/reference/up/mkblk.html)
-- [创建资源（mkfile）](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)
+- [上传片](http://developer.qiniu.com/docs/v6/api/reference/up/bput.html)
+- [创建文件](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [uploadTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html                    "上传凭证"

@@ -7,6 +7,9 @@ order: 285
 <a id="pipeline"></a>
 # 管道
 
+- [管道规格](#pipeline-spec)
+- [样例](#example)
+
 <a id="pipeline-spec"></a>
 ## 管道规格
 
@@ -26,8 +29,9 @@ order: 285
 [GET] url?<fop1>|<fop2>|<fop3>|<fopN>
 ```
 
-`url` 获取可以参考[资源下载](../dn/)。
+`url` 获取可以参考[资源下载](/docs/v6/api/overview/dn/download.html)。
 
+<a id="example"></a>
 ## 样例
 
 将一个原图缩略，然后在缩略图上打上另外一个图片作为水印

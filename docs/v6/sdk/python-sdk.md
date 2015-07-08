@@ -58,7 +58,7 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 
 从内容上来说，Python-SDK 主要包含如下几方面的内容：
 
-* 基本配置部分：`qiniu.config`（包括的接口HOST设置、连接超时设置、连接重试次数设置）
+* 基本配置部分：`qiniu.config`（包括接口HOST设置、连接超时设置、连接重试次数设置）
 * 安全部分：`qiniu.Auth`（包括上传凭证、下载凭证的签名以及对管理凭证的签名）
 * 上传部分：`qiniu.put_file, qiniu.put_stream`（包括了上传流、上传文件、断点续上传）
 * 数据处理部分：`qiniu.pfop`（包括了触发[持久化处理][pfopHref]）

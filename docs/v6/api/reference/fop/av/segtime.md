@@ -1,10 +1,10 @@
 ---
-title: 音视频切片（segtime）
-order: 148
+title: 音视频切片
+order: 149
 ---
 
 <a id="segtime"></a>
-# 音视频切片（segtime）
+# 音视频切片
 
 <a id="segtime-description"></a>
 ## 描述

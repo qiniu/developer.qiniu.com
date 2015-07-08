@@ -1,11 +1,22 @@
 ---
 layout: docs
-title: 资源下载二维码（qrcode）
+title: 资源下载二维码
 order: 110
 ---
 
 <a id="qrcode"></a>
-# 资源下载二维码（qrcode）
+# 资源下载二维码
+
+- [描述](#description)
+- [接口规格（qrcodespec）](#specification)
+- [请求 ](#request)
+  - [请求语法](#request-syntax)
+- [响应](#response)
+  - [响应语法](#response-syntax)
+  - [响应状态码](#response-code)
+- [附注](#remarks)
+- [示例](#samples)
+- [高级用法](#advance-usage)
 
 <a id="description"></a>
 ## 描述
@@ -14,7 +25,7 @@ order: 110
 所生成的二维码图片格式为png。  
 
 <a id="specification"></a>
-## 接口规格（qrcodeSpec）
+## 接口规格（qrcodespec）
 
 ```
 qrcode/<Mode>/level/<Level>

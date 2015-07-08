@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 私有M3U8（pm3u8）
-order: 146
+title: 私有M3U8
+order: 143
 ---
 
 <a id="pm3u8"></a>
-# 私有M3U8（pm3u8）
+# 私有M3U8
 
 <a id="pm3u8-description"></a>
 ## 描述

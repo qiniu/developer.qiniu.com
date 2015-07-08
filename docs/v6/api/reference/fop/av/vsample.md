@@ -1,5 +1,5 @@
 ---
-title: 视频采样缩略图（vsample）
+title: 视频采样缩略图
 order: 144
 ---
 

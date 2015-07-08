@@ -1,6 +1,6 @@
 ---
-title: 视频截图（vframe）
-order: 149
+title: 视频截图
+order: 146
 ---
 
 <a id="video-thumbnail"></a>

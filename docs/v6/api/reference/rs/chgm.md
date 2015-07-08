@@ -1,11 +1,31 @@
 ---
 layout: docs
-title: 修改元信息（chgm）
+title: 修改元信息
 order: 200
 ---
 
 <a id="chgm"></a>
-# 修改元信息（chgm）
+# 修改元信息
+
+- [描述](#chgm-description)
+- [请求](#chgm-request)
+  - [请求语法](#chgm-request-syntax)
+  - [访问权限](#chgm-request-auth)
+  - [请求参数](#chgm-request-params)
+  - [头部信息](#chgm-request-headers)
+  - [请求内容](#chgm-request-body)
+- [响应](#chgm-response)
+  - [响应语法](#chgm-response-syntax)
+  - [头部信息](#chgm-response-headers)
+  - [响应内容](#chgm-response-body)
+  - [响应状态码](#chgm-response-status)
+- [示例](#chgm-samples)
+  - [命令行示例](#chgm-sample1-command)
+  - [请求示例](#chgm-sample1-request)
+  - [响应示例](#chgm-sample1-response)
+- [附注](#chgm-remarks)
+- [内部参考资源](#chgm-internal-resources)
+
 
 <a id="chgm-description"></a>
 ## 描述
@@ -106,6 +126,9 @@ HTTP状态码 | 含义
 401        | 管理凭证无效
 612        | 目标资源不存在
 599	       | 服务端操作失败<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们
+
+<a id="chgm-samples"></a>
+## 示例
 
 <a id="chgm-example1-command"></a>
 ### 命令行示例

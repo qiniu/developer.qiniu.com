@@ -1,10 +1,13 @@
 ---
 layout: docs
 title: 资源下载
-order: 480
+order: 330
 ---
 <a id="download"></a>
 # 资源下载
+
+- [下载机制](#download-models)
+- [下载响应](#download-response)
 
 <a id="download-models"></a>
 ## 下载机制

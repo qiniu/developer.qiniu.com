@@ -1,10 +1,25 @@
 ---
-title: 批量操作（batch）
+title: 批量操作
 order: 500
 ---
 
 <a id="move"></a>
-# 批量操作（batch）
+# 批量操作
+
+- [描述](#batch-description)
+- [请求](#batch-request)
+  - [请求语法](#batch-request-syntax)
+  - [访问权限](#batch-request-auth)
+  - [请求参数](#batch-request-params)
+  - [头部信息](#batch-request-headers)
+  - [请求内容](#batch-request-body)
+- [响应](#batch-response)
+  - [响应语法](#batch-response-headers)
+  - [头部信息](#batch-response-headers)
+  - [响应内容](#batch-response-body)
+  - [响应状态码](#batch-response-batchus)
+- [附注](#batch-remarks)
+- [相关资源](#batch-related-resources)
 
 <a id="batch-description"></a>
 ## 描述
@@ -61,7 +76,7 @@ op=/stat/<EncodedEntryURI>&op=/stat/<EncodedEntryURI>&...
 #### 批量复制资源
 
 ```
-op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
+op=/batch/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/batch/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
 ```
 
 #### 批量移动资源
@@ -80,7 +95,7 @@ op=/delete/<EncodedEntryURI>&op=/delete/<EncodedEntryURI>&...
 
 ```
 op=/stat/<EncodedEntryURI>
-&op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>
+&op=/batch/<EncodedEntryURISrc>/<EncodedEntryURIDest>
 &op=/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
 &op=/delete/<EncodedEntryURI>&...
 ```

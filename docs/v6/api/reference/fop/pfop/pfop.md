@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 触发持久化处理（pfop）
+title: 触发持久化处理
 order: 300
 ---
 
 <a id="pfop-existing-resource"></a>
-# 触发持久化处理（pfop）
+# 触发持久化处理
 
 <a id="pfop-description"></a>
 ## 描述
@@ -136,7 +136,7 @@ W, [2014-04-05T00:14:07.748721 #686]  WARN -- : 301 Moved Permanently => Qiniu::
 正确写法是`http://api.qiniu.com/pfop/`。  
 
 <a id="pfop-notification"></a>
-# 处理结果通知
+# 持久化处理结果通知
 
 服务端按顺序完成所有指定的云处理操作后，会将处理结果状态提交到`<persistentNotifyUrl>`指向的网址。   
 

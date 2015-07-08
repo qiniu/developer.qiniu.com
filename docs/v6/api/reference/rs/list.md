@@ -1,11 +1,28 @@
 ---
 layout: docs
-title: 列举资源（list）
-order: 400
+title: 列举资源
+order: 399
 ---
 
 <a id="list"></a>
 # 列举资源（list）
+
+- [描述](#list-description)
+- [接口规格](#list-description)
+- [请求](#list-request)
+  - [请求报文格式](#list-request-syntax)
+  - [访问权限](#list-request-auth)
+  - [头部信息](#list-request-headers)
+  - [请求内容](#list-request-body)
+- [响应](#list-response)
+  - [响应报文格式](#list-response-headers)
+  - [头部信息](#list-response-headers)
+  - [响应内容](#list-response-body)
+  - [响应状态码](#list-response-status)
+- [示例](#list-samples)
+- [附注](#list-remarks)
+- [内部参考资源](#list-internal-resources)
+- [外部参考资源](#list-external-resources)
 
 <a id="list-description"></a>
 ## 描述
@@ -140,10 +157,6 @@ HTTP状态码 | 含义
 401        | 管理凭证无效。
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a id="list-remarks"></a>
-## 附注
-
-无。
 
 <a id="list-samples"></a>
 ## 示例
@@ -188,6 +201,12 @@ bucket=qiniu-ts-demo&prefix=00&limit=2&delimiter=%2F
 {"marker"=>"eyJjIjowLCJrIjoiMDBFLzAwMDAwMDBFLkRDTSJ9", "items"=>[], "commonPrefixes"=>["00D/", "00E/"]}
 {"items"=>[], "commonPrefixes"=>["00F/"]}
 ```
+
+<a id="list-remarks"></a>
+## 附注
+
+无。
+
 
 <a id="list-internal-resources"></a>
 ## 内部参考资源

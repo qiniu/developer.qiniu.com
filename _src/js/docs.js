@@ -110,6 +110,10 @@ function Zendesk(initObj) {
     };
 }
 
+$(function(){
+    $('.api-content ul:first').addClass('set-api-lineheight');
+});
+
 $(function() {
 
     var url = window.location.pathname.toLowerCase();
@@ -118,8 +122,8 @@ $(function() {
 
         //通过js移动文档导行到右边索引边栏
         //first level
-        $(".api-content ul :first").attr("class", "panel-list  level-two nav");
-        $('.api-content ul :first').children().each(function() {
+        $(".api-content ul:first").attr("class", "panel-list  level-two nav");
+        $('.api-content ul:first').children().each(function() {
             //li
             //second level
             $(this).children("ul").each(function() {

@@ -1,16 +1,30 @@
 ---
 layout: docs
-title: 图片处理（imageView2）
-order: 250
+title: 基本图片处理
+order: 234
 ---
 
-<a id="imageView2"></a>
-# 图片处理（imageView2）
+<a id="imageview2"></a>
+# 基本图片处理（imageView2）
+
+- [描述](#imageView2-description)
+- [接口规格](#imageView2-specification)
+- [请求](#imageView2-request)
+    - [请求报文格式](#imageView2-request-syntax)
+    - [请求头部](#imageView2-request-header) 	
+- [响应](#imageView2-response)
+    - [响应报文格式](#imageView2-response-syntax)
+	- [响应头部](#imageView2-response-header)
+    - [响应内容](#imageView2-response-content) 	 	
+    - [响应状态码](#imageView2-response-code)
+- [附注](#imageView2-remarks)
+- [示例](#imageView2-samples)
+- [内部参考资源](#imageView2-internal-resources)
 
 <a id="imageView2-description"></a>
 ## 描述
 
-imageView2是原[imageView接口](http://developer.qiniu.com/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
+imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
 同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。  
 
 <a id="imageView2-specification"></a>
@@ -70,7 +84,7 @@ Host: <ImageDownloadHost>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
 
 ---
 
@@ -111,7 +125,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageView2-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态码](#imageView2-response-code)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageView2-response-code"></a>
@@ -129,11 +143,11 @@ HTTP状态码 | 含义
 <a id="imageView2-remarks"></a>
 ## 附注
 
-- imageView2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理][pfopHref]。  
+- imageView2生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发持久化处理（pfop）][pfopHref]。  
 - 如果原图带有[EXIF][exifHref]信息且包含`Orientation`字段，imageView2缺省根据此字段的值进行自动旋转修正。
 - 具备处理动态gif图片的能力。
 - 当一张含有透明区域的图片，转换成不支持透明的格式（jpg, bmp, etc...）时，透明区域填充白色。
-- 当处理并输出多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大，建议使用[预转持久化处理][persistentOpsHref]或[触发持久化处理][pfopHref]进行转码。
+- 当处理并输出多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大，建议使用[预转持久化处理（persistentOps）][persistentOpsHref]或[触发持久化处理（pfop）][pfopHref]进行转码。
 
 <a id="imageView2-samples"></a>
 ## 示例
@@ -176,9 +190,9 @@ HTTP状态码 | 含义
 <a id="imageView2-internal-resources"></a>
 ## 内部参考资源
 
-- [域名绑定][cnameBindingHref]
-- [触发持久化处理][pfopHref]
-- [预转持久化处理][persistentOpsHref]
+- [七牛自定义域名绑定流程][cnameBindingHref]
+- [触发持久化处理（pfop）][pfopHref]
+- [预转持久化处理（persistentOps）][persistentOpsHref]
 
 [cnameBindingHref]:  http://kb.qiniu.com/53a48154                     "域名绑定"
 [pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                "触发持久化处理"

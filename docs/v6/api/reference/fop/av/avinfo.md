@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 音视频元信息（avinfo）
+title: 音视频元信息
 order: 147
 ---
 
 <a id="avinfo"></a>
-# 音视频元信息（avinfo）
+# 音视频元信息
 
 <a id="avinfo-description"></a>
 ## 描述

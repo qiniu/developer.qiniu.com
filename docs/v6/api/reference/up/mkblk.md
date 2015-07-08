@@ -1,11 +1,30 @@
 ---
 layout: docs
-title: 创建块（mkblk）
+title: 创建块
 order: 100
 ---
 
 <a id="mkblk"></a>
-# 创建块（mkblk）
+# 创建块
+
+- [描述](#mkblk-description)
+- [请求](#mkblk-request)
+  - [请求语法](#mkblk-request-syntax)
+  - [访问权限](#mkblk-request-auth)
+  - [请求参数](#mkblk-request-params)
+  - [头部信息](#mkblk-request-headers)
+  - [请求内容](#mkblk-request-body)
+- [响应](#mkblk-response)
+  - [头部信息](#mkblk-response-headers)
+  - [响应内容](#mkblk-response-body)
+  - [响应状态码](#mkblk-response-status)
+- [示例](#mkblk-examples)
+  - [命令行示例](#mkblk-example1-command)
+  - [请求示例](#mkblk-example1-request)
+  - [响应示例](#mkblk-example1-response)
+- [附注](#mkblk-remarks)
+- [内部参考资源](#mkblk-internal-resources)
+
 
 <a id="mkblk-description"></a>
 ## 描述
@@ -64,7 +83,7 @@ Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]
 :------------ | :--- | :--------------------------------------------------------------------
 Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
+其它可能返回的头部信息，请参考[HTTP响应扩展字段][commonHttpResponseHeaderHref]。
 
 <a id="mkblk-response-body"></a>
 ### 响应内容
@@ -83,9 +102,9 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 
 字段名称       | 必填 | 说明
 :------------- | :--- | :------------------------------
-ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](bput.html)及[生成文件](mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
+ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](bput.html)及[创建文件](mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
 checksum       | 是   | 上传块校验码。
-crc32          | 是   | 上传块Crc32,客户可通过此字段对上传块的完整性进行较验。
+crc32          | 是   | 上传块Crc32,客户可通过此字段对上传块的完整性进行校验。
 offset         | 是   | 下一个上传块在切割块中的偏移。
 host           | 是   | 后续上传接收地址。
 
@@ -174,9 +193,9 @@ X-Reqid: swEAAMipp-5bIjMT
 ## 内部参考资源
 
 - [上传凭证][uploadTokenHref]
-- [上传片数据（bput）](bput.html)
-- [创建资源（mkfile）](mkfile.html)
+- [上传片](bput.html)
+- [创建文件](mkfile.html)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[uploadTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html                    "上传凭证"
+[uploadTokenHref]:              http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html                    "上传凭证"
 [commonHttpResponseHeaderHref]: http://developer.qiniu.com/docs/v6/api/reference/extended-headers.html                         "常见响应头部信息"

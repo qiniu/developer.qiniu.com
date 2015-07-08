@@ -1,11 +1,19 @@
 ---
 layout: docs
 title: 附录
-order: 100
+order: 99
 ---
 
 <a id="appendix"></a>
 # 附录
+
+- [URL安全的Base64编码](#urlsafe-base64)
+- [域名绑定](#domain-binding)
+- [七牛ETag算法](#qiniu-etag)
+    - [小于或等于4M的文件](#less)
+	- [大于4M的文件](#more)
+	- [FAQ](#faq)
+	- [相关工具](#relatedtool)
 
 <a id="urlsafe-base64"></a>
 ## URL安全的Base64编码
@@ -32,6 +40,7 @@ URL安全的Base64编码适用于以URL方式传递Base64编码结果的场景�
 
 七牛的 `hash/etag` 算法是公开的。算法大体如下：
 
+<a id="less"></a>
 ### 小于或等于4M的文件
 
 ```
@@ -57,6 +66,7 @@ URL安全的Base64编码适用于以URL方式传递Base64编码结果的场景�
 
 ```
 
+<a id="more"></a>
 ### 大于4M的文件
 
 ```
@@ -88,6 +98,7 @@ URL安全的Base64编码适用于以URL方式传递Base64编码结果的场景�
 4. 对拼接好的21字节的二进制数据做url_safe_base64计算，所得结果即为ETag值。
 ```
 
+<a id="faq"></a>
 ### FAQ
 
 1. 为何需要公开 `hash/etag` 算法？这个和 “消重” 问题有关，详细见：[如何避免用户上传相同的文件](http://kb.qiniu.com/53tubk96)。  
@@ -97,6 +108,7 @@ URL安全的Base64编码适用于以URL方式传递Base64编码结果的场景�
 0x16 = 22，而 2^22 = 4M。所以前面的 `0x16` 其实是文件按 4M 分块的意思。  
 0x96 = 0x80 | 0x16。其中的 `0x80` 表示这个文件是大文件（有多个分块），hash 值也经过了2重的 sha1 计算。  
 
+<a id="relatedtool"></a>
 ### 相关工具
 
 [qetag](https://github.com/qiniu/qetag) 是一个计算文件在七牛云存储上的 hash 值（也是文件下载时的 etag 值）的实用程序。

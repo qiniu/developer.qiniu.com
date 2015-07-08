@@ -1,11 +1,30 @@
 ---
 layout: docs
-title: 获取资源信息（stat）
+title: 获取资源信息
 order: 900
 ---
 
 <a id="stat"></a>
-# 获取资源信息（stat）
+# 获取资源信息
+
+- [描述](#stat-description)
+- [请求](#stat-request)
+  - [请求语法](#stat-request-syntax)
+  - [访问权限](#stat-request-auth)
+  - [请求参数](#stat-request-params)
+  - [头部信息](#stat-request-headers)
+  - [请求内容](#stat-request-body)
+- [响应](#stat-response)
+  - [头部信息](#stat-response-headers)
+  - [响应内容](#stat-response-body)
+  - [响应状态码](#stat-response-status)
+- [示例](#stat-samples)
+  - [命令行示例](#stat-sample1-command)
+  - [请求示例](#stat-sample1-request)
+  - [响应示例](#stat-sample1-response)
+- [附注](#stat-remarks)
+- [内部参考资源](#stat-internal-resources)
+
 
 <a id="stat-description"></a>
 ## 描述

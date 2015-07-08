@@ -10,7 +10,13 @@ order: 960
 下载凭证是七牛云存储用于验证下载私有资源请求合法性的机制。  
 用户通过下载凭证授权客户端，使其具备访问指定私有资源的能力。  
 
-下载公开空间资源不需要下载凭证。  
+下载公开空间资源不需要下载凭证。
+
+- [算法](#download-token-algorithm)
+- [附注](#download-token-remarks)
+- [代码示例](#download-token-samples)
+- [内部参考资源](#download-internal-resources) 
+- [外部参考资源](#download-external-resources)   
 
 <a id="download-token-algorithm"></a>
 ## 算法
@@ -21,7 +27,7 @@ order: 960
     DownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg'
 	```
 
-2. 为下载URL加上过期时间（e参数，[Unix时间][unixTimeHref]）：  
+2. 为下载URL加上过期时间（e参数，[Unix时间戳][unixTimeHref]）：  
 
 	```
     DownloadUrl = 'http://my-bucket.qiniudn.com/sunflower.jpg?e=1451491200'
@@ -55,7 +61,7 @@ order: 960
 - 为确保客户端、业务服务器和七牛服务器对于授权截止时间的理解保持一致，需要同步校准各自的时钟。频繁返回401状态码时请先检查时钟同步性与生成e参数值的代码逻辑。  
 - 对于包含中文或其它非英文字符的Key，需要做到以下两点：  
     - Key 本身要做 UTF-8 编码；
-    - 为 URL 签名之前，对 Path 部分（不含前导`/`符号，通常就是 Key 本身，即上例中的 `sunflower.jpg`）做一次 [URL转义][urlescapeHref]。
+    - 为 URL 签名之前，对 Path 部分（不含前导`/`符号，通常就是 Key 本身，即上例中的 `sunflower.jpg`）做一次 [URL编码][urlescapeHref]。
 
 <a id="download-token-samples"></a>
 ## 代码示例
@@ -72,7 +78,7 @@ order: 960
 <a id="download-external-resources"></a>
 ## 外部参考资源
 
-- [Unix时间][unixTimeHref]
+- [Unix时间戳][unixTimeHref]
 - [HMAC-SHA1签名][hmacSha1Href]
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                                               "Unix时间"

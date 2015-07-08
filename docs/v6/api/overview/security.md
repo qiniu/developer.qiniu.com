@@ -1,22 +1,32 @@
 ---
 layout: docs
 title: 安全机制
-order: 600
+order: 296
 ---
+
 <a id="security"></a>
 # 安全机制
 
-数据安全性是云存储服务的重中之重。云存储的安全机制需要考虑主要以下几个因素：
+- [密钥（AccessKey/SecretKey）](#aksk)
+- [上传凭证（UploadToken）](#upload-token)
+- [下载凭证（DownloadToken）](#download-token)
+- [防盗链](#anti-leech)
+- [管理凭证（AccessToken）](#accesstoken)
+- [跨域访问](#cors-support)
+    - [上传](#upload-cors)
+	- [下载](#download-cors) 
 
-1. 如何判断该请求方合法，且对目标空间有相应的访问权限？
-1. 因为服务的访问协议同时支持HTTP和HTTPS，服务端需要判断收到的请求是否经过篡改。
-1. 相比上传新资源，覆盖文件或删除已有资源拥有更高的风险。因此对上传或修改动作，需要确认请求方是否拥有修改或删除的权限。
+数据安全性是云存储服务的重中之重。云存储的安全机制主要需要考虑以下几个因素：
+
+- 如何判断该请求方是否合法，且对目标空间有相应的访问权限。
+- 因为服务的访问协议同时支持HTTP和HTTPS，服务端需要判断收到的请求是否经过篡改。
+- 相比上传新资源，覆盖文件或删除已有资源拥有更高的风险。因此对上传或修改动作，需要确认请求方是否拥有修改或删除的权限。
 
 在使用七牛云存储服务的过程中，需要考虑安全机制的场景主要有如下几种：
 
-1. 上传资源；
-1. 访问资源；
-1. 管理和修改资源；
+- 上传资源
+- 访问资源
+- 管理和修改资源
 
 这三个场景需要考虑不同的安全因素，因此七牛针对性的提供了三种安全机制：上传凭证、下载凭证和管理凭证。
 
@@ -42,15 +52,17 @@ order: 600
 
 生成上传凭证时需要指定以下要素：
 
-1. 权限，指定上传的目标空间或允许覆盖的指定资源；
-1. 凭证有效期。是一个符合[UNIX Epoch时间戳](http://en.wikipedia.org/wiki/Unix_Time)规范的数值，单位为**秒**；
-	
-	> 因为时间戳的创建和验证在不同的服务端进行（在业务服务器创建，在云存储服务器验证），因此开发者的业务服务器需要尽可能校准时间，否则可能出现凭证刚创建就过期等各种奇怪的问题。
-	
-1. 可选择设置的最终用户标识ID。这是为了让业务服务器在收到结果回调时能够识别产生该请求的最终用户信息；
-1. 可选择设置的[结果返回方式](up/response/index.html)和[数据预处理指令](up/response/persistent-op.html)；
+- 权限，指定上传的目标空间或允许覆盖的指定资源。
+- 凭证有效期即一个符合[Unix时间戳](http://en.wikipedia.org/wiki/Unix_Time)规范的数值，单位为**秒**。
 
-我们使用一个[上传策略（PutPolicy）结构](/docs/v6/api/reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](/docs/v6/api/reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](up/index.html)。
+    **Tip**	
+
+    因为时间戳的创建和验证在不同的服务端进行（在业务服务器创建，在云存储服务器验证），因此开发者的业务服务器需要尽可能校准时间，否则可能出现凭证刚创建就过期等各种奇怪的问题。
+	
+- 可选择设置的最终用户标识ID。这是为了让业务服务器在收到结果回调时能够识别产生该请求的最终用户信息。
+- 可选择设置的[响应类型](/docs/v6/api/overview/up/upload-models/response-types.html)。
+
+我们使用一个[上传策略（PutPolicy）](/docs/v6/api/reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证](/docs/v6/api/reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[上传过程](up/index.html)。
 
 <a id="download-token"></a>
 ## 下载凭证（DownloadToken）
@@ -59,10 +71,10 @@ order: 600
 
 与上传凭证相比，下载凭证的作用比较简单：
 
-1. 保证请求发起者拥有对目标空间的访问权限；
-1. 保证服务端收到的下载请求内容未经中途篡改，具体包括目标资源的URI和该访问请求的有效期信息均应未受到篡改；
+- 保证请求发起者拥有对目标空间的访问权限。
+- 保证服务端收到的下载请求内容未经中途篡改，具体包括目标资源的URI和该访问请求的有效期信息均应未受到篡改。
 
-关于下载凭证的生成细节，请查看[下载凭证规格](/docs/v6/api/reference/security/download-token.html)。关于下载凭证的具体使用方法，请参见[私有资源下载](/docs/v6/api/overview/dn/security.html#download-private-resource)。
+关于下载凭证的生成细节，请查看[下载凭证](/docs/v6/api/reference/security/download-token.html)。关于下载凭证的具体使用方法，请参见[私有资源下载](/docs/v6/api/overview/dn/security.html#download-private-resource)。
 
 <a id="anti-leech"></a>
 ## 防盗链
@@ -80,10 +92,10 @@ order: 600
 
 管理凭证的作用与下载凭证比较类似：
 
-1. 保证请求发起者拥有对目标空间的管理权限；
-1. 保证服务端收到的管理请求内容未经中途篡改，具体包括代表管理动作的URI和该管理动作的参数信息均应未受到篡改；
+- 保证请求发起者拥有对目标空间的管理权限。
+- 保证服务端收到的管理请求内容未经中途篡改，具体包括代表管理动作的URI和该管理动作的参数信息均应未受到篡改。
 
-关于管理凭证的生成细节，请查看[管理凭证规格](/docs/v6/api/reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理](/docs/v6/api/overview/rs/security.html)。
+关于管理凭证的生成细节，请查看[管理凭证](/docs/v6/api/reference/security/access-token.html)。关于管理凭证的具体使用方法，请参见[资源管理安全机制](/docs/v6/api/overview/rs/security.html)。
 
 <a id="cors-support"></a>
 ## 跨域访问

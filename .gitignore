@@ -12,3 +12,4 @@ static/css/main.*.js
 dist/*
 static/css/main*.js
 .idea
+.DS_Store
