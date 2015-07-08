@@ -122,7 +122,7 @@ UploadOptions参数说明：
 
 参数 | 类型 | 说明
 :---: | :----: | :---
-`params` | `String` |自定义变量，key必须以 x: 开始。
+`params` | `Map<String, String>` |自定义变量，key必须以 x: 开始。
 `mimeType`| `String` | 指定文件的mimeType。
 `checkCrc` | `boolean` |是否验证上传文件。
 `progressHandler` | `UpProgressHandler` |上传进度回调。
@@ -176,12 +176,13 @@ uploadManager.put(data, key, token,handler,
 
 #### 取消上传
 
+内部代码会检测`UpCancellationSignal#isCancelled()`的返回值，当其返回`true`时，将停止上传。
+可外部维护一个变量`isCancelled`，当点击`取消`按钮时，设置`isCancelled = true;`。如：
+
 ```
-...
-private volatile boolean isCancelled;
-...
-// 某方法中执行取消：isCancelled = true;
-...
+// 初始化、执行上传
+private volatile boolean isCancelled = false;
+
 uploadManager.put(data, key, token,handler,
 	new UploadOptions(null, null, false, progressHandler,
 		new UpCancellationSignal(){
@@ -189,6 +190,12 @@ uploadManager.put(data, key, token,handler,
        			return isCancelled;
      		}
    		}));
+
+
+// 点击取消按钮，让 UpCancellationSignal#isCancelled() 方法返回 true ，以停止上传
+private void cancell() {
+    isCancelled = true;
+}
 
 ```
 
