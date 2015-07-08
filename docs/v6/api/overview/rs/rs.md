@@ -17,7 +17,7 @@ order: 298
 - [更新镜像资源（prefetch）](#prefetch)
 - [修改元信息 (chgm)](#chgm)
 
-a id="stat"></a>
+<a id="stat"></a>
 ## 查看 (stat)
 
 查看操作用于查看资源的基本信息，包含：文件哈希值、文件大小、媒体类型及上传时间。具体参考[获取资源信息](/docs/v6/api/reference/rs/stat.html)。

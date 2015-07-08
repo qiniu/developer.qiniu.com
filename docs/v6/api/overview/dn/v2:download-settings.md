@@ -26,7 +26,7 @@ order: 320
 http://<domain>/<key>?attname=<file_name>
 ```
 
-如果访问的URL是带[数据处理（Fop）](/docs/v6/api/overview/fop/index.html)的，那么可以给URL添加参数`&attname=<file_name>`，多个[数据处理（Fop）](/docs/v6/api/overview/fop/index.html)间用[管道](/docs/v6/api/overview/fop/pipeline.html)连接，如下所示：
+如果访问的URL是带[数据处理（Fop）](/docs/v6/api/overview/fop/index.html)的，那么可以给URL添加参数`&attname=<file_name>`，多个[数据处理（Fop）](/docs/v6/api/overview/fop/index.html)间用[管道](/docs/v6/api/overview/Fop/fop/pipeline.html)连接，如下所示：
 
 ```
 http://<domain>/<key>?<fop>&attname=<file_name>

@@ -44,12 +44,11 @@ order:  801
 
 接入七牛云存储，仅需要四个步骤：
 
-1. 前往[七牛开发者平台](http://portal.qiniu.com)，**注册账号**并获取**AccessKey**与**SecretKey**。
+- 前往[七牛开发者平台](http://portal.qiniu.com)，**注册账号**并获取**AccessKey**与**SecretKey**。
 
 ![image](http://7xj661.com1.z0.glb.clouddn.com/@/quickstart/img/register .png)
 ![image](http://7xj661.com1.z0.glb.clouddn.com/@/quickstart/img/SK .png)
 
-2. 前往[七牛SDK平台](/docs/v6/sdk/index.html)下载合适的SDK包，编写接入代码衔接应用与七牛云存储。
-
-3. 测试上传与下载功能。
-4. 部署应用。  
+- 前往[七牛SDK平台](/docs/v6/sdk/index.html)下载合适的SDK包，编写接入代码衔接应用与七牛云存储。
+- 测试上传与下载功能。
+- 部署应用。  
