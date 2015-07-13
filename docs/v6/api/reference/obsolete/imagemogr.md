@@ -5,7 +5,28 @@ order: 174
 ---
 
 <a id="imageMogr"></a>
-# 高级图像处理（imageMogr）
+# 高级图片处理（imageMogr）
+- [描述](#imageMogr-description)
+- [接口规格](#imageMogr-specification)
+    - [缩放操作参数表](#imageMogr-thumbnail-spec)
+    - [裁剪操作参数表（cropSize）](#imageMogr-crop-size-spec) 	 	
+    - [裁剪偏移参数表（cropOffset）](#imageMogr-crop-offset-spec)
+    - [裁剪锚点参数表](#imageMogr-anchor-spec)
+	- [转义说明](#imageMogr-escape-sequence)
+- [请求](#imageMogr-request)
+    - [请求报文格式](#imageMogr-request-syntax)
+    - [请求头部](#imageMogr-request-header) 
+- [响应](#imageMogr-response)
+    - [响应报文格式](#imageMogr-response-syntax)
+	- [响应头部](#imageMogr-response-header)
+    - [响应内容](#imageMogr-response-content)
+    - [响应状态码](#imageMogr-response-code)
+- [附注](#imageMogr-remarks)
+- [示例](#imageMogr-samples)
+  - [缩放](#imageMogr-zoom)
+  - [裁剪](#imageMogr-tailor)
+  - [旋转](#imageMogr-rotation)
+- [内部参考资源](#imageMogr-internal-resources)
 
 <a id="imageMogr-description"></a>
 ## 描述
@@ -148,7 +169,7 @@ Host: <imageDownloadHost>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
 
 ---
 
@@ -189,7 +210,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageMogr-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状态](#imageMogr-response-code)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageMogr-response-code"></a>
@@ -218,6 +239,7 @@ HTTP状态码 | 含义
 <a id="imageMogr-samples"></a>
 ## 示例
 
+<a id="imageMogr-zoom"></a>
 ### 缩放
 
 1. 生成480x320缩略图
@@ -312,6 +334,7 @@ HTTP状态码 | 含义
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@)
 
+<a id="imageMogr-tailor"></a>
 ### 裁剪
 
 1. 生成300x427裁剪图
@@ -442,6 +465,7 @@ HTTP状态码 | 含义
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300)
 
+<a id="imageMogr-rotation"></a>
 ### 旋转
 
 1. 顺时针旋转45度

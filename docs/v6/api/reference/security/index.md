@@ -7,7 +7,7 @@ order: 900
 <a id="security"></a>
 # 安全机制
 
-本节描述与资源访问安全性相关的接口规格，涵盖以下内容：  
+本节描述资源访问安全性相关的接口规格，涵盖以下内容：  
 
 * [上传策略（PutPolicy）][putPolicyHref]
 * [上传凭证（UploadToken）][uploadTokenHref]
