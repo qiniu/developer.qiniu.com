@@ -5,7 +5,7 @@ order: 300
 ---
 
 <a id="pfop-existing-resource"></a>
-# 触发持久化处理
+# 触发持久化处理（pfop）
 
 <a id="pfop-description"></a>
 ## 描述
