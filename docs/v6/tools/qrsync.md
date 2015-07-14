@@ -7,7 +7,7 @@ title: qrsync 命令行同步工具
 - [简介](#overview)
 - [下载](#download)
 - [用法](#usage)
-- [常见故障排查][#faq]
+- [常见故障排查](#faq)
 
 
 <a id="overview"></a>

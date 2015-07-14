@@ -5,7 +5,20 @@ order: 175
 ---
 
 <a id="imageView"></a>
-# 图片处理（imageView）
+# 基本图片处理（imageView）
+- [描述](#imageView-description)
+- [接口规格](#imageView-specification)
+- [请求](#imageView-request)
+    - [请求报文格式](#imageView-request-syntax)
+    - [请求头部](#imageView-request-header) 
+- [响应](#imageView-response)
+    - [响应报文格式](#imageView-response-syntax)
+	- [响应头部](#imageView-response-header)
+    - [响应内容](#imageView-response-content) 
+    - [响应状态码](#imageView-response-code)
+- [附注](#imageView-remarks)
+- [示例](#imageView-samples)
+- [内部参考资源](#imageView-internal-resources)
 
 <a id="imageView-description"></a>
 ## 描述

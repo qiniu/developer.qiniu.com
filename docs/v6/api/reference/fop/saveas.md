@@ -5,7 +5,7 @@ order: 185
 ---
 
 <a id="saveas"></a>
-# 处理结果另存
+# 处理结果另存（saveas）
 
 - [描述](#saveas-description)
 - [接口规格](#saveas-specification)
