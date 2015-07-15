@@ -11,7 +11,7 @@ order: 297
 * [数据处理机制](/docs/v6/api/overview/fop/fop/fop.html "数据处理机制")
 * [管道](/docs/v6/api/overview/fop/fop/pipeline.html "管道")
 * [处理结果持久化](/docs/v6/api/overview/fop/fop/persistent-fop.html "处理结果持久化")
-* [样式](/docs/v6/api/overview/Fop/fop/style.html "样式")
+* [样式](/docs/v6/api/overview/fop/fop/style.html "样式")
 * [图片、音视频等数据处理功能](/docs/v6/api/overview/fop/fop/builtin-fop.html)
 
 ## 内置数据处理功能
@@ -20,7 +20,7 @@ order: 297
 * [基本图片处理（imageView2）](/docs/v6/api/reference/fop/image/imageview2.html)
 * [高级图片处理（imageMogr2）](/docs/v6/api/reference/fop/image/imagemogr2.html)
 * [获取图片基本信息](/docs/v6/api/reference/fop/image/imageinfo.html)
-* [图片EXIF信息（exif）](/docs/v6/api/reference/fop/image/Exif.html)
+* [图片EXIF信息（exif）](/docs/v6/api/reference/fop/image/exif.html)
 * [水印](/docs/v6/api/reference/fop/image/watermark.html)
 
 ### 音视频
