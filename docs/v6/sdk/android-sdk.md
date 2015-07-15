@@ -63,7 +63,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 </dependency>
 ```
 
-* 下载[qiniu-android-sdk-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-android-sdk%22)包，导入到项目中去；下载[http://loopj.com/android-async-http](http://loopj.com/android-async-http/) 1.4.6及以上版本导入到项目中。
+* 下载[qiniu-android-sdk-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-android-sdk%22)包、下载[happy-dns-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22happy-dns%22)(qiniu-android-sdk:7.0.7开始依赖此包)包、下载[http://loopj.com/android-async-http](http://loopj.com/android-async-http/) 1.4.6及以上版本导入到项目中。
 
 
 <a name="functions"></a>
