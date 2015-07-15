@@ -43,7 +43,7 @@ order: 500
 [qrcodeHref]:       /docs/v6/api/reference/fop/qrcode.html             "二维码处理"
 [md2htmlHref]:      /docs/v6/api/reference/fop/md2html.html            "Markdown文本处理"
 [saveasHref]:       /docs/v6/api/reference/fop/saveas.html             "处理结果另存"
-[third-partHref]:   /docs/v6/api/reference/fop/third-part/index.html        "第三方数据处理服务"
+[third-partHref]:   /docs/v6/api/reference/fop/third-party/index.html        "第三方数据处理服务"
 [pfopHref]:         /docs/v6/api/reference/fop/pfop/pfop.html         "触发持久化处理"
 [prefopHref]:         /docs/v6/api/reference/fop/pfop/prefop.html         "持久化处理状态查询"
 [view2Href]:         /docs/v6/api/reference/fop/image/imageview2.html         "基本图片处理"
