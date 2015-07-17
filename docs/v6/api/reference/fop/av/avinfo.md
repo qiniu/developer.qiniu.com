@@ -5,7 +5,7 @@ order: 147
 ---
 
 <a id="avinfo"></a>
-# 音视频元信息
+# 音视频元信息（avinfo）
 
 <a id="avinfo-description"></a>
 ## 描述

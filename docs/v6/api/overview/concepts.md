@@ -107,7 +107,6 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/w/400
 ```
 http://qiniuphotos.qiniudn.com/gogopher.jpg-watermark
 ```
-
 显然简洁很多也方便很多。
 
 **Note**
