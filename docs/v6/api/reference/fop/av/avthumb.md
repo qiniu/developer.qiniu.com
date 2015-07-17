@@ -5,7 +5,21 @@ order: 150
 ---
 
 <a id="avthumb"></a>
-# 音视频处理
+# 音视频处理（avthumb）
+
+- [描述](#imageinfo-description)
+- [请求](#imageinfo-request)
+    - [请求报文格式](#imageinfo-request-syntax)
+    - [请求头部](#imageinfo-request-header) 
+- [响应](#imageinfo-response)
+    - [响应报文格式](#imageinfo-response-syntax)
+	- [响应头部](#imageinfo-response-header)
+    - [响应内容](#imageinfo-response-content) 
+    - [响应状态码](#imageinfo-response-code)
+- [附注](#imageinfo-remarks)
+- [示例](#imageinfo-samples)
+- [内部参考资源](#imageinfo-internal-resources)
+
 
 <a id="avthumb-description"></a>
 ## 描述

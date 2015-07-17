@@ -5,7 +5,7 @@ order: 135
 ---
 
 <a id="concat"></a>
-# 文件拼接
+# 文件拼接（concate）
 
 - [描述](#concat-description)
 - [接口规格](#concat-specification)

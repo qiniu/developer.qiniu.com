@@ -5,7 +5,7 @@ order: 300
 ---
 
 <a id="ad"></a>
-# 广告过滤服务(ad)
+# 广告过滤服务（ad）
 
 <a id="ad-description"></a>
 ## 描述

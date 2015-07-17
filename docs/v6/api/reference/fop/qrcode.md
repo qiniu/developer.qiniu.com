@@ -5,7 +5,7 @@ order: 110
 ---
 
 <a id="qrcode"></a>
-# 资源下载二维码
+# 资源下载二维码（qrcode）
 
 - [描述](#description)
 - [接口规格（qrcodespec）](#specification)
