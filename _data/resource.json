@@ -328,6 +328,16 @@
         "author_link": "",
         "date": "2014-03-08",
         "doc": "https://github.com/ghostchina/Ghost-0.4.1-qiniu"
+    }, {
+        "name": "React Qiniu",
+        "label": "React Qiniu",
+        "description": "A React Component to upload file to Qiniu",
+        "download": "https://github.com/lenage/react-qiniu",
+        "defaultSprite": true,
+        "author": "lenage",
+        "author_link": "https://github.com/lenage",
+        "date": "2015-08-18",
+        "doc": "https://github.com/lenage/react-qiniu"
     }],
     "third_sdk": [{
         "name": "PHP",
