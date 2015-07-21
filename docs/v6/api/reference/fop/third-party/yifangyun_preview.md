@@ -71,7 +71,7 @@ Body           | 为对应的PDF文件内容
 <a id="yifangyun_preview-samples"></a>
 ## 示例
 
-在Web浏览器中输入以下图片地址：
+在Web浏览器中输入以下地址：
 
 ```
 http://ztest.qiniudn.com/preview_test.docx?yifangyun_preview
