@@ -11,7 +11,7 @@ order: 90
 - [第三方数据处理服务列表](#ufop-content-table)
   - [图片鉴黄服务（nrop）][nropHref]
   - [广告过滤服务（ad）][adHref]
-  
+  - [文档转换服务（yifangyun_preview）][yifangyun_previewHref]
 
 <a id="ufop-description"></a>
 ## 描述
@@ -25,6 +25,8 @@ order: 90
 
 * [图片鉴黄服务（nrop）][nropHref]
 * [广告过滤服务（ad）][adHref]
+* [文档转换服务（yifangyun_preview）][yifangyun_previewHref]
 
 [nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html
 [adHref]:          /docs/v6/api/reference/fop/third-party/ad.html
+[yifangyun_previewHref]:          /docs/v6/api/reference/fop/third-party/yifangyun_preview.html
