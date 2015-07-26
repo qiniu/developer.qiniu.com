@@ -82,6 +82,13 @@ excel: xls, xlsx, ods, csv, et
 对应转换过后的文件： http://ztest.qiniudn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFhpYDdF3mYRKD4zBen4yYis7qqI1
 ```
 
+<a id="yifangyun_preview-price"></a>
+## 服务价格
+
+|                 | 每千页PPT      | 每千页Word     |  每千个Excel的sheet |
+:---------------- | :------------ | :------------ | :----------- |
+|      价格       | 0.3元         | 0.1元  |        0.1元 | 
+
 <a id="internal-resources"></a>
 ## 内部参考资源
 
