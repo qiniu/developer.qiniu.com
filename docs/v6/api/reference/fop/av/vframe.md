@@ -1,10 +1,10 @@
 ---
-title: 视频截图
+title: 视频帧缩略图
 order: 146
 ---
 
 <a id="video-thumbnail"></a>
-# 视频帧缩略图
+# 视频帧缩略图（vframe）
 
 <a id="description"></a>
 ## 描述

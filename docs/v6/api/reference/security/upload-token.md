@@ -12,8 +12,8 @@ order: 970
 - [算法](#upload-token-algorithm)
 - [附注](#upload-token-remarks)
 - [代码示例](#upload-token-samples)
-- [上传凭证生成器](#put-policy-maker) 
-- [内部参考资源](#upload-internal-resources) 
+- [上传凭证生成器](#put-policy-maker)
+- [内部参考资源](#upload-internal-resources)
 - [外部参考资源](#upload-external-resources)  
 
 <a id="upload-token-algorithm"></a>

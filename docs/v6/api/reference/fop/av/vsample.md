@@ -4,7 +4,7 @@ order: 144
 ---
 
 <a id="video-sample-video-sample"></a>
-# 视频采样缩略图
+# 视频采样缩略图（vsample）
 
 <a id="video-sample-description"></a>
 ## 描述

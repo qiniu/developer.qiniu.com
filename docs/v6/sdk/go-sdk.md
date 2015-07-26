@@ -86,7 +86,7 @@ GO-SDK 以开源方式提供。开发者可以随时从本文档提供的下载�
 在获取到 Access Key 和 Secret Key 之后，您可以在您的程序中调用如下两行代码进行初始化对接, 要确保`ACCESS_KEY` 和 `SECRET_KEY` 在服务端调用 api/auth/digest,api/rs，api/rsf之前均已赋值：
 
 ```{go}
-import ."github.com/qiniu/api/conf"
+import ."github.com/qiniu/api.v6/conf"
 
 ACCESS_KEY = "<YOUR_APP_ACCESS_KEY>"
 SECRET_KEY = "<YOUR_APP_SECRET_KEY>"
