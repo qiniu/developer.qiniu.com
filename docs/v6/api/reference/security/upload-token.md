@@ -57,7 +57,7 @@ order: 970
     encodedPutPolicy = "eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVybkJvZHkiOiJ7XCJuYW1lXCI6JChmbmFtZSksXCJzaXplXCI6JChmc2l6ZSksXCJ3XCI6JChpbWFnZUluZm8ud2lkdGgpLFwiaFwiOiQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6JChldGFnKX0ifQ=="
 	```
 
-4. 使用`SecertKey`对上一步生成的待签名字符串计算[HMAC-SHA1][hmacSha1Href]签名：
+4. 使用`SecretKey`对上一步生成的待签名字符串计算[HMAC-SHA1][hmacSha1Href]签名：
 
 	```
     sign = hmac_sha1(encodedPutPolicy, "<SecretKey>")
