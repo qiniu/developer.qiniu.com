@@ -74,13 +74,11 @@ excel: xls, xlsx, ods, csv, et
 <a id="yifangyun_preview-samples"></a>
 ## 示例
 
-在Web浏览器中输入以下地址：
-
 ```
-http://ztest.qiniudn.com/preview_test.docx
+原文件：             http://ztest.qiniudn.com/preview_test.docx
 对应转换过后的文件： http://ztest.qiniudn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFnbt4DFz0IjRP5CLyxWvRtR7ny5B
 
-http://ztest.qiniudn.com/preview_test.pptx
+原文件：             http://ztest.qiniudn.com/preview_test.pptx
 对应转换过后的文件： http://ztest.qiniudn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFhpYDdF3mYRKD4zBen4yYis7qqI1
 ```
 
