@@ -23,14 +23,11 @@ order: 300
 ## 请求
 
 <a id="yifangyun_preview-request-syntax"></a>
-### 请求报文格式
-
-```
-GET http[s]://<DownloadHost>/<Key>?yifangyun_preview/<Ext> HTTP/1.1
-```
-
-<a id="yifangyun_preview-request-args"></a>
 ### 请求参数
+
+```
+yifangyun_preview/<Ext>
+```
 
 参数           | 必填 | 说明
 :------------- | :--- | :------------------------------------------
@@ -45,28 +42,34 @@ ppt: ppt, pptx, odp, dps
 excel: xls, xlsx, ods, csv, et
 ```
 
+<a id="yifangyun_preview-request-methods"></a>
+### 请求方式
+
+因为考虑到转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用异步处理来进行文档的转换
+
+1. 以[预转持久化][persistentOpsHref]形式：
+
+	```
+    {
+        "scope":                "ztest:preview_test.docx",
+        "deadline":             1390528576,
+        "persistentOps":        "yifangyun_preview",
+        "persistentNotifyUrl":  "http://fake.com/qiniu/notify"
+    }
+	```
+
+2. 以[触发持久化处理][pfopHref]形式，这一部分建议使用Qiniu提供的各个语言的SDK来处理：
+
+	```
+    POST /pfop/ HTTP/1.1
+    Host: api.qiniu.com  
+    Content-Type: application/x-www-form-urlencoded  
+    Authorization: QBox <AccessToken>  
+
+    bucket=ztest&key=preview_test.docx&fops=yifangyun_preview&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
+	```
+
 ---
-
-<a id="yifangyun_preview-response"></a>
-## 响应
-
-<a id="yifangyun_preview-response-syntax"></a>
-### 响应报文格式
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/pdf
-
-<Body>
-```
-
-<a id="yifangyun_preview-response-header"></a>
-### 响应参数
-
-说明       | 说明
-:------------- | :------------------------------------------
-Content-Type   | MIME类型，固定为application/pdf
-Body           | 为对应的PDF文件内容
 
 <a id="yifangyun_preview-samples"></a>
 ## 示例
@@ -74,10 +77,21 @@ Body           | 为对应的PDF文件内容
 在Web浏览器中输入以下地址：
 
 ```
-http://ztest.qiniudn.com/preview_test.docx?yifangyun_preview
-http://ztest.qiniudn.com/preview_test.pptx?yifangyun_preview
+http://ztest.qiniudn.com/preview_test.docx
+对应转换过后的文件： http://ztest.qiniudn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFnbt4DFz0IjRP5CLyxWvRtR7ny5B
+
+http://ztest.qiniudn.com/preview_test.pptx
+对应转换过后的文件： http://ztest.qiniudn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFhpYDdF3mYRKD4zBen4yYis7qqI1
 ```
 
-预期结果是一个PDF文档
+<a id="internal-resources"></a>
+## 内部参考资源
+
+- [预转持久化处理][persistentOpsHref]
+- [触发持久化处理][pfopHref]
+
+[persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
+[pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html                                        "触发持久化处理"
+[pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification                   "持久化处理结果通知"
 
 
