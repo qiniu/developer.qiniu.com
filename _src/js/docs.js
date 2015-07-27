@@ -235,8 +235,6 @@ $(function() {
         }
     }
 
-
-
     //给API页面所有图片的父元素添加一个居中类
     $('.api-content img').each(function() {
         $(this).parent().addClass('center');
@@ -244,6 +242,83 @@ $(function() {
 
     //todo 用模块化思维整合line 232 至 line 517
     //todo ie8 下侧边栏滚动，再滚动主内容，侧边栏的top又为0了
+
+    function setSidebar() {
+        var scrollY = $(window).scrollTop();
+        var sidebarHeight = $sidebar.height() + 2;
+        var top = getSidebarTop();
+        var top2;
+        var left = $('.main.pull-right').offset().left - $('.side-bar.pull-left').width() - $(window).scrollLeft();
+        if (!$sidebar.hasClass('scrolling')) {
+            if (scrollY > sidebarY) {
+                if (scrollY + top + sidebarHeight < footerY) {
+                    if (lastScrollTop - scrollY < 0) {
+                        top = top < 0 ? top : 0;
+                    } else {
+                        top2 = footerY - sidebarHeight - scrollY;
+                        top = top2 <= 0 ? top2 : 0;
+                    }
+                    $sidebar.css({
+                        position: 'fixed',
+                        top: top,
+                        left: left
+                    });
+                    $sidebarParent.css({
+                        height: $sidebar.height()
+                    });
+                } else {
+                    top2 = footerY - sidebarHeight - scrollY;
+                    top = top > top2 ? top : top2;
+                    if (scrollY - sidebarHeight + top > 0) {
+                        top = top2;
+                    }
+                    $sidebar.css({
+                        position: 'fixed',
+                        top: top,
+                        left: left
+                    });
+                }
+                if (isTaller()) {
+                    $sidebar.on('mouseenter.scrolling', function() {
+                        var scrollY = $(window).scrollTop();
+                        // var sidebarHeight = $sidebar.height() + 2;
+                        if (scrollY > sidebarY) {
+                            $(this).addClass('scrolling');
+
+                        } else {
+                            $(this).removeClass('scrolling');
+                        }
+
+                    }).on('mouseleave.scrolling', function() {
+                        $(this).removeClass('scrolling');
+                    });
+                }
+            } else {
+                unBindScroll();
+                $sidebar.css({
+                    position: '',
+                    top: '',
+                    left: ''
+                });
+            }
+            if ($sidebar.hasClass('in')) {
+                if (isTaller()) {
+                    $sidebar.trigger('mouseenter.scrolling');
+                } else {
+                    unBindScroll();
+                }
+            }
+        }
+        if (scrollY + sidebarHeight + top > footerY) {
+            $sidebar.css({
+                position: 'fixed',
+                top: footerY - scrollY - sidebarHeight,
+                left: left
+            });
+        }
+        lastScrollTop = scrollY;
+        lastSidebarHeight = sidebarHeight;
+    }
 
     // API页侧边栏
     var $sidebar = $('.container.fixed-sibebar .side-bar');
@@ -254,77 +329,8 @@ $(function() {
         var lastSidebarHeight = $sidebar.height() + 2;
         var footerY = $('footer').offset().top - parseInt($('footer').css('margin-top'), 10);
         var lastScrollTop = $(window).scrollTop();
-        $(window).on('scroll', function(e) {
-            var scrollY = $(window).scrollTop();
-            var sidebarHeight = $sidebar.height() + 2;
-            var top = getSidebarTop();
-            var top2;
-            if (!$sidebar.hasClass('scrolling')) {
-                if (scrollY > sidebarY) {
-                    if (scrollY + top + sidebarHeight < footerY) {
-                        if (lastScrollTop - scrollY < 0) {
-                            top = top < 0 ? top : 0;
-                        } else {
-                            top2 = footerY - sidebarHeight - scrollY;
-                            top = top2 <= 0 ? top2 : 0;
-                        }
-                        $sidebar.css({
-                            position: 'fixed',
-                            top: top
-                        });
-                        $sidebarParent.css({
-                            height: $sidebar.height()
-                        });
-                    } else {
-                        top2 = footerY - sidebarHeight - scrollY;
-                        top = top > top2 ? top : top2;
-                        if (scrollY - sidebarHeight + top > 0) {
-                            top = top2;
-                        }
-                        $sidebar.css({
-                            position: 'fixed',
-                            top: top
-                        });
-                    }
-                    if (isTaller()) {
-                        $sidebar.on('mouseenter.scrolling', function() {
-                            var scrollY = $(window).scrollTop();
-                            // var sidebarHeight = $sidebar.height() + 2;
-                            if (scrollY > sidebarY) {
-                                $(this).addClass('scrolling');
-
-                            } else {
-                                $(this).removeClass('scrolling');
-                            }
-
-                        }).on('mouseleave.scrolling', function() {
-                            $(this).removeClass('scrolling');
-                        });
-                    }
-                } else {
-                    unBindScroll();
-                    $sidebar.css({
-                        position: '',
-                        top: ''
-                    });
-                }
-                if ($sidebar.hasClass('in')) {
-                    if (isTaller()) {
-                        $sidebar.trigger('mouseenter.scrolling');
-                    } else {
-                        unBindScroll();
-                    }
-                }
-            }
-            if (scrollY + sidebarHeight + top > footerY) {
-                $sidebar.css({
-                    position: 'fixed',
-                    top: footerY - scrollY - sidebarHeight
-                });
-            }
-            lastScrollTop = scrollY;
-            lastSidebarHeight = sidebarHeight;
-        });
+        $(window).on('scroll', setSidebar);
+        $(window).on('resize', setSidebar);
         $sidebar.on('mouseenter', function() {
             $(this).addClass('in');
         }).on('mouseleave', function() {
