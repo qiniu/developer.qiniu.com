@@ -52,7 +52,7 @@ SDK 下载地址：<https://github.com/qiniu/python-sdk/releases>
 
 七牛云存储的 Python 语言版本 SDK（本文以下称 Python-SDK）是对七牛云存储API协议的一层封装，以提供一套对于 Python 开发者而言简单易用的开发工具。Python 开发者在对接 Python-SDK 时无需理解七牛云存储 API 协议的细节，原则上也不需要对 HTTP 协议和原理做非常深入的了解，但如果拥有基础的 HTTP 知识，对于出错场景的处理可以更加高效。
 
-Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是指开发者自己的业务服务器，客户端是指开发者提供给终端用户的软件，通常运行在 Windows/Mac/Linux 这样的桌面平台上。服务端因为有七牛颁发的 AccessKey/SecretKey，可以做很多客户端做不了的事情，比如删除文件、移动/复制文件等操作。一般而言，客服端操作文件需要获得服务端的授权。客户端上传文件需要获得服务端颁发的 [上传凭证](../api/reference/security/upload-token.html)，客户端下载文件（包括下载处理过的文件，比如下载图片的缩略图）需要获得服务端颁发的 [dntoken（下载授权凭证）][downloadTokenHref]。但开发者也可以将 bucket 设置为公开，此时文件有永久有效的访问地址，不需要业务服务器的授权，这对网站的静态文件（如图片、js、css、html）托管非常方便。
+Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是指开发者自己的业务服务器，客户端是指开发者提供给终端用户的软件，通常运行在 Windows/Mac/Linux 这样的桌面平台上。服务端因为有七牛颁发的 AccessKey/SecretKey，可以做很多客户端做不了的事情，比如删除文件、移动/复制文件等操作。一般而言，客户端操作文件需要获得服务端的授权。客户端上传文件需要获得服务端颁发的 [上传凭证](../api/reference/security/upload-token.html)，客户端下载文件（包括下载处理过的文件，比如下载图片的缩略图）需要获得服务端颁发的 [dntoken（下载授权凭证）][downloadTokenHref]。但开发者也可以将 bucket 设置为公开，此时文件有永久有效的访问地址，不需要业务服务器的授权，这对网站的静态文件（如图片、js、css、html）托管非常方便。
 
 从 v5.0.0 版本开始，我们对 SDK 的内容进行了精简。所有管理操作，比如：创建/删除 bucket、为 bucket 绑定域名（publish）、设置数据处理的样式分隔符（fop seperator）、新增数据处理样式（fop style）等都去除了，统一建议到[开发者后台](https://portal.qiniu.com/)来完成。另外，此前服务端还有自己独有的上传 API，现在也推荐统一成基于客户端上传的工作方式。
 
@@ -61,8 +61,8 @@ Python-SDK 被设计为同时适合服务器端和客户端使用。服务端是
 * 基本配置部分：`qiniu.config`（包括接口HOST设置、连接超时设置、连接重试次数设置）
 * 安全部分：`qiniu.Auth`（包括上传凭证、下载凭证的签名以及对管理凭证的签名）
 * 上传部分：`qiniu.put_file, qiniu.put_stream`（包括了上传流、上传文件、断点续上传）
-* 数据处理部分：`qiniu.pfop`（包括了触发[持久化处理][pfopHref]）
-* 处理工具部分：`qiniu.utils`（包括[urlsafe的base64编码](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64)和解码部分，文件[etag值](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)生成部分，七牛API中使用的[EncodedEntryUrI](http://developer.qiniu.com/docs/v6/api/reference/data-formats.html)的构造）
+* 数据处理部分：`qiniu.pfop`（包括了[触发持久化处理][pfopHref]）
+* 处理工具部分：`qiniu.utils`（包括[URL安全的Base64编码](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64)和解码部分，文件[Etag值](http://developer.qiniu.com/docs/v6/api/overview/appendix.html#qiniu-etag)生成部分，七牛API中使用的[EncodedEntryURI](http://developer.qiniu.com/docs/v6/api/reference/data-formats.html)的构造）
 
 
 <a id="prepare"></a>
