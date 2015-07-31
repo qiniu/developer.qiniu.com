@@ -94,7 +94,7 @@ Content-Transfer-Encoding: binary
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 上传服务器域名，固定为upload.qiniu.com。
+Host           | 是   | 上传服务器域名，上传到华东1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到华北1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`
 Content-Type   | 是   | 固定为multipart/form-data。`<frontier>`为[Multipart分隔符][multipartFrontierHref]，必须是任何Multipart消息都不包含的字符串。
 Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（Byte）。
 
