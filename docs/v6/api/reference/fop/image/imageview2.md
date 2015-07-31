@@ -33,12 +33,11 @@ imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html
 注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
 ```
-imageView2/<mode>
-          /w/<LongEdge>
-          /h/<ShortEdge>
-          /format/<Format>
-          /interlace/<Interlace>
-          /q/<Quality>
+imageView2/<mode>/w/<LongEdge>
+                /h/<ShortEdge>
+               /format/<Format>
+              /interlace/<Interlace>
+             /q/<Quality>
 ```
 
 其中 `<mode>` 分为如下几种情况：  
