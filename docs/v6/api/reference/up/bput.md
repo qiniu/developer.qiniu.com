@@ -56,7 +56,7 @@ Authorization:  UpToken <UploadToken>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :-------------------------------------
-Host           | 是   | 上一次上传响应返回的后续上传接收地址。
+Host           | 是   | 上传服务器域名。<br>● 分片上传的首片上传域名为：上传到华东1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到华北1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`。<br>● 后续片的上传为上一次上传响应返回的后续上传接收地址。
 Content-Type   | 是   | 固定为application/octet-stream。
 Content-Length | 是   | 当前片的内容长度，单位：字节（Byte）。
 Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。

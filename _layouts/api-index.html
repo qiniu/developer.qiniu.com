@@ -251,6 +251,53 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="panel panel-default" data-page="faq">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#">
+                                        常见问题
+                                    </a>
+                                <span class="icon api_default">
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="panel-list level-one">
+                                {{range .data.faq.Items}}
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_1">
+                                            </span>
+                                            <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                            <span class="icon"></span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body  panel-status">
+                                        {{if isnot_nil_or_empty .Child}}
+                                        <ul class="panel-list level-three nav">
+                                            {{range .Child}}
+                                            <li>
+                                                <a href="/{{.Href}}"> {{.Title}} </a>
+                                                {{if isnot_nil_or_empty .Child}}
+                                                <ul class="panel-list level-four nav">
+                                                    {{range .Child}}
+                                                    <li>
+                                                        <a href="/{{.Href}}">{{.Title}} </a>
+                                                    </li>
+                                                    {{end}}
+                                                </ul>
+                                                {{end}}
+                                            </li>
+                                            {{end}}
+                                        </ul>
+                                        {{end}}
+                                    </div>
+                                </li>
+                                {{end}}
+                            </ul>
+                        </div>
+                    </div>
 
                 </div>
             </div>
