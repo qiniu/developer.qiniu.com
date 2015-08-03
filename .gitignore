@@ -1,3 +1,4 @@
+_data/*
 _site/*
 node_modules
 static/css/main.css
