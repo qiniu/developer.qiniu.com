@@ -328,6 +328,26 @@
         "author_link": "",
         "date": "2014-03-08",
         "doc": "https://github.com/ghostchina/Ghost-0.4.1-qiniu"
+    }, {
+        "name": "React Qiniu",
+        "label": "React Qiniu",
+        "description": "A React Component to upload file to Qiniu",
+        "download": "https://github.com/lenage/react-qiniu",
+        "defaultSprite": true,
+        "author": "lenage",
+        "author_link": "https://github.com/lenage",
+        "date": "2015-07-18",
+        "doc": "https://github.com/lenage/react-qiniu"
+    }, {
+        "name": "织梦集成七牛教程",
+        "label": "织梦集成七牛教程",
+        "description": "一套织梦的集成七牛教程",
+        "download": "http://fcz8k.com/dedemcs/377.html",
+        "defaultSprite": true,
+        "author": "封程中",
+        "author_link": "http://fcz8k.com/dedemcs/377.html",
+        "date": "2015-08-01",
+        "doc": "http://fcz8k.com/dedemcs/377.html"
     }],
     "third_sdk": [{
         "name": "PHP",
