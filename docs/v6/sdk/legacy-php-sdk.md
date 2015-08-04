@@ -285,7 +285,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 示例代码：
 
 	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	//$baseUrl 就是您要访问资源的地址
 	$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
 
@@ -305,7 +305,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	require_once("qiniu/rs.php");
 
 	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	
@@ -330,7 +330,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	require_once("qiniu/fop.php");
 
 	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	
@@ -358,7 +358,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	require_once("qiniu/fop.php");
 
 	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	
@@ -383,7 +383,7 @@ SDK源码地址：<https://github.com/qiniu/php-sdk/tags>
 	require_once("qiniu/fop.php");
 
 	$key = 'pic.jpg';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$accessKey = '<YOUR_APP_ACCESS_KEY>';
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	

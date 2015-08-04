@@ -87,32 +87,32 @@ HTTP状态码 | 含义
 1. Mode=0时，基于下载URL生成二维码：  
 
 	```
-    http://docs.qiniudn.com/api/qrcode.html?qrcode
+    http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode
 	```
 
-	![点击察看图片](http://docs.qiniudn.com/api/qrcode.html?qrcode)
+	![点击察看图片](http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode)
 
 2. Mode=1时，基于下载URL指向的资源内容生成二维码：  
 
 	```
-    http://docs.qiniudn.com/api/qrcode.html?qrcode/1
+    http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode/1
 	```
 
-	![点击察看图片](http://docs.qiniudn.com/api/qrcode.html?qrcode/1)
+	![点击察看图片](http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode/1)
 
 3. 分别用不同的冗余度生成不同尺寸的二维码：   
 
 	```
-    http://docs.qiniudn.com/api/qrcode.html?qrcode/0/level/L
+    http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode/0/level/L
 	```
 
-	![点击察看图片](http://docs.qiniudn.com/api/qrcode.html?qrcode/0/level/L)
+	![点击察看图片](http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode/0/level/L)
 
 	```
-    http://docs.qiniudn.com/api/qrcode.html?qrcode/0/level/H
+    http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode/0/level/H
 	```
 
-	![点击察看图片](http://docs.qiniudn.com/api/qrcode.html?qrcode/0/level/H)
+	![点击察看图片](http://77fle1.com2.z0.glb.qiniucdn.com/api/qrcode.html?qrcode/0/level/H)
 
 	以上两个二维码图片尺寸不同，但表示的内容相同。
 
@@ -122,9 +122,9 @@ HTTP状态码 | 含义
 想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](/docs/v6/api/overview/fop/pipeline.html)和[图像水印接口](/docs/v6/api/reference/fop/image/watermark.html) 操作实现。例如，  
 
 ```
-http://qrcode.qiniudn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/Center/dx/0/dy/0
+http://77fl0n.com2.z0.glb.qiniucdn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/Center/dx/0/dy/0
 ```
 
-![QRCode+Logo](http://qrcode.qiniudn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/Center/dx/0/dy/0)
+![QRCode+Logo](http://77fl0n.com2.z0.glb.qiniucdn.com/qiniu.vcard?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/Center/dx/0/dy/0)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

@@ -451,7 +451,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	$secretKey = '<YOUR_APP_SECRET_KEY>';
 	$auth = new Auth($accessKey, $secretKey);
 
-	$baseUrl = 'http://phpsdk.qiniudn.com/php-logo.png';
+	$baseUrl = 'http://7j1xlg.com2.z0.glb.qiniucdn.com/php-logo.png';
 	$authUrl = $auth->privateDownloadUrl($baseUrl);
     
 <a name=fop-api></a>
@@ -468,7 +468,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	use Qiniu\Processing\Operation;
 
 	$key = 'php-logo.png';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$op = new Operation($domain);
 
 	list($ret, $err) = $op->execute($key, 'imageInfo');
@@ -487,7 +487,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	use Qiniu\Processing\Operation;
 
 	$key = 'php-logo.png';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$op = new Operation($domain);
 
 	list($ret, $err) = $op->execute($key, 'exif');
@@ -506,7 +506,7 @@ PS： 鉴于某些原因, 国内的用户使用 Composer 下载依赖库比较�
 	use Qiniu\Processing\Operation;
 
 	$key = 'php-logo.png';
-	$domain = 'phpsdk.qiniudn.com';
+	$domain = '7j1xlg.com2.z0.glb.qiniucdn.com';
 	$op = new Operation($domain);
 
 	$ops = 'imageView2/0/w/10/h/20';

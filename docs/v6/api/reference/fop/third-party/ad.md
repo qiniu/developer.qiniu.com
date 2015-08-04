@@ -112,7 +112,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 在Web浏览器中输入以下图片地址：  
 
 ```
-http://ztest.qiniudn.com/gogopher.jpg?ad
+http://7b1hac.com1.z0.glb.clouddn.com/gogopher.jpg?ad
 ```
 
 返回结果（内容经过格式化以便阅读）  

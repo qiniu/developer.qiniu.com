@@ -31,4 +31,4 @@ Content-Disposition: attachment;filename="<file_name>"
 
 该字段告诉浏览器将资源下载成为指定的文件名`<file_name>`。下面是一个可体验的完整示例：
 
-  [http://qiniuphotos.qiniudn.com/gogopher.jpg?download/test.jpg](http://qiniuphotos.qiniudn.com/gogopher.jpg?download/test.jpg)
+  [http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?download/test.jpg](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?download/test.jpg)
