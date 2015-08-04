@@ -140,34 +140,34 @@ HTTP状态码 | 含义
 1. 裁剪正中部分，等比缩小生成200x200缩略图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/200/h/200
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/200/h/200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/200/h/200)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/200/h/200)
 
 2. 裁剪正中部分，等比放大生成500x500放大图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/500/h/500
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/500/h/500
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/500/h/500)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/500/h/500)
 
 3. 宽度固定为200px，高度等比缩小，生成200x133缩略图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/w/200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/w/200)
 
 4. 高度固定为200px，宽度等比缩小，生成300x200缩略图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/h/200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/h/200)
 
 ---
 

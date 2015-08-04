@@ -160,9 +160,9 @@ key   | string | 数据处理结果的唯一资源ID。数据处理结果可通�
 ```
 
 3. 访问链接：  
-[原文件](http://t-test.qiniudn.com/persistent.mp3)  
-[处理1(avthumb/mp3/aq/6/ar/16000)结果](http://t-test.qiniudn.com/1G8-OWwP3jPLvi7O3qOf7yCl4YI=/lgxucMCQso_KOW_YDM-_KVIeX6o5)  
-[处理2(avthumb/mp3/ar/44100/ab/32k)结果](http://t-test.qiniudn.com/sFhZ4dSjB1zvL3De1UBX2qZ_VR0=/lgxucMCQso_KOW_YDM-_KVIeX6o5)   
+[原文件](http://77g5v8.com1.z0.glb.clouddn.com/persistent.mp3)  
+[处理1(avthumb/mp3/aq/6/ar/16000)结果](http://77g5v8.com1.z0.glb.clouddn.com/1G8-OWwP3jPLvi7O3qOf7yCl4YI=/lgxucMCQso_KOW_YDM-_KVIeX6o5)  
+[处理2(avthumb/mp3/ar/44100/ab/32k)结果](http://77g5v8.com1.z0.glb.clouddn.com/sFhZ4dSjB1zvL3De1UBX2qZ_VR0=/lgxucMCQso_KOW_YDM-_KVIeX6o5)   
 
 [putPolicyHref]:			/docs/v6/api/reference/security/put-policy.html "上传策略"
 [uploadTokenHref]:			/docs/v6/api/reference/security/upload-token.html "上传凭证"
