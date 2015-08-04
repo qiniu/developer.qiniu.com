@@ -28,9 +28,9 @@ order: 255
 
 原始URL:
 
-- <http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/h/200|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==>
+- <http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/h/200|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==>
 
 友好风格URL:
 
-- <http://qiniuphotos.qiniudn.com/gogopher.jpg-pipeline>
+- <http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg-pipeline>
 

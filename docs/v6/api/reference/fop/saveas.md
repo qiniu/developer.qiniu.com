@@ -114,13 +114,13 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 1. 原资源是一个图片：  
 
 	```
-    http://t-test.qiniudn.com/Ship.jpg
+    http://77g5v8.com1.z0.glb.clouddn.com/Ship.jpg
 	```
 
 2. 将图片做缩略处理：  
 
 	```
-    http://t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200
+    http://77g5v8.com1.z0.glb.clouddn.com/Ship.jpg?imageView/2/w/200/h/200
 	```
 
 3. 对上述云处理结果进行持久化保存：  
@@ -133,7 +133,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
     encodedEntryURI = "dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw=="
 
     需要签名的部分
-    signingStr = "t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw=="
+    signingStr = "77g5v8.com1.z0.glb.clouddn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw=="
 
     签名结果
     sign       = "iguImegxd6hbwF8J6ij2dlLIgycyU4thjg-xmu9q:38kMkgw3We96NWSgUHJz9C72noQ="
@@ -142,13 +142,13 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 4. 最终得到的完整下载URL：  
 
 	```
-    http://t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw==/sign/iguImegxd6hbwF8J6ij2dlLIgycyU4thjg-xmu9q:38kMkgw3We96NWSgUHJz9C72noQ=
+    http://77g5v8.com1.z0.glb.clouddn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw==/sign/iguImegxd6hbwF8J6ij2dlLIgycyU4thjg-xmu9q:38kMkgw3We96NWSgUHJz9C72noQ=
 	```
 
 5. 保存转码后资源可通过如下URL访问：  
 
 	```
-    http://t-test.qiniudn.com/Ship-thumb-200.jpg
+    http://77g5v8.com1.z0.glb.clouddn.com/Ship-thumb-200.jpg
 	```
 
 <a id="saveas-internal-resources"></a>

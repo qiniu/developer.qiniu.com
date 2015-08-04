@@ -470,7 +470,16 @@ public event EventHandler<PutNotifyErrorEvent> NotifyErr;
 ```
 ### 上传不指定key（由七牛生成hash作为默认key）
 ```
- public static void PutFileWithoutKey(string bucket, string fname)        {            var policy = new PutPolicy(bucket, 3600);            System.Console.WriteLine(policy);            string upToken = policy.Token();            IOClient target = new IOClient();            PutExtra extra = new PutExtra();            PutRet ret = target.PutFileWithoutKey(upToken, "A:\\buty-picture\\1111aa.jpg", extra);            Console.WriteLine(ret.Response.ToString());        }
+ public static void PutFileWithoutKey(string bucket, string fname)
+        {
+            var policy = new PutPolicy(bucket, 3600);
+            System.Console.WriteLine(policy);
+            string upToken = policy.Token();
+            IOClient target = new IOClient();
+            PutExtra extra = new PutExtra();
+            PutRet ret = target.PutFileWithoutKey(upToken, "A:\\buty-picture\\1111aa.jpg", extra);
+            Console.WriteLine(ret.Response.ToString());
+        }
 ```
 
 <a name=io-download></a>
@@ -604,12 +613,24 @@ using Qiniu.FileOp;
 	WaterMarker marker = new TextWaterMarker("hello,qiniu cloud!","","red");
 	string MarkerUrl = marker.MakeRequest(url);
 	//图片水印
-	marker = new ImageWaterMarker("http://www.b1.qiniudn.com/images/logo-2.png");
+	marker = new ImageWaterMarker("http://77flds.com2.z0.glb.qiniucdn.com/images/logo-2.png");
 	MarkerUrl = marker.MakeRequest(url);
 ```
 ### pfop
 ```
- public static void pfop()        {            Qiniu.RS.Pfop fop = new Qiniu.RS.Pfop();            EntryPath entry = new EntryPath("liuhanlin-work", "liuhanlin-movi");            string savekey = "liuhanlin-work:bugpfop";        //  savekey = "saveas/" + entry.Base64EncodedURI;            savekey = "saveas/" + Qiniu.Util.Base64URLSafe.Encode(savekey);            string fo = "imageView2/1/w/20/h/20" + "|" + savekey;            string[] fops = new string[] { fo };            Uri uri = new Uri("http://www.baidu.com");            string s = fop.Do(entry, fops, uri,"xiaoliu",1);            Console.WriteLine(s);        }
+ public static void pfop()
+        {
+            Qiniu.RS.Pfop fop = new Qiniu.RS.Pfop();
+            EntryPath entry = new EntryPath("liuhanlin-work", "liuhanlin-movi");
+            string savekey = "liuhanlin-work:bugpfop";
+        //  savekey = "saveas/" + entry.Base64EncodedURI;
+            savekey = "saveas/" + Qiniu.Util.Base64URLSafe.Encode(savekey);
+            string fo = "imageView2/1/w/20/h/20" + "|" + savekey;
+            string[] fops = new string[] { fo };
+            Uri uri = new Uri("http://www.baidu.com");
+            string s = fop.Do(entry, fops, uri,"xiaoliu",1);
+            Console.WriteLine(s);
+        }
 ```
 <a name=contribution></a>
 ## 贡献代码

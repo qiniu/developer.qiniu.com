@@ -247,92 +247,92 @@ HTTP状态码 | 含义
 	等比缩小75%：
 	
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p)
 
 	按原宽度75%等比缩小：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px)
 
 	按原高度75%等比缩小：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p)
 
 2. 生成700x467放大图
 
 	指定新宽度为700px：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x)
 
 	指定新高度为467px：
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467)
 
 3. 限定长边，生成不超过300x300的缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/300x300)
 
 4. 限定短边，生成不小于200x200的缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!200x200r
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!200x200r
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!200x200r)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/!200x200r)
 
 5. 强制生成200x300的缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300!
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300!
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300!)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300!)
 
 6. 原图大于指定长宽矩形，按长边自动缩小为200x133缩略图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300>
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300>
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300>)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300>)
 
 7. 原图小于指定长宽矩形，按长边自动拉伸为700x467放大图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x600<
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x600<
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x600<)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x600<)
 
 8. 生成图的像素总数小于指定值
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@)
 
 <a id="imageMogr-tailor"></a>
 ### 裁剪
@@ -340,130 +340,130 @@ HTTP状态码 | 含义
 1. 生成300x427裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/300x
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/300x)
 
 2. 生成640x200裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/x200
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/x200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/x200)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/x200)
 
 3. 生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/300x300)
 
 4. 生成300x300裁剪图，偏移距离30x100
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30a100
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30a100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30a100)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30a100)
 
 5. 生成300x200裁剪图，偏移距离30x0
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30-100
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30-100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30-100)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30-100)
 
 6. 生成270x300裁剪图，偏移距离0x100
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30a100
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30a100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30a100)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30a100)
 
 7. 生成270x200裁剪图，偏移距离0x0
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30-100
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30-100
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30-100)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30-100)
 
 8. 锚点在左上角（NorthWest），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthWest/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/NorthWest/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthWest/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/NorthWest/crop/300x300)
 
 9. 锚点在正上方（North），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/North/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/North/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/North/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/North/crop/300x300)
 
 10. 锚点在右上角（NorthEast），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthEast/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/NorthEast/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthEast/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/NorthEast/crop/300x300)
 
 11. 锚点在正左方（West），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/West/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/West/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/West/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/West/crop/300x300)
 
 12. 锚点在正中（Center），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/Center/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/Center/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/Center/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/Center/crop/300x300)
 
 13. 锚点在正右方（East），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/East/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/East/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/East/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/East/crop/300x300)
 
 14. 锚点在左下角（SouthWest），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthWest/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/SouthWest/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthWest/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/SouthWest/crop/300x300)
 
 15. 锚点在正下方（South），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/South/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/South/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/South/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/South/crop/300x300)
 
 16. 锚点在右下角（SouthEast），生成300x300裁剪图
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300)
 
 <a id="imageMogr-rotation"></a>
 ### 旋转
@@ -471,10 +471,10 @@ HTTP状态码 | 含义
 1. 顺时针旋转45度
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/rotate/45
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/rotate/45
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/rotate/45)
+	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageMogr/v2/rotate/45)
 
 ---
 

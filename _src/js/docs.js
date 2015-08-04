@@ -270,7 +270,8 @@ $(function() {
                         }
                         $sidebar.css({
                             position: 'fixed',
-                            top: top
+                            top: top,
+                            left: $(".main.pull-right").offset().left - $sidebar.width() - $(window).scrollLeft()
                         });
                         $sidebarParent.css({
                             height: $sidebar.height()
@@ -283,7 +284,8 @@ $(function() {
                         }
                         $sidebar.css({
                             position: 'fixed',
-                            top: top
+                            top: top,
+                            left: $(".main.pull-right").offset().left - $sidebar.width() - $(window).scrollLeft()
                         });
                     }
                     if (isTaller()) {
@@ -319,7 +321,8 @@ $(function() {
             if (scrollY + sidebarHeight + top > footerY) {
                 $sidebar.css({
                     position: 'fixed',
-                    top: footerY - scrollY - sidebarHeight
+                    top: footerY - scrollY - sidebarHeight,
+                    left: $(".main.pull-right").offset().left - $sidebar.width() - $(window).scrollLeft()
                 });
             }
             lastScrollTop = scrollY;

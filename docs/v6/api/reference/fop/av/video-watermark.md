@@ -83,7 +83,7 @@ SouthWest     |     South      |     SouthEast
 
 	<span style="color: red;">注意：要在Authorization头部的`<AccessToken>`前添加`QBox`和半角空格。</span>
 
-以上示例为指定视频资源打上图片水印`http://test-2.qiniudn.com/logo.png`, 位置是右上角；同时给视频打上文字水印`weloveqiniu`，颜色为红色，大小为3磅（60缇），字体为黑体，位置为正上方；生成文件名为为`sample_target.mp4`的新`mp4`视频资源。
+以上示例为指定视频资源打上图片水印`http://77fmt6.com1.z0.glb.clouddn.com/logo.png`, 位置是右上角；同时给视频打上文字水印`weloveqiniu`，颜色为红色，大小为3磅（60缇），字体为黑体，位置为正上方；生成文件名为为`sample_target.mp4`的新`mp4`视频资源。
 
 <a id="avthumb-internal-resources"></a>
 ## 内部参考资源

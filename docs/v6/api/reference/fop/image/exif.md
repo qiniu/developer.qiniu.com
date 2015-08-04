@@ -119,7 +119,7 @@ HTTP状态码 | 含义
 	在Web浏览器中输入以下图片地址：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?exif
+    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?exif
 	```
 
 	返回结果（内容经过格式化以便阅读）  

@@ -43,10 +43,10 @@ Content-Disposition: attachment;filename="<file_name>"
 该字段告诉浏览器将资源下载成为指定的文件名`<file_name>`。下面是几个可体验的完整示例：
 
 **原图按照原图文件名下载：**<br>
-[http://newdocs.qiniudn.com/gogopher.jpg?attname=](http://newdocs.qiniudn.com/gogopher.jpg?attname=)<br>
+[http://new77fle1.com2.z0.glb.qiniucdn.com/gogopher.jpg?attname=](http://new77fle1.com2.z0.glb.qiniucdn.com/gogopher.jpg?attname=)<br>
 **原图按照文件名down.jpg下载：**<br>
-<http://newdocs.qiniudn.com/gogopher.jpg?attname=down.jpg><br>
+<http://new77fle1.com2.z0.glb.qiniucdn.com/gogopher.jpg?attname=down.jpg><br>
 **原图先按照200x200大小缩放，再将处理结果按照文件名down2.jpg下载：**<br>
-<http://newdocs.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200&attname=down2.jpg><br>
+<http://new77fle1.com2.z0.glb.qiniucdn.com/gogopher.jpg?imageView2/1/w/200/h/200&attname=down2.jpg><br>
 **原图先按照200x200大小缩放，然后将缩放结果按照50x50裁剪，再将最后裁剪结果结果按照文件名down3.jpg下载：**<br>
-<http://newdocs.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200|imageMogr2/crop/50x50&attname=down3.jpg>
+<http://new77fle1.com2.z0.glb.qiniucdn.com/gogopher.jpg?imageView2/1/w/200/h/200|imageMogr2/crop/50x50&attname=down3.jpg>
