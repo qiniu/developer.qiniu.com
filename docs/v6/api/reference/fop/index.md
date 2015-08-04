@@ -35,6 +35,8 @@ order: 500
 * [第三方数据处理服务][third-partHref]
   * [广告过滤服务（ad）][adHref]
   * [图片鉴黄服务（nrop）][nropHref]
+  * [ 文档转换服务（yifangyun_preview）][yifangyunHref]
+
 
 [imageHref]:        /docs/v6/api/reference/fop/image/index.html        "图片处理"
 [avHref]:           /docs/v6/api/reference/fop/av/avthumb.html           "音视频处理"
@@ -61,3 +63,4 @@ order: 500
 [imageaveHref]:        /docs/v6/api/reference/fop/image/imageave.html        "图片主色调"
 [adHref]:        /docs/v6/api/reference/fop/third-party/ad.html        "广告过滤服务"
 [nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html        "图片鉴黄服务"
+[yifangyunHref]:        /docs/v6/api/reference/fop/third-party/yifangyun_preview.html        "文档转换服务"
