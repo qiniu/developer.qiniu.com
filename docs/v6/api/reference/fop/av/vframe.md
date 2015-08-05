@@ -25,7 +25,7 @@ vframe/<Format>
 参数名称           | 必填 | 说明
 :----------------- | :--- | :------------------------------------------------------------------
 `<Format>`         | 是   | 输出的目标截图格式，支持jpg、png等。
-`/offset/<Second>` | 是   | 指定截取视频的时刻，单位：秒。
+`/offset/<millisecond>` | 是   | 指定截取视频的时刻，单位：毫秒。
 `/w/<Width>`       |      | 缩略图宽度，单位：像素（px），取值范围为1-3840。
 `/h/<Height>`      |      | 缩略图高度，单位：像素（px），取值范围为1-2160。
 <a id="rotate"></a>`/rotate/<Degree>` |      | 指定顺时针旋转的度数，可取值为`90`、`180`、`270`、`auto`，默认为不旋转。
@@ -36,7 +36,7 @@ vframe/<Format>
 <a id="request-syntax"></a>
 ### 请求语法
 
-可以通过[上传预转](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)或者[触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)的方式来调用
+可以通过[上传预转（persistentOps）](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)或者[触发持久化处理（pfop）](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)的方式来调用
 
 
 
@@ -46,7 +46,7 @@ vframe/<Format>
 
 1. 取视频第7秒的截图，图片格式为jpg，宽度为480px，高度为360px：
 
-[上传预转](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)上传的`token`中指定`persistentOps`:
+[上传预转（persistentOps）](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops)上传的`token`中指定`persistentOps`:
 
 ```
     {
@@ -58,7 +58,7 @@ vframe/<Format>
 ```
 
 
-[触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html):
+[触发持久化处理（pfop）](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html):
 
 ```
     POST /pfop/ HTTP/1.1
@@ -70,7 +70,9 @@ vframe/<Format>
     &key=thinking-in-go.mp4
     &fops=vframe%2fjpg%2foffset%2f7%2fw%2f480%2fh%2f360
 ```
-
+<a id="vframe-remarks"></a>
+## 附注
+视频帧缩略图（vframe）不仅支持[触发持久化处理（pfop）](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)的异步处理方式而且支持同步处理方式。
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
