@@ -85,13 +85,13 @@ http://www.example.com/features/
 数据处理的执行非常简单，就是在资源请求中加上数据处理动作和参数，比如以下的URL对图片进行了缩放处理，就是调用了一个名为**"imageView2"**的数据处理操作：
 
 ```
-http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/w/200/h/200
+http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200/h/200
 ```
 
 多个数据处理操作可以通过**管道（Pipe）**进行连接，实现级联操作，每一级的输出作为下一级的输入。比如我们可以在一次请求中完成先对图片进行缩放，然后再在图片右下角添加一个透明图片水印，其中缩放和添加水印分别是一个数据处理操作：
 
 ```
-http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/w/400
+http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/400
 |watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
 ```
 
@@ -105,7 +105,7 @@ http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/w/400
 `，则我们可以用如下方式进行访问：
 
 ```
-http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg-watermark
+http://developer.qiniu.com/resource/gogopher.jpg-watermark
 ```
 显然简洁很多也方便很多。
 
