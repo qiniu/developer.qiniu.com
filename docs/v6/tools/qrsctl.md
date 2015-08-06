@@ -19,6 +19,7 @@ title: qrsctl 命令行辅助工具
     - [删除空间（Bucket）](#drop)
     - [设置镜像存储（源站加速）](#img)
     - [取消镜像存储](#unimg)
+    - [设置镜像存储回源容错属性](#imgsft)
     - [清除cdn缓存](#refresh)
 - [云处理](#foper)
     - [设置API规格别名](#style)
@@ -156,9 +157,18 @@ SrcHost | 源站域名，可选
 
     qrsctl unimg <Bucket>
 
-<a id="refresh"></a>
 
-### 3.8 清除cdn缓存
+<a id="imgsft"></a>
+### 3.8 设置镜像存储回源容错属性
+    qrsctl imgsft <Bucket> <imgsft> 
+    说明：
+    1.开启该属性时，如果 url 的后缀是典型的图片、音视频文件（比如 *.jpg, *.jpeg, *.png, *.gif, *.mp3, *.mp4, etc），然后源站返回了的 mimeType 为 textml，则认为源站有可能出错，不缓存该文件。
+    2.如果 url 的后缀是典型的图片、音视频文件（比如 *.jpg, *.jpeg, *.png, *.gif, *.mp3, *.mp4, etc）, 
+    当返回码是200并且content-length=0的时候，不要返回200，因为客户端会缓存，改为返回 478，然后 error 是 "zero content from source"
+    3.<imgsft>为0表示不启用镜像存储回源容错属性，为1表示启用镜像存储回源容错属性
+
+<a id="refresh"></a>
+### 3.9 清除cdn缓存
 
     qrsctl cdn/refresh <Bucket> <Url1>,<Url2>...<UrlN>
 
