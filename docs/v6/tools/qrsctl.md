@@ -16,7 +16,6 @@ title: qrsctl 命令行辅助工具
     - [将空间设置为私有](#set-bucket-private)
     - [列出所有空间（Buckets）](#buckets)
     - [查看指定空间（Bucket）信息](#bucketinfo)
-    - [删除空间（Bucket）](#drop)
     - [设置镜像存储（源站加速）](#img)
     - [取消镜像存储](#unimg)
     - [设置镜像存储回源容错属性](#imgsft)
