@@ -13,25 +13,5 @@ SDK在线文档：<http://developer.qiniu.com/php_docs/index.html>
 
 SDK( version: 6.x.x 适用于PHP 5.1.0 及其以上版本)相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
 
+## [详细文档&示例](http://demos.qiniu.com/docs/php-sdk/) 
 
-
-
-### [详细文档&示例](http://demos.qiniu.com/docs/php-sdk/) 
-
-<a name=contribution></a>
-## 贡献代码
-
-1. Fork
-2. 创建您的特性分支 (`git checkout -b my-new-feature`)
-3. 提交您的改动 (`git commit -am 'Added some feature'`)
-4. 将您的修改记录提交到远程 `git` 仓库 (`git push origin my-new-feature`)
-5. 然后到 github 网站的该 `git` 远程仓库的 `my-new-feature` 分支下发起 Pull Request
-
-<a name=license></a>
-## 许可证
-
-Copyright (c) 2014 qiniu.com
-
-基于 MIT 协议发布:
-
-* [www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)
