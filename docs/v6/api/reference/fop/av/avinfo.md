@@ -107,7 +107,7 @@ HTTP状态码 | 含义
 ## 示例
 
 ```
-http://77fzez.com2.z0.glb.qiniucdn.com/thinking-in-go.mp4?avinfo
+http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo
 ```
 
 将返回如下元信息（已经经过格式化，以便阅读）：
@@ -188,7 +188,7 @@ http://77fzez.com2.z0.glb.qiniucdn.com/thinking-in-go.mp4?avinfo
 }
 ```
 
-[点击查看示例结果](http://77fzez.com2.z0.glb.qiniucdn.com/thinking-in-go.mp4?avinfo)
+[点击查看示例结果](http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo)
 
 <a id="avinfo-remarks"></a>
 ## 附注

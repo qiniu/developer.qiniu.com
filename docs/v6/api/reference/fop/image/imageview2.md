@@ -154,32 +154,32 @@ HTTP状态码 | 含义
 1. 裁剪正中部分，等比缩小生成200x200缩略图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/1/w/200/h/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/1/w/200/h/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200)
 
 
 2. 宽度固定为200px，高度等比缩小，生成200x133缩略图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/w/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/w/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200)
 
 3. 高度固定为200px，宽度等比缩小，生成300x200缩略图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/h/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/h/200
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/2/h/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/h/200)
 
 4. 渐进显示图片：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
 	```
 
 	![查看效果图](http://developer.qiniu.com/resource/gogopher-imageview2-interlace.jpg)

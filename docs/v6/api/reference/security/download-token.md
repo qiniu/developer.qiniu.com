@@ -24,13 +24,13 @@ order: 960
 1. 构造下载URL：  
 
 	```
-    DownloadUrl = 'http://7i7j25.com1.z0.glb.clouddn.com/sunflower.jpg'
+    DownloadUrl = 'http://developer.qiniu.com/resource/flower.jpg'
 	```
 
 2. 为下载URL加上过期时间（e参数，[Unix时间戳][unixTimeHref]）：  
 
 	```
-    DownloadUrl = 'http://7i7j25.com1.z0.glb.clouddn.com/sunflower.jpg?e=1451491200'
+    DownloadUrl = 'http://developer.qiniu.com/resource/flower.jpg?e=1451491200'
 	```
 
 3. 对上一步得到的URL字符串计算HMAC-SHA1签名（假设`SecretKey`是`MY_SECRET_KEY`），并对结果做[URL安全的Base64编码][urlsafeBase64Href]：
@@ -49,7 +49,7 @@ order: 960
 5. 将下载凭证添加到含过期时间参数的下载URL之后，作为最后一个参数（token参数）：  
 
 	```
-    RealDownloadUrl = 'http://7i7j25.com1.z0.glb.clouddn.com/sunflower.jpg?e=1451491200&token=MY_ACCESS_KEY:yN9WtB0lQheegAwva64yBuH3ZgU='
+    RealDownloadUrl = 'http://developer.qiniu.com/resource/flower.jpg?e=1451491200&token=MY_ACCESS_KEY:yN9WtB0lQheegAwva64yBuH3ZgU='
 	```
 
 `RealDownloadUrl`即为下载对应私有资源的可用URL，并在指定时间后失效。  
@@ -61,7 +61,7 @@ order: 960
 - 为确保客户端、业务服务器和七牛服务器对于授权截止时间的理解保持一致，需要同步校准各自的时钟。频繁返回401状态码时请先检查时钟同步性与生成e参数值的代码逻辑。  
 - 对于包含中文或其它非英文字符的Key，需要做到以下两点：  
     - Key 本身要做 UTF-8 编码；
-    - 为 URL 签名之前，对 Path 部分（不含前导`/`符号，通常就是 Key 本身，即上例中的 `sunflower.jpg`）做一次 [URL编码][urlescapeHref]。
+    - 为 URL 签名之前，对 Path 部分（不含前导`/`符号，通常就是 Key 本身，即上例中的 `flower.jpg`）做一次 [URL编码][urlescapeHref]。
 
 <a id="download-token-samples"></a>
 ## 代码示例
