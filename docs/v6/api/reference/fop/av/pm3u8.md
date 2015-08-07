@@ -10,19 +10,22 @@ order: 143
 <a id="pm3u8-description"></a>
 ## 描述
 
-本接口用于对私有空间中的m3u8文件的各个ts资源进行下载授权。  
-通过将各个ts资源的URL改写成私有下载URL（即附加下载凭证），批量获取临时下载权限。  
+pm3u8 接口只能用于私有空间中的 m3u8 文件，作用是对 m3u8文件中的 ts 资源进行批量下载授权。
+通过将ts资源的url改写成私有url，以临时获取访问权限。  
 
 <a id="pm3u8-specification"></a>
 
 ```
-pm3u8/<Mode>/expires/<Expires>
-```
+[GET]pm3u8/<Mode>
+         /expires/<Expires>
+        /deadline/<Deadline>
+ ```
 
 参数名称             | 必填 | 说明
 :------------------- | :--- | :--------------------------------------------------------
-`/<Mode>`            | 是   | ● 处理模式<br>0表示对所有ts资源的URL进行下载授权。
-`/expires/<Expires>` | 是   | ● 各个ts资源的URL下载凭证的有效期，单位：秒<br>推荐43200秒（12小时）。
+`/<Mode>`            | 是   | 处理模式，只有一个值0。<br>0表示对所有ts资源的url进行下载授权。
+`/expires/<Expires>` |    | 私有ts资源url下载凭证的相对有效期，单位秒。<br>推荐43200秒（12小时）。
+`/deadline/<Deadline>`            |    | 私有ts资源url下载凭证的绝对有效期，单位秒。<br>此参数填写后，expires失效。
 
 <a id="pm3u8-request"></a>
 ## 请求
