@@ -46,8 +46,8 @@ order:  801
 
 - 前往[七牛开发者平台](http://portal.qiniu.com)，**注册账号**并获取**AccessKey**与**SecretKey**。
 
-![image](http://7xj661.com1.z0.glb.clouddn.com/@/quickstart/img/register .png)
-![image](http://7xj661.com1.z0.glb.clouddn.com/@/quickstart/img/SK .png)
+![image](http://developer.qiniu.com/resource/register%20.png)
+![image](http://developer.qiniu.com/resource/SK%20.png)
 
 - 前往[七牛SDK平台](/docs/v6/sdk/index.html)下载合适的SDK包，编写接入代码衔接应用与七牛云存储。
 - 测试上传与下载功能。
