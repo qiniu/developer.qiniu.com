@@ -4,7 +4,7 @@ title: 视频水印
 order: 145
 ---
 <a id="vwatermark"></a>
-# 视频水印（vwatermark）
+# 视频水印（video-watermark）
 
 <a id="vwatermark-spec"></a>
 ## 视频水印规格
