@@ -75,11 +75,11 @@ excel: xls, xlsx, ods, csv, et
 ## 示例
 
 ```
-原文件：             http://7b1hac.com1.z0.glb.clouddn.com/preview_test.docx
-对应转换过后的文件： http://7b1hac.com1.z0.glb.clouddn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFnbt4DFz0IjRP5CLyxWvRtR7ny5B
+原文件：             http://developer.qiniu.com/resource/preview_test.docx
+对应转换过后的文件： http://developer.qiniu.com/resource/Fnbt4DFz0IjRP5CLyxWvRtR7ny5B
 
-原文件：             http://7b1hac.com1.z0.glb.clouddn.com/preview_test.pptx
-对应转换过后的文件： http://7b1hac.com1.z0.glb.clouddn.com/dtZmaCn4XGRl-DcpTVcYhNsMXWE%3D%2FFhpYDdF3mYRKD4zBen4yYis7qqI1
+原文件：             http://developer.qiniu.com/resource/preview_test.pptx
+对应转换过后的文件： http://developer.qiniu.com/resource/FhpYDdF3mYRKD4zBen4yYis7qqI1
 ```
 
 <a id="yifangyun_preview-price"></a>
