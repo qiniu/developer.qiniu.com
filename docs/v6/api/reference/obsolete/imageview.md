@@ -72,7 +72,7 @@ Host: <imageDownloadHost>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
 
 ---
 
@@ -113,7 +113,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`code`       | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
+`code`       | 是   | HTTP状态码，请参考[响应状码](#imageView-response-code)
 `error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageView-response-code"></a>
@@ -140,34 +140,34 @@ HTTP状态码 | 含义
 1. 裁剪正中部分，等比缩小生成200x200缩略图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/200/h/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/200/h/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200)
 
 2. 裁剪正中部分，等比放大生成500x500放大图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/500/h/500
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView/1/w/500/h/500
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/1/w/500/h/500)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView/1/w/500/h/500)
 
 3. 宽度固定为200px，高度等比缩小，生成200x133缩略图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/w/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/w/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200)
 
 4. 高度固定为200px，宽度等比缩小，生成300x200缩略图：  
 
 	```
-    http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/h/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/h/200
 	```
 
-	![查看效果图](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/h/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/h/200)
 
 ---
 
