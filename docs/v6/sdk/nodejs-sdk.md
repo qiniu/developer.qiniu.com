@@ -572,7 +572,7 @@ console.log('在浏览器输入: ' + url);
 
 ```{javascript}
 // 生成访问图片的url
-var url = qiniu.rs.makeBaseUrl(bucketName, key);
+var url = qiniu.rs.makeBaseUrl(bucketDomain, key);
 
 // 生成fop_url
 var iv = new qiniu.fop.ImageView();
