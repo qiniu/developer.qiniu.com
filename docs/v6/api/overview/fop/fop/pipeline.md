@@ -37,8 +37,8 @@ order: 285
 将一个原图缩略，然后在缩略图上打上另外一个图片作为水印
 
 - 原图
-	- <http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg>
+	- <http://developer.qiniu.com/resource/gogopher.jpg>
 - 基于原图生成缩略图
-	- <http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/h/200>
+	- <http://developer.qiniu.com/resource/gogopher.jpg?imageView/2/h/200>
 - 在生成的缩略图之上打水印
-	- <http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?imageView/2/h/200|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==>
+	- <http://developer.qiniu.com/resource/gogopher.jpg?imageView/2/h/200|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==>

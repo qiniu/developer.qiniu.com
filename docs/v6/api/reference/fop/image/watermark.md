@@ -146,15 +146,15 @@ HTTP状态码 | 含义
 <a id="pic-watermark-samples"></a>
 ### 图片水印示例
 
-- 水印图片: <http://77flds.com2.z0.glb.qiniucdn.com/images/logo-2.png>
-    - `ImageURL = "http://77flds.com2.z0.glb.qiniucdn.com/images/logo-2.png"`
+- 水印图片: <http://developer.qiniu.com/resource/logo-2.jpg>
+    - `ImageURL = "http://developer.qiniu.com/resource/logo-2.jpg"`
     - `encodedImageURL = urlsafe_base64_encode(ImageURL)`
 - 水印透明度: 50% (`dissolve=50`)
 - 水印位置: 右下角 (`gravity=SouthEast`)
 - 横向边距: 20px
 - 纵向边距: 20px
 
-![图片水印](http://77fmtb.com1.z0.glb.clouddn.com/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20)
+![图片水印](http://developer.qiniu.com/resource/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20)
 
 右键拷贝图片链接查看水印生成的具体规格参数。
 

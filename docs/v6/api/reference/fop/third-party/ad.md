@@ -41,7 +41,7 @@ Host: <DownloadHost>
 
 头部名称         | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定](http://kb.qiniu.com/53a48154 "域名绑定")
+Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程](http://kb.qiniu.com/53a48154 "域名绑定")
 
 ---
 
@@ -112,7 +112,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 在Web浏览器中输入以下图片地址：  
 
 ```
-http://7b1hac.com1.z0.glb.clouddn.com/gogopher.jpg?ad
+http://developer.qiniu.com/resource/gogopher.jpg?ad
 ```
 
 返回结果（内容经过格式化以便阅读）  
