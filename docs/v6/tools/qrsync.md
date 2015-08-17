@@ -6,7 +6,7 @@ title: qrsync 命令行同步工具
 
 - [简介](#overview)
 - [下载](#download)
-- [用法](#usage)
+- [使用方法](#usage)
 - [常见故障排查](#faq)
 
 
@@ -30,7 +30,7 @@ qrsync 命令行辅助同步工具下载地址：
 - Windows 64bits: <http://devtools.qiniu.io/qiniu-devtools-windows_amd64-current.zip>
 
 <a id="usage"></a>
-## 用法
+## 使用方法
 
 先建立一个配置文件（[JSON格式](http://json.org/json-zh.html)），比如叫`conf.json`，内容如下：
 

@@ -8,10 +8,10 @@ order: 60
 - [简介](#overview)
 - [适用场景](#scenarios)
 - [下载](#download)
-- [用法](#usage)
+- [使用方法](#usage)
 - [日志](#log)
 - [示例](#sample)
-- [帮助](#help)
+
 
 
 <a id="overview"></a>
@@ -39,7 +39,7 @@ qfetch是一个数据迁移工具，利用七牛提供的[fetch](http://develope
 |qfetch v1.2|Linux, Windows, Mac OSX|[下载](http://7rfgu2.com1.z0.glb.clouddn.com/qfetch-v1.2.zip)|
 
 <a id="usage"></a>
-## 用法
+## 使用方法
 该工具是一个命令行工具，需要指定相关的参数来运行。
 
 ```
@@ -172,6 +172,3 @@ $ leveldb -count='.diff.job'
 然后比较一致即可，如果发现数量不一致，可以重新运行原始命令（设置太大并发的情况下，存在失败的可能性）。
 只要最后的结果没有错误或者都是404的错误，那么就是抓取成功了。404的错误可以后面跟进解决。
 
-<a id="help"></a>
-## 帮助
-如果您遇到任何问题，可以加QQ：2037014430，我将乐意帮助您，非技术问题勿扰。
