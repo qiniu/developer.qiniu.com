@@ -137,6 +137,15 @@
         "date": "2014-01-24",
         "doc": "docs/v6/tools/qwebtest.html",
         "description": "图形界面的简易下载/上传问题排查工具，支持Windows/Mac/Linux。"
+    }, {
+        "name": "cmd",
+        "label": "qfetch",
+        "title": "数据迁移工具",
+        "download": "/docs/v6/tools/qfetch.html#download",
+        "version": "v6",
+        "date": "2015-08-17",
+        "doc": "docs/v6/tools/qfetch.html",
+        "description": "数据迁移工具，支持Windows/Mac/Linux。"
     }],
     "third_plugin": [{
         "name": "wordpress",
