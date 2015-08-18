@@ -56,25 +56,25 @@ order: 980
 
 字段名称              | 必填 | 说明
 :-------------------- | :--- | :-----------------------------------------------
-<a id="put-policy-scope"></a>`scope`               | 是   | ● 指定上传的目标资源空间（Bucket）和资源键名（Key）<br>有两种格式：<br>`<bucket>`，表示允许用户上传文件到指定的 bucket。在这种模式下文件只能“新增”，若已存在同名资源则会失败；<br>2. `<bucket>:<key>`，表示只允许用户上传指定key的文件。在这种模型下文件默认允许“修改”，已存在同名资源则会本次覆盖。如果希望只能上传指定key的文件，并且不允许修改，那么可以将下面的 `insertOnly` 属性值设为 `1`。
-<a id="put-policy-deadline"></a>`deadline`            | 是   | ● 上传请求授权的截止时间<br>[Unix时间戳][unixTimeHref]，单位：秒。**该截止时间为上传完成后，在七牛空间生成文件的校验时间，而非上传的开始时间**，一般建议设置为`上传开始时间+3600s`，用户可根据具体的业务场景对凭证截止时间进行调整。
-<a id="put-policy-insert-only"></a>`insertOnly`          |      | ● 限定为“新增”语意<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
-<a id="put-policy-end-user"></a>`endUser`             |      | ● 唯一属主标识<br>特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印。
-<a id="put-policy-return-url"></a>`returnUrl`           |      | ● Web端文件上传成功后，浏览器执行303跳转的URL<br>通常用于`HTML Form`上传。<br>文件上传成功后会跳转到`<returnUrl>?upload_ret=<queryString>`, `<queryString>`包含`returnBody`内容。<br>如不设置`returnUrl`，则直接将`returnBody`的内容返回给客户端。
-<a id="put-policy-return-body"></a>`returnBody`          |      | ● 上传成功后，自定义七牛云最终返回給上传端（在指定`returnUrl`时是携带在跳转路径参数中）的数据<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`returnBody` 要求是合法的 JSON 文本。如：`{"key": $(key), "hash": $(etag), "w": $(imageInfo.width), "h": $(imageInfo.height)}`。
-<a id="put-policy-callback-url"></a>`callbackUrl`         |      | ● 上传成功后，七牛云向`App-Server`发送POST请求的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。另外，为了给客户端有一致的体验，我们要求 `callbackUrl` 返回包 `Content-Type` 为 `"application/json"`，即返回的内容必须是合法的 JSON 文本。<br>出于高可用的考虑，本字段允许设置多个 `callbackUrl`(用 `;` 分隔)，在前一个 `callbackUrl` 请求失败的时候会依次重试下一个 `callbackUrl`。一个典型例子是 `http://<ip1>/callback;http://<ip2>/callback`，并同时指定下面的 `callbackHost` 字段。在 `callbackUrl` 中使用 ip 的好处是减少了对 dns 解析的依赖，可改善回调的性能和稳定性。
-<a id="put-policy-callback-host"></a>`callbackHost`         |      | ● 上传成功后，七牛云向`App-Server`发送回调通知时的 Host 值，仅当同时设置了 `callbackUrl` 时有效。
-<a id="put-policy-callback-body"></a>`callbackBody`        |      | ● 上传成功后，七牛云向`App-Server`发送`Content-Type: application/x-www-form-urlencoded` 的POST请求，该字段`App-Server`可以通过直接读取请求的query来获得<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`callbackBody` 要求是合法的 url query string。如：`key=$(key)&hash=$(etag)&w=$(imageInfo.width)&h=$(imageInfo.height)`。
-<a id="put-policy-callback-body-type"></a>`callbackBodyType` |      | ● 上传成功后，七牛云向`App-Server`发送回调通知`callbackBody`的Content-Type，默认为`application/x-www-form-urlencoded`，也可设置为`application/json`。
-<a id="put-policy-callback-fetch-key"></a>`callbackFetchKey` |      | ● 是否启用fetchKey上传模式，0为关闭，1为启用；具体见[fetchKey上传模式](#fetch-key-explaination)。
-<a id="put-policy-persistent-ops"></a>`persistentOps`       |      | ● 资源上传成功后触发执行的预转持久化处理指令列表<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。
-<a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | ● 接收预转持久化结果通知的URL<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。<br> 该URL获取的内容和[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)的处理结果一致。<br> 发送body格式为`Content-Type`为`"application/json"`的POST请求，需要按照读取流的形式读取请求的body才能获取。
-`persistentPipeline`| | ● 转码队列名<br>资源上传成功后，触发转码时指定独立的队列进行转码。`为空则表示使用公用队列，处理速度比较慢。`建议使用[专用队列][mpsHref]
-<a id="put-policy-save-key"></a>`saveKey`             |      | ● 自定义资源名<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。这个字段仅当用户上传的时候没有主动指定key的时候起作用。
-<a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | ● 限定上传文件的大小，单位：字节（Byte）<br>超过限制的上传内容会被判为上传失败，返回413状态码。
-<a id="put-policy-detect-mime"></a>`detectMime`          |      | ● 开启MimeType侦测功能<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名；<br>2. 检查Key扩展名；<br>3. 侦测内容。<br>如不能侦测出正确的值，会默认使用 `application/octet-stream` 。
-<a id="put-policy-mime-limit"></a>`mimeLimit`           |      | ● 限定用户上传的文件类型<br>指定本字段值，七牛服务器会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回403状态码<br>● 示例<br>1. "image/*"表示只允许上传图片类型；<br>2. "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片；<br>3. "!application/json;text/plain"表示禁止上传`json`文本和纯文本（注意最前面的感叹号）。
-<a id="put-policy-checksum"></a>`checksum`           |      | ● 验证上传文件的 checksum，支持 MD5, SHA1。语法为：`<HashName>:<HexHashValue>`
+<a id="put-policy-scope"></a>`scope`               | 是   | 指定上传的目标资源空间（Bucket）和资源键名（Key）。<br>有两种格式：<br>● `<bucket>`，表示允许用户上传文件到指定的 bucket。在这种格式下文件只能“新增”，若已存在同名资源则会失败。<br>● `<bucket>:<key>`，表示只允许用户上传指定key的文件。在这种格式下文件默认允许“修改”，已存在同名资源则会被本次覆盖。如果希望只能上传指定key的文件，并且不允许修改，那么可以将下面的 `insertOnly` 属性值设为 `1`。
+<a id="put-policy-deadline"></a>`deadline`            | 是   | 上传请求授权的截止时间。<br>[Unix时间戳][unixTimeHref]，单位：秒。**该截止时间为上传完成后，在七牛空间生成文件的校验时间，而非上传的开始时间**，一般建议设置为`上传开始时间+3600s`，用户可根据具体的业务场景对凭证截止时间进行调整。
+<a id="put-policy-insert-only"></a>`insertOnly`          |      | 限定为“新增”语意。<br>如果设置为非0值，则无论scope设置为什么形式，仅能以`新增`模式上传文件。
+<a id="put-policy-end-user"></a>`endUser`             |      | 唯一属主标识。<br>特殊场景下非常有用，比如根据`App-Client`标识给图片或视频打水印。
+<a id="put-policy-return-url"></a>`returnUrl`           |      |  Web端文件上传成功后，浏览器执行303跳转的URL。<br>通常用于`HTML Form`上传。<br>文件上传成功后会跳转到`<returnUrl>?upload_ret=<queryString>`, `<queryString>`包含`returnBody`内容。<br>如不设置`returnUrl`，则直接将`returnBody`的内容返回给客户端。
+<a id="put-policy-return-body"></a>`returnBody`          |      | 上传成功后，自定义七牛云最终返回給上传端（在指定`returnUrl`时是携带在跳转路径参数中）的数据。<br>支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`returnBody` 要求是合法的 JSON 文本。<br>如：`{"key": $(key), "hash": $(etag), "w": $(imageInfo.width), "h": $(imageInfo.height)}`。
+<a id="put-policy-callback-url"></a>`callbackUrl`         |      | 上传成功后，七牛云向`App-Server`发送POST请求的URL。<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。另外，为了给客户端有一致的体验，我们要求<br> `callbackUrl` 返回包 `Content-Type` 为 `"application/json"`，即返回的内容必须是合法的 JSON 文本。<br>出于高可用的考虑，本字段允许设置多个 `callbackUrl`(用 `;` 分隔)，在前一个 `callbackUrl` 请求失败的时候会依次重试下一个<br> `callbackUrl`。一个典型例子是 `http://<ip1>/callback;http://<ip2>/callback`，并同时指定下面的 `callbackHost` 字段。在 `callbackUrl` 中使用 ip 的好处是减少了对 dns 解析的依赖，可改善回调的性能和稳定性。
+<a id="put-policy-callback-host"></a>`callbackHost`         |      | 上传成功后，七牛云向`App-Server`发送回调通知时的 Host 值。<br>仅当同时设置了 `callbackUrl` 时有效。
+<a id="put-policy-callback-body"></a>`callbackBody`        |      | 上传成功后，七牛云向`App-Server`发送`Content-Type: application/x-www-form-urlencoded` 的POST请求。<br>该字段`App-Server`可以通过直接读取请求的query来获得，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`callbackBody` 要求是合法的 url query string。如：`key=$(key)&hash=$(etag)&w=$(imageInfo.width)&h=$(imageInfo.height)`。
+<a id="put-policy-callback-body-type"></a>`callbackBodyType` |      | 上传成功后，七牛云向`App-Server`发送回调通知`callbackBody`的Content-Type。<br>默认为`application/x-www-form-urlencoded`，也可设置为`application/json`。
+<a id="put-policy-callback-fetch-key"></a>`callbackFetchKey` |      | 是否启用fetchKey上传模式。<br>0为关闭，1为启用。具体见[fetchKey上传模式](#fetch-key-explaination)。
+<a id="put-policy-persistent-ops"></a>`persistentOps`       |      | 资源上传成功后触发执行的预转持久化处理指令列表。<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。
+<a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | 接收预转持久化结果通知的URL。<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。<br> 该URL获取的内容和[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)的处理结果一致。<br> 发送body格式为`Content-Type`为`"application/json"`的POST请求，需要按照读取流的形式读取请求的body才能获取。
+`persistentPipeline`| |  转码队列名。<br>资源上传成功后，触发转码时指定独立的队列进行转码。`为空则表示使用公用队列，处理速度比较慢。`建议使用[专用队列][mpsHref]。
+<a id="put-policy-save-key"></a>`saveKey`             |      | 自定义资源名。<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。这个字段仅当用户上传的时候没有主动指定key的时候起作用。
+<a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | 限定上传文件的大小，单位：字节（Byte）。<br>超过限制的上传内容会被判为上传失败，返回413状态码。
+<a id="put-policy-detect-mime"></a>`detectMime`          |      | 开启MimeType侦测功能。<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果。<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名；<br>2. 检查Key扩展名；<br>3. 侦测内容。<br>如不能侦测出正确的值，会默认使用 `application/octet-stream` 。
+<a id="put-policy-mime-limit"></a>`mimeLimit`           |      |  限定用户上传的文件类型。<br>指定本字段值，七牛服务器会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回403状态码。<br>示例<br>● "image/*"表示只允许上传图片类型；<br>● "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片；<br>● "!application/json;text/plain"表示禁止上传`json`文本和纯文本。（注意最前面的感叹号） 
+<a id="put-policy-checksum"></a>`checksum`           |      | 验证上传文件的 checksum，支持 MD5, SHA1。<br>语法为：`<HashName>:<HexHashValue>`。
 
 <a id="fetch-key-explaination"></a>
 ### fetchKey上传模式
