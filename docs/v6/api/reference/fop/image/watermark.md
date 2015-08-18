@@ -46,6 +46,7 @@ watermark/1
          /gravity/<gravity>
          /dx/<distanceX>
          /dy/<distanceY>
+         /ws/<watermarkScale>
 ```
 
 <a id="pic-watermark-params"></a>
@@ -57,6 +58,7 @@ watermark/1
 `/gravity/<gravity>`        |      | 水印位置，参考[水印锚点参数表](#watermark-anchor-spec)，缺省值为`SouthEast`（右下角）
 `/dx/<distanceX>`           |      | 横轴边距，单位:像素(px)，缺省值为10
 `/dy/<distanceY>`           |      | 纵轴边距，单位:像素(px)，缺省值为10
+`/ws/<watermarkScale>`           |      | 水印图片自适应原图的短边比例，取值范围0-1。
 
 <a id="watermark-anchor-spec"></a>
 ### 水印锚点参数表
