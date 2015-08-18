@@ -283,14 +283,13 @@ function IsQiniuCallback(){
 <a id="FAQ"></a>
 ### 常见问题
 
-####本地调试问题####
+#### 本地调试问题 ####
 
  利用本地服务的调试工具：
 
 - [ngrok](https://ngrok.com)
-- [runscope](https://www.runscope.com)
+- [Runscope](https://www.runscope.com)
 
-**ngrok**
 
 <a id="persistent-op"></a>
 ## 异步数据处理
