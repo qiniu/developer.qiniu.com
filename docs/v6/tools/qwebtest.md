@@ -9,10 +9,10 @@ order: 63
 - [下载](#download)
 - [视频教程](#tutorials)
 - [使用方法](#usage)
-    - [检测下载问题](#usage-download)
-    - [检测上传问题](#usage-upload)
-    - [查看检测报告](#usage-report)
-    - [平台使用差异](#usage-platform-difference)
+- [检测下载问题](#usage-download)
+- [检测上传问题](#usage-upload)
+- [查看检测报告](#usage-report)
+- [平台使用差异](#usage-platform-difference)
 
 <a id="intro"></a>
 
@@ -22,7 +22,7 @@ qwebtest是七牛云存储提供的一款检测工具，用于应对如下场景
 
 	遇到了一个奇怪的资源下载（或上传）问题，您第一时间将现象简单反馈给我们的技术支持，但有时候由于各种不可控的原因（比如提供的信息有限，或者问题重现困难等），问题变得难以排查。
 
-通过在实际环境中模拟下载（或上传）行为，qwebtest自动检测、收集与当前网络相关的各种信息，并形成可读的报告。
+通过在实际环境中模拟上传（下载）行为，qwebtest自动检测、收集与当前网络相关的各种信息，并形成可读的报告。
 借由这份报告，我们可以更快更准确地排查出问题所在和根本原因，节省用户在客户端花费的排查时间，同时降低在服务端寻找线索的困难度。
 
 ---
@@ -32,11 +32,11 @@ qwebtest是七牛云存储提供的一款检测工具，用于应对如下场景
 ## 下载
 
 - 命令行工具：
-    - Windows 32位：[http://devtools.qiniu.io/windows_386/qwebtest.exe](http://devtools.qiniu.io/windows_386/qwebtest.exe)
-    - Windows 64位：[http://devtools.qiniu.io/windows_amd64/qwebtest.exe](http://devtools.qiniu.io/windows_amd64/qwebtest.exe)
-    - Linux 32位：[http://devtools.qiniu.io/linux_386/qwebtest](http://devtools.qiniu.io/linux_386/qwebtest)
-    - Linux 64位：[http://devtools.qiniu.io/linux_amd64/qwebtest](http://devtools.qiniu.io/linux_amd64/qwebtest)
-    - Mac OS X：[http://devtools.qiniu.io/darwin_amd64/qwebtest](http://devtools.qiniu.io/darwin_amd64/qwebtest)
+    - Windows 32位：[http://devtools.qiniu.com/windows_386/qwebtest.exe](http://devtools.qiniu.com/windows_386/qwebtest.exe)
+    - Windows 64位：[http://devtools.qiniu.com/windows_amd64/qwebtest.exe](http://devtools.qiniu.com/windows_amd64/qwebtest.exe)
+    - Linux 32位：[http://devtools.qiniu.com/linux_386/qwebtest](http://devtools.qiniu.com/linux_386/qwebtest)
+    - Linux 64位：[http://devtools.qiniu.com/linux_amd64/qwebtest](http://devtools.qiniu.com/linux_amd64/qwebtest)
+    - Mac OS X：[http://devtools.qiniu.com/darwin_amd64/qwebtest](http://devtools.qiniu.com/darwin_amd64/qwebtest)
 
 ---
 
@@ -131,13 +131,13 @@ Windows下获取报告ID的方式参见下图：
 
 ## 平台使用差异
 
-### Windows
+**Windows**
 
 按下`Win + R`调出运行对话框，输入命令`cmd`并按回车执行。
 在弹出的命令行终端界面中，输入该工具的所在的路径（或者简单地用鼠标将工具拖拽至命令行终端中），然后填入相关检测参数后即可执行。例如：
 
 ![Windows使用截图](img/win_qwebtest_usage.png)
 
-### Linux & Mac
+**Linux & Mac**
 
 直接在终端界面中调出命令行工具，输入检测参数后即可执行。

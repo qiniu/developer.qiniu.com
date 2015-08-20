@@ -22,12 +22,12 @@ qrsync 是一个根据七牛云存储API实现的简易命令行辅助上传同�
 
 qrsync 命令行辅助同步工具下载地址：
 
-- Mac OS: <http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz>
-- Linux 64bits: <http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz>
-- Linux 32bits: <http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz>
-- Linux ARMv6: <http://devtools.qiniu.io/qiniu-devtools-linux_arm-current.tar.gz>
-- Windows 32bits: <http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip>
-- Windows 64bits: <http://devtools.qiniu.io/qiniu-devtools-windows_amd64-current.zip>
+- Mac OS: <http://devtools.qiniu.com/qiniu-devtools-darwin_amd64-current.tar.gz>
+- Linux 64bits: <http://devtools.qiniu.com/qiniu-devtools-linux_amd64-current.tar.gz>
+- Linux 32bits: <http://devtools.qiniu.com/qiniu-devtools-linux_386-current.tar.gz>
+- Linux ARMv6: <http://devtools.qiniu.com/qiniu-devtools-linux_arm-current.tar.gz>
+- Windows 32bits: <http://devtools.qiniu.com/qiniu-devtools-windows_386-current.zip>
+- Windows 64bits: <http://devtools.qiniu.com/qiniu-devtools-windows_amd64-current.zip>
 
 <a id="usage"></a>
 ## 使用方法
@@ -45,8 +45,8 @@ qrsync 命令行辅助同步工具下载地址：
 
 其中，`AccessKey` 和 `SecretKey` 需要在七牛云存储平台上申请。步骤如下：
 
-1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. [登录七牛管理控制台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)
+1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)。
+2. 登录七牛管理控制台，[查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)。
 
 参数名称   | 必填 | 说明
 :--------- | :--- | :------
@@ -87,9 +87,9 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 <a id="faq"></a>
 ## 常见故障排查
 
-1. 配置文件`<src>`设置错误：
+**配置文件`<src>`设置错误：**
 
-**错误信息**
+错误信息
 
 ```
 # Windows下
@@ -119,7 +119,7 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 
 主要需要关注目录分隔符为`/`，另外文件夹路径如果包含中文需要为UTF-8编码;
 
-- Linux或者Mac下
+- Linux或者Mac下配置如下：
 
 ```
 {
