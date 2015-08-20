@@ -161,7 +161,6 @@ leveldb -export='.diff.job' >> list.txt
 使用下面方式获取列表行数：
 ```
 $ wc -l diff.txt 
-
 ```
 
 使用下面方式获取成功抓取数量：
