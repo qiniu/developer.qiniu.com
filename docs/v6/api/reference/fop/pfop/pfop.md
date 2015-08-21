@@ -59,12 +59,12 @@ bucket=<urlEncodedBucket>&key=<urlEncodedKey>&fops=<urlEncodedFops>&notifyURL=<u
 
 参数名称      | 必填 | 需要[URL转义][urlescapeHref] | 说明
 :------------ | :--- | :--------------------------- | :----------------------------------------------------------------
-`bucket`      | 是   | 是                           | 资源空间。
-`key`         | 是   | 是                           | 源资源名。
+`bucket`      | 是   | 是                           | 资源空间
+`key`         | 是   | 是                           | 源资源名
 `fops`        | 是   | 是                           | 云处理操作列表，用 `;` 分隔，含义请参见[persistentOps详解](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops-explanation)。
-`notifyURL`   |    | 是                           | 处理结果通知接收URL，七牛将会向你设置的URL发起 `Content-Type: application/json`的POST请求。请参考[处理结果通知](#pfop-notification)小节。
+`notifyURL`   |    | 是                           | 处理结果通知接收URL，七牛将会向你设置的URL发起 `Content-Type: application/json`的POST请求。请参考[持久化处理结果通知](#pfop-notification)。
 <a id="pfop-force"></a>`force`       |      |       | 强制执行数据处理。<br>当服务端发现fops指定的数据处理结果已经存在，那就认为已经处理成功，避免重复处理浪费资源。加上本字段并设为1，则可强制执行数据处理并覆盖原结果。
-`pipeline`	  |    |  | `为空则表示使用公用队列，处理速度比较慢。`建议指定[专用队列][mpsHref]，转码的时候使用独立的计算资源
+`pipeline`	  |    |  | **为空则表示使用公用队列，处理速度比较慢**。建议指定[专用队列][mpsHref]，转码的时候使用独立的计算资源。
 
 <a id="pfop-response"></a>
 ## 响应
@@ -90,7 +90,7 @@ Content-Type  | 是    | 正常情况下该值将被设为`application/json`，�
 <a id="pfop-response-body"></a>
 ### 响应内容
 
-■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+- 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
@@ -102,12 +102,11 @@ Content-Type  | 是    | 正常情况下该值将被设为`application/json`，�
 :------------ | :---- | :----------------------------------------------------------------
 persistentId  | 是    | 持久化处理会话标识，可用于查询处理进度，请参考[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)。
 
-■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+- 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {
-	"code":     <HttpCode  int>, 
-    "error":   "<ErrMsg    string>",
+    "error":  "<ErrMsg    string>"
 }
 ```
 
@@ -116,18 +115,18 @@ persistentId  | 是    | 持久化处理会话标识，可用于查询处理进�
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
-200        | 触发持久化处理成功。
-400	       | 请求报文格式错误。
-401        | 管理凭证无效。
-404        | 资源不存在。
-599	       | 服务端操作失败。<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+200        | 触发持久化处理成功
+400	       | 请求报文格式错误
+401        | 管理凭证无效
+404        | 资源不存在
+599	       | 服务端操作失败<br>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 <a id="pfop-failures"></a>
 ## 故障排除
 
-1. 301跳转问题
+**301跳转问题**
 
-如果遇到类似如下301跳转现象，请检查Pfop的URL最后是否少了一个斜杠符号（"/"），误写成`http://api.qiniu.com/pfop`：  
+如果遇到类似如下301跳转现象，请检查pfop的URL最后是否少了一个斜杠符号`/`，误写成`http://api.qiniu.com/pfop`：  
 
 ```
 W, [2014-04-05T00:14:07.748721 #686]  WARN -- : 301 Moved Permanently => Qiniu::HTTP.post('http://api.qiniu.com/pfop')
@@ -157,12 +156,11 @@ Content-Type: application/json
 <a id="pfop-request-headers"></a>
 ### 头部信息
 
-该请求会指定以下头部信息。
 
 头部名称      | 必填 | 说明                                    
 :------------ | :--- | :-------------------------------------------
-Host          | 是   | 接收持久化处理结果状态的服务器域名。
-Content-Type  | 是   | 固定为`application/json`。
+Host          | 是   | 接收持久化处理结果状态的服务器域名
+Content-Type  | 是   | 固定为`application/json`
 
 <a id="pfop-request-content"></a>
 ### 请求内容
