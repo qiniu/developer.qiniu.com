@@ -16,9 +16,9 @@ title: qrsctl 命令行辅助工具
     - [将空间设置为私有](#set-bucket-private)
     - [列出所有空间（Buckets）](#buckets)
     - [查看指定空间（Bucket）信息](#bucketinfo)
-    - [删除空间（Bucket）](#drop)
     - [设置镜像存储（源站加速）](#img)
     - [取消镜像存储](#unimg)
+    - [设置镜像存储回源容错属性](#imgsft)
     - [清除cdn缓存](#refresh)
 - [云处理](#foper)
     - [设置API规格别名](#style)
@@ -47,22 +47,22 @@ qrsctl 是根据七牛云存储API实现的一个简易命令行辅助工具。�
 
 qrsctl 命令行辅助工具下载地址：
 
-- Mac OS: <http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz>
-- Linux 64bits: <http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz>
-- Linux 32bits: <http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz>
-- Linux ARMv6: <http://devtools.qiniu.io/qiniu-devtools-linux_arm-current.tar.gz>
-- Windows 32bits: <http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip>
-- Windows 64bits: <http://devtools.qiniu.io/qiniu-devtools-windows_amd64-current.zip>
+- Mac OS: <http://devtools.qiniu.com/qiniu-devtools-darwin_amd64-current.tar.gz>
+- Linux 64bits: <http://devtools.qiniu.com/qiniu-devtools-linux_amd64-current.tar.gz>
+- Linux 32bits: <http://devtools.qiniu.com/qiniu-devtools-linux_386-current.tar.gz>
+- Linux ARMv6: <http://devtools.qiniu.com/qiniu-devtools-linux_arm-current.tar.gz>
+- Windows 32bits: <http://devtools.qiniu.com/qiniu-devtools-windows_386-current.zip>
+- Windows 64bits: <http://devtools.qiniu.com/qiniu-devtools-windows_amd64-current.zip>
 
 qrsctl 各个指令的用法可以在命令行直接输入 qrsctl 不带参数来获得。
 
 <a id="oauth"></a>
 
-## 1 授权操作
+## 授权操作
 
 <a id="login"></a>
 
-### 1.1 登录
+**登录**
 
     qrsctl login <User> <Passwd>
 
@@ -78,11 +78,11 @@ Passwd  | 登录密码
 
 <a id="ak_sk"></a>
 
-## 2 账号管理
+## 账号管理
 
 <a id="info"></a>
 
-### 2.1 查看帐号信息
+**查看帐号信息**
 
     qrsctl info
 
@@ -91,7 +91,7 @@ Passwd  | 登录密码
 
 <a id="appinfo"></a>
 
-### 2.2 查看密钥（AccessKey/SecretKey）
+**查看密钥（AccessKey/SecretKey）**
 
     qrsctl appinfo <AppName>
 
@@ -102,11 +102,11 @@ AppName | 应用名称，网站上默认使用的应用名称是：`default`
 
 <a id="bucketmgr"></a>
 
-## 3  空间管理
+## 空间管理
 
 <a id="mkbucket2"></a>
 
-### 3.1 创建空间（Bucket）
+**创建空间（Bucket）**
 
     qrsctl mkbucket2 <Bucket>
 
@@ -116,31 +116,31 @@ Bucket  | 空间名称，字母数字下划线组合。
 
 <a id="set-bucket-public"></a>
 
-### 3.2 将空间设置为公开
+**将空间设置为公开**
 
     qrsctl private <Bucket> 0
 
 <a id="set-bucket-private"></a>
 
-### 3.3 将空间设置为私有
+**将空间设置为私有**
 
     qrsctl private <Bucket> 1
 
 <a id="buckets"></a>
 
-### 3.4 列出所有空间（Buckets）
+**列出所有空间（Buckets）**
 
     qrsctl buckets
 
 <a id="bucketinfo"></a>
 
-### 3.5 查看指定空间（Bucket）信息
+**查看指定空间（Bucket）信息**
 
     qrsctl bucketinfo <Bucket>
 
 <a id="img"></a>
 
-### 3.6 设置镜像存储（源站加速）
+**设置镜像存储（源站加速）**
 
     qrsctl img <Bucket> <SrcUrl>[,<SrcUrl2>,...] [SrcHost]
 
@@ -152,23 +152,33 @@ SrcHost | 源站域名，可选
 
 <a id="unimg"></a>
 
-### 3.7 取消镜像存储
+**取消镜像存储**
 
     qrsctl unimg <Bucket>
 
-<a id="refresh"></a>
 
-### 3.8 清除cdn缓存
+<a id="imgsft"></a>
+**设置镜像存储回源容错属性**
+
+    qrsctl imgsft <Bucket> <imgsft> 
+    说明：
+    1.开启该属性时，如果 url 的后缀是典型的图片、音视频文件（比如 *.jpg, *.jpeg, *.png, *.gif, *.mp3, *.mp4, etc），然后源站返回了的 mimeType 为 textml，则认为源站有可能出错，不缓存该文件。
+    2.如果 url 的后缀是典型的图片、音视频文件（比如 *.jpg, *.jpeg, *.png, *.gif, *.mp3, *.mp4, etc）, 
+    当返回码是200并且content-length=0的时候，不要返回200，因为客户端会缓存，改为返回 478，然后 error 是 "zero content from source"
+    3.<imgsft>为0表示不启用镜像存储回源容错属性，为1表示启用镜像存储回源容错属性
+
+<a id="refresh"></a>
+**清除cdn缓存**
 
     qrsctl cdn/refresh <Bucket> <Url1>,<Url2>...<UrlN>
 
 <a id="foper"></a>
 
-## 4. 云处理
+## 云处理
 
 <a id="style"></a>
 
-### 4.1 设置API规格别名
+**设置API规格别名**
 
     qrsctl style <Bucket> <aliasName> <fop>
 
@@ -184,19 +194,19 @@ fop       | API规格定义，可使用 [图像处理接口](../api/reference/fo
 
 <a id="unstyle"></a>
 
-### 4.2 取消API规格别名
+**取消API规格别名**
 
     qrsctl unstyle <Bucket> <Name>
 
 <a id="separator"></a>
 
-### 4.3 设置友好URL分隔符
+**设置友好URL分隔符**
 
     qrsctl separator <Bucket> <Sep>
 
 <a id="protected"></a>
 
-### 4.4 设置源文件/原图保护
+**设置源文件/原图保护**
 
     qrsctl protected <Bucket> <Protected>
 
@@ -206,11 +216,11 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
 <a id="rsmgr"></a>
 
-## 5. 文件操作
+## 文件操作
 
 <a id="put"></a>
 
-### 5.1 上传文件
+**上传文件**
 
     qrsctl put <Bucket> <Key> <SrcFile>
 
@@ -222,19 +232,19 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
 <a id="get"></a>
 
-### 5.2 下载文件
+**下载文件**
 
     qrsctl get <Bucket> <Key> <DestFile>
 
 <a id="stat"></a>
 
-### 5.3 查看文件
+**查看文件**
 
     qrsctl stat <Bucket> <Key>
 
 <a id="cp"></a>
 
-### 5.4 复制文件
+**复制文件**
 
 将 `Bucket1` 中的 `KeySrc` 复制到 `Bucket2` 并命名为 `KeyDest`, `Bucket1` 和 `Bucket2` 可以是同一个。
 
@@ -242,7 +252,7 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
 <a id="mv"></a>
 
-### 5.5 移动文件
+**移动文件**
 
 将 `Bucket1` 中的 `KeyOld` 移动到 `Bucket2` 并命名为 `KeyNew`, `Bucket1` 和 `Bucket2` 可以是同一个。
 
@@ -250,7 +260,7 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
 <a id="del"></a>
 
-### 5.6 删除文件
+**删除文件**
 
     qrsctl del <Bucket> <Key>
 

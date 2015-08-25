@@ -6,7 +6,7 @@ title: qrsync 命令行同步工具
 
 - [简介](#overview)
 - [下载](#download)
-- [用法](#usage)
+- [使用方法](#usage)
 - [常见故障排查](#faq)
 
 
@@ -22,15 +22,15 @@ qrsync 是一个根据七牛云存储API实现的简易命令行辅助上传同�
 
 qrsync 命令行辅助同步工具下载地址：
 
-- Mac OS: <http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz>
-- Linux 64bits: <http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz>
-- Linux 32bits: <http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz>
-- Linux ARMv6: <http://devtools.qiniu.io/qiniu-devtools-linux_arm-current.tar.gz>
-- Windows 32bits: <http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip>
-- Windows 64bits: <http://devtools.qiniu.io/qiniu-devtools-windows_amd64-current.zip>
+- Mac OS: <http://devtools.qiniu.com/qiniu-devtools-darwin_amd64-current.tar.gz>
+- Linux 64bits: <http://devtools.qiniu.com/qiniu-devtools-linux_amd64-current.tar.gz>
+- Linux 32bits: <http://devtools.qiniu.com/qiniu-devtools-linux_386-current.tar.gz>
+- Linux ARMv6: <http://devtools.qiniu.com/qiniu-devtools-linux_arm-current.tar.gz>
+- Windows 32bits: <http://devtools.qiniu.com/qiniu-devtools-windows_386-current.zip>
+- Windows 64bits: <http://devtools.qiniu.com/qiniu-devtools-windows_amd64-current.zip>
 
 <a id="usage"></a>
-## 用法
+## 使用方法
 
 先建立一个配置文件（[JSON格式](http://json.org/json-zh.html)），比如叫`conf.json`，内容如下：
 
@@ -38,7 +38,6 @@ qrsync 命令行辅助同步工具下载地址：
 {
     "src":          "/home/your/sync_dir",
     "dest":         "qiniu:access_key=<AccessKey>&secret_key=<SecretKey>&bucket=<Bucket>&key_prefix=<KeyPrefix>&threshold=<Threshold>",
-    "deletable":    0,
     "debug_level":  1
 }
 
@@ -46,8 +45,8 @@ qrsync 命令行辅助同步工具下载地址：
 
 其中，`AccessKey` 和 `SecretKey` 需要在七牛云存储平台上申请。步骤如下：
 
-1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
-2. [登录七牛管理控制台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)
+1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)。
+2. 登录七牛管理控制台，[查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)。
 
 参数名称   | 必填 | 说明
 :--------- | :--- | :------
@@ -55,7 +54,6 @@ qrsync 命令行辅助同步工具下载地址：
 `bucket`   | 是   | ● 目标空间<br>是你在七牛云存储上希望保存数据的Bucket名称，选择一个合适的名字即可，要求是只能由字母、数字、下划线等组成。<br>可以先在[七牛管理控制台](https://portal.qiniu.com/)上创建。
 `key_prefix` |  否    | ● 文件上传到七牛云存储后的给key添加的前缀。<br>例如，如果将 `key_prefix` 设为 `abc/`，在 `src` 中存在一个文件 `a.txt`， 则上传到七牛云存储后，此资源的key为 `abc/a.txt` 。
 `threshold` | 否 | ● 进行分片上传的阈值。 <br> 单位为Byte, 默认值为1MB，当文件大小小于1MB时直传整个文件，当文件大于1MB时进行分片上传该文件。 你可以根据你的网络状况来决定该值的大小。
-`deletable`           | 否   | ● 是否同步删除七牛云上的文件<br> 通常设置0，当本地文件删除时并不删除存储在七牛的对应文件。<br>如果你想删除本地文件的同时也删除存储在存储在七牛的文件,则设置为1。
 `debug_level`           | 是   | ● 日志输出等级<br>通常设置1，只输出必要的日志。<br>当上传过程发生问题时，设置为0可以得到详细日志。
 
 注意：切勿将配置文件保存在被同步的目录中，否则会带来泄露SecretKey的风险。
@@ -89,9 +87,9 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 <a id="faq"></a>
 ## 常见故障排查
 
-1. 配置文件`<src>`设置错误：
+**配置文件`<src>`设置错误：**
 
-**错误信息**
+错误信息
 
 ```
 # Windows下
@@ -121,7 +119,7 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 
 主要需要关注目录分隔符为`/`，另外文件夹路径如果包含中文需要为UTF-8编码;
 
-- Linux或者Mac下
+- Linux或者Mac下配置如下：
 
 ```
 {

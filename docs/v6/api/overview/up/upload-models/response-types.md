@@ -13,6 +13,7 @@ order: 470
     - [回调地址](#callback-url)
     - [回调内容](#callback-body) 
     - [安全性](#callback-security)
+    - [常见问题](#FAQ)
 - [异步数据预处理](#persistent-op)	
 
 从结果响应的角度，上传模型支持几种不同的响应方式和通知目标。
@@ -278,6 +279,17 @@ function IsQiniuCallback(){
 注意：如果回调数据包含用户的敏感数据，建议回调地址使用HTTPS协议
 
 [urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
+
+<a id="FAQ"></a>
+### 常见问题
+
+#### 本地调试问题 ####
+
+ 利用本地服务的调试工具：
+
+- [ngrok](https://ngrok.com)
+- [Runscope](https://www.runscope.com)
+
 
 <a id="persistent-op"></a>
 ## 异步数据处理

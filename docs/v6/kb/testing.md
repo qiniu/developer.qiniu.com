@@ -11,8 +11,9 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 - [图片在线处理](#image-process)
 - [音频/视频在线压缩转码](#audio-video-process)
     - [HTTP Live Streaming - 流媒体](#hls) 
-- [上传测试](#upload)
-- [文件隐私安全保护](#private-download)
+- [测试上传文件](#upload)
+- [下载文件](#private-download)
+- [结束语](#conclusion)
 
 
 <a id="speed"></a>
@@ -21,7 +22,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 为了方便测试，我们已经人工上传了一个测试音频，同时将文件所在的存储空间暂设为公开属性。公开属性表示我们上传的文件能够以 HTTP 的方式公开提供下载。公开URL如下：
 
-<http://apitest.b1.qiniudn.com/sample.wav>
+<http://developer.qiniu.com/resource/sample.wav>
 
 该文件是一段时长为1分30秒的无损音频，文件体积约为：15.27 MB 。可以用第三方测速工具针对该 URL 进行下载测速。
 
@@ -40,43 +41,43 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 **原图**:
  
-- <http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg>
+- <http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg>
 
-![原图](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg)
+![原图](http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg)
 
 **水印**（将蟬游记LOGO打到原图上去）:
 
-- <http://goo.gl/29i2B> (可点击查看完整URL)
+- <http://goo.gl/gWHgoe> (可点击查看完整URL)
 
-![水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast/dx/20/dy/20)
+![水印](http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast/dx/20/dy/20)
 
 **缩略图1**
 
-![缩略图1](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg-home_4)
+![缩略图1](http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg-aaa)
 
 缩略图1源文件URL如下:
 
-- <http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/395/q/80> (裸API形式)
-- <http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg-home_4> (自定义API规格别名)
-- 以上两个URL等价，即 `home_4` 是 `imageView/1/w/310/h/395/q/80` 的API规格别名。
+- <http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView2/1/w/310/h/395/q/80> (裸API形式)
+- <http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg-aaa> (自定义API规格别名)
+- 以上两个URL等价，即 `aaa` 是 `imageView2/1/w/310/h/395/q/80` 的API规格别名。
 
 **缩略图2**（可指定URL中任意宽高等参数来调整缩略图的大小）
 
-- <http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80/format/webp> (支持webp等其他图片格式互转)
+- <http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView2/1/w/310/h/187/q/80/format/webp> (支持webp等其他图片格式互转)
 
-![缩略图2（可指定任意宽高等参数来调整缩略图的大小）](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80)
+![缩略图2（可指定任意宽高等参数来调整缩略图的大小）](http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView2/1/w/310/h/187/q/80)
 
 **缩略图3** (缩略、裁剪、旋转)
 
-- <http://goo.gl/4eJff> (可点击查看完整URL)
+- <http://goo.gl/qlEQD1> (可点击查看完整URL)
 
-![缩略图3缩略、裁剪、旋转](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageMogr/auto-orient/thumbnail/!310x310r/gravity/center/crop/!310x310/quality/80/rotate/45)
+![缩略图3缩略、裁剪、旋转](http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageMogr2/auto-orient/thumbnail/!310x310r/gravity/center/crop/!310x310/quality/80/rotate/45)
 
 **缩略图4** (API链式处理，基于缩略图打水印)
 
-- <http://goo.gl/kkxGe> (可点击查看完整URL)
+- <http://goo.gl/HPQ7Hq> (可点击查看完整URL)
 
-![API链式处理，基于缩略图打水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80|watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast)
+![API链式处理，基于缩略图打水印](http://developer.qiniu.com/resource/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView2/1/w/310/h/187/q/80|watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast)
 
 
 ### 更多
@@ -123,7 +124,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 源视频
 
-- [GET] <http://open.qiniudn.com/thinking-in-go.mp4>
+- [GET] <http://developer.qiniu.com/resource/thinking-in-go.mp4>
 
 取视频第 7 秒的截图，图片格式为 jpg，宽度为 480px，高度为 360px
 
@@ -138,7 +139,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
     }
 ```
 
-![获取视频帧缩略图](http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360)
+![获取视频帧缩略图](http://developer.qiniu.com/resource/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360)
 
 - [七牛云存储音/视频处理接口](http://developer.qiniu.com/docs/v6/api/reference/fop/av/avthumb.html)
 
@@ -155,9 +156,9 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 以下URL就是一个已经使用七牛 HLS API 处理的流媒体资源：
 
-- <http://apitest.b1.qiniudn.com/sample-m3u8>
+- <http://developer.qiniu.com/resource/sample.wav-m3u8>
 
-其中 `m3u8_audio` 是自定义的 API 规格别名（`avthumb/m3u8/ab/32k`）。
+其中 `m3u8` 是自定义的 API 规格别名（`avthumb/m3u8/ab/32k`）。
 
 您可以使用播放器来打开该 URL 进行流媒体播放体验。参考:
 
@@ -172,7 +173,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
     <title>HTML5 HLS Demo</title>
   </head>
   <body>
-    <audio src="http://apitest.b1.qiniudn.com/sample.wav-m3u8_audio" controls="true"></audio>
+    <audio src="http://developer.qiniu.com/resource/sample.wav-m3u8_audio" controls="true"></audio>
   </body>
 </html>
 ```
@@ -198,7 +199,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 为方便测试，我们在测试帐号申里边创建了一个名为 `qtestbucket` 的存储空间。
 
-然后可以使用七牛云存储提供的 [qrysnc](/docs/v6/tools/qrsync.html) 进行文件上传。
+然后可以使用七牛云存储提供的 [qrsync](/docs/v6/tools/qrsync.html) 进行文件上传。
 
 可以点击如下网址下载 qrsync 工具，以及了解其用法：
 
@@ -209,7 +210,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
         "secret_key": "6QTOr2Jg1gcZEWDQXKOGZh5PziC2MCV5KsntT70j",
         "bucket": "qtestbucket",
         "sync_dir": "/PATH/TO/YOUR/SYNC_DIR",// 需根据实际情况自行替换
-        "domains": ["qtestbucket.b1.qiniudn.com","qtestbucket.qiniudn.com"],
+        "domains": ["77fp01.com1.z0.glb.clouddn.com"],
         "debug_level": 1
     }
 
@@ -230,10 +231,10 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
     http://<空间绑定域名>/<key>
 
-在我们前面的示例中，此URL: <http://apitest.b1.qiniudn.com/sample.wav> 可看出如下信息。
+在我们前面的示例中，此URL: <http://developer.qiniu.com/resource/sample.wav> 可看出如下信息。
 
-- 存储空间名称是 `apitest`
-- 空间绑定域名是 `apitest.b1.qiniudn.com`
+- 存储空间名称是 `qiniu-developer`
+- 空间绑定域名是 `developer.qiniu.com`
 - 空间隐私属性是 `公开`
 - 文件索引 (key) `sample.wav`
 
@@ -250,7 +251,7 @@ key 一般是具体的文件名称或路径（非“/”开头）。比如 `samp
 下载凭证详情参考：[下载凭证生成过程](/docs/v6/api/reference/security/download-token.html)
 
 
-
+<a id="conclusion"></a>
 ## 结束语
 
 以上测试方案仅适用非编程环境，如果需要更深入的编程接入或其他测试，可以根据具体需求提供。请与我们保持联系！[support@qiniu.com](mailto:support@qiniu.com)

@@ -137,6 +137,15 @@
         "date": "2014-01-24",
         "doc": "docs/v6/tools/qwebtest.html",
         "description": "图形界面的简易下载/上传问题排查工具，支持Windows/Mac/Linux。"
+    }, {
+        "name": "cmd",
+        "label": "qfetch",
+        "title": "数据迁移工具",
+        "download": "/docs/v6/tools/qfetch.html#download",
+        "version": "v6",
+        "date": "2015-08-17",
+        "doc": "docs/v6/tools/qfetch.html",
+        "description": "数据迁移工具，支持Windows/Mac/Linux。"
     }],
     "third_plugin": [{
         "name": "wordpress",
@@ -192,7 +201,7 @@
         "name": "phpwind",
         "label": "PHPWind插件 (博客)",
         "description": "本插件可以将七牛云存储服务嵌入PHPWind系统中。",
-        "download": "http://chajian.u.qiniudn.com/qiniu-phpwind.zip",
+        "download": "http://77fy38.com1.z0.glb.clouddn.com/qiniu-phpwind.zip",
         "defaultSprite": false,
         "author": "phpwind",
         "author_link": "http://www.phpwind.net/thread/3",
@@ -202,7 +211,7 @@
         "name": "emlog",
         "label": "Emlog插件 (博客)",
         "description": "本插件将为Emlog嵌入七牛云存储的镜像存储功能，自动触发同步镜像。",
-        "download": "http://cuelog.qiniudn.com/wp-content/uploads/2013/09/qiniu.zip",
+        "download": "http://77we8l.com1.z0.glb.clouddn.com/wp-content/uploads/2013/09/qiniu.zip",
         "defaultSprite": false,
         "author": "Cuelog",
         "author_link": "http://weibo.com/601203080",
@@ -212,7 +221,7 @@
         "name": "typecho",
         "label": "Typecho插件 (博客)",
         "description": "本插件将为Typecho嵌入七牛云存储的镜像存储功能，自动触发同步镜像。",
-        "download": "http://kvdb.qiniudn.com/QiniuCDN.zip?download",
+        "download": "http://77fzaw.com1.z0.glb.clouddn.com/QiniuCDN.zip?download",
         "defaultSprite": false,
         "author": "Young",
         "author_link": "http://www.tefans.org/u-6.html",
@@ -262,7 +271,7 @@
         "name": "solo",
         "label": "七牛Solo插件 (博客)",
         "description": "本插件为B3Log博客添加将图片等资源上传至七牛云存储的功能",
-        "download": "http://blog.qiniudn.com/qiniu4b3log.zip",
+        "download": "http://7j1wf3.com5.z0.glb.qiniucdn.com/qiniu4b3log.zip",
         "defaultSprite": true,
         "author": "symphony",
         "author_link": "http://www.idashu.me/",
@@ -328,6 +337,26 @@
         "author_link": "",
         "date": "2014-03-08",
         "doc": "https://github.com/ghostchina/Ghost-0.4.1-qiniu"
+    }, {
+        "name": "React Qiniu",
+        "label": "React Qiniu",
+        "description": "A React Component to upload file to Qiniu",
+        "download": "https://github.com/lenage/react-qiniu",
+        "defaultSprite": true,
+        "author": "lenage",
+        "author_link": "https://github.com/lenage",
+        "date": "2015-07-18",
+        "doc": "https://github.com/lenage/react-qiniu"
+    }, {
+        "name": "织梦集成七牛教程",
+        "label": "织梦集成七牛教程",
+        "description": "一套织梦的集成七牛教程",
+        "download": "http://fcz8k.com/dedemcs/377.html",
+        "defaultSprite": true,
+        "author": "封程中",
+        "author_link": "http://fcz8k.com/dedemcs/377.html",
+        "date": "2015-08-01",
+        "doc": "http://fcz8k.com/dedemcs/377.html"
     }],
     "third_sdk": [{
         "name": "PHP",

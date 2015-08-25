@@ -149,7 +149,7 @@ title: JavaScript SDK 使用指南
     // key 可在每个文件'FileUploaded'事件被触发时获得
     var imgLink = Qiniu.watermark({
          mode: 1,  // 图片水印
-         image: 'http://www.b1.qiniudn.com/images/logo-2.png', // 图片水印的Url，mode = 1 时 **必需**
+         image: 'http://77flds.com2.z0.glb.qiniucdn.com/images/logo-2.png', // 图片水印的Url，mode = 1 时 **必需**
          dissolve: 50,          // 透明度，取值范围1-100，非必需，下同
          gravity: 'SouthWest',  // 水印位置，为以下参数[NorthWest、North、NorthEast、West、Center、East、SouthWest、South、SouthEast]之一
          dx: 100,  // 横轴边距，单位:像素(px)

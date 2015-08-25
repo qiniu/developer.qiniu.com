@@ -128,7 +128,7 @@ HTTP状态码 | 含义
 	在Web浏览器中输入以下图片地址  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageAve
+   http://developer.qiniu.com/resource/gogopher.jpg?imageAve
 	```
 
 	返回结果（内容经过格式化以便阅读）  

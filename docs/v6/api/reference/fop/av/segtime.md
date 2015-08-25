@@ -104,7 +104,7 @@ avthumb/m3u8/segtime/<SegSeconds>
 ### hls加密
 
 hls加密是利用AES-128位对每个ts文件进行加密，播放器在取得PlayList文件的时候，会根据里面的`#EXT-X-KEY`标签请求获得解密的URL，再请求解密秘钥，之后会用秘钥对获取的ts文件解密。用户可以对秘钥的URL做cookie验证等方法来对用户做认证。
-例子：[PlayList文件](http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k%3D%2FFgCBc3IlydY6CFIA8jhe7jIxCt1y) （复制链接，查看文件内容或直接用vlc播放器播放）
+例子：[PlayList文件](http://developer.qiniu.com/resource/FgCBc3IlydY6CFIA8jhe7jIxCt1y) （复制链接，查看文件内容或直接用vlc播放器播放）
 
 参数解释：
 
@@ -113,7 +113,7 @@ hls加密是利用AES-128位对每个ts文件进行加密，播放器在取得Pl
 - `hlsKeyType` 指定了传送秘钥的方式
  - 不指定或者指定为0，则仅仅是以base64_urlsafe编码的方式传送
  - 指定为1.x(1.0, 1.1, ...)，以RSA的OAEP加密方式，再以<urlsafe_base64_encode>编码传送秘钥，x表示秘钥的版本
- - 公钥：[1.0](http://ztest.qiniudn.com/hls_rsa1.0.pub)
+ - 公钥：[1.0](http://developer.qiniu.com/resource/hls_rsa1.0.pub)
 
 如何加密RSA：
 
