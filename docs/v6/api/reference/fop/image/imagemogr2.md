@@ -67,10 +67,12 @@ imageMogr2/auto-orient
 `/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式，参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)。
 `/blur/<radius>x<sigma>`             |      | 高斯模糊参数，`<radius>`是模糊半径，取值范围为1-50。`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 `/interlace/<Interlace>`            |           | 是否支持渐进显示，取值1 支持渐进显示，取值0不支持渐进显示（缺省为0）。适用jpg目标格式，网速慢时，图片显示由模糊到清晰。
-`/quality/<quality>` |   |  图片质量，取值范围为1-100。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。<br>quality后面可以增加 **!** ，表示强制使用指定值。
+`/quality/<quality>` |   |  图片质量，取值范围为1-100。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。<br>**注：**1. 如果图片的quality值本身大于90，会根据指定<br>quality值进行处理，此时修正值会失效。2. quality后面可以增加 ! ，表示强制使用指定值（eg：100!）3. 支持图片类型：jpg。
 
 <a id="image-quality"></a>
 `<quality>`修正值算法： `min[90, 原图quality*sqrt(原图长宽乘积/结果图片长宽乘积)]`
+<br>**注意：**
+处理前的图片w和h参数不能超过3000万像素，总像素不能超过1亿5000万像素。
 
 <a id="imagemogr2-thumbnail-spec"></a>
 ### 缩放操作参数表
