@@ -72,7 +72,7 @@ imageMogr2/auto-orient
 <a id="image-quality"></a>
 `<quality>`修正值算法： `min[90, 原图quality*sqrt(原图长宽乘积/结果图片长宽乘积)]`
 <br>**注意：**
-处理前的图片w和h参数不能超过3000万像素，总像素不能超过1亿5000万像素。
+处理前的图片w和h参数不能超过3万像素，总像素不能超过1亿5000万像素。
 
 <a id="imagemogr2-thumbnail-spec"></a>
 ### 缩放操作参数表
