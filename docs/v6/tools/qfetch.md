@@ -36,7 +36,7 @@ qfetch是一个数据迁移工具，利用七牛提供的[fetch](http://develope
 
 |版本     |支持平台|链接|
 |--------|---------|----|
-|qfetch v1.2|Linux, Windows, Mac OSX|[下载](http://7rfgu2.com1.z0.glb.clouddn.com/qfetch-v1.2.zip)|
+|qfetch v1.2|Linux, Windows, Mac OSX|[下载](http://devtools.qiniu.com/qfetch-v1.2.zip)|
 
 <a id="usage"></a>
 ## 使用方法
