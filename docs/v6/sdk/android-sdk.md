@@ -59,7 +59,7 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 <dependency>
     <groupId>com.qiniu</groupId>
     <artifactId>qiniu-android-sdk</artifactId>
-    <version>(7.0.1，7.1]</version>
+    <version>(7.0.1,7.1)</version>
 </dependency>
 ```
 
