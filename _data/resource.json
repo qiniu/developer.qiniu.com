@@ -367,6 +367,15 @@
         "author_link": "http://www.zmax99.com",
         "date": "2015-08-26",
         "doc": "http://www.zmax99.com/zmaxcdn-function-introduce"
+    }, {
+        "name": "Opencart 资源镜像",
+        "label": "Opencart 资源镜像",
+        "description": "使用 OCMod 为 Opencart 添加资源镜像的功能。可以对所有的图片、样式表、js 脚本进行加速。",
+        "download": "http://www.opencart.com/index.php?route=extension/extension/info&extension_id=23525",
+        "defaultSprite": true,
+        "author": "mikespook",
+        "author_link": "http://mikespook.com",
+        "date": "2015-08-27"
     }],
     "third_sdk": [{
         "name": "PHP",
