@@ -15,7 +15,7 @@ title: qrsync 命令行同步工具
 
 qrsync 是一个根据七牛云存储API实现的简易命令行辅助上传同步工具，支持断点续上传，增量同步，它可将用户本地的某目录的文件同步到七牛云存储中，同步或上传几百GB甚至上TB的文件毫无鸭梨。
 
-**注意：被同步的文件名和路径必须是utf8编码，非utf8的文件名和路径将会同步失败**
+<span style="color: red;">**注意：**</span>被同步的文件名和路径必须是utf8编码，非utf8的文件名和路径将会同步失败。
 
 <a id="download"></a>
 ## 下载
@@ -45,8 +45,8 @@ qrsync 命令行辅助同步工具下载地址：
 
 其中，`AccessKey` 和 `SecretKey` 需要在七牛云存储平台上申请。步骤如下：
 
-1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)。
-2. 登录七牛管理控制台，[查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)。
+1. 开通[七牛开发者帐号](https://portal.qiniu.com/signup)。
+2. 登录七牛管理控制台，查看[ Access Key ](https://portal.qiniu.com/setting/key)和 [Secret Key](https://portal.qiniu.com/setting/key)。
 
 参数名称   | 必填 | 说明
 :--------- | :--- | :------
@@ -56,7 +56,7 @@ qrsync 命令行辅助同步工具下载地址：
 `threshold` | 否 | ● 进行分片上传的阈值。 <br> 单位为Byte, 默认值为1MB，当文件大小小于1MB时直传整个文件，当文件大于1MB时进行分片上传该文件。 你可以根据你的网络状况来决定该值的大小。
 `debug_level`           | 是   | ● 日志输出等级<br>通常设置1，只输出必要的日志。<br>当上传过程发生问题时，设置为0可以得到详细日志。
 
-注意：切勿将配置文件保存在被同步的目录中，否则会带来泄露SecretKey的风险。
+<span style="color: red;">**注意：**</span>切勿将配置文件保存在被同步的目录中，否则会带来泄露SecretKey的风险。
 
 可以在 [七牛云存储开发者网站后台](https://portal.qiniu.com/) 进行相应的域名绑定操作，域名绑定成功后，若您将 bucket 设为公用（public）属性，则可以用如下方式对上传的文件进行访问：
 
@@ -117,7 +117,7 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 }
 ```
 
-主要需要关注目录分隔符为`/`，另外文件夹路径如果包含中文需要为UTF-8编码;
+主要需要关注目录分隔符为`/`，另外文件夹路径如果包含中文需要为UTF-8编码。
 
 - Linux或者Mac下配置如下：
 
