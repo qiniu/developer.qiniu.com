@@ -9,12 +9,12 @@ order: 170
 
 本节描述图片资源处理的接口规格，涵盖以下内容：
 
-* [图片基本信息（imageinfo）][imageInfoHref]
+* [图片基本信息（imageInfo）][imageInfoHref]
 * [图片Exif信息（exif）][exifHref]
-* [基本图片处理（imageview2）][imageView2Href]
-* [高级图片处理（imagemogr2）][imageMogr2Href]
+* [基本图片处理（imageView2）][imageView2Href]
+* [高级图片处理（imageMogr2）][imageMogr2Href]
 * [水印处理（watermark）][watermarkHref]
-* [图片主色调（imageave）][imageAveHref]
+* [图片主色调（imageAve）][imageAveHref]
 
 [imageInfoHref]:    /docs/v6/api/reference/fop/image/imageinfo.html  "图片基本信息"
 [exifHref]:         /docs/v6/api/reference/fop/image/exif.html       "图片Exif信息"

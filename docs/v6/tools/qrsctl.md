@@ -5,8 +5,7 @@ title: qrsctl 命令行辅助工具
 
 - [简介](#intro)
 - [下载](#download)
-- [授传操作](#oauth)
-    - [登录](#login)
+- [登录](#login)
 - [账号管理](#ak_sk)
     - [查看帐号信息](#info)
     - [查看密钥（AccessKey/SecretKey）](#appinfo)
@@ -56,13 +55,8 @@ qrsctl 命令行辅助工具下载地址：
 
 qrsctl 各个指令的用法可以在命令行直接输入 qrsctl 不带参数来获得。
 
-<a id="oauth"></a>
-
-## 授权操作
-
 <a id="login"></a>
-
-**登录**
+## 登录
 
     qrsctl login <User> <Passwd>
 
