@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 图片处理（imageView）
+title: 图片基本处理
 order: 175
 ---
 
 <a id="imageView"></a>
-# 基本图片处理（imageView）
+# 图片基本处理（imageView）
 - [描述](#imageView-description)
 - [接口规格](#imageView-specification)
 - [请求](#imageView-request)

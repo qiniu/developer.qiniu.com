@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: 图片EXIF信息
-order: 235
+title: EXIF信息（exif）
+order: 233
 ---
 
 <a id="Exif-Exif"></a>

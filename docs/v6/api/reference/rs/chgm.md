@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 修改元信息
-order: 200
+title: 修改元信息（chgm）
+order: 499
 ---
 
 <a id="chgm"></a>
-# 修改元信息
+# 修改元信息（chgm）
 
 - [描述](#chgm-description)
 - [请求](#chgm-request)
