@@ -84,7 +84,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
             "desc": "The fop was completed successfully",
             "error": "",
             "hash": "FrPNF2qz66Bt14JMdgU8Ya7axZx-",
-            "key": "v-PtT-DzpyCcqv6xNU25neTMkcc=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
+            "key": "v-PtT-DzpyCcqv6xNU25neTMkcc=/FjgJQXuH7OresQL4zgRqYG5bZ64x",
+            "returnOld": 0
         },
         {
             "cmd": "avthumb/iphone_low",
@@ -92,7 +93,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
             "desc": "The fop was completed successfully",
             "error": "",
             "hash": "FmZ5PbHMYD5uuP1-kHaLjKbrv-75",
-            "key": "tZ-w8jHlQ0__PYJdiisskrK5h3k=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
+            "key": "tZ-w8jHlQ0__PYJdiisskrK5h3k=/FjgJQXuH7OresQL4zgRqYG5bZ64x",
+            "returnOld": 0
         },
         {
             "cmd": "avthumb/m3u8/r/30/vb/256k/vcodec/libx264/ar/22071/ab/64k/acodec/libmp3lame",
@@ -100,7 +102,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
             "desc": "The fop was completed successfully",
             "error": "",
             "hash": "Fi4gMX0SvKVvptxfvoiuDfFkCuEG",
-            "key": "8ehryqviSaMIjkVQDGeDcKRZ6qc=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
+            "key": "8ehryqviSaMIjkVQDGeDcKRZ6qc=/FjgJQXuH7OresQL4zgRqYG5bZ64x",
+            "returnOld": 0
         },
         {
             "cmd": "avthumb/m3u8/vb/440k",
@@ -108,7 +111,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
             "desc": "The fop was completed successfully",
             "error": "",
             "hash": "FtuxnwAY9NVBxAZLcxNUuToR9y97",
-            "key": "s2_PQlcIOz1uP6VVBXk5O9dXYLY=/FjgJQXuH7OresQL4zgRqYG5bZ64x"
+            "key": "s2_PQlcIOz1uP6VVBXk5O9dXYLY=/FjgJQXuH7OresQL4zgRqYG5bZ64x",
+            "returnOld": 0
         }
     ],
     pipeline: "0.default",
@@ -128,6 +132,7 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
     `error`   |       | 如果处理失败，该字段会给出失败的详细原因。
     `hash`    | 是    | 云处理结果保存在服务端的唯一`hash`标识。
     `key`     | 是    | 云处理结果的外链资源名（Key）。
+     `returnOld` | 是    | 默认为0。当用户执行saveas时，如果未加force且指定的bucket：key存在，则返回1 ，告诉用户返回的是旧数据。
 `pipeline`    | 是    | 云处理操作的处理队列，默认使用队列为共享队列`0.default`。
 `reqid`       | 是    | 云处理请求的请求id，主要用于七牛技术人员的问题排查。
 
