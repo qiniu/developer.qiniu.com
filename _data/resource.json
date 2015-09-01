@@ -146,6 +146,15 @@
         "date": "2015-08-17",
         "doc": "docs/v6/tools/qfetch.html",
         "description": "数据迁移工具，支持Windows/Mac/Linux。"
+    }, {
+        "name": "cmd",
+        "label": "qshell",
+        "title": "命令行工具",
+        "download": "/docs/v6/tools/qshell.html#download",
+        "version": "v6",
+        "date": "2015-09-01",
+        "doc": "docs/v6/tools/qshell.html",
+        "description": "基于七牛API服务的命令行工具"
     }],
     "third_plugin": [{
         "name": "wordpress",
