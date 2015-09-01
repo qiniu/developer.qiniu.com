@@ -446,7 +446,7 @@ $(function() {
             $siblings.children('.panel-heading').find('a').removeClass('active');
             $siblings.children('.panel-body').hide('fast', adjustApiBoxHeight);
         }
-        return false;
+        // return false;
     });
 
     $('.panel-status').each(function() {
