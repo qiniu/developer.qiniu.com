@@ -68,58 +68,58 @@
 			"Href": "docs/v6/api/reference/rs/",
 			"Child": [
 				{
-					"Title": "获取资源信息",
+					"Title": "查看（state）",
 					"Href": "docs/v6/api/reference/rs/stat.html",
 					"Child": null,
 					"Order": 900
 				},
 				{
-					"Title": "复制资源",
-					"Href": "docs/v6/api/reference/rs/copy.html",
+					"Title": "移动（move）",
+					"Href": "docs/v6/api/reference/rs/move.html",
 					"Child": null,
 					"Order": 800
 				},
 				{
-					"Title": "移动资源",
-					"Href": "docs/v6/api/reference/rs/move.html",
+					"Title": "复制（copy）",
+					"Href": "docs/v6/api/reference/rs/copy.html",
 					"Child": null,
 					"Order": 700
 				},
 				{
-					"Title": "删除资源",
+					"Title": "删除（delete）",
 					"Href": "docs/v6/api/reference/rs/delete.html",
 					"Child": null,
 					"Order": 600
 				},
 				{
-					"Title": "批量操作",
+					"Title": "抓取（fetch）",
+					"Href": "docs/v6/api/reference/rs/fetch.html",
+					"Child": null,
+					"Order": 599
+				},
+				{
+					"Title": "列举（list）",
+					"Href": "docs/v6/api/reference/rs/list.html",
+					"Child": null,
+					"Order": 598
+				},
+				{
+					"Title": "批量操作（batch）",
 					"Href": "docs/v6/api/reference/rs/batch.html",
 					"Child": null,
 					"Order": 500
 				},
 				{
-					"Title": "抓取资源",
-					"Href": "docs/v6/api/reference/rs/fetch.html",
-					"Child": null,
-					"Order": 400
-				},
-				{
-					"Title": "列举资源",
-					"Href": "docs/v6/api/reference/rs/list.html",
-					"Child": null,
-					"Order": 399
-				},
-				{
-					"Title": "更新镜像资源",
-					"Href": "docs/v6/api/reference/rs/prefetch.html",
-					"Child": null,
-					"Order": 300
-				},
-				{
-					"Title": "修改元信息",
+					"Title": "修改元信息（chgm）",
 					"Href": "docs/v6/api/reference/rs/chgm.html",
 					"Child": null,
-					"Order": 200
+					"Order": 499
+				},
+				{
+					"Title": "更新镜像资源（prefetch）",
+					"Href": "docs/v6/api/reference/rs/prefetch.html",
+					"Child": null,
+					"Order": 498
 				}
 			],
 			"Order": 600
@@ -158,37 +158,37 @@
 					"Href": "docs/v6/api/reference/fop/image/",
 					"Child": [
 						{
-							"Title": "图片基本信息",
-							"Href": "docs/v6/api/reference/fop/image/imageinfo.html",
+							"Title": "基本处理（imageView2）",
+							"Href": "docs/v6/api/reference/fop/image/imageview2.html",
 							"Child": null,
 							"Order": 236
 						},
 						{
-							"Title": "图片EXIF信息",
-							"Href": "docs/v6/api/reference/fop/image/exif.html",
+							"Title": "高级处理（imageMogr2）",
+							"Href": "docs/v6/api/reference/fop/image/imagemogr2.html",
 							"Child": null,
 							"Order": 235
 						},
 						{
-							"Title": "基本图片处理",
-							"Href": "docs/v6/api/reference/fop/image/imageview2.html",
+							"Title": "基本信息（imageInfo）",
+							"Href": "docs/v6/api/reference/fop/image/imageinfo.html",
 							"Child": null,
 							"Order": 234
 						},
 						{
-							"Title": "高级图片处理",
-							"Href": "docs/v6/api/reference/fop/image/imagemogr2.html",
+							"Title": "EXIF信息（exif）",
+							"Href": "docs/v6/api/reference/fop/image/exif.html",
 							"Child": null,
 							"Order": 233
 						},
 						{
-							"Title": "水印处理",
+							"Title": "水印处理（watermark）",
 							"Href": "docs/v6/api/reference/fop/image/watermark.html",
 							"Child": null,
 							"Order": 232
 						},
 						{
-							"Title": "图片主色调",
+							"Title": "主色调（imageAve）",
 							"Href": "docs/v6/api/reference/fop/image/imageave.html",
 							"Child": null,
 							"Order": 231
@@ -326,13 +326,13 @@
 			"Href": "docs/v6/api/reference/obsolete/",
 			"Child": [
 				{
-					"Title": "图片处理（imageView）",
+					"Title": "图片基本处理",
 					"Href": "docs/v6/api/reference/obsolete/imageview.html",
 					"Child": null,
 					"Order": 175
 				},
 				{
-					"Title": "高级图片处理（imageMogr）",
+					"Title": "图片高级处理",
 					"Href": "docs/v6/api/reference/obsolete/imagemogr.html",
 					"Child": null,
 					"Order": 174
