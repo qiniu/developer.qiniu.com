@@ -12,8 +12,8 @@ order: 5
 <a id="obsolete-api-list-of-image-fop"></a>
 ## 图片处理相关：
 
-* [基本图片处理（imageView）][imageViewHref]
-* [高级图片处理（imageMogr）][imageMogrHref]
+* [图片基本处理（imageView）][imageViewHref]
+* [图片高级处理（imageMogr）][imageMogrHref]
 
-[imageViewHref]:    imageview.html  "基本图片处理"
+[imageViewHref]:    imageview.html  "图片基本处理"
 [imageMogrHref]:    imagemogr.html  "高级图片处理"

@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 高级图片处理（imageMogr）
+title: 图片高级处理
 order: 174
 ---
 
 <a id="imageMogr"></a>
-# 高级图片处理（imageMogr）
+# 图片高级处理（imageMogr）
 - [描述](#imageMogr-description)
 - [接口规格](#imageMogr-specification)
     - [缩放操作参数表](#imageMogr-thumbnail-spec)
