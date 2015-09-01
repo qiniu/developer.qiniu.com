@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: 图片基本信息
-order: 236
+title: 基本信息（imageInfo）
+order: 234
 ---
 
 <a id="imageinfo"></a>

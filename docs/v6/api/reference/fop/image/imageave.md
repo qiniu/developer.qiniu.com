@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: 图片主色调
+title: 主色调（imageAve）
 order: 231
 ---
 

@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 水印处理
+title: 水印处理（watermark）
 order: 232
 ---
 
 <a id="watermark"></a>
-# 水印处理（watermark）
+# 图片水印处理（watermark）
 
 - [描述](#description)
 - [图片水印](#pic-watermark)

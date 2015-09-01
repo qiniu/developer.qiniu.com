@@ -30,7 +30,7 @@ avconcat/<Mode>
 :---------------------- | :--- | :---------------------------------------------------------------
 `<Mode>`                | 是   | ● `2` 表示使用filter方法。
 `<Format>`              | 是   | ● 目标视频的格式（比如flv、mp4等）<br>请参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats)。
-`<encodedUrlN>`         | 是   | ● 经过[URL安全的Base64编码][urlsafeBase64Href]的完整源文件URL<br>1. 除去作为数据处理对象的源文件以外，还可以指定最多5个源文件（即总计6个片段）；<br>2. 所有源文件必须属于同一存储空间。
+`<encodedUrlN>`         | 是   | ● 经过[URL安全的Base64编码][urlsafeBase64Href]的完整源文件URL<br>1. 除去作为数据处理对象的源文件以外，还可以指定最多20个源文件（即总计21个片段）；<br>2. 所有源文件必须属于同一存储空间。
 
 <a id="avconcat-remarks"></a>
 ## 附注
