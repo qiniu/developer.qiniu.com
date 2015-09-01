@@ -855,5 +855,5 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?nrop
 其他对于 PHP 开发者有用的资源：
 
 * 示例库：[https://github.com/qiniudemo/](https://github.com/qiniudemo/)
-* 第三方示例库：[https://github.com/jemygraw/](https://github.com/jemygraw/)
+* 第三方示例库：[https://github.com/jemygraw/](https://github.com/jemygraw/qiniu-lab-php)
 
