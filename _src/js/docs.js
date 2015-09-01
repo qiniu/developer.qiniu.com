@@ -446,7 +446,7 @@ $(function() {
             $siblings.children('.panel-heading').find('a').removeClass('active');
             $siblings.children('.panel-body').hide('fast', adjustApiBoxHeight);
         }
-        return false;
+        // return false;
     });
 
     $('.panel-status').each(function() {
@@ -516,6 +516,7 @@ $(function() {
     $('h5.panel-title').on('click', function() {
         var href = $(this).find('a').attr('href').toLowerCase();
         if (url === href) {
+            console.log(url);
             return false;
         }
     });
