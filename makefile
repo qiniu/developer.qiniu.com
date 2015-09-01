@@ -1,8 +1,7 @@
 all:
 	#成生菜单所需的json文件
-	./_genMenu docs/v6/api/overview > _data/apiview.json
+	./_genMenu  docs/v6/api/overview > _data/apiview.json
 	./_genMenu docs/v6/api/reference > _data/apiref.json
-	./_genMenu docs/v6/tutorial > _data/guide.json
 	./_genMenu docs/v6/kb > _data/kb.json
 	./_genMenu docs/v6/faq > _data/faq.json
 
