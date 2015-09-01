@@ -15,7 +15,7 @@ title: qshell 命令行工具
 <a id="overview"></a>
 ## 简介
 
-qshell是利用[七牛文档上公开的API](http://d.qiniu.com)实现的一个方便开发者测试和使用七牛API服务的命令行工具。
+qshell是基于[七牛API文档](http://d.qiniu.com)实现的一个方便开发者测试和使用七牛API服务的命令行工具。
 
 <a id="download"></a>
 ## 下载
@@ -23,7 +23,7 @@ qshell是利用[七牛文档上公开的API](http://d.qiniu.com)实现的一个�
 
 |版本     |支持平台|链接|更新日志|
 |--------|---------|----|------|
-|qshell v1.4.9|Linux, Windows, Mac OSX|[下载](http://devtools.qiniu.com/qshell-v1.4.9.zip)|[查看](https://github.com/qiniu/qshell/blob/master/CHANGELOG.md)|
+|qshell v1.4.9|Linux, Windows, Mac OSX|[下载](https://github.com/qiniu/qshell)|[查看](https://github.com/qiniu/qshell/blob/master/CHANGELOG.md)|
 
 因为上面发布的zip包里面有支持不同平台的可执行文件，请根据系统平台选择合适的可执行文件，然后其他的都可以删除，再把可执行文件重命名为 `qshell` (Windows下面是 `qshell.exe`然后就可以使用了）
 

@@ -9,17 +9,17 @@ order: 600
 
 本节描述资源管理相关的接口规格，涵盖以下内容：  
 
-* [获取资源信息（stat）][statHref]
-* [复制资源（copy）][copyHref]
-* [移动资源（move）][moveHref]
-* [删除资源（delete）][deleteHref]
+* [查看（stat）][statHref]
+* [移动（move）][moveHref]
+* [复制（copy）][copyHref]
+* [删除（delete）][deleteHref]
+* [抓取（fetch）][fetchHref]
+* [列举（list）][listHref]
 * [批量操作（batch）][batchHref]
-* [抓取资源（fetch）][fetchHref]
-* [列举资源（list）][listHref]
-* [更新镜像资源（prefetch）][prefetchHref]
 * [修改元信息（chgm）][chgmHref]
+* [更新镜像资源（prefetch）][prefetchHref]
 
-[statHref]:     stat.html   "获取资源信息"
+[statHref]:     stat.html   "查看资源信息"
 [copyHref]:     copy.html   "复制资源"
 [moveHref]:     move.html   "移动资源"
 [deleteHref]:   delete.html "删除资源"

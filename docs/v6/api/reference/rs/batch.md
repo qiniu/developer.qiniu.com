@@ -1,10 +1,10 @@
 ---
-title: 批量操作
+title: 批量操作（batch）
 order: 500
 ---
 
 <a id="move"></a>
-# 批量操作
+# 批量操作（batch）
 
 - [描述](#batch-description)
 - [请求](#batch-request)
