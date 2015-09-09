@@ -1,11 +1,17 @@
 ---
 layout: docs
-title: 技术问题
-order: 30
+title: 常见问题
+order: 98
 ---
 
+<a id="faq"></a>
+# 常见问题
 
+- [技术问题](#technology-faq)
+- [业务问题](#business-faq)
 
+<a id="technology-faq"></a>
+## 技术问题
 ### 1. 七牛云存储支持目录或文件夹概念么？
 
 ```
@@ -19,3 +25,15 @@ key 中可以包含斜杠“/”，让你感觉起来像目录结构，比如 �
 ### 2. 七牛回调（callback）在本地如何调试？
 
   [本地调试问题](http://developer.qiniu.com/docs/v6/api/overview/up/upload-models/response-types.html#FAQ)
+
+### 3. 七牛下载文件内容/shuju
+
+<a id="business-faq"></a>
+## 业务问题
+### 1. 七牛的费用是怎么计算的？
+
+```
+ 七牛对存储、下载流量、请求次数分别计费。最终支付款项为三项之和。
+ 存储量取月度日均值，进行费用的结算。如存储量每日的绝对值为D1、D2、D3...D31 ，则最终月度结算费用时为(D1+D2+...+D31)/31。
+ 下载流量和请求次数以新增的数量进行累积计算。
+```
