@@ -367,11 +367,11 @@
         "date": "2015-08-01",
         "doc": "http://fcz8k.com/dedemcs/377.html"
     }, {
-        "name": "Joomla图片视频插件",
+        "name": "joomla",
         "label": "Joomla图片视频插件",
         "description": "改进joomla默认媒体管理，上传插入图片更加轻松。支持中文名称,支持七牛CDN加速，让你的joomla飞起来!",
         "download": "http://www.zmax99.com/menu-cn-download/zmax-product/itemdetail/25",
-        "defaultSprite": true,
+        "defaultSprite": false,
         "author": "ZMAX程序人",
         "author_link": "http://www.zmax99.com",
         "date": "2015-08-26",
