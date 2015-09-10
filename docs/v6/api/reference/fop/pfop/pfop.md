@@ -94,7 +94,7 @@ Content-Type  | 是    | 正常情况下该值将被设为`application/json`，�
 
 ```
 {
-    "persistentId": <persistentId int64>
+    "persistentId": <persistentId string>
 }
 ```
 
