@@ -35,10 +35,9 @@ order: 235
 <a id="imagemogr2-description"></a>
 ## 描述
 
-imageMogr2是原imageMogr接口的更新版本，实现略有差异，功能更为丰富。  
-同样，为开发者提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。  
+imageMogr2是原[imageMogr接口](/docs/v6/api/reference/obsolete/imagemogr.html)的更新版本，实现略有差异，功能更为丰富。同样，为开发者提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。imageMogr2接口可支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp。 
 
-<a id="imagemogr2-specification"></a>
+ <a id="imagemogr2-specification"></a>
 ## 接口规格
 
  接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
