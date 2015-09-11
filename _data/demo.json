@@ -220,12 +220,12 @@
         "website": "http://mp3.likfe.com",
         "code": "https://gitcafe.com/likfe/super_mp3"
     }, {
-        "name": "getlink 轻松生成图片外链",
-        "author": "getlink 轻松生成图片外链",
+        "name": "Get Link!",
+        "author": "Cody",
         "img": "",
-        "description": "东半球最好用的图床外链【配套chrome插件】",
-        "website": "http://getlink.sinaapp.com/",
-        "code": "https://gitcafe.com/int64ago/getlink"
+        "description": "The simplest way to get the link :-)",
+        "website": "http://getlink.int64ago.org/",
+        "code": "https://github.com/int64ago/getlink"
     }, {
         "name": "FFTS 快速文件中转站",
         "author": "FFTS 快速文件中转站",
