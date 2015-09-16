@@ -24,8 +24,7 @@ order: 236
 <a id="imageView2-description"></a>
 ## 描述
 
-imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
-同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。  
+imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。imageView2接口可支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp。  
 
 <a id="imageView2-specification"></a>
 ## 接口规格
