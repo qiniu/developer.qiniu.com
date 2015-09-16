@@ -3,7 +3,6 @@ all:
 	./_genMenu  docs/v6/api/overview > _data/apiview.json
 	./_genMenu docs/v6/api/reference > _data/apiref.json
 	./_genMenu docs/v6/kb > _data/kb.json
-	./_genMenu docs/v6/faq > _data/faq.json
 
 	npm install
 
