@@ -278,84 +278,30 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="panel panel-default" data-page="tools">
+                    <div class="panel panel-default" >
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a href="#">
-                                        工具
-                                    </a>
+                                <a href="#"> 工具</a>
                                 <span class="icon api_default">
                                 </span>
                             </h4>
                         </div>
                         <div class="panel-body">
                             <ul class="panel-list level-one">
+                                {{range .data.resource.devtools}}
                                 <li>
                                     <div class="panel-heading">
                                         <h5 class="panel-title">
                                             <span class="icon off_1">
                                             </span>
-                                            <a href="/docs/v6/tools/qrsync.html" class="link">
-                                                    qrsync
-                                                </a>
-                                            <span class="icon">
-                                            </span>
+                                            <a href="/{{.doc}}" class="link">{{.label}} </a>
+                                            <span class="icon menu_down"></span>
                                         </h5>
                                     </div>
-                                    <div class="panel-body" id="qrsync">
+                                    <div class="panel-body" id="{{.label}}">
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <span class="icon off_1">
-                                            </span>
-                                            <a href="/docs/v6/tools/qrsctl.html" class="link">
-                                                    qrsctl
-                                                </a>
-                                            <span class="icon">
-                                            </span>
-                                        </h5>
-                                    </div>
-                                    <div class="panel-body" id="qrsctl">
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <span class="icon off_1">
-                                            </span>
-                                            <a href="/docs/v6/tools/qrsbox.html" class="link">
-                                                    qrsbox
-                                                </a>
-                                            <span class="icon">
-                                            </span>
-                                        </h5>
-                                    </div>
-                                    <div class="panel-body" id="qrsbox">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <span class="icon off_1">
-                                            </span>
-                                            <a href="/docs/v6/tools/qwebtest.html" class="link">qwebtest</a>
-                                        </h5>
-                                    </div>
-                                    <div class="panel-body" id="qwebtest"></div>
-                                </li>
-                                <li>
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <span class="icon off_1">
-                                            </span>
-                                            <a href="/docs/v6/tools/qfetch.html" class="link">qfetch</a>
-                                        </h5>
-                                    </div>
-                                    <div class="panel-body" id="qfetch"></div>
-                                </li>
+                                {{end}}
                             </ul>
                         </div>
                     </div>
