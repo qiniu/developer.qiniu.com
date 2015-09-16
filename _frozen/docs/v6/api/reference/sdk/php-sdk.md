@@ -14,6 +14,7 @@ SDK在线文档：<http://developer.qiniu.com/php_docs/index.html>
 SDK( version: 6.x.x 适用于PHP 5.1.0 及其以上版本)相关文档：<http://developer.qiniu.com/docs/v6/sdk/legacy-php-sdk.html>
 
 
+
 - [应用接入](#install)
 	- [PHP-SDK 安装](#sdk-install)
 	- [获取Access Key 和 Secret Key](#acc-appkey)
