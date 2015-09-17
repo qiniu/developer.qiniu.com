@@ -15,10 +15,12 @@ test: all
 
 build: all
 	grunt production
+	rm -rf node_modules
 	./_jkl
 
 install: all
 	grunt production
+	rm -rf node_modules
 
 	#指定上传文件：
 	#make install file=file1,file2,file3
