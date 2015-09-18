@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 查看（state）
+title: 查看（stat）
 order: 900
 ---
 
 <a id="stat"></a>
-#  查看资源信息（state）
+#  查看资源信息（stat）
 
 - [描述](#stat-description)
 - [请求](#stat-request)
