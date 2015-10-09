@@ -212,6 +212,12 @@
 			"Href": "docs/v6/api/overview/appendix.html",
 			"Child": null,
 			"Order": 99
+		},
+		{
+			"Title": "常见问题",
+			"Href": "docs/v6/api/overview/faq.html",
+			"Child": null,
+			"Order": 98
 		}
 	]
 }

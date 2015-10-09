@@ -68,7 +68,7 @@
 			"Href": "docs/v6/api/reference/rs/",
 			"Child": [
 				{
-					"Title": "查看（state）",
+					"Title": "查看（stat）",
 					"Href": "docs/v6/api/reference/rs/stat.html",
 					"Child": null,
 					"Order": 900
@@ -282,6 +282,12 @@
 						{
 							"Title": "图片鉴黄服务",
 							"Href": "docs/v6/api/reference/fop/third-party/nrop.html",
+							"Child": null,
+							"Order": 300
+						},
+						{
+							"Title": "视频鉴黄服务",
+							"Href": "docs/v6/api/reference/fop/third-party/tupu-video.html",
 							"Child": null,
 							"Order": 300
 						},
