@@ -13,6 +13,11 @@ fc:
 test: all
 	./_jkl --server
 
+build: all
+	grunt production
+	rm -rf node_modules
+	./_jkl
+
 install: all
 	grunt production
 	rm -rf node_modules
@@ -23,7 +28,6 @@ install: all
 
 	./_jkl --qiniu-config _jekyll_qiniu.yml --qiniu --qiniu-up-files '$(file)' --verbose 2>&1 | sed '/_site/{h; s,^.*/_site,http://developer.qiniu.com,; H; x;}'
 	@echo
-	rm -rf .tmp
 
 clean:
 	rm _includes/footer.html

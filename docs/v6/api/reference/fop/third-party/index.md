@@ -12,6 +12,7 @@ order: 90
   - [广告过滤服务（ad）][adHref]
   - [图片鉴黄服务（nrop）][nropHref]
   - [文档转换服务（yifangyun_preview）][yifangyun_previewHref]
+  - [视频鉴黄服务（tupu-video）][tupu-videoHref]
 
 <a id="ufop-description"></a>
 ## 描述
@@ -26,7 +27,9 @@ order: 90
 * [广告过滤服务（ad）][adHref]
 * [图片鉴黄服务（nrop）][nropHref]
 * [文档转换服务（yifangyun_preview）][yifangyun_previewHref]
+* [视频鉴黄服务（tupu-video）][tupu-videoHref]
 
 [nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html
 [adHref]:          /docs/v6/api/reference/fop/third-party/ad.html
 [yifangyun_previewHref]:          /docs/v6/api/reference/fop/third-party/yifangyun_preview.html
+[tupu-videoHref]:  /docs/v6/api/reference/fop/third-party/tupu-video.html
