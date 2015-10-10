@@ -17,7 +17,7 @@ order: 170
 * [图片主色调（imageAve）][imageAveHref]
 
 [imageInfoHref]:    /docs/v6/api/reference/fop/image/imageinfo.html  "图片基本信息"
-[exifHref]:         /docs/v6/api/reference/fop/image/exif.html       "图片Exif信息"
+[exifHref]:        /docs/v6/api/reference/fop/image/exif.html       "图片Exif信息"
 [imageView2Href]:   /docs/v6/api/reference/fop/image/imageview2.html  "基本图片处理"
 [imageMogr2Href]:   /docs/v6/api/reference/fop/image/imagemogr2.html  "高级图片处理"
 [watermarkHref]:    /docs/v6/api/reference/fop/image/watermark.html  "水印处理"

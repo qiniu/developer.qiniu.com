@@ -38,7 +38,7 @@ SDK(version: 6.x.x 适用于PHP >= 5.1.0): [相关文档](http://developer.qiniu
 <a id="install"></a>
 ## 安装
 
-支持以下几种安装方式。推荐的安装方式为使用 **Composer** 。
+支持以下几种安装方式。推荐使用 **Composer**安装方式 。
 
 <a id="install-composer"></a>
 ### 使用 Composer 安装
