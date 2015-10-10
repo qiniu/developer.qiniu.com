@@ -297,16 +297,6 @@
         "date": "2013-11-28",
         "doc": "https://github.com/wzyuliyang/qiniu4blog"
     }, {
-        "name": "startBBS",
-        "label": "STB （论坛）",
-        "description": "本插件为StartBBS添加将图片等资源上传至七牛云存储的功能。",
-        "download": "http://www.startbbs.com/topic/1198",
-        "defaultSprite": true,
-        "author": "StartBBS",
-        "author_link": "http://www.startbbs.com/",
-        "date": "2013-11-28",
-        "doc": "http://www.startbbs.com/topic/1198"
-    }, {
         "name": "paperclip",
         "label": "PaperClip （Ruby）",
         "description": "一款Gem插件，可将PaperClip附件上传至七牛云存储。",

@@ -119,7 +119,7 @@ HTTP状态码 | 含义
 <a id="advance-usage"></a>
 ## 高级用法
 
-想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](/docs/v6/api/overview/Fop/fop/pipeline.html)和[图像水印接口](/docs/v6/api/reference/fop/image/watermark.html) 操作实现。例如，  
+想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](/docs/v6/api/overview/fop/fop/pipeline.html)和[图像水印接口](/docs/v6/api/reference/fop/image/watermark.html) 操作实现。例如，  
 
 ```
 http://developer.qiniu.com/resource/hello.txt?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/Center/dx/0/dy/0

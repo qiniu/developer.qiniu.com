@@ -14,7 +14,7 @@ order: 240
 * [基本图片处理版本2(imageview2)](/docs/v6/api/reference/fop/image/imageview2.html)
 * [高级图片处理版本2(imagemogr2)](/docs/v6/api/reference/fop/image/imagemogr2.html)
 * [获取图片基本信息](/docs/v6/api/reference/fop/image/imageinfo.html)
-* [获取图片Exif信息](/docs/v6/api/reference/fop/image/Exif.html)
+* [获取图片Exif信息](/docs/v6/api/reference/fop/image/exif.html)
 * [水印](/docs/v6/api/reference/fop/image/watermark.html)
 
 ## 音视频

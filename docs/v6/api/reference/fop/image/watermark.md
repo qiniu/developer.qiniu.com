@@ -23,8 +23,8 @@ order: 232
   - [接口规格](#multi-watermark-spec)
   - [请求](#multi-watermark-request)
   - [响应](#multi-watermark-response)
-- [附注](watermark-remarks)
-- [内部参考资源](imageView-internal-resources)
+- [附注](#watermark-remarks)
+- [内部参考资源](#imageView-internal-resources)
 
 <a id="description"></a>
 ## 描述
