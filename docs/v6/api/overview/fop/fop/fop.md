@@ -39,4 +39,4 @@ http://developer.qiniu.com/resource/gogopher.jpg-iphone5
 
 1. 访问资源时。如上面的例子所示范的，只需要在资源URL后加上具体数据操作指令和参数即可。
 1. 资源上传时。上传时可在上传策略中设置异步数据处理，在资源上传完成时七牛云存储会以异步的方式执行数据处理操作，并持久化存储数据处理结果。支持查询数据处理操作的进度。具体请参见[上传后续动作 - 数据预处理](/docs/v6/api/overview/up/upload-models/response-types.html#persistent-op)。
-1. 对已有资源手动触发处理流程。与上传时的数据处理支持相同，这个过程也为异步且可查询操作进度。具体请参见[处理结果持久化](/docs/v6/api/overview/Fop/fop/persistent-fop.html)。
+1. 对已有资源手动触发处理流程。与上传时的数据处理支持相同，这个过程也为异步且可查询操作进度。具体请参见[处理结果持久化](/docs/v6/api/overview/fop/fop/persistent-fop.html)。
