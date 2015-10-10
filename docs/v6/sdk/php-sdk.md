@@ -846,7 +846,7 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?nrop
 到这里为止，我们就把七牛所提供的关键功能都浏览了一遍。如果您有一些关于本文档或我们产品的建议和想法，欢迎到我们的[技术社区](http://segmentfault.com/qiniu/)参与讨论。
 
 * [技术论坛](http://segmentfault.com/qiniu) - 在这里你可以和其他开发者愉快的讨论如何更好的使用七牛云服务
-* [提交工单](https://support.qiniu.com/tickets/create) - 如果你的问题不适合在论坛讨论或得不到回答，你可以提交一个工单，技术支持人员会尽快回复
+* [提交工单](http://support.qiniu.com/hc/request/guest/) - 如果你的问题不适合在论坛讨论或得不到回答，你可以提交一个工单，技术支持人员会尽快回复
 * [博客](http://blog.qiniu.com) - 这里会持续发布市场活动和技术分享文章
 * [微博](http://weibo.com/qiniutek)
 * [常见问题FAQ](http://developer.qiniu.com/docs/v6/faq/faq.html)
