@@ -22,7 +22,7 @@ order: 300
 <a id="tupu-video-request"></a>
 ## 请求
 
-这里只介绍了实时请求的规格，但是考虑到如果鉴别的是比较长的视频，转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用[异步处理](http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html)
+这里只介绍了实时请求的规格，但是考虑到如果鉴别的是比较长(目前只支持10分钟以内的视频)的视频，转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用[异步处理](http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html)
 
 <a id="tupu-video-request-syntax"></a>
 ### 请求报文格式
