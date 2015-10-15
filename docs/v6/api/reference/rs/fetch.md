@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 抓取资源
-order: 400
+title: 抓取（fetch）
+order: 599
 ---
 
 <a id="fetch"></a>
-# 抓取资源
+# 抓取资源（fetch）
 
 - [描述](#fetch-description)
 - [请求](#fetch-request)
@@ -97,9 +97,8 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 <a id="fetch-response-body"></a>
 ### 响应内容
 
-■ 如果请求成功，返回文件的<hash>和<key>。
-
-■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+- 如果请求成功，返回文件的[hash][qetag]值和key。
+- 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
 {

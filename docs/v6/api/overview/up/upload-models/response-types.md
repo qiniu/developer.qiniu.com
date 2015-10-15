@@ -13,6 +13,7 @@ order: 470
     - [回调地址](#callback-url)
     - [回调内容](#callback-body) 
     - [安全性](#callback-security)
+    - [常见问题](#FAQ)
 - [异步数据预处理](#persistent-op)	
 
 从结果响应的角度，上传模型支持几种不同的响应方式和通知目标。
@@ -279,9 +280,20 @@ function IsQiniuCallback(){
 
 [urlescapeHref]:            http://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
 
+<a id="FAQ"></a>
+### 常见问题
+
+#### 本地调试问题 ####
+
+ 利用本地服务的调试工具：
+
+- [ngrok](https://ngrok.com)
+- [Runscope](https://www.runscope.com)
+
+
 <a id="persistent-op"></a>
 ## 异步数据处理
 
 在生成上传凭证时，开发者可以通过在[上传策略（PutPolicy）](/docs/v6/api/reference/security/put-policy.html)中指定`persistentOp`和`persistentNotifyUrl`字段来设置异步数据处理动作。当资源上传完成后，设置的数据处理动作就会被以异步方式启动。七牛云存储将立刻将响应内容返回给客户端，并不会等待数据处理动作完成。
 
-关于数据处理结果持久化相关的详细内容，请参见[处理结果持久化（pfop）](/docs/v6/api/overview/Fop/fop/persistent-fop.html)中的相关描述。
+关于数据处理结果持久化相关的详细内容，请参见[处理结果持久化](/docs/v6/api/overview/fop/fop/persistent-fop.html)中的相关描述。

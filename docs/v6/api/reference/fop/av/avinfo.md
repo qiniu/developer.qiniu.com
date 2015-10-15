@@ -5,7 +5,7 @@ order: 147
 ---
 
 <a id="avinfo"></a>
-# 音视频元信息
+# 音视频元信息（avinfo）
 
 <a id="avinfo-description"></a>
 ## 描述
@@ -107,7 +107,7 @@ HTTP状态码 | 含义
 ## 示例
 
 ```
-http://open.qiniudn.com/thinking-in-go.mp4?avinfo
+http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo
 ```
 
 将返回如下元信息（已经经过格式化，以便阅读）：
@@ -188,7 +188,7 @@ http://open.qiniudn.com/thinking-in-go.mp4?avinfo
 }
 ```
 
-[点击查看示例结果](http://open.qiniudn.com/thinking-in-go.mp4?avinfo)
+[点击查看示例结果](http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo)
 
 <a id="avinfo-remarks"></a>
 ## 附注

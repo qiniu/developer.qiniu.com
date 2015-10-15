@@ -22,16 +22,16 @@ http://<domain>/<key>
 
 以上的`<domain>`有两种形态：七牛子域名，自定义域名。
 
-七牛子域名是一个创建空间时缺省分配的域名，开发者可以在[开发者平台 - 空间设置 - 域名设置](https://portal.qiniu.com)查看该子域名。子域名通常类似于`example-images.u.qiniudn.com`，用户可以通过以下URL下载名为sunflower.jpg的资源：
+七牛子域名是一个创建空间时缺省分配的域名，开发者可以在[开发者平台 - 空间设置 - 域名设置](https://portal.qiniu.com)查看该子域名。子域名通常类似于`developer.qiniu.com`，用户可以通过以下URL下载名为flower.jpg的资源：
 
 ```
-http://example-images.u.qiniudn.com/sunflower.jpg
+http://developer.qiniu.com/resource/flower.jpg
 ```
 
-开发者可以申请为某特定空间绑定一个自定义域名，以通过这个域名访问资源，比如绑定了一个自定义域名`i.example.com`，就可以这样的方式访问同样的资源：
+开发者可以申请为某特定空间绑定一个自定义域名，以通过这个域名访问资源，比如绑定了一个自定义域名`i.example.com`，就可以通过以下URL访问同样的资源：
 
 ```
-http://i.example.com/sunflower.jpg
+http://i.example.com/flower.jpg
 ```
 
 <a id="download-private-resource"></a>

@@ -59,11 +59,11 @@ Android SDK只包含了最终用户使用场景中的必要功能。相比服务
 <dependency>
     <groupId>com.qiniu</groupId>
     <artifactId>qiniu-android-sdk</artifactId>
-    <version>(7.0.1，7.1]</version>
+    <version>(7.0.1,7.1)</version>
 </dependency>
 ```
 
-* 下载[qiniu-android-sdk-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-android-sdk%22)包，导入到项目中去；下载[http://loopj.com/android-async-http](http://loopj.com/android-async-http/) 1.4.6及以上版本导入到项目中。
+* 下载[qiniu-android-sdk-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22qiniu-android-sdk%22)包、下载[happy-dns-VERSION.jar/aar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.qiniu%22%20AND%20a%3A%22happy-dns%22)(qiniu-android-sdk:7.0.7开始依赖此包)包、下载[http://loopj.com/android-async-http](http://loopj.com/android-async-http/) 1.4.6及以上版本导入到项目中。
 
 
 <a name="functions"></a>
@@ -93,6 +93,7 @@ Configuration config = new Configuration.Builder()
                     .responseTimeout(60) // 服务器响应超时。默认 60秒
                     .recorder(recorder)  // recorder 分片上传时，已上传片记录器。默认 null
                     .recorder(recorder, keyGen)  // keyGen 分片上传时，生成标识符，用于片记录器区分是那个文件的上传记录
+                    .zone(Zone.zone0) // 设置区域，指定不同区域的上传域名、备用域名、备用IP。默认 Zone.zone0
                     .build();
 // 重用 uploadManager。一般地，只需要创建一个 uploadManager 对象
 UploadManager uploadManager = new UploadManager(config);
@@ -142,8 +143,9 @@ String token = <从服务端SDK获取>;
 uploadManager.put(data, key, token,
 new UpCompletionHandler() {
     @Override
-    public void complete(String key, ResponseInfo info, JSONObject response) {
-        Log.i("qiniu", info);
+    public void complete(String key, ResponseInfo info, JSONObject res) {
+        //  res 包含hash、key等信息，具体字段取决于上传策略的设置。 
+        Log.i("qiniu", key + ",\r\n " + info + ",\r\n " + res);
     }
 }, null);
 ```

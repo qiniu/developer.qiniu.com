@@ -5,7 +5,14 @@ order: 150
 ---
 
 <a id="avthumb"></a>
-# 音视频处理
+# 音视频处理（avthumb）
+
+- [描述](#avthumb-description)
+- [接口规格](#avthumb-specification)
+- [示例](#avthumb-samples)
+- [附注](#avthumb-remarks)
+- [内部参考资源](#avthumb-internal-resources)
+
 
 <a id="avthumb-description"></a>
 ## 描述

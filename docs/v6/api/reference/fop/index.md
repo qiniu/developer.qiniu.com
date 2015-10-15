@@ -14,30 +14,39 @@ order: 500
   * [触发持久化处理（pfop）][pfopHref]
   * [持久化处理状态查询（prefop）][prefopHref]
 * [图片][imageHref]
+  * [图片基本处理（imageView2）][view2Href]
+  * [图片高级处理（imageMogr2）][mogr2Href]
   * [图片基本信息（imageInfo）][infoHref]
-  * [图片EXIF信息（exif）][pfopHref]
-  * [基本图片处理（imageView2）][view2Href]
-  * [高级图片处理（imageMogr2）][mogr2Href]
-  * [水印处理（watermark）][pfopHref]
-  * [图片主色调（imageAve）][pfopHref]
+  * [图片EXIF信息（exif）][exifHref]
+  * [图片水印处理（watermark）][watermarkHref]
+  * [图片主色调（imageAve）][imageaveHref]
 * [音视频][avHref]
-  * [音视频处理（avthumb）][pfopHref]
-  * [音视频切片（segtime）][pfopHref]
-  * [音视频拼接（avconcat）][pfopHref]
-  * [音视频元信息（avinfo）][pfopHref]
-  * [视频截图（vframe）][pfopHref]
-  * [视频水印（vwatermark）][pfopHref]
-  * [视频采样缩略图（vsample）][pfopHref]
-  * [私有M3U8（pm3u8）][pfopHref]
+  * [音视频处理（avthumb）][avHref]
+  * [音视频切片（segtime）][seHref]
+  * [音视频拼接（avconcat）][avconcatHref]
+  * [音视频元信息（avinfo）][avinfoHref]
+  * [视频帧缩略图（vframe）][vframeHref]
+  * [视频水印][vwatermarkHref]
+  * [视频采样缩略图（vsample）][vsampleHref]
+  * [私有M3U8（pm3u8）][pm3u8Href]
 * [文件拼接（concat）][concatHref]
 * [资源下载二维码（qrcode）][qrcodeHref]
 * [MD转HTML（md2html）][md2htmlHref]
 * [第三方数据处理服务][third-partHref]
   * [广告过滤服务（ad）][adHref]
   * [图片鉴黄服务（nrop）][nropHref]
+  * [ 文档转换服务（yifangyun_preview）][yifangyunHref]
+
 
 [imageHref]:        /docs/v6/api/reference/fop/image/index.html        "图片处理"
-[avHref]:           /docs/v6/api/reference/fop/av/index.html           "音视频处理"
+[avHref]:           /docs/v6/api/reference/fop/av/avthumb.html           "音视频处理"
+[seHref]:           /docs/v6/api/reference/fop/av/segtime.html           "音视频切片"
+[avconcatHref]:           /docs/v6/api/reference/fop/av/avconcat.html           "音视频拼接"
+[avinfoHref]:           /docs/v6/api/reference/fop/av/avinfo.html           "音视频元信息"
+[vframeHref]:           /docs/v6/api/reference/fop/av/vframe.html           "视频截图"
+[vwatermarkHref]:           /docs/v6/api/reference/fop/av/video-watermark.html           "视频水印"
+[vsampleHref]:           /docs/v6/api/reference/fop/av/vsample.html           "视频采样缩略图"
+[pm3u8Href]:           /docs/v6/api/reference/fop/av/pm3u8.html           "私有M3U8"
 [pfpHref]:         /docs/v6/api/reference/fop/pfop/index.html         "持久化处理"
 [concatHref]:       /docs/v6/api/reference/fop/concat.html             "文件拼接"
 [qrcodeHref]:       /docs/v6/api/reference/fop/qrcode.html             "二维码处理"
@@ -54,3 +63,4 @@ order: 500
 [imageaveHref]:        /docs/v6/api/reference/fop/image/imageave.html        "图片主色调"
 [adHref]:        /docs/v6/api/reference/fop/third-party/ad.html        "广告过滤服务"
 [nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html        "图片鉴黄服务"
+[yifangyunHref]:        /docs/v6/api/reference/fop/third-party/yifangyun_preview.html        "文档转换服务"

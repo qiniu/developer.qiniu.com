@@ -152,7 +152,7 @@
                 <div class="panel panel-default ">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a href="#" {{if isstart_with $url "docs/v6/sdk/"}} class="active"{{end}}> SDK </a>
+                            <a href="/docs/v6/sdk/index.html" {{if isstart_with $url "docs/v6/sdk/"}} class="active"{{end}}> SDK </a>
 
                         {{if isstart_with $url "docs/v6/sdk/"}}
                             <span class="icon api_down">
@@ -274,6 +274,56 @@ style="display:block"
                         </ul>
                     </div>
                 </div>
+                <!-- <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#" {{if isstart_with $url .data.faq.Name}} class="active"{{end}}> FAQ</a>
+
+                        {{if isstart_with $url .data.faq.Name}}
+                            <span class="icon api_down">
+                        {{else}}
+                            <span class="icon api_default">
+                        {{end}}
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="panel-body" {{if isstart_with $url .data.faq.Name}} style="display:block"{{end}}>
+                        <ul class="panel-list level-one">
+                            {{range .data.faq.Items}}
+                            <li>
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+                                        <span class="icon off_1">
+                                        </span>
+                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                        <span class="icon"></span>
+                                    </h5>
+                                </div>
+                                <div class="panel-body  panel-status" {{if isstart_with $url .Href }} style="display:block"{{end}}>
+                                    {{if isnot_nil_or_empty .Child}}
+                                    <ul class="panel-list level-three nav">
+                                        {{range .Child}}
+                                        <li>
+                                            <a href="/{{.Href}}"> {{.Title}} </a>
+                                            {{if isnot_nil_or_empty .Child}}
+                                            <ul class="panel-list level-four nav">
+                                                {{range .Child}}
+                                                <li>
+                                                    <a href="/{{.Href}}">{{.Title}} </a>
+                                                </li>
+                                                {{end}}
+                                            </ul>
+                                            {{end}}
+                                        </li>
+                                        {{end}}
+                                    </ul>
+                                    {{end}}
+                                </div>
+                            </li>
+                            {{end}}
+                        </ul>
+                    </div>
+                </div> -->
 
             </div>
         </div>

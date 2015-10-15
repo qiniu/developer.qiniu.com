@@ -32,7 +32,7 @@
         "author": "qiniu-demo 图片上传插件",
         "img": "",
         "description": "图片上传插件 本demo是一个chrome插件，在安装本插件后，在浏览页面时，图片上右键选择Get image info",
-        "website": "http://tenny.qiniudn.com/qiniu-demo1.1.zip",
+        "website": "http://7jpp2v.com1.z0.glb.clouddn.com/qiniu-demo1.1.zip",
         "code": "https://gitcafe.com/lvming6816077/qiniu-demo"
     }, {
         "name": "Clipper 剪·爱",
@@ -41,6 +41,20 @@
         "description": "一个Chrome插件，通过右键菜单，把喜爱的图片、选取的文字、喜欢的页面(自动提取网页内容没做)保存到指定的七牛账号里",
         "website": "",
         "code": "https://gitcafe.com/MadDemon/Clipper"
+    }, {
+        "name": "PHP Laravel 5 SDK",
+        "author": "zgldh",
+        "img": "",
+        "description": "Qiniu 云储存 Laravel 5 Storage版。符合Laravel 5 的Storage用法",
+        "website": "",
+        "code": "https://github.com/zgldh/qiniu-laravel-storage"
+    }, {
+        "name": "织梦DedeCMS整合教程",
+        "author": "土匪",
+        "img": "",
+        "description": "织梦默认的ckeditor编辑器整合七牛云存储并实现文件上传同步七牛云存储",
+        "website": "http://www.dedejs.com/html/article-944-1.html",
+        "code": ""
     }],
     "Tool": [{
         "name": "docker-registry-driver-qiniu",

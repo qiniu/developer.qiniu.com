@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: 图片基本信息
-order: 236
+title: 基本信息（imageInfo）
+order: 234
 ---
 
 <a id="imageinfo"></a>
@@ -10,11 +10,11 @@ order: 236
 - [描述](#imageinfo-description)
 - [请求](#imageinfo-request)
     - [请求报文格式](#imageinfo-request-syntax)
-    - [请求头部](#imageinfo-request-header) 	
+    - [请求头部](#imageinfo-request-header) 
 - [响应](#imageinfo-response)
     - [响应报文格式](#imageinfo-response-syntax)
 	- [响应头部](#imageinfo-response-header)
-    - [响应内容](#imageinfo-response-content) 	 	
+    - [响应内容](#imageinfo-response-content) 
     - [响应状态码](#imageinfo-response-code)
 - [附注](#imageinfo-remarks)
 - [示例](#imageinfo-samples)
@@ -140,7 +140,7 @@ HTTP状态码 | 含义
 	在Web浏览器中输入以下图片地址  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageInfo
+   http://developer.qiniu.com/resource/gogopher.jpg?imageInfo
 	```
 
 	返回结果（内容经过格式化以便阅读）  

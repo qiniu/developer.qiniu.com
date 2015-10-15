@@ -6,7 +6,7 @@
 			"Href": "docs/v6/api/reference/security/",
 			"Child": [
 				{
-					"Title": "上传策略（PutPolicy）",
+					"Title": "上传策略",
 					"Href": "docs/v6/api/reference/security/put-policy.html",
 					"Child": null,
 					"Order": 980
@@ -37,25 +37,25 @@
 			"Href": "docs/v6/api/reference/up/",
 			"Child": [
 				{
-					"Title": "直传文件（upload）",
+					"Title": "直传文件",
 					"Href": "docs/v6/api/reference/up/upload.html",
 					"Child": null,
 					"Order": 200
 				},
 				{
-					"Title": "创建块（mkblk）",
+					"Title": "创建块",
 					"Href": "docs/v6/api/reference/up/mkblk.html",
 					"Child": null,
 					"Order": 100
 				},
 				{
-					"Title": "上传片（bput）",
+					"Title": "上传片",
 					"Href": "docs/v6/api/reference/up/bput.html",
 					"Child": null,
 					"Order": 90
 				},
 				{
-					"Title": "创建文件（mkfile）",
+					"Title": "创建文件",
 					"Href": "docs/v6/api/reference/up/mkfile.html",
 					"Child": null,
 					"Order": 10
@@ -68,28 +68,40 @@
 			"Href": "docs/v6/api/reference/rs/",
 			"Child": [
 				{
-					"Title": "获取资源信息（stat）",
+					"Title": "查看（stat）",
 					"Href": "docs/v6/api/reference/rs/stat.html",
 					"Child": null,
 					"Order": 900
 				},
 				{
-					"Title": "复制资源（copy）",
-					"Href": "docs/v6/api/reference/rs/copy.html",
+					"Title": "移动（move）",
+					"Href": "docs/v6/api/reference/rs/move.html",
 					"Child": null,
 					"Order": 800
 				},
 				{
-					"Title": "移动资源（move）",
-					"Href": "docs/v6/api/reference/rs/move.html",
+					"Title": "复制（copy）",
+					"Href": "docs/v6/api/reference/rs/copy.html",
 					"Child": null,
 					"Order": 700
 				},
 				{
-					"Title": "删除资源（delete）",
+					"Title": "删除（delete）",
 					"Href": "docs/v6/api/reference/rs/delete.html",
 					"Child": null,
 					"Order": 600
+				},
+				{
+					"Title": "抓取（fetch）",
+					"Href": "docs/v6/api/reference/rs/fetch.html",
+					"Child": null,
+					"Order": 599
+				},
+				{
+					"Title": "列举（list）",
+					"Href": "docs/v6/api/reference/rs/list.html",
+					"Child": null,
+					"Order": 598
 				},
 				{
 					"Title": "批量操作（batch）",
@@ -98,28 +110,16 @@
 					"Order": 500
 				},
 				{
-					"Title": "列举资源（list）",
-					"Href": "docs/v6/api/reference/rs/list.html",
+					"Title": "修改元信息（chgm）",
+					"Href": "docs/v6/api/reference/rs/chgm.html",
 					"Child": null,
-					"Order": 400
-				},
-				{
-					"Title": "抓取资源（fetch）",
-					"Href": "docs/v6/api/reference/rs/fetch.html",
-					"Child": null,
-					"Order": 400
+					"Order": 499
 				},
 				{
 					"Title": "更新镜像资源（prefetch）",
 					"Href": "docs/v6/api/reference/rs/prefetch.html",
 					"Child": null,
-					"Order": 300
-				},
-				{
-					"Title": "修改元信息（chgm）",
-					"Href": "docs/v6/api/reference/rs/chgm.html",
-					"Child": null,
-					"Order": 200
+					"Order": 498
 				}
 			],
 			"Order": 600
@@ -129,7 +129,7 @@
 			"Href": "docs/v6/api/reference/fop/",
 			"Child": [
 				{
-					"Title": "处理结果另存为（saveas）",
+					"Title": "处理结果另存",
 					"Href": "docs/v6/api/reference/fop/saveas.html",
 					"Child": null,
 					"Order": 185
@@ -139,13 +139,13 @@
 					"Href": "docs/v6/api/reference/fop/pfop/",
 					"Child": [
 						{
-							"Title": "触发持久化处理（pfop）",
+							"Title": "触发持久化处理",
 							"Href": "docs/v6/api/reference/fop/pfop/pfop.html",
 							"Child": null,
 							"Order": 300
 						},
 						{
-							"Title": "查询持久化处理状态（prefop）",
+							"Title": "持久化处理状态查询",
 							"Href": "docs/v6/api/reference/fop/pfop/prefop.html",
 							"Child": null,
 							"Order": 200
@@ -158,40 +158,40 @@
 					"Href": "docs/v6/api/reference/fop/image/",
 					"Child": [
 						{
-							"Title": "图片处理（imageView2）",
+							"Title": "基本处理（imageView2）",
 							"Href": "docs/v6/api/reference/fop/image/imageview2.html",
 							"Child": null,
-							"Order": 250
+							"Order": 236
 						},
 						{
-							"Title": "高级图片处理（imageMogr2）",
+							"Title": "高级处理（imageMogr2）",
 							"Href": "docs/v6/api/reference/fop/image/imagemogr2.html",
 							"Child": null,
-							"Order": 249
+							"Order": 235
 						},
 						{
-							"Title": "图片基本信息（imageInfo）",
+							"Title": "基本信息（imageInfo）",
 							"Href": "docs/v6/api/reference/fop/image/imageinfo.html",
 							"Child": null,
-							"Order": 173
+							"Order": 234
 						},
 						{
-							"Title": "图片EXIF信息（exif）",
+							"Title": "EXIF信息（exif）",
 							"Href": "docs/v6/api/reference/fop/image/exif.html",
 							"Child": null,
-							"Order": 172
+							"Order": 233
 						},
 						{
-							"Title": "水印（watermark）",
+							"Title": "水印处理（watermark）",
 							"Href": "docs/v6/api/reference/fop/image/watermark.html",
 							"Child": null,
-							"Order": 160
+							"Order": 232
 						},
 						{
-							"Title": "图片主色调（imageAve）",
+							"Title": "主色调（imageAve）",
 							"Href": "docs/v6/api/reference/fop/image/imageave.html",
 							"Child": null,
-							"Order": 155
+							"Order": 231
 						}
 					],
 					"Order": 170
@@ -201,104 +201,110 @@
 					"Href": "docs/v6/api/reference/fop/av/",
 					"Child": [
 						{
-							"Title": "音视频处理（avthumb）",
+							"Title": "音视频处理",
 							"Href": "docs/v6/api/reference/fop/av/avthumb.html",
 							"Child": null,
 							"Order": 150
 						},
 						{
-							"Title": "视频截图（vframe）",
-							"Href": "docs/v6/api/reference/fop/av/vframe.html",
+							"Title": "音视频切片",
+							"Href": "docs/v6/api/reference/fop/av/segtime.html",
 							"Child": null,
 							"Order": 149
 						},
 						{
-							"Title": "音视频切片（segtime）",
-							"Href": "docs/v6/api/reference/fop/av/segtime.html",
+							"Title": "音视频拼接",
+							"Href": "docs/v6/api/reference/fop/av/avconcat.html",
 							"Child": null,
 							"Order": 148
 						},
 						{
-							"Title": "音视频元信息（avinfo）",
+							"Title": "音视频元信息",
 							"Href": "docs/v6/api/reference/fop/av/avinfo.html",
 							"Child": null,
 							"Order": 147
 						},
 						{
-							"Title": "私有M3U8（pm3u8）",
-							"Href": "docs/v6/api/reference/fop/av/pm3u8.html",
+							"Title": "视频帧缩略图",
+							"Href": "docs/v6/api/reference/fop/av/vframe.html",
 							"Child": null,
 							"Order": 146
 						},
 						{
-							"Title": "视频采样缩略图（vsample）",
+							"Title": "视频水印",
+							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
+							"Child": null,
+							"Order": 145
+						},
+						{
+							"Title": "视频采样缩略图",
 							"Href": "docs/v6/api/reference/fop/av/vsample.html",
 							"Child": null,
 							"Order": 144
 						},
 						{
-							"Title": "视频水印（vwatermark）",
-							"Href": "docs/v6/api/reference/fop/av/video-watermark.html",
+							"Title": "私有M3U8",
+							"Href": "docs/v6/api/reference/fop/av/pm3u8.html",
 							"Child": null,
-							"Order": 139
-						},
-						{
-							"Title": "音视频拼接（avconcat）",
-							"Href": "docs/v6/api/reference/fop/av/avconcat.html",
-							"Child": null,
-							"Order": 135
+							"Order": 143
 						}
 					],
 					"Order": 160
 				},
 				{
-					"Title": "文件拼接（concat）",
+					"Title": "文件拼接",
 					"Href": "docs/v6/api/reference/fop/concat.html",
 					"Child": null,
 					"Order": 135
 				},
 				{
-					"Title": "资源下载二维码（qrcode）",
+					"Title": "资源下载二维码",
 					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
 					"Order": 110
 				},
 				{
-					"Title": "MD转HTML（md2html）",
+					"Title": "MD转HTML",
 					"Href": "docs/v6/api/reference/fop/md2html.html",
 					"Child": null,
-					"Order": 110
-				},
-				{
-					"Title": "多文件压缩（mkzip）",
-					"Href": "docs/v6/api/reference/fop/mkzip.html",
-					"Child": null,
-					"Order": 100
+					"Order": 109
 				},
 				{
 					"Title": "第三方数据处理服务",
 					"Href": "docs/v6/api/reference/fop/third-party/",
 					"Child": [
 						{
+							"Title": "广告过滤服务",
+							"Href": "docs/v6/api/reference/fop/third-party/ad.html",
+							"Child": null,
+							"Order": 300
+						},
+						{
 							"Title": "图片鉴黄服务",
 							"Href": "docs/v6/api/reference/fop/third-party/nrop.html",
+							"Child": null,
+							"Order": 300
+						},
+						{
+							"Title": "视频鉴黄服务",
+							"Href": "docs/v6/api/reference/fop/third-party/tupu-video.html",
+							"Child": null,
+							"Order": 300
+						},
+						{
+							"Title": "文档转换服务",
+							"Href": "docs/v6/api/reference/fop/third-party/yifangyun_preview.html",
 							"Child": null,
 							"Order": 300
 						}
 					],
 					"Order": 90
-				},
-				{
-					"Title": "",
-					"Href": "docs/v6/api/reference/fop/download.html",
-					"Child": null,
-					"Order": 0
 				}
 			],
 			"Order": 500
 		},
 		{
-			"Title": "状态码",
+			"Title": "HTTP状态码",
 			"Href": "docs/v6/api/reference/codes.html",
 			"Child": null,
 			"Order": 300
@@ -326,13 +332,13 @@
 			"Href": "docs/v6/api/reference/obsolete/",
 			"Child": [
 				{
-					"Title": "图片处理（imageView）",
+					"Title": "图片基本处理",
 					"Href": "docs/v6/api/reference/obsolete/imageview.html",
 					"Child": null,
 					"Order": 175
 				},
 				{
-					"Title": "高级图片处理（imageMogr）",
+					"Title": "图片高级处理",
 					"Href": "docs/v6/api/reference/obsolete/imagemogr.html",
 					"Child": null,
 					"Order": 174

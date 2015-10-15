@@ -12,8 +12,8 @@ order: 970
 - [算法](#upload-token-algorithm)
 - [附注](#upload-token-remarks)
 - [代码示例](#upload-token-samples)
-- [上传凭证生成器](#put-policy-maker) 
-- [内部参考资源](#upload-internal-resources) 
+- [上传凭证生成器](#put-policy-maker)
+- [内部参考资源](#upload-internal-resources)
 - [外部参考资源](#upload-external-resources)  
 
 <a id="upload-token-algorithm"></a>
@@ -22,7 +22,7 @@ order: 970
 1. 构造[上传策略][putPolicyHref]：  
 
 	用户根据业务需求，确定上传策略要素，构造出具体的上传策略。  
-	比如，有用户需要向空间`my-bucket`上传一个名为`sunflower.jpg`的图片，授权有效期截止到`2015-12-31 00:00:00`(**改有效期指上传完成后在七牛生成文件的时间，而非上传的开始时间**)，并且希望得到图片的名称、大小、宽高和校验值。那么相应的上传策略各字段分别为：  
+	比如，有用户需要向空间`my-bucket`上传一个名为`sunflower.jpg`的图片，授权有效期截止到`2015-12-31 00:00:00`(**该有效期指上传完成后在七牛生成文件的时间，而非上传的开始时间**)，并且希望得到图片的名称、大小、宽高和校验值。那么相应的上传策略各字段分别为：  
 
 	```
     scope = 'my-bucket:sunflower.jpg'
@@ -57,7 +57,7 @@ order: 970
     encodedPutPolicy = "eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVybkJvZHkiOiJ7XCJuYW1lXCI6JChmbmFtZSksXCJzaXplXCI6JChmc2l6ZSksXCJ3XCI6JChpbWFnZUluZm8ud2lkdGgpLFwiaFwiOiQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6JChldGFnKX0ifQ=="
 	```
 
-4. 使用`SecertKey`对上一步生成的待签名字符串计算[HMAC-SHA1][hmacSha1Href]签名：
+4. 使用`SecretKey`对上一步生成的待签名字符串计算[HMAC-SHA1][hmacSha1Href]签名：
 
 	```
     sign = hmac_sha1(encodedPutPolicy, "<SecretKey>")

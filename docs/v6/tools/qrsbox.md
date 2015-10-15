@@ -39,19 +39,19 @@ QRSBox是七牛云存储提供的同步上传客户端工具，可以用于Linux
 ## 下载
 
 - 图形化工具：
-    - Windows: [qrsbox windows_386](http://devtools.qiniu.io/qiniu-devtools-windows_386-current.zip)
+    - Windows: [qrsbox windows_386](http://devtools.qiniu.com/qiniu-devtools-windows_386-current.zip)
 
 - 命令行工具：
-    - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniu.io/qiniu-devtools-darwin_amd64-current.tar.gz)
-    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniu.io/qiniu-devtools-linux_amd64-current.tar.gz)
-    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniu.io/qiniu-devtools-linux_386-current.tar.gz)
-    - Linux ARMv6: [qrsboxcli linux_arm](http://devtools.qiniu.io/qiniu-devtools-linux_arm-current.tar.gz)
+    - Mac OS X: [qrsboxcli darwin_amd64](http://devtools.qiniu.com/qiniu-devtools-darwin_amd64-current.tar.gz)
+    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniu.com/qiniu-devtools-linux_amd64-current.tar.gz)
+    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniu.com/qiniu-devtools-linux_386-current.tar.gz)
+    - Linux ARMv6: [qrsboxcli linux_arm](http://devtools.qiniu.com/qiniu-devtools-linux_arm-current.tar.gz)
 
 ---
 
 <a id="tutorials"></a>
 
-# 视频教程
+## 视频教程
 
 Windows 版视频教程：[http://developer.qiniu.com/tutorial%2Fqrsbox_video_for_win_web_low_origin.mp4](http://developer.qiniu.com/tutorial%2Fqrsbox_video_for_win_web_low_origin.mp4)
 
@@ -141,7 +141,7 @@ nohup ./qrsboxcli sync >/dev/null 2>&1 &
 
 如果希望改变同步的目录、bucket等运行参数，需要先用 `stop` 命令停止 qrsboxcli 的后台程序，重新用新的参数运行初始化命令，然后再次启动同步程序，qrsboxcli会立刻按新的配置将新目录的文件同步至七牛云存储。
 
-#### 命令使用说明
+**命令使用说明**
 
 执行以下命令可以获得各个子命令的使用说明：
 
@@ -158,7 +158,7 @@ BuildVersion:
   qrsboxcli v2.5.20131013
 ```
 
-#### 配置文件
+**配置文件**
 
 命令行工具的配置文件通常保存在用户主目录的.qrsbox下，执行init命令时会将具体目录路径输出到屏幕上。
 具体内容如下（JSON格式）：
@@ -190,20 +190,16 @@ BuildVersion:
 - `secret_key`字段指定SecretKey值；
 - `debug_level`字段指定日志信息输出等级，默认值为`0`，即输出Debug信息。
 
-#### ignore 文件与规则
+**ignore 文件与规则**
 
 `qrsbox` 和 `qrsboxcli` 支持使用 ignore 文件来忽略某些不需要上传的文件，详见[ ignore 规则](/docs/v6/tools/ignore-rules.html)。  
 
 ---
 
-<a id="failures">
+<a id="failures"></a>
 ## 故障排除
 
-### Linux环境
-
-1. `No space left on device`问题
-
-现象为日志中出现如下错误：
+**Linux环境**中`No space left on device` 问题现象为日志中出现如下错误：
 
 ```
 2014/02/21 10:24:50 [ERROR][github.com/qiniu/fsw] utils.go:22: Watcher failed: no space left on device

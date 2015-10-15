@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: 图片EXIF信息
-order: 235
+title: EXIF信息（exif）
+order: 233
 ---
 
 <a id="Exif-Exif"></a>
@@ -119,7 +119,7 @@ HTTP状态码 | 含义
 	在Web浏览器中输入以下图片地址：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?exif
+    http://developer.qiniu.com/resource/gogopher.jpg?exif
 	```
 
 	返回结果（内容经过格式化以便阅读）  

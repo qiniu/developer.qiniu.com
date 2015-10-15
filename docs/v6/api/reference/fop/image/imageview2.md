@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 基本图片处理
-order: 234
+title: 基本处理（imageView2）
+order: 236
 ---
 
 <a id="imageview2"></a>
-# 基本图片处理（imageView2）
+# 图片基本处理（imageView2）
 
 - [描述](#imageView2-description)
 - [接口规格](#imageView2-specification)
@@ -24,8 +24,7 @@ order: 234
 <a id="imageView2-description"></a>
 ## 描述
 
-imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。  
-同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。  
+imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html)的更新版本，实现略有差异，功能更为丰富。同样，只需要填写几个参数即可对图片进行缩略操作，生成各种缩略图。imageView2接口可支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp。  
 
 <a id="imageView2-specification"></a>
 ## 接口规格
@@ -33,12 +32,11 @@ imageView2是原[imageView接口](/docs/v6/api/reference/obsolete/imageview.html
 注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
 ```
-imageView2/<mode>
-          /w/<LongEdge>
-          /h/<ShortEdge>
-          /format/<Format>
-          /interlace/<Interlace>
-          /q/<Quality>
+imageView2/<mode>/w/<LongEdge>
+                /h/<ShortEdge>
+               /format/<Format>
+              /interlace/<Interlace>
+             /q/<Quality>
 ```
 
 其中 `<mode>` 分为如下几种情况：  
@@ -52,18 +50,20 @@ imageView2/<mode>
 `/4/w/<LongEdge>/h/<ShortEdge>` | 限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，不裁剪。如果只指定 w 参数或只指定 h 参数，表示长边短边限定为同样的值。这个模式很适合在手持设备做图片的全屏查看（把这里的长边短边分别设为手机屏幕的分辨率即可），生成的图片尺寸刚好充满整个屏幕（某一个边可能会超出屏幕）。
 `/5/w/<LongEdge>/h/<ShortEdge>` | 限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，居中裁剪。如果只指定 w 参数或只指定 h 参数，表示长边短边限定为同样的值。同上模式4，但超出限定的矩形部分会被裁剪。
 
-注意：  
+**注意:**
 
 1. 可以仅指定w参数或h参数；  
 2. 新图的宽/高/长边/短边，不会比原图大，即本接口总是缩小图片；
 3. 所有模式都可以只指定w参数或只指定h参数，并获得合理结果。在w、h为限定最大值时，未指定某参数等价于将该参数设置为无穷大（自适应）；在w、h为限定最小值时，未指定参数等于给定的参数，也就限定的矩形是正方形;
 4. 处理后的图片单边最长不得超过9999，宽和高的乘积最大不得超过25000000；
+5. 处理前的图片w和h参数不能超过3万像素，总像素不能超过1亿5000万像素。
 
 参数名称            | 必填  | 说明
 :------------------ | :---- | :--------------------------------------------------------------------------------
 `/format/<Format>`  |       | ● 新图的输出格式<br>取值范围：jpg，gif，png，webp等，缺省为原图格式。<br>参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)。
-<a id="imageView2-interlace"></a>``/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
-`/q/<Quality>` |   |  ● 图片质量，取值范围是[1, 100]。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。quality后面可以增加!，表示强制使用指定值
+`/interlace/<Interlace>` |  | ● 是否支持渐进显示<br>取值范围：1 支持渐进显示，0不支持渐进显示(缺省为0)<br>适用目标格式：jpg<br>效果：网速慢时，图片显示由模糊到清晰。
+`/q/<Quality>` |   |  ● 图片质量，取值范围是[1, 100]。默认85，会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。<br>**注：**1. 如果图片的quality值本身大于90，会根据指定quality值进行处理，此时修正值会失效。2. quality后面可以增加 ! ，表示强制使用指定值（eg：100!）3. 支持图片类型：jpg。
+
 
 <a id="image-quality"></a>
 `<Quality>`修正值算法： `min(90, 原图quality*sqrt(原图长宽乘积/结果图片长宽乘积)`
@@ -155,32 +155,32 @@ HTTP状态码 | 含义
 1. 裁剪正中部分，等比缩小生成200x200缩略图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200)
 
 
 2. 宽度固定为200px，高度等比缩小，生成200x133缩略图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/w/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/w/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200)
 
 3. 高度固定为200px，宽度等比缩小，生成300x200缩略图：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/h/200
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/h/200
 	```
 
-	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/2/h/200)
+	![查看效果图](http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/h/200)
 
 4. 渐进显示图片：  
 
 	```
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
+    http://developer.qiniu.com/resource/gogopher.jpg?imageView2/1/w/200/h/200/interlace/1
 	```
 
 	![查看效果图](http://developer.qiniu.com/resource/gogopher-imageview2-interlace.jpg)
