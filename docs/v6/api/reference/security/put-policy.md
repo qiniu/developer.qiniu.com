@@ -40,18 +40,17 @@ order: 980
     "callbackHost":        "<RequestHostForAppServer  string>",
     "callbackBody":        "<RequestBodyForAppServer  string>",
     "callbackBodyType":    "<RequestBodyTypeForAppServer  string>",
-    "callbackFetchKey":    "<RequestKeyForApp         int>"
+    "callbackFetchKey":    <RequestKeyForApp         int>
 
     "persistentOps":       "<persistentOpsCmds        string>",
     "persistentNotifyUrl": "<persistentNotifyUrl      string>",
     "persistentPipeline":  "<persistentPipeline		  string>",
-
+    "fsizeMin":           <FileSizeMin            int64>,
     "fsizeLimit":           <FileSizeLimit            int64>,
 
     "detectMime":           <AutoDetectMimeType       int>,
 
-    "mimeLimit":           "<MimeLimit                string>",
-    "checksum":            "<HashName:HexHashValue    string>"
+    "mimeLimit":           "<MimeLimit                string>"
 }
 ```
 
@@ -72,10 +71,10 @@ order: 980
 <a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | 接收预转持久化结果通知的URL。<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。<br> 该URL获取的内容和[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)的处理结果一致。<br> 发送body格式为`Content-Type`为`"application/json"`的POST请求，需要按照读取流的形式读取请求的body才能获取。
 `persistentPipeline`| |  转码队列名。<br>资源上传成功后，触发转码时指定独立的队列进行转码。`为空则表示使用公用队列，处理速度比较慢。`建议使用[专用队列][mpsHref]。
 <a id="put-policy-save-key"></a>`saveKey`             |      | 自定义资源名。<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。这个字段仅当用户上传的时候没有主动指定key的时候起作用。
-<a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | 限定上传文件的大小，单位：字节（Byte）。<br>超过限制的上传内容会被判为上传失败，返回413状态码。
+<a id="put-policy-fsize-min"></a>`fsizeMin`          |      | 限定上传文件大小最小值，单位：字节（Byte）。
+<a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | 限定上传文件大小最大值，单位：字节（Byte）。<br>超过限制的上传内容会被判为上传失败，返回413状态码。
 <a id="put-policy-detect-mime"></a>`detectMime`          |      | 开启MimeType侦测功能。<br>设为非0值，则忽略上传端传递的文件MimeType信息，使用七牛服务器侦测内容后的判断结果。<br>默认设为0值，如上传端指定了MimeType则直接使用该值，否则按如下顺序侦测MimeType值：<br>1. 检查文件扩展名；<br>2. 检查Key扩展名；<br>3. 侦测内容。<br>如不能侦测出正确的值，会默认使用 `application/octet-stream` 。
 <a id="put-policy-mime-limit"></a>`mimeLimit`           |      |  限定用户上传的文件类型。<br>指定本字段值，七牛服务器会侦测文件内容以判断MimeType，再用判断值跟指定值进行匹配，匹配成功则允许上传，匹配失败返回403状态码。<br>示例<br>● "image/*"表示只允许上传图片类型；<br>● "image/jpeg;image/png"表示只允许上传`jpg`和`png`类型的图片；<br>● "!application/json;text/plain"表示禁止上传`json`文本和纯文本。（注意最前面的感叹号） 
-<a id="put-policy-checksum"></a>`checksum`           |      | 验证上传文件的 checksum，支持 MD5, SHA1。<br>语法为：`<HashName>:<HexHashValue>`。
 
 <a id="fetch-key-explaination"></a>
 ### fetchKey上传模式

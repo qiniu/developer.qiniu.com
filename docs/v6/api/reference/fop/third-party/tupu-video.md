@@ -1,28 +1,28 @@
 ---
 layout: docs
-title: 视频鉴黄服务
+title: 短视频鉴黄服务
 order: 300
 ---
 
 <a id="tupu-video"></a>
-# 视频鉴黄服务（tupu-video）
+# 短视频鉴黄服务（tupu-video）
 
 <a id="tupu-video-description"></a>
 ## 描述
 
-视频鉴黄服务(`tupu-video`)能够帮您有效判断保存在七牛云的视频是属于色情、性感还是正常。
+短视频鉴黄服务(`tupu-video`)能够帮您有效判断保存在七牛云的视频是属于色情、性感还是正常。
 
 本服务由`广州图普网络科技有限公司`（以下简称`图普科技`）提供。启用服务后，您存储在七牛云空间的文件将在您主动请求的情况下被提供给`图普科技`以供其计算使用。七牛不能保证鉴别结果的正确性，请您自行评估后选择是否启用。服务价格请您参考具体的价格表及计费举例，您使用本服务产生的费用由七牛代收。启用服务则表示您知晓并同意以上内容。
 
 <a id="tupu-video-open"></a>
 ## 如何开启
 
-进入`https://portal.qiniu.com/service/market`, 找到视频鉴黄服务点击开始使用。
+进入`https://portal.qiniu.com/service/market`, 找到短视频鉴黄服务点击开始使用。
 
 <a id="tupu-video-request"></a>
 ## 请求
 
-这里只介绍了实时请求的规格，但是考虑到如果鉴别的是比较长的视频，转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用[异步处理](http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html)
+这里只介绍了实时请求的规格，但是考虑到如果鉴别的是比较长(目前只支持10分钟以内的视频)的视频，转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用[异步处理](http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html)
 
 <a id="tupu-video-request-syntax"></a>
 ### 请求报文格式
