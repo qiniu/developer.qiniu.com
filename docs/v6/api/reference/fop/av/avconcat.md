@@ -28,7 +28,7 @@ avconcat/<Mode>
 
 参数名称                | 必填 | 说明
 :---------------------- | :--- | :---------------------------------------------------------------
-`<Mode>`                | 是   | `2` 表示使用filter方法
+`<Mode>`                | 是   | 值为`2`， 表示使用filter方法。
 `<Format>`              | 是   |目标视频的格式（比如flv、mp4等）<br>请参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats)
 `<encodedUrlN>`         | 是   | 经过[URL安全的Base64编码][urlsafeBase64Href]的完整源文件URL<br>● 除去作为数据处理对象的源文件以外，还可以指定最多20个源文件（即总计21个片段）<br>● 所有源文件必须属于同一存储空间
 
@@ -51,7 +51,7 @@ avconcat/<Mode>
 
     bucket=qiniu-ts-demo
     &key=thinking-in-go.1.mp4
-    &fops=avconcat%2Fmode%2F1%2Fformat%2Fmp4%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMi5tcDQ%3D%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMy5tcDQ%3D
+    &fops=avconcat%2Fmode%2F2%2Fformat%2Fmp4%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMi5tcDQ%3D%2FaHR0cDovL3Rlc3QuY2xvdWRkbi5jb20vdGhpbmtpbmctaW4tZ28uMy5tcDQ%3D
     &notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
