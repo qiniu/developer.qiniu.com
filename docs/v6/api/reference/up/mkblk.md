@@ -64,7 +64,7 @@ Authorization:  UpToken <UploadToken>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :--------------------------------
-Host           | 是   | 上传服务器域名。<br>● 分块上传的首块上传域名为：上传到华东1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到华北1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`。<br>● 后续片的上传为上一次上传响应返回的后续上传接收地址。
+Host           | 是   | 上传服务器域名。<br>● 分块上传的首块上传域名为：上传到杭州1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到北京1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`。<br>● 后续片的上传为上一次上传响应返回的后续上传接收地址。
 Content-Type   | 是   | 固定为application/octet-stream。
 Content-Length | 是   | 第一个片的内容长度，单位为字节。
 Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
@@ -80,7 +80,7 @@ Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]
 <a id="mkblk-response-headers"></a>
 ### 头部信息
 
-头部名称      | 必填 | 说明                              
+头部名称      | 必填 | 说明
 :------------ | :--- | :--------------------------------------------------------------------
 Content-Type  | 是   | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
@@ -89,11 +89,11 @@ Content-Type  | 是   | 正常情况下该值将被设为`application/json`，�
 <a id="mkblk-response-body"></a>
 ### 响应内容
 
-■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
 
 ```
 {
-	"ctx":          "<Ctx           string>", 
+	"ctx":          "<Ctx           string>",
     "checksum":     "<Checksum      string>",
     "crc32":         <Crc32         int64>,
     "offset":        <Offset        int64>,
@@ -109,16 +109,16 @@ crc32          | 是   | 上传块Crc32,客户可通过此字段对上传块的�
 offset         | 是   | 下一个上传块在切割块中的偏移。
 host           | 是   | 后续上传接收地址。
 
-■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
 
 ```
 {
-	"code":     <HttpCode  int>, 
+	"code":     <HttpCode  int>,
     "error":   "<ErrMsg    string>"
 }
 ```
 
-字段名称     | 必填 | 说明                              
+字段名称     | 必填 | 说明
 :----------- | :--- | :--------------------------------------------------------------------
 `code`       | 是   | HTTP状态码，请参考[响应状态码](#mkblk-response-status)。
 `error`      | 是   | 与HTTP状态码对应的消息文本。
@@ -136,7 +136,7 @@ HTTP状态码 | 含义
 <a id="mkblk-examples"></a>
 ## 示例
 
-我们拿一个小文件作为示例，该文件的大小适合作为一次完整上传展示。  
+我们拿一个小文件作为示例，该文件的大小适合作为一次完整上传展示。
 
 <a id="mkblk-example1-command"></a>
 ### 命令行示例
@@ -177,7 +177,7 @@ X-Log: qtbl.get;RS
 X-Reqid: swEAAMipp-5bIjMT
 
 {
-	"ctx":          "ctx", 
+	"ctx":          "ctx",
     "checksum":     "checksum",
     "crc32":        1345,
     "offset":       0,
