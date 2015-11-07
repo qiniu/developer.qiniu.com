@@ -12,7 +12,7 @@ order: 90
   - [请求语法](#bput-request-syntax)
   - [请求参数](#bput-request-params)
   - [头部信息](#bput-request-headers)
-  - [请求内容](#bput-request-body)  
+  - [请求内容](#bput-request-body)
   - [访问权限](#bput-request-auth)
 - [响应](#bput-response)
   - [头部信息](#bput-response-headers)
@@ -24,8 +24,8 @@ order: 90
 <a id="bput-description"></a>
 ## 描述
 
-上传指定块的一片数据，具体数据量可根据现场环境调整。  
-同一块的每片数据必须串行上传。  
+上传指定块的一片数据，具体数据量可根据现场环境调整。
+同一块的每片数据必须串行上传。
 
 <a id="bput-request"></a>
 ## 请求
@@ -56,7 +56,7 @@ Authorization:  UpToken <UploadToken>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :-------------------------------------
-Host           | 是   | 上传服务器域名。<br>● 分片上传的首片上传域名为：上传到华东1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到华北1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`。<br>● 后续片的上传为上一次上传响应返回的后续上传接收地址。
+Host           | 是   | 上传服务器域名。<br>● 分片上传的首片上传域名为：上传到杭州1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到北京1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`。<br>● 后续片的上传为上一次上传响应返回的后续上传接收地址。
 Content-Type   | 是   | 固定为application/octet-stream。
 Content-Length | 是   | 当前片的内容长度，单位：字节（Byte）。
 Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
@@ -77,7 +77,7 @@ Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]
 <a id="bput-response-headers"></a>
 ### 头部信息
 
-头部名称      | 说明                              
+头部名称      | 说明
 :------------ | :--------------------------------------------------------------------
 Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
@@ -86,11 +86,11 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 <a id="bput-response-body"></a>
 ### 响应内容
 
-■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
 
 ```
 {
-	"ctx":            "<Ctx          string>", 
+	"ctx":            "<Ctx          string>",
     "checksum":       "<Checksum     string>",
     "crc32":           <Crc32        int64>,
     "offset":          <Offset       int64>,
@@ -106,16 +106,16 @@ crc32          | 是   | 本块已上传部分的CRC32值，上传端可通过�
 offset         | 是   | 下一个上传片在上传块中的偏移。
 host           | 是   | 后续上传接收地址。
 
-■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
 
 ```
 {
-	"code":     <HttpCode  int>, 
+	"code":     <HttpCode  int>,
     "error":   "<ErrMsg    string>"
 }
 ```
 
-字段名称     | 必填 | 说明                              
+字段名称     | 必填 | 说明
 :----------- | :--- | :--------------------------------------------------------------------
 `code`       | 是   | HTTP状态码，请参考[响应状态码](#bput-response-status)。
 `error`      | 是   | 与HTTP状态码对应的消息文本。
@@ -134,8 +134,8 @@ HTTP状态码 | 含义
 <a id="bput-remarks"></a>
 ## 附注
 
-- 可以复用创建块时使用的上传凭证。  
-- 上传凭证将被重新验证，若已过期，可以使用重新生成的凭证。  
+- 可以复用创建块时使用的上传凭证。
+- 上传凭证将被重新验证，若已过期，可以使用重新生成的凭证。
 
 <a id="bput-internal-resources"></a>
 ## 内部参考资源
