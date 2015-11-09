@@ -22,11 +22,11 @@ order: 200
 - [在线示例](#upload-example)
 - [内部参考资源](#upload-internal-resources)
 - [外部参考资源](#upload-external-resources)
- 
+
 <a id="upload-description"></a>
 ## 描述
 
-`upload`是七牛云存储提供的最基础的接口，用于在一次HTTP会话中上传单一的一个文件。  
+`upload`是七牛云存储提供的最基础的接口，用于在一次HTTP会话中上传单一的一个文件。
 
 
 <a id="method"></a>
@@ -52,7 +52,7 @@ order: 200
 <a id="upload-request-syntax"></a>
 ### 请求报文格式
 
-请求报文的内容以`multipart/form-data`格式组织，具体细节请参考[Multipart格式][multipartFrontierHref]。  
+请求报文的内容以`multipart/form-data`格式组织，具体细节请参考[Multipart格式][multipartFrontierHref]。
 
 ```
 POST / HTTP/1.1
@@ -94,14 +94,14 @@ Content-Transfer-Encoding: binary
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Host           | 是   | 上传服务器域名，上传到华东1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到华北1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`
+Host           | 是   | 上传服务器域名，上传到杭州1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到北京1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`
 Content-Type   | 是   | 固定为multipart/form-data。`<frontier>`为[Multipart分隔符][multipartFrontierHref]，必须是任何Multipart消息都不包含的字符串。
 Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（Byte）。
 
 <a id="upload-request-params"></a>
 ### 请求报文参数
 
-请求报文的每一个参数（以“<>”标记）的具体说明如下表所示（按出现位置顺序排列）：  
+请求报文的每一个参数（以“<>”标记）的具体说明如下表所示（按出现位置顺序排列）：
 
 参数名称                      | 必填 | 说明
 :---------------------------- | :--- | :-----------------------------------------
@@ -114,7 +114,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 `<crc32>`                     |      | 上传内容的 CRC32 校验码。<br>如填入，则七牛服务器会使用此值进行内容检验。
 `<accept>`             |      | 当 HTTP 请求指定 `Accept` 头部时，七牛会返回的 `Content-Type` 头部的值。<br>该值用于兼容低版本 IE 浏览器行为。低版本 IE 浏览器在 multiform 返回 `application/json` 的时候会表现为下载，返回 `text/plain` 才会显示返回内容。
 
-注意：用户自定义变量可以有多对。  
+注意：用户自定义变量可以有多对。
 
 
 <a id="upload-response"></a>
@@ -145,7 +145,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存。
 <a id="upload-response-content"></a>
 ### 响应内容
 
-■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
 
 ```
 {
@@ -154,21 +154,21 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存。
 }
 ```
 
-字段名称 | 必填 | 说明                              
+字段名称 | 必填 | 说明
 :------- | :--- | :--------------------------------------------------------------------
 `hash`   | 是   | 目标资源的[hash值](/docs/v6/api/overview/appendix.html#qiniu-etag)，可用于ETag头部。
 `key`    | 是   | 目标资源的最终名字，可由七牛云存储自动命名。
 
-■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
+■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
 
 ```
 {
-	"code":     <HttpCode  int>, 
+	"code":     <HttpCode  int>,
     "error":   "<ErrMsg    string>",
 }
 ```
 
-字段名称     | 必填 | 说明                              
+字段名称     | 必填 | 说明
 :----------- | :--- | :--------------------------------------------------------------------
 `code`       | 是   | HTTP状态码，请参考[响应状态](#upload-response-status)。
 `error`      | 是   | 与HTTP状态码对应的消息文本。
