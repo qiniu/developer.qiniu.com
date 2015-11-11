@@ -65,7 +65,7 @@ avthumb/<Format>
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid，libvpx-vp9等。 
 `/acodec/<AudioCodec>`  |  A   |      | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等。 
 `/scodec/<SubtitleCodec>`|  V  |      | 字幕编码方案，支持方案：mov_text。该参数仅用于修改带字幕视频的字幕编码。
- `/subtitle/<SubtitleURL>`| V |    | 添加字幕，支持：srt格式字幕（uft-8编码）、带有字幕的mkv文件、embed（将原视频的字幕流嵌入目标视频）。基于base64编码。
+`/subtitle/<SubtitleURL>`| V |    | 添加字幕，支持：srt格式字幕（uft-8编码）、带有字幕的mkv文件、embed（将原视频的字幕流嵌入目标视频）。基于base64编码。
 `/ss/<SeekStart>`       |  A/V   |      | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/t/<Duration>`         |  V   |      | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 
 `/s/<Resolution>`       |  V   |      | 指定视频分辨率，格式为`<width>x<height>`或者预定义值。 
