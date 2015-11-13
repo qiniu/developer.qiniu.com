@@ -163,7 +163,6 @@ order: 980
 - [自定义变量][xVariablesHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 - [URL安全的Base64编码][urlsafeBase64Href]
-- [专有队列处理][persistentPipelineVariablesHref]
 
 <a id="download-external-resources"></a>
 ## 外部参考资源
