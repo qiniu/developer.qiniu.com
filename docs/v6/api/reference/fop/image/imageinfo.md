@@ -16,7 +16,6 @@ order: 234
 	- [响应头部](#imageinfo-response-header)
     - [响应内容](#imageinfo-response-content) 
     - [响应状态码](#imageinfo-response-code)
-- [附注](#imageinfo-remarks)
 - [示例](#imageinfo-samples)
 - [内部参考资源](#imageinfo-internal-resources)
 
@@ -25,8 +24,6 @@ order: 234
 
 图片基本信息包括图片格式、图片大小、色彩模型。  
 在图片下载URL后附加`imageInfo`指示符（区分大小写），即可获取JSON格式的图片基本信息。  
-
----
 
 <a id="imageinfo-request"></a>
 ## 请求
@@ -45,8 +42,6 @@ Host: <imageDownloadHost>
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程][cnameBindingHref]
-
----
 
 <a id="imageinfo-response"></a>
 ## 响应
@@ -122,15 +117,6 @@ HTTP状态码 | 含义
 400	       | 请求报文格式错误
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
-
----
-
-<a id="imageinfo-remarks"></a>
-## 附注
-
-缩略图等经过云处理的新图片不支持该方法。  
-
----
 
 <a id="imageinfo-samples"></a>
 ## 示例
