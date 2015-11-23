@@ -35,8 +35,9 @@ order: 500
 * [第三方数据处理服务][third-partHref]
   * [广告过滤服务（ad）][adHref]
   * [图片鉴黄服务（nrop）][nropHref]
-  * [ 文档转换服务（yifangyun_preview）][yifangyunHref]
-
+  * [文档转换服务（yifangyun_preview）][yifangyunHref]
+  * [看大图云服务 (sequickimage) ][sequickimageHref]
+  * [人脸裁剪服务 (facecrop2) ][facecrop2Href]
 
 [imageHref]:        /docs/v6/api/reference/fop/image/index.html        "图片处理"
 [avHref]:           /docs/v6/api/reference/fop/av/avthumb.html           "音视频处理"
