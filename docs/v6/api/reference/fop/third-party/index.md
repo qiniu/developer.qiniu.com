@@ -13,6 +13,8 @@ order: 90
   - [图片鉴黄服务（nrop）][nropHref]
   - [文档转换服务（yifangyun_preview）][yifangyun_previewHref]
   - [短视频鉴黄服务（tupu-video）][tupu-videoHref]
+  - [看大图云服务 (sequickimage) ][sequickimageHref]
+  - [人脸裁剪服务 (facecrop2) ][facecrop2Href]
 
 <a id="ufop-description"></a>
 ## 描述
