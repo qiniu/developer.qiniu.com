@@ -91,7 +91,7 @@ http://needkane.qiniudn.com/East.jpg?facecrop2/800x200
 出错但忽略错误：
 http://needkane.qiniudn.com/East.jpg?facecrop2/800x200/ignore-error/1
 ```
-<a id="sequickimage-price"></a>
+<a id="facecrop2-price"></a>
 
 ## 服务价格
 
