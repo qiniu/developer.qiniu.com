@@ -35,3 +35,5 @@ order: 90
 [adHref]:          /docs/v6/api/reference/fop/third-party/ad.html
 [yifangyun_previewHref]:          /docs/v6/api/reference/fop/third-party/yifangyun_preview.html
 [tupu-videoHref]:  /docs/v6/api/reference/fop/third-party/tupu-video.html
+[sequickimageHref]: /docs/v6/api/reference/fop/third-party/sequickimage.html
+[facecrop2Href]: /docs/v6/api/reference/fop/third-party/facecrop2.html
