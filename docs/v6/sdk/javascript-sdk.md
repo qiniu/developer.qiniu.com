@@ -21,9 +21,9 @@ title: JavaScript SDK 使用指南
 
 示例：[七牛JavaScript SDK 示例网站 - 配合七牛Node.js SDK ](http://jssdk.demo.qiniu.io/)
 
-源码：[https://github.com/qiniupd/qiniu-js-sdk/](https://github.com/qiniupd/qiniu-js-sdk/)
+源码：[https://github.com/qiniu/js-sdk/](https://github.com/qiniu/js-sdk/)
 
-下载：[https://github.com/qiniupd/qiniu-js-sdk/releases](https://github.com/qiniupd/qiniu-js-sdk/releases)
+下载：[https://github.com/qiniu/js-sdk/releases](https://github.com/qiniu/js-sdk/releases)
 
 本SDK适用于IE8+、Chrome、Firefox、Safari 等浏览器，基于 七牛云存储官方API 构建，其中上传功能基于 Plupload 插件封装。开发者使用本 SDK 可以方便的从浏览器端上传文件至七牛云存储，并对上传成功后的图片进行丰富的数据处理操作。本 SDK 可使开发者忽略上传底层实现细节，而更多的关注 UI 层的展现。
 
