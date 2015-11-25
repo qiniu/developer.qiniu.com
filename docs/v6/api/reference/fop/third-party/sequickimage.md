@@ -53,7 +53,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: QBox <AccessToken>  
 
 bucket=ztest&key=sequickimage_test.jpg&fops=sequickimage/convert&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
-​```
+```
 
 备注： 
 
