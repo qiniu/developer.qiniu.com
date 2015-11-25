@@ -66,7 +66,7 @@ Content-Type: image/jpeg
 
 头部名称         |  必填  | 说明
 :------------- | :--- | :------------------------------------------
-`Content-Type`   | 是   | MIME类型，为`image/jpeg`(如果失败则是`为application/json`)
+`Content-Type`   | 是   | MIME类型，为`image/jpeg`(如果失败则是`application/json`)
 
 <a id="facecrop2-response-body"></a>
 ### 响应内容
@@ -83,6 +83,7 @@ Content-Type: image/jpeg
 ## 示例
 
 在Web浏览器中输入以下地址：
+
 ```
 正常：
 http://needkane.qiniudn.com/East.jpg?facecrop2/200x200 
