@@ -5,7 +5,7 @@ order: 300
 ---
 
 <a id="facecrop2"></a>
-# 人脸剪裁服务
+# 人脸裁剪服务
 
 <a id="facecrop2-descrition"></a>
 ## 描述
