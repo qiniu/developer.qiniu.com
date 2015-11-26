@@ -93,7 +93,12 @@ http://needkane.qiniudn.com/East.jpg?facecrop2/800x200
 http://needkane.qiniudn.com/East.jpg?facecrop2/800x200/ignore-error/1
 ```
 <a id="facecrop2-price"></a>
-
 ## 服务价格
 
-第一个月免费试用
+以请求次数计费，0.3元/千次
+
+<a id="facecrop2-price-example"></a>
+## 计费示例
+
+某司上月共发起3000次人脸裁剪请求，该司上个月的服务价格为：3000次 * 0.3元/千次 ＝ 0.9元
+
