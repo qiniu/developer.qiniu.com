@@ -44,6 +44,7 @@ avthumb/m3u8/segtime/<SegSeconds>
             /hlsKey/<HLSKey>
             /hlsKeyType/<HLSKeyType>
             /hlsKeyUrl/<HLSKeyUrl>
+            /pattern/<Pattern>
 ```
 
 参数名称                | 类别 | 必填 | 说明
@@ -66,6 +67,7 @@ avthumb/m3u8/segtime/<SegSeconds>
 `/hlsKey/<HLSKey>`      |  A/V |      | AES128加密视频的秘钥，必须是16个字节
 `/hlsKeyType/<HLSKeyType>` | A/V|     | 秘钥传递给我们的方式，0或不填：<urlsafe_base64_encode>, 1.x(1.0, 1.1, ...): 见下面详细解释
 `/hlsKeyUrl/<HLSKeyUrl>` |  A/V |     | 秘钥的访问url
+`/pattern/<Pattern>`       |  A/V   |      | 为各音视频流`ts`文件自定义命名。<br>因为一整个音视频流音视频切片后会生成一个M3U8播放列表和多个默认命名的音视频流`ts`文件。<br>示例：`avthumb/m3u8/pattern/eGlhb3hpYW8kKGNvdW50KQ==`，其中`eGlhb3hpYW8kKGNvdW50KQ==`是自定义ts文件名如`qiniu$(count)`的[URL安全的Base64编码][urlsafeBase64Href]，其中`$(count)`是必须存在的六位占位符数字串，`qiniu`可以自己定义。最后得到类似`qiniu000000``qiniu000001`……`qiniu000006`命名的ts文件。
 
 <a id="segtime-samples"></a>
 ## 示例
@@ -136,3 +138,5 @@ $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE
 [persistentOpsHref]: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html#put-policy-persistent-ops "预转持久化处理"
 [pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html "触发持久化处理"
 [pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification  "持久化处理结果通知"
+[magicvatHref]: http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#magicvar  "魔法变量"
+[urlsafeBase64Href]:  http://localhost:4000/docs/v6/api/overview/appendix.html#urlsafe-base64  "URL安全的Base64编码"
