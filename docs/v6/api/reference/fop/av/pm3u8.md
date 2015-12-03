@@ -37,6 +37,8 @@ pm3u8 接口只能用于私有空间中的 m3u8 文件，作用是对 m3u8文件
 GET <M3U8DownloadURI>?<接口规格> HTTP/1.1
 Host: <M3U8DownloadHost>
 ```
+**注意：**这里的m3u8文件存在于私有空间，`M3U8DownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
 
 <a id="pm3u8-response"></a>
 ## 响应
@@ -68,10 +70,10 @@ HTTP状态码 | 含义
 
 ```
 ...过多内容已省略...
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00000_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:qhXZvVauNafcUMoBeo4SkRWaWiw
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00001_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:h1Oy8oW7oAIOGWZP8QNVAPI82Vw
+#EXTINF:61.120000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000000.ts?e=1449166183&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:ejpJ9vAKYYK1ZSpW6z3uS2pGBlo
+#EXTINF:59.360000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000001.ts?e=1449166183&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:Ufr6wcVrUmY7jr8IpRH2fkCo2G0
 ...过多内容已省略...
 ```
 
@@ -95,66 +97,42 @@ http://developer.qiniu.com/samples/fop/av/live_00001_.ts?e=1388773727&token=u8Wq
 原始m3u8链接与内容如下所示：  
 
 ```
-http://developer.qiniu.com/samples/fop/av/live_net.m3u8
+http://7xoucz.com1.z0.glb.clouddn.com/qiniutest.m3u8?e=1449116672&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:JCrhZN1XbkSeNBucKRzmx3R-kzY=
 
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-MEDIA-SEQUENCE:0
 #EXT-X-ALLOW-CACHE:YES
-#EXT-X-TARGETDURATION:31
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00000_.ts
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00001_.ts
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00002_.ts
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00003_.ts
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00004_.ts
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00005_.ts
-#EXTINF:30.827000,
-http://developer.qiniu.com/samples/fop/av/live_00006_.ts
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00007_.ts
-#EXTINF:30.827000,
-http://developer.qiniu.com/samples/fop/av/live_00008_.ts
-#EXTINF:25.149000,
-http://developer.qiniu.com/samples/fop/av/live_00009_.ts
+#EXT-X-TARGETDURATION:62
+#EXTINF:61.120000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000000.ts
+#EXTINF:59.360000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000001.ts
+#EXTINF:59.640000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000002.ts
+#EXTINF:2.480000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000003.ts
 #EXT-X-ENDLIST
 ```
 
 对m3u8资源进行私有资源下载授权时指定`pm3u8`接口，可以获取到相应的批量授权下载URL：  
 
 ```
-http://developer.qiniu.com/samples/fop/av/live_net.m3u8?pm3u8/0&e=1388734117&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:sKjXkO59AxPtdaO2cEtWtiHmzdo=
+http://7xoucz.com1.z0.glb.clouddn.com/qiniutest.m3u8?pm3u8/0&e=1449126571&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:SGhJE2aC685_YmHMOtJEngduFes=
 
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-MEDIA-SEQUENCE:0
 #EXT-X-ALLOW-CACHE:YES
-#EXT-X-TARGETDURATION:31
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00000_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:qhXZvVauNafcUMoBeo4SkRWaWiw
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00001_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:h1Oy8oW7oAIOGWZP8QNVAPI82Vw
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00002_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:OQ6GMLEjFRnCAne9K9YU8-tXeIg
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00003_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:XWdLiYgUxNZbqikNLQ3joG3Mvhk
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00004_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:3EKOMwcqSUWsdap3SaY4l3RoaCg
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00005_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:j4uORlTKDBHk4Xwkv90eCM3I87U
-#EXTINF:30.827000,
-http://developer.qiniu.com/samples/fop/av/live_00006_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:tp7CjnEBGxGHkDbRqd8OehlGSno
-#EXTINF:30.826000,
-http://developer.qiniu.com/samples/fop/av/live_00007_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:QxYkdqWEAYj90kgX5jUPedFxXVo
-#EXTINF:30.827000,
-http://developer.qiniu.com/samples/fop/av/live_00008_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:MQ7EDzKP2f_EtpXq-maGr88mazA
-#EXTINF:25.149000,
-http://developer.qiniu.com/samples/fop/av/live_00009_.ts?e=1388773727&token=u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:jmx4dIZndnrNFqzLg72YZM-qtmY
+#EXT-X-TARGETDURATION:62
+#EXTINF:61.120000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000000.ts?e=1449166183&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:ejpJ9vAKYYK1ZSpW6z3uS2pGBlo
+#EXTINF:59.360000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000001.ts?e=1449166183&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:Ufr6wcVrUmY7jr8IpRH2fkCo2G0
+#EXTINF:59.640000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000002.ts?e=1449166183&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:SfGPTw3-5MGJQk1xN6dECELKjwQ
+#EXTINF:2.480000,
+http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8b0s-cXmojaMhGqn/000003.ts?e=1449166183&token=GeKdDZhpPh6rxoVNCSrvygimGSdH7jOUvalFGZrp:vriMgesiM95izCCRUrfAMT3bdVs
 #EXT-X-ENDLIST
 ```
 
@@ -164,3 +142,4 @@ http://developer.qiniu.com/samples/fop/av/live_00009_.ts?e=1388773727&token=u8Wq
 - ts资源的原始下载URL必须以`http://`打头。
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"

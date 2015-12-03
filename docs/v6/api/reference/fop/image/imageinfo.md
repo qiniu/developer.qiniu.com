@@ -32,8 +32,23 @@ order: 234
 ### 请求报文格式
 
 ```
-GET <imageDownloadUri>?imageInfo HTTP/1.1
-Host: <imageDownloadHost>
+GET <ImageDownloadURI>?imageInfo HTTP/1.1
+Host: <ImageDownloadHost>
+```
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`imageInfo`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageInfo'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageInfo&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="imageinfo-request-header"></a>
@@ -147,3 +162,4 @@ HTTP状态码 | 含义
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
