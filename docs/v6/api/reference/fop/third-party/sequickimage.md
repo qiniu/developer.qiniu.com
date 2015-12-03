@@ -34,9 +34,9 @@ order: 300
 sequickimage/convert
 ```
 
-| 参数   | 必填   | 说明                              |      |      |      |
-| :--- | :--- | :------------------------------ | ---- | ---- | ---- |
-| Key  | 是    | 保存在七牛上面的文件key，后缀需要为对应的图片类型的文件格式 |      |      |      |
+| 参数   | 必填   | 说明                          
+| :--- | :--- | :------------------------------ 
+| Key  | 是   | 保存在七牛上面的文件key，后缀需要为对应的图片类型的文件格式 
 
 支持的图片格式：
 
@@ -46,15 +46,13 @@ JPG、TIF、TIFF、BMP等常见格式。
 
 因为考虑到转换后的格式不能直接在浏览器显示，为达到更好的显示效果，需要使用异步处理来进行图片的转换，以[触发持久化处理][pfopHref]形式，这一部分建议使用七牛提供的各种语言的SDK来处理：
 
-``` 
-​```
+```
 POST /pfop/ HTTP/1.1
 Host: api.qiniu.com  
 Content-Type: application/x-www-form-urlencoded  
 Authorization: QBox <AccessToken>  
 
-bucket=ztest&key=preview_test.docx&fops=sequickimage/convert&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
-​```
+bucket=ztest&key=sequickimage_test.jpg&fops=sequickimage/convert&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 ```
 
 备注： 

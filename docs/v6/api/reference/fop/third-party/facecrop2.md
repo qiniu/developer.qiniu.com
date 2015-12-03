@@ -5,7 +5,7 @@ order: 300
 ---
 
 <a id="facecrop2"></a>
-# 人脸剪裁服务
+# 人脸裁剪服务
 
 <a id="facecrop2-descrition"></a>
 ## 描述
@@ -66,7 +66,7 @@ Content-Type: image/jpeg
 
 头部名称         |  必填  | 说明
 :------------- | :--- | :------------------------------------------
-`Content-Type`   | 是   | MIME类型，为`image/jpeg`(如果失败则是`为application/json`)
+`Content-Type`   | 是   | MIME类型，为`image/jpeg`(如果失败则是`application/json`)
 
 <a id="facecrop2-response-body"></a>
 ### 响应内容
