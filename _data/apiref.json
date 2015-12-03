@@ -286,7 +286,7 @@
 							"Order": 300
 						},
 						{
-							"Title": "视频鉴黄服务",
+							"Title": "短视频鉴黄服务",
 							"Href": "docs/v6/api/reference/fop/third-party/tupu-video.html",
 							"Child": null,
 							"Order": 300
