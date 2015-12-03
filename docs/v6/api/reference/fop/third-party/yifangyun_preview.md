@@ -26,13 +26,15 @@ order: 300
 ### 请求参数
 
 ```
-yifangyun_preview/<Ext>
+yifangyun_preview/v2/ext=<Ext>/action=<Action>/format=<DestFormat>/page_number=<PageNumber>
 ```
 
 参数           | 必填 | 说明
 :------------- | :--- | :------------------------------------------
-Key            | 是   | 保存在Qiniu上面的文件key，后缀需要为对应的office类型的文件格式
 Ext            | 否   | 当key的后缀不是文件的正确格式时，可以在这个参数中指定对应的格式，优先级大于key的后缀
+Action         | 否   | 为1. `get_preview`获取文件预览(默认行为) 2. `get_page_count`获取文件页码
+DestFormat     | 否   | 目标格式，1. pdf(默认) 2. jpg  当指定为jpg的时候行为是获取office文档的某一个转为jpg图片，需要指定页码，原文件必须pdf格式
+PageNumber     | 否   | 文件的页码
 
 支持转换的文件格式：
 
@@ -41,6 +43,8 @@ word: doc, docx, odt, rtf, wps
 ppt: ppt, pptx, odp, dps
 excel: xls, xlsx, ods, csv, et
 ```
+
+NOTE. 当需要把office转换为图片的时候，需要用本接口把office先转为pdf，然后从pdf转到jpg图片
 
 <a id="yifangyun_preview-request-methods"></a>
 ### 请求方式
@@ -66,7 +70,7 @@ excel: xls, xlsx, ods, csv, et
     Content-Type: application/x-www-form-urlencoded  
     Authorization: QBox <AccessToken>  
 
-    bucket=ztest&key=preview_test.docx&fops=yifangyun_preview&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
+    bucket=ztest&key=preview_test.docx&fops=yifangyun_preview/v2&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
 ---

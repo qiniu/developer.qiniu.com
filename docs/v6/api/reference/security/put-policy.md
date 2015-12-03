@@ -67,9 +67,9 @@ order: 980
 <a id="put-policy-callback-body"></a>`callbackBody`        |      | 上传成功后，七牛云向`App-Server`发送`Content-Type: application/x-www-form-urlencoded` 的POST请求。<br>该字段`App-Server`可以通过直接读取请求的query来获得，支持[魔法变量][magicVariablesHref]和[自定义变量][xVariablesHref]。`callbackBody` 要求是合法的 url query string。如：`key=$(key)&hash=$(etag)&w=$(imageInfo.width)&h=$(imageInfo.height)`。
 <a id="put-policy-callback-body-type"></a>`callbackBodyType` |      | 上传成功后，七牛云向`App-Server`发送回调通知`callbackBody`的Content-Type。<br>默认为`application/x-www-form-urlencoded`，也可设置为`application/json`。
 <a id="put-policy-callback-fetch-key"></a>`callbackFetchKey` |      | 是否启用fetchKey上传模式。<br>0为关闭，1为启用。具体见[fetchKey上传模式](#fetch-key-explaination)。
-<a id="put-policy-persistent-ops"></a>`persistentOps`       |      | 资源上传成功后触发执行的预转持久化处理指令列表。<br>每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。
+<a id="put-policy-persistent-ops"></a>`persistentOps`       |      | 资源成功上传后执行的持久化指令列表,每个指令是一个API规格字符串，多个指令用“;”分隔。<br>请参看[详解](#put-policy-persistent-ops-explanation)与[示例](#put-policy-samples-persisntent-ops)。<br>同时添加`persistentPipeline`字段，使用专用队列处理,请参考[persistentPipeline](#put-policy-persistentPipeline)字段说明。
+<a id="put-policy-persistentPipeline">`persistentPipeline`| |  转码队列名,资源上传成功后，触发转码时指定独立的队列进行转码。建议使用[专用队列][mpsHref]。
 <a id="put-policy-persisten-notify-url"></a>`persistentNotifyUrl` |      | 接收预转持久化结果通知的URL。<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。<br> 该URL获取的内容和[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)的处理结果一致。<br> 发送body格式为`Content-Type`为`"application/json"`的POST请求，需要按照读取流的形式读取请求的body才能获取。
-`persistentPipeline`| |  转码队列名。<br>资源上传成功后，触发转码时指定独立的队列进行转码。`为空则表示使用公用队列，处理速度比较慢。`建议使用[专用队列][mpsHref]。
 <a id="put-policy-save-key"></a>`saveKey`             |      | 自定义资源名。<br>支持[魔法变量][magicVariablesHref]及[自定义变量][xVariablesHref]。这个字段仅当用户上传的时候没有主动指定key的时候起作用。
 <a id="put-policy-fsize-min"></a>`fsizeMin`          |      | 限定上传文件大小最小值，单位：字节（Byte）。
 <a id="put-policy-fsize-limit"></a>`fsizeLimit`          |      | 限定上传文件大小最大值，单位：字节（Byte）。<br>超过限制的上传内容会被判为上传失败，返回413状态码。
@@ -175,6 +175,5 @@ order: 980
 [fopHref]:                  http://developer.qiniu.com/docs/v6/api/overview/up/response/persistent-op.html                "预转持久化处理"
 [encodedEntryURIHref]:          http://developer.qiniu.com/docs/v6/api/reference/data-formats.html#data-format-encoded-entry-uri "EncodedEntryURI格式"
 [urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
-
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"
 [mpsHref]:                 https://portal.qiniu.com/mps/pipeline  "专用队列"
