@@ -29,12 +29,9 @@ Host: <AvDownloadHost>
 
 ```
 #构造下载URL
-
 DownloadUrl = 'http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo'
 ……
-
 #最后得到
-
 RealDownloadUrl = 'http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
@@ -204,11 +201,6 @@ http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo
 ```
 
 [点击查看示例结果](http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo)
-
-<a id="avinfo-remarks"></a>
-## 附注
-
-无。
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
