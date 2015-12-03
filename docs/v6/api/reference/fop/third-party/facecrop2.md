@@ -83,7 +83,6 @@ Content-Type: image/jpeg
 ## 示例
 
 在Web浏览器中输入以下地址：
-
 ```
 正常：
 http://needkane.qiniudn.com/East.jpg?facecrop2/200x200 
