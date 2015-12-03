@@ -280,13 +280,25 @@
 							"Order": 300
 						},
 						{
+							"Title": "人脸裁剪服务",
+							"Href": "docs/v6/api/reference/fop/third-party/facecrop2.html",
+							"Child": null,
+							"Order": 300
+						},
+						{
 							"Title": "图片鉴黄服务",
 							"Href": "docs/v6/api/reference/fop/third-party/nrop.html",
 							"Child": null,
 							"Order": 300
 						},
 						{
-							"Title": "视频鉴黄服务",
+							"Title": "看大图云服务",
+							"Href": "docs/v6/api/reference/fop/third-party/sequickimage.html",
+							"Child": null,
+							"Order": 300
+						},
+						{
+							"Title": "短视频鉴黄服务",
 							"Href": "docs/v6/api/reference/fop/third-party/tupu-video.html",
 							"Child": null,
 							"Order": 300
