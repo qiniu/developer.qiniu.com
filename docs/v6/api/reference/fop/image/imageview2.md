@@ -78,6 +78,22 @@ imageView2/<mode>/w/<LongEdge>
 GET <ImageDownloadURI>?<接口规格> HTTP/1.1
 Host: <ImageDownloadHost>
 ```
+**注：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+示例：
+
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`imageView2/2/w/200`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageView2/2/w/200&e=×××&token=MY_ACCESS_KEY:×××'
+```
 
 <a id="imageView2-request-header"></a>
 ### 请求头部
@@ -200,3 +216,4 @@ HTTP状态码 | 含义
 [exifHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html                                        "EXIF信息"
 
 [sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志 "发送错误报告"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"

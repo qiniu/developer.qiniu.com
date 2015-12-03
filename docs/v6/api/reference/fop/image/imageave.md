@@ -26,7 +26,6 @@ order: 231
 
 本接口用于计算一幅图片的平均色调，并以`0xRRGGBB`形式返回。  
 
----
 
 <a id="imageAve-request"></a>
 ## 请求
@@ -35,8 +34,23 @@ order: 231
 ### 请求报文格式
 
 ```
-GET <imageDownloadUri>?imageAve HTTP/1.1
-Host: <imageDownloadHost>
+GET <ImageDownloadURI>?imageAve HTTP/1.1
+Host: <ImageDownloadHost>
+```
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`imageAve`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageAve'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageAve&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="imageAve-request-header"></a>
@@ -45,8 +59,6 @@ Host: <imageDownloadHost>
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
-
----
 
 <a id="imageAve-response"></a>
 ## 响应
@@ -111,14 +123,12 @@ HTTP状态码 | 含义
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
----
 
 <a id="imageAve-remarks"></a>
 ## 附注
 
 - 缩略图等经过云处理的新图片不支持该方法。  
 
----
 
 <a id="imageAve-samples"></a>
 ## 示例
@@ -140,3 +150,4 @@ HTTP状态码 | 含义
 	```
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
