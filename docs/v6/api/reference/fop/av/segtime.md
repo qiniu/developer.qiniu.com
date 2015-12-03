@@ -139,4 +139,4 @@ $ echo -n [AES128KEY] | openssl rsautl -encrypt -oaep -inkey [QINIU_PUB_KEY_FILE
 [pfopHref]:          http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html "触发持久化处理"
 [pfopNotificationHref]: http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html#pfop-notification  "持久化处理结果通知"
 [magicvatHref]: http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#magicvar  "魔法变量"
-[urlsafeBase64Href]:  http://localhost:4000/docs/v6/api/overview/appendix.html#urlsafe-base64  "URL安全的Base64编码"
+[urlsafeBase64Href]:  /docs/v6/api/overview/appendix.html#urlsafe-base64  "URL安全的Base64编码"

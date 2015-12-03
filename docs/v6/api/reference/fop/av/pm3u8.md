@@ -142,4 +142,4 @@ http://7xoucz.com1.z0.glb.clouddn.com/7ZZYqVpgENDWOEdpmCR3Eg9Rdig=/lhsawSRA9-0L8
 - ts资源的原始下载URL必须以`http://`打头。
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
+[download-tokenHref]:  /docs/v6/api/reference/security/download-token.html  "下载凭证"
