@@ -40,11 +40,11 @@ order: 232
 ```
 watermark/1
            /image/<encodedImageURL>
-          /dissolve/<dissolve>
-         /gravity/<gravity>
-        /dx/<distanceX>
-       /dy/<distanceY>
-      /ws/<watermarkScale>
+           /dissolve/<dissolve>
+           /gravity/<gravity>
+           /dx/<distanceX>
+           /dy/<distanceY>
+           /ws/<watermarkScale>
 ```
 
 <a id="pic-watermark-params"></a>
@@ -92,12 +92,9 @@ Host: <ImageDownloadHost>
 
 ```
 #构造下载URL
-
 DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20'
 ……
-
 #最后得到
-
 RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 <a id="pic-watermark-request-header"></a>
@@ -180,13 +177,13 @@ HTTP状态码 | 含义
 ```
 watermark/2
            /text/<encodedText>
-          /font/<encodedFontName>
-         /fontsize/<fontSize>
-        /fill/<encodedTextColor>
-       /dissolve/<dissolve>
-      /gravity/<gravity>
-     /dx/<distanceX>
-    /dy/<distanceY>
+           /font/<encodedFontName>
+           /fontsize/<fontSize>
+           /fill/<encodedTextColor>
+           /dissolve/<dissolve>
+           /gravity/<gravity>
+           /dx/<distanceX>
+           /dy/<distanceY>
 ```
 
 <a id="text-watermark-params"></a>
@@ -219,12 +216,9 @@ Host: <ImageDownloadHost>
 
 ```
 #构造下载URL
-
 DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/2/text/5LiD54mb5LqR5a2Y5YKo/font/5a6L5L2T/fontsize/1000/fill/d2hpdGU=/dissolve/85/gravity/SouthEast/dx/20/dy/20'
 ……
-
 #最后得到
-
 RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/2/text/5LiD54mb5LqR5a2Y5YKo/font/5a6L5L2T/fontsize/1000/fill/d2hpdGU=/dissolve/85/gravity/SouthEast/dx/20/dy/20&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
@@ -312,10 +306,10 @@ HTTP状态码 | 含义
 ```
 watermark/3
            /text/<textWaterMarkParams1>
-          /image/<imageWaterMarkParams1>
-         /image/<imageWaterMarkParams2>
-        /text/<textWaterMarkParams2>
-         ...
+           /image/<imageWaterMarkParams1>
+           /image/<imageWaterMarkParams2>
+           /text/<textWaterMarkParams2>
+           ...
 ```
 
 注意：图片水印与文字水印的规格可以混写，按给定顺序处理。  
@@ -342,12 +336,9 @@ Host: <imageDownloadHost>
 
 ```
 #构造下载URL
-
 DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/3/image/aHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvbG9nby0yLmpwZw==/text/5LiD54mb5LqR5a2Y5YKo'
 ……
-
 #最后得到
-
 RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/3/image/aHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvbG9nby0yLmpwZw==/text/5LiD54mb5LqR5a2Y5YKo&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 

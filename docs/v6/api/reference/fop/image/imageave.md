@@ -44,12 +44,9 @@ Host: <ImageDownloadHost>
 
 ```
 #构造下载URL
-
 DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageAve'
 ……
-
 #最后得到
-
 RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageAve&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
