@@ -6,7 +6,6 @@ order: 232
 
 <a id="watermark"></a>
 # 图片水印处理（watermark）
-
 - [描述](#description)
 - [图片水印](#pic-watermark)
   - [接口规格](#pic-watermark-spec)
@@ -28,7 +27,6 @@ order: 232
 
 <a id="description"></a>
 ## 描述
-
 七牛云存储提供三种水印接口：[图片水印](#pic-watermark)、[文字水印](#text-watermark)，以及一次请求中[同时打多个水印](#multi-watermark)。  
 
 <a id="pic-watermark"></a>
@@ -41,12 +39,12 @@ order: 232
 
 ```
 watermark/1
-         /image/<encodedImageURL>
-         /dissolve/<dissolve>
+           /image/<encodedImageURL>
+          /dissolve/<dissolve>
          /gravity/<gravity>
-         /dx/<distanceX>
-         /dy/<distanceY>
-         /ws/<watermarkScale>
+        /dx/<distanceX>
+       /dy/<distanceY>
+      /ws/<watermarkScale>
 ```
 
 <a id="pic-watermark-params"></a>
@@ -84,10 +82,24 @@ SouthWest     |     South      |     SouthEast
 #### 请求报文格式
 
 ```
-GET <imageDownloadURI>?<接口规格> HTTP/1.1
-Host: <imageDownloadHost>
+GET <ImageDownloadURI>?<接口规格> HTTP/1.1
+Host: <ImageDownloadHost>
 ```
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
 
+**示例：**
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20&e=×××&token=MY_ACCESS_KEY:×××'
+```
 <a id="pic-watermark-request-header"></a>
 #### 请求头部
 
@@ -120,7 +132,6 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 #### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
-
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
@@ -148,9 +159,7 @@ HTTP状态码 | 含义
 <a id="pic-watermark-samples"></a>
 ### 图片水印示例
 
-- 水印图片: <http://developer.qiniu.com/resource/logo-2.jpg>
-    - `ImageURL = "http://developer.qiniu.com/resource/logo-2.jpg"`
-    - `encodedImageURL = urlsafe_base64_encode(ImageURL)`
+- 水印图片: <br>`ImageURL = "http://developer.qiniu.com/resource/logo-2.jpg"`<br>`encodedImageURL = urlsafe_base64_encode(ImageURL)`
 - 水印透明度: 50% (`dissolve=50`)
 - 水印位置: 右下角 (`gravity=SouthEast`)
 - 横向边距: 20px
@@ -170,14 +179,14 @@ HTTP状态码 | 含义
 
 ```
 watermark/2
-         /text/<encodedText>
-         /font/<encodedFontName>
+           /text/<encodedText>
+          /font/<encodedFontName>
          /fontsize/<fontSize>
-         /fill/<encodedTextColor>
-         /dissolve/<dissolve>
-         /gravity/<gravity>
-         /dx/<distanceX>
-         /dy/<distanceY>
+        /fill/<encodedTextColor>
+       /dissolve/<dissolve>
+      /gravity/<gravity>
+     /dx/<distanceX>
+    /dy/<distanceY>
 ```
 
 <a id="text-watermark-params"></a>
@@ -200,8 +209,23 @@ watermark/2
 #### 请求语法
 
 ```
-GET <imageDownloadURI>?<接口规格> HTTP/1.1
-Host: <imageDownloadHost>
+GET <ImageDownloadURI>?<接口规格> HTTP/1.1
+Host: <ImageDownloadHost>
+```
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`watermark/2/text/5LiD54mb5LqR5a2Y5YKo/font/5a6L5L2T/fontsize/1000/fill/d2hpdGU=/dissolve/85/gravity/SouthEast/dx/20/dy/20`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/2/text/5LiD54mb5LqR5a2Y5YKo/font/5a6L5L2T/fontsize/1000/fill/d2hpdGU=/dissolve/85/gravity/SouthEast/dx/20/dy/20'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/2/text/5LiD54mb5LqR5a2Y5YKo/font/5a6L5L2T/fontsize/1000/fill/d2hpdGU=/dissolve/85/gravity/SouthEast/dx/20/dy/20&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="text-watermark-request-header"></a>
@@ -236,7 +260,6 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 #### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
-
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
@@ -288,10 +311,10 @@ HTTP状态码 | 含义
 
 ```
 watermark/3
-         /text/<textWaterMarkParams1>
-         /image/<imageWaterMarkParams1>
+           /text/<textWaterMarkParams1>
+          /image/<imageWaterMarkParams1>
          /image/<imageWaterMarkParams2>
-         /text/<textWaterMarkParams2>
+        /text/<textWaterMarkParams2>
          ...
 ```
 
@@ -311,6 +334,21 @@ watermark/3
 ```
 GET <imageDownloadURI>?<接口规格> HTTP/1.1
 Host: <imageDownloadHost>
+```
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`watermark/3/image/aHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvbG9nby0yLmpwZw==/text/5LiD54mb5LqR5a2Y5YKo`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/3/image/aHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvbG9nby0yLmpwZw==/text/5LiD54mb5LqR5a2Y5YKo'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?watermark/3/image/aHR0cDovL2RldmVsb3Blci5xaW5pdS5jb20vcmVzb3VyY2UvbG9nby0yLmpwZw==/text/5LiD54mb5LqR5a2Y5YKo&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="multi-watermark-request-header"></a>
@@ -345,7 +383,6 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 #### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
-
 ■ 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
 
 ```
@@ -380,9 +417,7 @@ HTTP状态码 | 含义
 
 	```
     qrsctl login <email> <password>
-
     qrsctl style <bucket> watermarked.jpg watermark/2/text/<encodedText>
-
     qrsctl separator <bucket> -
 	```
 	
@@ -390,7 +425,6 @@ HTTP状态码 | 含义
 
 	```
     http://<Domain>/<Key>?watermark/2/text/<encodedText>
-
     http://<Domain>/<Key>-watermarked.jpg
 	```
 
@@ -430,3 +464,4 @@ HTTP状态码 | 含义
 [saveasHref]:                   http://developer.qiniu.com/docs/v6/api/reference/fop/saveas.html                                   "saveas处理"
 
 [urlsafeBase64Href]: http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64 "URL安全的Base64编码"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"

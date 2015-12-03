@@ -65,3 +65,5 @@ order: 500
 [adHref]:        /docs/v6/api/reference/fop/third-party/ad.html        "广告过滤服务"
 [nropHref]:        /docs/v6/api/reference/fop/third-party/nrop.html        "图片鉴黄服务"
 [yifangyunHref]:        /docs/v6/api/reference/fop/third-party/yifangyun_preview.html        "文档转换服务"
+[sequickimageHref]: /docs/v6/api/reference/fop/third-party/sequickimage.html  "看大图云服务"
+[facecrop2Href]:  /docs/v6/api/reference/fop/third-party/facecrop2.html  "人脸裁剪服务"

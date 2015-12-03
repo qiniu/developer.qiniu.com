@@ -29,6 +29,7 @@ avthumb/<Format>
        /ab/<BitRate>
        /aq/<AudioQuality>
        /ar/<SamplingRate>
+       /ac/<ChannelNum>
        /r/<FrameRate>
        /vb/<VideoBitRate>
        /vcodec/<VideoCodec>
@@ -60,6 +61,7 @@ avthumb/<Format>
 `/ab/<BitRate>`         | A    |      | 音频码率，单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等。若指定码率大于原音频码率，则使用原音频码率进行转码。 
 `/aq/<AudioQuality>`    | A    |      | 音频质量，取值范围为0-9（mp3），10-500（aac），仅支持mp3和aac，值越小越高。不能与上述码率参数共用。 
 `/ar/<SamplingRate>`    | A    |      | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等。
+`/ac/<ChannelNum>`    | A    |      | 音频声道数量，单位：整数值，目前只支持多声道转为单声道，即为1，暂不支持其他数值。
 `/r/<FrameRate>`        |  V   |      | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值。 
 `/vb/<VideoBitRate>`    |  V   |      | 视频码率，单位：比特每秒（bit/s），常用视频码率：128k，1.25m，5m等。若指定码率大于原视频码率，则使用原视频码率进行转码。 
 `/vcodec/<VideoCodec>`  |  V   |      | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid，libvpx-vp9等。 

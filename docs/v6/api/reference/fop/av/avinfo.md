@@ -22,6 +22,21 @@ order: 147
 GET <AvDownloadURI>?avinfo HTTP/1.1
 Host: <AvDownloadHost>
 ```
+**注意：**当您下载私有空间的资源时，`AvDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://developer.qiniu.com/resource/thinking-in-go.mp4`，处理样式为`avinfo`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo&e=×××&token=MY_ACCESS_KEY:×××'
+```
 
 <a id="avinfo-response"></a>
 ## 响应
@@ -196,3 +211,4 @@ http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo
 无。
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"

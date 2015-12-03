@@ -34,9 +34,9 @@ order: 300
 sequickimage/convert
 ```
 
-| 参数   | 必填   | 说明                          
-| :--- | :--- | :------------------------------ 
-| Key  | 是   | 保存在七牛上面的文件key，后缀需要为对应的图片类型的文件格式 
+| 参数   | 必填   | 说明
+| :--- | :--- | :------------------------------
+| Key  | 是   | 保存在七牛上面的文件key，后缀需要为对应的图片类型的文件格式
 
 支持的图片格式：
 
@@ -44,7 +44,7 @@ sequickimage/convert
 JPG、TIF、TIFF、BMP等常见格式。
 ```
 
-因为考虑到转换后的格式不能直接在浏览器显示，为达到更好的显示效果，需要使用异步处理来进行图片的转换，以[触发持久化处理][pfopHref]形式，这一部分建议使用七牛提供的各种语言的SDK来处理：
+因为考虑到转换后的格式不能直接在浏览器显示，为达到更好的显示效果，需要使用异步处理来进行图片的转换，以[触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)形式，这一部分建议使用七牛提供的各种语言的SDK来处理：
 
 ```
 POST /pfop/ HTTP/1.1
@@ -58,7 +58,7 @@ bucket=ztest&key=sequickimage_test.jpg&fops=sequickimage/convert&notifyURL=http%
 备注： 
 
 + 转换后的文件是二进制文件，无法直接浏览
-+ 持久化保存的方法请参考 [触发持久化处理][pfopHref]
++ 持久化保存的方法请参考 [触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)
 
 <a id="sequickimage-getinfo"></a>
 
@@ -115,11 +115,11 @@ Cache-Control: no-store
 
 ##### 调用方法createTileLayer(url,imgWidth,imgHeight)，创建img图层
 
-| 参数        | 参数类型   | 是否必须 | 说明                                     |
-| :-------- | :----- | :--- | :------------------------------------- |
-| url       | String | 是    | 图片对应的“外部链接地址”+“ ?sequickimage/gettile” |
-| imgWidth  | Number | 是    | 图片的宽度                                  |
-| imgHeight | Number | 是    | 图片的高度                                  |
+| 参数        | 参数类型   | 是否必须 | 说明
+| :-------- | :----- | :--- | :-------------------------------------
+| url       | String | 是    | 图片对应的“外部链接地址”+“ ?sequickimage/gettile”
+| imgWidth  | Number | 是    | 图片的宽度
+| imgHeight | Number | 是    | 图片的高度
 
 返回值： `img` 图层对象。
 
@@ -132,9 +132,9 @@ var tileLayer = createTileLayer(url, 9472, 11008);
 
 ##### 调用方法createMap(id)，创建图片对象
 
-| 参数   | 参数类型   | 是否必须 | 说明     |
-| :--- | :----- | :--- | :----- |
-| id   | String | 是    | 图片容器id |
+| 参数   | 参数类型   | 是否必须 | 说明
+| :--- | :----- | :--- | :-----
+| id   | String | 是    | 图片容器id
 
 返回值：图片对象
 
@@ -148,10 +148,10 @@ var map = createMap("img")
 
 ##### 调用方法initMap(map,tileLayer)，将img图层添加到map中，初始化map
 
-| 参数        | 参数类型   | 是否必须 | 说明      |
-| :-------- | :----- | :--- | :------ |
-| map       | object | 是    | 图片对象    |
-| tileLayer | object | 是    | img图层对象 |
+| 参数        | 参数类型   | 是否必须 | 说明
+| :-------- | :----- | :--- | :------
+| map       | object | 是    | 图片对象
+| tileLayer | object | 是    | img图层对象
 
 例如：
 
@@ -165,7 +165,22 @@ initMap(map, tileLayer);
 这里是一个 [Demo](http://7xlmcc.com1.z0.glb.clouddn.com)
 
 <a id="sequickimage-price"></a>
-
 ## 服务价格
 
-第一个月免费试用
+|                 | convert
+:---------------- | :------------
+|      范围（次）   | 单价（元/次）
+| 0 - 50          |     0
+| 51 - 1000       |     1
+| > 1000          |     0
+
+说明：
+
+* 计费只计`sequickimage/convert`的费用，`sequickimage/getinfo`和`sequickimage/gettile`不计费。
+
+<a id="sequickimage-price-example"></a>
+## 计费示例
+
+某公司2015年10月使用超擎看大图服务，共发起3000起convert请求，则当月使超擎看大图服务产生的费用为：
+
+总计费用：50次 * 0元/次 + (1000次 - 50次) * 1元/次 + (3000次 - 1000次) * 0元/次 = 950元
