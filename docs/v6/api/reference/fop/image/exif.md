@@ -34,8 +34,24 @@ order: 233
 ### 请求报文格式
 
 ```
-GET <imageDownloadUri>?exif HTTP/1.1
-Host: <imageDownloadHost>
+GET <ImageDownloadURI>?exif HTTP/1.1
+Host: <ImageDownloadHost>
+```
+**注：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+示例：
+
+资源为`http://developer.qiniu.com/resource/gogopher.jpg`，处理样式为`exif`。
+
+```
+#构造下载URL
+
+DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?exif'
+……
+
+#最后得到
+
+RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?exif&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="Exif-request-header"></a>
@@ -171,3 +187,4 @@ HTTP状态码 | 含义
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
 
 [ExifWhitePaperHref]:           http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf  "Exif技术白皮书"
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"

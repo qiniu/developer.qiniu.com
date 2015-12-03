@@ -11,11 +11,11 @@ order: 480
   - [使用方法](#form-upload-usage)
   - [后续动作](#form-upload-response)
 - [分片上传](#chunked-upload)
-    - [关键概念](#chunked-upload-concepts) 
+    - [关键概念](#chunked-upload-concepts)
     - [基本流程](#chunked-upload-workflow)
-    - [并发上传](#parallel-upload)	
-    - [断点续传](#resumable-upload)	
-    - [上传后续动作](#chunked-upload-response)	
+    - [并发上传](#parallel-upload)
+    - [断点续传](#resumable-upload)
+    - [上传后续动作](#chunked-upload-response)
     - [在线示例](#online-demo)
 
 开发者可以选择以下两种上传类型来完成一个文件的上传过程。
@@ -23,27 +23,27 @@ order: 480
 - 表单上传
 
 	该类型在一个单一的HTTP POST请求中完成一个文件的上传，比较适合简单的应用场景和尺寸较小的文件。
-	
+
 	关于表单上传的使用细节，请参见[表单上传](/docs/v6/api/overview/up/upload-models/upload-types.html#form-upload)。
-	
+
 - 分片上传
 
 	顾名思义，分片上传是将一个文件分为多个尺寸相同的小数据块，每个小数据块以一个独立的HTTP请求分别上传。所有小数据块都上传完成后，再发送一个请求给服务端将这些小数据块组织成一个逻辑资源，以完成这个上传过程。
-	
+
 	相比表单上传而言，分片上传机制可以提供以下几个明显的好处：
-	
+
 	- 适合尺寸较大的文件传输，通过分片来避免单个HTTP数据量过大而导致连接超时的现象。
 	- 在网络条件较差的环境下，较小尺寸的文件可以有较高的上传成功率，从而避免无休止的失败重试。
 	- 超过4MB大小的文件可以划分为多个4MB大小的数据块并发上传。
 	- 支持断点续传。
-	
+
 	相比表单上传，分片上传需要多次HTTP请求才能完成上传过程，因此必然会有额外的成本开销。另外代码的复杂度也会有明显增加，因此选择是否使用分片上传时应谨慎评估使用该方法的必要性。
-	
+
 	分片上传的相关细节请参见[分片上传](/docs/v6/api/overview/up/upload-models/upload-types.html#chunked-upload)。
-	
 
 
-	
+
+
 <a id="form-upload"></a>
 ## 表单上传
 
@@ -131,7 +131,7 @@ Content-Type: <MimeType>
 
 ![资源、块、片的关系](img/chunk-concept.png "资源、块、片的关系")
 
-**块**是服务端的永久数据存储单位，**片**则只在分片上传过程中作为临时存储的单位。服务端会以约一个月为单位周期性的清除上传后未被合并为块的数据片。
+**块**是服务端的永久数据存储单位，**片**则只在分片上传过程中作为临时存储的单位。服务端会以约一个星期为单位周期性的清除上传后未被合并为块的数据片。
 
 <a id="chunked-upload-workflow"></a>
 ### 基本流程
@@ -142,9 +142,9 @@ Content-Type: <MimeType>
 
 其中的关键要点如下：
 
-1. 将待上传的文件按预定义的4MB块大小切分为若干个块。如果这个文件小于4MB，当然也就只有一个块；  
-2. 将每个块再按预定义的片大小切分为若干个片，先在服务端创建一个相应块（通过调用[mkblk][mkblkHref]，并带上第一个片的内容），然后再循环将所有剩下的片全部上传（通过调用[bput][bputHref],从而完成一个块的上传）；  
-3. 在所有块上传完成后，通过调用[mkfile][mkfileHref]将这些上传完成的块信息再严格的按顺序组装出一个逻辑资源的元信息，从而完成整个资源的分片上传过程。  
+1. 将待上传的文件按预定义的4MB块大小切分为若干个块。如果这个文件小于4MB，当然也就只有一个块；
+2. 将每个块再按预定义的片大小切分为若干个片，先在服务端创建一个相应块（通过调用[mkblk][mkblkHref]，并带上第一个片的内容），然后再循环将所有剩下的片全部上传（通过调用[bput][bputHref],从而完成一个块的上传）；
+3. 在所有块上传完成后，通过调用[mkfile][mkfileHref]将这些上传完成的块信息再严格的按顺序组装出一个逻辑资源的元信息，从而完成整个资源的分片上传过程。
 
 如要更准确的理解这个基本流程，可以通过阅读SDK源代码。所有SDK的源代码都公开托管在[Github](http://github.com/qiniu)上。
 
@@ -178,7 +178,7 @@ Content-Type: <MimeType>
 这里需要明确的是，虽然后续动作在生成[上传凭证][uploadTokenHref]时已经指定，但这些后续动作只在服务端处理完mkfile请求后才会发生，而且也只有mkfile请求的内容可以包含[变量][varsHref]。
 
 [uploadModelHref]:	/docs/v6/api/overview/up/upload-models/ "上传模型"
-[formUploadHref]:	/docs/v6/api/overview/up/upload-models/upload-types.html#form-upload 
+[formUploadHref]:	/docs/v6/api/overview/up/upload-models/upload-types.html#form-upload
 [mkblkHref]:		/docs/v6/api/reference/up/mkblk.html "创建块"
 [bputHref]:			/docs/v6/api/reference/up/bput.html "上传片"
 [mkfileHref]:		/docs/v6/api/reference/up/mkfile.html "创建资源"
