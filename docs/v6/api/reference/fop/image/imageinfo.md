@@ -35,6 +35,7 @@ order: 234
 GET <ImageDownloadURI>?imageInfo HTTP/1.1
 Host: <ImageDownloadHost>
 ```
+
 **注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
 
 **示例：**
@@ -42,12 +43,9 @@ Host: <ImageDownloadHost>
 
 ```
 #构造下载URL
-
 DownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageInfo'
 ……
-
 #最后得到
-
 RealDownloadUrl = 'http://developer.qiniu.com/resource/gogopher.jpg?imageInfo&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
