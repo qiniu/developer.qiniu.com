@@ -26,8 +26,21 @@ order: 300
 ### 请求报文格式
 
 ```
-GET <DownloadURI>?ad HTTP/1.1
-Host: <DownloadHost>
+GET <ImageDownloadURI>?ad HTTP/1.1
+Host: <ImageDownloadHost>
+```
+
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg`，处理样式为`ad`。
+
+```
+#构造下载URL
+DownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg?ad'
+……
+#最后得到
+RealDownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg?ad&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="ad-request-header"></a>
@@ -36,8 +49,6 @@ Host: <DownloadHost>
 头部名称         | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程](http://kb.qiniu.com/53a48154 "域名绑定")
-
----
 
 <a id="ad-response"></a>
 ## 响应
@@ -108,26 +119,25 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 在Web浏览器中输入以下图片地址：  
 
 ```
-http://developer.qiniu.com/resource/gogopher.jpg?ad
+http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg?ad
 ```
 
 返回结果（内容经过格式化以便阅读）  
 
 ```
-{ statistic: [ 1, 0, 0 ],
-  reviewCount: 1,
-  fileList:
-   [ { rate: 0.9999947547912598,
-       label: 0,
-       name: 'gyVSZ6_yFVA3dDsJItiqrQ==.resize',
-       review: false } ],
-  nonce: '0.0019572139717638493',
-  timestamp: 1435331445,
-  code: 0,
-  message: 'success'
+{"statistic":[1,0,0],
+"reviewCount":0,
+"fileList":
+  [{"rate":0.9999996423721313,
+    "label":0,
+    "name":"1449209299089_gogopher.jpg.jpg",
+    "review":false}],
+  "nonce":"0.6648837602697313",
+  "timestamp":1449209336,
+  "code":0,
+  "message":"success"
 }
 ```
-
 <a id="ad-price"></a>
 ## 服务价格
 
@@ -154,3 +164,5 @@ http://developer.qiniu.com/resource/gogopher.jpg?ad
 不确定的结果产生费用：0.0625元/百次 * 20万次 = 125元
 
 总计费用：11640元 + 125元 = 11765元
+
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
