@@ -8,7 +8,7 @@ order: 110
 # 资源下载二维码（qrcode）
 
 - [描述](#description)
-- [接口规格（qrcodespec）](#specification)
+- [接口规格](#specification)
 - [请求 ](#request)
   - [请求语法](#request-syntax)
 - [响应](#response)
@@ -21,24 +21,25 @@ order: 110
 <a id="description"></a>
 ## 描述
 
-生成二维码功能可以为存放在七牛云存储上的资源`下载URL`或`资源内容`生成一个二维码图片，方便用户在各种客户端之间传播资源。  
-所生成的二维码图片格式为png。  
+资源下载二维码生成功能用于为存放在七牛云存储上的资源的下载URL或资源内容生成二维码图片，方便用户在各种客户端之间传播资源。  
+所生成的二维码图片格式为`png`。  
 
 <a id="specification"></a>
-## 接口规格（qrcodespec）
+## 接口规格
 
 ```
 qrcode/<Mode>/level/<Level>
-```
-
-其中`<DownloadURL>`代表资源的原始下载URL，请参考[下载接口](http://developer.qiniu.com/docs/v6/api/overview/dn/download.html)。  
+```  
 
 参数名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
-`<Mode>`      | 可选值：`0`（为`<DownloadURL>`本身生成二维码）<p>`1`（为`<DownloadURL>`指向的资源内容生成二维码）<p>缺省为`0` | 
-`/<level>/Level` | 冗余度，可选值`L`（7%）、`M`（15%）、`Q`（25%），`H`（30%），缺省为`L` |
+`<Mode>`      | 可选值：`0`，为DownloadURL本身生成二维码，显示DownloadURL和DownloadURL指向的资源内容。`1`，为DownloadURL指向的资源内容生成二维码，只显示资源内容，不显示DownloadURL。<p>默认为`0` | 
+`/level/<Level>` | 冗余度，可选值`L`（7%）、`M`（15%）、`Q`（25%），`H`（30%），默认为`L` |
 
-注意：`L`是最低级别的冗余度，`H`最高。冗余度越高，生成图片体积越大。详情请参考[维基百科](http://en.wikipedia.org/wiki/QR_code#Error_correction)。  
+
+其中`<DownloadURL>`代表资源的原始下载URL，请参考[下载机制](http://developer.qiniu.com/docs/v6/api/overview/dn/download.html#download-models)。
+
+**注意：**`L`是最低级别的冗余度，`H`最高。冗余度越高，生成图片体积越大。详情请参考[维基百科](http://en.wikipedia.org/wiki/QR_code#Error_correction)。  
 
 <a id="request"></a>
 ### 请求
@@ -119,7 +120,7 @@ HTTP状态码 | 含义
 <a id="advance-usage"></a>
 ## 高级用法
 
-想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](/docs/v6/api/overview/fop/fop/pipeline.html)和[图像水印接口](/docs/v6/api/reference/fop/image/watermark.html) 操作实现。例如，  
+想生成二维码 + Logo，可以使用七牛云存储的[管道](/docs/v6/api/overview/fop/fop/pipeline.html)和[图片水印处理](/docs/v6/api/reference/fop/image/watermark.html)接口操作实现。例如，  
 
 ```
 http://developer.qiniu.com/resource/hello.txt?qrcode/1/level/M|watermark/1/image/aHR0cDovL3FyY29kZS5xaW5pdWRuLmNvbS93ZWlib2xvZ282LnBuZz9pbWFnZU1vZ3IvdGh1bWJuYWlsLzMyeDMy/gravity/Center/dx/0/dy/0
