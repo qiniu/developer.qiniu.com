@@ -33,14 +33,27 @@ facecrop2/<width>x<height>
 参数           	   | 必填  | 说明
 :----------------- | :--- | :------------------------------------------
 `<width>x<height>`   |  是   | 设置裁剪结果的宽高（int型），两个值必填<br>注：若裁剪的宽高范围超出原图会提示错误
-`ifIgnore` 	       |      | 是否忽略出错信息，默认为false，返回错误信息；若设为1，则返回原图
+`ifIgnore` 	       |      | 是否忽略出错信息，默认为否，返回错误信息；若设为1，则返回原图
 
 <a id="facecrop2-request-syntax"></a>
 ### 请求报文格式
 
 ```
-GET <DownloadURI>?<接口规格> HTTP/1.1 
-Host: <DownloadHost> 
+GET <ImageDownloadURI>?<接口规格> HTTP/1.1 
+Host: <ImageDownloadHost> 
+```
+
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg`，处理样式为`facecrop2/200x200`。
+
+```
+#构造下载URL
+DownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg?facecrop2/200x200'
+……
+#最后得到
+RealDownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg?facecrop2/200x200&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="facecrop2-request-header"></a>
@@ -73,6 +86,7 @@ Content-Type: image/jpeg
 
 + 如果请求成功，返回图片的二进制数据
 + 如果请求失败，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
+
 ```
 { 
 	"error": "<ErrMsg string>"
@@ -82,15 +96,30 @@ Content-Type: image/jpeg
 <a id="facecrop2-example"></a>
 ## 示例
 
-在Web浏览器中输入以下地址：
+原图URL:
+
 ```
-正常：
-http://needkane.qiniudn.com/East.jpg?facecrop2/200x200 
-出错：
-http://needkane.qiniudn.com/East.jpg?facecrop2/800x200
-出错但忽略错误：
-http://needkane.qiniudn.com/East.jpg?facecrop2/800x200/ignore-error/1
+http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg
 ```
+
+正常剪切后的图片URL：
+
+```
+http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg?facecrop2/200x200 
+```
+
+剪切出错并返回错误信息：
+
+```
+http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg?facecrop2/800x200
+```
+
+剪切出错但忽略错误信息：
+
+```
+http://78re52.com1.z0.glb.clouddn.com/resource/AllEast.jpg?facecrop2/800x200/ignore-error/1
+```
+
 <a id="facecrop2-price"></a>
 ## 服务价格
 
@@ -101,3 +130,4 @@ http://needkane.qiniudn.com/East.jpg?facecrop2/800x200/ignore-error/1
 
 某司上月共发起3000次人脸裁剪请求，该司上个月的服务价格为：3000次 * 0.3元/千次 ＝ 0.9元
 
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
