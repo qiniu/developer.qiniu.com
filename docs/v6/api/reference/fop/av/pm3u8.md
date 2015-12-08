@@ -31,7 +31,7 @@ pm3u8 接口只能用于私有空间中的 m3u8 文件，作用是对 m3u8文件
 ## 请求
 
 <a id="pm3u8-request-syntax"></a>
-### 请求语法
+### 请求报文格式
 
 ```
 GET <M3U8DownloadURI>?<接口规格> HTTP/1.1
@@ -44,7 +44,7 @@ Host: <M3U8DownloadHost>
 ## 响应
 
 <a id="pm3u8-response-syntax"></a>
-### 响应语法
+### 响应报文格式
 
 ```
 HTTP/1.1 200 OK

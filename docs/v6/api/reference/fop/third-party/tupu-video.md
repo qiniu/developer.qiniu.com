@@ -22,14 +22,28 @@ order: 300
 <a id="tupu-video-request"></a>
 ## 请求
 
-这里只介绍了实时请求的规格，但是考虑到如果鉴别的是比较长的视频，转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用[异步处理](http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html)
+这里只介绍了实时请求的规格，但是考虑到如果鉴别10分钟以上的视频，转换时间会比较久，用http实时转换很容易出现超时，为达到更好的显示效果，需要使用[异步处理](http://developer.qiniu.com/docs/v6/api/overview/fop/persistent-fop.html)。
 
 <a id="tupu-video-request-syntax"></a>
 ### 请求报文格式
 
 ```
-GET <DownloadURI>?tupu-video/nrop HTTP/1.1
-Host: <DownloadHost>
+GET <VideoDownloadURI>?tupu-video/nrop HTTP/1.1
+Host: <VideoDownloadHost>
+```
+
+
+**注意：**当您下载私有空间的资源时，`VideoDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
+
+**示例：**
+资源为`http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4`，处理样式为`tupu-video/nrop`。
+
+```
+#构造下载URL
+DownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop'
+……
+#最后得到
+RealDownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop&e=×××&token=MY_ACCESS_KEY:×××'
 ```
 
 <a id="tupu-video-request-header"></a>
@@ -39,7 +53,6 @@ Host: <DownloadHost>
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定](http://kb.qiniu.com/53a48154 "域名绑定")
 
----
 
 <a id="tupu-video-response"></a>
 ## 响应
@@ -115,7 +128,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 在Web浏览器中输入以下视频地址：  
 
 ```
-http://ztest.qiniudn.com/sintel_trailer.mp4?tupu-video/nrop
+http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop
 ```
 
 <a id="tupu-video-price"></a>
@@ -128,3 +141,4 @@ http://ztest.qiniudn.com/sintel_trailer.mp4?tupu-video/nrop
 
 请求一个5分钟10秒的视频，本次请求会产生 `6*0.01 = 0.06元`的服务价格
 
+[download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
