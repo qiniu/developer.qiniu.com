@@ -170,7 +170,7 @@ HTTP状态码 | 含义
 ## 文字水印
 
 <a id="text-watermark-spec"></a>
-### 规格接口规格  
+### 接口规格  
 
 注意：接口规格不含任何空格与换行符，下列内容经过格式化以便阅读。  
 
@@ -203,7 +203,7 @@ watermark/2
 ### 请求
 
 <a id="text-watermark-request-syntax"></a>
-#### 请求语法
+#### 请求报文格式
 
 ```
 GET <ImageDownloadURI>?<接口规格> HTTP/1.1
@@ -323,7 +323,7 @@ watermark/3
 ### 请求
 
 <a id="multi-watermark-request-syntax"></a>
-#### 请求语法
+#### 请求报文格式
 
 ```
 GET <imageDownloadURI>?<接口规格> HTTP/1.1
