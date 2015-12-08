@@ -16,7 +16,7 @@ order: 147
 ## 请求
 
 <a id="avinfo-request-syntax"></a>
-### 请求语法
+### 请求报文格式
 
 ```
 GET <AvDownloadURI>?avinfo HTTP/1.1
@@ -39,7 +39,7 @@ RealDownloadUrl = 'http://developer.qiniu.com/resource/thinking-in-go.mp4?avinfo
 ## 响应
 
 <a id="avinfo-response-syntax"></a>
-### 响应语法
+### 响应报文格式
 
 ```
 HTTP/1.1 200 OK
