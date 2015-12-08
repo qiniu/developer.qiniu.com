@@ -26,14 +26,18 @@ order: 300
 ### 请求参数
 
 ```
-yifangyun_preview/v2/ext=<Ext>/action=<Action>/format=<DestFormat>/page_number=<PageNumber>
+yifangyun_preview/v2
+                    /ext=<Ext>
+                    /action=<Action>
+                    /format=<DestFormat>
+                    /page_number=<PageNumber>
 ```
 
 参数           | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Ext            | 否   | 当key的后缀不是文件的正确格式时，可以在这个参数中指定对应的格式，优先级大于key的后缀
-Action         | 否   | 为1. `get_preview`获取文件预览(默认行为) 2. `get_page_count`获取文件页码
-DestFormat     | 否   | 目标格式，1. pdf(默认) 2. jpg  当指定为jpg的时候行为是获取office文档的某一个转为jpg图片，需要指定页码，原文件必须pdf格式
+Action         | 否   |1. `get_preview`：获取文件预览(默认行为) <br> 2. `get_page_count`：获取文件页码
+DestFormat     | 否   | 目标格式<br>1. `pdf`(默认) <br>2.`jpg`当需要把office文档的某一页面转为jpg图片时，需要指定对应的页码并且原文件必须是pdf格式
 PageNumber     | 否   | 文件的页码
 
 支持转换的文件格式：
@@ -44,7 +48,7 @@ ppt: ppt, pptx, odp, dps
 excel: xls, xlsx, ods, csv, et
 ```
 
-NOTE. 当需要把office转换为图片的时候，需要用本接口把office先转为pdf，然后从pdf转到jpg图片
+**注意：**当需要把office转换为图片的时候，需要用本接口把office先转为pdf，然后从pdf转到jpg图片。
 
 <a id="yifangyun_preview-request-methods"></a>
 ### 请求方式
@@ -62,7 +66,7 @@ NOTE. 当需要把office转换为图片的时候，需要用本接口把office�
     }
 	```
 
-2. 以[触发持久化处理][pfopHref]形式，这一部分建议使用Qiniu提供的各个语言的SDK来处理：
+2. 以[触发持久化处理][pfopHref]形式，这一部分建议使用七牛提供的各个语言的SDK来处理：
 
 	```
     POST /pfop/ HTTP/1.1
@@ -73,18 +77,17 @@ NOTE. 当需要把office转换为图片的时候，需要用本接口把office�
     bucket=ztest&key=preview_test.docx&fops=yifangyun_preview/v2&notifyURL=http%3A%2F%2Ffake.com%2Fqiniu%2Fnotify
 	```
 
----
 
 <a id="yifangyun_preview-samples"></a>
 ## 示例
 
-```
-原文件：             http://developer.qiniu.com/resource/preview_test.docx
-对应转换过后的文件： http://developer.qiniu.com/resource/Fnbt4DFz0IjRP5CLyxWvRtR7ny5B
+1. word格式：<br>
+原文件：`http://developer.qiniu.com/resource/preview_test.docx`<br>
+对应转换过后的文件：`http://developer.qiniu.com/resource/Fnbt4DFz0IjRP5CLyxWvRtR7ny5B`
 
-原文件：             http://developer.qiniu.com/resource/preview_test.pptx
-对应转换过后的文件： http://developer.qiniu.com/resource/FhpYDdF3mYRKD4zBen4yYis7qqI1
-```
+2. ppt格式：<br>
+原文件：`http://developer.qiniu.com/resource/preview_test.pptx`<br>
+对应转换过后的文件：`http://developer.qiniu.com/resource/FhpYDdF3mYRKD4zBen4yYis7qqI1`
 
 <a id="yifangyun_preview-price"></a>
 ## 服务价格
