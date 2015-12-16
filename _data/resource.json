@@ -187,16 +187,6 @@
         "date": "2013-10-12",
         "doc": "https://opoo.org/deploy-opoopress-to-qiniu/"
     }, {
-        "name": "octopress",
-        "label": "Octopress插件 (博客)",
-        "description": "本插件可将Octopress静态博客完全部署至七牛云存储。",
-        "download": "http://www.imallen.com/blog/2013/10/16/deploying-octopress-to-qiniu.html",
-        "defaultSprite": false,
-        "author": "allen",
-        "author_link": "http://www.weibo.com/122678100",
-        "date": "2013-09-12",
-        "doc": "http://www.imallen.com/blog/2013/10/16/deploying-octopress-to-qiniu.html"
-    }, {
         "name": "discuz",
         "label": "Discuz插件 (博客)",
         "description": "本插件可以将七牛云存储服务嵌入Discuz系统中。",
@@ -210,11 +200,11 @@
         "name": "phpwind",
         "label": "PHPWind插件 (博客)",
         "description": "本插件可以将七牛云存储服务嵌入PHPWind系统中。",
-        "download": "http://77fy38.com1.z0.glb.clouddn.com/qiniu-phpwind.zip",
+        "download": "http://78re52.com1.z0.glb.clouddn.com/resource/qiniu－PHPWind插件%20(博客).zip",
         "defaultSprite": false,
         "author": "phpwind",
         "author_link": "http://www.phpwind.net/thread/3",
-        "date": "2013-09-12",
+        "date": "2015-12-16",
         "doc": ""
     }, {
         "name": "emlog",
@@ -226,16 +216,6 @@
         "author_link": "http://weibo.com/601203080",
         "date": "2013-09-12",
         "doc": "http://cuelog.com/archives/202.html"
-    }, {
-        "name": "typecho",
-        "label": "Typecho插件 (博客)",
-        "description": "本插件将为Typecho嵌入七牛云存储的镜像存储功能，自动触发同步镜像。",
-        "download": "http://77fzaw.com1.z0.glb.clouddn.com/QiniuCDN.zip?download",
-        "defaultSprite": false,
-        "author": "Young",
-        "author_link": "http://www.tefans.org/u-6.html",
-        "date": "2013-07-27",
-        "doc": "http://www.tefans.org/read-40.html"
     }, {
         "name": "django",
         "label": "Django插件 (框架)",
@@ -283,7 +263,8 @@
         "download": "http://7j1wf3.com5.z0.glb.qiniucdn.com/qiniu4b3log.zip",
         "defaultSprite": true,
         "author": "symphony",
-        "date": "2013-11-28",
+        "author_link": "http://hacpai.com/tags/Symphony",
+        "date": "2015-12-16",
         "doc": "http://symphony.b3log.org/article/1385649507137"
     }, {
         "name": "qiniu4blog",
@@ -482,7 +463,15 @@
         "date": "2014-07-10",
         "doc": "https://github.com/killme2008/clj.qiniu/blob/master/README.md",
         "source": "https://github.com/killme2008/clj.qiniu"
-    }],
+        },{
+        "name": "Delphi Xe7 SDK",
+        "label": "Delphi Xe7 SDK",
+        "description": "此SDK是delphi版sdk，可以实现文件上传、查询空间列表两个方法，其它请自行扩展。",
+        "download": "http://78re52.com1.z0.glb.clouddn.com/resource/qiniu%20sdk_delphi%20xe7.rar",
+        "author": "风软科技",
+        "date": "2015-12-16",
+        "doc": ""
+   }],
     "demo": [{
         "name": "clouddoc",
         "label": "clouddoc 在线云盘",

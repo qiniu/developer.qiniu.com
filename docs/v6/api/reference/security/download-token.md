@@ -14,7 +14,7 @@ order: 960
 
 - [算法](#download-token-algorithm)
 - [附注](#download-token-remarks)
-- [代码示例](#download-token-samples)
+- [示例](#download-token-samples)
 - [内部参考资源](#download-internal-resources) 
 - [外部参考资源](#download-external-resources)   
 
@@ -64,10 +64,27 @@ order: 960
     - 为 URL 签名之前，对 Path 部分（不含前导`/`符号，通常就是 Key 本身，即上例中的 `flower.jpg`）做一次 [URL编码][urlescapeHref]。
 
 <a id="download-token-samples"></a>
-## 代码示例
+## 示例
 
-```
-// TODO: 代码示例goes here.
+下载凭证不需要单独生成，七牛支持的语言[SDK](/docs/v6/sdk/)都提供了生成完整 private_url 的方法（包含下载凭证），python示例代码如下：
+
+```python
+import requests
+
+from qiniu import Auth
+
+access_key = '...'
+secret_key = '...'
+
+q = Auth(access_key, secret_key)
+
+bucket_domain = '...' #可以在空间设置的域名设置中找到
+key = 'test_private_key'
+base_url = 'http://%s/%s' % (bucket_domain, key)
+private_url = q.private_download_url(base_url, expires=3600)
+print(private_url)
+r = requests.get(private_url)
+assert r.status_code == 200
 ```
 
 <a id="download-internal-resources"></a>

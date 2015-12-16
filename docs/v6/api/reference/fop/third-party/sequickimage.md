@@ -1,18 +1,18 @@
 ---
 layout: docs
-title: 看大图云服务
+title: 大图极速浏览服务
 order: 300
 ---
 
 <a id="sequickimage"></a>
 
-# 看大图云服务（sequickimage）
+# 大图极速浏览服务（sequickimage）
 
 <a id="sequickimage-description"></a>
 
 ## 描述
 
-看大图云服务(`sequickimage`)是巨大高清图片的快速浏览服务，支持在Web与移动终端上秒级流畅浏览，支持图像大小超过TB级。此外，支持高清图片动态生成瓦楞图片，无需切图，直接支持传统瓦楞金字塔调用方式。
+大图极速浏览服务(`sequickimage`)是巨大高清图片的快速浏览服务，支持在Web与移动终端上秒级流畅浏览，支持图像大小超过TB级。此外，支持高清图片动态生成瓦楞图片，无需切图，直接支持传统瓦楞金字塔调用方式。
 
 本服务是由`苏州超擎图形软件科技发展有限公司`（以下简称`超擎`）基于七牛云提供的专业级图像服务。启用服务后，您存储在七牛云空间的文件将在您主动请求的情况下被提供给`超擎`以供其计算使用。服务价格请您参考具体的价格表及计费举例，您使用本服务产生的费用由七牛代收。启用服务则表示您知晓并同意以上内容。
 
@@ -28,17 +28,32 @@ order: 300
 
 <a id="sequickimage-convert"></a>
 
-### 图片转换
+### 请求语法
 
 ``` 
-sequickimage/convert
+GET <ImageDownloadURI>?sequickimage/convert HTTP/1.1
+Host: <ImageDownloadHost>
 ```
 
-| 参数   | 必填   | 说明
-| :--- | :--- | :------------------------------
-| Key  | 是   | 保存在七牛上面的文件key，后缀需要为对应的图片类型的文件格式
+**注意：**当您下载私有空间的资源时，`ImageDownloadURI`的生成方法请参考七牛的[下载凭证](http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html)。
 
-支持的图片格式：
+**示例：**资源为`http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg`，处理命令为`sequickimage/convert`。
+
+``` 
+#构造下载URL
+DownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg?sequickimage/convert'
+……
+#最后得到
+RealDownloadUrl = 'http://78re52.com1.z0.glb.clouddn.com/resource/gogopher.jpg?sequickimage/convert&e=×××&token=MY_ACCESS_KEY:×××'
+```
+
+##### 请求头部
+
+| 参数   | 必填   | 说明                                       |
+| :--- | :--- | :--------------------------------------- |
+| Host | 是    | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[七牛自定义域名绑定流程](http://kb.qiniu.com/53a48154) |
+
+##### 支持转换的图片格式
 
 ``` 
 JPG、TIF、TIFF、BMP等常见格式。
@@ -46,7 +61,7 @@ JPG、TIF、TIFF、BMP等常见格式。
 
 因为考虑到转换后的格式不能直接在浏览器显示，为达到更好的显示效果，需要使用异步处理来进行图片的转换，以[触发持久化处理](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/pfop.html)形式，这一部分建议使用七牛提供的各种语言的SDK来处理：
 
-```
+``` 
 POST /pfop/ HTTP/1.1
 Host: api.qiniu.com  
 Content-Type: application/x-www-form-urlencoded  
@@ -113,13 +128,17 @@ Cache-Control: no-store
 <script src="http://61.155.169.20/qiniuimg/js/se.js" type="text/javascript" charset="utf-8"></script>
 ```
 
+
+
 ##### 调用方法createTileLayer(url,imgWidth,imgHeight)，创建img图层
 
-| 参数        | 参数类型   | 是否必须 | 说明
-| :-------- | :----- | :--- | :-------------------------------------
-| url       | String | 是    | 图片对应的“外部链接地址”+“ ?sequickimage/gettile”
-| imgWidth  | Number | 是    | 图片的宽度
-| imgHeight | Number | 是    | 图片的高度
+
+
+| 参数        | 参数类型   | 是否必须 | 说明                                     |
+| :-------- | :----- | :--- | :------------------------------------- |
+| url       | String | 是    | 图片对应的“外部链接地址”+“ ?sequickimage/gettile” |
+| imgWidth  | Number | 是    | 图片的宽度                                  |
+| imgHeight | Number | 是    | 图片的高度                                  |
 
 返回值： `img` 图层对象。
 
@@ -130,11 +149,15 @@ var url = "http://7qnbh1.com1.z0.glb.clouddn.com/ch.tif?sequickimage/getinfo";
 var tileLayer = createTileLayer(url, 9472, 11008);
 ```
 
+
+
 ##### 调用方法createMap(id)，创建图片对象
 
-| 参数   | 参数类型   | 是否必须 | 说明
-| :--- | :----- | :--- | :-----
-| id   | String | 是    | 图片容器id
+
+
+| 参数   | 参数类型   | 是否必须 | 说明     |
+| :--- | :----- | :--- | :----- |
+| id   | String | 是    | 图片容器id |
 
 返回值：图片对象
 
@@ -146,12 +169,16 @@ var tileLayer = createTileLayer(url, 9472, 11008);
 var map = createMap("img")
 ```
 
+
+
 ##### 调用方法initMap(map,tileLayer)，将img图层添加到map中，初始化map
 
-| 参数        | 参数类型   | 是否必须 | 说明
-| :-------- | :----- | :--- | :------
-| map       | object | 是    | 图片对象
-| tileLayer | object | 是    | img图层对象
+
+
+| 参数        | 参数类型   | 是否必须 | 说明      |
+| :-------- | :----- | :--- | :------ |
+| map       | object | 是    | 图片对象    |
+| tileLayer | object | 是    | img图层对象 |
 
 例如：
 
@@ -165,22 +192,25 @@ initMap(map, tileLayer);
 这里是一个 [Demo](http://7xlmcc.com1.z0.glb.clouddn.com)
 
 <a id="sequickimage-price"></a>
+
 ## 服务价格
 
-|                 | convert
-:---------------- | :------------
-|      范围（次）   | 单价（元/次）
-| 0 - 50          |     0
-| 51 - 1000       |     1
-| > 1000          |     0
+|           |         |
+| :-------- | :------ |
+| 范围（次）     | 单价（元/次） |
+| 0 - 50    | 0       |
+| 51 - 1000 | 1       |
+| > 1000    | 0       |
 
 说明：
 
 * 计费只计`sequickimage/convert`的费用，`sequickimage/getinfo`和`sequickimage/gettile`不计费。
 
 <a id="sequickimage-price-example"></a>
+
 ## 计费示例
 
 某公司2015年10月使用超擎看大图服务，共发起3000起convert请求，则当月使超擎看大图服务产生的费用为：
 
 总计费用：50次 * 0元/次 + (1000次 - 50次) * 1元/次 + (3000次 - 1000次) * 0元/次 = 950元
+
