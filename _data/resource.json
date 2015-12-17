@@ -355,6 +355,16 @@
         "author": "mikespook",
         "author_link": "http://mikespook.com",
         "date": "2015-08-27"
+    }, {
+        "name": "typecho",
+        "label": "Typecho插件（博客）",
+        "description": "本插件将为Typecho嵌入七牛云存储的镜像存储功能，自动触发同步镜像。",
+        "download": "http://78re52.com1.z0.glb.clouddn.com/resource/QiniuCDN.zip",
+        "defaultSprite": true,
+        "author": "YoungZhao",
+        "author_link": "http://blog.xn--9p3a45o.cn/author/1/",
+        "date": "2015-12-17",
+        "doc": "http://blog.xn--9p3a45o.cn/qiniu-cdn.html"
     }],
     "third_sdk": [{
         "name": "PHP",
