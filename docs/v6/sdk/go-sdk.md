@@ -71,7 +71,7 @@ GO-SDK 以开源方式提供。开发者可以随时从本文档提供的下载�
 ## 1. 安装
 在命令行下执行
 
-	go get -u github.com/qiniu/api
+	go get -u github.com/qiniu/api.v7
 
 <a id="setup"></a>
 ## 2. 初始化
