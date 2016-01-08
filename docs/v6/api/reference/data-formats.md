@@ -20,6 +20,7 @@ encodedEntryURI = urlsafe_base64_encode(entry)
 ```
 
 假设entry为`qiniuphotos:gogopher.jpg`，则对应的encodedEntryURI为`cWluaXVwaG90b3M6Z29nb3BoZXIuanBn`。  
+假设一个多区域entry为`qiniuphotos:z1/gogopher.jpg`，则对应的encodedEntryURI为`cWluaXVwaG90b3M6ejEvZ29nb3BoZXIuanBn`。
 
 <a id="download-internal-resources"></a>
 ## 内部参考资源

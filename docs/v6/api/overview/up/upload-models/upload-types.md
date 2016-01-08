@@ -136,7 +136,7 @@ Content-Type: <MimeType>
 <a id="chunked-upload-workflow"></a>
 ### 基本流程
 
-与分片上传相关的API有这几个：[创建块（mkblk）][mkblkHref]、[上传片（bput）][bputHref]、[创建资源（mkfile）][mkfileHref]。一个完整的分片上传流程可用下图表示：
+与分片上传相关的API有这几个：[创建块（mkblk）][mkblkHref]、[上传片（bput）][bputHref]、[创建资源（mkfile）][mkfileHref]。多区域分片上传的API有：[多区域创建块（glb/mkblk）][glb-mkblkHref]、[多区域上传片（glb/bput）][glb-bputHref]、[多区域创建资源（glb/mkfile）][glb-mkfileHref]。一个完整的分片上传流程可用下图表示：
 
 ![分片上传流程](img/chunked-upload-workflow.png)
 
@@ -182,6 +182,9 @@ Content-Type: <MimeType>
 [mkblkHref]:		/docs/v6/api/reference/up/mkblk.html "创建块"
 [bputHref]:			/docs/v6/api/reference/up/bput.html "上传片"
 [mkfileHref]:		/docs/v6/api/reference/up/mkfile.html "创建资源"
+[glb-mkblkHref]:    /docs/v6/api/reference/glb-up/mkblk.html "多区域创建块"
+[glb-bputHref]:     /docs/v6/api/reference/glb-up/bput.html "多区域上传片"
+[glb-mkfileHref]:   /docs/v6/api/reference/glb-up/mkfile.html "多区域创建资源"
 [uploadTokenHref]:	/docs/v6/api/reference/security/upload-token.html "上传凭证"
 [varsHref]:			/docs/v6/api/overview/up/response/vars.html "变量"
 
