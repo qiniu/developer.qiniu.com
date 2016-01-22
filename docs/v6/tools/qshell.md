@@ -31,6 +31,16 @@ qshell是基于[七牛API文档](http://d.qiniu.com)实现的一个方便开发�
 
 <a id="usage"></a>
 ## 使用方法
+<span style="color: red;">**注意：**</span>Windows 系统用户在 **开始** 菜单栏选择 **运行** 输入 cmd 回车即可打开 DOS 命令行窗口，然后切换到 qshell_windows_amd64.exe 的所在磁盘路径。假设你的 qshell_windows_amd64.exe 存放在 F:\tools\qshell_windows_amd64.exe ，那么如下几行命令可以切换到 qshell_windows_amd64.exe 存放的目录：
+
+```
+> F:
+> cd tools
+```
+如图：
+
+![image](http://78re52.com1.z0.glb.clouddn.com/qshell.jpg)
+
 我们知道调用七牛的API需要一对`AccessKey`和`SecretKey`，这个可以从七牛的后台的账号设置->[密钥](https://portal.qiniu.com/setting/key)获取。
 
 首先要使用七牛的API，必须先设置`AccessKey`和`SecretKey`。命令如下：

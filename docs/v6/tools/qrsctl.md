@@ -53,6 +53,18 @@ qrsctl 命令行辅助工具下载地址：
 - Windows 32bits: <http://devtools.qiniu.com/qiniu-devtools-windows_386-current.zip>
 - Windows 64bits: <http://devtools.qiniu.com/qiniu-devtools-windows_amd64-current.zip>
 
+## 使用方法
+<span style="color: red;">**注意：**</span>Windows 系统用户在 **开始** 菜单栏选择 **运行** 输入 cmd 回车即可打开 DOS 命令行窗口，然后切换到 qrsctl.exe 的所在磁盘路径。假设你的 qrsctl.exe 存放在 F:\tools\test1\qrsctl.exe ，那么如下几行命令可以切换到 qrsctl.exe 存放的目录：
+
+```
+> F:
+> cd tools
+> cd test1
+```
+如图：
+
+![image](http://78re52.com1.z0.glb.clouddn.com/qrsctl.jpg)
+
 qrsctl 各个指令的用法可以在命令行直接输入 qrsctl 不带参数来获得。
 
 <a id="login"></a>

@@ -40,6 +40,16 @@ qfetch是一个数据迁移工具，利用七牛提供的[fetch](http://develope
 
 <a id="usage"></a>
 ## 使用方法
+<span style="color: red;">**注意：**</span>Windows 系统用户在 **开始** 菜单栏选择 **运行** 输入 cmd 回车即可打开 DOS 命令行窗口，然后切换到 qfetch_windows_amd64.exe 的所在磁盘路径。假设你的 qfetch_windows_amd64.exe 存放在 F:\tools\qfetch_windows_amd64.exe ，那么如下几行命令可以切换到 qfetch_windows_amd64.exe 存放的目录：
+
+```
+> F:
+> cd tools
+```
+如图：
+
+![image](http://78re52.com1.z0.glb.clouddn.com/qfetch.jpg)
+
 该工具是一个命令行工具，需要指定相关的参数来运行。
 
 ```

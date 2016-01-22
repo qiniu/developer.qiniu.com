@@ -30,13 +30,15 @@ qrsync 命令行辅助同步工具下载地址：
 
 <a id="usage"></a>
 ## 使用方法
-Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即可打开 DOS 命令行窗口，然后切换到 qrsync.exe 的所在磁盘路径。假设你的 qrsync.exe 存放在 `d:/tools/qrsync.exe`，那么如下几行命令可以切换到 qrsync.exe 存放的目录：
+<span style="color: red;">**注意：**</span>Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即可打开 DOS 命令行窗口，然后切换到 qrsync.exe 的所在磁盘路径。假设你的 qrsync.exe 存放在 `F:\tools\qrsync.exe`，那么如下几行命令可以切换到 qrsync.exe 存放的目录：
 
-    > d:
+    > F:
     > cd tools
+如图：
 
+![image](http://78re52.com1.z0.glb.clouddn.com/qrsync.jpg)
 
-先建立一个配置文件（[JSON格式](http://json.org/json-zh.html)），比如叫`conf.json`，内容如下：
+**先建立一个配置文件（[JSON格式](http://json.org/json-zh.html)），比如叫`conf.json`，内容如下：**
 
 ```
 {
@@ -64,7 +66,7 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
 :--------- | :--- | :------
 `src` | 是   | ● 本地源目录路径<br>是本地需要同步上传目录的完整的绝对路径。这个目录中的所有内容会被同步到指定的 `bucket` 中。<br>注意：Windows 平台上路径的表示格式为：`盘符:/目录`，比如 E 盘下的目录 data 表示为：`e:/data` 。
 `Bucket`   | 是   | ● 目标空间<br>是你在七牛云存储上希望保存数据的Bucket名称，选择一个合适的名字即可，要求是只能由字母、数字、下划线等组成。<br>可以先在[七牛管理控制台](https://portal.qiniu.com/)上创建。
-`KeyPrefix` |  否    | ● 文件上传到七牛云存储后的给key添加的前缀。<br>例如，如果将 `key_prefix` 设为 `abc/`，在 `src` 中存在一个文件 `a.txt`， 则上传到七牛云存储后，此资源的key为 `abc/a.txt` 。
+`KeyPrefix` |  否    | ● 文件上传到七牛云存储后给key添加的前缀。<br>例如，如果将 `key_prefix` 设为 `abc/`，在 `src` 中存在一个文件 `a.txt`， 则上传到七牛云存储后，此资源的key为 `abc/a.txt` 。
 <a id="put-policy-persistent-ops"></a>`PersistentOps`       |  否    | 资源成功上传后执行的持久化指令列表,每个指令是一个API规格字符串，多个指令用“;”分隔。<br>同时添加`PersistentPipeline`字段，使用专用队列处理,请参考[PersistentPipeline](#put-policy-persistentPipeline)字段说明。
 <a id="put-policy-persistentPipeline">`PersistentPipeline`|   否  |  转码队列名,资源上传成功后，触发转码时指定独立的队列进行转码。建议使用[专用队列][mpsHref]。
 <a id="put-policy-persisten-notify-url"></a>`PersistentNotifyUrl` |   否  | 接收预转持久化结果通知的URL。<br>必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL。<br> 该URL获取的内容和[持久化处理状态查询](http://developer.qiniu.com/docs/v6/api/reference/fop/pfop/prefop.html)的处理结果一致。<br> 发送body格式为`Content-Type`为`"application/json"`的POST请求，需要按照读取流的形式读取请求的body才能获取。
@@ -81,15 +83,13 @@ Windows 系统用户在 [开始] 菜单栏选择 [运行] 输入 `cmd` 回车即
     http://foo.qiniudn.com/a.txt
     http://foo.qiniudn.com/a/b/c.txt
 
-在建立完 conf.json 配置文件后，就可以运行 qrsync 程序进行同步。
+**在建立完 conf.json 配置文件后，就可以运行 qrsync 程序进行同步。**
 
 Unix/Linux/MacOS 系统可以用如下命令行：
 
     $ qrsync /path/to/your-conf.json
 
-
-
-进入到 qrsync.exe 所在目录后运行如下命令即可：
+Windows用户进入到 qrsync.exe 所在目录后运行如下命令即可：
 
     > qrsync.exe /path/to/your-conf.json
 
