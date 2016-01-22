@@ -28,10 +28,27 @@ order: 300
 ### 请求报文格式
 
 ```
-GET <VideoDownloadURI>?tupu-video/nrop HTTP/1.1
-Host: <VideoDownloadHost>
+GET <VideoDownloadURI>?tupu-video/nrop/<Params> HTTP/1.1
+Host: <VideoDownloadHost> 资源URL
+Params: /f/<FrameNumber>  视频截图数量上限
+        /s/<FrameRate>    截图频率（x秒/张）
 ```
+***注*** 同时指定`<FrameNumber>` 和 `<FrameRate>` 时，最终截图数量为：`MIN(视频时长 / <FrameRate>, <FrameNumber>)` 
 
+若未指定截图数量，则依照以下规则截图
+
+视频时长（分钟）| 默认截图数量（张）
+:-------------- | :-------------
+< 1             | 10
+[1, 2)          | 20
+[2, 3)          | 30
+[3, 4)          | 40
+[4, 5)          | 50
+[5, 6)          | 60
+[6, 7)          | 70
+[7, 8)          | 80
+[8, 9)          | 90
+>=9             | 100
 
 **注意：**当您下载私有空间的资源时，`VideoDownloadURI`的生成方法请参考七牛的[下载凭证][download-tokenHref]。
 
@@ -131,14 +148,35 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop
 ```
 
+指定截图数量上限为`5`张：
+
+```
+http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop/f/5
+```
+
+指定截图频率为`10秒/张`：
+
+```
+http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop/s/10
+```
+
+同时指定截图上限为`5`和截图频率为`10秒/张`：
+
+```
+http://78re52.com1.z0.glb.clouddn.com/resource/sintel_trailer.mp4?tupu-video/nrop/f/5/s/10
+```
+
 <a id="tupu-video-price"></a>
 ## 服务价格
 
-以时长作为计费，0.01元/分钟，不满一分钟当做一分钟计算
+0.01元/10张视频截图，单个视频最低收费0.01元
 
 <a id="tupu-video-pirce-example"></a>
 ## 计费示例
 
-请求一个5分钟10秒的视频，本次请求会产生 `6*0.01 = 0.06元`的服务价格
+请求一个5分10秒（310秒）的视频，按照默认截图规则（60张截图） `价格= 60 * 0.01/10 = 0.06(元)`
 
+若用户指定截图上限为`5` 张，则截图数不满10 `价格= 0.01(元)`
+
+若用户指定截图上限为`100` 张，同时指定截图频率为`10秒/张`，则指定频率下最多只能截`310(秒)/10(秒每张)=31(张)` 则 `价格＝31 * 0.01/10 = 0.04(元)`
 [download-tokenHref]: http://developer.qiniu.com/docs/v6/api/reference/security/download-token.html  "下载凭证"
