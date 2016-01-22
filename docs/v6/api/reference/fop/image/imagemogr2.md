@@ -35,7 +35,8 @@ order: 235
 <a id="imagemogr2-description"></a>
 ## 描述
 
-imageMogr2是原[imageMogr接口](/docs/v6/api/reference/obsolete/imagemogr.html)的更新版本，实现略有差异，功能更为丰富。同样，为开发者提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。imageMogr2接口可支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp。 
+imageMogr2是原[imageMogr接口](/docs/v6/api/reference/obsolete/imagemogr.html)的更新版本，实现略有差异，功能更为丰富。同样，为开发者提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等。imageMogr2接口可支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp。<br>
+**注意：**`imageMogr2`接口支持的最大 gif 帧数为200，超过200，处理结果只返回原图。
 
  <a id="imagemogr2-specification"></a>
 ## 接口规格
@@ -67,7 +68,7 @@ imageMogr2/auto-orient
 `/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式，参考[支持转换的图片格式](http://www.imagemagick.org/script/formats.php)。
 `/blur/<radius>x<sigma>`             |      | 高斯模糊参数，`<radius>`是模糊半径，取值范围为1-50。`<sigma>`是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。
 `/interlace/<Interlace>`            |           | 是否支持渐进显示，取值1 支持渐进显示，取值0不支持渐进显示（缺省为0）。适用jpg目标格式，网速慢时，图片显示由模糊到清晰。
-`/q/<Quality>` |   | 新图的图片质量<br>取值范围是[1, 100]，默认75。<br>七牛会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。<br>**注意：<br>** ● 如果图片的质量值本身大于90，会根据指定值进行处理，此时修正值会失效。<br> ● 指定值后面可以增加 `!`，表示强制使用指定值，如`100!`。<br> ● 支持图片类型：jpg。
+`/quality/<Quality>` |   | 新图的图片质量<br>取值范围是[1, 100]，默认75。<br>七牛会根据原图质量算出一个[修正值](#image-quality)，取[修正值](#image-quality)和指定值中的小值。<br>**注意：<br>** ● 如果图片的质量值本身大于90，会根据指定值进行处理，此时修正值会失效。<br> ● 指定值后面可以增加 `!`，表示强制使用指定值，如`100!`。<br> ● 支持图片类型：jpg。
 `/size-limit/<sizeLimit>` |   | 限制图片转换后的大小，支持字节数以M和K为单位的图片。<br>● 若设置图片转出结果的最大限制（目前仅支持jpg格式），支持魔法变量`$(fsize)`。如：`http://developer.qiniu.com/resource/Ship.jpg?imageMogr2/size-limit/$(fsize)`。<br>● 若在尾部加上!，表示强制结果在此限制内（支持所有图片格式），结果不符合则返回原图。如：`http://developer.qiniu.com/resource/Ship.jpg?imageMogr2/size-limit/15k!`。<br>**注：**需要根据图片实际大小设置合理的`sizeLimit`大小。
 
 

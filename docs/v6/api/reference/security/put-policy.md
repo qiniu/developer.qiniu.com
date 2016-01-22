@@ -113,10 +113,10 @@ order: 980
 <a id="put-policy-persistent-ops-explanation"></a>
 ### persistentOps详解
 
-`persistentOps`字段用于指定预转数据处理命令和保存处理结果的存储空间与资源名。  
+`persistentOps`字段用于指定预转数据处理命令和保存处理结果的存储空间与资源名。
 
-为此字段指定非空值，则在成功上传一个文件后，会启动一个异步数据处理任务。  
-同时客户端收到的响应内容中会有`persistentId`字段，唯一标示此任务。  
+为此字段指定非空值，则在成功上传一个文件后，会启动一个异步数据处理任务。 `persistentId` 字段，唯一标识此任务。
+当 `returnBody` 中指定了 `persistentId` 魔法变量时，客户端收到的响应内容(returnBody)中会有 `persistentId` ；当没有指定 `returnBody` 时，默认也会返回 `persistentId` 。  
 
 1. 使用默认存储空间和资源名：
 
