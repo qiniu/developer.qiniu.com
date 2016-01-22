@@ -52,7 +52,6 @@ qrsync 命令行辅助同步工具下载地址：
                     &persistent_notify_url=<PersistentNotifyUrl>
                     &...
                 ",
-    "deletable": 0,
     "debug_level": 1
 }
 ```
