@@ -47,7 +47,7 @@
                             </li>
                             <li><a href="http://segmentfault.com/qiniu" target="_blank">问答社区</a>
                             </li>
-                            <li><a href="#" class="js-zendesk">技术支持</a>
+                            <li><a href="#" class="SupportKf5Button">技术支持</a>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +68,7 @@
                 <div class="copyright">© 2015 七牛云存储 - 沪ICP备11037377号-5</div>
             </div>
     </footer>
-    <div class="zendesk js-zendesk"><a href="#"><span>提交工单</span></a></div>
+    <!-- <div class="zendesk js-zendesk"><a href="#"><span>提交工单</span></a></div> -->
 
 
 
@@ -84,6 +84,13 @@
     <!-- build:js /dist/js/docs.js -->
     <script src="/_src/js/docs.js"></script>
     <!-- endbuild -->
+
+    <script src="https://portal.qiniu.com/support/public/js/support.export.js"></script>
+    <script type="text/javascript">
+        (function(){var Support = new SupportKf5('ticket');
+        Support.init("https://portal.qiniu.com/support/feedback?source="+encodeURIComponent("http://developer.qiniu.com"), true);
+        })();
+    </script>
 
     <script type="text/javascript">
     //google anlysis
