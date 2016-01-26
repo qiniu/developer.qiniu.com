@@ -558,10 +558,11 @@ $(function() {
     } else {
         DocsFeedback.init();
     }
-    $('.js-zendesk').on('click', function() {
-        DocsFeedback.show();
-        return false;
-    });
+
+    // $('.js-zendesk').on('click', function() {
+    //     DocsFeedback.show();
+    //     return false;
+    // });
 
     // 资源下载页，社区插件/社区SDK分页插件，暂时未用到
     // $('.bxslider').bxSlider({
