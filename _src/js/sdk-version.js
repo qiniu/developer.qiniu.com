@@ -67,7 +67,7 @@ $(function() {
         "url": "https://api.github.com/repos/qiniu/api/"
     }, {
         "name": "javascript",
-        "url": "https://api.github.com/repos/qiniupd/qiniu-js-sdk/"
+        "url": "https://api.github.com/repos/qiniu/js-sdk/"
     }];
 
 
