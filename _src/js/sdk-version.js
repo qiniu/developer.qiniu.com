@@ -10,7 +10,7 @@ var sdk_map = {
     'csharp-sdk': 'csharp',
     'c-sdk': 'c',
     'api': 'go',
-    'qiniu-js-sdk': 'javascript'
+    'js-sdk': 'javascript'
 };
 
 function getSdkInfo(res) {
