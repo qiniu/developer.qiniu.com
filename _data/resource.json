@@ -473,7 +473,7 @@
         "date": "2014-07-10",
         "doc": "https://github.com/killme2008/clj.qiniu/blob/master/README.md",
         "source": "https://github.com/killme2008/clj.qiniu"
-        },{
+    },{
         "name": "Delphi Xe7 SDK",
         "label": "Delphi Xe7 SDK",
         "description": "此SDK是delphi版sdk，可以实现文件上传、查询空间列表两个方法，其它请自行扩展。",
@@ -481,7 +481,16 @@
         "author": "风软科技",
         "date": "2015-12-16",
         "doc": ""
-   }],
+    }, {
+        "name": "FSharp",
+        "label": "F# SDK (fatboyzz/fsharp-sdk)",
+        "description": "F# SDK",
+        "download": "https://github.com/fatboyzz/fsharp-sdk/archive/master.zip",
+        "author": "fatboyzz",
+        "date": "2016-02-03",
+        "doc": "https://github.com/fatboyzz/fsharp-sdk/blob/master/README.md",
+        "source": "https://github.com/fatboyzz/fsharp-sdk"
+    }],
     "demo": [{
         "name": "clouddoc",
         "label": "clouddoc 在线云盘",
