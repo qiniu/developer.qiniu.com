@@ -4,7 +4,7 @@ order: 500
 ---
 
 <a id="batch"></a>
-# 批量操作（batch）
+# 多区域批量操作（glb/batch）
 
 - [描述](#batch-description)
 - [请求](#batch-request)
@@ -33,7 +33,7 @@ order: 500
 ### 请求语法
 
 ```
-POST /batch HTTP/1.1
+POST /glb/batch HTTP/1.1
 Host:           rs.qiniu.com
 Content-Type:   application/x-www-form-urlencoded
 Authorization:  QBox <AccessToken>
@@ -70,34 +70,34 @@ Authorization | 是   | 该参数应严格按照[管理凭证][accessTokenHref]�
 #### 批量获取元信息
 
 ```
-op=/stat/<EncodedEntryURI>&op=/stat/<EncodedEntryURI>&...
+op=/glb/stat/<EncodedEntryURI>&op=/stat/<EncodedEntryURI>&...
 ```
 
 #### 批量复制资源
 
 ```
-op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
+op=/glb/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/glb/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
 ```
 
 #### 批量移动资源
 
 ```
-op=/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
+op=/glb/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/glb/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
 ```
 
 #### 批量删除资源
 
 ```
-op=/delete/<EncodedEntryURI>&op=/delete/<EncodedEntryURI>&...
+op=/glb/delete/<EncodedEntryURI>&op=/glb/delete/<EncodedEntryURI>&...
 ```
 
 #### 混合多种操作
 
 ```
-op=/stat/<EncodedEntryURI>
-&op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>
-&op=/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
-&op=/delete/<EncodedEntryURI>&...
+op=/glb/stat/<EncodedEntryURI>
+&op=/glb/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>
+&op=/glb/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
+&op=/glb/delete/<EncodedEntryURI>&...
 ```
 
 <a id="batch-response"></a>

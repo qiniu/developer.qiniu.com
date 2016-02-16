@@ -5,7 +5,7 @@ order: 90
 ---
 
 <a id="bput"></a>
-# 上传片
+# 多区域上传片
 
 - [描述](#bput-description)
 - [请求](#bput-request)
@@ -34,7 +34,7 @@ order: 90
 ### 请求语法
 
 ```
-POST /bput/<ctx>/<nextChunkOffset> HTTP/1.1
+POST /glb/bput/<ctx>/<nextChunkOffset> HTTP/1.1
 Host:           <UpHost>
 Content-Type:   application/octet-stream
 Content-Length: <nextChunkSize>
@@ -56,7 +56,7 @@ Authorization:  UpToken <UploadToken>
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :-------------------------------------
-Host           | 是   | 上传服务器域名。<br>● 分片上传的首片上传域名为：上传到杭州1区的域名为`up.qiniu.com`、`up-z0.qiniu.com`和`upload.qiniu.com`；上传到北京1区的域名为`up-z1.qiniu.com`和`upload-z1.qiniu.com`。<br>● 后续片的上传为上一次上传响应返回的后续上传接收地址。
+Host           | 是   | 上一次上传响应返回的后续上传接收地址。
 Content-Type   | 是   | 固定为application/octet-stream。
 Content-Length | 是   | 当前片的内容长度，单位：字节（Byte）。
 Authorization  | 是   | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<br>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。
@@ -100,7 +100,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 字段名称       | 必填 | 说明
 :------------- | :--- | :------------------------------
-ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](http://developer.qiniu.com/docs/v6/api/reference/up/bput.html)及[创建文件](http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
+ctx            | 是   | 本次上传成功后的块级上传控制信息，用于后续[上传片](http://developer.qiniu.com/docs/v6/api/reference/glb-up/bput.html)及[创建文件](http://developer.qiniu.com/docs/v6/api/reference/glb-up/mkfile.html)。<br>本字段是只能被七牛服务器解读使用的不透明字段，上传端不应修改其内容。<br>每次返回的`<ctx>`都只对应紧随其后的下一个上传数据片，上传非对应数据片会返回701状态码。
 checksum       | 是   | 本块已上传部分的校验码，只能被七牛服务器解读使用。
 crc32          | 是   | 本块已上传部分的CRC32值，上传端可通过此字段对本块已上传部分的完整性进行校验。
 offset         | 是   | 下一个上传片在上传块中的偏移。

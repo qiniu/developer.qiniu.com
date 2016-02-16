@@ -23,46 +23,46 @@ order: 298
 <a id="stat"></a>
 ## 查看资源信息 (stat)
 
-查看资源信息操作查看的基本信息，包含：文件哈希值、文件大小、媒体类型及上传时间。具体参考[查看资源信息（stat）](/docs/v6/api/reference/rs/stat.html)。
+查看资源信息操作查看的基本信息，包含：文件哈希值、文件大小、媒体类型及上传时间。具体参考[查看资源信息（stat）](/docs/v6/api/reference/rs/stat.html)和[多区域查看资源信息（glb-stat）](/docs/v6/api/reference/glb-rs/stat.html)。
 
 
 <a id="move"></a>
 ## 移动资源 (move)
 
-移动资源操作允许将一个资源在同一个Bucket或者不同的Bucket之间移动。例如，在bucket1下面有一个名为key1的资源，可以将这个资源key1移动到bucket1下面的key2，也可以将其移动到bucket2下的key2。通过移动操作可以实现文件重命名。具体参考[移动资源（move）](/docs/v6/api/reference/rs/move.html)。
+移动资源操作允许将一个资源在同一个Bucket或者不同的Bucket之间移动。例如，在bucket1下面有一个名为key1的资源，可以将这个资源key1移动到bucket1下面的key2，也可以将其移动到bucket2下的key2。通过移动操作可以实现文件重命名。具体参考[移动资源（move）](/docs/v6/api/reference/rs/move.html)和[多区域移动资源（glb/move）](/docs/v6/api/reference/glb-rs/move.html)。
 
 <a id="copy"></a>
 ## 复制资源 (copy)
 
-复制资源操作操作允许在同一个bucket进行，也可以在两个不同的bucket之间进行。与资源的移动操作相比，复制资源操作保留原文件，因此会增加用户的存储空间。具体参考[复制资源（copy）](/docs/v6/api/reference/rs/copy.html)。
+复制资源操作操作允许在同一个bucket进行，也可以在两个不同的bucket之间进行。与资源的移动操作相比，复制资源操作保留原文件，因此会增加用户的存储空间。具体参考[复制资源（copy）](/docs/v6/api/reference/rs/copy.html)和[多区域复制资源（glb/copy）](/docs/v6/api/reference/glb-rs/copy.html)。
 
 <a id="delete"></a>
 ## 删除资源 (delete)
 
-删除资源与删除文件类似，但是七牛云存储不提供回收站的功能，因此在删除前请确认待删除的资源确实不再需要。具体参考[删除资源（delete）](/docs/v6/api/reference/rs/delete.html)。
+删除资源与删除文件类似，但是七牛云存储不提供回收站的功能，因此在删除前请确认待删除的资源确实不再需要。具体参考[删除资源（delete）](/docs/v6/api/reference/rs/delete.html)和[多区域删除资源（glb/delete）](/docs/v6/api/reference/glb-rs/delete.html)。
 
 <a id="fetch"></a>
 ## 抓取资源 (fetch)
 
-抓取资源操作用于从指定的URL抓取资源，并将该资源存储到指定空间中。具体参考[抓取资源（fetch）](/docs/v6/api/reference/rs/fetch.html)。
+抓取资源操作用于从指定的URL抓取资源，并将该资源存储到指定空间中。具体参考[抓取资源（fetch）](/docs/v6/api/reference/rs/fetch.html)和[多区域抓取资源（glb/fetch）](/docs/v6/api/reference/glb-rs/fetch.html)。
 
 <a id="list"></a>
 ## 列举资源 (list)
-列举资源操作用于将指定空间内的资源分批列出。具体参考[列举资源（list）](/docs/v6/api/reference/rs/list.html)。
+列举资源操作用于将指定空间内的资源分批列出。具体参考[列举资源（list）](/docs/v6/api/reference/rs/list.html)和[多区域列举资源（glb/list）](/docs/v6/api/reference/glb-rs/list.html)。
 
 <a id="batch"></a>
 ## 批量操作 (batch)
 
-除了对单一资源进行操作，还可以在一次请求中对多个资源进行批量的查看、移动、复制及删除操作。具体参考[批量操作（batch）](/docs/v6/api/reference/rs/batch.html)。
+除了对单一资源进行操作，还可以在一次请求中对多个资源进行批量的查看、移动、复制及删除操作。具体参考[批量操作（batch）](/docs/v6/api/reference/rs/batch.html)和[多区域批量操作（glb/batch）](/docs/v6/api/reference/glb-rs/batch.html)。
 
 <a id="chgm"></a>
 ## 修改元信息 (chgm)
 
-修改元信息操作用于修改资源的mimeType，可以在七牛服务器自动识别文件类型错误或者是类型描述不够详细的情况下，自定义的对空间已有资源的类型进行修改。具体参考[修改元信息 (chgm) ](/docs/v6/api/reference/rs/chgm.html)。
+修改元信息操作用于修改资源的mimeType，可以在七牛服务器自动识别文件类型错误或者是类型描述不够详细的情况下，自定义的对空间已有资源的类型进行修改。具体参考[修改元信息 (chgm) ](/docs/v6/api/reference/rs/chgm.html)和[多区域修改元信息 (glb/chgm) ](/docs/v6/api/reference/glb-rs/chgm.html)。
 
 
 <a id="prefetch"></a>
 ## 更新镜像资源（prefetch）
 
-对于设置了镜像存储的空间，从镜像源站抓取指定名称的资源并存储到该空间中。如果该空间中已存在该名称的资源，则将镜像源站的资源覆盖空间的资源。具体参考[更新镜像资源（prefetch）](/docs/v6/api/reference/rs/prefetch.html)。
+对于设置了镜像存储的空间，从镜像源站抓取指定名称的资源并存储到该空间中。如果该空间中已存在该名称的资源，则将镜像源站的资源覆盖空间的资源。具体参考[更新镜像资源（prefetch）](/docs/v6/api/reference/rs/prefetch.html)和[多区域更新镜像资源（glb/prefetch）](/docs/v6/api/reference/glb-rs/prefetch.html)。
 
