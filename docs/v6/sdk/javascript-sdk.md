@@ -52,8 +52,8 @@ title: JavaScript SDK 使用指南
 * 服务端准备
 
 本SDK依赖服务端颁发upToken，可以通过以下二种方式实现：
-    *   利用[七牛服务端SDK](http://developer.qiniu.com/docs/v6/sdk/)构建后端服务
-    *   利用七牛底层API构建服务，详见七牛[上传策略](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html)和[上传凭证](http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html)
+- 利用[七牛服务端SDK](http://developer.qiniu.com/docs/v6/sdk/)构建后端服务
+- 利用七牛底层API构建服务，详见七牛[上传策略](http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html)和[上传凭证](http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html)
 
 
 后端服务应提供一个URL地址，供SDK初始化使用，前端通过Ajax请求该地址后获得upToken。Ajax请求成功后，服务端应返回如下格式的json：
