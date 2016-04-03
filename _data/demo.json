@@ -220,12 +220,26 @@
         "website": "http://mp3.likfe.com",
         "code": "https://gitcafe.com/likfe/super_mp3"
     }, {
-        "name": "getlink 轻松生成图片外链",
-        "author": "getlink 轻松生成图片外链",
+        "name": "Get Link!",
+        "author": "Cody",
         "img": "",
-        "description": "东半球最好用的图床外链【配套chrome插件】",
-        "website": "http://getlink.sinaapp.com/",
-        "code": "https://gitcafe.com/int64ago/getlink"
+        "description": "The simplest way to get the link :-)",
+        "website": "http://getlink.int64ago.org/",
+        "code": "https://github.com/int64ago/getlink"
+    }, {
+        "name": "静态JS/CSS公共CDN",
+        "author": "Cody",
+        "img": "",
+        "description": "提供各种JS/CSS库的国内CDN服务",
+        "website": "http://cdn.int64ago.org/",
+        "code": "https://github.com/int64ago/cdn"    
+    }, {
+        "name": "SECloud 安全网盘",
+        "author": "Cody",
+        "img": "",
+        "description": "专为注重隐私的互联网强迫症患者打造的个人安全网盘",
+        "website": "http://secloud.int64ago.org/",
+        "code": "https://github.com/int64ago/secloud"    
     }, {
         "name": "FFTS 快速文件中转站",
         "author": "FFTS 快速文件中转站",
